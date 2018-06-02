@@ -66,4 +66,4 @@ if (tin_aiLink_debug) then {diag_log format["Link Groups: %1",_allLinkGroups];};
     _groups = _allLinkGroups;
 } forEach _allLinkGroups;
 
-[{call UO_fnc_LoadAILink},[],tin_aiLink_shareDelay] call CBA_fnc_waitAndExecute;
+[{call UO_fnc_AILink},[],tin_aiLink_shareDelay] call CBA_fnc_waitAndExecute;

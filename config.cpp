@@ -26,15 +26,19 @@ class CfgFunctions
 		class UO_Framework
 		{
 			tag = "UO";
+
+			#include "Core\cfgFunctions.hpp"
+
+
 			#include "AOLimitModule\cfgFunctions.hpp"
 			#include "Ace_MedicalModule\cfgFunctions.hpp"
 			#include "AntiNDModule\cfgFunctions.hpp"
 			#include "AISkillModule\cfgFunctions.hpp"
-			#include "Core\cfgFunctions.hpp"
-			#include "BriefingModule\cfgFunctions.hpp"
-			#include "SoftAOLimitModule\cfgFunctions.hpp"
+			#include "AILinkModule\cfgFunctions.hpp"
+		    #include "BriefingModule\cfgFunctions.hpp"
 			#include "EndConditionModule\cfgFunctions.hpp"
 			#include "GearModule\cfgFunctions.hpp"
+			#include "SoftAOLimitModule\cfgFunctions.hpp"
 			#include "StartOnSafeModule\cfgFunctions.hpp"
 			#include "StartOnTeamColorModule\cfgFunctions.hpp"
 		};
@@ -64,17 +68,18 @@ class CfgVehicles
 		 curatorInfoType = "RscDisplayAttributeModuleNuke";
 	};
 	// Description base classes, for more information see below
-	#include "Core\cfgVehicles.hpp"
-	#include "AntiNDModule\cfgVehicles.hpp"
-	#include "BriefingModule\cfgVehicles.hpp"
-	#include "SoftAOLimitModule\cfgVehicles.hpp"
-	#include "AISkillModule\cfgVehicles.hpp"
-	#include "EndConditionModule\cfgVehicles.hpp"
+	#include "AOLimitModule\cfgVehicles.hpp"
 	#include "Ace_MedicalModule\cfgVehicles.hpp"
+	#include "AntiNDModule\cfgVehicles.hpp"
+	#include "AISkillModule\cfgVehicles.hpp"
+	#include "AILinkModule\cfgVehicles.hpp"
+	#include "BriefingModule\cfgVehicles.hpp"
+	#include "EndConditionModule\cfgVehicles.hpp"
 	#include "GearModule\cfgVehicles.hpp"
+	#include "SoftAOLimitModule\cfgVehicles.hpp"
 	#include "StartOnSafeModule\cfgVehicles.hpp"
+	#include "StartOnTeamColorModule\cfgVehicles.hpp"
 
-#include "StartOnTeamColorModule\cfgVehicles.hpp"
 };
 
 class cfgRscTitles
