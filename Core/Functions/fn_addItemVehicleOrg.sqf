@@ -23,7 +23,7 @@ _item = _this select 2;
 _amount = 1;
 _type = (_item call BIS_fnc_itemType) select 1;
 
-if !([_item] call OF_fnc_checkClassname) exitWith {};
+if !([_item] call UO_fnc_checkClassname) exitWith {};
 
 if (count _this > 3) then {
 
@@ -47,7 +47,7 @@ for "_x" from 1 to _amount do {
 
 	} else {
 
-		(format ["OF_fnc_AddItemVehicle: Warning couldn't fit %1, in %2, case %3", _item, _vehicle, _loadoutType]) call OF_fnc_DebugMessage;
+		(format ["UO_fnc_AddItemVehicle: Warning couldn't fit %1, in %2, case %3", _item, _vehicle, _loadoutType]) call UO_fnc_DebugMessage;
 
 	};
 };

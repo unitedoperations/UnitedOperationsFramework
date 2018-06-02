@@ -1,10 +1,10 @@
 
-	class OF_BriefingModule: OlsenModule
+	class UO_BriefingModule: OlsenModule
 	{
 		displayName = "Briefing Module"; // Name displayed in the menu
 
 		// Name of function triggered once conditions are met
-		function = "OF_fnc_LoadBriefing";
+		function = "UO_fnc_LoadBriefing";
 		// Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
 		functionPriority = 3;
 

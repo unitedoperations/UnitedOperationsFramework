@@ -24,7 +24,7 @@ params [
 private _count = 0;
 
 {
-	if ((side _x == _side) && (!(_x getVariable ["FW_DontTrack", false]) || !_noUntracked) && ((_x distance _logic) < _radius) && (_x call OF_fnc_Alive)) then {
+	if ((side _x == _side) && (!(_x getVariable ["FW_DontTrack", false]) || !_noUntracked) && ((_x distance _logic) < _radius) && (_x call UO_fnc_Alive)) then {
 
 		_count = _count + 1;
 

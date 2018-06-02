@@ -1,7 +1,7 @@
 /*
  * Author: Olsen
  *
- * Duplicate. Calls OF_fnc_TrackUnit.
+ * Duplicate. Calls UO_fnc_TrackUnit.
  *
  * Arguments:
  * 0: unit to track <object>
@@ -16,4 +16,4 @@ private ["_unit"];
 
 _unit = _this;
 
-_unit call OF_fnc_TrackUnit;
+_unit call UO_fnc_TrackUnit;

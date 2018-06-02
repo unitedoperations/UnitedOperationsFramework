@@ -1,6 +1,6 @@
-class OF_BriefingModuleFunctions
+class UO_BriefingModuleFunctions
 {
-	file = "\OF_OlsenFrameworkModuls\BriefingModule\briefingFunctions";
+	file = "\UO_UOFrameworkModuls\BriefingModule\briefingFunctions";
 	class LoadBriefing
 	{
 		preInit = 0; //(formerly known as "forced") 1 to call the function upon mission start, before objects are initialized. Passed arguments are ["preInit"]

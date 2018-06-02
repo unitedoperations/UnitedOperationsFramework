@@ -1,6 +1,6 @@
-class UO_AISkillModuleFunctions
+class UO_AntiNDModuleFunctions
 {
-	file = "\UO_UOFrameworkModuls\AISkillModule\AISkillModuleFunctions";
+	file = "\UO_UOFrameworkModuls\AILinkModule\AILinkModuleFunctions";
 	class fn_LoadAISkill
 	{
 		preInit = 0; //(formerly known as "forced") 1 to call the function upon mission start, before objects are initialized. Passed arguments are ["preInit"]

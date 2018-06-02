@@ -21,7 +21,7 @@ private ["_succes", "_parents", "_type", "_message"];
 private _amount = 1;
 private _position = "none";
 
-if !([_item, _unit] call OF_fnc_checkClassname) exitWith {};
+if !([_item, _unit] call UO_fnc_checkClassname) exitWith {};
 
 if (count _this > 3) then {
 	_amount = _this select 3;
@@ -56,7 +56,7 @@ for "_x" from 1 to _amount do {
 			};
 		};
 		if (!_succes && _type in ["Map", "GPS", "Compass", "Watch", "NVGoggles"]) then {
-			if ([_unit, _type] call OF_fnc_CanLinkItem) then {
+			if ([_unit, _type] call UO_fnc_CanLinkItem) then {
 				_unit linkItem _item;
 				_succes = true;
 			};
@@ -98,21 +98,21 @@ for "_x" from 1 to _amount do {
 			};
 		};
 		if (!_succes && _type in ["AccessoryMuzzle", "AccessoryPointer", "AccessorySights", "AccessoryBipod"]) then {
-			if ([primaryWeapon _unit, _item] call OF_fnc_CanAttachItem) then {
+			if ([primaryWeapon _unit, _item] call UO_fnc_CanAttachItem) then {
 				if (!(_type in primaryWeaponItems _unit)) then {
 					_unit addPrimaryWeaponItem _item;
 					_succes = true;
 				};
 			}
 			else {
-				if ([handgunWeapon _unit, _item] call OF_fnc_CanAttachItem) then {
+				if ([handgunWeapon _unit, _item] call UO_fnc_CanAttachItem) then {
 					if (!(_type in handgunItems _unit)) then {
 						_unit addHandgunItem _item;
 						_succes = true;
 					};
 				}
 				else {
-					if ([secondaryWeapon _unit, _item] call OF_fnc_CanAttachItem) then {
+					if ([secondaryWeapon _unit, _item] call UO_fnc_CanAttachItem) then {
 						if (!(_type in secondaryWeaponItems _unit)) then {
 							_unit addSecondaryWeaponItem _item;
 							_succes = true;
@@ -159,7 +159,7 @@ for "_x" from 1 to _amount do {
 				};
 			};
 			if (!_succes) then {
-				(format ["OF_fnc_AddItem: Warning %1 overflown from %2, in %3, case %4", _item, _position, _unit, _loadoutType]) call OF_fnc_DebugMessage;
+				(format ["UO_fnc_AddItem: Warning %1 overflown from %2, in %3, case %4", _item, _position, _unit, _loadoutType]) call UO_fnc_DebugMessage;
 			};
 		};
 	};
@@ -169,12 +169,12 @@ for "_x" from 1 to _amount do {
 			_unit addItem _item;
 			_succes = true;
 		} else {
-			_message = "OF_fnc_AddItem: Warning couldn't fit %1 anywhere, originally intended for %2, in %3, case %4";
+			_message = "UO_fnc_AddItem: Warning couldn't fit %1 anywhere, originally intended for %2, in %3, case %4";
 
 			if (_position == "none") then {
-				_message = "OF_fnc_AddItem: Warning couldn't fit %1 anywhere, in %3, case %4";
+				_message = "UO_fnc_AddItem: Warning couldn't fit %1 anywhere, in %3, case %4";
 			};
-			(format [_message, _item, _position, _unit, _loadoutType]) call OF_fnc_DebugMessage;
+			(format [_message, _item, _position, _unit, _loadoutType]) call UO_fnc_DebugMessage;
 		};
 	};
 };

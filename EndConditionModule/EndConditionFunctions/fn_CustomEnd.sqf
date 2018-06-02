@@ -11,7 +11,7 @@ if (_activated) then
     _message =_logic getVariable ["MessageArgument",""];
     _timer =_logic getVariable ["AreaEndCheckTimeArgument",60];
 
-    _cond = "if(" + _code + ") then { """ + _message + """ call OF_fnc_EndMission;};";
+    _cond = "if(" + _code + ") then { """ + _message + """ call UO_fnc_EndMission;};";
     _exec = compile _cond;  // compile ur string to function
     while {!FW_MissionEnded} do
     {

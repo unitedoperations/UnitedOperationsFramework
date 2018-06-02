@@ -1,6 +1,6 @@
-class OF_CoreFunctions
+class UO_CoreFunctions
 {
-	file = "\OF_OlsenFrameworkModuls\Core\Functions";
+	file = "\UO_UOFrameworkModuls\Core\Functions";
 	class addItemOrg
 	{
 		preInit = 0; //(formerly known as "forced") 1 to call the function upon mission start, before objects are initialized. Passed arguments are ["preInit"]
@@ -401,9 +401,9 @@ class OF_CoreFunctions
 
 };
 
-class OF_InitFunctions
+class UO_InitFunctions
 {
-	file = "\OF_OlsenFrameworkModuls\Core\Init";
+	file = "\UO_UOFrameworkModuls\Core\Init";
 	class init
 	{
 		preInit = 0; //(formerly known as "forced") 1 to call the function upon mission start, before objects are initialized. Passed arguments are ["preInit"]

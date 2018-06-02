@@ -1,6 +1,6 @@
-class OF_AceMedicalModuleFunctions
+class UO_AceMedicalModuleFunctions
 {
-	file = "\OF_OlsenFrameworkModuls\Ace_MedicalModule\AceMedicalFunctions";
+	file = "\UO_UOFrameworkModuls\Ace_MedicalModule\AceMedicalFunctions";
 	class LoadMedical
 	{
 		preInit = 0; //(formerly known as "forced") 1 to call the function upon mission start, before objects are initialized. Passed arguments are ["preInit"]

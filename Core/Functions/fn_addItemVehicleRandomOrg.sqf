@@ -41,7 +41,7 @@ if (count _items > 1) then {
 	};
 };
 
-_randomPick = (_items select (([1, count _items] call OF_fnc_RandomRange) - 1));
+_randomPick = (_items select (([1, count _items] call UO_fnc_RandomRange) - 1));
 
 if (_position == "ARRAY") then {
 
@@ -49,18 +49,18 @@ if (_position == "ARRAY") then {
 
 		{
 
-			([_vehicle, _loadoutType] + _x) call OF_fnc_AddItemVehicleOrg;
+			([_vehicle, _loadoutType] + _x) call UO_fnc_AddItemVehicleOrg;
 
 		} forEach _randomPick;
 
 	} else {
 
-		([_vehicle, _loadoutType] + _randomPick) call OF_fnc_AddItemVehicleOrg;
+		([_vehicle, _loadoutType] + _randomPick) call UO_fnc_AddItemVehicleOrg;
 
 	};
 
 } else {
 
-	[_vehicle, _loadoutType, _randomPick, _amount] call OF_fnc_AddItemVehicleOrg;
+	[_vehicle, _loadoutType, _randomPick, _amount] call UO_fnc_AddItemVehicleOrg;
 
 };

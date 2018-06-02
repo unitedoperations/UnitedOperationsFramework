@@ -21,7 +21,7 @@ if (FW_RespawnTickets > 0) then {
 
 	if (_loadout != "") then {
 
-		[player, _loadout] call OF_fnc_GearScript;
+		[player, _loadout] call UO_fnc_GearScript;
 
 	};
 
@@ -54,7 +54,7 @@ if (FW_RespawnTickets > 0) then {
 	player setCaptive true;
 	player allowdamage false;
 
-	player call OF_fnc_RemoveAllGear;
+	player call UO_fnc_RemoveAllGear;
 
 	player addWeapon "itemMap";
 

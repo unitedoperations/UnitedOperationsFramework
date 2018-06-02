@@ -19,13 +19,13 @@ params [["_team", "", [""]],
 	["_marker", "", [""]],
 	["_ratio", 1, [0]]
 ];
-private _side = [_team, 1] call OF_fnc_getTeamVariable;
+private _side = [_team, 1] call UO_fnc_getTeamVariable;
 private _count = {
-	side _x == _side && [_x, _marker] call OF_fnc_inArea
+	side _x == _side && [_x, _marker] call UO_fnc_inArea
 } count allUnits;
 
 private _result = false;
-if (_count >= _ratio * ([_team, 4] call OF_fnc_getTeamVariable)) then {
+if (_count >= _ratio * ([_team, 4] call UO_fnc_getTeamVariable)) then {
 	if (!isNil "FW_hasDeparted" && {FW_hasDeparted}) then {
 		_result = true;
 	};

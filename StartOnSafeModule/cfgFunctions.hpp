@@ -1,6 +1,6 @@
-class OF_StartOnSafeModuleFunctions
+class UO_StartOnSafeModuleFunctions
 {
-	file = "\OF_OlsenFrameworkModuls\StartOnSafeModule\StartOnSafeModuleFunctions";
+	file = "\UO_UOFrameworkModuls\StartOnSafeModule\StartOnSafeModuleFunctions";
 	class StartOnSafe
 	{
 		preInit = 0; //(formerly known as "forced") 1 to call the function upon mission start, before objects are initialized. Passed arguments are ["preInit"]

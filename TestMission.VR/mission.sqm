@@ -22,7 +22,7 @@ binarizationWanted=0;
 addons[]=
 {
 	"A3_Characters_F",
-	"OF_OlsenFrameworkModuls"
+	"UO_UOFrameworkModuls"
 };
 class AddonsMetaData
 {
@@ -38,7 +38,7 @@ class AddonsMetaData
 		};
 		class Item1
 		{
-			className="OF_OlsenFrameworkModuls";
+			className="UO_UOFrameworkModuls";
 			name="My Addon";
 			author="Me";
 			url="http://xkcd.com";
@@ -109,12 +109,12 @@ class Mission
 				position[]={6948.0767,5,5978.0513};
 			};
 			id=4;
-			type="OF_BriefingModule";
+			type="UO_BriefingModule";
 			class CustomAttributes
 			{
 				class Attribute0
 				{
-					property="OF_BriefingModule_BriefingFilePathArgument";
+					property="UO_BriefingModule_BriefingFilePathArgument";
 					expression="_this setVariable ['BriefingFilePathArgument',_value,true];";
 					class Value
 					{
@@ -142,12 +142,12 @@ class Mission
 				position[]={6954.061,5,5977.5879};
 			};
 			id=5;
-			type="OF_CoreBasicSetupModule";
+			type="UO_CoreBasicSetupModule";
 			class CustomAttributes
 			{
 				class Attribute0
 				{
-					property="OF_CoreBasicSetupModule_CivilianAIFactionNameArgument";
+					property="UO_CoreBasicSetupModule_CivilianAIFactionNameArgument";
 					expression="_this setVariable ['CivilianAIFactionNameArgument',_value,true];";
 					class Value
 					{
@@ -166,7 +166,7 @@ class Mission
 				};
 				class Attribute1
 				{
-					property="OF_CoreBasicSetupModule_IndforAIFactionNameArgument";
+					property="UO_CoreBasicSetupModule_IndforAIFactionNameArgument";
 					expression="_this setVariable ['IndforAIFactionNameArgument',_value,true];";
 					class Value
 					{
@@ -185,7 +185,7 @@ class Mission
 				};
 				class Attribute2
 				{
-					property="OF_CoreBasicSetupModule_IndforRespawnTicketsArgument";
+					property="UO_CoreBasicSetupModule_IndforRespawnTicketsArgument";
 					expression="_this setVariable ['IndforRespawnTicketsArgument',_value,true];";
 					class Value
 					{
@@ -204,7 +204,7 @@ class Mission
 				};
 				class Attribute3
 				{
-					property="OF_CoreBasicSetupModule_BluforPlayerFactionNameArgument";
+					property="UO_CoreBasicSetupModule_BluforPlayerFactionNameArgument";
 					expression="_this setVariable ['BluforPlayerFactionNameArgument',_value,true];";
 					class Value
 					{
@@ -223,7 +223,7 @@ class Mission
 				};
 				class Attribute4
 				{
-					property="OF_CoreBasicSetupModule_IndforPlayerFactionNameArgument";
+					property="UO_CoreBasicSetupModule_IndforPlayerFactionNameArgument";
 					expression="_this setVariable ['IndforPlayerFactionNameArgument',_value,true];";
 					class Value
 					{
@@ -242,7 +242,7 @@ class Mission
 				};
 				class Attribute5
 				{
-					property="OF_CoreBasicSetupModule_OpforPlayerFactionNameArgument";
+					property="UO_CoreBasicSetupModule_OpforPlayerFactionNameArgument";
 					expression="_this setVariable ['OpforPlayerFactionNameArgument',_value,true];";
 					class Value
 					{
@@ -261,7 +261,7 @@ class Mission
 				};
 				class Attribute6
 				{
-					property="OF_CoreBasicSetupModule_CivilianPlayerFactionNameArgument";
+					property="UO_CoreBasicSetupModule_CivilianPlayerFactionNameArgument";
 					expression="_this setVariable ['CivilianPlayerFactionNameArgument',_value,true];";
 					class Value
 					{
@@ -280,7 +280,7 @@ class Mission
 				};
 				class Attribute7
 				{
-					property="OF_CoreBasicSetupModule_EnableDebugArgument";
+					property="UO_CoreBasicSetupModule_EnableDebugArgument";
 					expression="_this setVariable ['EnableDebugArgument',_value,true];";
 					class Value
 					{
@@ -299,7 +299,7 @@ class Mission
 				};
 				class Attribute8
 				{
-					property="OF_CoreBasicSetupModule_CivilianRespawnTicketsArgument";
+					property="UO_CoreBasicSetupModule_CivilianRespawnTicketsArgument";
 					expression="_this setVariable ['CivilianRespawnTicketsArgument',_value,true];";
 					class Value
 					{
@@ -318,7 +318,7 @@ class Mission
 				};
 				class Attribute9
 				{
-					property="OF_CoreBasicSetupModule_ViewDistanceAIArgument";
+					property="UO_CoreBasicSetupModule_ViewDistanceAIArgument";
 					expression="_this setVariable ['ViewDistanceAIArgument',_value,true];";
 					class Value
 					{
@@ -337,7 +337,7 @@ class Mission
 				};
 				class Attribute10
 				{
-					property="OF_CoreBasicSetupModule_ViewDistancePlayerArgument";
+					property="UO_CoreBasicSetupModule_ViewDistancePlayerArgument";
 					expression="_this setVariable ['ViewDistancePlayerArgument',_value,true];";
 					class Value
 					{
@@ -356,7 +356,7 @@ class Mission
 				};
 				class Attribute11
 				{
-					property="OF_CoreBasicSetupModule_OpforRespawnTicketsArgument";
+					property="UO_CoreBasicSetupModule_OpforRespawnTicketsArgument";
 					expression="_this setVariable ['OpforRespawnTicketsArgument',_value,true];";
 					class Value
 					{
@@ -375,7 +375,7 @@ class Mission
 				};
 				class Attribute12
 				{
-					property="OF_CoreBasicSetupModule_BluforRespawnTicketsArgument";
+					property="UO_CoreBasicSetupModule_BluforRespawnTicketsArgument";
 					expression="_this setVariable ['BluforRespawnTicketsArgument',_value,true];";
 					class Value
 					{
@@ -394,7 +394,7 @@ class Mission
 				};
 				class Attribute13
 				{
-					property="OF_CoreBasicSetupModule_OpforAIFactionNameArgument";
+					property="UO_CoreBasicSetupModule_OpforAIFactionNameArgument";
 					expression="_this setVariable ['OpforAIFactionNameArgument',_value,true];";
 					class Value
 					{
@@ -413,7 +413,7 @@ class Mission
 				};
 				class Attribute14
 				{
-					property="OF_CoreBasicSetupModule_BluforAIFactionNameArgument";
+					property="UO_CoreBasicSetupModule_BluforAIFactionNameArgument";
 					expression="_this setVariable ['BluforAIFactionNameArgument',_value,true];";
 					class Value
 					{
@@ -441,12 +441,12 @@ class Mission
 				position[]={6954.2759,5,5985.3022};
 			};
 			id=8;
-			type="OF_TimeLimitEndModule";
+			type="UO_TimeLimitEndModule";
 			class CustomAttributes
 			{
 				class Attribute0
 				{
-					property="OF_TimeLimitEndModule_MessageArgument";
+					property="UO_TimeLimitEndModule_MessageArgument";
 					expression="_this setVariable ['MessageArgument',_value,true];";
 					class Value
 					{
@@ -465,7 +465,7 @@ class Mission
 				};
 				class Attribute1
 				{
-					property="OF_TimeLimitEndModule_TimeLimitArgument";
+					property="UO_TimeLimitEndModule_TimeLimitArgument";
 					expression="_this setVariable ['TimeLimitArgument',_value,true];";
 					class Value
 					{

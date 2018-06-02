@@ -35,7 +35,7 @@ private _found = false;
 if (!_found) then {
 
 	private _tempText = format ["Critical:<br></br>Team ""%1"" does not exist.", _team];
-	_tempText call OF_fnc_DebugMessage;
+	_tempText call UO_fnc_DebugMessage;
 
 };
 

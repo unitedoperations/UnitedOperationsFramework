@@ -16,7 +16,7 @@ if (_activated) then
     {
         if ((time / 60) >= FW_TimeLimit && FW_TimeLimit != 0) exitWith { //It is recommended that you do not remove the time limit end condition
 
-            _message call OF_fnc_EndMission;
+            _message call UO_fnc_EndMission;
 
         };
         sleep(60);

@@ -1,6 +1,6 @@
-class OF_AntiNDModuleFunctions
+class UO_AntiNDModuleFunctions
 {
-	file = "\OF_OlsenFrameworkModuls\AntiNDModule\AntiNDModuleFunctions";
+	file = "\UO_UOFrameworkModuls\AntiNDModule\AntiNDModuleFunctions";
 	class LoadAntiND
 	{
 		preInit = 0; //(formerly known as "forced") 1 to call the function upon mission start, before objects are initialized. Passed arguments are ["preInit"]

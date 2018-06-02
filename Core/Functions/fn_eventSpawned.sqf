@@ -26,7 +26,7 @@ if (_unit getVariable ["FW_Tracked", false]) then {
 
 			_x set [3, _total + 1];
 
-			if (_unit call OF_fnc_Alive) then {
+			if (_unit call UO_fnc_Alive) then {
 
 				_x set [4, _current + 1];
 

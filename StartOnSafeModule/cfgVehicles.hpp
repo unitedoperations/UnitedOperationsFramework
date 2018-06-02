@@ -1,10 +1,10 @@
 
-	class OF_StartOnSafeModule: OlsenModule
+	class UO_StartOnSafeModule: OlsenModule
 	{
 		displayName = "Start On Safe Module"; // Name displayed in the menu
 
 		// Name of function triggered once conditions are met
-		function = "OF_fnc_StartOnSafe";
+		function = "UO_fnc_StartOnSafe";
 		// Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
 		functionPriority = 3;
 

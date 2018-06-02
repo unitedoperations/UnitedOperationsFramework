@@ -1,6 +1,6 @@
-class OF_StartOnTeamColorModuleFunctions
+class UO_StartOnTeamColorModuleFunctions
 {
-	file = "\OF_OlsenFrameworkModuls\StartOnTeamColorModule\StartOnTeamColorModuleFunctions";
+	file = "\UO_UOFrameworkModuls\StartOnTeamColorModule\StartOnTeamColorModuleFunctions";
 	class LoadTeamColor
 	{
 		preInit = 0; //(formerly known as "forced") 1 to call the function upon mission start, before objects are initialized. Passed arguments are ["preInit"]

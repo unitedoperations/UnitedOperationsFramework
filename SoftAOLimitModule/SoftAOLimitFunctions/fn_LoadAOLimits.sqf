@@ -1,11 +1,11 @@
-["Soft AO Limit", "Allows the mission maker to set AO limits to specific sides.", "Olsen &amp; Starfox64"] call OF_fnc_RegisterModule;
+["Soft AO Limit", "Allows the mission maker to set AO limits to specific sides.", "Olsen &amp; Starfox64"] call UO_fnc_RegisterModule;
 
 #define ADDAOMARKER(SIDE, NAME) \
 if !(markerType NAME == "") then { \
 	_markers set [count _markers, [SIDE, NAME]]; \
 } else { \
 	_temp = format ["AO limit module:<br></br>Warning marker ""%1"", in file ""modules\ao limit\settings.sqf"" does not exist.", NAME]; \
-	_temp call OF_fnc_DebugMessage; \
+	_temp call UO_fnc_DebugMessage; \
 };
 
 // Argument 0 is module logic.
@@ -19,9 +19,9 @@ _activated = param [2,true,[true]];
 if (_activated) then
 {
 	// The amount of time in seconds a land based unit is allowed to stay outside the AO (-1 = Infinity)
-	FW_AOTimer = _logic getVariable ["OF_SoftAOLimitModule_AOTimer",30];
+	FW_AOTimer = _logic getVariable ["UO_SoftAOLimitModule_AOTimer",30];
 	// The amount of time in seconds an air based unit is allowed to stay outside the AO (-1 = Infinity)
-	FW_AOTimerAir = _logic getVariable ["OF_SoftAOLimitModule_AOTimerAir",-1];
+	FW_AOTimerAir = _logic getVariable ["UO_SoftAOLimitModule_AOTimerAir",-1];
 
 	_bluforArray = _logic getVariable ["AOBluforMarkerArray",[]];
 	_opforArray = _logic getVariable ["AOopforMarkerArray",[]];
@@ -62,7 +62,7 @@ if (_activated) then
 					{
 						_markers set [count _markers, (_x select 1)];
 
-						if ([_vehicle, (_x select 1)] call OF_fnc_InArea) then
+						if ([_vehicle, (_x select 1)] call UO_fnc_InArea) then
 						{
 							_allowedOutside = false;
 						};
@@ -78,7 +78,7 @@ if (_activated) then
 					_outSide = true;
 
 					{
-						if ([_vehicle, _x] call OF_fnc_InArea) exitWith
+						if ([_vehicle, _x] call UO_fnc_InArea) exitWith
 						{
 							_outSide = false;
 						};
@@ -88,7 +88,7 @@ if (_activated) then
 					missionNamespace setVariable ["FW_AOL_Display", _outSide];
 
 					if (_outSide) then {
-						if (!(_allowedOutside) && !_displayed && (_vehicle call OF_fnc_Alive)) then
+						if (!(_allowedOutside) && !_displayed && (_vehicle call UO_fnc_Alive)) then
 						{
 							_timeLeft = if (_air) then {FW_AOTimerAir} else {FW_AOTimer};
 

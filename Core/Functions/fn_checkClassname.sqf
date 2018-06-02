@@ -25,7 +25,7 @@ private _result = (isClass (configfile >> "CfgWeapons" >> _class)
 
 if (!_result) then {
 	if (!isMultiplayer) then {
-		"Invalid classname given! - " + _class call OF_fnc_DebugMessage;
+		"Invalid classname given! - " + _class call UO_fnc_DebugMessage;
 	};
 	[_class, {
 		params ["_class"];
@@ -44,7 +44,7 @@ if (!_result) then {
 	}] remoteExec ["BIS_fnc_call", 0, true];
 
 	if (!isNull _unit) then {
-		[_class, _unit] remoteExecCall ["OF_fnc_makeUnitsList", 2, false];
+		[_class, _unit] remoteExecCall ["UO_fnc_makeUnitsList", 2, false];
 	};
 };
 

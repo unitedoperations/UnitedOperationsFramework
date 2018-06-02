@@ -1,6 +1,6 @@
-class OF_AOLimitModuleFunctions
+class UO_AOLimitModuleFunctions
 {
-	file = "\OF_OlsenFrameworkModuls\AOLimitModule\AOLimitFunctions";
+	file = "\UO_UOFrameworkModuls\AOLimitModule\AOLimitFunctions";
 	class LoadAOLimits
 	{
 		preInit = 0; //(formerly known as "forced") 1 to call the function upon mission start, before objects are initialized. Passed arguments are ["preInit"]

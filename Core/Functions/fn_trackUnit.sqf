@@ -19,6 +19,6 @@ if (!(_unit getVariable ["FW_Tracked", false])) then {
 	_unit setVariable ["FW_Side", side _unit];
 	_unit setVariable ["FW_Tracked", true];
 
-	_unit call OF_fnc_EventSpawned;
+	_unit call UO_fnc_EventSpawned;
 
 };

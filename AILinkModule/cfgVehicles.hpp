@@ -39,7 +39,11 @@
 					{
 						// Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
 						displayName = "Aiming Accuracy"; // Argument label
-						description = " Affects how well the AI can lead a target, how accurately the AI estimate range and calculates bullet drop,how well the AI compensates for weapon dispersion,how much the AI will know to compensate for recoil Higher value  more controlled fire,how certain the AI must be about its aim on target before opening fire"; // description description
+						description = "Affects how well the AI can lead a target \n
+										Affects how accurately the AI estimate range and calculates bullet drop \n
+										Affects how well the AI compensates for weapon dispersion \n
+										Affects how much the AI will know to compensate for recoil (Higher value = more controlled fire) \n
+										Affects how certain the AI must be about its aim on target before opening fire"; // description description
 						typeName = "NUMBER"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 						defaultValue = "0.8"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
 					};
@@ -79,7 +83,7 @@
 					{
 						// Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
 						displayName = "Reload Speed"; // Argument label
-						description = "Affects the delay between switching or reloading a weapon Higher value = less delay"; // description description
+						description = "Affects the delay between switching or reloading a weapon (Higher value = less delay)"; // description description
 						typeName = "Number"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 						defaultValue = "0.8"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
 					};
@@ -87,7 +91,8 @@
 					{
 						// Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
 						displayName = " Spot Distance"; // Argument label
-						description = "Affects the AI ability to spot targets within it's visual or audible range Higher value = more likely to spot, accuracy of the information Higher value = more accurate information"; // description description
+						description = "Affects the AI ability to spot targets within it's visual or audible range (Higher value = more likely to spot)]\n
+									Affects the accuracy of the information (Higher value = more accurate information)"; // description description
 						typeName = "Number"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 						defaultValue = "0.8"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
 					};

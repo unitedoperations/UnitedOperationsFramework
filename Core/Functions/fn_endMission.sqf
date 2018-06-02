@@ -25,10 +25,10 @@ if (time > 0) then {
 
 		private _team = (_x select 0);
 
-		private _assets = _team call OF_fnc_GetDamagedAssets;
+		private _assets = _team call UO_fnc_GetDamagedAssets;
 
-		[_team, 5, _assets select 0] call OF_fnc_SetTeamVariable;
-		[_team, 6, _assets select 1] call OF_fnc_SetTeamVariable;
+		[_team, 5, _assets select 0] call UO_fnc_SetTeamVariable;
+		[_team, 6, _assets select 1] call UO_fnc_SetTeamVariable;
 
 	} forEach FW_Teams;
 

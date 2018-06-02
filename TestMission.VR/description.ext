@@ -9,5 +9,5 @@ enableTargetDebug = 1; //Enable CBA Target Debugging
 
 class Params
 {
-    //#include "\OF_OlsenFrameworkModuls\Ace_MedicalModule\params.hpp"
+    //#include "\UO_UOFrameworkModuls\Ace_MedicalModule\params.hpp"
 };

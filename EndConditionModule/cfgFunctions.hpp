@@ -1,6 +1,6 @@
-class OF_EndConditionFunctions
+class UO_EndConditionFunctions
 {
-	file = "\OF_OlsenFrameworkModuls\EndConditionModule\EndConditionFunctions";
+	file = "\UO_UOFrameworkModuls\EndConditionModule\EndConditionFunctions";
 	class AreaEnd
 	{
 		preInit = 0; //(formerly known as "forced") 1 to call the function upon mission start, before objects are initialized. Passed arguments are ["preInit"]

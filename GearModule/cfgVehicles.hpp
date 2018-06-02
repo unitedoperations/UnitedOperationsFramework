@@ -1,11 +1,11 @@
 
 
-	class OF_GearModule: OlsenModule
+	class UO_GearModule: OlsenModule
 	{
 		// Standard object definitions
 		scope = 2; // Editor visibility; 2 will show it in the menu, 1 will hide it.
 		displayName = "Gear Module"; // Name displayed in the menu
-		function = "OF_fnc_LoadGear";
+		function = "UO_fnc_LoadGear";
 
 
 		// Categories collapsible in "Edit Attributes" window

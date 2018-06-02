@@ -1,6 +1,6 @@
-class OF_GearFunctions
+class UO_GearFunctions
 {
-	file = "\OF_OlsenFrameworkModuls\GearModule\GearFunctions";
+	file = "\UO_UOFrameworkModuls\GearModule\GearFunctions";
 	class GearScript
 	{
 		preInit = 0; //(formerly known as "forced") 1 to call the function upon mission start, before objects are initialized. Passed arguments are ["preInit"]

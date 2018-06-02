@@ -14,19 +14,19 @@ if (_activated) then
 	if (isServer) then
 	{
 
-		"west" call OF_fnc_CreateRespawnMarker;
-		"east" call OF_fnc_CreateRespawnMarker;
-		"guer" call OF_fnc_CreateRespawnMarker;
-		"civ" call OF_fnc_CreateRespawnMarker;
+		"west" call UO_fnc_CreateRespawnMarker;
+		"east" call UO_fnc_CreateRespawnMarker;
+		"guer" call UO_fnc_CreateRespawnMarker;
+		"civ" call UO_fnc_CreateRespawnMarker;
 
 		FW_Teams = []; //DO NOT REMOVE
 		FW_MissionEnded = false; //Mission has not ended
 
-		FW_EventPlayerSpawnedHandle = ["FW_PlayerSpawned", {_this call OF_fnc_EventPlayerSpawned;}] call CBA_fnc_addEventHandler;
-		FW_EventRespawnedHandle = addMissionEventHandler ["EntityRespawned", {_this call OF_fnc_EventRespawned;}];
-		FW_EventKilledHandle = addMissionEventHandler ["EntityKilled", {_this call OF_fnc_EventKilled;}];
+		FW_EventPlayerSpawnedHandle = ["FW_PlayerSpawned", {_this call UO_fnc_EventPlayerSpawned;}] call CBA_fnc_addEventHandler;
+		FW_EventRespawnedHandle = addMissionEventHandler ["EntityRespawned", {_this call UO_fnc_EventRespawned;}];
+		FW_EventKilledHandle = addMissionEventHandler ["EntityKilled", {_this call UO_fnc_EventKilled;}];
 
-		FW_EventDisconnectHandle = addMissionEventHandler ["HandleDisconnect", {_this call OF_fnc_EventDisconnect;}];
+		FW_EventDisconnectHandle = addMissionEventHandler ["HandleDisconnect", {_this call UO_fnc_EventDisconnect;}];
 
 	};
 
@@ -49,12 +49,12 @@ if (_activated) then
 				{
 					_msg = _msg + ": " + _this select 0;
 				};
-				_msg call OF_fnc_EndMission;
+				_msg call UO_fnc_EndMission;
 			}, "admin"] call CBA_fnc_registerChatCommand;
 		};
 
 		//"FW_EndMission" player event sends the received variables to the end screen
-		FW_EndMissionEh = ["FW_EndMission", {_this call OF_fnc_dia_endscreen;}] call CBA_fnc_addEventHandler;
+		FW_EndMissionEh = ["FW_EndMission", {_this call UO_fnc_dia_endscreen;}] call CBA_fnc_addEventHandler;
 
 		//Various settings
 		enableEngineArtillery false; //Disable Arma 3 artillery computer
@@ -62,7 +62,7 @@ if (_activated) then
 		enableSentences false; //Disable Arma 3 regular radio chatter
 		0 fadeRadio 0; //Lower radio volume to 0
 
-		"" call OF_fnc_Menu;
+		"" call UO_fnc_Menu;
 
 		FW_RespawnTickets = 0; //Initialize respawn tickets to 0
 
@@ -71,8 +71,8 @@ if (_activated) then
 		player setVariable ["FW_Body", player, true]; //Remembers his old body for spectating his dead body
 
 		//Makes the player go into spectator mode when dead or respawn if he has respawn tickets
-		FW_KilledEh = player addEventHandler ["Killed", {"" spawn OF_fnc_SpectateCheck;}];
-		FW_RespawnEh = player addEventHandler ["Respawn", {_this call OF_fnc_SpectatePrep;}];
+		FW_KilledEh = player addEventHandler ["Killed", {"" spawn UO_fnc_SpectateCheck;}];
+		FW_RespawnEh = player addEventHandler ["Respawn", {_this call UO_fnc_SpectatePrep;}];
 
 		//Various settings
 		player addRating 100000; //Makes sure ai doesnt turn hostile when teamkilling
@@ -97,7 +97,7 @@ if (_activated) then
 		_name = _logic getVariable [NAME,""];\
 		if(_name != "") then\
 		{\
-			[SIDE, _name, PLAYER] call OF_fnc_AddTeam;\
+			[SIDE, _name, PLAYER] call UO_fnc_AddTeam;\
 		};
 
 		ADD_TEAM(west,"BluforPlayerFactionNameArgument","player");
@@ -108,7 +108,7 @@ if (_activated) then
 		ADD_TEAM(guer,"ResistanceAIFactionNameArgument","ai");
 		ADD_TEAM(civilian,"CivilianPlayerFactionNameArgument","player");
 		ADD_TEAM(civilian,"CivilianAIFactionNameArgument","ai");
-	 	// [resistance, "Local Militia", "player"] call OF_fnc_AddTeam; //Adds a player team called Local Militia on side resistance (aka independent)
+	 	// [resistance, "Local Militia", "player"] call UO_fnc_AddTeam; //Adds a player team called Local Militia on side resistance (aka independent)
 
 	 };
 
@@ -119,7 +119,7 @@ if (_activated) then
 
 	 	setViewDistance (_logic getVariable ["ViewDistancePlayerArgument",""]); //View distance for the player
 
-	 	//call OF_fnc_forceTerrainGrid; //uncomment this to force high terrain setting. This will prevent faraway objects from appearing as floating. Useful for missions with long sightlines.
+	 	//call UO_fnc_forceTerrainGrid; //uncomment this to force high terrain setting. This will prevent faraway objects from appearing as floating. Useful for missions with long sightlines.
 
 	 	switch (side player) do
 		{ //Checks what team the player is on
@@ -146,7 +146,7 @@ if (_activated) then
 	 //from init.sqf
  	if (isServer) then
  	{
- 		"" call OF_fnc_StartingCount; //DO NOT REMOVE
+ 		"" call UO_fnc_StartingCount; //DO NOT REMOVE
 
  	};
 };

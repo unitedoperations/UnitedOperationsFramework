@@ -50,7 +50,7 @@ if (_activated) then
                          , "Sacher"] call FNC_RegisterModule;
 
 
-                         
+
     TEMPFNC_conditionCheck ={};
     switch (_type) do
     {
@@ -107,7 +107,7 @@ if (_activated) then
         _ammount = [_side,300,_gameLogic] call FNC_AreaCount;
         if([_ammount,_min,_max] call TEMPFNC_conditionCheck) exitWith
         {
-            _message call OF_fnc_EndMission;
+            _message call UO_fnc_EndMission;
         };
         sleep(_timer);
     };

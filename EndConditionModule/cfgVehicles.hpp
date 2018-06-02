@@ -1,5 +1,5 @@
 
-	class OF_OlsenEndConditionModule: OlsenModule
+	class UO_OlsenEndConditionModule: OlsenModule
 	{
 		// Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
 		functionPriority = 4;
@@ -15,12 +15,12 @@
 		// Menu displayed when the module is placed or double-clicked on by Zeus
 		curatorInfoType = "RscDisplayAttributeModuleNuke";
 	};
-	class OF_AreaEndModule: OF_OlsenEndConditionModule
+	class UO_AreaEndModule: UO_OlsenEndConditionModule
 	{
 		// Standard object definitions
 		scope = 2; // Editor visibility; 2 will show it in the menu, 1 will hide it.
 		displayName = "Area Endcondition Module"; // Name displayed in the menu
-		function = "OF_fnc_AreaEnd";
+		function = "UO_fnc_AreaEnd";
 
 
 		// Categories collapsible in "Edit Attributes" window
@@ -111,11 +111,11 @@
 			sync[] = {}; // Array of synced entities (can contain base classes)
 		};
 	};
-	class OF_CustomEndModule: OF_OlsenEndConditionModule
+	class UO_CustomEndModule: UO_OlsenEndConditionModule
 	{
 		displayName = "Custom Endcondition Module"; // Name displayed in the menu
 		// Name of function triggered once conditions are met
-		function = "OF_fnc_CustomEnd";
+		function = "UO_fnc_CustomEnd";
 		scope = 2; // Editor visibility; 2 will show it in the menu, 1 will hide it.
 		class Arguments
 		{
@@ -151,11 +151,11 @@
 			sync[] = {}; // Array of synced entities (can contain base classes)
 		};
 	};
-	class OF_CustomCodeEndModule: OF_OlsenEndConditionModule
+	class UO_CustomCodeEndModule: UO_OlsenEndConditionModule
 	{
 		displayName = "Custom Code Endcondition Module"; // Name displayed in the menu
 		// Name of function triggered once conditions are met
-		function = "OF_fnc_CustomCodeEnd";
+		function = "UO_fnc_CustomCodeEnd";
 		scope = 2; // Editor visibility; 2 will show it in the menu, 1 will hide it.
 		class Arguments
 		{
@@ -184,12 +184,12 @@
 		};
 	};
 
-	class OF_TimeLimitEndModule: OF_OlsenEndConditionModule
+	class UO_TimeLimitEndModule: UO_OlsenEndConditionModule
 	{
 			scope = 2; // Editor visibility; 2 will show it in the menu, 1 will hide it.
 		displayName = "Time Limit Endcondition Module"; // Name displayed in the menu
 		// Name of function triggered once conditions are met
-		function = "OF_fnc_TimeLimitEnd";
+		function = "UO_fnc_TimeLimitEnd";
 		// Categories collapsible in "Edit Attributes" window
 			// Category class, can be anything
 			// Categories collapsible in "Edit Attributes" window
@@ -220,12 +220,12 @@
 			sync[] = {}; // Array of synced entities (can contain base classes)
 		};
 	};
-	class OF_CasualtyPercentageEndModule: OF_OlsenEndConditionModule
+	class UO_CasualtyPercentageEndModule: UO_OlsenEndConditionModule
 	{
 			scope = 2; // Editor visibility; 2 will show it in the menu, 1 will hide it.
 		displayName = "Casualty Percentage Endcondition Module"; // Name displayed in the menu
 		// Name of function triggered once conditions are met
-		function = "OF_fnc_CasualtyEnd";
+		function = "UO_fnc_CasualtyEnd";
 		// Categories collapsible in "Edit Attributes" window
 			// Category class, can be anything
 			// Categories collapsible in "Edit Attributes" window

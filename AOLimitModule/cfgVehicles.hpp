@@ -1,11 +1,11 @@
 
-	class OF_AOLimitModule: OlsenModule
+	class UO_AOLimitModule: OlsenModule
 	{
 
 		displayName = "Soft AO Limit Module"; // Name displayed in the menu
 
 		// Name of function triggered once conditions are met
-		function = "OF_fnc_LoadAOLimits";
+		function = "UO_fnc_LoadAOLimits";
 		// Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
 		functionPriority = 3;
  		scope = 2; // Editor visibility; 2 will show it in the menu, 1 will hide it.

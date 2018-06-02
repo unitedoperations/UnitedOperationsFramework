@@ -1,6 +1,6 @@
-class OF_SoftAOLimitFunctions
+class UO_SoftAOLimitFunctions
 {
-	file = "\OF_OlsenFrameworkModuls\SoftAOLimitModule\SoftAOLimitFunctions";
+	file = "\UO_UOFrameworkModuls\SoftAOLimitModule\SoftAOLimitFunctions";
 	class LoadAOLimits
 	{
 		preInit = 0; //(formerly known as "forced") 1 to call the function upon mission start, before objects are initialized. Passed arguments are ["preInit"]

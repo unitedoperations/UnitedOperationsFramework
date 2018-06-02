@@ -1,6 +1,6 @@
-class OF_CoreFunctions
+class UO_CoreFunctions
 {
-	file = "\OF_OlsenFrameworkModuls\Core\Functions";
+	file = "\UO_UOFrameworkModuls\Core\Functions";
 	class addItemOrg
 	{
 		preInit = 0; //(formerly known as "forced") 1 to call the function upon mission start, before objects are initialized. Passed arguments are ["preInit"]
@@ -401,9 +401,9 @@ class OF_CoreFunctions
 
 };
 
-class OF_InitFunctions
+class UO_InitFunctions
 {
-	file = "\OF_OlsenFrameworkModuls\Core\Init";
+	file = "\UO_UOFrameworkModuls\Core\Init";
 	class init
 	{
 		preInit = 0; //(formerly known as "forced") 1 to call the function upon mission start, before objects are initialized. Passed arguments are ["preInit"]
@@ -452,9 +452,9 @@ class OF_InitFunctions
 
 };
 
-class OF_DebugFunctions
+class UO_DebugFunctions
 {
-	file = "\OF_OlsenFrameworkModuls\Core\Dia\Debug";
+	file = "\UO_UOFrameworkModuls\Core\Dia\Debug";
 	class DisplayDebugMessage
 	{
 		preInit = 0; //(formerly known as "forced") 1 to call the function upon mission start, before objects are initialized. Passed arguments are ["preInit"]
@@ -465,9 +465,9 @@ class OF_DebugFunctions
 		recompile = 1; //1 to recompile the function upon mission start (config.cpp only; functions in description.ext are compiled upon mission start already)}; // [] call myTag_fnc_myFunction3
 	};
 };
-class OF_EndscreenFunctions
+class UO_EndscreenFunctions
 {
-	file = "\OF_OlsenFrameworkModuls\Core\dia\endscreen";
+	file = "\UO_UOFrameworkModuls\Core\dia\endscreen";
 	class dia_endscreen
 	{
 		preInit = 0; //(formerly known as "forced") 1 to call the function upon mission start, before objects are initialized. Passed arguments are ["preInit"]
