@@ -1,8 +1,8 @@
 
-	class UO_BriefingModule: UOModule
+	class UO_BriefingModule: UO_Module
 	{
 		displayName = "Briefing Module"; // Name displayed in the menu
-
+		scope = 2; // Editor visibility; 2 will show it in the menu, 1 will hide it.
 		// Name of function triggered once conditions are met
 		function = "UO_fnc_LoadBriefing";
 		// Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined

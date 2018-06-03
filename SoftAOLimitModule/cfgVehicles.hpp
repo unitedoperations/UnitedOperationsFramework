@@ -1,5 +1,5 @@
 
-	class UO_SoftAOLimitModule: UOModule
+	class UO_SoftAOLimitModule: UO_Module
 	{
 
 		displayName = "Soft AO Limit Module"; // Name displayed in the menu

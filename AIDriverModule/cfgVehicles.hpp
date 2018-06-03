@@ -1,5 +1,5 @@
 
-	class UO_AIDriverModule: UOModule
+	class UO_AIDriverModule: UO_Module
 	{
 
 		displayName = "AI Driver Module"; // Name displayed in the menu

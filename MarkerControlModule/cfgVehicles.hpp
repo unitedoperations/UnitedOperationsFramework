@@ -1,5 +1,5 @@
 
-	class UO_MarkerControlModule: UOModule
+	class UO_MarkerControlModule: UO_Module
 	{
 
 		displayName = "Marker Control Module"; // Name displayed in the menu

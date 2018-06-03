@@ -1,5 +1,5 @@
 
-	class UO_AILinkModule: UOModule
+	class UO_AILinkModule: UO_Module
 	{
 
 		displayName = "AI Link Module"; // Name displayed in the menu

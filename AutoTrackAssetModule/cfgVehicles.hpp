@@ -1,5 +1,5 @@
 
-	class UO_AutoTrackAssetModule: UOModule
+	class UO_AutoTrackAssetModule: UO_Module
 	{
 
 		displayName = "Auto Track Asset Module"; // Name displayed in the menu

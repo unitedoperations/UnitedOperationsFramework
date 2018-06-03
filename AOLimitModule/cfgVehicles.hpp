@@ -1,5 +1,5 @@
 
-	class UO_AOLimitModule: UOModule
+	class UO_AOLimitModule: UO_Module
 	{
 
 		displayName = "AO Limit Module"; // Name displayed in the menu

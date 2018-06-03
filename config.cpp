@@ -6,8 +6,9 @@ class CfgPatches
 		name = "United Operations Framework";
 		author = "Me";
 		url = "http://xkcd.com";
-		units[] = {"UO_BriefingModule","UO_SoftAOLimitModule","UO_CoreBasicSetupModule","UO_AreaEndModule","UO_CustomCodeEndModule","UO_CustomEndModule","UO_TimeLimitEndModule",
-		"UO_CasualtyPercentageEndModule","UO_AOLimitModule","UO_AceMedicalModule","UO_StartOnSafeModule","UO_MarkerControlModule","UO_AILinkModule","UO_AISkillModule","AntiNDModule","AIBehaviourModule","UO_BriefingModule"};
+		units[] = {"UO_SoftAOLimitModule","UO_CoreBasicSetupModule","UO_AreaEndModule","UO_CustomCodeEndModule","UO_CustomEndModule","UO_TimeLimitEndModule",
+		"UO_CasualtyPercentageEndModule","UO_AOLimitModule","UO_AceMedicalModule","UO_StartOnSafeModule","UO_StartOnTeamColorModule","UO_MarkerControlModule",
+		"UO_AILinkModule","UO_AISkillModule","UO_AntiNDModule","UO_AIBehaviourModule","UO_BriefingModule"};
 		requiredVersion = 1.0;
 		requiredAddons[] = {"A3_Modules_F"};
 	};
@@ -51,7 +52,7 @@ class CfgVehicles
 	{
 		class ModuleDescription;
 	};
-    class UOModule: Module_F
+    class UO_Module: Module_F
 	{
 		category = "UO_FrameworkCategory";
 		 // 0 for server only execution, 1 for global execution, 2 for persistent global execution
@@ -68,6 +69,7 @@ class CfgVehicles
 		 // Menu displayed when the module is placed or double-clicked on by Zeus
 		 curatorInfoType = "RscDisplayAttributeModuleNuke";
 	};
+	#include "Core\cfgVehicles.hpp"
 	// Description base classes, for more information see below
 	#include "AOLimitModule\cfgVehicles.hpp"
 	#include "Ace_MedicalModule\cfgVehicles.hpp"

@@ -1,9 +1,9 @@
 
-	class UO_AIDriverModule: UOModule
+	class UO_AIDriverModule: UO_Module
 	{
 
 		displayName = "AI Driver Module"; // Name displayed in the menu
-
+scope = 2; // Editor visibility; 2 will show it in the menu, 1 will hide it.
 		// Name of function triggered once conditions are met
 		function = "UO_fnc_LoadAILink";
 		// Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
@@ -47,9 +47,9 @@
 				   {
 					   // Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
 					   displayName = "Min Stance"; // Argument label
-					   description = "In quotes, ""UP"", ""MIDDLE"", ""DOWN"""; // description description
+					   description = "In quotes, UP, MIDDLE, DOWN"; // description description
 					   typeName = "NUMBER"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-					   defaultValue = """DOWN"""; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
+					   defaultValue = "DOWN"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
 				   };
 				   class MaxMoraleArgument
 				   {
@@ -63,9 +63,9 @@
 				  {
 					  // Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
 					  displayName = "Max Stance"; // Argument label
-					  description = "In quotes, ""UP"", ""MIDDLE"", ""DOWN"""; // description description
+					  description = "In quotes, UP, MIDDLE, DOWN"; // description description
 					  typeName = "NUMBER"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-					  defaultValue = """UP"""; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
+					  defaultValue = "UP"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
 				  };
 				};
 		// Module description. Must inherit from base class, otherwise pre-defined entities won't be available
