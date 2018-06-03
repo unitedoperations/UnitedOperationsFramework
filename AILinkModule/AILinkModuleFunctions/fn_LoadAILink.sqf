@@ -10,7 +10,7 @@ _activated = param [2,true,[true]];
 // Module specific behavior. Function can extract arguments from logic and use them.
 if (_activated) then
 {
-    ["AI link", "Shares targeting information between AI groups based on radios.", "TinfoilHate"] call FNC_RegisterModule;
+    ["AI link", "Shares targeting information between AI groups based on radios.", "TinfoilHate"] call UO_FNC_RegisterModule;
     tin_aiLink_startDelay 	= (_logic getVariable ["StartDelayArgument",30]);		//Delay in seconds when starting the mission until the first loop runs.
     tin_aiLink_shareDelay	= (_logic getVariable ["ShareDelayArgument",15]);		//Delay in seconds  between loops after the first.
     tin_aiLink_transDelay	= (_logic getVariable ["TransDelayArgument",10]);		//Delay in seconds, maximum randomized, for target information to be transmitted. No effect if set higher than tin_aiLink_shareDelay.

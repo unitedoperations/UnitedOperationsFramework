@@ -9,7 +9,7 @@ _activated = param [2,true,[true]];
 // Module specific behavior. Function can extract arguments from logic and use them.
 if (_activated) then
 {
-    ["Start on safe", "Forces ACE Safety on all players when the mission starts.", "Olsen"] call FNC_RegisterModule;
+    ["Start on safe", "Forces ACE Safety on all players when the mission starts.", "Olsen"] call UO_FNC_RegisterModule;
 
     if (!isDedicated) then {
 

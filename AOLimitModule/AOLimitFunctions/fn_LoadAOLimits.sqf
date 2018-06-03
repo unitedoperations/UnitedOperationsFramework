@@ -1,4 +1,4 @@
-["AO Limit", "Allows the mission maker to set AO limits to specific sides.", "Olsen"] call FNC_RegisterModule;
+
 
 #define ANY sideLogic
 
@@ -24,6 +24,7 @@ if(!(_activated)) exitWith{};
 
 if (!isDedicated) then
 {
+["AO Limit", "Allows the mission maker to set AO limits to specific sides.", "Olsen"] call UO_FNC_RegisterModule;
 	_markers = [];
 	_west = _logic getVariable ["AOBluforMarkerArrayArgument",""];
 	_east = _logic getVariable ["AOOpforMarkerArrayArgument",""];

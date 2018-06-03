@@ -10,7 +10,7 @@ _activated = param [2,true,[true]];
 if (_activated) then
 {
 
-    ["Anti ND", "Prevents negligent discharges at spawn.", "Starfox64"] call FNC_RegisterModule;
+    ["Anti ND", "Prevents negligent discharges at spawn.", "Starfox64"] call UO_FNC_RegisterModule;
 
 	ANTI_ND_DIST _log = (_logic getVariable ["NDDistanceArgument",1])
 	ANTI_ND_TIME = (_logic getVariable ["NDTimeArgument",1])

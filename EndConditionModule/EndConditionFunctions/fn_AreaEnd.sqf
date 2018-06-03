@@ -47,7 +47,7 @@ if (_activated) then
                             "Maximum: "   + str _max +"<br/>" +
                             "Checktime: " + str _timer +"<br/>" +
                             "Typ: "  + str _text +"<br/>"
-                         , "Sacher"] call FNC_RegisterModule;
+                         , "Sacher"] call UO_FNC_RegisterModule;
 
 
 

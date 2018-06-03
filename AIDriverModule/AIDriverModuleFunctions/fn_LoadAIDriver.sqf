@@ -7,7 +7,7 @@ _activated = param [2,true,[true]];
 // Module specific behavior. Function can extract arguments from logic and use them.
 if (_activated) then
 {
-    ["AI drivers", "Adds AI commanded by players as drivers to vehicles.", "BlackHawk"] call FNC_RegisterModule;
+    ["AI drivers", "Adds AI commanded by players as drivers to vehicles.", "BlackHawk"] call UO_FNC_RegisterModule;
     private _action = ["ai_driver","Add/Remove AI driver","",{
         [_target, _player] call UO_fnc_aidriversToggle;
     },
@@ -24,5 +24,6 @@ if (_activated) then
     }] call ace_interact_menu_fnc_createAction;
 
     VEHS = (_logic getVariable ["VehiclesArgument",[]]);
+    hint (str VEHS);
     VEHS call UO_fnc_EnableAIDriver;
 };

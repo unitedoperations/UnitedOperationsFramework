@@ -9,7 +9,7 @@ _activated = param [2,true,[true]];
 // Module specific behavior. Function can extract arguments from logic and use them.
 if (_activated) then
 {
-    ["Medical Settings", "Setting medical nonsense without modules.", "TinfoilHate"] call FNC_RegisterModule;
+    ["Medical Settings", "Setting medical nonsense without modules.", "TinfoilHate"] call UO_FNC_RegisterModule;
     _medicalParam = ["MedicalType",(_logic getVariable ["ReviveArgument",1])] call BIS_fnc_getParamValue;
     if (_medicalParam == 1) then
      {

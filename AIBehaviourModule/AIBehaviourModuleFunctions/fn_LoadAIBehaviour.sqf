@@ -1,5 +1,3 @@
-
-
 _logic = param [0,objNull,[objNull]];
 // Argument 1 is list of affected units (affected by value selected in the 'class Units' argument))
 _units = param [1,[],[[]]];
@@ -10,33 +8,18 @@ _activated = param [2,true,[true]];
 // Module specific behavior. Function can extract arguments from logic and use them.
 if (_activated) then
 {
-    ["AI skill", "Allows the mission maker to change the subskills of ai", "Sacher"] call UO_FNC_RegisterModule;
-    _typeArgument = (_logic getVariable ["TypeArgument",0.8]);
+    ["AI Behaviour", "Handles various functions for AI combat behaviour.", "Sacher"] call UO_FNC_RegisterModule;
+    _typeArgument = (_logic getVariable ["TypeArgument",1]);
     _distanceArgument = (_logic getVariable ["DistanceArgument",0.8]);
-    _aimingAccuracyArgument = (_logic getVariable ["AimingAccuracyArgument",0.8]);
-    _aimingShakeArgument = (_logic getVariable ["AimingShakeArgument",0.8]);
-    _aimingSpeedArgument = (_logic getVariable ["AimingSpeedArgument",0.8]);
-    _commandingArgument = (_logic getVariable ["CommandingArgument",0.8]);
-    _courageArgument = (_logic getVariable ["CourageArgument",0.8]);
-    _reloadSpeedArgument = (_logic getVariable ["ReloadSpeedArgument",0.8]);
-    _spotDistance = (_logic getVariable ["SpotDistance",0.8]);
-    _spotTime = (_logic getVariable ["SpotTime",0.8]);
+    _minMoraleArgument = (_logic getVariable ["MinMoraleArgument",0.8]);
+    _minStanceArgument = (_logic getVariable ["MinStanceArgument",0.8]);
+    _maxMoraleArgument = (_logic getVariable ["MaxMoraleArgument",0.8]);
+    _maxStanceArgument = (_logic getVariable ["MaxStanceArgument",0.8]);
 
+    _array = [[_minMoraleArgument,_minMoraleArgument],[_maxMoraleArgument,_maxMoraleArgument]];
 
      _units = synchronizedObjects logic:
 
-    #define SETAISKILL(UNIT) \
-    UNIT setSkill ["aimingspeed" , _aimingSpeedArgument];\
-    UNIT setSkill ["spotdistance" , _spotDistance];\
-    UNIT setSkill ["aimingaccuracy" , _aimingAccuracyArgument];\
-    UNIT setSkill ["aimingshake" , _aimingShakeArgument];\
-    UNIT setSkill ["spottime" , _spotTime];\
-    UNIT setSkill ["reloadspeed" , _aimingSpeedArgument];\
-    UNIT setSkill ["commanding" , _aimingSpeedArgument];\
-    UNIT setSkill ["general" , _aimingSpeedArgument];\
-    UNIT setSkill ["courage" , _aimingSpeedArgument];
-
-    ""
     {
         switch(_type)
         {
@@ -44,12 +27,12 @@ if (_activated) then
             {
                 if(_distanceArgument == 0) then
                 {
-                    SETAISKILL(_x);
+                    [_x,_array] call UO_fnc_AICover;
                 }
                 else
                 {
                     {
-                        SETAISKILL(_x);
+                        [_x,_array] call UO_fnc_AICover;
                     }nearestObjects [getPos _x,["Man"],_distanceArgument];
                 };
 
@@ -60,7 +43,7 @@ if (_activated) then
                 {
 
                     {
-                        SETAISKILL(_x);
+                        [_x,_array] call UO_fnc_AICover;
                     }
                     forEach (units (group _x));
                 };
@@ -73,7 +56,7 @@ if (_activated) then
                     {
                         _group = _x;
                         {
-                            SETAISKILL(_x);
+                            [_x,_array] call UO_fnc_AICover;
                         }forEach (units _group);
                     }forEach _foundGroups;
                 }
@@ -84,7 +67,7 @@ if (_activated) then
                 {
                     if(side _x == side _unit) then
                     {
-                        SETAISKILL(_x);
+                        [_x,_array] call UO_fnc_AICover;
                     };
                 }forEach allUnits;
             };

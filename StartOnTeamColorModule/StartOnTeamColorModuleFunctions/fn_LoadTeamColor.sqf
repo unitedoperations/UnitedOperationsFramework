@@ -9,7 +9,7 @@ _activated = param [2,true,[true]];
 // Module specific behavior. Function can extract arguments from logic and use them.
 if (_activated) then
 {
-    ["Start on team color", "Allows the mission maker to set the team colors in squads on start.", "Olsen"] call FNC_RegisterModule;
+    ["Start on team color", "Allows the mission maker to set the team colors in squads on start.", "Olsen"] call UO_FNC_RegisterModule;
 
     if (!isDedicated) then
     {
