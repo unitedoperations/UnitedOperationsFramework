@@ -1,5 +1,5 @@
 
-	class UO_CoreBasicSetupModule: OlsenModule
+	class UO_CoreBasicSetupModule: UOModule
 	{
 		// Standard object definitions
 		scope = 2; // Editor visibility; 2 will show it in the menu, 1 will hide it.

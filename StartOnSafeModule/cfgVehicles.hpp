@@ -1,5 +1,5 @@
 
-	class UO_StartOnSafeModule: OlsenModule
+	class UO_StartOnSafeModule: UOModule
 	{
 		displayName = "Start On Safe Module"; // Name displayed in the menu
 

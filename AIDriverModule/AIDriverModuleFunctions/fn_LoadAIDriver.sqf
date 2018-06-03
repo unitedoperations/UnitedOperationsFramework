@@ -23,7 +23,6 @@ if (_activated) then
         vehicle _player == _target && ((assignedVehicleRole _player) select 0) == "Turret" && {(vectorUp _target) select 2 < 0}
     }] call ace_interact_menu_fnc_createAction;
 
-    VEHS = (_logic getVariable ["VehiclesArgument",[]]);
-    hint (str VEHS);
+    VEHS = (_logic getVariable ["VehiclesArgument",[]]) call UO_fnc_StringArrayToArray;
     VEHS call UO_fnc_EnableAIDriver;
 };

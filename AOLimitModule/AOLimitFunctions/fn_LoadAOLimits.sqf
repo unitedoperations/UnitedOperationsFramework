@@ -24,14 +24,12 @@ if(!(_activated)) exitWith{};
 
 if (!isDedicated) then
 {
-["AO Limit", "Allows the mission maker to set AO limits to specific sides.", "Olsen"] call UO_FNC_RegisterModule;
+	["AO Limit", "Allows the mission maker to set AO limits to specific sides.", "Olsen"] call UO_FNC_RegisterModule;
 	_markers = [];
-	_west = _logic getVariable ["AOBluforMarkerArrayArgument",""];
-	_east = _logic getVariable ["AOOpforMarkerArrayArgument",""];
-	_ind = _logic getVariable ["AOIndforMarkerArrayArgument",""];
-	_civ = _logic getVariable ["AOCivilianMarkerArrayArgument",""];
-
-	hint (str _west);
+	_west = (_logic getVariable ["AOBluforMarkerArrayArgument","[]"]) call UO_fnc_StringArrayToArray;
+	_east = (_logic getVariable ["AOOpforMarkerArrayArgument","[]"]) call UO_fnc_StringArrayToArray;
+	_ind = (_logic getVariable ["AOIndforMarkerArrayArgument","[]"]) call UO_fnc_StringArrayToArray;
+	_civ = (_logic getVariable ["AOCivilianMarkerArrayArgument","[]"]) call UO_fnc_StringArrayToArray;
 	{
 		ADDAOMARKER(west,_x);
 	}forEach _west;

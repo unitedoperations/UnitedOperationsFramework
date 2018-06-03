@@ -21,7 +21,7 @@ if (_activated) then
      _units = synchronizedObjects logic:
 
     {
-        switch(_type)
+        switch(_type) do
         {
             case 1:
             {
@@ -33,7 +33,7 @@ if (_activated) then
                 {
                     {
                         [_x,_array] call UO_fnc_AICover;
-                    }nearestObjects [getPos _x,["Man"],_distanceArgument];
+                    }forEach  nearestObjects [getPos _x,["Man"],_distanceArgument];
                 };
 
             };
@@ -59,7 +59,7 @@ if (_activated) then
                             [_x,_array] call UO_fnc_AICover;
                         }forEach (units _group);
                     }forEach _foundGroups;
-                }
+                };
             };
             case 3:
             {

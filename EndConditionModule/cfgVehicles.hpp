@@ -1,5 +1,5 @@
 
-	class UO_OlsenEndConditionModule: OlsenModule
+	class UO_OlsenEndConditionModule: UOModule
 	{
 		// Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
 		functionPriority = 4;

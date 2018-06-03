@@ -1,5 +1,5 @@
 
-	class UO_AISkillModule: OlsenModule
+	class UO_AISkillModule: UOModule
 	{
 
 		displayName = "AI Skill Module"; // Name displayed in the menu

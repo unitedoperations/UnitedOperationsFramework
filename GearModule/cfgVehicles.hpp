@@ -1,6 +1,6 @@
 
 
-	class UO_GearModule: OlsenModule
+	class UO_GearModule: UOModule
 	{
 		// Standard object definitions
 		scope = 2; // Editor visibility; 2 will show it in the menu, 1 will hide it.

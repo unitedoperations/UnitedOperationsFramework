@@ -1,5 +1,5 @@
 
-	class UO_AceMedicalModule: OlsenModule
+	class UO_AceMedicalModule: UOModule
 	{
 
 		displayName = "Ace Medical Module"; // Name displayed in the menu

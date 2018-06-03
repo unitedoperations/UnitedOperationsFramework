@@ -36,9 +36,9 @@ if (_activated) then
     UNIT setSkill ["general" , _aimingSpeedArgument];\
     UNIT setSkill ["courage" , _aimingSpeedArgument];
 
-    ""
+
     {
-        switch(_type)
+        switch(_type) do
         {
             case 1:
             {
@@ -50,7 +50,7 @@ if (_activated) then
                 {
                     {
                         SETAISKILL(_x);
-                    }nearestObjects [getPos _x,["Man"],_distanceArgument];
+                    }forEach nearestObjects [getPos _x,["Man"],_distanceArgument];
                 };
 
             };
@@ -61,22 +61,21 @@ if (_activated) then
 
                     {
                         SETAISKILL(_x);
-                    }
-                    forEach (units (group _x));
-                };
+                    }forEach (units (group _x));
+                }
                 else
                 {
                     _foundGroups = [];
                     {
                         _index = _foundGroups pushBackUnique (group _x);
-                    }nearestObjects [getPos _x,["Man"],_distanceArgument];
+                    }forEach nearestObjects [getPos _x,["Man"],_distanceArgument];
                     {
                         _group = _x;
                         {
                             SETAISKILL(_x);
                         }forEach (units _group);
                     }forEach _foundGroups;
-                }
+                };
             };
             case 3:
             {

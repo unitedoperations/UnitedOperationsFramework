@@ -1,5 +1,5 @@
 
-	class UO_AIDriverModule: OlsenModule
+	class UO_AIDriverModule: UOModule
 	{
 
 		displayName = "AI Driver Module"; // Name displayed in the menu
@@ -18,10 +18,10 @@
 					  class VehiclesArgument
 					  {
 						  // Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
-						  displayName = "Vehciles"; // Argument label
+						  displayName = "Vehicles"; // Argument label
 						  description = "Array of vehicles on which to enable Ai Drivers";
 						  typeName = "ARRAY"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-						  defaultValue = "30"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
+						  defaultValue = "[]"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
 					  };
 				};
 		// Module description. Must inherit from base class, otherwise pre-defined entities won't be available

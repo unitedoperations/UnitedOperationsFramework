@@ -1,5 +1,5 @@
 
-	class UO_BriefingModule: OlsenModule
+	class UO_BriefingModule: UOModule
 	{
 		displayName = "Briefing Module"; // Name displayed in the menu
 
@@ -27,7 +27,7 @@
 		// Module description. Must inherit from base class, otherwise pre-defined entities won't be available
 		class ModuleDescription: ModuleDescription
 		{
-			description = "Olsenframework Briefing Module"; // Short description, will be formatted as structured text
+			description = "United Operations Briefing Module"; // Short description, will be formatted as structured text
 			sync[] = {}; // Array of synced entities (can contain base classes)
 		};
 	};

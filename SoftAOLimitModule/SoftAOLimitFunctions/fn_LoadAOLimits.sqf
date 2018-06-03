@@ -24,10 +24,10 @@ if (_activated) then
 	// The amount of time in seconds an air based unit is allowed to stay outside the AO (-1 = Infinity)
 	FW_AOTimerAir = _logic getVariable ["UO_SoftAOLimitModule_AOTimerAir",-1];
 
-	_bluforArray = _logic getVariable ["AOBluforMarkerArray",[]];
-	_opforArray = _logic getVariable ["AOopforMarkerArray",[]];
-	_indforArray = _logic getVariable ["AOIndforMarkerArray",[]];
-	_civilianArray = _logic getVariable ["AOCivilianMarkerArray",[]];
+	_bluforArray = (_logic getVariable ["AOBluforMarkerArray",[]]) call UO_fnc_StringArrayToArray;
+	_opforArray = (_logic getVariable ["AOopforMarkerArray",[]]) call UO_fnc_StringArrayToArray;
+	_indforArray = (_logic getVariable ["AOIndforMarkerArray",[]]) call UO_fnc_StringArrayToArray;
+	_civilianArray = (_logic getVariable ["AOCivilianMarkerArray",[]]) call UO_fnc_StringArrayToArray; 
 
 	_markers = [];
 

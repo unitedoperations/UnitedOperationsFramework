@@ -1,5 +1,5 @@
 
-	class UO_AntiNDModule: OlsenModule
+	class UO_AntiNDModule: UOModule
 	{
 
 		displayName = "Anti ND Module"; // Name displayed in the menu

@@ -7,7 +7,7 @@ class CfgPatches
 		author = "Me";
 		url = "http://xkcd.com";
 		units[] = {"UO_BriefingModule","UO_SoftAOLimitModule","UO_CoreBasicSetupModule","UO_AreaEndModule","UO_CustomCodeEndModule","UO_CustomEndModule","UO_TimeLimitEndModule",
-		"UO_CasualtyPercentageEndModule","UO_AOLimitModule","UO_AceMedicalModule","UO_StartOnSafeModule"};
+		"UO_CasualtyPercentageEndModule","UO_AOLimitModule","UO_AceMedicalModule","UO_StartOnSafeModule","UO_MarkerControlModule","UO_AILinkModule","UO_AISkillModule","AntiNDModule","AIBehaviourModule","UO_BriefingModule"};
 		requiredVersion = 1.0;
 		requiredAddons[] = {"A3_Modules_F"};
 	};
@@ -17,7 +17,7 @@ class CfgFactionClasses
 	class NO_CATEGORY;
 	class UO_FrameworkCategory: NO_CATEGORY
 	{
-			displayName = "Olsenframework";
+			displayName = "United Operations Framework";
 	};
 };
 
@@ -38,6 +38,7 @@ class CfgFunctions
 		    #include "BriefingModule\cfgFunctions.hpp"
 			#include "EndConditionModule\cfgFunctions.hpp"
 			#include "GearModule\cfgFunctions.hpp"
+			#include "MarkerControlModule\cfgFunctions.hpp"
 			#include "SoftAOLimitModule\cfgFunctions.hpp"
 			#include "StartOnSafeModule\cfgFunctions.hpp"
 			#include "StartOnTeamColorModule\cfgFunctions.hpp"
@@ -50,7 +51,7 @@ class CfgVehicles
 	{
 		class ModuleDescription;
 	};
-    class OlsenModule: Module_F
+    class UOModule: Module_F
 	{
 		category = "UO_FrameworkCategory";
 		 // 0 for server only execution, 1 for global execution, 2 for persistent global execution
@@ -76,6 +77,7 @@ class CfgVehicles
 	#include "BriefingModule\cfgVehicles.hpp"
 	#include "EndConditionModule\cfgVehicles.hpp"
 	#include "GearModule\cfgVehicles.hpp"
+	#include "MarkerControlModule\cfgVehicles.hpp"
 	#include "SoftAOLimitModule\cfgVehicles.hpp"
 	#include "StartOnSafeModule\cfgVehicles.hpp"
 	#include "StartOnTeamColorModule\cfgVehicles.hpp"

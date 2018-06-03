@@ -1,5 +1,5 @@
 
-	class UO_StartOnTeamColorModule: OlsenModule
+	class UO_StartOnTeamColorModule: UOModule
 	{
 		displayName = "Start On Team Color Module"; // Name displayed in the menu
 

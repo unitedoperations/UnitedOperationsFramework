@@ -1,5 +1,5 @@
 
-	class UO_SoftAOLimitModule: OlsenModule
+	class UO_SoftAOLimitModule: UOModule
 	{
 
 		displayName = "Soft AO Limit Module"; // Name displayed in the menu
@@ -39,7 +39,7 @@
 						displayName = "Blufor markers"; // Argument label
 						description = "Array of Marker names in quotes for Blufor"; // description description
 						typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-						defaultValue = ""; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
+						defaultValue = "[]"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
 						control = "EditArray";
 					};
 					class AOOpforMarkerArrayArgument
@@ -48,7 +48,7 @@
 						displayName = "Opfor markers"; // Argument label
 						description = "Array of Marker names in quotes for Opfor"; // description description
 						typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-						defaultValue = ""; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
+						defaultValue = "[]"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
 						control = "EditArray";
 					};
 					class AOIndforMarkerArrayArgument
@@ -57,7 +57,7 @@
 						displayName = "Indfor markers"; // Argument label
 						description = "Array of Marker names in quotes for Indfor"; // description description
 						typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-						defaultValue = ""; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
+						defaultValue = "[]"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
 						control = "EditArray";
 					};
 					class AOCivilianMarkerArrayArgument
@@ -67,7 +67,7 @@
 						displayName = "Civilian markers"; // Argument label
 						description = "Array of Marker names in quotes for Civilian"; // description description
 						typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-						defaultValue = ""; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
+						defaultValue = "[]"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
 						control = "EditArray";
 					};
 				};
