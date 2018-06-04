@@ -1,4 +1,4 @@
-params ["_unit","_down","_up"];	//[OBJECT,[0.5,"DOWN"],[0.6,"MIDDLE"]] call FNC_aiCover;
+params ["_unit","_down","_up"];	//[OBJECT,[0.5,"DOWN"],[0.6,"MIDDLE"]] callUO_FNC_aiCover;
 
 if (!local _unit) exitWith {};
 

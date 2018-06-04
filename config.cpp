@@ -40,6 +40,7 @@ class CfgFunctions
 			#include "EndConditionModule\cfgFunctions.hpp"
 			#include "GearModule\cfgFunctions.hpp"
 			#include "MarkerControlModule\cfgFunctions.hpp"
+			#include "SetupTimerModule\cfgFunctions.hpp"
 			#include "SoftAOLimitModule\cfgFunctions.hpp"
 			#include "StartOnSafeModule\cfgFunctions.hpp"
 			#include "StartOnTeamColorModule\cfgFunctions.hpp"
@@ -80,6 +81,7 @@ class CfgVehicles
 	#include "EndConditionModule\cfgVehicles.hpp"
 	#include "GearModule\cfgVehicles.hpp"
 	#include "MarkerControlModule\cfgVehicles.hpp"
+	#include "SetupTimerModule\cfgVehicles.hpp"
 	#include "SoftAOLimitModule\cfgVehicles.hpp"
 	#include "StartOnSafeModule\cfgVehicles.hpp"
 	#include "StartOnTeamColorModule\cfgVehicles.hpp"
@@ -91,12 +93,15 @@ class cfgRscTitles
 
 	 #include "SoftAOLimitModule\cfgRscTitles.hpp"
 	 #include "Core\cfgRscTitles.hpp"
+	 #include "SetupTimerModule\RscSetupTimer.hpp"
+
 };
 
 class CfgNotifications
 {
 
 	#include "SoftAOLimitModule\cfgNotifications.hpp"
+	 #include "SetupTimerModule\CfgNotifications.hpp"
 
 };
 class CfgDebriefingSections

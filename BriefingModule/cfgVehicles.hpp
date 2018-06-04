@@ -20,7 +20,7 @@
 						displayName = "Filepath to Briefing"; // Argument label
 						description = "Filepath to the Briefing file from the mission root folder"; // description description
 						typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-						defaultValue = "briefing.sqf"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
+						defaultValue = """briefing.sqf"""; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
 					};
 				};
 

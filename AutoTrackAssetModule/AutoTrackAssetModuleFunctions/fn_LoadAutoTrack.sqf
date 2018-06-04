@@ -7,7 +7,7 @@ _activated = param [2,true,[true]];
 // Module specific behavior. Function can extract arguments from logic and use them.
 if (_activated) then
 {
-    ["Auto Track Assets", "Automatically runs FNC_TrackAsset on AI vehicles.", "Starfox64"] call UO_FNC_RegisterModule;
+    ["Auto Track Assets", "Automatically runsUO_FNC_TrackAsset on AI vehicles.", "Starfox64"] call UO_FNC_RegisterModule;
 
     private ["_vehicle", "_vehCfg"];
     if(isServer) then

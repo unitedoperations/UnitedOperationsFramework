@@ -10,7 +10,7 @@ _activated = param [2,true,[true]];
 // Module specific behavior. Function can extract arguments from logic and use them.
 if (_activated) then
 {
-    ["Marker Control", "Allows the mission maker to create markers visible to a single side.", "Olsen"] call FNC_RegisterModule;
+    ["Marker Control", "Allows the mission maker to create markers visible to a single side.", "Olsen"] call UO_FNC_RegisterModule;
 
 
     	_west = (_logic getVariable ["BluforMarkerArgument","[]"]) call UO_fnc_StringArrayToArray;
@@ -33,7 +33,7 @@ if (_activated) then
     	_markers set [count _markers, [SIDE, NAME, DELETE_AFTER_START]]; \
     } else { \
     	_temp = format ["Marker control module:<br></br>Warning marker ""%1"", in file ""modules\marker control\settings.sqf"" does not exist.", NAME]; \
-    	_temp call FNC_DebugMessage; \
+    	_temp callUO_FNC_DebugMessage; \
     };
 
     if (!isDedicated) then

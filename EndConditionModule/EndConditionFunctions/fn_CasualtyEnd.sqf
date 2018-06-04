@@ -13,11 +13,11 @@ if (_activated) then
     _message = missionNamespace getVariable ["AreaMessageArgument",""];
     while {!FW_MissionEnded} do
     {
-        _casualty = _faction call FNC_CasualtyPercentage; //Gets the casualty percentage of team "VDV"
+        _casualty = _faction callUO_FNC_CasualtyPercentage; //Gets the casualty percentage of team "VDV"
 
         if (_casualty >= _percentage) exitWith
         {
-             _message call FNC_EndMission;
+             _message callUO_FNC_EndMission;
         };
         sleep(_timer);
     };

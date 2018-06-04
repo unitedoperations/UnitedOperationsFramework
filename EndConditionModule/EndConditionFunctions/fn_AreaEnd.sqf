@@ -92,19 +92,19 @@ if (_activated) then
     if(_objectString == "") exitWith
     {
         _temp = format ["Are EndCondition module:<br></br>Warning gamelogic ""%1"" is empty.", _objectString];
-    	_temp call FNC_DebugMessage;
+    	_temp callUO_FNC_DebugMessage;
     };
     _gameLogic = missionNamespace getVariable [_objectString,null];
     if(isNull _gameLogic) exitWith
     {
         _temp = format ["Are EndCondition module:<br></br>Warning gamelogic ""%1"" does not exist.", _objectString];
-    	_temp call FNC_DebugMessage;
+    	_temp callUO_FNC_DebugMessage;
     };
 
 
     while {!FW_MissionEnded} do
     {
-        _ammount = [_side,300,_gameLogic] call FNC_AreaCount;
+        _ammount = [_side,300,_gameLogic] callUO_FNC_AreaCount;
         if([_ammount,_min,_max] call TEMPFNC_conditionCheck) exitWith
         {
             _message call UO_fnc_EndMission;
