@@ -19,26 +19,26 @@
 					{
 						// Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
 						displayName = "Blufor markers"; // Argument label
-						description = "Array of Marker names in quotes for Blufor"; // description description
+						description = "Marker names in quotes for Blufor. Seperated by ,"; // description description
 						typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-						defaultValue = "[]"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
+						defaultValue = ""; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
 					};
 					class AOOpforMarkerArrayArgument
 					{
 						// Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
 						displayName = "Opfor markers"; // Argument label
-						description = "Array of Marker names in quotes for Opfor"; // description description
+						description = "Marker names in quotes for Opfor. Seperated by ,"; // description description
 						typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-						defaultValue = "[]"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
+						defaultValue = ""; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
 
 					};
 					class AOIndforMarkerArrayArgument
 					{
 						// Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
 						displayName = "Indfor markers"; // Argument label
-						description = "Array of Marker names in quotes for Indfor"; // description description
+						description = "Marker names in quotes for Indfor. Seperated by ,"; // description description
 						typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-						defaultValue = "[]"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
+						defaultValue = ""; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
 
 					};
 					class AOCivilianMarkerArrayArgument
@@ -46,9 +46,9 @@
 						// Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
 						property = "AOCivilianMarkerArray";
 						displayName = "Civilian markers"; // Argument label
-						description = "Array of Marker names in quotes for Civilian"; // description description
+						description = "Marker names in quotes for Civilian. Seperated by ,"; // description description
 						typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-						defaultValue = "[]"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
+						defaultValue = ""; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
 
 					};
 				};
@@ -56,6 +56,6 @@
 		class ModuleDescription: ModuleDescription
 		{
 			description = "Olsenframework AO Limit Module"; // Short description, will be formatted as structured text
-			sync[] = {}; // Array of synced entities (can contain base classes)
+			sync[] = {}; // synced entities (can contain base classes)
 		};
 	};

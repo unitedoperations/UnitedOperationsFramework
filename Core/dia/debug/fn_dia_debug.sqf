@@ -18,7 +18,7 @@ if (!isDedicated) then {
 
 		} forEach FW_DebugMessages;
 
-		((uiNamespace getVariable "FW_Debug") displayCtrl _someText) ctrlSetStructuredText parseText _text;
+		(400 displayCtrl _someText) ctrlSetStructuredText parseText _text;
 
 	};
 };

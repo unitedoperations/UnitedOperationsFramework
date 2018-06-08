@@ -10,7 +10,7 @@ _activated = param [2,true,[true]];
 if (_activated) then
 {
 	enableSaving [false, false];
-
+	player createDiarySubject ["FW_Modules", "UO Framework Modules"];
 	//from preinit
 	FW_DebugMessages = [];
 	FW_Modules = [];
@@ -120,7 +120,7 @@ if (_activated) then
 	 {
 
 	 	FW_DebugMessagesEnabled = (_logic getVariable ["EnableDebugArgument",true]); //Only disable debug messages when the mission is released
-
+		"" call UO_fnc_dia_debug;
 	 	setViewDistance (_logic getVariable ["ViewDistancePlayerArgument",""]); //View distance for the player
 
 	 	//call UO_fnc_forceTerrainGrid; //uncomment this to force high terrain setting. This will prevent faraway objects from appearing as floating. Useful for missions with long sightlines.

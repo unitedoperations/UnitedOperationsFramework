@@ -14,8 +14,10 @@
 
 params["_string"];
 
-if(typeName _string == "STRING") then
+if(typeName _string == "STRING" && ((count _string) > 0) ) then
 {
+    if(_string select [0,1] != "[") then {_string = "["+_string;};
+    if(_string select [count _string -1,1] != "[") then {_string = _string + "]";};
     call compile  _string
 }else
 {

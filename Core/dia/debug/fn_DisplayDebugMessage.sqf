@@ -1,6 +1,7 @@
 private ["_someText", "_message", "_found", "_text"];
-
+hint "ok";
 if (!isDedicated || !FW_DebugMessagesEnabled) exitWith {};
+hint "ok2";
 _someText = 4001;
 
 _message = _this;
@@ -29,6 +30,6 @@ if (!_found) then {
 
 	} forEach FW_DebugMessages;
 
-	((uiNamespace getVariable "FW_Debug") displayCtrl _someText) ctrlSetStructuredText parseText _text;
+	(400 displayCtrl _someText) ctrlSetStructuredText parseText _text;
 
 };

@@ -19,73 +19,73 @@
 				  {
 					  // Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
 					  displayName = "Blufor Markers"; // Argument label
-					  description = "Markers which only Blufor can see";
+					  description = "Markers which only Blufor can see. Seperated by ,";
 					  typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-					  defaultValue = "[]"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
+					  defaultValue = ""; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
 				  };
 				  class BluforBriefingMarkerArgument
 				  {
 					  // Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
 					  displayName = "Blufor Briefing Markers"; // Argument label
-					  description = "Markers which only Blufor while briefing can see";
+					  description = "Markers which only Blufor while briefing can see. Seperated by ,";
 					  typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-					  defaultValue = "[]"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
+					  defaultValue = ""; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
 				  };
 				  class OpforMarkerArgument
 				  {
 					  // Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
 					  displayName = "Opfor Markers"; // Argument label
-					  description = "Markers which only Opfor can see";
+					  description = "Markers which only Opfor can see. Seperated by ,";
 					  typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-					  defaultValue = "[]"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
+					  defaultValue = ""; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
 				  };
 				  class OpforBriefingMarkerArgument
 				  {
 					  // Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
 					  displayName = "Opfor Briefing Markers"; // Argument label
-					  description = "Markers which only Opfor while briefing can see";
+					  description = "Markers which only Opfor while briefing can see. Seperated by ,";
 					  typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-					  defaultValue = "[]"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
+					  defaultValue = ""; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
 				  };
 				  class IndforMarkerArgument
 				  {
 					  // Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
 					  displayName = "Indfor Markers"; // Argument label
-					  description = "Markers which only Indfor can see";
+					  description = "Markers which only Indfor can see. Seperated by ,";
 					  typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-					  defaultValue = "[]"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
+					  defaultValue = ""; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
 				  };
 				  class IndforBriefingMarkerArgument
 				  {
 					  // Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
 					  displayName = "Indfor Briefing Markers"; // Argument label
-					  description = "Markers which only Indfor while briefing can see";
+					  description = "Markers which only Indfor while briefing can see. Seperated by ,";
 					  typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-					  defaultValue = "[]"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
+					  defaultValue = ""; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
 				  };
 				  class CivilianMarkerArgument
 				  {
 					  // Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
 					  displayName = "Civilian Markers"; // Argument label
-					  description = "Markers which only Civilian can see";
+					  description = "Markers which only Civilian can see. Seperated by ,";
 					  typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-					  defaultValue = "[]"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
+					  defaultValue = ""; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
 				  };
 				  class CivilianBriefingMarkerArgument
 				  {
 					  // Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
 					  displayName = "Civilian Briefing Markers"; // Argument label
-					  description = "Markers which only Civilian while briefing can see";
+					  description = "Markers which only Civilian while briefing can see. Seperated by ,";
 					  typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-					  defaultValue = "[]"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
+					  defaultValue = ""; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
 				  };
 				  class NooneMarkerArgument
 				  {
 					  // Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
 					  displayName = "Invisible Markers"; // Argument label
-					  description = "Markers noone can see";
+					  description = "Markers noone can see. Seperated by ,";
 					  typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-					  defaultValue = "[]"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
+					  defaultValue = ""; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
 				  };
 
 				};
