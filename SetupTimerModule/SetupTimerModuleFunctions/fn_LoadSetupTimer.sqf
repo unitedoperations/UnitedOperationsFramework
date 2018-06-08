@@ -23,14 +23,14 @@ if (_activated) then
         	FW_setup_start_Markers set [count _markers, [SIDE, TIME, NAME]]; \
         } else { \
         	_temp = format ["Setup timer module:<br></br>Warning marker ""%1"", in file ""modules\setup timer\settings.sqf"" does not exist.", NAME]; \
-        	_temp callUO_FNC_DebugMessage; \
+        	_temp call UO_FNC_DebugMessage; \
         };
 
         private _aborted = false;
         if (!isMultiplayer) then
         {
         	_aborted = true;
-        	"Setup Timer: Singleplayer session detected, this module will function only in multiplayer." callUO_FNC_DebugMessage;
+        	"Setup Timer: Singleplayer session detected, this module will function only in multiplayer." call UO_FNC_DebugMessage;
         };
 
         if (isServer) then
@@ -80,7 +80,7 @@ if (_activated) then
         			};
 
         			{
-        				if (((_x select 0) == (side player)) && [(vehicle player), (_x select 2)] callUO_FNC_InArea) then {
+        				if (((_x select 0) == (side player)) && [(vehicle player), (_x select 2)] call UO_FNC_InArea) then {
 
         					_marker = [(_x select 1), (_x select 2)];
 
@@ -98,7 +98,7 @@ if (_activated) then
 
         				_vehicle = (vehicle player);
 
-        				if ([_vehicle, (_marker select 1)] callUO_FNC_InArea) then {
+        				if ([_vehicle, (_marker select 1)] call UO_FNC_InArea) then {
 
         					_pos = getPosATL _vehicle;
 

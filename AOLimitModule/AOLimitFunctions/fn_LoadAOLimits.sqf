@@ -7,7 +7,7 @@ if !(markerType NAME == "") then { \
 	_markers set [count _markers, [SIDE, NAME]]; \
 } else { \
 	_temp = format ["AO limit module:<br></br>Warning marker ""%1"", in file ""modules\ao limit\settings.sqf"" does not exist.", NAME]; \
-	_temp callUO_FNC_DebugMessage; \
+	_temp call UO_FNC_DebugMessage; \
 };
 
 
@@ -57,7 +57,7 @@ if (!isDedicated) then
 				if ((_x select 0) == (side player) || (_x select 0) == ANY) then {
 					_markers set [count _markers, (_x select 1)];
 
-					if ([_vehicle, (_x select 1)] callUO_FNC_InArea) then {
+					if ([_vehicle, (_x select 1)] call UO_FNC_InArea) then {
 						_allowedOutside = false;
 					};
 				};
@@ -72,13 +72,13 @@ if (!isDedicated) then
 					_outSide = true;
 
 					{
-						if ([_vehicle, _x] callUO_FNC_InArea) exitWith {
+						if ([_vehicle, _x] call UO_FNC_InArea) exitWith {
 							_outSide = false;
 						};
 					} forEach _markers;
 
 					if (_outside) then {
-						if (!(_allowedOutside) && (_vehicle callUO_FNC_Alive)) then {
+						if (!(_allowedOutside) && (_vehicle call UO_FNC_Alive)) then {
 							_vehicle setPos _pos;
 						};
 					} else {

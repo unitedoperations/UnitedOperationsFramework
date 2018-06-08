@@ -90,7 +90,7 @@ if (_activated) then
 
     while {!FW_MissionEnded} do
     {
-        _ammount = [_side,300,_logic] callUO_FNC_AreaCount;
+        _ammount = [_side,300,_logic] call UO_FNC_AreaCount;
         if([_ammount,_min,_max] call TEMPFNC_conditionCheck) exitWith
         {
             _message call UO_fnc_EndMission;
