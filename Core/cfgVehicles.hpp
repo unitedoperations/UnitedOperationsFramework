@@ -77,7 +77,7 @@
 					{
 						// Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
 
-						displayName = "Opfor Player Faction Name "; // Argument label
+						displayName = "Opfor AI Faction Name "; // Argument label
 						description = "Faction name for Opfor AI Side, Empty for disable"; // description description
 						typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 						defaultValue = ""; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
@@ -104,7 +104,7 @@
 					{
 						// Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
 
-						displayName = "Indfor Player Faction Name "; // Argument label
+						displayName = "Indfor AI Faction Name "; // Argument label
 						description = "Faction name for Indfor AI Side, Empty for disable"; // description description
 						typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 						defaultValue = ""; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
@@ -122,7 +122,7 @@
 					{
 						// Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
 
-						displayName = "Blufor Player Faction Name "; // Argument label
+						displayName = "Civilian Player Faction Name "; // Argument label
 						description = "Faction name for Civilian Player Side, Empty for disable"; // description description
 						typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 						defaultValue = ""; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
@@ -131,7 +131,7 @@
 					{
 						// Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
 
-						displayName = "Civilian Player Faction Name "; // Argument label
+						displayName = "Civilian AI Faction Name "; // Argument label
 						description = "Faction name for Civilian AI Side, Empty for disable"; // description description
 						typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 						defaultValue = ""; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)

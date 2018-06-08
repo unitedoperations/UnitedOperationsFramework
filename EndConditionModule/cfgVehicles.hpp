@@ -230,7 +230,7 @@
 			   displayName = "Faction Name"; // Argument label
 			   description = "Name of the faction which should be checked"; // description description
 			   typeName = "Number"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-			   defaultValue = "120"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
+			   defaultValue = ""; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
 		   };
 		   class PercentageArgument
 		   {

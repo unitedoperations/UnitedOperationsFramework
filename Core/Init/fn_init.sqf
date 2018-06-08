@@ -11,6 +11,10 @@ if (_activated) then
 {
 	enableSaving [false, false];
 
+	//from preinit
+	FW_DebugMessages = [];
+	FW_Modules = [];
+
 	if (isServer) then
 	{
 
