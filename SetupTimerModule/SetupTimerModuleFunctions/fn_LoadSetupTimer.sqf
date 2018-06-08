@@ -12,7 +12,7 @@ if (_activated) then
 {
 
         _sides = [west,east,resistance,civilian];
-        _selectedSide = _sides select ((_logic getVariable ["SideSelectArgument",1]) - 1);
+        _selectedSide = _sides select ((_logic getVariable ["SideSelectArgument",1]));
         _time = _logic getVariable ["TimeArgument",300];
         _marker = _logic getVariable ["MarkerArgument",""];
 

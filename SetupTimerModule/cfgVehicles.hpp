@@ -19,10 +19,10 @@
 					 typeName = "NUMBER";
 					 class values
 					  {
-						 class West    {name = "West"; value = 1; default = 1;};
-						 class East    {name = "East"; value = 2;};
-						 class Ind    {name = "Independent"; value = 3;};
-						 class Civ    {name = "Civilian"; value = 4;};
+						 class West    {name = "West"; value = 0; default = 0;};
+						 class East    {name = "East"; value = 1;};
+						 class Ind    {name = "Independent"; value = 2;};
+						 class Civ    {name = "Civilian"; value = 3;};
 					 };
 				 };
 					// Arguments shared by specific module type (have to be mentioned in order to be present)

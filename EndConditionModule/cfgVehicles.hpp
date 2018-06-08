@@ -41,14 +41,6 @@
 				   class Civ    {name = "Civilian"; value = 4;};
 			   };
 		   };
-		   class AreaGameLogicArgument
-		   {
-			   // Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
-			   displayName = "Distance"; // Argument label
-			   description = "Distance as radius from gameLogic"; // description description
-			   typeName = "NUMBER"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-			   defaultValue = "300"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
-		   };
 		   class AreaDistanceArgument
 		   {
 			   // Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
@@ -109,6 +101,7 @@
 		{
 			description = "Olsenframework Area End Condition"; // Short description, will be formatted as structured text
 			sync[] = {}; // Array of synced entities (can contain base classes)
+			position = 1;
 		};
 	};
 	class UO_CustomEndModule: UO_OlsenEndConditionModule
