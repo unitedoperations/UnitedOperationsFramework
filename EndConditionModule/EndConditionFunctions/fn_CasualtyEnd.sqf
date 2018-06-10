@@ -7,20 +7,21 @@ _activated = param [2,true,[true]];
 // Module specific behavior. Function can extract arguments from logic and use them.
 if (_activated) then
 {
-    _timer =_logic getVariable ["AreaEndCheckTimeArgument",60];
-    _faction =_logic getVariable ["FactionNameArgument",""];
-    _percentage =_logic getVariable ["PercentageArgument",80];
-    _message = missionNamespace getVariable ["AreaMessageArgument",""];
-    while {!FW_MissionEnded} do
+    if(isServer) then
     {
-        _casualty = _faction call UO_FNC_CasualtyPercentage; //Gets the casualty percentage of team "VDV"
-
-        if (_casualty >= _percentage) exitWith
+        _timer =_logic getVariable ["EndCheckTimeArgument",60];
+        _faction =_logic getVariable ["FactionNameArgument","DefaultString"];
+        _percentage =_logic getVariable ["PercentageArgument",80];
+        _message = _logic getVariable ["MessageArgument","DefaultString"];
+        while {!FW_MissionEnded} do
         {
-             _message call UO_FNC_EndMission;
+            _casualty = _faction call UO_FNC_CasualtyPercentage; //Gets the casualty percentage of team "VDV"
+            
+            if (_casualty >= _percentage) exitWith
+            {
+                (format [_message]) call UO_FNC_EndMission;
+            };
+            sleep(_timer);
         };
-        sleep(_timer);
     };
-
-
 };

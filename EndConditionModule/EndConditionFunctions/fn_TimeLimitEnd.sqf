@@ -7,19 +7,23 @@ _activated = param [2,true,[true]];
 // Module specific behavior. Function can extract arguments from logic and use them.
 if (_activated) then
 {
-    _message =_logic getVariable ["MessageArgument",""];
-    _limit =_logic getVariable ["TimeLimitArgument",60];
-
-    FW_TimeLimit = _limit;
-
-    while {!FW_MissionEnded} do
+    if(isServer) then
     {
-        if ((time / 60) >= FW_TimeLimit && FW_TimeLimit != 0) exitWith { //It is recommended that you do not remove the time limit end condition
+        _message =_logic getVariable ["MessageArgument","DefaultString"];
+        _limit =_logic getVariable ["TimeLimitArgument",60];
 
-            _message call UO_fnc_EndMission;
+        FW_TimeLimit = _limit;
 
+        while {!FW_MissionEnded} do
+        {
+            if ((time / 60) >= FW_TimeLimit && FW_TimeLimit != 0) exitWith { //It is recommended that you do not remove the time limit end condition
+
+                (format [_message]) call UO_fnc_EndMission;
+
+            };
+            sleep(60);
         };
-        sleep(60);
     };
+
 
 };

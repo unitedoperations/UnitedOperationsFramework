@@ -6,31 +6,6 @@ _activated = param [2,true,[true]];
 
 // Module specific behavior. Function can extract arguments from logic and use them.
 
-_side =_logic getVariable ["AreaEndSideSelectArgument",5];
-switch (_side) do
-{
-    case 1: { _side = west; };
-    case 2: { _side = east; };
-    case 3: { _side = resistance; };
-    case 4: { _side = civilian; };
-    default { hint "Are End Side Failure"; if(true) exitWith{}; };
-};
-
-_min =_logic getVariable ["AreaMinArgument",0];
-_max =_logic getVariable ["AreaMaxArgument",0];
-_distance =_logic getVariable ["AreaDistanceArgument",300];
-_type =_logic getVariable ["AreaTypeArgument",1];
-_timer =_logic getVariable ["AreaEndCheckTimeArgument",60];
-_message = missionNamespace getVariable ["AreaMessageArgument",""];
-_text = "";
-switch (_type) do
-{
-    case 1: { _text = "Min <= ammountOfUnits <= Max" ;};
-    case 2: { _text = "Min < ammountOfUnits < Max" ; };
-    case 3: { _text = "ammountOfUnits <= min || max <= ammountOfUnits" ;};
-    case 4: { _text = "ammountOfUnits < min || max < ammountOfUnits" ; };
-    default { hint "Are End Side Failure"; if(true) exitWith{}; };
-};
 
 
 
@@ -38,63 +13,91 @@ switch (_type) do
 
 if (_activated) then
 {
-
-
-["Are Endcondition Module",
-                            "Distance: "  + str _distance +"<br/>" +
-                            "Minimum: "   + str _min +"<br/>" +
-                            "Maximum: "   + str _max +"<br/>" +
-                            "Checktime: " + str _timer +"<br/>" +
-                            "Typ: "  + str _text +"<br/>"
-                         , "Sacher"] call UO_FNC_RegisterModule;
-
-
-
-    TEMPFNC_conditionCheck ={};
-    switch (_type) do
+    if(isServer) then
     {
-        case 1:
+        _side =_logic getVariable ["AreaEndSideSelectArgument",5];
+        switch (_side) do
         {
-            TEMPFNC_conditionCheck =
-            {
-                _result = (_this select 1) <= (_this select 0) &&(_this select 0) <= (_this select 2);
-                _result
-            };
+            case 1: { _side = west; };
+            case 2: { _side = east; };
+            case 3: { _side = resistance; };
+            case 4: { _side = civilian; };
+            default { hint "Are End Side Failure"; if(true) exitWith{}; };
         };
-        case 2:
+
+        _min =_logic getVariable ["AreaMinArgument",0];
+        _max =_logic getVariable ["AreaMaxArgument",0];
+        _distance =_logic getVariable ["AreaDistanceArgument",300];
+        _type =_logic getVariable ["AreaTypeArgument",1];
+        _timer =_logic getVariable ["EndCheckTimeArgument",60];
+        _message = _logic getVariable ["MessageArgument","DefaultString"];
+        _text = "";
+        switch (_type) do
         {
-            TEMPFNC_conditionCheck =
-            {
-                _result = (_this select 1) < (_this select 0) &&(_this select 0) < (_this select 2);
-                _result
-            };
+            case 1: { _text = "Min <= ammountOfUnits <= Max" ;};
+            case 2: { _text = "Min < ammountOfUnits < Max" ; };
+            case 3: { _text = "ammountOfUnits <= min || max <= ammountOfUnits" ;};
+            case 4: { _text = "ammountOfUnits < min || max < ammountOfUnits" ; };
+            default { hint "Are End Side Failure"; if(true) exitWith{}; };
         };
-        case 3:
+
+        ["Are Endcondition Module",
+        "Distance: "  + (str _distance) +"<br/>" +
+        "Minimum: "   + (str _min) +"<br/>" +
+        "Maximum: "   + (str _max) +"<br/>" +
+        "Checktime: " + (str _timer) +"<br/>" +
+        "Typ: "  + (str _text) +"<br/>"
+        , "Sacher"] call UO_FNC_RegisterModule;
+
+
+
+        TEMPFNC_conditionCheck ={};
+        switch (_type) do
         {
-            TEMPFNC_conditionCheck =
+            case 1:
             {
-                _result = (_this select 1) >= (_this select 0) &&(_this select 0) >= (_this select 2);
-                _result
+                TEMPFNC_conditionCheck =
+                {
+                    _result = (_this select 1) <= (_this select 0) &&(_this select 0) <= (_this select 2);
+                    _result
+                };
             };
+            case 2:
+            {
+                TEMPFNC_conditionCheck =
+                {
+                    _result = (_this select 1) < (_this select 0) &&(_this select 0) < (_this select 2);
+                    _result
+                };
+            };
+            case 3:
+            {
+                TEMPFNC_conditionCheck =
+                {
+                    _result = (_this select 1) >= (_this select 0) &&(_this select 0) >= (_this select 2);
+                    _result
+                };
+            };
+            case 4:
+            {
+                TEMPFNC_conditionCheck =
+                {
+                    _result = (_this select 1) > (_this select 0) &&(_this select 0) > (_this select 2);
+                    _result
+                };
+            };
+            default { hint "Are End Side Failure" };
         };
-        case 4:
+
+        while {!FW_MissionEnded} do
         {
-            TEMPFNC_conditionCheck =
+            _ammount = [_side,_distance,_logic] call UO_FNC_AreaCount;
+            if([_ammount,_min,_max] call TEMPFNC_conditionCheck) exitWith
             {
-                _result = (_this select 1) > (_this select 0) &&(_this select 0) > (_this select 2);
-                _result
+                (format [_message]) call UO_fnc_EndMission;
             };
+            sleep(_timer);
         };
-        default { hint "Are End Side Failure" };
     };
 
-    while {!FW_MissionEnded} do
-    {
-        _ammount = [_side,300,_logic] call UO_FNC_AreaCount;
-        if([_ammount,_min,_max] call TEMPFNC_conditionCheck) exitWith
-        {
-            _message call UO_fnc_EndMission;
-        };
-        sleep(_timer);
-    };
 };

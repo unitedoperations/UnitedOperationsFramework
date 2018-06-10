@@ -4,7 +4,7 @@
 		// Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
 		functionPriority = 4;
 		// 0 for server only execution, 1 for global execution, 2 for persistent global execution
-		isGlobal = 0;
+		isGlobal = 2;
 		// 1 for module waiting until all synced triggers are activated
 		isTriggerActivated = 0;
 		// 1 if modules is to be disabled once it's activated (i.e., repeated trigger activation won't work)
@@ -49,7 +49,7 @@
 			   typeName = "NUMBER"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 			   defaultValue = "300"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
 		   };
-		   class AreaMessageArgument
+		   class MessageArgument
 		  {
 			  // Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
 			  displayName = "Message"; // Argument label
@@ -87,7 +87,7 @@
  			  };
 		   };
 			// Module specific arguments
-			class AreaEndCheckTimeArgument
+			class EndCheckTimeArgument
 			{
 				// Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
 				displayName = "Checktime"; // Argument label
@@ -128,7 +128,7 @@
 			   typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 			   defaultValue = "Message to end the mission with"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
 		   };
-		   class AreaEndCheckTimeArgument
+		   class EndCheckTimeArgument
 		   {
 			   // Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
 			   displayName = "Checktime"; // Argument label
@@ -156,11 +156,11 @@
 		   {
 			   // Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
 			   displayName = "Code"; // Argument label
-			   description = "Code to execute"; // description description
+			   description = "Path to file to execute"; // description description
 			   typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 			   defaultValue = ""; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
 		   };
-		   class AreaEndCheckTimeArgument
+		   class EndCheckTimeArgument
 		   {
 			   // Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
 			   displayName = "Checktime"; // Argument label
@@ -229,7 +229,7 @@
 			   // Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
 			   displayName = "Faction Name"; // Argument label
 			   description = "Name of the faction which should be checked"; // description description
-			   typeName = "Number"; // Value type, can be "NUMBER", "STRING" or "BOOL"
+			   typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 			   defaultValue = ""; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
 		   };
 		   class PercentageArgument
@@ -248,7 +248,7 @@
 			   typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 			   defaultValue = "Message to end the mission with"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
 		   };
-		   class AreaEndCheckTimeArgument
+		   class EndCheckTimeArgument
 		   {
 			   	// Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
 			   	displayName = "Checktime"; // Argument label

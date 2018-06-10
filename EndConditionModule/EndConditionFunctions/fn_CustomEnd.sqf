@@ -7,11 +7,11 @@ _activated = param [2,true,[true]];
 // Module specific behavior. Function can extract arguments from logic and use them.
 if (_activated) then
 {
-    _code =_logic getVariable ["CustomCodeArgument",""];
-    _message =_logic getVariable ["MessageArgument",""];
-    _timer =_logic getVariable ["AreaEndCheckTimeArgument",60];
+    _code =_logic getVariable ["CustomCodeArgument","DefaultString"];
+    _message =_logic getVariable ["MessageArgument","DefaultString"];
+    _timer =_logic getVariable ["EndCheckTimeArgument",60];
 
-    _cond = "if(" + _code + ") then { """ + _message + """ call UO_fnc_EndMission;};";
+    _cond = "if(" + _code + ") then { """ + (format [_message]) + " call UO_fnc_EndMission;};";
     _exec = compile _cond;  // compile ur string to function
     while {!FW_MissionEnded} do
     {

@@ -18,16 +18,16 @@ _activated = param [2,true,[true]];
 // Module specific behavior. Function can extract arguments from logic and use them.
 if (_activated) then
 {
-["Soft AO Limit", "Allows the mission maker to set AO limits to specific sides.", "Olsen &amp; Starfox64"] call UO_fnc_RegisterModule;
+	["Soft AO Limit", "Allows the mission maker to set AO limits to specific sides.", "Olsen &amp; Starfox64"] call UO_fnc_RegisterModule;
 	// The amount of time in seconds a land based unit is allowed to stay outside the AO (-1 = Infinity)
 	FW_AOTimer = _logic getVariable ["UO_SoftAOLimitModule_AOTimer",30];
 	// The amount of time in seconds an air based unit is allowed to stay outside the AO (-1 = Infinity)
 	FW_AOTimerAir = _logic getVariable ["UO_SoftAOLimitModule_AOTimerAir",-1];
 
-	_bluforArray = (_logic getVariable ["AOBluforMarkerArray",[]]) call UO_fnc_StringArrayToArray;
-	_opforArray = (_logic getVariable ["AOopforMarkerArray",[]]) call UO_fnc_StringArrayToArray;
-	_indforArray = (_logic getVariable ["AOIndforMarkerArray",[]]) call UO_fnc_StringArrayToArray;
-	_civilianArray = (_logic getVariable ["AOCivilianMarkerArray",[]]) call UO_fnc_StringArrayToArray; 
+	_bluforArray = (_logic getVariable ["AOBluforMarkerArray","[]"]) call UO_fnc_StringArrayToArray;
+	_opforArray = (_logic getVariable ["AOopforMarkerArray","[]"]) call UO_fnc_StringArrayToArray;
+	_indforArray = (_logic getVariable ["AOIndforMarkerArray","[]"]) call UO_fnc_StringArrayToArray;
+	_civilianArray = (_logic getVariable ["AOCivilianMarkerArray","[]"]) call UO_fnc_StringArrayToArray;
 
 	_markers = [];
 

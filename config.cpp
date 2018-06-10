@@ -10,7 +10,7 @@ class CfgPatches
 						"UO_AILinkModule",
 						"UO_AISkillModule",
 						"UO_AceMedicalModule",
-						"UO_AntiNDModule",
+						//"UO_AntiNDModule",
 						"UO_AOLimitModule",
 						"UO_AreaEndModule",
 						"UO_BriefingModule",
@@ -22,8 +22,8 @@ class CfgPatches
 						"UO_MarkerControlModule",
 						"UO_SetupTimerModule",
 						"UO_SoftAOLimitModule",
-						"UO_StartOnSafeModule",
-						"UO_StartOnTeamColorModule",
+						//"UO_StartOnSafeModule",
+						//"UO_StartOnTeamColorModule",
 						"UO_StartTextModule",
 						"UO_TimeLimitEndModule"};
 
@@ -51,7 +51,8 @@ class CfgFunctions
 
 			#include "AOLimitModule\cfgFunctions.hpp"
 			#include "Ace_MedicalModule\cfgFunctions.hpp"
-			#include "AntiNDModule\cfgFunctions.hpp"
+			//#include "AutoTrackAssetModule\cfgFunctions.hpp"
+			//#include "AntiNDModule\cfgFunctions.hpp"
 			#include "AISkillModule\cfgFunctions.hpp"
 			#include "AILinkModule\cfgFunctions.hpp"
 		    #include "BriefingModule\cfgFunctions.hpp"
@@ -61,11 +62,11 @@ class CfgFunctions
 			#include "JipModule\cfgFunctions.hpp"
 			#include "MarkerControlModule\cfgFunctions.hpp"
 			#include "SetupTimerModule\cfgFunctions.hpp"
-			#include "ShotCountModule\cfgFunctions.hpp"
+			//#include "ShotCountModule\cfgFunctions.hpp"
 			#include "SoftAOLimitModule\cfgFunctions.hpp"
 			#include "StartTextModule\cfgFunctions.hpp"
-			#include "StartOnSafeModule\cfgFunctions.hpp"
-			#include "StartOnTeamColorModule\cfgFunctions.hpp"
+			//#include "StartOnSafeModule\cfgFunctions.hpp"
+			//#include "StartOnTeamColorModule\cfgFunctions.hpp"
 		};
 };
 class CfgVehicles
@@ -96,7 +97,8 @@ class CfgVehicles
 	// Description base classes, for more information see below
 	#include "AOLimitModule\cfgVehicles.hpp"
 	#include "Ace_MedicalModule\cfgVehicles.hpp"
-	#include "AntiNDModule\cfgVehicles.hpp"
+	//#include "AntiNDModule\cfgVehicles.hpp"
+	//#include "AutoTrackAssetModule\cfgFunctions.hpp"
 	#include "AISkillModule\cfgVehicles.hpp"
 	#include "AILinkModule\cfgVehicles.hpp"
 	#include "BriefingModule\cfgVehicles.hpp"
@@ -106,11 +108,11 @@ class CfgVehicles
 	#include "JipModule\cfgVehicles.hpp"
 	#include "MarkerControlModule\cfgVehicles.hpp"
 	#include "SetupTimerModule\cfgVehicles.hpp"
-	#include "ShotCountModule\cfgVehicles.hpp"
+	//#include "ShotCountModule\cfgVehicles.hpp"
 	#include "SoftAOLimitModule\cfgVehicles.hpp"
 	#include "StartTextModule\cfgVehicles.hpp"
-	#include "StartOnSafeModule\cfgVehicles.hpp"
-	#include "StartOnTeamColorModule\cfgVehicles.hpp"
+	//#include "StartOnSafeModule\cfgVehicles.hpp"
+	//#include "StartOnTeamColorModule\cfgVehicles.hpp"
 
 };
 

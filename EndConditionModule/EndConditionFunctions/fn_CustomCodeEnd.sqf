@@ -7,13 +7,17 @@ _activated = param [2,true,[true]];
 // Module specific behavior. Function can extract arguments from logic and use them.
 if (_activated) then
 {
-    _code =_logic getVariable ["CustomCodeArgument",""];
-    _exec = compile _code;  // compile ur string to function
-    _timer =_logic getVariable ["AreaEndCheckTimeArgument",60];
-
-    while {!FW_MissionEnded} do
+    if(isServer) then
     {
-        "" call _exec;
-        sleep(_timer);
+        _codePath =_logic getVariable ["CustomCodeArgument",""];
+        _exec  = compileFinal preprocessFileLineNumbers _codePath;
+        _timer =_logic getVariable ["EndCheckTimeArgument",60];
+
+        while {!FW_MissionEnded} do
+        {
+            "" call _exec;
+            sleep(_timer);
+        };
     };
+
 };
