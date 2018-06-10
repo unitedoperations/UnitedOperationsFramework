@@ -1,6 +1,6 @@
 
 #define random(MIN, MAX) \
-([MIN, MAX] callUO_FNC_RandomRange)
+([MIN, MAX] call UO_FNC_RandomRange)
 
 _temp = "";
 

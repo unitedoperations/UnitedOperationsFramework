@@ -6,9 +6,27 @@ class CfgPatches
 		name = "United Operations Framework";
 		author = "Me";
 		url = "http://xkcd.com";
-		units[] = {"UO_SoftAOLimitModule","UO_CoreBasicSetupModule","UO_AreaEndModule","UO_CustomCodeEndModule","UO_CustomEndModule","UO_TimeLimitEndModule",
-		"UO_CasualtyPercentageEndModule","UO_AOLimitModule","UO_AceMedicalModule","UO_StartOnSafeModule","UO_StartOnTeamColorModule","UO_MarkerControlModule",
-		"UO_AILinkModule","UO_AISkillModule","UO_AntiNDModule","UO_AIBehaviourModule","UO_BriefingModule"};
+		units[] = {		"UO_AIBehaviourModule",
+						"UO_AILinkModule",
+						"UO_AISkillModule",
+						"UO_AceMedicalModule",
+						"UO_AntiNDModule",
+						"UO_AOLimitModule",
+						"UO_AreaEndModule",
+						"UO_BriefingModule",
+						"UO_CasualtyPercentageEndModule",
+						"UO_CoreBasicSetupModule",
+						"UO_CustomCodeEndModule",
+						"UO_CustomEndModule",
+						"UO_JipModule",
+						"UO_MarkerControlModule",
+						"UO_SetupTimerModule",
+						"UO_SoftAOLimitModule",
+						"UO_StartOnSafeModule",
+						"UO_StartOnTeamColorModule",
+						"UO_StartTextModule",
+						"UO_TimeLimitEndModule"};
+
 		requiredVersion = 1.0;
 		requiredAddons[] = {"A3_Modules_F"};
 	};
@@ -40,11 +58,12 @@ class CfgFunctions
 			#include "DisconnectControlModule\cfgFunctions.hpp"
 			#include "EndConditionModule\cfgFunctions.hpp"
 			#include "GearModule\cfgFunctions.hpp"
+			#include "JipModule\cfgFunctions.hpp"
 			#include "MarkerControlModule\cfgFunctions.hpp"
 			#include "SetupTimerModule\cfgFunctions.hpp"
 			#include "ShotCountModule\cfgFunctions.hpp"
-			#include "StartTextModule\cfgFunctions.hpp"
 			#include "SoftAOLimitModule\cfgFunctions.hpp"
+			#include "StartTextModule\cfgFunctions.hpp"
 			#include "StartOnSafeModule\cfgFunctions.hpp"
 			#include "StartOnTeamColorModule\cfgFunctions.hpp"
 		};
@@ -84,6 +103,7 @@ class CfgVehicles
 	#include "DisconnectControlModule\cfgVehicles.hpp"
 	#include "EndConditionModule\cfgVehicles.hpp"
 	#include "GearModule\cfgVehicles.hpp"
+	#include "JipModule\cfgVehicles.hpp"
 	#include "MarkerControlModule\cfgVehicles.hpp"
 	#include "SetupTimerModule\cfgVehicles.hpp"
 	#include "ShotCountModule\cfgVehicles.hpp"

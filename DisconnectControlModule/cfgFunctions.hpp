@@ -2,7 +2,7 @@ class UO_DisconnectControlModuleFunctions
 {
 	file = "\UO_UOFrameworkModuls\DisconnectControlModule\DisconnectControlModuleFunctions";
 
-	class LoadDisconnectControlModule
+	class LoadDisconnectControl
 	{
 		preInit = 0; //(formerly known as "forced") 1 to call the function upon mission start, before objects are initialized. Passed arguments are ["preInit"]
 		postInit = 0; //1 to call the function upon mission start, after objects are initialized. Passed arguments are ["postInit", didJIP]

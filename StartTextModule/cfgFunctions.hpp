@@ -2,7 +2,7 @@ class UO_StartTextModuleFunctions
 {
 	file = "\UO_UOFrameworkModuls\StartTextModule\StartTextModuleFunctions";
 
-	class LoadStartTextModule
+	class LoadStartText
 	{
 		preInit = 0; //(formerly known as "forced") 1 to call the function upon mission start, before objects are initialized. Passed arguments are ["preInit"]
 		postInit = 0; //1 to call the function upon mission start, after objects are initialized. Passed arguments are ["postInit", didJIP]

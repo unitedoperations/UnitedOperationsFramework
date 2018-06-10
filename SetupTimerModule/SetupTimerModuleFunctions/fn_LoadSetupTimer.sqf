@@ -1,4 +1,11 @@
 
+#define ADDSETUPMARKER(SIDE, TIME, NAME) \
+if !(markerType NAME == "") then { \
+    FW_setup_start_Markers set [count FW_setup_start_Markers, [SIDE, TIME, NAME]]; \
+} else { \
+    _temp = format ["Setup timer module:<br></br>Warning marker ""%1"", in file ""modules\setup timer\settings.sqf"" does not exist.", NAME]; \
+    _temp call UO_FNC_DebugMessage; \
+};
 
 _logic = param [0,objNull,[objNull]];
 // Argument 1 is list of affected units (affected by value selected in the 'class Units' argument))
@@ -10,21 +17,15 @@ _activated = param [2,true,[true]];
 // Module specific behavior. Function can extract arguments from logic and use them.
 if (_activated) then
 {
+        ["Setup Timer", "Allows the mission maker to restrict the AO of a side for a set amount of time.", "Olsen"] call UO_FNC_RegisterModule;
 
         _sides = [west,east,resistance,civilian];
         _selectedSide = _sides select ((_logic getVariable ["SideSelectArgument",1]));
         _time = _logic getVariable ["TimeArgument",300];
         _marker = _logic getVariable ["MarkerArgument",""];
-        _marker = [_marker, """""", """"] call CBA_fnc_replace;
-        ["Setup Timer", "Allows the mission maker to restrict the AO of a side for a set amount of time.", "Olsen"] call UO_FNC_RegisterModule;
+        _marker = call compile _marker;
 
-        #define ADDSETUPMARKER(SIDE, TIME, NAME) \
-        if !(markerType NAME == "") then { \
-        	FW_setup_start_Markers set [count _markers, [SIDE, TIME, NAME]]; \
-        } else { \
-        	_temp = format ["Setup timer module:<br></br>Warning marker ""%1"", in file ""modules\setup timer\settings.sqf"" does not exist.", NAME]; \
-        	_temp call UO_FNC_DebugMessage; \
-        };
+
 
         private _aborted = false;
         if (!isMultiplayer) then
@@ -39,7 +40,6 @@ if (_activated) then
             {
         		waitUntil {time > 0};
         		FW_setup_start_time = serverTime;
-
         		publicVariable "FW_setup_start_time";
         	};
         };
@@ -58,10 +58,12 @@ if (_activated) then
             FW_setup_start_Loop_Running = true;
 
 
+            waitUntil {time > 0};
+        	if ((count FW_setup_start_Markers) > 0) then
+            {
 
-        	if ((count _markers) > 0) then {
-
-        		"" spawn {
+        		"" spawn
+                {
 
         			_marker = [];
         			_displayed = false;
@@ -70,7 +72,8 @@ if (_activated) then
         			_startTime = FW_setup_start_time;
         			//we are checking for a bug described on serverTime wiki page
         			//bugged value is usually around 400 000
-        			if (abs (FW_setup_start_time - serverTime) > 100000) then {
+        			if (abs (FW_setup_start_time - serverTime) > 100000) then
+                    {
         				_startTime = serverTime;
         				FW_setup_start_time = serverTime; //client time is used instead, according to wiki it's always correct
         				//we send it across network. Possible issue: multiple clients send it at the same time
@@ -94,7 +97,8 @@ if (_activated) then
 
         			_pos = getPosATL (vehicle player);
 
-        			while {(count _marker) > 0} do {
+        			while {(count _marker) > 0} do
+                    {
 
         				_vehicle = (vehicle player);
 

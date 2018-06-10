@@ -1,17 +1,17 @@
 _id = _this select 2;
 _target = _this select 3;
 
-if (!((_target callUO_FNC_Alive) && (!(_target callUO_FNC_InVehicle) || ((vehicle _target) callUO_FNC_HasEmptyPositions)))) then {
+if (!((_target call UO_FNC_Alive) && (!(_target call UO_FNC_InVehicle) || ((vehicle _target) call UO_FNC_HasEmptyPositions)))) then {
 
 	_rank = -1;
 	_count = 0;
 
 	{
-		if (_x callUO_FNC_Alive) then {
+		if (_x call UO_FNC_Alive) then {
 
 			_count = _count + 1;
 
-			if ((rankId _x > _rank) && (!(_x callUO_FNC_InVehicle) || ((vehicle _x) callUO_FNC_HasEmptyPositions))) then {
+			if ((rankId _x > _rank) && (!(_x call UO_FNC_InVehicle) || ((vehicle _x) cal lUO_FNC_HasEmptyPositions))) then {
 
 				_rank = rankId _x;
 				_target = _x;
@@ -40,7 +40,7 @@ if (!((_target callUO_FNC_Alive) && (!(_target callUO_FNC_InVehicle) || ((vehicl
 
 if (!isNull(_target)) then {
 
-	if (_target callUO_FNC_InVehicle) then {
+	if (_target call UO_FNC_InVehicle) then {
 
 		player moveInAny (vehicle _target);
 

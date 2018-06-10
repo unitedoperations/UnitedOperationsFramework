@@ -5,7 +5,7 @@
 		displayName = "Start Text Module"; // Name displayed in the menu
 
 		// Name of function triggered once conditions are met
-		function = "UO_fnc_LoadStartTextModule";
+		function = "UO_fnc_LoadStartText";
 		// Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
 		functionPriority = 3;
  		scope = 2; // Editor visibility; 2 will show it in the menu, 1 will hide it.
@@ -19,12 +19,12 @@
 					 {
 						 displayName = "Time display";
 						 description = "What kind of Time should be displayed";
-						 typeName = "STRING";
+						 typeName = "NUMBER";
 						 class values
 						  {
-							 class Date    {name = "Date"; value = "DATE"; default = "DATE";};
-							 class Time    {name = "Time"; value = "TIME";};
-							 class DateTime    {name = "Date and Time"; value = "DATETIME";};
+							 class Date    {name = "Date"; value = 0; default = 0;};
+							 class Time    {name = "Time"; value = 1;};
+							 class DateTime    {name = "Date and Time"; value = 2;};
 						 };
 					 };
 

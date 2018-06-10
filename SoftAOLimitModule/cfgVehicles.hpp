@@ -5,7 +5,7 @@
 		displayName = "Soft AO Limit Module"; // Name displayed in the menu
 
 		// Name of function triggered once conditions are met
-		function = "UO_fnc_LoadAOLimits";
+		function = "UO_fnc_LoadSoftAOLimits";
 		// Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
 		functionPriority = 3;
  		scope = 2; // Editor visibility; 2 will show it in the menu, 1 will hide it.
@@ -40,7 +40,7 @@
 						description = "Array of Marker names in quotes for Blufor"; // description description
 						typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 						defaultValue = ""; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
-						
+
 					};
 					class AOOpforMarkerArrayArgument
 					{
@@ -49,7 +49,7 @@
 						description = "Array of Marker names in quotes for Opfor"; // description description
 						typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 						defaultValue = ""; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
-						
+
 					};
 					class AOIndforMarkerArrayArgument
 					{
@@ -58,7 +58,7 @@
 						description = "Array of Marker names in quotes for Indfor"; // description description
 						typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 						defaultValue = ""; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
-						
+
 					};
 					class AOCivilianMarkerArrayArgument
 					{
@@ -68,7 +68,7 @@
 						description = "Array of Marker names in quotes for Civilian"; // description description
 						typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 						defaultValue = ""; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
-						
+
 					};
 				};
 		// Module description. Must inherit from base class, otherwise pre-defined entities won't be available

@@ -54,7 +54,7 @@ if (_activated) then
 
             [] spawn {
                 sleep 5;
-                player callUO_FNC_UntrackUnit;
+                player call UO_FNC_UntrackUnit;
                 player setDamage 1;
 
                 sleep 8;
@@ -65,13 +65,13 @@ if (_activated) then
 
         _target = leader player;
 
-        if (player == _target || !(_target callUO_FNC_Alive)) then {
+        if (player == _target || !(_target call UO_FNC_Alive)) then {
 
             _rank = -1;
 
             {
 
-                if (rankId _x > _rank && (_target callUO_FNC_Alive)) then {
+                if (rankId _x > _rank && (_target call UO_FNC_Alive)) then {
                     _rank = rankId _x;
                     _target = _x;
                 };
