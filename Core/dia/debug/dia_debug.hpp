@@ -8,7 +8,6 @@ class DIA_DEBUG {
 	fadein = 0;
 	duration = 180;
 	onLoad = "uiNamespace setVariable ['FW_Debug', _this select 0];";
-
 	class controlsBackground {
 
 		class SOME_TEXT: RscStructuredText

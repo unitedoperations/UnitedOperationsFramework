@@ -14,7 +14,7 @@ if (_activated) then
 	//from preinit
 	FW_DebugMessages = [];
 	FW_Modules = [];
-
+	FW_TimeLimit = 0;
 	if (isServer) then
 	{
 
@@ -115,12 +115,13 @@ if (_activated) then
 	 	// [resistance, "Local Militia", "player"] call UO_fnc_AddTeam; //Adds a player team called Local Militia on side resistance (aka independent)
 
 	 };
-
+	 FW_DebugMessagesEnabled = (_logic getVariable ["EnableDebugArgument",true]); //Only disable debug messages when the mission is released
+	 
 	 if (!isDedicated) then
 	 {
 
-	 	FW_DebugMessagesEnabled = (_logic getVariable ["EnableDebugArgument",true]); //Only disable debug messages when the mission is released
-		"" call UO_fnc_dia_debug;
+
+
 	 	setViewDistance (_logic getVariable ["ViewDistancePlayerArgument",""]); //View distance for the player
 
 	 	//call UO_fnc_forceTerrainGrid; //uncomment this to force high terrain setting. This will prevent faraway objects from appearing as floating. Useful for missions with long sightlines.

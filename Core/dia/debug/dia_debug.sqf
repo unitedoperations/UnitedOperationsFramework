@@ -1,8 +1,8 @@
+FNC_DebugMessage = {};
 
 if (!isDedicated) then {
 
-	if (FW_DebugMessagesEnabled) then
-	{
+	if (FW_DebugMessagesEnabled) then {
 
 		100 cutRsc ["DIA_DEBUG", "PLAIN"];
 
@@ -18,7 +18,7 @@ if (!isDedicated) then {
 
 		} forEach FW_DebugMessages;
 
-		(400 displayCtrl _someText) ctrlSetStructuredText parseText _text;
+		((uiNamespace getVariable "FW_Debug") displayCtrl _someText) ctrlSetStructuredText parseText _text;
 
 	};
 };

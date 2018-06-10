@@ -94,11 +94,12 @@ class CfgVehicles
 
 };
 
-class cfgRscTitles
+class RscTitles
 {
 
-	 #include "SoftAOLimitModule\cfgRscTitles.hpp"
+
 	 #include "Core\cfgRscTitles.hpp"
+	  #include "SoftAOLimitModule\cfgRscTitles.hpp"
 	 #include "SetupTimerModule\RscSetupTimer.hpp"
 
 };

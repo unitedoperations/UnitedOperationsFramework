@@ -15,7 +15,7 @@ if (_activated) then
         _selectedSide = _sides select ((_logic getVariable ["SideSelectArgument",1]));
         _time = _logic getVariable ["TimeArgument",300];
         _marker = _logic getVariable ["MarkerArgument",""];
-
+        _marker = [_marker, """""", """"] call CBA_fnc_replace;
         ["Setup Timer", "Allows the mission maker to restrict the AO of a side for a set amount of time.", "Olsen"] call UO_FNC_RegisterModule;
 
         #define ADDSETUPMARKER(SIDE, TIME, NAME) \
@@ -119,7 +119,7 @@ if (_activated) then
         				if (_timeLeft > 0 && !_displayed) then {
         					_displayed = true;
         					missionNamespace setVariable ["FW_ST_TimeLeft", _timeLeft];
-        					cutRsc ["RscSetupTimer", "PLAIN", 0.5, false];
+        					cutRsc ["UO_RscSetupTimer", "PLAIN", 0.5, false];
         				};
 
         				if (_timeLeft == 0) then {
