@@ -36,14 +36,6 @@
   						  typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
   						  defaultValue = ""; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
   					  };
-					  class BluforTitleArgument
-  					  {
-  						  // Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
-						  displayName = "Blufor Title"; // Argument label
-  						  description = "Title of the Start Text";
-  						  typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-  						  defaultValue = ""; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
-  					  };
 					  class BluforTextArgument
 					 {
 						 // Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
@@ -57,14 +49,6 @@
 						// Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
 						displayName = "Opfor Title Qote"; // Argument label
 						description = "Title Quote of the Start Text";
-						typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-						defaultValue = ""; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
-					};
-					class OpforTitleArgument
-					{
-						// Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
-						displayName = "Opfor Title"; // Argument label
-						description = "Title of the Start Text";
 						typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 						defaultValue = ""; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
 					};
@@ -84,14 +68,6 @@
 					   typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 					   defaultValue = ""; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
 				   };
-				   class IndforTitleArgument
-				   {
-					   // Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
-					   displayName = "Indfor Title"; // Argument label
-					   description = "Title of the Start Text";
-					   typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-					   defaultValue = ""; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
-				   };
 				   class IndforTextArgument
 				  {
 					  // Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
@@ -105,14 +81,6 @@
 					  // Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
 					  displayName = "Civilian Title Qote"; // Argument label
 					  description = "Title Quote of the Start Text";
-					  typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-					  defaultValue = ""; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
-				  };
-				  class CivilianTitleArgument
-				  {
-					  // Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
-					  displayName = "Civilian Title"; // Argument label
-					  description = "Title of the Start Text";
 					  typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 					  defaultValue = ""; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
 				  };

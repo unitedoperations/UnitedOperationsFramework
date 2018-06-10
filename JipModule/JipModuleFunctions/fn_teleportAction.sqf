@@ -11,7 +11,7 @@ if (!((_target call UO_FNC_Alive) && (!(_target call UO_FNC_InVehicle) || ((vehi
 
 			_count = _count + 1;
 
-			if ((rankId _x > _rank) && (!(_x call UO_FNC_InVehicle) || ((vehicle _x) cal lUO_FNC_HasEmptyPositions))) then {
+			if ((rankId _x > _rank) && (!(_x call UO_FNC_InVehicle) || ((vehicle _x) call UO_FNC_HasEmptyPositions))) then {
 
 				_rank = rankId _x;
 				_target = _x;
