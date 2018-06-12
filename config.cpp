@@ -1,44 +1,53 @@
+#include "script_component.hpp"
+
 class CfgPatches
 {
-	class UO_UOFrameworkModuls
+	class ADDON
 	{
-		// Meta information for editor
 		name = "United Operations Framework";
-		author = "Me";
-		url = "http://xkcd.com";
-		units[] = {"UO_BriefingModule","UO_SoftAOLimitModule","UO_CoreBasicSetupModule","UO_AreaEndModule","UO_CustomCodeEndModule","UO_CustomEndModule","UO_TimeLimitEndModule",
-		"UO_CasualtyPercentageEndModule","UO_AOLimitModule","UO_AceMedicalModule","UO_StartOnSafeModule"};
+		author = "United Operations";
+		authors[] = {"Sacher","Blackhawk","Olsen","PiZZADOX"};
+		url = "https://github.com/unitedoperations/UnitedOperationsFramework";
+		units[] = {};
 		requiredVersion = 1.0;
-		requiredAddons[] = {"A3_Modules_F"};
+		requiredAddons[] = {"cba_main","3den","A3_Modules_F"};
+		VERSION_CONFIG;
 	};
 };
+
+//external class references
+#include "Core\cfgDia.hpp"
+#include "\a3\3DEN\UI\macros.inc"
+#include "\a3\3DEN\UI\resincl.inc"
+#include "3den\MainExternal.hpp"
+
 class CfgFactionClasses
 {
 	class NO_CATEGORY;
+	
 	class UO_FrameworkCategory: NO_CATEGORY
 	{
-			displayName = "Olsenframework";
+			displayName = "United Operations Framework";
 	};
+	
+	#include "HeadlessAIModule\cfgFactionClasses.hpp"
 };
 
 class CfgFunctions
 {
-		class UO_Framework
-		{
-			tag = "UO";
-			#include "AOLimitModule\cfgFunctions.hpp"
-			#include "Ace_MedicalModule\cfgFunctions.hpp"
-			#include "AntiNDModule\cfgFunctions.hpp"
-			#include "AISkillModule\cfgFunctions.hpp"
-			#include "Core\cfgFunctions.hpp"
-			#include "BriefingModule\cfgFunctions.hpp"
-			#include "SoftAOLimitModule\cfgFunctions.hpp"
-			#include "EndConditionModule\cfgFunctions.hpp"
-			#include "GearModule\cfgFunctions.hpp"
-			#include "StartOnSafeModule\cfgFunctions.hpp"
-			#include "StartOnTeamColorModule\cfgFunctions.hpp"
-		};
+	class UO_Framework
+	{
+		tag = "UO_FW";
+		//add custom functions
+		#include "3den\cfgFunctions.hpp"
+		#include "Core\cfgFunctions.hpp"
+		#include "BriefingModule\cfgFunctions.hpp"
+		#include "EndConditionsModule\cfgFunctions.hpp"
+	};
+	
+	#include "HeadlessAIModule\cfgFunctions.hpp"
 };
+
 class CfgVehicles
 {
 	class Logic;
@@ -49,47 +58,29 @@ class CfgVehicles
     class OlsenModule: Module_F
 	{
 		category = "UO_FrameworkCategory";
-		 // 0 for server only execution, 1 for global execution, 2 for persistent global execution
-		 isGlobal = 2;
-		 // 1 for module waiting until all synced triggers are activated
-		 isTriggerActivated = 0;
-		 // 1 if modules is to be disabled once it's activated (i.e., repeated trigger activation won't work)
-		 isDisposable = 0;
-		 // // 1 to run init function in Eden Editor as well
-		 is3DEN = 0;
-		 // Standard object definitions
-		 scope = 1; // Editor visibility; 2 will show it in the menu, 1 will hide it.
-		 icon = "\UO_UOFrameworkModuls\Core\logo.paa"; // Map icon. Delete this entry to use the default icon
-		 // Menu displayed when the module is placed or double-clicked on by Zeus
-		 curatorInfoType = "RscDisplayAttributeModuleNuke";
+		isGlobal = 2;
+		isTriggerActivated = 0;
+		isDisposable = 0;
+		is3DEN = 0;
+		scope = 1;
+		icon = "\a3\3DEN\Data\CfgWaypoints\scripted_ca.paa";
+		curatorInfoType = "RscDisplayAttributeModuleNuke";
 	};
-	// Description base classes, for more information see below
-	#include "Core\cfgVehicles.hpp"
-	#include "AntiNDModule\cfgVehicles.hpp"
-	#include "BriefingModule\cfgVehicles.hpp"
-	#include "SoftAOLimitModule\cfgVehicles.hpp"
-	#include "AISkillModule\cfgVehicles.hpp"
-	#include "EndConditionModule\cfgVehicles.hpp"
-	#include "Ace_MedicalModule\cfgVehicles.hpp"
-	#include "GearModule\cfgVehicles.hpp"
-	#include "StartOnSafeModule\cfgVehicles.hpp"
-
-#include "StartOnTeamColorModule\cfgVehicles.hpp"
+	//add custom cfgVehicles
+	//#include "Core\cfgVehicles.hpp"
+	#include "HeadlessAIModule\cfgVehicles.hpp"
 };
 
 class cfgRscTitles
 {
-
-	 #include "SoftAOLimitModule\cfgRscTitles.hpp"
-	 #include "Core\cfgRscTitles.hpp"
+	//#include "Core\cfgRscTitles.hpp"
 };
 
 class CfgNotifications
 {
-
-	#include "SoftAOLimitModule\cfgNotifications.hpp"
-
+	
 };
+
 class CfgDebriefingSections
 {
 	#include "Core\cfgDebriefingSections.hpp"
@@ -97,17 +88,102 @@ class CfgDebriefingSections
 
 class CfgSounds
 {
-
+	
 };
 
 class CfgUnitInsignia
 {
+	
+};
 
+class Cfg3DEN
+{
+	class Mission
+	{
+		class UO_FW_Settings
+		{
+			displayName = "Mission Settings";
+			class AttributeCategories
+			{
+				//add main mission settings here
+				#include "Core\cfgAttributeCategories\Mission\Main.hpp"
+				#include "Core\cfgAttributeCategories\Mission\Teams.hpp"
+				#include "EndConditionsModule\cfgAttributeCategories\Mission\Timelimit.hpp"
+				#include "Core\cfgAttributeCategories\Mission\Debug.hpp"
+			};
+		};
+		
+		class UO_FW_Module_Settings
+		{
+			displayName = "Module Settings";
+			class AttributeCategories
+			{
+				//add module settings here
+				//#include "SafeStartModule\cfgAttributeCategories\SafeStart.hpp"
+				//#include "AntiNDModule\cfgAttributeCategories\AntiND.hpp"
+				
+			};
+		};
+		
+		//add custom mission 3den editor categories
+		#include "BriefingModule\cfg3den\cfg3denMenu.hpp"
+		#include "HeadlessAIModule\cfg3den\cfg3denMenu.hpp"
+	};
+	
+	//add custom base 3den options & categories
+	#include "HeadlessAIModule\Cfg3DEN.hpp"
+	
+	//Add custom configs & controls for 3den and modules
+	class Attributes
+	{
+		#include "3DEN\CfgAttributes.hpp"
+		#include "Core\CfgAttributes.hpp"
+		#include "HeadlessAIModule\CfgAttributes.hpp"
+	};
+};
 
+class display3DEN
+{
+	class Controls
+	{
+		class MenuStrip : ctrlMenuStrip
+		{
+			class Items
+			{
+				//UO menus define
+				#include "3DEN\display3DEN\Menu.hpp"
+				
+				//Add custom UO menus
+				#include "HeadlessAIModule\display3DEN\Menu.hpp"
+				#include "BriefingModule\display3DEN\Menu.hpp"
+				
+				//tools define
+				#include "3DEN\display3DEN\MenuTools.hpp"
+				
+				//add custom tools menus
+				
+				//documentation define
+				#include "3DEN\display3DEN\MenuDoc.hpp"
+				
+				//add custom documentation
+				
+				//compile UO menu folder
+				//add custom items with an additional entry in items[]
+				class UO_FW_Folder
+				{
+					text = "UO Framework";
+					items[] = {"UO_FW_Settings","UO_FW_Module_Settings","UO_FW_Briefing_Folder","UO_FW_AI_Settings","UO_FW_Tools_Folder","UO_FW_Documentation"};
+				};
+				
+				//compile main menu
+				items[] += {"UO_FW_Folder"};
+			};
+		};
+	};
 };
 
 class Params
 {
-
+	
 };
-#include "Core\cfgDia.hpp"
+
