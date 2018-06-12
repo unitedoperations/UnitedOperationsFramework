@@ -6,11 +6,7 @@ _activated = param [2,true,[true]];
 
 if (_activated && !isDedicated) then
 {
-     ["Start Text", "Displays animated text on mission start.", "Olsen &amp; Starfox64"] call UO_FNC_RegisterModule;
-    
-    _isValid = _this call UO_fnc_ValidateStartText;
-    if(!_isValid) exitWith { "Start Text Module Failed to validate!" call UO_fnc_DebugMessage;};
-
+     ["Start Text", "Displays animated text on mission start.", "Olsen &amp; Starfox64"] call UO_FNC_RegisterModule; 
     _this spawn
     {
 
@@ -75,10 +71,11 @@ if (_activated && !isDedicated) then
 
             }; //End of east case
         }; //End of switch
-
+        _isValid = _this call UO_fnc_ValidateStartText;
+        if(!_isValid) exitWith { "Start Text Module Failed to validate!" call UO_fnc_DebugMessage;};
+         _startTextArray call UO_fnc_ExecuteStartText;
     };
     
-     _startTextArray call UO_fnc_ExecuteStartText;
 
 
 };
