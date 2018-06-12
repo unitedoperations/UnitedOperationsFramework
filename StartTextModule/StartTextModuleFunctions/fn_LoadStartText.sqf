@@ -6,7 +6,7 @@ _activated = param [2,true,[true]];
 
 if (_activated && !isDedicated) then
 {
-     ["Start Text", "Displays animated text on mission start.", "Olsen &amp; Starfox64"] call UO_FNC_RegisterModule; 
+     ["Start Text", "Displays animated text on mission start.", "Sacher"] call UO_FNC_RegisterModule; 
     _this spawn
     {
 
@@ -22,57 +22,44 @@ if (_activated && !isDedicated) then
         _dateTypeArray = [["DATE"],["TIME"],["DATETIME"]];
         _dateType = _dateTypeArray select (_logic getVariable ["TimeSelectArgument",0]);
         _startTextArray = [];
+        _collectInfo = 
+        {
+            
+            params["_logic","_title","_text"];
+            _ret = [];
+            _titleQuoteVar = _logic getVariable [_title,""];
+            _textVar = _logic getVariable [_text,""];
+            if(_titleQuoteVar != "" ) then {_ret append [["TITLEQUOTE", _titleQuoteVar]];};
+            if(_textVar != "" ) then {_ret append [["TEXT", _textVar]];};
+            [_ret]
+
+        };
         switch (side player) do
         { //Checks what team the player is on
 
             case west:
-            { //If player is west he receives this message
-
-                _titleQuote = _logic getVariable ["BluforTitleQuoteArgument",""];
-                _text = _logic getVariable ["BluforTextArgument",""];
-                if(_titleQuote != "" ) then {_startTextArray append [["TITLEQUOTE", _titleQuote]];};
-                if(_text != "" ) then {_startTextArray append [["TEXT", _text]];};
-                _startTextArray append [_dateType];
-
-
-            }; //End of west case
+            { 
+               _startTextArray = [_logic,"BluforTitleQuoteArgument","BluforTextArgument",_dateType] call _collectInfo;
+            }; 
 
             case east:
-            { //If player is east he receives this message
-
-
-                _titleQuote = _logic getVariable ["OpforTitleQuoteArgument",""];
-                _text = _logic getVariable ["OpforTextArgument",""];
-                if(_titleQuote != "" ) then {_startTextArray append [["TITLEQUOTE", _titleQuote]];};
-                if(_text != "" ) then {_startTextArray append [["TEXT", _text]];};
-                _startTextArray append [_dateType];
-
-            }; //End of east case
+            { 
+                _startTextArray = [_logic,"OpforTitleQuoteArgument","OpforTextArgument",_dateType] call _collectInfo;
+            }; 
             case resistance:
-            { //If player is east he receives this message
+            { 
+             _startTextArray = [_logic,"IndforTitleQuoteArgument","IndforTextArgument",_dateType] call _collectInfo;
 
-
-                _titleQuote = _logic getVariable ["IndforTitleQuoteArgument",""];
-                _text = _logic getVariable ["IndforTextArgument",""];
-                if(_titleQuote != "" ) then {_startTextArray append [["TITLEQUOTE", _titleQuote]];};
-                if(_text != "" ) then {_startTextArray append [["TEXT", _text]];};
-                _startTextArray append [_dateType];
-
-            }; //End of east case
+            }; 
             case civilian:
-            { //If player is east he receives this message
-
-
-                _titleQuote = _logic getVariable ["CivilianTitleQuoteArgument",""];
-                _text = _logic getVariable ["CivilianTextArgument",""];
-                if(_titleQuote != "" ) then {_startTextArray append [["TITLEQUOTE", _titleQuote]];};
-                if(_text != "" ) then {_startTextArray append [["TEXT", _text]];};
-                _startTextArray append [_dateType];
-
-            }; //End of east case
-        }; //End of switch
-        _isValid = _this call UO_fnc_ValidateStartText;
+            { 
+                _startTextArray = [_logic,"CivilianTitleQuoteArgument","CivilianTextArgument",_dateType] call _collectInfo;
+            }; 
+        };
+        _startTextArray append [_dateType];
+        _isValid = _startTextArray call UO_fnc_ValidateStartText;
         if(!_isValid) exitWith { "Start Text Module Failed to validate!" call UO_fnc_DebugMessage;};
+       
          _startTextArray call UO_fnc_ExecuteStartText;
     };
     

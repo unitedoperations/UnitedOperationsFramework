@@ -1,6 +1,8 @@
 waitUntil {time > 0};
 
 params["_startTextArray"];
+hint (str _startTextArray);
+sleep(10);
 switch (date select 1) do 
 {
 
@@ -65,7 +67,7 @@ _unparsedText = "<t align='right' size='1.2'>";
 for "_i" from 0 to count _startTextArray -1 do
 {
     _line = _startTextArray select _i;
-
+    hint (str _line);
     switch (_line select 0) do
     {
 
