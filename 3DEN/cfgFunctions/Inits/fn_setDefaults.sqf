@@ -8,7 +8,7 @@
  */
  
 #include "\x\UO_FW\addons\main\script_macros.hpp"
-UO_FW_EXEC_CHECK(SERVER)
+UO_FW_EXEC_CHECK(ALL)
 
 _configCategories = [];
 _configCategories2 = [];
@@ -45,9 +45,22 @@ _configCategories = "(((str(configname _x)) find 'UO_FW') >= 0)" configClasses (
 	//diag_log format ["_propertyname: %1",_propertyname];
 	if (isNil _propertyname) then {
 		if ((missionNamespace getvariable [_propertyname,""]) isEqualto "") then {
-			private _value = getText(_x >> "defaultValue");
-			if (!(_value isEqualto "")) then {
-				missionNamespace setvariable [_propertyname, (call compile _value),true];
+			_valuetext = getText(_x >> "defaultValue");
+			//diag_log format ["_propertyname: %1 _valuetext: %2",_propertyname,_valuetext];
+			if (!(_valuetext isEqualto "")) then {
+				_value = call compile _valuetext;
+				//diag_log format ["_propertyname: %1 _value: %2",_propertyname,_value];
+				if (typename _value isEqualto "BOOL") then {
+					//diag_log format ["_propertyname: %1 _value: %2 is BOOL",_value,_valuetext];
+					if (UO_FW_Enabled) then {
+						missionNamespace setvariable [_propertyname, _value,true];
+					} else {
+						missionNamespace setvariable [_propertyname, false,true];
+						//diag_log format ["_propertyname: %1 setting BOOL to default false",_value,_valuetext];
+					};
+				} else {
+					missionNamespace setvariable [_propertyname, _value,true];
+				};
 			} else {
 				//diag_log format ["_propertyname: %1 null default value! not set!",_propertyname];
 			};

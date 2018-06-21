@@ -10,7 +10,7 @@ class UO_FW_Anti_ND
             displayName = "Anti ND Enabled";
             tooltip = "Toggle activation";
             control = "CheckboxState";
-            expression="missionNamespace setVariable ['%s', _value];";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "true";
             
         };
@@ -21,7 +21,7 @@ class UO_FW_Anti_ND
             tooltip = "Time in seconds after spawn after which Anti ND functionality is disabled";
             control = "EditShort";
             validate = "number";
-            expression="missionNamespace setVariable ['%s', _value];";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "30";
             
         };
@@ -32,7 +32,7 @@ class UO_FW_Anti_ND
             tooltip = "Distance in meters at which Anti ND functionality is disabled";
             control = "EditShort";
             validate = "number";
-            expression="missionNamespace setVariable ['%s', _value];";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "200";
             
         };

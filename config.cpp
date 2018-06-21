@@ -43,6 +43,10 @@ class CfgFunctions
 		#include "Core\cfgFunctions.hpp"
 		#include "BriefingModule\cfgFunctions.hpp"
 		#include "EndConditionsModule\cfgFunctions.hpp"
+		#include "TeamColourModule\cfgFunctions.hpp"
+		#include "SelfActionsModule\cfgFunctions.hpp"
+		#include "SafeStartModule\cfgFunctions.hpp"
+		#include "AntiNDModule\cfgFunctions.hpp"
 	};
 	
 	#include "HeadlessAIModule\cfgFunctions.hpp"
@@ -71,9 +75,9 @@ class CfgVehicles
 	#include "HeadlessAIModule\cfgVehicles.hpp"
 };
 
-class cfgRscTitles
+class RscTitles
 {
-	//#include "Core\cfgRscTitles.hpp"
+	//#include "Core\RscTitles.hpp"
 };
 
 class CfgNotifications
@@ -119,9 +123,9 @@ class Cfg3DEN
 			class AttributeCategories
 			{
 				//add module settings here
-				//#include "SafeStartModule\cfgAttributeCategories\SafeStart.hpp"
-				//#include "AntiNDModule\cfgAttributeCategories\AntiND.hpp"
-				
+				#include "SafeStartModule\cfgAttributeCategories\Modules\SafeStart.hpp"
+				#include "AntiNDModule\cfgAttributeCategories\Modules\AntiND.hpp"
+				#include "SelfActionsModule\cfgAttributeCategories\Modules\SelfActions.hpp"
 			};
 		};
 		
@@ -131,7 +135,24 @@ class Cfg3DEN
 	};
 	
 	//add custom base 3den options & categories
-	#include "HeadlessAIModule\Cfg3DEN.hpp"
+	class Group {
+		class AttributeCategories {
+			#include "HeadlessAIModule\cfgAttributeCategories\Group.hpp"
+		};
+	};
+	
+	class Object {
+		class AttributeCategories {
+			#include "HeadlessAIModule\cfgAttributeCategories\Object.hpp"
+			#include "TeamColourModule\cfgAttributeCategories\Object.hpp"
+		};
+	};
+	
+	class Logic {
+		class AttributeCategories {
+			#include "HeadlessAIModule\cfgAttributeCategories\Logic.hpp"
+		};
+	};
 	
 	//Add custom configs & controls for 3den and modules
 	class Attributes
@@ -139,6 +160,7 @@ class Cfg3DEN
 		#include "3DEN\CfgAttributes.hpp"
 		#include "Core\CfgAttributes.hpp"
 		#include "HeadlessAIModule\CfgAttributes.hpp"
+		#include "TeamColourModule\CfgAttributes.hpp"
 	};
 };
 
@@ -184,6 +206,7 @@ class display3DEN
 
 class Params
 {
-	
+	#define DAYTIMEHOUR_DEFAULT 19
+	#include "\a3\functions_f\Params\paramDaytimeHour.hpp"
 };
 

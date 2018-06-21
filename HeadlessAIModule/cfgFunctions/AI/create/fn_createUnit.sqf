@@ -9,7 +9,8 @@
  *	Author
  *		suits & PiZZADOX & PiZZADOX
  */
-if(!UO_FW_var_isHCorServer) exitWith {};
+#include "\x\UO_FW\addons\main\script_macros.hpp"
+UO_FW_EXEC_CHECK(SERVERHC)
 params ["_occupy","_grp","_gpos","_startBld","_i","_unit","_taskRadius",["_currentVeh",objNull,[objNull]]];
 	_unit params ["_uv","_uc","_pos","_light","_vcd","_vcu","_dmg","_g","_veh","_vr","_veha","_cuf","_wtr","_per","_ust","_rem","_uint","_name","_identity"];
 	if(_occupy) then {	

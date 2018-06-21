@@ -19,7 +19,8 @@
  *	Modified
  *		suits & PiZZADOX
  */	
-if(!UO_FW_var_isHCorServer) exitWith {};
+#include "\x\UO_FW\addons\main\script_macros.hpp"
+UO_FW_EXEC_CHECK(SERVERHC)
 params ["_grp",["_pos",[],[[]]],["_radius",0,[0]],["_wait",3,[0]],["_behaviour","SAFE",[""]],["_combat","RED",[""]],["_speed","LIMITED",[""]],["_formation","WEDGE",[""]],["_type","MOVE",[""]],["_oncomplete","",[""]],["_compradius",0,[0]]];
 	private _timeout = [_wait*0.5,_wait,_wait*1.5];
 	_pos = _pos call CBA_fnc_getPos;

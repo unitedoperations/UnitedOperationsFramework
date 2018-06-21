@@ -1,7 +1,7 @@
 ========================================================================
 
 	Module: Briefing
-	Author: PIZZADOX
+	Author: PIZZADOX + Sacher
 	Date Created: 11/6/2018
 	Date Last Updated: 11/6/2018
 	

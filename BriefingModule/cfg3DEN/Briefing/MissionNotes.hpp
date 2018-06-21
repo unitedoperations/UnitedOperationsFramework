@@ -10,7 +10,7 @@ class Main
             displayName = "Mission Author";
             tooltip = "Mission Author";
             control = "EditShort";
-            expression="missionNamespace setVariable ['%s', _value];";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "profileNameSteam";
             
         };
@@ -20,7 +20,7 @@ class Main
             displayName = "Mission Testers and Additional Credit";
             tooltip = "Mission Testers and Additional Credit";
             control = "Edit";
-            expression="missionNamespace setVariable ['%s', _value];";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -30,7 +30,7 @@ class Main
             displayName = "Mission Specific Notes";
             tooltip = "Put any special notes for the mission in here";
             control = "EditMulti5";
-            expression="missionNamespace setVariable ['%s', _value];";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -40,7 +40,7 @@ class Main
             displayName = "Game Mastering";
             tooltip = "Game Mastering";
             control = "Checkbox";
-            expression="missionNamespace setVariable ['%s', _value];";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "false";
             
         };

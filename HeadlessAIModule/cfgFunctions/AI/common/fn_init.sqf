@@ -1,5 +1,6 @@
 /*	Setup of Headless AI Variables. */
-if(!UO_FW_var_isHCorServer) exitWith {};
+#include "\x\UO_FW\addons\main\script_macros.hpp"
+UO_FW_EXEC_CHECK(SERVERHC)
 
 UO_FW_zones 					= [];
 UO_FW_entities				= [];

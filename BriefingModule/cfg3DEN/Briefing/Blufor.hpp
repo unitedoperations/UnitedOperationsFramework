@@ -10,7 +10,7 @@ class BLUFOR_NATOStyle
             displayName = "NATO style briefing";
             tooltip = "Enables NATO style briefing";
             control = "CheckboxState";
-            expression="missionNamespace setVariable ['%s', _value];";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "false";
             
         };
@@ -30,7 +30,7 @@ class BLUFOR_NATOStyle
             tooltip = "Situation";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value];";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -41,7 +41,7 @@ class BLUFOR_NATOStyle
             tooltip = "Terrain";
 			control = "EditMulti3";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value];";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -52,7 +52,7 @@ class BLUFOR_NATOStyle
             tooltip = "Key Terrain";
 			control = "EditMulti3";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value];";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -63,7 +63,7 @@ class BLUFOR_NATOStyle
             tooltip = "Weather";
 			control = "EditMulti3";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value];";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -83,7 +83,7 @@ class BLUFOR_NATOStyle
             tooltip = "Enemy Disposition";
 			control = "EditMulti3";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value];";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -94,9 +94,28 @@ class BLUFOR_NATOStyle
             tooltip = "Enemy Strength";
 			control = "EditMulti3";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value];";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
-            
+        };
+		class UO_FW_BRIEFING_BLUFOR_NATO_ENEMY_EQUIPMENT
+        {
+            property = "UO_FW_BRIEFING_BLUFOR_NATO_ENEMY_EQUIPMENT";
+            displayName = "Enemy Equipment";
+            tooltip = "Enemy Equipment";
+			control = "EditMulti3";
+            validate = "STRING";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            defaultValue = "''";
+        };
+		class UO_FW_BRIEFING_BLUFOR_NATO_ENEMY_APPEARANCE
+        {
+            property = "UO_FW_BRIEFING_BLUFOR_NATO_ENEMY_APPEARANCE";
+            displayName = "Enemy Appearance";
+            tooltip = "Enemy Appearance";
+			control = "EditMulti3";
+            validate = "STRING";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            defaultValue = "''";
         };
 		class UO_FW_BRIEFING_BLUFOR_NATO_ENEMY_MLCOA
         {
@@ -105,7 +124,7 @@ class BLUFOR_NATOStyle
             tooltip = "Most Likely Course of Action";
 			control = "EditMulti3";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value];";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -116,7 +135,7 @@ class BLUFOR_NATOStyle
             tooltip = "Most Dangerous Course of Action";
 			control = "EditMulti3";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value];";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -136,7 +155,7 @@ class BLUFOR_NATOStyle
             tooltip = "Friendly Disposition";
 			control = "EditMulti3";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value];";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -147,7 +166,7 @@ class BLUFOR_NATOStyle
             tooltip = "Friendly Higher Units";
 			control = "EditMulti3";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value];";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -158,7 +177,7 @@ class BLUFOR_NATOStyle
             tooltip = "Friendly Strength";
 			control = "EditMulti3";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value];";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -178,7 +197,7 @@ class BLUFOR_NATOStyle
             tooltip = "Mission";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value];";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -200,7 +219,7 @@ class BLUFOR_NATOStyle
             tooltip = "Intent";
 			control = "EditMulti3";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value];";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -211,7 +230,7 @@ class BLUFOR_NATOStyle
             tooltip = "Maneuver";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value];";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -222,7 +241,7 @@ class BLUFOR_NATOStyle
             tooltip = "Timings";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value];";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -233,7 +252,7 @@ class BLUFOR_NATOStyle
             tooltip = "Tasks";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value];";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -264,7 +283,7 @@ class BLUFOR_NATOStyle
             tooltip = "Fires";
 			control = "EditMulti3";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value];";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -275,7 +294,7 @@ class BLUFOR_NATOStyle
             tooltip = "Ammo";
 			control = "EditMulti3";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value];";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -296,7 +315,7 @@ class BLUFOR_NATOStyle
             tooltip = "General";
 			control = "EditMulti3";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value];";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -317,7 +336,7 @@ class BLUFOR_NATOStyle
             tooltip = "Command";
 			control = "EditMulti3";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value];";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -338,7 +357,7 @@ class BLUFOR_NATOStyle
             tooltip = "Radio Frequencies";
 			control = "EditMulti3";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value];";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -349,7 +368,7 @@ class BLUFOR_NATOStyle
             tooltip = "Codewords";
 			control = "EditMulti3";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value];";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -360,7 +379,7 @@ class BLUFOR_NATOStyle
             tooltip = "Special Signals";
 			control = "EditMulti3";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value];";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -371,7 +390,7 @@ class BLUFOR_NATOStyle
             tooltip = "Callsigns";
 			control = "EditMulti3";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value];";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -382,11 +401,30 @@ class BLUFOR_NATOStyle
             tooltip = "Passwords";
 			control = "EditMulti3";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value];";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
             
         };
     };
+};
+
+class BLUFOR_WPStyle
+{
+    displayName = "Warsaw Pact Style Briefing";
+    collapsed = 1;
+    class Attributes
+    {
+		class UO_FW_BRIEFING_BLUFOR_WARSAW
+        {
+            property = "UO_FW_BRIEFING_BLUFOR_NATO";
+            displayName = "Warsaw Pact style briefing";
+            tooltip = "Enables Warsaw Pact style briefing";
+            control = "CheckboxState";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            defaultValue = "false";
+            
+        };
+	};
 };
 
 class BLUFOR_Custom_File
@@ -401,7 +439,7 @@ class BLUFOR_Custom_File
             displayName = "Briefing File";
             tooltip = "Loads file as briefing";
             control = "CheckboxState";
-            expression="missionNamespace setVariable ['%s', _value];";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "false";
             
         };
@@ -412,37 +450,37 @@ class BLUFOR_Custom_File
             tooltip = "Path to briefing file";
 			control = "Edit";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value];";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
             
         };
 	};
 };
 
-class BLUFOR_PID
+class BLUFOR_APPENDIX
 {
-    displayName = "PID Card File";
+    displayName = "Appendix Card File";
     collapsed = 1;
     class Attributes
     {
-		class UO_FW_BRIEFING_BLUFOR_PIDCARD
+		class UO_FW_BRIEFING_BLUFOR_APPENDIX
         {
-            property = "UO_FW_BRIEFING_BLUFOR_PIDCARD";
-            displayName = "PID CARD";
-            tooltip = "Enables PID Card";
+            property = "UO_FW_BRIEFING_BLUFOR_APPENDIX";
+            displayName = "Appendix File";
+            tooltip = "Enables Appendix File";
             control = "CheckboxState";
-            expression="missionNamespace setVariable ['%s', _value];";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "false";
             
         };
-		class UO_FW_BRIEFING_BLUFOR_PIDCARD_PATH
+		class UO_FW_BRIEFING_BLUFOR_APPENDIX_PATH
         {
-            property = "UO_FW_BRIEFING_BLUFOR_PIDCARD_PATH";
-            displayName = "Path to PID Card file";
-            tooltip = "Path to PID card briefing file";
+            property = "UO_FW_BRIEFING_BLUFOR_APPENDIX_PATH";
+            displayName = "Path to Appendix file";
+            tooltip = "Path to Appendix Briefing File";
 			control = "Edit";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value];";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
             
         };

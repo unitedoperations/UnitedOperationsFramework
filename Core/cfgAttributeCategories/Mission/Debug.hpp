@@ -10,7 +10,7 @@ class Debug
             displayName = "Debug Enabled";
             tooltip = "Toggle debug mode.";
             control = "Checkbox";
-            expression="missionNamespace setVariable ['%s', _value];";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "false";
         };
 		class UO_FW_Debug_Detailed_Enabled
@@ -19,7 +19,7 @@ class Debug
             displayName = "Detailed Debug Enabled";
             tooltip = "Toggle detailed debug mode.";
             control = "Checkbox";
-            expression="missionNamespace setVariable ['%s', _value];";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "false";
         };
 		class UO_FW_ConditionSleep
@@ -28,7 +28,7 @@ class Debug
             displayName = "End Condition Sleep";
             tooltip = "Time between end condition checks. Low values can cause server lag!";
 			control = "EditShort";
-            expression="missionNamespace setVariable ['%s', _value];";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
 			validate = "number";
             defaultValue = "30";
         };
@@ -38,7 +38,7 @@ class Debug
             displayName = "Force TerrainGrid";
             tooltip = "Force terrain grid to prevent far away objects from appearing as floating.";
             control = "Checkbox";
-            expression="missionNamespace setVariable ['%s', _value];";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "false";
         };
     };

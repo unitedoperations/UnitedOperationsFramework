@@ -6,7 +6,8 @@
  *	Author
  *		suits & PiZZADOX
  */
-if(!UO_FW_var_isHCorServer) exitWith {};
+#include "\x\UO_FW\addons\main\script_macros.hpp"
+UO_FW_EXEC_CHECK(SERVERHC)
 	params ["_u","_pos","_veh"];
 	private _grp = (group _u);
 	private _grpInit = _grp getVariable ["aeGroupInit","true"];

@@ -14,7 +14,8 @@
  * [3,"drop","bma3_bushmaster_pws127mm_F",120,"start",false,false] spawn UO_AI_fnc_createAirResupply;
  * [HELI_NAME] call AR_Rappel_All_Cargo
  */
-if(!UO_FW_var_isHCorServer) exitWith {};
+#include "\x\UO_FW\addons\main\script_macros.hpp"
+UO_FW_EXEC_CHECK(SERVERHC)
 	params ["_logic",["_radius",200,[0]],["_gx",1,[0]],["_fh",200,[0]],"_j"];	
 	private _spos = (_logic getVariable ["startPos",[0,0,0]]) vectorAdd [0,0,(_fh*2)];
 	private _positions = _logic getVariable ["dropPos",[[0,0,0]]];

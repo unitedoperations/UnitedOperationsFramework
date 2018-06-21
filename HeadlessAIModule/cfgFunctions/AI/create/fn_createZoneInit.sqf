@@ -7,7 +7,8 @@
  *	Author
  *		suits & PiZZADOX
  */
-if(!UO_FW_var_isHCorServer) exitWith {};
+#include "\x\UO_FW\addons\main\script_macros.hpp"
+UO_FW_EXEC_CHECK(SERVERHC)
 params [["_zone",objNull,[objNull]],["_entities",[],[[]]],["_code",{},[{}]]];	
 	_entities params [["_grps",[],[[]]],["_emptyvehs",[],[[]]],["_objs",[],[[]]]];
 	{

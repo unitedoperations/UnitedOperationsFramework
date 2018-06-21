@@ -10,7 +10,8 @@
  *	Author
  *		suits & PiZZADOX
  */
-if(!UO_FW_var_isHCorServer) exitWith {};
+#include "\x\UO_FW\addons\main\script_macros.hpp"
+UO_FW_EXEC_CHECK(SERVERHC)
 params[["_s",0,[0]],["_t","OBJECT",[""]],["_a",1,[0]],"_var",["_array",[],[[]]]];
 	if(typename(_array select _s) == _t ) then {
 		_array deleteAt 0;

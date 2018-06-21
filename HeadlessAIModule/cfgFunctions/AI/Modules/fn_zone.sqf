@@ -8,16 +8,18 @@
  *	Author
  *		suits & PiZZADOX
  */
-if(!UO_FW_var_isHCorServer) exitWith {};
+#include "\x\UO_FW\addons\main\script_macros.hpp"
+
 params [["_mode","",[""]],["_input",[],[[]]]];
 	diag_log format ["zone _this: %1",_this];
-	if(isNil {UO_FW_AI_initialised}) then {[] call UO_AI_fnc_init;};
+	if(isNil "UO_FW_AI_initialised") then {[] call UO_AI_fnc_init;};
 	switch _mode do {
 		case "init": {
-			_input params ["_logic",["_isActivated",true,[true]],["_isCuratorPlaced",false,[false]]];
-			diag_log format ["case init _input: %1",_input];
-			if !(_isActivated) exitWith {};
-			if (UO_FW_AI_enabled) then {
+			if !is3DEN then {
+				_input params ["_logic",["_isActivated",true,[true]],["_isCuratorPlaced",false,[false]]];
+				diag_log format ["case init _input: %1",_input];
+				if !(_isActivated) exitWith {};
+				UO_FW_EXEC_CHECK(SERVERHC)
 				{
 					UO_FW_respawns pushBack _x;
 				} forEach ([_logic,["UO_FW_RespawnModule"]] call UO_AI_fnc_getSyncedModules);
@@ -59,14 +61,13 @@ params [["_mode","",[""]],["_input",[],[[]]]];
 					};
 				};
 				
-				if (UO_FW_AI_DEBUG) then {
-					private _syncedModules = [_logic,[]] call UO_AI_fnc_getSyncedModules;
-					_entities params [["_grps",[],[[]]],["_emptyvehs",[],[[]]],["_objs",[],[[]]]];
-					if (count _syncedModules == 0 && ({(count _x) > 0 } count _grps) == 0 && ({(count _x) > 0 } count _emptyvehs) == 0 && ({(count _x) > 0 } count _objs) == 0) then {
-						(format["%1 a %2 has nothing linked.\nYou can link Units, Groups, Objects or other modules to a Zone Module.",_logic,typeof _logic]) call UO_FW_fnc_DebugMessage;
-					};		
-					[_logic] spawn UO_AI_fnc_debugSyncedModules;			
-				};
+				private _syncedModules = [_logic,[]] call UO_AI_fnc_getSyncedModules;
+				_entities params [["_grps",[],[[]]],["_emptyvehs",[],[[]]],["_objs",[],[[]]]];
+				if (count _syncedModules == 0 && ({(count _x) > 0 } count _grps) == 0 && ({(count _x) > 0 } count _emptyvehs) == 0 && ({(count _x) > 0 } count _objs) == 0) then {
+					_msg = format["%1 a %2 has nothing linked.\nYou can link Units, Groups, Objects or other modules to a Zone Module.",_logic,typeof _logic];
+					UO_FW_DEBUG("",_msg)
+				};		
+				[_logic] spawn UO_AI_fnc_debugSyncedModules;			
 			};
 		};
 		case "attributesChanged3DEN": {

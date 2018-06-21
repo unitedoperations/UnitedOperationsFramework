@@ -9,7 +9,8 @@
  *	Author
  *		suits & PiZZADOX
  */
-if(!UO_FW_var_isHCorServer) exitWith {};
+#include "\x\UO_FW\addons\main\script_macros.hpp"
+UO_FW_EXEC_CHECK(SERVERHC)
 params ["_pos","_radius","_occupy","_grpcount",["_bld",[],[[]]],["_bldPos",[],[[]]],["_return",[],[[]]]];
 	switch (_occupy) do {
 		case 2: {

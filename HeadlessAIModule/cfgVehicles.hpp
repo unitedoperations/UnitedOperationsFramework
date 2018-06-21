@@ -5,7 +5,7 @@ class UO_FW_AI_Module : OlsenModule
 	icon = "\a3\3DEN\Data\CfgWaypoints\scripted_ca.paa";
 };
 
-class UO_FW_ZoneModule : UO_FW_AI_Module 
+class UO_FW_AI_ZoneModule : UO_FW_AI_Module 
 {		
 	scope = 2; 							
 	displayName = "Zone (Circle)"; 	
@@ -113,7 +113,7 @@ class UO_FW_ZoneModule : UO_FW_AI_Module
 		};
 	};
 };
-class UO_FW_ZoneModule_R : UO_FW_ZoneModule {									
+class UO_FW_AI_ZoneModule_R : UO_FW_AI_ZoneModule {									
 	displayName = "Zone (Square)"; 	
 	class AttributeValues {
         size2[] = {100,100};
@@ -121,7 +121,7 @@ class UO_FW_ZoneModule_R : UO_FW_ZoneModule {
     };
 };
 
-class UO_FW_ControlModule : UO_FW_AI_Module {	
+class UO_FW_AI_ControlModule : UO_FW_AI_Module {	
 	scope = 2; 									
 	displayName = "Control (Circle)";		
 	//icon = "\UO_FW\Resources\Icons\controlmodule_ca.paa"; 
@@ -227,7 +227,7 @@ class UO_FW_ControlModule : UO_FW_AI_Module {
 		};
 	};
 };
-class UO_FW_ControlModule_R : UO_FW_ControlModule {									
+class UO_FW_AI_ControlModule_R : UO_FW_AI_ControlModule {									
 	displayName = "Control (Square)"; 	
 	class AttributeValues {
 		size2[] = {100,100};
@@ -235,7 +235,7 @@ class UO_FW_ControlModule_R : UO_FW_ControlModule {
 	};
 };
 
-class UO_FW_TaskModule : UO_FW_AI_Module {	
+class UO_FW_AI_TaskModule : UO_FW_AI_Module {	
 	scope = 2; 							
 	displayName = "Task"; 			
 	//icon = "\UO_FW\Resources\Icons\taskmodule_ca.paa"; 
@@ -376,7 +376,7 @@ class UO_FW_TaskModule : UO_FW_AI_Module {
 		};			
 	};
 };
-class UO_FW_PositionModule : UO_FW_AI_Module {		
+class UO_FW_AI_PositionModule : UO_FW_AI_Module {		
 	scope = 2; 							
 	displayName = "Position (Circle)"; 	
 	//icon = "\UO_FW\Resources\Icons\posmodule_ca.paa"; 
@@ -433,14 +433,14 @@ class UO_FW_PositionModule : UO_FW_AI_Module {
 		};
 	};
 };
-class UO_FW_PositionModule_R : UO_FW_PositionModule {									
+class UO_FW_AI_PositionModule_R : UO_FW_AI_PositionModule {									
 	displayName = "Position (Square)"; 	
 	class AttributeValues {
         size2[] = {0,0};
 		IsRectangle = 1;
     };
 };
-class UO_FW_FastAirStrikeModule : UO_FW_AI_Module {		
+class UO_FW_AI_FastAirStrikeModule : UO_FW_AI_Module {		
 	scope = 2; 							
 	displayName = "Fast Air Strike"; 	
 	//icon = "\UO_FW\Resources\Icons\fastairmodule_ca.paa"; 
@@ -497,7 +497,7 @@ class UO_FW_FastAirStrikeModule : UO_FW_AI_Module {
 		};
 	};
 };
-class UO_FW_ArtilleryStrikeModule : UO_FW_AI_Module {		
+class UO_FW_AI_ArtilleryStrikeModule : UO_FW_AI_Module {		
 	scope = 2; 							
 	displayName = "Artillery Strike"; 	
 	//icon = "\UO_FW\Resources\Icons\artillerymodule_ca.paa"; 
@@ -575,7 +575,7 @@ class UO_FW_ArtilleryStrikeModule : UO_FW_AI_Module {
 		};
 	};
 };
-class UO_FW_AirDropModule : UO_FW_AI_Module {		
+class UO_FW_AI_AirDropModule : UO_FW_AI_Module {		
 	scope = 2; 							
 	displayName = "Air Drop"; 	
 	//icon = "\UO_FW\Resources\Icons\supplydropmodule_ca.paa"; 
@@ -665,7 +665,7 @@ class UO_FW_AirDropModule : UO_FW_AI_Module {
 		};			
 	};
 };
-class UO_FW_HeloInsertModule : UO_FW_AI_Module {		
+class UO_FW_AI_HeloInsertModule : UO_FW_AI_Module {		
 	scope = 2; 							
 	displayName = "Helicopter Insertion"; 	
 	//icon = "\UO_FW\Resources\Icons\heloinsertmodule_ca.paa"; 
@@ -724,7 +724,7 @@ class UO_FW_HeloInsertModule : UO_FW_AI_Module {
 	};
 };
 
-class UO_FW_RespawnModule : UO_FW_AI_Module {	
+class UO_FW_AI_RespawnModule : UO_FW_AI_Module {	
 	scope = 2; 							
 	displayName = "Respawn"; 			
 	//icon = "\UO_FW\Resources\Icons\respawnmodule_ca.paa"; 
@@ -747,9 +747,9 @@ class UO_FW_RespawnModule : UO_FW_AI_Module {
 		};
 	};
 };
-class UO_FW_TemplateModule : UO_FW_AI_Module {	
+class UO_FW_AI_TemplateModule : UO_FW_AI_Module {	
 	scope = 2; 							
-	displayName = "Template"; 			
+	displayName = "Group Template"; 			
 	//icon = "\UO_FW\Resources\Icons\templatemodule_ca.paa"; 
 	function = "UO_AI_fnc_temp"; 	
 	functionPriority = 1; 				

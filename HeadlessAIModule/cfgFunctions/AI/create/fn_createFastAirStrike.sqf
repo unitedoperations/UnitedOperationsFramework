@@ -13,7 +13,9 @@
  * ["bomb"] spawn UO_AI_fnc_createFastAirStrike;
  * ["bomb",3,2,200,"rhsusf_f22","Bo_GBU12_LGB_MI10","start"] spawn UO_AI_fnc_createFastAirStrike;
  */
-if(!UO_FW_var_isHCorServer) exitWith {};
+#include "\x\UO_FW\addons\main\script_macros.hpp"
+UO_FW_EXEC_CHECK(SERVERHC)
+
 	params ["_logic",["_spos",[0,0,0],[[]]],["_bombers",[],[[]]],"_j"];		
 	_amtO = _logic getVariable ['aeFASOrdnance',3];
 	_amtB = _logic getVariable ['aeFASAircraft',2];
