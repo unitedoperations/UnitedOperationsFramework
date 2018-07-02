@@ -1,5 +1,6 @@
 class ctrlMenuStrip;
 class ctrlToolbox;
+class ctrlCheckbox;
 class ctrlCombo;
 class ctrlEdit;
 class ctrlStatic;

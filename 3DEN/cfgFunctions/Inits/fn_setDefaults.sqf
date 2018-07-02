@@ -69,3 +69,5 @@ _configCategories = "(((str(configname _x)) find 'UO_FW') >= 0)" configClasses (
 		};
 	};
 } foreach _configAttributes;
+
+UO_FW_SETTINGS_INIT = true;

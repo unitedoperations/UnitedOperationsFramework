@@ -6,7 +6,7 @@ if (UO_FW_BRIEFING_OPFOR_FILE) exitwith {
 	};
 };
 
-if ((UO_FW_BRIEFING_OPFOR_NATO) && !(UO_FW_BRIEFING_OPFOR_FILE)) then {
+if ((UO_FW_BRIEFING_OPFOR_NATO) && !(UO_FW_BRIEFING_OPFOR_WARSAW)) then {
 	//Situation
 	NEWTAB("I. Situation:")
 	"<font color='#5BD527'><h1>Situation:</h1></font color><br/>" + UO_FW_BRIEFING_OPFOR_NATO_SIT_MAIN + "<br/><br/>" +
@@ -64,6 +64,46 @@ if ((UO_FW_BRIEFING_OPFOR_NATO) && !(UO_FW_BRIEFING_OPFOR_FILE)) then {
 	"<font color='#5BD527'><h1>Passwords:</h1></font color><br/>" + UO_FW_BRIEFING_OPFOR_NATO_CANDS_SIGNALS_PASSWORDS
 	ENDTAB
 };
+
+if ((UO_FW_BRIEFING_OPFOR_WARSAW) && !(UO_FW_BRIEFING_OPFOR_NATO)) then {
+	NEWTAB("I. Preliminaries:")
+	"<font color='#5BD527'><h1>Weather:</h1></font color><br/>" + UO_FW_BRIEFING_OPFOR_WARSAW_PRELIMINARIES_WEATHER + "<br/><br/>" +
+	"<font color='#5BD527'><h1>Terrain:</h1></font color><br/>" + UO_FW_BRIEFING_OPFOR_WARSAW_PRELIMINARIES_TERRAIN
+	ENDTAB
+	NEWTAB("II. Reference Points:")
+	"<font color='#5BD527'><h1>Deployment Reference Points:</h1></font color><br/>" + UO_FW_BRIEFING_OPFOR_WARSAW_REFERENCE_DEPLOYMENTPOINTS + "<br/><br/>" +
+	"<font color='#5BD527'><h1>Subsequent Reference Points:</h1></font color><br/>" + UO_FW_BRIEFING_OPFOR_WARSAW_REFERENCE_SUBSEQUENTPOINTS
+	ENDTAB
+	NEWTAB("III. Enemy:")
+	"<font color='#5BD527'><h1>Enemy Disposition:</h1></font color><br/>" + UO_FW_BRIEFING_OPFOR_WARSAW_ENEMY_DISP + "<br/><br/>" +
+	"<font color='#5BD527'><h1>Enemy Equipment:</h1></font color><br/>" + UO_FW_BRIEFING_OPFOR_WARSAW_ENEMY_EQUIP + "<br/><br/>" +
+	"<font color='#5BD527'><h1>Probable Enemy HQ Location:</h1></font color><br/>" + UO_FW_BRIEFING_OPFOR_WARSAW_ENEMY_PROB_HQ + "<br/><br/>" +
+	"<font color='#5BD527'><h1>Probable Enemy Main Element Location:</h1></font color><br/>" + UO_FW_BRIEFING_OPFOR_WARSAW_ENEMY_PROB_LINE + "<br/><br/>" +
+	"<font color='#5BD527'><h1>Probable Enemy Direction of Attack:</h1></font color><br/>" + UO_FW_BRIEFING_OPFOR_WARSAW_ENEMY_PROB_DIR_ATTACK + "<br/><br/>" +
+	"<font color='#5BD527'><h1>Probable Enemy Artillery Positions & Capability:</h1></font color><br/>" + UO_FW_BRIEFING_OPFOR_WARSAW_ENEMY_PROB_ARTY
+	ENDTAB
+	NEWTAB("IV. Higher and Adjacent Units:")
+	"<font color='#5BD527'><h1>Description:</h1></font color><br/>" + UO_FW_BRIEFING_OPFOR_WARSAW_HIGHER_DISP + "<br/><br/>" +
+	"<font color='#5BD527'><h1>Boundaries:</h1></font color><br/>" + UO_FW_BRIEFING_OPFOR_WARSAW_HIGHER_BOUNDARY + "<br/><br/>" +
+	"<font color='#5BD527'><h1>Location and Capability of Artillery:</h1></font color><br/>" + UO_FW_BRIEFING_OPFOR_WARSAW_HIGHER_ARTY
+	ENDTAB
+	NEWTAB("V. Mission:")
+	"<font color='#5BD527'><h1>Statement:</h1></font color><br/>" + UO_FW_BRIEFING_OPFOR_WARSAW_MISSION_DESC + "<br/><br/>" +
+	"<font color='#5BD527'><h1>End State Direction:</h1></font color><br/>" + UO_FW_BRIEFING_OPFOR_WARSAW_HIGHER_BOUNDARY
+	ENDTAB
+	NEWTAB("VI. Order:")
+	"<font color='#5BD527'><h1>Tasks:</h1></font color><br/>" + UO_FW_BRIEFING_OPFOR_WARSAW_ORDER_TASKS + "<br/><br/>" +
+	"<font color='#5BD527'><h1>Tasks for Artillery Elements:</h1></font color><br/>" + UO_FW_BRIEFING_OPFOR_WARSAW_ORDER_TASKS_ARTY + "<br/><br/>" +
+	"<font color='#5BD527'><h1>Readiness Timings:</h1></font color><br/>" + UO_FW_BRIEFING_OPFOR_WARSAW_ORDER_TIMINGS + "<br/><br/>" +
+	"<font color='#5BD527'><h1>Signals:</h1></font color><br/>" + UO_FW_BRIEFING_OPFOR_WARSAW_ORDER_SIGNALS
+	ENDTAB
+	NEWTAB("VII. Location of the Commander:")
+	"<font color='#5BD527'><h1>Location of the Commander:</h1></font color><br/>" + UO_FW_BRIEFING_OPFOR_WARSAW_COMM_LOC
+	ENDTAB
+	NEWTAB("VIII. Succession of Command:")
+	"<font color='#5BD527'><h1>Succession of Command:</h1></font color><br/>" + UO_FW_BRIEFING_OPFOR_WARSAW_SUCC_DESC
+	ENDTAB
+};
 	
 if (UO_FW_BRIEFING_OPFOR_APPENDIX) then {
 	if !(UO_FW_BRIEFING_OPFOR_APPENDIX_PATH isEqualto "") then {
@@ -72,5 +112,26 @@ if (UO_FW_BRIEFING_OPFOR_APPENDIX) then {
 		UO_FW_DEBUG("No appendix found for OPFOR!","No appendix found for OPFOR!")
 	};
 };
-				
+
+//Mission Notes
+NEWTAB("Mission Notes:")
+"<font color='#5BD527'><h1>Author:</h1></font color><br/>" + UO_FW_BRIEFING_MISSIONNOTES_AUTHOR + "<br/><br/>" +
+"<font color='#5BD527'><h1>Testers:</h1></font color><br/>" + UO_FW_BRIEFING_MISSIONNOTES_TESTERS + "<br/><br/>" +
+"<font color='#5BD527'><h1>End Conditions:</h1></font color><br/>" + UO_FW_BRIEFING_MISSIONNOTES_CONDITIONS + "<br/><br/>" +
+"<font color='#5BD527'><h1>Mission Specific Notes:</h1></font color><br/>" + UO_FW_BRIEFING_MISSIONNOTES_CUSTOM
+ENDTAB
+
+private _gamemastermsg = "";
+
+if (getMissionConfigValue ["UO_FW_BRIEFING_MISSIONNOTES_GM",false]) then {
+	_gamemastermsg = "This mission is designed for game mastering and can be manipulated as per Mission Notes";
+} else {
+	_gamemastermsg = "This mission is not designed for game mastering and should only be manipulated for technical, administrative or diagnostic purposes.";
+};
+
+//Game Mastering
+NEWTAB("Game Mastering")
+"<font color='#5BD527'><h1>Game Mastering:</h1></font color><br/>" + _gamemastermsg
+ENDTAB;
+
 DISPLAYBRIEFING()

@@ -80,7 +80,7 @@ class SubTitle: CategoryTitle
 		class Title: Title
 		{
 			x="4 * (pixelH * pixelGrid * 0.50)";
-			sizeEx="4 * (1 / (getResolution select 3)) * pixelGrid * 0.5";
+			sizeEx="4.2 * (1 / (getResolution select 3)) * pixelGrid * 0.5";
 		};
 	};
 };
@@ -92,7 +92,7 @@ class SubTitleIndent: SubTitle
 		class Title: Title
 		{
 			x="14 * (pixelH * pixelGrid * 0.50)";
-			sizeEx="4 * (1 / (getResolution select 3)) * pixelGrid * 0.5";
+			sizeEx="4.2 * (1 / (getResolution select 3)) * pixelGrid * 0.5";
 		};
 	};
 };

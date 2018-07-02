@@ -55,8 +55,7 @@ class UO_InitFunctions
 {
 	file = "x\UO_FW\addons\main\Core\cfgFunctions\init";
 	class init {postinit = 1;};
-	class preInit {};
-	class menu {};
+	class briefingFrameworkEntry {};
 	class postChecks {};
 	class spectate {};
 	class teamsInit {};
@@ -65,8 +64,9 @@ class UO_InitFunctions
 class UO_DebugFunctions
 {
 	file = "x\UO_FW\addons\main\Core\cfgFunctions\debug";
-	class DisplayDebugMessage {};
 	class debugMessage {};
+	class refreshDebug {};
+	//class debugInit {postinit = 1;};
 };
 
 class UO_EndscreenFunctions

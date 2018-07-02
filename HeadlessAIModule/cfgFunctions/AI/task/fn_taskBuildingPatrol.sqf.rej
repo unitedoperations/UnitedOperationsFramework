@@ -1,8 +1,0 @@
-diff a/asor_edit/functions/task/fn_taskBuildingPatrol.sqf b/asor_edit/functions/task/fn_taskBuildingPatrol.sqf	(rejected hunks)
-@@ -44,4 +44,5 @@
- 			sleep (floor random [(_wpWait*0.5), _wpWait, (_wpWait*1.2)]);
- 		};
- 	};
-+	group _unit call UO_AI_fnc_taskReset;
- 	true
-\ No newline at end of file

@@ -8,6 +8,7 @@ class UO_FW_TeamColourOptions {
 			property = "UO_FW_TeamColour";
 			control = "UO_FW_TeamColourAttribute";
 			expression = "_teamvalue = ['NONE','MAIN','RED','BLUE','GREEN','YELLOW'] select _value; _this setVariable ['%s',_teamvalue];";
+			condition = "objectBrain";
 			defaultValue = "0";
 		};
 	};

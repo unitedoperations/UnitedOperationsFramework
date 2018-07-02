@@ -14,19 +14,19 @@ class UO_FW_Blufor_Briefing_Configure
 class UO_FW_Opfor_Briefing_Configure
 {
     text = "Configure Opfor Briefing";
-	//action = "edit3DENMissionAttributes 'UO_FW_Opfor_Briefing';";
+	action = "edit3DENMissionAttributes 'UO_FW_Opfor_Briefing';";
 };
 
 class UO_FW_Indfor_Briefing_Configure
 {
     text = "Configure Indfor Briefing";
-	//action = "edit3DENMissionAttributes 'UO_FW_Indfor_Briefing';";
+	action = "edit3DENMissionAttributes 'UO_FW_Indfor_Briefing';";
 };
 
 class UO_FW_CIV_Briefing_Configure
 {
     text = "Configure Civilian Briefing";
-	//action = "edit3DENMissionAttributes 'UO_FW_CIV_Briefing';";
+	action = "edit3DENMissionAttributes 'UO_FW_CIV_Briefing';";
 };
 
 class UO_FW_Mission_Notes_Configure

@@ -1,8 +1,3 @@
-class UO_FW_Tools_Folder {
-    text = "Tools";
-    items[] = {"UO_FW_Test_Mission","UO_FW_Test_Loadouts"};
-};
-
 class UO_FW_Test_Mission
 {
     text = "Auto Test Mission";

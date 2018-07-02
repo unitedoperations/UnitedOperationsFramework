@@ -9,14 +9,14 @@ class CfgPatches
 		authors[] = {"Sacher","Blackhawk","Olsen","PiZZADOX"};
 		url = "https://github.com/unitedoperations/UnitedOperationsFramework";
 		units[] = {};
-		requiredVersion = 1.0;
+		requiredVersion = REQUIRED_VERSION;
 		requiredAddons[] = {"cba_main","3den","A3_Modules_F"};
 		VERSION_CONFIG;
 	};
 };
 
 //external class references
-#include "Core\cfgDia.hpp"
+#include "Core\RscTitles\rscdefinitions.hpp"
 #include "\a3\3DEN\UI\macros.inc"
 #include "\a3\3DEN\UI\resincl.inc"
 #include "3den\MainExternal.hpp"
@@ -47,6 +47,7 @@ class CfgFunctions
 		#include "SelfActionsModule\cfgFunctions.hpp"
 		#include "SafeStartModule\cfgFunctions.hpp"
 		#include "AntiNDModule\cfgFunctions.hpp"
+		#include "ACREModule\cfgFunctions.hpp"
 	};
 	
 	#include "HeadlessAIModule\cfgFunctions.hpp"
@@ -77,7 +78,7 @@ class CfgVehicles
 
 class RscTitles
 {
-	//#include "Core\RscTitles.hpp"
+	#include "Core\RscTitles.hpp"
 };
 
 class CfgNotifications
@@ -110,10 +111,10 @@ class Cfg3DEN
 			class AttributeCategories
 			{
 				//add main mission settings here
-				#include "Core\cfgAttributeCategories\Mission\Main.hpp"
-				#include "Core\cfgAttributeCategories\Mission\Teams.hpp"
-				#include "EndConditionsModule\cfgAttributeCategories\Mission\Timelimit.hpp"
-				#include "Core\cfgAttributeCategories\Mission\Debug.hpp"
+				#include "Core\cfg3den\Mission\Main.hpp"
+				#include "Core\cfg3den\Mission\Teams.hpp"
+				//#include "EndConditionsModule\cfg3den\Mission\Timelimit.hpp"
+				#include "Core\cfg3den\Mission\Debug.hpp"
 			};
 		};
 		
@@ -123,15 +124,17 @@ class Cfg3DEN
 			class AttributeCategories
 			{
 				//add module settings here
-				#include "SafeStartModule\cfgAttributeCategories\Modules\SafeStart.hpp"
-				#include "AntiNDModule\cfgAttributeCategories\Modules\AntiND.hpp"
-				#include "SelfActionsModule\cfgAttributeCategories\Modules\SelfActions.hpp"
+				#include "SafeStartModule\cfg3den\Modules\SafeStart.hpp"
+				#include "AntiNDModule\cfg3den\Modules\AntiND.hpp"
+				#include "SelfActionsModule\cfg3den\Modules\SelfActions.hpp"
 			};
 		};
 		
 		//add custom mission 3den editor categories
+		#include "EndConditionsModule\cfg3den\cfg3denMenu.hpp"
 		#include "BriefingModule\cfg3den\cfg3denMenu.hpp"
 		#include "HeadlessAIModule\cfg3den\cfg3denMenu.hpp"
+		#include "ACREModule\cfg3den\cfg3denMenu.hpp"
 	};
 	
 	//add custom base 3den options & categories
@@ -145,6 +148,7 @@ class Cfg3DEN
 		class AttributeCategories {
 			#include "HeadlessAIModule\cfgAttributeCategories\Object.hpp"
 			#include "TeamColourModule\cfgAttributeCategories\Object.hpp"
+			#include "ACREModule\cfgAttributeCategories\Object.hpp"
 		};
 	};
 	
@@ -159,8 +163,10 @@ class Cfg3DEN
 	{
 		#include "3DEN\CfgAttributes.hpp"
 		#include "Core\CfgAttributes.hpp"
+		#include "EndConditionsModule\CfgAttributes.hpp"
 		#include "HeadlessAIModule\CfgAttributes.hpp"
 		#include "TeamColourModule\CfgAttributes.hpp"
+		#include "ACREModule\CfgAttributes.hpp"
 	};
 };
 
@@ -178,12 +184,19 @@ class display3DEN
 				//Add custom UO menus
 				#include "HeadlessAIModule\display3DEN\Menu.hpp"
 				#include "BriefingModule\display3DEN\Menu.hpp"
+				#include "EndConditionsModule\display3DEN\Menu.hpp"
+				#include "ACREModule\display3DEN\Menu.hpp"
 				
 				//tools define
 				#include "3DEN\display3DEN\MenuTools.hpp"
 				
 				//add custom tools menus
 				
+				class UO_FW_Tools_Folder {
+					text = "Tools";
+					items[] = {"UO_FW_Test_Mission","UO_FW_Test_Loadouts"};
+				};
+			
 				//documentation define
 				#include "3DEN\display3DEN\MenuDoc.hpp"
 				
@@ -194,7 +207,7 @@ class display3DEN
 				class UO_FW_Folder
 				{
 					text = "UO Framework";
-					items[] = {"UO_FW_Settings","UO_FW_Module_Settings","UO_FW_Briefing_Folder","UO_FW_AI_Settings","UO_FW_Tools_Folder","UO_FW_Documentation"};
+					items[] = {"UO_FW_Settings","UO_FW_Module_Settings","UO_FW_EndConditions_Settings","UO_FW_Briefing_Folder","UO_FW_ACRE_Folder","UO_FW_AI_Settings","UO_FW_Tools_Folder","UO_FW_Documentation"};
 				};
 				
 				//compile main menu

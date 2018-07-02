@@ -1,7 +1,4 @@
 if (!isDedicated) then {
-
-	
-
 	private ["_respawnName", "_respawnPoint", "_temp", "_text"];
 
 	if (FW_RespawnTickets > 0) then {

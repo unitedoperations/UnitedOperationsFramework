@@ -1,8 +1,7 @@
 /*
- * Author: Olsen
+ * Author: PiZZADOX
  *
- * Display a debug message.
- * Must be ran during init in order to work properly.
+ * Checks and adds debug message
  *
  * Arguments:
  * 0: message <string>
@@ -12,23 +11,38 @@
  *
  * Public: No
  */
+ 
+#include "\x\UO_FW\addons\main\script_macros.hpp"
+UO_FW_EXEC_CHECK(ALL)
 
 private _message = _this;
-
 private _found = false;
 
-{
+if (isNil "UO_FW_DebugMessages") then {UO_FW_DebugMessages = [];};
 
-	if (_x == _message) exitWith {
-
-		_found = true;
-
-	};
-
-} forEach UO_FW_DebugMessages;
-
-if (!_found) then {
-
-	UO_FW_DebugMessages set [count UO_FW_DebugMessages, _message];
-
+if (!(_message in UO_FW_DebugMessages)) then {
+	UO_FW_DebugMessages pushback _message;
 };
+
+if (isNull (uiNamespace getVariable ["UO_FW_Debug_Control",displaynull])) then {
+	[_message] spawn {
+		sleep 0.1;
+		100 cutRsc ["DIA_DEBUG", "PLAIN"];
+		waituntil {!(isNull (uiNamespace getVariable ["UO_FW_Debug_Control",displaynull]))};
+		[] call UO_FW_fnc_refreshDebug;
+		sleep 30;
+		UO_FW_DebugMessages - [(_this select 0)];
+		sleep 0.1;
+		[] call UO_FW_fnc_refreshDebug;
+	};
+} else {
+	[_message] spawn {
+		sleep 0.1;
+		[] call UO_FW_fnc_refreshDebug;
+		sleep 30;
+		UO_FW_DebugMessages - [(_this select 0)];
+		sleep 0.1;
+		[] call UO_FW_fnc_refreshDebug;
+	};
+};
+

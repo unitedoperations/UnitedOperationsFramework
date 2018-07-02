@@ -54,8 +54,6 @@ if (!isDedicated) then
 	#include "\x\UO_FW\addons\main\Core\defines\playerSettings.hpp"
 	//#include "\x\UO_FW\addons\main\Core\defines\RespawnInit.hpp"
 
-	"" call UO_FW_fnc_Menu;
-
 	UO_FW_RespawnTickets = 0; //Initialize respawn tickets to 0
 	
 	//switch (side player) do

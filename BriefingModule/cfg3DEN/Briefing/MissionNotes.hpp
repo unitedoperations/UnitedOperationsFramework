@@ -6,7 +6,7 @@ class Main
     {
 		class UO_FW_BRIEFING_MISSIONNOTES_AUTHOR
         {
-            property = "UO_FW_BRIEFING_MISSIONNOTES_AUTHORS";
+            property = "UO_FW_BRIEFING_MISSIONNOTES_AUTHOR";
             displayName = "Mission Author";
             tooltip = "Mission Author";
             control = "EditShort";
@@ -24,6 +24,16 @@ class Main
             defaultValue = "''";
             
         };
+		class UO_FW_BRIEFING_MISSIONNOTES_CONDITIONS
+        {
+            property = "UO_FW_BRIEFING_MISSIONNOTES_CONDITIONS";
+            displayName = "End Conditions";
+            tooltip = "Describe the specific end conditions for the mission here";
+            control = "EditMulti5";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            defaultValue = "''";
+            
+        };
         class UO_FW_BRIEFING_MISSIONNOTES_CUSTOM
         {
             property = "UO_FW_BRIEFING_MISSIONNOTES_CUSTOM";
@@ -37,9 +47,9 @@ class Main
 		class UO_FW_BRIEFING_MISSIONNOTES_GM
         {
             property = "UO_FW_BRIEFING_MISSIONNOTES_GM";
-            displayName = "Game Mastering";
-            tooltip = "Game Mastering";
-            control = "Checkbox";
+            displayName = "Allow Game Mastering";
+            tooltip = "Allow Game Mastering";
+            control = "CheckBox";
             expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "false";
             
