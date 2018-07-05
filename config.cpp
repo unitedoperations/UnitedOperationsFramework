@@ -46,8 +46,9 @@ class CfgFunctions
 		#include "TeamColourModule\cfgFunctions.hpp"
 		#include "SelfActionsModule\cfgFunctions.hpp"
 		#include "SafeStartModule\cfgFunctions.hpp"
+		#include "ShotCountModule\cfgFunctions.hpp"
 		#include "AntiNDModule\cfgFunctions.hpp"
-		#include "ACREModule\cfgFunctions.hpp"
+		//#include "ACREModule\cfgFunctions.hpp"
 	};
 	
 	#include "HeadlessAIModule\cfgFunctions.hpp"
@@ -113,7 +114,6 @@ class Cfg3DEN
 				//add main mission settings here
 				#include "Core\cfg3den\Mission\Main.hpp"
 				#include "Core\cfg3den\Mission\Teams.hpp"
-				//#include "EndConditionsModule\cfg3den\Mission\Timelimit.hpp"
 				#include "Core\cfg3den\Mission\Debug.hpp"
 			};
 		};
@@ -127,6 +127,7 @@ class Cfg3DEN
 				#include "SafeStartModule\cfg3den\Modules\SafeStart.hpp"
 				#include "AntiNDModule\cfg3den\Modules\AntiND.hpp"
 				#include "SelfActionsModule\cfg3den\Modules\SelfActions.hpp"
+				#include "ShotCountModule\cfg3den\Modules\ShotCount.hpp"
 			};
 		};
 		
@@ -134,7 +135,7 @@ class Cfg3DEN
 		#include "EndConditionsModule\cfg3den\cfg3denMenu.hpp"
 		#include "BriefingModule\cfg3den\cfg3denMenu.hpp"
 		#include "HeadlessAIModule\cfg3den\cfg3denMenu.hpp"
-		#include "ACREModule\cfg3den\cfg3denMenu.hpp"
+		//#include "ACREModule\cfg3den\cfg3denMenu.hpp"
 	};
 	
 	//add custom base 3den options & categories
@@ -148,7 +149,7 @@ class Cfg3DEN
 		class AttributeCategories {
 			#include "HeadlessAIModule\cfgAttributeCategories\Object.hpp"
 			#include "TeamColourModule\cfgAttributeCategories\Object.hpp"
-			#include "ACREModule\cfgAttributeCategories\Object.hpp"
+			//#include "ACREModule\cfgAttributeCategories\Object.hpp"
 		};
 	};
 	
@@ -166,7 +167,7 @@ class Cfg3DEN
 		#include "EndConditionsModule\CfgAttributes.hpp"
 		#include "HeadlessAIModule\CfgAttributes.hpp"
 		#include "TeamColourModule\CfgAttributes.hpp"
-		#include "ACREModule\CfgAttributes.hpp"
+		//#include "ACREModule\CfgAttributes.hpp"
 	};
 };
 
@@ -185,7 +186,7 @@ class display3DEN
 				#include "HeadlessAIModule\display3DEN\Menu.hpp"
 				#include "BriefingModule\display3DEN\Menu.hpp"
 				#include "EndConditionsModule\display3DEN\Menu.hpp"
-				#include "ACREModule\display3DEN\Menu.hpp"
+				//#include "ACREModule\display3DEN\Menu.hpp"
 				
 				//tools define
 				#include "3DEN\display3DEN\MenuTools.hpp"
@@ -207,7 +208,8 @@ class display3DEN
 				class UO_FW_Folder
 				{
 					text = "UO Framework";
-					items[] = {"UO_FW_Settings","UO_FW_Module_Settings","UO_FW_EndConditions_Settings","UO_FW_Briefing_Folder","UO_FW_ACRE_Folder","UO_FW_AI_Settings","UO_FW_Tools_Folder","UO_FW_Documentation"};
+					//items[] = {"UO_FW_Settings","UO_FW_Module_Settings","UO_FW_EndConditions_Settings","UO_FW_Briefing_Folder","UO_FW_ACRE_Folder","UO_FW_AI_Settings","UO_FW_Tools_Folder","UO_FW_Documentation"};
+					items[] = {"UO_FW_Settings","UO_FW_Module_Settings","UO_FW_EndConditions_Settings","UO_FW_Briefing_Folder","UO_FW_AI_Settings","UO_FW_Tools_Folder","UO_FW_Documentation"};
 				};
 				
 				//compile main menu

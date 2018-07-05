@@ -4,8 +4,9 @@ _endTitle = 3001;
 _left = 3002;
 _right = 3003;
 _bottomLeft = 3004;
-_bottomMiddle = 3005;
-_bottomRight = 3006;
+_bottomMiddleLeft = 3005;
+_bottomMiddleRight = 3006;
+_bottomRight = 3007;
 
 params ["_scenario", "_timeLimit", "_teams"];
 
@@ -29,7 +30,8 @@ params ["_scenario", "_timeLimit", "_teams"];
 _leftText = "";
 _rightText = "";
 _bottomTextLeft = "";
-_bottomTextMiddle = "";
+_bottomTextMiddleLeft = "";
+_bottomTextMiddleRight = "";
 _bottomTextRight = "";
 _textSide = 0;
 {
@@ -99,10 +101,11 @@ if (_timeLimit != 0) then {
 
 };
 
-if (!isNil "aCount_textBLU" && !isNil "aCount_textRED" && !isNil "aCount_textRES") then {
+if (!isNil "aCount_textBLU" && !isNil "aCount_textOPF" && !isNil "aCount_textRES" && !isNil "aCount_textCIV") then {
 	_bottomTextLeft = format["%1",aCount_textBLU];
-	_bottomTextMiddle = format["%1",aCount_textRED];
-	_bottomTextRight = format["%1",aCount_textRES];
+	_bottomTextMiddleLeft = format["%1",aCount_textOPF];
+	_bottomTextMiddleRight = format["%1",aCount_textRES];
+	_bottomTextRight = format["%1",aCount_textCIV];
 };
 
 disableSerialization;
@@ -112,7 +115,8 @@ _dia = uiNamespace getVariable "UO_FW_EndScreen";
 (_dia displayCtrl _left) ctrlSetStructuredText parseText _leftText;
 (_dia displayCtrl _right) ctrlSetStructuredText parseText _rightText;
 (_dia displayCtrl _bottomLeft) ctrlSetStructuredText parseText _bottomTextLeft;
-(_dia displayCtrl _bottomMiddle) ctrlSetStructuredText parseText _bottomTextMiddle;
+(_dia displayCtrl _bottomMiddleLeft) ctrlSetStructuredText parseText _bottomTextMiddleLeft;
+(_dia displayCtrl _bottomMiddleRight) ctrlSetStructuredText parseText _bottomTextMiddleRight;
 (_dia displayCtrl _bottomRight) ctrlSetStructuredText parseText _bottomTextRight;
 
 [_dia,_bg] spawn {
