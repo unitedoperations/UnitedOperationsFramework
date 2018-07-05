@@ -1,80 +1,87 @@
 
-	class UO_SoftAOLimitModule: OlsenModule
-	{
+class UO_SoftAOLimitModule: OlsenModule
+{
 
-		displayName = "Soft AO Limit Module"; // Name displayed in the menu
+	displayName = "Soft AO Limit Module"; // Name displayed in the menu
 
-		// Name of function triggered once conditions are met
-		function = "UO_fnc_LoadAOLimits";
-		// Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
-		functionPriority = 3;
- 		scope = 2; // Editor visibility; 2 will show it in the menu, 1 will hide it.
-
+	// Name of function triggered once conditions are met
+	function = "UO_FW_fnc_EdenSoftAOLimits";
+	// Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
+	functionPriority = 3;
+	scope = 2; // Editor visibility; 2 will show it in the menu, 1 will hide it.
+	is3DEN = 1;
+	// Categories collapsible in "Edit Attributes" window
+		// Category class, can be anything
 		// Categories collapsible in "Edit Attributes" window
-			// Category class, can be anything
-			// Categories collapsible in "Edit Attributes" window
-				class Arguments
-				{
-					// Arguments shared by specific module type (have to be mentioned in order to be present)
-					// Module specific arguments
-					class AOTimerArgument
-					{
-						// Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
-						displayName = "Max time outside of AO "; // Argument label
-						description = "The amount of time in seconds a land based unit is allowed to stay outside the AO (-1 = Infinity)"; // description description
-						typeName = "NUMBER"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-						defaultValue = "30"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
-					};
-					class AOTimerAirArgument
-					{
-						// Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
-						displayName = "Max time outside of AO for aerial units"; // Argument label
-						description = "The amount of time in seconds an air based unit is allowed to stay outside the AO (-1 = Infinity)"; // description description
-						typeName = "NUMBER"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-						defaultValue = "-1"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
-					};
-					class AOBluforMarkerArrayArgument
-					{
-						// Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
-						displayName = "Blufor markers"; // Argument label
-						description = "Array of Marker names in quotes for Blufor"; // description description
-						typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-						defaultValue = ""; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
-						control = "EditArray";
-					};
-					class AOOpforMarkerArrayArgument
-					{
-						// Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
-						displayName = "Opfor markers"; // Argument label
-						description = "Array of Marker names in quotes for Opfor"; // description description
-						typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-						defaultValue = ""; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
-						control = "EditArray";
-					};
-					class AOIndforMarkerArrayArgument
-					{
-						// Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
-						displayName = "Indfor markers"; // Argument label
-						description = "Array of Marker names in quotes for Indfor"; // description description
-						typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-						defaultValue = ""; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
-						control = "EditArray";
-					};
-					class AOCivilianMarkerArrayArgument
-					{
-						// Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
-						property = "AOCivilianMarkerArray";
-						displayName = "Civilian markers"; // Argument label
-						description = "Array of Marker names in quotes for Civilian"; // description description
-						typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-						defaultValue = ""; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
-						control = "EditArray";
-					};
-				};
-		// Module description. Must inherit from base class, otherwise pre-defined entities won't be available
-		class ModuleDescription: ModuleDescription
+	class Attributes 
+	{
+		class UO_FW_SoftAoLimit_TimeOutside
 		{
-			description = "Olsenframework Soft AO Limit Module"; // Short description, will be formatted as structured text
-			sync[] = {}; // Array of synced entities (can contain base classes)
+			displayName = "Max time outside of AO";
+			tooltip = "The amount of time in seconds a land based unit is allowed to stay outside the AO (-1 = Infinity)";
+			control = "Edit";
+			typeName = "NUMBER";
+			property = "UO_FW_SoftAoLimit_TimeOutside";
+			expression = "_this setVariable ['%s',_value];";
+			validate = "number";
+			defaultValue = "30";
 		};
+		class UO_FW_SoftAoLimit_TimeOutsideAir
+		{
+			displayName = "Max time outside of AO for aerial units";
+			tooltip = "The amount of time in seconds an air based unit is allowed to stay outside the AO (-1 = Infinity)";
+			control = "Edit";
+			typeName = "NUMBER";
+			property = "UO_FW_SoftAoLimit_TimeOutsideAir";
+			expression = "_this setVariable ['%s',_value];";
+			validate = "number";
+			defaultValue = "-1";
+		};
+		class UO_FW_SoftAoLimit_BluforMarkers
+		{
+			displayName = "Blufor markers";
+			tooltip = "List of Marker names without quotes seperated by , for Blufor. Units must spawn inside to be valid.";
+			control = "EditArray";
+			typeName = "STRING";
+			property = "UO_FW_SoftAoLimit_BluforMarkers";
+			expression = "_this setVariable ['%s',_value];";
+			validate = "none";
+			defaultValue = "[]";
+		};
+		class UO_FW_SoftAoLimit_OpforMarkers
+		{
+			displayName = "Opfor markers";
+			tooltip = "List of Marker names without quotes seperated by , for Opfor. Units must spawn inside to be valid.";
+			control = "EditArray";
+			typeName = "STRING";
+			property = "UO_FW_SoftAoLimit_OpforMarkers";
+			expression = "_this setVariable ['%s',_value];";
+			validate = "none";
+			defaultValue = "[]";
+		};
+		class UO_FW_SoftAoLimit_IndependentMarkers
+		{
+			displayName = "Independent markers";
+			tooltip = "List of Marker names without quotes seperated by , for Independent. Units must spawn inside to be valid.";
+			control = "EditArray";
+			typeName = "STRING";
+			property = "UO_FW_SoftAoLimit_IndependentMarkers";
+			expression = "_this setVariable ['%s',_value];";
+			validate = "none";
+			defaultValue = "[]";
+		};
+		class UO_FW_SoftAoLimit_CivilianMarkers
+		{
+			displayName = "Civilian markers";
+			tooltip = "List of Marker names without quotes seperated by , for Civilians. Units must spawn inside to be valid.";
+			control = "EditArray";
+			typeName = "STRING";
+			property = "UO_FW_SoftAoLimit_CivilianMarkers";
+			expression = "_this setVariable ['%s',_value];";
+			validate = "none";
+			defaultValue = "[]";
+		};
+	
 	};
+	// Module description. Must inherit from base class, otherwise pre-defined entities won't be available
+};

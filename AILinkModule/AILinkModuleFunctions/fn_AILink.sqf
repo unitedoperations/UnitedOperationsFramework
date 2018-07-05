@@ -1,94 +1,69 @@
+private ["_groups","_thisGroup","_thatGroup","_thisLR","_thisSR","_thatLR","_thatSR","_range"];
 
+if (isNil "tin_aiLink_debug") then {tin_aiLink_debug = false};
+if (tin_aiLink_transDelay > tin_aiLink_shareDelay) then {tin_aiLink_transDelay = tin_aiLink_shareDelay};
 
-_logic = param [0,objNull,[objNull]];
-// Argument 1 is list of affected units (affected by value selected in the 'class Units' argument))
-_units = param [1,[],[[]]];
-// True when the module was activated, false when it's deactivated (i.e., synced triggers are no longer active)
-_activated = param [2,true,[true]];
+_allLinkGroups = [];
+{	//Remove player controlled groups
+    if !(isPlayer (leader _x)) then {
+        _allLinkGroups set [count _allLinkGroups,_x];
+    };
+} forEach allGroups;
 
+if (tin_aiLink_debug) then {diag_log format["Link Groups: %1",_allLinkGroups];};
 
-// Module specific behavior. Function can extract arguments from logic and use them.
-if (_activated) then
-{
-    ["AI skill", "Allows the mission maker to change the subskills of ai", "Sacher"] call FNC_RegisterModule;
-    _typeArgument = (_logic getVariable ["TypeArgument",0.8]);
-    _distanceArgument = (_logic getVariable ["DistanceArgument",0.8]);
-    _aimingAccuracyArgument = (_logic getVariable ["AimingAccuracyArgument",0.8]);
-    _aimingShakeArgument = (_logic getVariable ["AimingShakeArgument",0.8]);
-    _aimingSpeedArgument = (_logic getVariable ["AimingSpeedArgument",0.8]);
-    _commandingArgument = (_logic getVariable ["CommandingArgument",0.8]);
-    _courageArgument = (_logic getVariable ["CourageArgument",0.8]);
-    _reloadSpeedArgument = (_logic getVariable ["ReloadSpeedArgument",0.8]);
-    _spotDistance = (_logic getVariable ["SpotDistance",0.8]);
-    _spotTime = (_logic getVariable ["SpotTime",0.8]);
-
-
-     _units = synchronizedObjects logic:
-
-    #define SETAISKILL(UNIT) \
-    UNIT setSkill ["aimingspeed" , _aimingSpeedArgument];\
-    UNIT setSkill ["spotdistance" , _spotDistance];\
-    UNIT setSkill ["aimingaccuracy" , _aimingAccuracyArgument];\
-    UNIT setSkill ["aimingshake" , _aimingShakeArgument];\
-    UNIT setSkill ["spottime" , _spotTime];\
-    UNIT setSkill ["reloadspeed" , _aimingSpeedArgument];\
-    UNIT setSkill ["commanding" , _aimingSpeedArgument];\
-    UNIT setSkill ["general" , _aimingSpeedArgument];\
-    UNIT setSkill ["courage" , _aimingSpeedArgument];
-
-    ""
+{	//Share that sweet, sweet info
+    _thisGroup = _x;
+    _groups = _groups - [_thisGroup];
     {
-        switch(_type)
-        {
-            case 1:
-            {
-                if(_distanceArgument == 0) then
-                {
-                    SETAISKILL(_x);
-                }
-                else
-                {
-                    {
-                        SETAISKILL(_x);
-                    }nearestObjects [getPos _x,["Man"],_distanceArgument];
-                };
+        _thatGroup = _x;
+        if (side _thisGroup == side _thatGroup) then {
+            if (tin_aiLink_needRadio) then {
+                _thisArray = [_thisGroup] call UO_FW_fnc_EvalRadio;
+                _thatArray = [_thatGroup] call UO_FW_fnc_EvalRadio;
 
+                _thisLR = _thisArray select 0;
+                _thisSR = _thisArray select 1;
+                _thatLR = _thatArray select 0;
+                _thatSR = _thatArray select 1;
+            } else {
+                _thisLR = true;
+                _thisSR = true;
+                _thatLR = true;
+                _thatSR = true;
             };
-            case 2:
-            {
-                if(_distanceArgument == 0) then
-                {
 
-                    {
-                        SETAISKILL(_x);
-                    }
-                    forEach (units (group _x));
+            _range = 25;
+            if (_thisLR && _thatLR) then {
+                _range = tin_aiLink_longRange;
+            } else {
+                if (_thisSR && _thatSR) then {
+                    _range = tin_aiLink_shortRange
                 };
-                else
-                {
-                    _foundGroups = [];
-                    {
-                        _index = _foundGroups pushBackUnique (group _x);
-                    }nearestObjects [getPos _x,["Man"],_distanceArgument];
-                    {
-                        _group = _x;
-                        {
-                            SETAISKILL(_x);
-                        }forEach (units _group);
-                    }forEach _foundGroups;
-                }
             };
-            case 3:
+
+            _checkUnits = allUnits;
+            if (isMultiplayer) then {_checkUnits = playableUnits};
             {
-                _unit = _x;
-                {
-                    if(side _x == side _unit) then
-                    {
-                        SETAISKILL(_x);
-                    };
-                }forEach allUnits;
-            };
+                if (_thisGroup knowsAbout _x > _thatGroup knowsAbout _x && _thisGroup knowsAbout _x > 1 && _thatGroup knowsAbout _x < 1.5 && (leader _thisGroup distance2D _x) <= _range) then {
+                    _waitTime = random(tin_aiLink_transDelay);
+                    [{
+                        params ["_thatGroup","_thisGroup","_targUnit"];
+                        _revAmt = _thisGroup knowsAbout _targUnit;
+                        if (_revAmt > tin_aiLink_maxKnows) then {_revAmt = tin_aiLink_maxKnows};
+                        if (_revAmt > _thatGroup knowsAbout _targUnit) then {_thatGroup reveal [_targUnit,_revAmt];};
+
+                        if (tin_aiLink_debug) then {diag_log format["Update || This: %1 | That: %2 | Targ: %3 | Knows:%4",_thisGroup,_thatGroup,_targUnit,_revAmt];};
+                    }, [_thatGroup,_thisGroup,_x],_waitTime] call CBA_fnc_waitAndExecute;
+                    if (tin_aiLink_debug) then {diag_log format["Pre-update || This: %1 | That: %2 | Targ: %3",_thisGroup,_thatGroup,_x];};
+                };
+                if (tin_aiLink_debug) then {diag_log format["Check || This: %1 | That: %2 | Targ: %3",_thisGroup knowsAbout _x,_thatGroup knowsAbout _x,_x];};
+            } forEach _checkUnits;
+
+            if (tin_aiLink_debug) then {diag_log format["Rem Groups: %1 | This: %2 | That:%3 | ThisLR:%4 | ThatLR:%5 | Range:%6",_groups,_thisGroup,_thatGroup,_thisLR,_thatLR,_range];};
         };
-    }forEach _units;
+    } forEach _groups;
+    _groups = _allLinkGroups;
+} forEach _allLinkGroups;
 
-};
+[{call UO_FW_fnc_LoadAILink},[],tin_aiLink_shareDelay] call CBA_fnc_waitAndExecute;

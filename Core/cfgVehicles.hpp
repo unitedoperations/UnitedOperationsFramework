@@ -5,7 +5,7 @@
 		scope = 2; // Editor visibility; 2 will show it in the menu, 1 will hide it.
 		displayName = "Basic Mission Setup Module"; // Name displayed in the menu
 		// Name of function triggered once conditions are met
-		function = "UO_fnc_init";
+		function = "UO_FW_fnc_init";
 		// Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
 		functionPriority = 1;
 		// 0 for server only execution, 1 for global execution, 2 for persistent global execution
