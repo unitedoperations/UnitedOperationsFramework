@@ -48,6 +48,7 @@ class CfgFunctions
 		#include "SafeStartModule\cfgFunctions.hpp"
 		#include "ShotCountModule\cfgFunctions.hpp"
 		#include "AntiNDModule\cfgFunctions.hpp"
+		#include "AIDriversModule\cfgFunctions.hpp"
 		//#include "ACREModule\cfgFunctions.hpp"
 	};
 	
@@ -128,6 +129,7 @@ class Cfg3DEN
 				#include "AntiNDModule\cfg3den\Modules\AntiND.hpp"
 				#include "SelfActionsModule\cfg3den\Modules\SelfActions.hpp"
 				#include "ShotCountModule\cfg3den\Modules\ShotCount.hpp"
+				#include "AIDriversModule\cfg3den\Modules\AIDrivers.hpp"
 			};
 		};
 		
@@ -149,6 +151,7 @@ class Cfg3DEN
 		class AttributeCategories {
 			#include "HeadlessAIModule\cfgAttributeCategories\Object.hpp"
 			#include "TeamColourModule\cfgAttributeCategories\Object.hpp"
+			#include "AIDriversModule\cfgAttributeCategories\Object.hpp"
 			//#include "ACREModule\cfgAttributeCategories\Object.hpp"
 		};
 	};
@@ -221,7 +224,7 @@ class display3DEN
 
 class Params
 {
-	#define DAYTIMEHOUR_DEFAULT 19
+	#define DAYTIMEHOUR_DEFAULT 12
 	#include "\a3\functions_f\Params\paramDaytimeHour.hpp"
 };
 

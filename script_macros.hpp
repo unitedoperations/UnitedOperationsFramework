@@ -42,9 +42,6 @@ if (UO_FW_Debug_Detailed_Enabled) then {\
 	diag_log _detailedmsgprint;\
 };
 
-#define UO_FW_ADDTEAM(SIDE,NAME,TYPE)\
-[SIDE,NAME,TYPE] call UO_FW_fnc_AddTeam;
-
 //Gear/Groups
 
 #define SET_GROUP(groupName) _temp = #groupName + package;\
@@ -53,16 +50,3 @@ call compile format ['%1 = {
 #define END_GROUP };', _temp]
 
 #define ADD_GROUP(groupName) call call compile format ["%1", #groupName + package]
-
-//Briefing
-
-#define NEWTAB(NAME) _briefing set [count _briefing, ["Diary",[NAME,
-
-#define ENDTAB ]]];
-
-#define DISPLAYBRIEFING()\
-_size = count _briefing - 1;\
-for '_i' from 0 to _size do\
-{\
-	player createDiaryRecord (_briefing select _size - _i);\
-};
