@@ -14,10 +14,10 @@ params ["_veh"];
 
 //AI driver action
 private _action = ["ai_driver","Add/Remove AI driver","",{
-    [_target, _player] call UO_FW_fnc_aidriverstoggle;
+    [_target, _player] call UO_FW_fnc_aiDriversToggle;
 },
 {
-    vehicle _player == _target && ((assignedVehicleRole _player) select 0) == "Turret" && UO_FW_AiDriverVehicle in [objNull, vehicle _player]
+    vehicle _player == _target && ((assignedVehicleRole _player) select 0) == "Turret" && (UO_FW_AiDriverVehicle in [objNull, vehicle _player])
 }] call ace_interact_menu_fnc_createAction;
 
 //unflip action
@@ -31,7 +31,7 @@ private _unflipAction = ["ai_driver_unflip","Unflip vehicle","",{
 
 //PIP action
 private _pipAction = ["ai_driver_pip","Enable/Disable driver's view","",{
-    (isNil "UO_FW_driverCam" || {isNull UO_FW_driverCam}) call UO_FW_fnc_aiDriverstoggleDriverCam;
+    (isNil "UO_FW_driverCam" || {isNull UO_FW_driverCam}) call UO_FW_fnc_aiDriversToggleDriverCam;
 },
 {
     vehicle _player == _target && ((assignedVehicleRole _player) select 0) == "Turret" && !isNull (_target getVariable ["UO_FW_aidrivers_driver", objNull])
