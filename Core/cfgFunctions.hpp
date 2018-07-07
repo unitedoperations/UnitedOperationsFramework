@@ -35,6 +35,7 @@ class UO_CoreFunctions
 	class trackAsset {};
 	class trackUnit {};
 	class untrackUnit {};
+	class arrayFindAll {};
 };
 
 class UO_GearFunctions
@@ -65,6 +66,7 @@ class UO_DebugFunctions
 {
 	file = "x\UO_FW\addons\main\Core\cfgFunctions\debug";
 	class debugMessage {};
+	class debugMessageMacro {};
 	class refreshDebug {};
 	//class debugInit {postinit = 1;};
 };

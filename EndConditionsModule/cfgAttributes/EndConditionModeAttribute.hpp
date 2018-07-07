@@ -12,7 +12,7 @@ class UO_FW_ENDCONDITIONS_MODEATTRIBUTE: Title {
             h = "8 * (pixelH * pixelGrid * 0.50)";
 			rows = 1;
             columns = 2;
-			strings[] = {"All Condition","Any Condition"};
+			strings[] = {"All Conditions","Any Condition"};
 			values[] = {0,1};
 			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_ENDCONDITIONS_MODEATTRIBUTE_value',(_this select 1)];";
 		};

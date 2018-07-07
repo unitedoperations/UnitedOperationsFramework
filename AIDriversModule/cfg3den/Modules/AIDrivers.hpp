@@ -8,8 +8,8 @@ class UO_FW_AIDrivers_Settings
         {
             property = "UO_FW_AIDrivers_AllVehs";
             displayName = "All Vehicles";
-            tooltip = "Toggle activation for all vehicles on mission start";
-            control = "CheckboxState";
+            tooltip = "Give AI Driver actions to all vehicles at mission start";
+            control = "CheckBox";
             expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "false";
         };

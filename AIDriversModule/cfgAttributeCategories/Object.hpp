@@ -7,7 +7,7 @@ class UO_FW_AIDriversOptions {
 			tooltip = "Enable AI driver for this vehicle";
 			property = "UO_FW_AIDriverVeh_Enabled";
 			control = "CheckBox";
-			expression = "_this setVariable ['%s',_value]; if (_value) then {[_this] call UO_FW_fnc_aiDriversEnableAIDriver};";
+			expression = "_this setVariable ['%s',_value]; if ((_value) && (!getMissionConfigValue [""UO_FW_AIDrivers_AllVehs"",false])) then {[_this] call UO_FW_fnc_aiDriversEnableAIDriver};";
 			condition = "objectVehicle";
 			defaultValue = "false";
 		};

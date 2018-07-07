@@ -1,14 +1,14 @@
 class Custom_File
 {
     displayName = "Custom File";
-    collapsed = 1;
+    collapsed = 0;
     class Attributes
     {
 		class UO_FW_ENDCONDITIONS_FILE
         {
             property = "UO_FW_ENDCONDITIONS_FILE";
             displayName = "Custom End Condition File";
-            tooltip = "Loads file on server as end conditions";
+            tooltip = "Loads file on server as end conditions instead of framework category settings.";
             control = "CheckboxState";
             expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "false";

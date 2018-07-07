@@ -9,7 +9,7 @@ class DIA_ENDSCREEN {
 	onLoad = "uiNamespace setVariable ['UO_FW_EndScreen', _this select 0];";
 	controlsBackground[] = {BACKGROUND};
 	objects[] = {};
-	controls[] = {TEXT_TITLE, TEXT_LEFT, TEXT_RIGHT, TEXT_BOTTOM_LEFT,TEXT_BOTTOM_MIDDLE, TEXT_BOTTOM_RIGHT};
+	controls[] = {TEXT_TITLE, TEXT_LEFT, TEXT_RIGHT, TEXT_BOTTOM_LEFT,TEXT_BOTTOM_MIDDLE_LEFT, TEXT_BOTTOM_MIDDLE_RIGHT, TEXT_BOTTOM_RIGHT};
 
 	class BACKGROUND: RscBackground
 	{
@@ -46,23 +46,31 @@ class DIA_ENDSCREEN {
 	class TEXT_BOTTOM_LEFT: RscStructuredText
 	{
 		idc = 3004;
-		x = 0.25 * safezoneW + safezoneX;
+		x = 0.2 * safezoneW + safezoneX;
 		y = 0.6 * safezoneH + safezoneY;
 		w = 0.8 * safezoneW;
 		h = 0.5 * safezoneH;
 	};
-	class TEXT_BOTTOM_MIDDLE: RscStructuredText
+	class TEXT_BOTTOM_MIDDLE_LEFT: RscStructuredText
 	{
 		idc = 3005;
-		x = 0.5 * safezoneW + safezoneX;
+		x = 0.4 * safezoneW + safezoneX;
+		y = 0.6 * safezoneH + safezoneY;
+		w = 0.8 * safezoneW;
+		h = 0.5 * safezoneH;
+	};
+	class TEXT_BOTTOM_MIDDLE_RIGHT: RscStructuredText
+	{
+		idc = 3006;
+		x = 0.4 * safezoneW + safezoneX;
 		y = 0.6 * safezoneH + safezoneY;
 		w = 0.8 * safezoneW;
 		h = 0.5 * safezoneH;
 	};
 	class TEXT_BOTTOM_RIGHT: RscStructuredText
 	{
-		idc = 3006;
-		x = 0.75 * safezoneW + safezoneX;
+		idc = 3007;
+		x = 0.8 * safezoneW + safezoneX;
 		y = 0.6 * safezoneH + safezoneY;
 		w = 0.8 * safezoneW;
 		h = 0.5 * safezoneH;

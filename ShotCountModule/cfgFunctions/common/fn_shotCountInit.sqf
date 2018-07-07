@@ -20,10 +20,8 @@ if (isServer) then
 	aCount_civilian_ExpendedAmmunition = [];
 	aCount_classNames = [];
 	
-	_AllUnitsAndVehs = entities [["Man","Land","Air","Ship"], [], true, false];
-	
 	[{ time > 0.1 }, {
-		{ _x call UO_FW_fnc_aCountaddEH; } forEach _AllUnitsAndVehs;
+		{ _x call UO_FW_fnc_aCountaddEH; } forEach allMissionObjects "All";
 	}] call CBA_fnc_waitUntilAndExecute;
 	
 	["aCount_event_addEH",UO_FW_fnc_aCountaddEH] call CBA_fnc_addEventHandler;

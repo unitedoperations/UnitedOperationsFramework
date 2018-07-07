@@ -19,7 +19,7 @@ if (time > 0) then {
 
 	UO_FW_MissionEnded = true;
 
-	if (!isNil "aCount_endCount") then {call aCount_endCount};
+	if (!isNil "aCount_endCount") then {call UO_FW_fnc_aCountendCount};
 
 	{
 		private _team = (_x select 0);
