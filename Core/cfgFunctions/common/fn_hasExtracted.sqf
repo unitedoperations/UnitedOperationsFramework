@@ -26,11 +26,15 @@ private _count = {
 
 private _result = false;
 if (_count >= _ratio * ([_team, 4] call UO_FW_fnc_getTeamVariable)) then {
+<<<<<<< HEAD:Core/cfgFunctions/common/fn_hasExtracted.sqf
 	if (!isNil "FW_hasDeparted" && {FW_hasDeparted}) then {
+=======
+	if (!isNil "UO_FW_hasDeparted" && {UO_FW_hasDeparted}) then {
+>>>>>>> f75aeeae1c4f987e0e243f43ae618bbedbe3dec7:Core/cfgFunctions/common/fn_hasExtracted.sqf
 		_result = true;
 	};
 }
 else {
-	FW_hasDeparted = true;
+	UO_FW_hasDeparted = true;
 };
 _result

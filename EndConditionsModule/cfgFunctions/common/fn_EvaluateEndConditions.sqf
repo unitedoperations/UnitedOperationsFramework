@@ -12,6 +12,7 @@ UO_FW_EXEC_CHECK(SERVER)
 
 if (isNil "UO_FW_MissionEnded") then {UO_FW_MissionEnded = false;};
 
+<<<<<<< HEAD
 //_whilesleep = missionNamespace getvariable ["UO_FW_ConditionSleep",30];
 //diag_log format ["_whilesleep: %1",_whilesleep];
 
@@ -23,6 +24,8 @@ if (isNil "UO_FW_MissionEnded") then {UO_FW_MissionEnded = false;};
 //	private _timelimitmessage = missionNamespace getvariable ["UO_FW_Timelimit_Message","Time Limit Reached!"];
 //};
 
+=======
+>>>>>>> f75aeeae1c4f987e0e243f43ae618bbedbe3dec7
 //timelimit loop
 if (UO_FW_Timelimit_Enabled) then {
 	if (UO_FW_Timelimit > 0) then {
@@ -51,6 +54,7 @@ if (UO_FW_ENDCONDITIONS_FILE) exitwith {
 	};
 };
 
+<<<<<<< HEAD
 //UO_FW_EndCondition_1_Array pushback _endconditionvalue;
 //counts endcondition array
 //if ((count (missionNamespace getvariable ["UO_FW_EndCondition_1_Array",[]])) > 0) then {
@@ -78,3 +82,8 @@ if (UO_FW_ENDCONDITIONS_FILE) exitwith {
 //Add custom blocks with compile check 
 		
 		
+=======
+//Category 1 loop
+#include "\x\UO_FW\addons\main\EndConditionsModule\defines\Category1Loop.hpp"
+
+>>>>>>> f75aeeae1c4f987e0e243f43ae618bbedbe3dec7

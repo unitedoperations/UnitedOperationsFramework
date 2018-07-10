@@ -1,22 +1,22 @@
-/*	Description: Checks Team Colour setting and sets game team selection once in game
+/*	Description: Checks ACRE module values and sets options accordingly
  *	Arguments:
  * 		N/A
  *	Return Value:
  * 		ARRAY 	
  *	Author
- *		Olsen & PiZZADOX
+ *		PiZZADOX
  */
 
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 UO_FW_EXEC_CHECK(CLIENT)
 
+if (!UO_FW_ACRE_SETTINGS_ENABLED) exitwith {};
 
-"" spawn {
-	
-	private ["_color"];
-	
+[] spawn {
+
 	_colour = player getVariable ["UO_FW_TeamColour", "NONE"];
 	
+	waituntil {!isNull player};
 	sleep 0.01;
 	
 	if (_colour != "NONE") then {

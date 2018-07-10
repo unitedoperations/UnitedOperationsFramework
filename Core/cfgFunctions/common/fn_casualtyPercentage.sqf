@@ -11,6 +11,8 @@
  *
  * Public: Yes
  */
+ 
+#include "\x\UO_FW\addons\main\script_macros.hpp"
 
 private _team = _this;
 
@@ -22,12 +24,9 @@ private _current = [_team, 4] call UO_FW_fnc_GetTeamVariable;
 if (_start == 0) then {
 
 	private _tempText = format ["Casualty count:<br></br>Warning no units on team ""%1"".", _team];
-	_tempText call UO_FW_fnc_DebugMessage;
-
+	UO_FW_DEBUG(_tempText,_tempText)
 } else {
-
 	_count = (_start - _current) / (_start * 0.01);
-
 };
 
 _count
