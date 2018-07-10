@@ -49,6 +49,7 @@ class CfgFunctions
 		#include "AntiNDModule\cfgFunctions.hpp"
 		#include "ACREModule\cfgFunctions.hpp"
 
+		#include "AOLimitModule\cfgFunctions.hpp"
 		#include "SetupTimerModule\cfgFunctions.hpp"
 		#include "SoftAOLimitModule\cfgFunctions.hpp"
 		#include "AILinkModule\cfgFunctions.hpp"
@@ -86,6 +87,7 @@ class CfgVehicles
 	#include "HeadlessAIModule\cfgVehicles.hpp"
 	#include "SetupTimerModule\cfgVehicles.hpp"
 	#include "SoftAOLimitModule\cfgVehicles.hpp"
+	#include "AOLimitModule\cfgVehicles.hpp"
 	#include "CapturezoneModule\cfgVehicles.hpp"
 };
 

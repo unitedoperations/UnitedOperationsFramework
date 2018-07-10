@@ -7,7 +7,7 @@
 		function = "UO_FW_fnc_EdenSetupTimer";
 		// Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
 		functionPriority = 3;
-
+		is3DEN = 1;
 		// Categories collapsible in "Edit Attributes" window
 			// Category class, can be anything
 			class Attributes 
