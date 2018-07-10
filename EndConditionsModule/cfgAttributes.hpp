@@ -1,3 +1,2 @@
-#include "CfgAttributes\EndConditionCombinationAttribute.hpp"
-#include "CfgAttributes\DestroyedEntitiesAttribute.hpp"
+#include "CfgAttributes\ExtractionTeamAttribute.hpp"
 #include "CfgAttributes\EndConditionModeAttribute.hpp"

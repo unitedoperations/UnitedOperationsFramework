@@ -21,7 +21,6 @@ class BLUFOR_NATOStyle
 			control = "CategoryTitleIndent";
             expression = "true";
             defaultValue = "";
-            
         };
 		class UO_FW_BRIEFING_BLUFOR_NATO_SIT_MAIN
         {

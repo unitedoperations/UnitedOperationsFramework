@@ -115,6 +115,8 @@ class Cfg3DEN
 				//add main mission settings here
 				#include "Core\cfg3den\Mission\Main.hpp"
 				#include "Core\cfg3den\Mission\Teams.hpp"
+				#include "JipModule\cfg3den\Mission\Jip.hpp"
+				//debug at bottom
 				#include "Core\cfg3den\Mission\Debug.hpp"
 			};
 		};
@@ -170,6 +172,7 @@ class Cfg3DEN
 		#include "EndConditionsModule\CfgAttributes.hpp"
 		#include "HeadlessAIModule\CfgAttributes.hpp"
 		#include "TeamColourModule\CfgAttributes.hpp"
+		#include "JipModule\CfgAttributes.hpp"
 		//#include "ACREModule\CfgAttributes.hpp"
 	};
 };

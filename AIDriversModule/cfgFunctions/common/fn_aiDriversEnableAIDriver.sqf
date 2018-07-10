@@ -12,6 +12,8 @@ UO_FW_EXEC_CHECK(ALL)
 
 params ["_veh"];
 
+if (_veh getvariable ["UO_FW_hasAIDriverActions",false]) exitwith {};
+
 //AI driver action
 private _action = ["ai_driver","Add/Remove AI driver","",{
     [_target, _player] call UO_FW_fnc_aiDriversToggle;
@@ -61,3 +63,5 @@ if (UO_FW_AIDrivers_FlipEnabled) then {
 if (UO_FW_AIDrivers_NVEnabled) then {
 	[_veh, 1, ["ACE_SelfActions"], _pipNvAction] call ace_interact_menu_fnc_addActionToObject;
 };
+
+_veh setvariable ["UO_FW_hasAIDriverActions",true,true];

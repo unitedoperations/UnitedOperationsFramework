@@ -71,7 +71,92 @@ if (UO_FW_EndCondition_Enabled_1) then {
 						_ConditionCheckList pushback ["CIVILIAN Cas Check",_CivilianCasConditionCheck];
 					};
 					
-					//entity block
+					//alive entity block
+					if (!(UO_FW_EndCondition_EntitiesAlive_Array_1 isEqualto "")) then {
+						_tempdebugtext6 = format ["Alive Array 1:%1",UO_FW_EndCondition_EntitiesAlive_Array_1];
+						UO_FW_DEBUG("",_tempdebugtext6)
+						if ((UO_FW_EndCondition_EntitiesAlive_Array_1 find ",") >= 0) then {
+							private _EntityAlive_Array_Separate_1 = UO_FW_EndCondition_EntitiesAlive_Array_1 splitstring ",";
+							_tempdebugtext5 = format ["Alive Separated Array:%1",_EntityAlive_Array_Separate_1];
+							UO_FW_DEBUG("",_tempdebugtext5)
+							{
+								call compile format ["
+									_%1handle = false;
+									if (isNull '%1') then {%1 = false;} else {
+										if (alive %1) then {_%1handle = true;} else {_%1handle = false;};
+									};
+									_ConditionCheckList pushback ['Alive:%1 Check',_%1handle];
+								",_x];
+							} foreach _EntityAlive_Array_Separate_1;
+						} else {
+						
+							call compile format ["
+								_%1handle = false;
+								if (isNull '%1') then {%1 = false;} else {
+									if (alive %1) then {_%1handle = true;} else {_%1handle = false;};
+								};
+								_ConditionCheckList pushback ['Alive:%1 Check',_%1handle];
+							",UO_FW_EndCondition_EntitiesAlive_Array_1];
+						};
+					};
+					
+					//dead entity block
+					if (!(UO_FW_EndCondition_EntitiesDead_Array_1 isEqualto "")) then {
+						_tempdebugtext7 = format ["Dead Array 1:%1",UO_FW_EndCondition_EntitiesDead_Array_1];
+						UO_FW_DEBUG("",_tempdebugtext7)
+						if ((UO_FW_EndCondition_EntitiesDead_Array_1 find ",") >= 0) then {
+							private _EntityDead_Array_Separate_1 = UO_FW_EndCondition_EntitiesDead_Array_1 splitstring ",";
+							_tempdebugtext8 = format ["Dead Separated Array:%1",_EntityDead_Array_Separate_1];
+							UO_FW_DEBUG("",_tempdebugtext8)
+							{
+								call compile format ["
+									_%1handle = false;
+									if (isNull '%1') then {%1 = false;} else {
+										if (!alive %1) then {_%1handle = true;} else {_%1handle = false;};
+									};
+									_ConditionCheckList pushback ['Dead:%1 Check',_%1handle];
+								",_x];
+							} foreach _EntityDead_Array_Separate_1;
+						} else {
+						
+							call compile format ["
+								_%1handle = false;
+								if (isNull '%1') then {%1 = false;} else {
+									if (!alive %1) then {_%1handle = true;} else {_%1handle = false;};
+								};
+								_ConditionCheckList pushback ['Dead:%1 Check',_%1handle];
+							",UO_FW_EndCondition_EntitiesDead_Array_1];
+						};
+					};
+					
+					//damaged & immobilized entity block
+					if (!(UO_FW_EndCondition_EntitiesDamaged_Array_1 isEqualto "")) then {
+						_tempdebugtext9 = format ["Damaged Array 1:%1",UO_FW_EndCondition_EntitiesDamaged_Array_1];
+						UO_FW_DEBUG("",_tempdebugtext9)
+						if ((UO_FW_EndCondition_EntitiesDamaged_Array_1 find ",") >= 0) then {
+							private _EntityDamaged_Array_Separate_1 = UO_FW_EndCondition_EntitiesDamaged_Array_1 splitstring ",";
+							_tempdebugtext10 = format ["Damaged Separated Array:%1",_EntityDamaged_Array_Separate_1];
+							UO_FW_DEBUG("",_tempdebugtext10)
+							{
+								call compile format ["
+									_%1handle = false;
+									if (isNull '%1') then {%1 = false;} else {
+										if ((damage %1 > 0.5) || ((%1 isKindOf ""LandVehicle"") && (!canMove %1))) then {_%1handle = true;} else {_%1handle = false;};
+									};
+									_ConditionCheckList pushback ['Damaged:%1 Check',_%1handle];
+								",_x];
+							} foreach _EntityDamaged_Array_Separate_1;
+						} else {
+						
+							call compile format ["
+								_%1handle = false;
+								if (isNull '%1') then {%1 = false;} else {
+										if (((damage %1) >= 0.5) || ((%1 isKindOf ""LandVehicle"") && (!canMove %1))) then {_%1handle = true;} else {_%1handle = false;};
+									};
+								_ConditionCheckList pushback ['Damaged:%1 Check',_%1handle];
+							",UO_FW_EndCondition_EntitiesDamaged_Array_1];
+						};
+					};
 					
 					//custom variables block
 					if (!(UO_FW_EndCondition_CustomVariables_Array_1 isEqualto "")) then {
@@ -84,8 +169,9 @@ if (UO_FW_EndCondition_Enabled_1) then {
 							{
 								call compile format ["
 									_%1handle = false;
-									if (isNil '%1') then {%1 = false;};
-									if (%1) then {_%1handle = true;} else {_%1handle = false;};
+									if (isNil '%1') then {%1 = false;} else {
+										if (%1) then {_%1handle = true;} else {_%1handle = false;};
+									};
 									_ConditionCheckList pushback ['Custom Var:%1 Check',_%1handle];
 								",_x];
 							} foreach _CustomVariables_Array_1Separate;
@@ -93,8 +179,9 @@ if (UO_FW_EndCondition_Enabled_1) then {
 						
 							call compile format ["
 								_%1handle = false;
-								if (isNil '%1') then {%1 = false;};
-								if (%1) then {_%1handle = true;} else {_%1handle = false;};
+								if (isNil '%1') then {%1 = false;} else {
+									if (%1) then {_%1handle = true;} else {_%1handle = false;};
+								};
 								_ConditionCheckList pushback ['Custom Var:%1 Check',_%1handle];
 							",UO_FW_EndCondition_CustomVariables_Array_1];
 						};
@@ -103,14 +190,37 @@ if (UO_FW_EndCondition_Enabled_1) then {
 					_tempdebugtext2 = format ["Category 1 _ConditionCheckList:%1",_ConditionCheckList];
 					UO_FW_DEBUG("",_tempdebugtext2)
 					
+					_ExtractionCheck = false;
+					
 					//check block
-					if (UO_FW_EndCondition_Mode_1 == 1) then {
-						{
-							_x params ["_name","_value"];
-							if (_value) exitwith {UO_FW_EndCondition_Message_1 call UO_FW_fnc_EndMission;};
-						} foreach _ConditionCheckList;
+					if (UO_FW_EndCondition_ExtractionEnabled_1) then {
+						_team = [UO_FW_TeamSetting_Blufor_TeamName,UO_FW_TeamSetting_Opfor_TeamName,UO_FW_TeamSetting_Indfor_TeamName,UO_FW_TeamSetting_Civ_TeamName] select UO_FW_EndCondition_ExtractionTeam_1;
+						if (UO_FW_EndCondition_ExtractionMarker_1 isEqualto "") exitwith {UO_FW_DEBUG("","No marker entered for extract zone for Category 1!")};
+						if (getMarkerColor UO_FW_EndCondition_ExtractionMarker_1 isEqualto "") exitwith {UO_FW_DEBUG("","Invalid extract marker for Category 1!")};
+							if ([_team,UO_FW_EndCondition_ExtractionMarker_1,UO_FW_EndCondition_ExtractionRatio_1] call UO_FW_fnc_hasExtracted) then {	
+								_ExtractionCheck = true;
+							} else {
+								_ExtractionCheck = false;
+							};
 					} else {
-						if (count ([_ConditionCheckList,false] call UO_FW_fnc_arrayFindAll) <= 0) exitwith {UO_FW_EndCondition_Message_1 call UO_FW_fnc_EndMission;};
+						_ExtractionCheck = true;
+					};
+					
+					if (_ExtractionCheck) then {
+						if (UO_FW_EndCondition_Mode_1 == 1) then {
+							{
+								_x params ["_name","_value"];
+								if (_value) exitwith {
+										sleep(missionNamespace getvariable ["UO_FW_EndCondition_EndDelay",30]);
+										UO_FW_EndCondition_Message_1 call UO_FW_fnc_EndMission;
+									};
+							} foreach _ConditionCheckList;
+						} else {
+							if (count ([_ConditionCheckList,false] call UO_FW_fnc_arrayFindAll) <= 0) exitwith {
+								sleep(missionNamespace getvariable ["UO_FW_EndCondition_EndDelay",30]);
+								UO_FW_EndCondition_Message_1 call UO_FW_fnc_EndMission;
+							};
+						};
 					};
 				};
 			};

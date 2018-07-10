@@ -26,11 +26,11 @@ private _count = {
 
 private _result = false;
 if (_count >= _ratio * ([_team, 4] call UO_FW_fnc_getTeamVariable)) then {
-	if (!isNil "FW_hasDeparted" && {FW_hasDeparted}) then {
+	if (!isNil "UO_FW_hasDeparted" && {UO_FW_hasDeparted}) then {
 		_result = true;
 	};
 }
 else {
-	FW_hasDeparted = true;
+	UO_FW_hasDeparted = true;
 };
 _result

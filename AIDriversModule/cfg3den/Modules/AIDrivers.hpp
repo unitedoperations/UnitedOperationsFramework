@@ -4,6 +4,15 @@ class UO_FW_AIDrivers_Settings
     collapsed = 1;
     class Attributes
     {
+		class UO_FW_AIDrivers_VehClasses
+        {
+            property = "UO_FW_AIDrivers_VehClasses";
+            displayName = "Vehicle Classes";
+            tooltip = "Classes to give AI Drivers to at mission start. Leave blank to disable.";
+            control = "EditboxShort";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            defaultValue = "''";
+        };
         class UO_FW_AIDrivers_AllVehs
         {
             property = "UO_FW_AIDrivers_AllVehs";

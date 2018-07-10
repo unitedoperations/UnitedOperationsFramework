@@ -28,6 +28,15 @@ class Edit: Title
 	};
 };
 
+class Slider: Title 
+{
+	class Controls 
+	{
+		class Title;
+		class Value;
+	};
+};
+
 class Checkbox;
 
 class CheckboxState: Checkbox 
