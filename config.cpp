@@ -156,7 +156,7 @@ class Cfg3DEN
 				#include "MarkerControlModule\cfgAttributeCategories\mission\MarkerControl.hpp"
 				#include "AILinkModule\cfgAttributeCategories\mission\AILink.hpp"
 				#include "AutoTrackAssetModule\cfgAttributeCategories\mission\AutoTrackAsset.hpp"
-				#include "JipModule\cfgAttributeCategories\mission\JipModule.hpp"
+				
 			};
 		};
 		

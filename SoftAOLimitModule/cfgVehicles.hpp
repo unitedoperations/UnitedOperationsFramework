@@ -1,5 +1,5 @@
 
-class UO_SoftAOLimitModule: OlsenModule
+class UO_FW_SoftAOLimitModule: OlsenModule
 {
 
 	displayName = "Soft AO Limit Module"; // Name displayed in the menu
