@@ -7,6 +7,10 @@ class UO_FW_DisconnectControlModuleFunctions
 		postInit = 1; //1 to call the function upon mission start, after objects are initialized. Passed arguments are ["postInit", didJIP]
 	
 	};
-
+	class EventDisconnect_BodyCleanup
+	{
+		
+	
+	};
 
 };
