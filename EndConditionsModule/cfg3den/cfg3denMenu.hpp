@@ -5,14 +5,6 @@ class UO_FW_EndConditions_Settings_Menu
     {
 		#include "EndConditions\Timelimit.hpp"
 		#include "EndConditions\CustomFile.hpp"
-<<<<<<< HEAD
-		#include "EndConditions\Mode.hpp"
-		#include "EndConditions\BluforCasualtyCount.hpp"
-		#include "EndConditions\OpforCasualtyCount.hpp"
-		#include "EndConditions\IndforCasualtyCount.hpp"
-		#include "EndConditions\CivilianCasualtyCount.hpp"
-		#include "EndConditions\DestroyedEntities.hpp"
-=======
 		#include "EndConditions\Sleep.hpp"
     };
 };
@@ -68,6 +60,5 @@ class UO_FW_EndConditions_Category_6_Menu
     class AttributeCategories
     {
 		#include "EndConditions\Category1.hpp"
->>>>>>> f75aeeae1c4f987e0e243f43ae618bbedbe3dec7
     };
 };

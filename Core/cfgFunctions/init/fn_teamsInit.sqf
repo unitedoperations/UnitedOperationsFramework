@@ -8,10 +8,7 @@
  */
 
 #include "\x\UO_FW\addons\main\script_macros.hpp"
-<<<<<<< HEAD
-=======
 #include "\x\UO_FW\addons\main\Core\module_macros.hpp"
->>>>>>> f75aeeae1c4f987e0e243f43ae618bbedbe3dec7
 UO_FW_EXEC_CHECK(SERVER)
 
 switch (UO_FW_TeamSetting_Blufor_TeamType) do {

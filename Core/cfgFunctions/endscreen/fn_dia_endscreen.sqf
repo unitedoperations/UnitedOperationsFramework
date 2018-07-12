@@ -4,14 +4,9 @@ _endTitle = 3001;
 _left = 3002;
 _right = 3003;
 _bottomLeft = 3004;
-<<<<<<< HEAD
-_bottomMiddle = 3005;
-_bottomRight = 3006;
-=======
 _bottomMiddleLeft = 3005;
 _bottomMiddleRight = 3006;
 _bottomRight = 3008;
->>>>>>> f75aeeae1c4f987e0e243f43ae618bbedbe3dec7
 
 params ["_scenario", "_timeLimit", "_teams"];
 
@@ -35,12 +30,8 @@ params ["_scenario", "_timeLimit", "_teams"];
 _leftText = "";
 _rightText = "";
 _bottomTextLeft = "";
-<<<<<<< HEAD
-_bottomTextMiddle = "";
-=======
 _bottomTextMiddleLeft = "";
 _bottomTextMiddleRight = "";
->>>>>>> f75aeeae1c4f987e0e243f43ae618bbedbe3dec7
 _bottomTextRight = "";
 _textSide = 0;
 {
@@ -110,18 +101,11 @@ if (_timeLimit != 0) then {
 
 };
 
-<<<<<<< HEAD
-if (!isNil "aCount_textBLU" && !isNil "aCount_textRED" && !isNil "aCount_textRES") then {
-	_bottomTextLeft = format["%1",aCount_textBLU];
-	_bottomTextMiddle = format["%1",aCount_textRED];
-	_bottomTextRight = format["%1",aCount_textRES];
-=======
 if (!isNil "aCount_textBLU" && !isNil "aCount_textOPF" && !isNil "aCount_textRES" && !isNil "aCount_textCIV") then {
 	_bottomTextLeft = format["%1",aCount_textBLU];
 	_bottomTextMiddleLeft = format["%1",aCount_textRED];
 	_bottomTextMiddleRight = format["%1",aCount_textRES];
 	_bottomTextRight = format["%1",aCount_textCIV];
->>>>>>> f75aeeae1c4f987e0e243f43ae618bbedbe3dec7
 };
 
 disableSerialization;
@@ -131,12 +115,8 @@ _dia = uiNamespace getVariable "UO_FW_EndScreen";
 (_dia displayCtrl _left) ctrlSetStructuredText parseText _leftText;
 (_dia displayCtrl _right) ctrlSetStructuredText parseText _rightText;
 (_dia displayCtrl _bottomLeft) ctrlSetStructuredText parseText _bottomTextLeft;
-<<<<<<< HEAD
-(_dia displayCtrl _bottomMiddle) ctrlSetStructuredText parseText _bottomTextMiddle;
-=======
 (_dia displayCtrl _bottomMiddleLeft) ctrlSetStructuredText parseText _bottomTextMiddleLeft;
 (_dia displayCtrl _bottomMiddleRight) ctrlSetStructuredText parseText _bottomTextMiddleRight;
->>>>>>> f75aeeae1c4f987e0e243f43ae618bbedbe3dec7
 (_dia displayCtrl _bottomRight) ctrlSetStructuredText parseText _bottomTextRight;
 
 [_dia,_bg] spawn {
