@@ -12,20 +12,6 @@ UO_FW_EXEC_CHECK(SERVER)
 
 if (isNil "UO_FW_MissionEnded") then {UO_FW_MissionEnded = false;};
 
-<<<<<<< HEAD
-//_whilesleep = missionNamespace getvariable ["UO_FW_ConditionSleep",30];
-//diag_log format ["_whilesleep: %1",_whilesleep];
-
-//evaluate timelimit variables
-//_timelimitenabled = missionNamespace getvariable ["UO_FW_Timelimit_Enabled",false];
-//diag_log format ["_timelimit_enabled: %1",_timelimitenabled];
-//if (_timelimit_enabled) then {
-//	private _timelimit = missionNamespace getvariable ["UO_FW_Timelimit",30];
-//	private _timelimitmessage = missionNamespace getvariable ["UO_FW_Timelimit_Message","Time Limit Reached!"];
-//};
-
-=======
->>>>>>> f75aeeae1c4f987e0e243f43ae618bbedbe3dec7
 //timelimit loop
 if (UO_FW_Timelimit_Enabled) then {
 	if (UO_FW_Timelimit > 0) then {
@@ -54,36 +40,6 @@ if (UO_FW_ENDCONDITIONS_FILE) exitwith {
 	};
 };
 
-<<<<<<< HEAD
-//UO_FW_EndCondition_1_Array pushback _endconditionvalue;
-//counts endcondition array
-//if ((count (missionNamespace getvariable ["UO_FW_EndCondition_1_Array",[]])) > 0) then {
-//	[] spawn {
-//		while {!UO_FW_MissionEnded} do {
-//			scopename "EndConditionLoop_1";
-//			sleep(missionNamespace getvariable ["UO_FW_ConditionSleep",30]);
-//			UO_FW_DEBUG("",format ["printing conditions: %1",UO_FW_EndCondition_1_Array])
-//			
-//			_EndCondition1Compile = 
-//			
-//			UO_FW_DEBUG("",format ["printing precompiled condition statement: %1",_EndCondition1Compile])
-//			
-//			//if (call compile _EndCondition1Compile) exitWith {
-//			//	(missionNamespace getvariable ["UO_FW_EndCondition_1_Message","End Condition 1 Fired!"]) call UO_FW_fnc_EndMission;
-//			//};
-//		};
-//	};
-//};
-
-//Add block for specific entities destroyed
-
-//Add block for casualtycounts
-
-//Add custom blocks with compile check 
-		
-		
-=======
 //Category 1 loop
 #include "\x\UO_FW\addons\main\EndConditionsModule\defines\Category1Loop.hpp"
 
->>>>>>> f75aeeae1c4f987e0e243f43ae618bbedbe3dec7

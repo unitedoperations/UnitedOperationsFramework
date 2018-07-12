@@ -9,11 +9,7 @@
  */
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 UO_FW_EXEC_CHECK(SERVERHC)
-<<<<<<< HEAD
-params ["_pos","_veh"];
-=======
 params ["_pos","_veh","_side"];
->>>>>>> f75aeeae1c4f987e0e243f43ae618bbedbe3dec7
 	_veh params ["_uv","_uc","_vpos","_vcd","_vcu","_dmg","_f","_a","_vlc","_vw","_name","_per","_init","_fly","_flyInHeight","_vbied"];
 	private _flying = if(_fly && (_uc isKindOf "Air")) then {"FLY"}else{"NONE"};
 	if(_flying == "FLY")then {
@@ -36,8 +32,6 @@ params ["_pos","_veh","_side"];
 	if(count _name > 1) then {
 		missionNamespace setVariable[_name, _v];
 	};
-<<<<<<< HEAD
-=======
 	if (UO_FW_AutoTrackAssets_Enabled) then {
 		_team = "";
 		switch (_side) do {
@@ -53,7 +47,6 @@ params ["_pos","_veh","_side"];
 			};
 		};
 	};
->>>>>>> f75aeeae1c4f987e0e243f43ae618bbedbe3dec7
 	[_v,_per] call UO_AI_fnc_setPersistent;
 	[_v,_vbied] call UO_AI_fnc_iedCreateVBIED;
 	_v spawn _init;

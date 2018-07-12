@@ -1,11 +1,7 @@
 class Timelimit
 {
     displayName = "Timelimit Settings";
-<<<<<<< HEAD
-    collapsed = 1;
-=======
     collapsed = 0;
->>>>>>> f75aeeae1c4f987e0e243f43ae618bbedbe3dec7
     class Attributes
     {
         class UO_FW_Timelimit_Enabled

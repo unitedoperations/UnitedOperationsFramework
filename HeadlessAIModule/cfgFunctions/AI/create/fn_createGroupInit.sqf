@@ -17,11 +17,7 @@ params ["_grpid","_grpSet","_grpMem",["_currentVeh",objNull,[objNull]]];
 			private _u = [false,_ngrp,_gpos,_startBld,_i,(_grpMem select _i),_taskRadius,_currentVeh] call UO_AI_fnc_createUnit;
 		} else {
 			(_grpMem select _i) params ["_uv","_uc","_vpos"];
-<<<<<<< HEAD
-			private _v = [_vpos,(_grpMem select _i)] call UO_AI_fnc_createVehicle;				
-=======
 			private _v = [_vpos,(_grpMem select _i),_side] call UO_AI_fnc_createVehicle;				
->>>>>>> f75aeeae1c4f987e0e243f43ae618bbedbe3dec7
 			_currentVeh = _v;
 		};		
 	};	

@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 class UO_FW_EndConditions_Folder
 {
     text = "Configure End Conditions";
@@ -14,15 +12,11 @@ class UO_FW_EndConditions_Folder
     picture = "\a3\ui_f\data\IGUI\RscTitles\MPProgress\timer_ca.paa";
 };
 
->>>>>>> f75aeeae1c4f987e0e243f43ae618bbedbe3dec7
 class UO_FW_EndConditions_Settings
 {
     text = "Configure End Conditions";
     action = "edit3DENMissionAttributes 'UO_FW_EndConditions_Settings_Menu';";
     picture = "\a3\ui_f\data\IGUI\RscTitles\MPProgress\timer_ca.paa";
-<<<<<<< HEAD
-};
-=======
 };
 
 class UO_FW_EndConditions_Settings_Category1
@@ -61,4 +55,3 @@ class UO_FW_EndConditions_Settings_Category6
     action = "edit3DENMissionAttributes 'UO_FW_EndConditions_Category_6_Menu';";
 };
 
->>>>>>> f75aeeae1c4f987e0e243f43ae618bbedbe3dec7
