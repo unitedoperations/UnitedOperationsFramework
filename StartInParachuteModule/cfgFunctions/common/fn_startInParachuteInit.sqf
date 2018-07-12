@@ -25,7 +25,7 @@ if(isServer) then
 		};
 	}forEach allUnits;
 };
-if (!isDedicated && !isServer) then 
+if (!isDedicated) then 
 {
 	_parachuteType = player getVariable ["UO_FW_StartInParachute", "NONE"];
 	_altitude = player getVariable ["UO_FW_ParachuteAltitude", 300];

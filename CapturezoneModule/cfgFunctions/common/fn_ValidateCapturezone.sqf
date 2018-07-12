@@ -1,7 +1,7 @@
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 params["_markerName","_sides","_colors","_intervall","_messages"];
 _isValid = true;
-
+ 
 if(markerType _markerName == "") then
 {
 	_isValid = false;
