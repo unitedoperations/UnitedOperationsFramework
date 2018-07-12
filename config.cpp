@@ -61,7 +61,7 @@ class CfgFunctions
 		#include "AutoTrackAssetModule\cfgFunctions.hpp"
 		#include "JipModule\cfgFunctions.hpp"
 		#include "CapturezoneModule\cfgFunctions.hpp"
-
+		#include "StartInParachuteModule\cfgFunctions.hpp"
 	};
 	
 	#include "HeadlessAIModule\cfgFunctions.hpp"
@@ -179,6 +179,7 @@ class Cfg3DEN
 			#include "HeadlessAIModule\cfgAttributeCategories\Object.hpp"
 			#include "TeamColourModule\cfgAttributeCategories\Object.hpp"
 			#include "AIDriversModule\cfgAttributeCategories\Object.hpp"
+			#include "StartInParachuteModule\cfgAttributeCategories\Object.hpp"
 			//#include "ACREModule\cfgAttributeCategories\Object.hpp"
 		};
 	};
@@ -197,6 +198,7 @@ class Cfg3DEN
 		#include "EndConditionsModule\CfgAttributes.hpp"
 		#include "HeadlessAIModule\CfgAttributes.hpp"
 		#include "TeamColourModule\CfgAttributes.hpp"
+		#include "StartInParachuteModule\CfgAttributes.hpp"
 		#include "JipModule\CfgAttributes.hpp"
 		//#include "ACREModule\CfgAttributes.hpp"
 	};
