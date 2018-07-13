@@ -1,15 +1,9 @@
-class UO_FW_TeamColourOptions {
-	displayName = "Team Colour Options"; 
-	collapsed = 1;
-	class Attributes {
-		class UO_FW_TeamColour {
-			displayName = "Team Colour";
-			tooltip = "Set Player Colour";
-			property = "UO_FW_TeamColour";
-			control = "UO_FW_TeamColourAttribute";
-			expression = "_teamvalue = ['NONE','MAIN','RED','BLUE','GREEN','YELLOW'] select _value; _this setVariable ['%s',_teamvalue];";
-			condition = "objectBrain";
-			defaultValue = "0";
-		};
-	};
-};
+#include "Global\defs.hpp";
+#include "BracketFiremission\RscTitles\Dia_BracketFiremission.hpp";
+#include "DonutFiremission\RscTitles\Dia_DonutFiremission.hpp";
+#include "Gridspottingfiremission\RscTitles\Dia_GridspottingFiremission.hpp";
+#include "LineFiremission\RscTitles\Dia_LineFiremission.hpp";
+#include "MarkerFiremission\RscTitles\Dia_MarkerFiremission.hpp";
+#include "PointFiremission\RscTitles\Dia_PointFiremission.hpp";
+#include "PolarFiremission\RscTitles\Dia_PolarFiremission.hpp";
+#include "PolarSpottingFiremission\RscTitles\Dia_PolarSpottingFiremission.hpp";
