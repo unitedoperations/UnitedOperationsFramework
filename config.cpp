@@ -62,7 +62,7 @@ class CfgFunctions
 		#include "JipModule\cfgFunctions.hpp"
 		#include "CapturezoneModule\cfgFunctions.hpp"
 		#include "StartInParachuteModule\cfgFunctions.hpp"
-		#include "FiremissionModule/cfgFunctions.hpp"
+		#include "FiremissionModule\cfgFunctions.hpp"
 	};
 	
 	#include "HeadlessAIModule\cfgFunctions.hpp"
@@ -100,7 +100,7 @@ class RscTitles
 	#include "SoftAOLimitModule\RscTitles.hpp"
 	#include "SetupTimerModule\RscSetupTimer.hpp"
 	#include "Core\RscTitles.hpp"
-	#include "FiremissionModule/RscTitles.hpp"
+	#include "FiremissionModule\RscTitles.hpp"
 };
 
 class CfgNotifications
@@ -182,7 +182,7 @@ class Cfg3DEN
 			#include "TeamColourModule\cfgAttributeCategories\Object.hpp"
 			#include "AIDriversModule\cfgAttributeCategories\Object.hpp"
 			#include "StartInParachuteModule\cfgAttributeCategories\Object.hpp"
-			#include "FiremissionModule/cfgAttributeCategory.hpp"
+			#include "FiremissionModule\cfgAttributeCategory.hpp"
 			//#include "ACREModule\cfgAttributeCategories\Object.hpp"
 		};
 	};

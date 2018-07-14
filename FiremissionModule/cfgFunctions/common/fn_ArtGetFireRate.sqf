@@ -1,4 +1,4 @@
-#include "x\UO_FW\addons\main\FiremissionModule\Global\defs.hpp"
+#include "..\..\Global\defs.hpp"
 	private["_unit","_classname","_weaps","_reloadTime"];
 		_unit = _this;
 		_classname = typeOf(_unit);

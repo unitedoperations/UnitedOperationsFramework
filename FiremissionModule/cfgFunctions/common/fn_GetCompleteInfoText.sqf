@@ -1,4 +1,4 @@
-#include "x\UO_FW\addons\main\FiremissionModule\Global\defs.hpp"
+#include "..\..\Global\defs.hpp"
 private _unit = _this;
 private _rounds = _unit call UO_FW_FNC_GetArtyFiremissionRoundsRequired;
 private _callerName = _unit call UO_FW_FNC_GetArtyCallerText;

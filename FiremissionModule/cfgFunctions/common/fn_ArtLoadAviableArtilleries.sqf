@@ -1,4 +1,4 @@
-#include "x\UO_FW\addons\main\FiremissionModule\Global\defs.hpp"
+#include "..\..\Global\defs.hpp"
 private _id = _this select 0;
 private _shellSelect = _this select 1;
 private _guns = player getVariable [VAR_SART_OBSGUNS,[]];

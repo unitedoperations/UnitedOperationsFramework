@@ -1,18 +1,18 @@
-#include "BracketFiremission\cfgFunctions"
-#include "DonutFiremission\cfgFunctions"
-#include "GridSpottingFiremission\cfgFunctions"
-#include "LineFiremission\cfgFunctions"
-#include "MarkerFiremission\cfgFunctions"
-#include "PointFiremission\cfgFunctions"
-#include "PolarFiremission\cfgFunctions"
-#include "PolarSpottingFiremission\cfgFunctions"
+#include "BracketFiremission\cfgFunctions.hpp"
+#include "DonutFiremission\cfgFunctions.hpp"
+#include "GridSpottingFiremission\cfgFunctions.hpp"
+#include "LineFiremission\cfgFunctions.hpp"
+#include "MarkerFiremission\cfgFunctions.hpp"
+#include "PointFiremission\cfgFunctions.hpp"
+#include "PolarFiremission\cfgFunctions.hpp"
+#include "PolarSpottingFiremission\cfgFunctions.hpp"
+
 class UO_FW_Firemission
 {
-	file = "x\UO_FW\addons\main\FiremissionModule\Global\cfgFunctions\common";
+	file = "x\UO_FW\addons\main\FiremissionModule\cfgFunctions\common";
 	class StopArtilleryClient{};
     class AddEventHandler{};
     class ArtGetFireRate{};
-    class ArtGetFireRatesqf
     class ArtLoadAviableArtilleries{};
     class ArtMakePlayerObserver{};
     class ArtSetArtillery{};

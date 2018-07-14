@@ -2,7 +2,7 @@
 // GUI EDITOR OUTPUT START (by Sacher, v1.063, #Dyroxu)
 ////////////////////////////////////////////////////////
 
-#include "x\UO_FW\addons\main\FiremissionModule\Global\defs.hpp"
+#include "..\..\Global\defs.hpp"
 class DIA_BRACKETFIREMISSION
 {
 	idd = BFM_DIA_IDD_DISPLAY;

@@ -1,4 +1,4 @@
-#include "x\UO_FW\addons\main\FiremissionModule\Global\defs.hpp"
+#include "..\..\Global\defs.hpp"
 	private _unit = _this select 0;
 	private _roundsFired = _this select 1;
 	private _roundsRequired = _this select 2;

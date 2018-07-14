@@ -1,4 +1,4 @@
-#include "x\UO_FW\addons\main\FiremissionModule\Global\defs.hpp"
+#include "..\..\Global\defs.hpp"
 private _unit = _this;
 	private _ammo = _unit call UO_FW_FNC_GetArtyAmmo;
 	{_unit removeMagazine _x} forEach (magazines _unit);

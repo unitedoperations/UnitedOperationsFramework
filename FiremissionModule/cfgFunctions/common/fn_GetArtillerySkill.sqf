@@ -1,4 +1,4 @@
-#include "x\UO_FW\addons\main\FiremissionModule\Global\defs.hpp"
+#include "..\..\Global\defs.hpp"
 _unit = _this select 0;
 		skills = [];
 		skills pushBack (_unit getVariable [VAR_SART_ARTFIRERATE,MEANFIRERATE]);

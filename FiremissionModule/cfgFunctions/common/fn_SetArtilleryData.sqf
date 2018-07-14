@@ -1,4 +1,4 @@
-#include "x\UO_FW\addons\main\FiremissionModule\Global\defs.hpp"
+#include "..\..\Global\defs.hpp"
 //TODO do some value checking
 		private _unit = _this select 0;
 		private _fireRate = if((_this select 1) < 0) then {MEANFIRERATE} else {  _this select 1};;

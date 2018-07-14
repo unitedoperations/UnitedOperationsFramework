@@ -1,4 +1,4 @@
-#include "x\UO_FW\addons\main\FiremissionModule\Global\defs.hpp"
+#include "..\..\Global\defs.hpp"
 private _id = _this select 0;
 private _gun = _this select 1;
 if(_gun >= 0) then

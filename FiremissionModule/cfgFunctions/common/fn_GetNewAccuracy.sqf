@@ -1,4 +1,4 @@
-#include "x\UO_FW\addons\main\FiremissionModule\Global\defs.hpp"
+#include "..\..\Global\defs.hpp"
 _ret = 0;
 	if((_this select 0) > ((_this select 1) * 0.5)) then
 	{
