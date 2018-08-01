@@ -13,16 +13,18 @@ class UO_FW_ArtilleryPlayerFO
 			expression="_this setVariable ['%s', _value];";
 			defaultValue = "false";
 			typeName = "BOOL";
+			condition = "objectControllable";
 		};
 		class UO_FW_ArtilleryFOPlayerGuns
 		{
-			displayName = "Aviable Guns";
+			displayName = "Guns Available to Observer";
 			tooltip = "List of guns the FO is able to use seperated by comma. Default empty";
-			property = "UO_FW_ArtilleryFOAIGuns";
+			property = "UO_FW_ArtilleryFOPlayerGuns";
 			control = "EditArray";
 			expression = "_this setVariable ['%s',_value];";
-			condition = "objectBrain";
-			defaultValue = "[]";
+			condition = "objectControllable";
+			defaultValue = "";
+			typeName = "STRING";
 		};
 		class UO_FW_ArtilleryFOPlayerAllowBracketFiremission
 		{
@@ -33,6 +35,7 @@ class UO_FW_ArtilleryPlayerFO
 			expression="_this setVariable ['%s', _value];";
 			defaultValue = "false";
 			typeName = "BOOL";
+			condition = "objectControllable";
 		};
 		class UO_FW_ArtilleryFOPlayerAllowDonutFiremission
 		{
@@ -43,6 +46,7 @@ class UO_FW_ArtilleryPlayerFO
 			expression="_this setVariable ['%s', _value];";
 			defaultValue = "false";
 			typeName = "BOOL";
+			condition = "objectControllable";
 		};
 		class UO_FW_ArtilleryFOPlayerAllowGridspottingFiremission
 		{
@@ -53,6 +57,7 @@ class UO_FW_ArtilleryPlayerFO
 			expression="_this setVariable ['%s', _value];";
 			defaultValue = "false";
 			typeName = "BOOL";
+			condition = "objectControllable";
 		};
 		class UO_FW_ArtilleryFOPlayerAllowLineFiremission
 		{
@@ -63,6 +68,7 @@ class UO_FW_ArtilleryPlayerFO
 			expression="_this setVariable ['%s', _value];";
 			defaultValue = "false";
 			typeName = "BOOL";
+			condition = "objectControllable";
 		};
 		class UO_FW_ArtilleryFOPlayerAllowMarkerFiremission
 		{
@@ -73,6 +79,7 @@ class UO_FW_ArtilleryPlayerFO
 			expression="_this setVariable ['%s', _value];";
 			defaultValue = "false";
 			typeName = "BOOL";
+			condition = "objectControllable";
 		};
 		class UO_FW_ArtilleryFOPlayerAllowPointFiremission
 		{
@@ -83,6 +90,7 @@ class UO_FW_ArtilleryPlayerFO
 			expression="_this setVariable ['%s', _value];";
 			defaultValue = "false";
 			typeName = "BOOL";
+			condition = "objectControllable";
 		};
 		class UO_FW_ArtilleryFOPlayerAllowPolarFiremission
 		{
@@ -93,6 +101,7 @@ class UO_FW_ArtilleryPlayerFO
 			expression="_this setVariable ['%s', _value];";
 			defaultValue = "false";
 			typeName = "BOOL";
+			condition = "objectControllable";
 		};
 		class UO_FW_ArtilleryFOPlayerAllowPolarspottingFiremission
 		{
@@ -103,6 +112,7 @@ class UO_FW_ArtilleryPlayerFO
 			expression="_this setVariable ['%s', _value];";
 			defaultValue = "false";
 			typeName = "BOOL";
+			condition = "objectControllable";
 		};
 		
 	};

@@ -100,9 +100,9 @@ class RscTitles
 	#include "SoftAOLimitModule\RscTitles.hpp"
 	#include "SetupTimerModule\RscSetupTimer.hpp"
 	#include "Core\RscTitles.hpp"
-	#include "FiremissionModule\RscTitles.hpp"
+	
 };
-
+#include "FiremissionModule\RscTitles.hpp"
 class CfgNotifications
 {
 	#include "SoftAOLimitModule\cfgNotifications.hpp"

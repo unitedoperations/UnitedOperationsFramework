@@ -13,6 +13,7 @@ class UO_FW_Artillery
 			expression="_this setVariable ['%s', _value];";
 			defaultValue = "false";
 			typeName = "BOOL";
+			condition = "objectVehicle";
 		};
 		class UO_FW_ArtilleryFireRate
 		{
@@ -21,7 +22,7 @@ class UO_FW_Artillery
 			property = "UO_FW_ArtilleryFireRate";
 			control = "EditShort";
 			expression = "_this setVariable ['%s',_value];";
-			condition = "objectBrain";
+			condition = "objectVehicle";
 			validate = "number";
 			typeName = "NUMBER";
 			defaultValue = "1";
@@ -33,7 +34,7 @@ class UO_FW_Artillery
 			property = "UO_FW_ArtilleryAccuracy";
 			control = "EditShort";
 			expression = "_this setVariable ['%s',_value];";
-			condition = "objectBrain";
+			condition = "objectVehicle";
 			validate = "number";
 			typeName = "NUMBER";
 			defaultValue = "50";
@@ -42,10 +43,10 @@ class UO_FW_Artillery
 		{
 			displayName = "Spotting Round Accuracy";
 			tooltip = "Accuracy of spotting rounds in meters. Default 50";
-			property = "UO_FW_ArtilleryAccuracy";
+			property = "UO_FW_ArtillerySpottingAccuracy";
 			control = "EditShort";
 			expression = "_this setVariable ['%s',_value];";
-			condition = "objectBrain";
+			condition = "objectVehicle";
 			validate = "number";
 			typeName = "NUMBER";
 			defaultValue = "50";
@@ -57,7 +58,7 @@ class UO_FW_Artillery
 			property = "UO_FW_ArtilleryAimTime";
 			control = "EditShort";
 			expression = "_this setVariable ['%s',_value];";
-			condition = "objectBrain";
+			condition = "objectVehicle";
 			validate = "number";
 			defaultValue = "20";
 			typeName = "NUMBER";
@@ -69,7 +70,7 @@ class UO_FW_Artillery
 			property = "UO_FW_ArtilleryCalculationTime";
 			control = "EditShort";
 			expression = "_this setVariable ['%s',_value];";
-			condition = "objectBrain";
+			condition = "objectVehicle";
 			validate = "number";
 			typeName = "NUMBER";
 			defaultValue = "30";
@@ -81,7 +82,7 @@ class UO_FW_Artillery
 			property = "UO_FW_ArtilleryCustomName";
 			control = "EditShort";
 			expression = "_this setVariable ['%s',_value];";
-			condition = "objectBrain";
+			condition = "objectVehicle";
 			typeName = "STRING";
 			defaultValue = "''";
 		};
@@ -90,9 +91,9 @@ class UO_FW_Artillery
 			displayName = "Unlimited Ammo";
 			tooltip = "Should artillery have unlimited Ammo. Default false";
 			property = "UO_FW_ArtilleryUnlimitedAmmo";
-			control = "EditShort";
+			control = "Checkbox";
 			expression = "_this setVariable ['%s',_value];";
-			condition = "objectBrain";
+			condition = "objectVehicle";
 			defaultValue = "false";
 			typeName = "BOOL";
 		};

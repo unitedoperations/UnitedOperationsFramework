@@ -22,7 +22,7 @@
 	It will fire spotting rounds aslong as the distance from impact to actual target is above MINSPOTTEDDISTANCE. For no spotting rounds use a number greater than 1000.
 	After it finished its spotting rounds it will wait CALCULATIONTIME to fire the actuall firemission.
 	Example point firemission. It will find a spot within DISPERSION from the TARGETPOS and fire ROUNDSPERBURST at that spot. It will do this BURSTCOUNT times.
-	It will wait BURSTWAITIME or FIRERATE * ROUNDSPERBURST depending on what is greater before the next burst is fired. BURSTWAITIME is the time from first shot of a burst to next burst.
+	It will wait BURSTWAITIME or FIRERATE * ROUNDSPERBURST depending on what is greater before the next salvo is fired. BURSTWAITIME is the time from first shot of a salvo to next salvo.
 */
 
 /*
@@ -114,9 +114,9 @@
 	 * 3: minRange <float> minimum range between firemission to stop massive 10 batteries shooting 1 guy (300 is good)
 	 * 4: viewRange <int> max range the unit can see
 	 * 5: dispersion <int> dispersion in meters
-	 * 6: burstCount <int> number of bursts to fire
-	 * 7: roundsPerBurst <int> number of rounds per burst
-	 * 8: burstWaitTime <int> downtime between bursts
+	 * 6: salvoCount <int> number of salvos to fire
+	 * 7: roundsPerSalvo <int> number of rounds per salvo
+	 * 8: salvoWaitTime <int> downtime between salvos
 	 * 9: minSpottedDistance <int> range in m of how close a spotting round needs to be to be accepted
 	 * 10: roundIndex <int> ammunition index from UO_FW_FNC_GetAmmoDisplayNameAndIndex
 	 *
@@ -138,9 +138,9 @@
 	  * 2: mils <float> mils from caller
 	  * 3: distance <float> distance from caller in meters
 	  * 4: dispersion <float> dispersion in meters
-	  * 5: burstCount <int> number of bursts to fire
-	  * 6: roundsPerBurst <int> number of rounds per burst
-	  * 7: burstWaitTime <int> downtime between bursts
+	  * 5: salvoCount <int> number of salvos to fire
+	  * 6: roundsPerSalvo <int> number of rounds per salvo
+	  * 7: salvoWaitTime <int> downtime between salvos
 	  * 9: minSpottedDistance <int> range in m of how close a spotting round needs to be to be accepted
 	  * 10: roundIndex <int> ammunition index from UO_FW_FNC_GetAmmoDisplayNameAndIndex
 
@@ -161,9 +161,9 @@
 	   * 0: unit <object> artillery gun
 	   * 1: position <vector> position of target
 	   * 2: dispersion <float> dispersion in meters
-	   * 3: burstCount <int> number of bursts to fire
-	   * 4: roundsPerBurst <int> number of rounds per burst
-	   * 5: burstWaitTime <int> downtime between bursts
+	   * 3: salvoCount <int> number of salvos to fire
+	   * 4: roundsPerSalvo <int> number of rounds per salvo
+	   * 5: salvoWaitTime <int> downtime between salvos
 	   * 6: minSpottedDistance <int> range in m of how close a spotting round needs to be to be accepted
 	   * 7: roundIndex <int> ammunition index from UO_FW_FNC_GetAmmoDisplayNameAndIndex
 
@@ -178,16 +178,16 @@
 	   /*
 		* UO_FW_FNC_LineFiremission
 		*
-		* Calls in a firemission which moves from startPoint to endPoint. Line between SP and EP will be cut into burstCount pieces and a burst will be fired at every piece
+		* Calls in a firemission which moves from startPoint to endPoint. Line between SP and EP will be cut into salvoCount pieces and a salvo will be fired at every piece
 		*
 		* Arguments:
 		* 0: unit <object> artillery gun
 		* 1: startPoint <vector> position of startPoint
 		* 2: endPoint <vector> position of endPoint
 		* 3: dispersion <float> dispersion in meters
-		* 4: burstCount <int> number of bursts to fire
-		* 5: roundsPerBurst <int> number of rounds per burst
-		* 6: burstWaitTime <int> downtime between bursts
+		* 4: salvoCount <int> number of salvos to fire
+		* 5: roundsPerSalvo <int> number of rounds per salvo
+		* 6: salvoWaitTime <int> downtime between salvos
 		* 7: minSpottedDistance <int> range in m of how close a spotting round needs to be to be accepted
 		* 8: roundIndex <int> ammunition index from UO_FW_FNC_GetAmmoDisplayNameAndIndex
 
@@ -202,16 +202,16 @@
 		/*
 		 * UO_FW_FNC_BracketFiremission
 		 *
-		 * Calls in a firemission which moves from startPoint half way to endPoint and from endPoint halfway to startPoint. Line between SP and EP will be cut into burstCount pieces and a burst will be fired at every piece.
+		 * Calls in a firemission which moves from startPoint half way to endPoint and from endPoint halfway to startPoint. Line between SP and EP will be cut into salvoCount pieces and a salvo will be fired at every piece.
 		 *
 		 * Arguments:
 		 * 0: unit <object> artillery gun
 		 * 1: startPoint <vector> position of startPoint
 		 * 2: endPoint <vector> position of endPoint
 		 * 3: dispersion <float> dispersion in meters
-		 * 4: burstCount <int> number of bursts to fire
-		 * 5: roundsPerBurst <int> number of rounds per burst
-		 * 6: burstWaitTime <int> downtime between bursts
+		 * 4: salvoCount <int> number of salvos to fire
+		 * 5: roundsPerSalvo <int> number of rounds per salvo
+		 * 6: salvoWaitTime <int> downtime between salvos
 		 * 7: minSpottedDistance <int> range in m of how close a spotting round needs to be to be accepted
 		 * 8: roundIndex <int> ammunition index from UO_FW_FNC_GetAmmoDisplayNameAndIndex
 
@@ -233,9 +233,9 @@
 		  * 1: position <vector> position of target
 		  * 2: innerRadius <integer> inner radius of donut in meters
 		  * 3: outerRadius <integer> outer radius of donut in meters
-		  * 4: burstCount <int> number of bursts to fire
-		  * 5: roundsPerBurst <int> number of rounds per burst
-		  * 6: burstWaitTime <int> downtime between bursts
+		  * 4: salvoCount <int> number of salvos to fire
+		  * 5: roundsPerSalvo <int> number of rounds per salvo
+		  * 6: salvoWaitTime <int> downtime between salvos
 		  * 7: minSpottedDistance <int> range in m of how close a spotting round needs to be to be accepted
 		  * 8: roundIndex <int> ammunition index from UO_FW_FNC_GetAmmoDisplayNameAndIndex
 
@@ -255,9 +255,9 @@
 		   * Arguments:
 		   * 0: unit <object> artillery gun
 		   * 1: marker <string> markername in which artillery should hit (rectangle or circle)
-		   * 2: burstCount <int> number of bursts to fire
-		   * 3: roundsPerBurst <int> number of rounds per burst
-		   * 4: burstWaitTime <int> downtime between bursts
+		   * 2: salvoCount <int> number of salvos to fire
+		   * 3: roundsPerSalvo <int> number of rounds per salvo
+		   * 4: salvoWaitTime <int> downtime between salvos
 		   * 5: minSpottedDistance <int> range in m of how close a spotting round needs to be to be accepted
 		   * 6: roundIndex <int> ammunition index from UO_FW_FNC_GetAmmoDisplayNameAndIndex
 
@@ -278,9 +278,9 @@
 			* 0: unit <object> artillery gun
 			* 1: marker <string> markername in which artillery should hit
 			* 2: dispersion <float> dispersion in meters
-			* 3: burstCount <int> number of bursts to fire
-			* 4: roundsPerBurst <int> number of rounds per burst
-			* 5: burstWaitTime <int> downtime between bursts
+			* 3: salvoCount <int> number of salvos to fire
+			* 4: roundsPerSalvo <int> number of rounds per salvo
+			* 5: salvoWaitTime <int> downtime between salvos
 			* 6: minSpottedDistance <int> range in m of how close a spotting round needs to be to be accepted
 			* 7: roundIndex <int> ammunition index from UO_FW_FNC_GetAmmoDisplayNameAndIndex
 
@@ -301,9 +301,9 @@
 			 * 0: unit <object> artillery gun
 			 * 1: marker <string> marker ingame text. Must be unique or there might be issues.
 			 * 2: dispersion <float> dispersion in meters
-			 * 3: burstCount <int> number of bursts to fire
-			 * 4: roundsPerBurst <int> number of rounds per burst
-			 * 5: burstWaitTime <int> downtime between bursts
+			 * 3: salvoCount <int> number of salvos to fire
+			 * 4: roundsPerSalvo <int> number of rounds per salvo
+			 * 5: salvoWaitTime <int> downtime between salvos
 			 * 6: minSpottedDistance <int> range in m of how close a spotting round needs to be to be accepted
 			 * 7: roundIndex <int> ammunition index from UO_FW_FNC_GetAmmoDisplayNameAndIndex
 
@@ -325,9 +325,9 @@
 			  * 1: startPoint <vector> position of startPoint
 			  * 2: endPoint <vector> position of endPoint
 			  * 3: width  <integer>  width of curtain
-			  * 4: burstCount <int> number of bursts to fire
-			  * 5: roundsPerBurst <int> number of rounds per burst
-			  * 6: burstWaitTime <int> downtime between bursts
+			  * 4: salvoCount <int> number of salvos to fire
+			  * 5: roundsPerSalvo <int> number of rounds per salvo
+			  * 6: salvoWaitTime <int> downtime between salvos
 			  * 7: minSpottedDistance <int> range in m of how close a spotting round needs to be to be accepted
 			  * 8: roundIndex <int> ammunition index from UO_FW_FNC_GetAmmoDisplayNameAndIndex
 

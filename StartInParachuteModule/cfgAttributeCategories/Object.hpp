@@ -11,7 +11,7 @@ class UO_FW_StartInParachuteOptions
 			property = "UO_FW_StartInParachute";
 			control = "UO_FW_StartInParachuteAttribute";
 			expression = "_parachuteValue = ['NONE','NONSTEERABLE','STEERABLE'] select _value; _this setVariable ['%s',_parachuteValue];";
-			condition = "objectBrain";
+			condition = "objectControllable";
 			defaultValue = "0";
 		};
 		class UO_FW_ParachuteAltitude
@@ -21,7 +21,7 @@ class UO_FW_StartInParachuteOptions
 			property = "UO_FW_ParachuteAltitude";
 			control = "EditShort";
 			expression = "_this setVariable ['%s',_value];";
-			condition = "objectBrain";
+			condition = "objectControllable";
 			validate = "number";
 			defaultValue = "300";
 		};
@@ -32,7 +32,7 @@ class UO_FW_StartInParachuteOptions
 			property = "UO_FW_ParachuteRandomAltitude";
 			control = "EditShort";
 			expression = "_this setVariable ['%s',_value];";
-			condition = "objectBrain";
+			condition = "objectControllable";
 			validate = "number";
 			defaultValue = "100";
 		};

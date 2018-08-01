@@ -4,8 +4,10 @@
 
 if(!isDedicated) then
 {
-	waitUntil{player != null};
+	waitUntil{player == player};
+
 	private	_guns = _this select 0;
+	player setVariable [VAR_SART_OBSGUNS,_guns];
 	private	_allowBracket = _this select 1;
 	private	_allowDonut = _this select 2;
 	private	_allowGridSpotting = _this select 3;
@@ -18,6 +20,7 @@ if(!isDedicated) then
 	
 			if(!(player getVariable [VAR_SART_PLAYERRECEIVEDGUNS,false])) then
 			{
+				
 				_action = ["Artillery_Menu", "Artillery Menu", "", {true}, {(count (player getVariable [VAR_SART_OBSGUNS,[]])) > 0}] call ace_interact_menu_fnc_createAction;
 				[player, 1, ["ACE_SelfActions"], _action] call ace_interact_menu_fnc_addActionToObject;
 
@@ -101,7 +104,7 @@ if(!isDedicated) then
 					[PSFM_DIA_IDC_GUNSELECT] call UO_FW_FNC_ArtLoadAviableArtilleries;
 					[GSFM_DIA_IDC_GUNSELECT] call UO_FW_FNC_ArtLoadAviableArtilleries;
 				}] call CBA_fnc_addEventHandler;
-				player setVariable [VAR_SART_PLAYERRECEIVEDGUNS,true,true];
+				player setVariable [VAR_SART_PLAYERRECEIVEDGUNS,true];
 			};
 	
 	

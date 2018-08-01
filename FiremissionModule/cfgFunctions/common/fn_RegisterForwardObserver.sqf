@@ -10,8 +10,8 @@ if (isServer) then
 		private _range = _this select 4;
 		private _standardDispersion = _this select 5;
 		private _standardRoundCount = _this select 6;
-		private _standardRoundBurst = _this select 7;
-		private _standardRoundBurstWait = _this select 8;
+		private _standardRoundSalvo = _this select 7;
+		private _standardRoundSalvoWait = _this select 8;
 		private _minSpottedDistance = _this select 9;
 		private _standardRound = _this select 10;
 		private _obsSide = side _observer;
@@ -48,7 +48,7 @@ if (isServer) then
 												if((!(_x getVariable [VAR_SART_ARTINFIREMISSION,false])) && !(_hasFired) ) then
 												{
 														_currentShotTargets pushBack [_x,_pos];
-														[_x,_pos,_standardDispersion,_standardRoundCount,_standardRoundBurst,_standardRoundBurstWait,_minSpottedDistance,_standardRound] call UO_FW_FNC_PointFiremission;
+														[_x,_pos,_standardDispersion,_standardRoundCount,_standardRoundSalvo,_standardRoundSalvoWait,_minSpottedDistance,_standardRound] call UO_FW_FNC_PointFiremission;
 														_hasFired = true;
 												};
 													_freeBattery = _batteries ;

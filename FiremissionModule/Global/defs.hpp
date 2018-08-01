@@ -130,9 +130,9 @@
                 Aviable Ammuntion: Ammuntion the currently selected gun holds. Make sure the right one is selected.\
                 Grid: Grid where the artillery shall hit. Must be a 4,6 or 8-Digit Grid\
                 Dispersion: Radius of the firemission in meters\
-                Number of Bursts: How many bursts are fired. Every Bursts decides the position where it will land.\
-                Rounds per Burst: A Burst will selected a Position(by magic) inside the grid with Dispersion and then fire n rounds onto that position.\
-                Delay between bursts: A Delay between every burst in seconds. Min Rate of fire of gun * number of a rounds per burst. Min is calcualted by the script. Motars are 6sec per round.\
+                Number of Salvos: How many salvos are fired. Every Salvos decides the position where it will land.\
+                Rounds per Salvo: A Salvo will selected a Position(by magic) inside the grid with Dispersion and then fire n rounds onto that position.\
+                Delay between salvos: A Delay between every salvo in seconds. Min Rate of fire of gun * number of a rounds per salvo. Min is calcualted by the script. Motars are 6sec per round.\
                 Min Spotting round distance: Distance for when the spotting rounds will end. If they are closer to grid than Dispersion the actuall fire mission will start. It gives time for aborting the mission\
                 and adding some realism to it. Put 9999 to not fire spotting rounds but might make actuall firemision innacurate.\
 \
@@ -141,6 +141,6 @@
 \
                 Point firemission: Point target firemission. Will fire onto a Circle with Grid as Center.\
                 Donut firemission. Will fire onto the Space between 2 Circles.\
-                Line  firemission: Firemission will move from start to finish in intervalls. Bursts define intervalls.\
+                Line  firemission: Firemission will move from start to finish in intervalls. Salvos define intervalls.\
                 Marker firemission: Will fire a point target firemission onto a Marker with Text.\
                 Polar firemission: Requires your location as grid and mils and distance and will call a point firemission."

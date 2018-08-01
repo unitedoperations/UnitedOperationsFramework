@@ -13,9 +13,9 @@ _handle = _this spawn
 		private _startPoint = _this select 1;
 		private _endPoint = _this select 2;
 		private _width = _this select 3;
-		private	_burstCount = _this select 4;
-		private	_burstSize = _this select 5;
-		private	_burstWait = _this select 6;
+		private	_salvoCount = _this select 4;
+		private	_salvoSize = _this select 5;
+		private	_salvoWait = _this select 6;
 		private	_minSpottedDistance = _this select 7;
 
 		private	_roundType = _this select 8;
@@ -23,14 +23,14 @@ _handle = _this spawn
 		{
 			[_x , true] call UO_FW_FNC_SetArtyReadyStatus;
 			_x setVariable [VAR_SART_ARTFMTEXT,_this call UO_FW_FNC_GetPointFiremissionText,true];
-			[_x, 0,_burstCount * _burstSize] call UO_FW_FNC_SetArtyFiremissionRoundsRequired;
+			[_x, 0,_salvoCount * _salvoSize] call UO_FW_FNC_SetArtyFiremissionRoundsRequired;
 		}forEach _unit;
 		private	_fireRate = [];
 		sleep((_unit call UO_FW_FNC_GetArtyAimTime));
 		private	_dis = 1000;
 		private	_tempAcc = ((_unit select 0) getVariable [VAR_SART_ARTSPOTACCURACY,MEANSPOTTINGACCURACY]) + 1;
 		private	_dir = _endPoint vectorDiff  _startPoint;
-		_dir = _dir vectorMultiply (1 /_burstCount);
+		_dir = _dir vectorMultiply (1 /_salvoCount);
 
 		private _rightDir = (vectorNormalized _dir) vectorCrossProduct [0,1,0];
 		private _leftDir = [0,0,0] vectorDiff _rightDir;
@@ -48,15 +48,15 @@ _handle = _this spawn
 
 
 		sleep( (_unit getVariable [VAR_SART_ARTCALCSPEED,MEANCALCULATIONTIME]) + 1);
-		for "_i" from 0 to _burstCount do
+		for "_i" from 0 to _salvoCount do
 		{
 				_row = 0;
 				{
-						[_unit,(_startingSpots select _row) vectorAdd (_dir vectorMultiply _i),0,_burstSize,_roundClassName] call UO_FW_FNC_InternalFiremission;
-						[_x, ((_x getVariable [VAR_SART_ARTROUNDSFIRED,[0,0]]) select 1) + _burstSize,_burstCount * _burstSize] call UO_FW_FNC_SetArtyFiremissionRoundsRequired;
+						[_unit,(_startingSpots select _row) vectorAdd (_dir vectorMultiply _i),0,_salvoSize,_roundClassName] call UO_FW_FNC_InternalFiremission;
+						[_x, ((_x getVariable [VAR_SART_ARTROUNDSFIRED,[0,0]]) select 1) + _salvoSize,_salvoCount * _salvoSize] call UO_FW_FNC_SetArtyFiremissionRoundsRequired;
 						_row = _row + 1;
 				}forEach _unit;
-					sleep((((_fireRate select 0) * ((_unit select 0) getVariable [VAR_SART_ARTFIRERATE,MEANFIRERATE]) ) * _burstSize) max _burstWait);
+					sleep((((_fireRate select 0) * ((_unit select 0) getVariable [VAR_SART_ARTFIRERATE,MEANFIRERATE]) ) * _salvoSize) max _salvoWait);
 		};
 		{
 				[_x, 0,0] call UO_FW_FNC_SetArtyFiremissionRoundsRequired;

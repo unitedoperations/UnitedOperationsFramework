@@ -3,9 +3,9 @@ private _unit = _this select 0;
 	private	_target = _this select 1;
 	private	_innerRadius = _this select 2;
 	private	_outerRadius = _this select 3;
-	private	_burstCount = _this select 4;
-	private	_burstSize = _this select 5;
-	private	_burstWait = _this select 6;
+	private	_salvoCount = _this select 4;
+	private	_salvoSize = _this select 5;
+	private	_salvoWait = _this select 6;
 	private	_minSpottedDistance = _this select 7;
 	private	_roundType = _this select 8;
 	private	_rounds = ((_unit call UO_FW_FNC_GetArtyAmmo) select _roundType) select 0;
@@ -20,9 +20,9 @@ private _unit = _this select 0;
 			"Targetgrid: " + (mapGridPosition _target) + "\n" +
 			"Inner radius: " + (str _innerRadius) +"\n" +
 			"Outer radius: " + (str _outerRadius) +"\n" +
-			"Number of Bursts: " + (str _burstCount) +"\n" +
-			"Rounds per Burst: " + (str _burstSize) +"\n" +
-			"Delay per Burst: " + (str _burstWait) +"\n" +
+			"Number of Salvos: " + (str _salvoCount) +"\n" +
+			"Rounds per Salvo: " + (str _salvoSize) +"\n" +
+			"Delay per Salvo: " + (str _salvoWait) +"\n" +
 			"Minimum Spotted distance: " + (str _minSpottedDistance) +"\n";
 
 	_ret

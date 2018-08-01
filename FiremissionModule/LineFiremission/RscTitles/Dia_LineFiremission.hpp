@@ -87,7 +87,7 @@ class DIA_LINEFIREMISSION
 	class LFM_BURSTNUMBERTEXT: RscText
 	{
 		idc = -1;
-		text = "Number of bursts:"; //--- ToDo: Localize;
+		text = "Number of salvos:"; //--- ToDo: Localize;
 		x = ARTIWIDTHMAINSPACE * safezoneW + safezoneX;
 		y = (ARTIHEIGHTMAINSPACE + ARTILAYOUTHEIGHTSPACE * 5) * safezoneH + safezoneY;
 		w = ARTILAYOUTWIDTH * safezoneW;
@@ -99,7 +99,7 @@ class DIA_LINEFIREMISSION
 	class LFM_BURSTROUNDSTEXT: RscText
 	{
 		idc = -1;
-		text = "Number of rounds per burst:"; //--- ToDo: Localize;
+		text = "Number of rounds per salvo:"; //--- ToDo: Localize;
 		x = ARTIWIDTHMAINSPACE * safezoneW + safezoneX;
 		y = (ARTIHEIGHTMAINSPACE + ARTILAYOUTHEIGHTSPACE * 6) * safezoneH + safezoneY;
 		w = ARTILAYOUTWIDTH * safezoneW;
@@ -111,7 +111,7 @@ class DIA_LINEFIREMISSION
 	class LFM_DELAYTEXT: RscText
 	{
 		idc = -1;
-		text = "Delay between bursts:"; //--- ToDo: Localize;
+		text = "Delay between salvos:"; //--- ToDo: Localize;
 		x = ARTIWIDTHMAINSPACE * safezoneW + safezoneX;
 		y = (ARTIHEIGHTMAINSPACE + ARTILAYOUTHEIGHTSPACE * 7) * safezoneH + safezoneY;
 		w = ARTILAYOUTWIDTH * safezoneW;
