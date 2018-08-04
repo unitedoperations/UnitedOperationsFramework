@@ -230,3 +230,40 @@ class EndConditionExtractionSettings_Category1
         };
 	};
 };
+
+class EndConditionCapturezoneSettings_Category1
+{
+    displayName = "Capturezone Settings";
+    collapsed = 0;
+    class Attributes
+    {
+		class UO_FW_EndCondition_CapturezoneEnabled_1
+        {
+            property = "UO_FW_EndCondition_CapturezoneEnabled_1";
+            displayName = "Enable Capturezone";
+            tooltip = "Add Capturezone capture to end conditions for this category.";
+			control = "CheckBoxState";
+            expression="missionNamespace setVariable ['%s',_value];";
+            defaultValue = "false";
+        };
+	
+		class UO_FW_EndCondition_CapturezoneMarker_1
+        {
+            property = "UO_FW_EndCondition_CapturezoneMarker_1";
+            displayName = "Capturezone name";
+            tooltip = "Which capturezone should be checked.";
+			control = "EditShort";
+            expression="missionNamespace setVariable ['%s',_value];";
+            defaultValue = "''";
+        };
+		class UO_FW_EndCondition_CapturezoneTeam_1
+        {
+            property = "UO_FW_EndCondition_CapturezoneTeam_1";
+            displayName = "Enable Capturezone";
+            tooltip = "Add Capturezone capture to end conditions for this category.";
+			control = "UO_FW_ENDCONDITIONS_CAPTUREZONETEAM";
+            expression="missionNamespace setVariable ['%s',_value];";
+            defaultValue = "0";
+        };
+	};
+};

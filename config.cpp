@@ -88,6 +88,7 @@ class CfgVehicles
 	};
 	//add custom cfgVehicles
 	//#include "Core\cfgVehicles.hpp"
+	
 	#include "HeadlessAIModule\cfgVehicles.hpp"
 	#include "SetupTimerModule\cfgVehicles.hpp"
 	#include "SoftAOLimitModule\cfgVehicles.hpp"

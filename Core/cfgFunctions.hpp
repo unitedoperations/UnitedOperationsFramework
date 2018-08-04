@@ -66,7 +66,7 @@ class UO_DebugFunctions
 {
 	file = "x\UO_FW\addons\main\Core\cfgFunctions\debug";
 	class debugMessage {};
-	class debugMessageMacro {};
+	class debugMessageDetailed {};
 	class refreshDebug {};
 	//class debugInit {postinit = 1;};
 };

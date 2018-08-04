@@ -13,10 +13,13 @@ UO_FW_EXEC_CHECK(SERVER)
 if (isNil "UO_FW_MissionEnded") then {UO_FW_MissionEnded = false;};
 
 //timelimit loop
-if (UO_FW_Timelimit_Enabled) then {
-	if (UO_FW_Timelimit > 0) then {
+if (UO_FW_Timelimit_Enabled) then 
+{
+	if (UO_FW_Timelimit > 0) then 
+	{
 		[] spawn {
-			while {!UO_FW_MissionEnded} do {
+			while {!UO_FW_MissionEnded} do 
+			{
 				sleep(missionNamespace getvariable ["UO_FW_ConditionSleep",30]);
 				UO_FW_DEBUG("",format ["checking timelimit: %1",UO_FW_Timelimit])
 				UO_FW_DEBUG("",format ["checking timelimit message: %1",UO_FW_Timelimit_Message])

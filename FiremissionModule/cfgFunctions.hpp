@@ -10,10 +10,10 @@
 class UO_FW_Firemission
 {
 	file = "x\UO_FW\addons\main\FiremissionModule\cfgFunctions\common";
-	class StopArtilleryClient{};
-    class AddEventHandler{};
-    class ArtGetFireRate{};
-    class ArtLoadAviableArtilleries{};
+	class StopArtilleryClient {};
+    class AddEventHandler {};
+    class ArtGetFireRate {};
+    class ArtLoadAviableArtilleries {};
     class ArtMakePlayerObserver{};
     class ArtSetArtillery{};
     class BracketFiremission{};
@@ -46,7 +46,7 @@ class UO_FW_Firemission
     class GetPolarFiremissionText{};
     class GetPolarSpottingFiremissionText{};
     class GridSpottingFiremission{};
-    class initLoadArtilleryData{postInit = 1};
+    class initLoadArtilleryData{postInit = 1;};
     class initPlayerFO{};
     class InputIsNumber{};
     class InputIsUnit{};

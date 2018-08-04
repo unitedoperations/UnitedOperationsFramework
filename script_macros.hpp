@@ -25,7 +25,7 @@ switch (_argUpper) do {\
 //Debug function call
 
 #define UO_FW_DEBUG(basicmsg,detailedmsg)\
-[basicmsg,detailedmsg] call UO_FW_fnc_DebugMessageMacro;
+[basicmsg,detailedmsg] call UO_FW_fnc_DebugMessageDetailed;
 
 //Gear/Groups
 

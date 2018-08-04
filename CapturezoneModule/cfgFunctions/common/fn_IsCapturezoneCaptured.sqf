@@ -1,5 +1,9 @@
 
 private ["_return"];
+if(markerType _this == "") then
+{
+	["Capturezone " + (str _this) + "does not exist!",""] call UO_FW_fnc_DebugMessageDetailed;
+};
 _return = "NONE";
 {
 	if( _this == _x select 1 && (_x select 2)) then
