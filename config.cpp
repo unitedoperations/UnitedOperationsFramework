@@ -30,7 +30,7 @@ class CfgFactionClasses
 			displayName = "United Operations Framework";
 	};
 	
-	#include "HeadlessAIModule\cfgFactionClasses.hpp"
+	//#include "HeadlessAIModule\cfgFactionClasses.hpp"
 };
 
 class CfgFunctions
@@ -50,7 +50,7 @@ class CfgFunctions
 		#include "AntiNDModule\cfgFunctions.hpp"
 		#include "AIDriversModule\cfgFunctions.hpp"
 		//#include "ACREModule\cfgFunctions.hpp"
-
+		#include "GearModule\cfgFunctions.hpp"
 		#include "AOLimitModule\cfgFunctions.hpp"
 		#include "SetupTimerModule\cfgFunctions.hpp"
 		#include "SoftAOLimitModule\cfgFunctions.hpp"
@@ -65,7 +65,7 @@ class CfgFunctions
 		#include "FiremissionModule\cfgFunctions.hpp"
 	};
 	
-	#include "HeadlessAIModule\cfgFunctions.hpp"
+	//#include "HeadlessAIModule\cfgFunctions.hpp"
 };
 
 class CfgVehicles
@@ -89,7 +89,7 @@ class CfgVehicles
 	//add custom cfgVehicles
 	//#include "Core\cfgVehicles.hpp"
 	
-	#include "HeadlessAIModule\cfgVehicles.hpp"
+	//#include "HeadlessAIModule\cfgVehicles.hpp"
 	#include "SetupTimerModule\cfgVehicles.hpp"
 	#include "SoftAOLimitModule\cfgVehicles.hpp"
 	#include "AOLimitModule\cfgVehicles.hpp"
@@ -98,9 +98,10 @@ class CfgVehicles
 
 class RscTitles
 {
+	#include "Core\RscTitles.hpp"
 	#include "SoftAOLimitModule\RscTitles.hpp"
 	#include "SetupTimerModule\RscSetupTimer.hpp"
-	#include "Core\RscTitles.hpp"
+	
 	
 };
 #include "FiremissionModule\RscTitles.hpp"
@@ -162,35 +163,36 @@ class Cfg3DEN
 				
 			};
 		};
-		
+		#include "GearModule\cfg3den\cfg3denMenu.hpp"
 		//add custom mission 3den editor categories
 		#include "EndConditionsModule\cfg3den\cfg3denMenu.hpp"
 		#include "BriefingModule\cfg3den\cfg3denMenu.hpp"
-		#include "HeadlessAIModule\cfg3den\cfg3denMenu.hpp"
+		//#include "HeadlessAIModule\cfg3den\cfg3denMenu.hpp"
 		//#include "ACREModule\cfg3den\cfg3denMenu.hpp"
 	};
 	
 	//add custom base 3den options & categories
 	class Group {
 		class AttributeCategories {
-			#include "HeadlessAIModule\cfgAttributeCategories\Group.hpp"
+			//#include "HeadlessAIModule\cfgAttributeCategories\Group.hpp"
 		};
 	};
 	
 	class Object {
 		class AttributeCategories {
-			#include "HeadlessAIModule\cfgAttributeCategories\Object.hpp"
+			//#include "HeadlessAIModule\cfgAttributeCategories\Object.hpp"
 			#include "TeamColourModule\cfgAttributeCategories\Object.hpp"
 			#include "AIDriversModule\cfgAttributeCategories\Object.hpp"
 			#include "StartInParachuteModule\cfgAttributeCategories\Object.hpp"
 			#include "FiremissionModule\cfgAttributeCategory.hpp"
+			#include "GearModule\cfg3den\UnitGear.hpp"
 			//#include "ACREModule\cfgAttributeCategories\Object.hpp"
 		};
 	};
 	
 	class Logic {
 		class AttributeCategories {
-			#include "HeadlessAIModule\cfgAttributeCategories\Logic.hpp"
+			//#include "HeadlessAIModule\cfgAttributeCategories\Logic.hpp"
 		};
 	};
 	
@@ -200,7 +202,7 @@ class Cfg3DEN
 		#include "3DEN\CfgAttributes.hpp"
 		#include "Core\CfgAttributes.hpp"
 		#include "EndConditionsModule\CfgAttributes.hpp"
-		#include "HeadlessAIModule\CfgAttributes.hpp"
+		//#include "HeadlessAIModule\CfgAttributes.hpp"
 		#include "TeamColourModule\CfgAttributes.hpp"
 		#include "StartInParachuteModule\CfgAttributes.hpp"
 		#include "JipModule\CfgAttributes.hpp"
@@ -220,9 +222,10 @@ class display3DEN
 				#include "3DEN\display3DEN\Menu.hpp"
 				
 				//Add custom UO menus
-				#include "HeadlessAIModule\display3DEN\Menu.hpp"
+				//#include "HeadlessAIModule\display3DEN\Menu.hpp"
 				#include "BriefingModule\display3DEN\Menu.hpp"
 				#include "EndConditionsModule\display3DEN\Menu.hpp"
+				#include "GearModule\display3DEN\Menu.hpp"
 				//#include "ACREModule\display3DEN\Menu.hpp"
 				
 				//tools define
@@ -230,10 +233,10 @@ class display3DEN
 				
 				//add custom tools menus
 				
-				class UO_FW_Tools_Folder {
+				/*class UO_FW_Tools_Folder {
 					text = "Tools";
 					items[] = {"UO_FW_Test_Mission","UO_FW_Test_Loadouts"};
-				};
+				};*/
 			
 				//documentation define
 				#include "3DEN\display3DEN\MenuDoc.hpp"
@@ -246,7 +249,7 @@ class display3DEN
 				{
 					text = "UO Framework";
 					//items[] = {"UO_FW_Settings","UO_FW_Module_Settings","UO_FW_EndConditions_Settings","UO_FW_Briefing_Folder","UO_FW_ACRE_Folder","UO_FW_AI_Settings","UO_FW_Tools_Folder","UO_FW_Documentation"};
-					items[] = {"UO_FW_Settings","UO_FW_Module_Settings","UO_FW_EndConditions_Folder","UO_FW_Briefing_Folder","UO_FW_AI_Settings","UO_FW_Tools_Folder","UO_FW_Documentation"};
+					items[] = {"UO_FW_Settings","UO_FW_Module_Settings","UO_FW_Gear_Settings","UO_FW_EndConditions_Folder","UO_FW_Briefing_Folder","UO_FW_Documentation"};
 				};
 				
 				//compile main menu

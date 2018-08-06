@@ -1,3 +1,4 @@
+waitUntil{UO_FW_Framework_Initialized};
 _isEnabled = missionNamespace getVariable ["UO_FW_AutoTrackAsset_Enabled",false];
 if(!_isEnabled) exitWith {};
 
@@ -36,7 +37,7 @@ if (isServer) then
 
 					};
 
-				} forEach FW_Teams;
+				} forEach UO_FW_Teams;
 
 			};
 
@@ -58,7 +59,7 @@ if (isServer) then
 			if (!isPlayer _vehicle && side _vehicle != civilian) then 
             {
 
-				if (_vehicle getVariable ["FW_AssetName", ""] == "") then 
+				if (_vehicle getVariable ["UO_FW_AssetName", ""] == "") then 
                 {
 
 					{
@@ -77,7 +78,7 @@ if (isServer) then
 
 						};
 
-					} forEach FW_Teams;
+					} forEach UO_FW_Teams;
 
 				};
 

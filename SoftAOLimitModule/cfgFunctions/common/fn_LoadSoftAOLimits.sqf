@@ -12,9 +12,9 @@ if (_activated) then
 {
 	
 	// The amount of time in seconds a land based unit is allowed to stay outside the AO (-1 = Infinity)
-	FW_AOTimer = _logic getVariable ["UO_FW_SoftAoLimit_TimeOutside",30];
+	UO_FW_AOTimer = _logic getVariable ["UO_FW_SoftAoLimit_TimeOutside",30];
 	// The amount of time in seconds an air based unit is allowed to stay outside the AO (-1 = Infinity)
-	FW_AOTimerAir = _logic getVariable ["UO_FW_SoftAoLimit_TimeOutsideAir",-1];
+	UO_FW_AOTimerAir = _logic getVariable ["UO_FW_SoftAoLimit_TimeOutsideAir",-1];
 	_markers = [];
 	{
 		_markers pushBack [west, _x];

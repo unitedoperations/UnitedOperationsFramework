@@ -1,8 +1,12 @@
-if (UO_FW_EndCondition_Enabled_1) then {
-	if ((isNil "UO_FW_EndCondition_Message_1") || !(typename UO_FW_EndCondition_Message_1 isEqualto "STRING")) then {
-		UO_FW_DEBUG("","invalid message for End Condition Category 1")
-	} else {
-		UO_FW_DEBUG("","valid message for End Condition Category 1, executing")
+if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_1",false]) then
+{
+	if ((isNil "UO_FW_EndCondition_Message_1") || !(typename UO_FW_EndCondition_Message_1 isEqualto "STRING")) then 
+	{
+		["","invalid message for End Condition Category 1"] call UO_FW_fnc_DebugMessageDetailed;
+		
+	} else 
+	{
+		["","Valid message for End Condition Category 1, executing"] call UO_FW_fnc_DebugMessageDetailed;
 		//_conditionsCategory1 = [[UO_FW_EndCondition_CasualtyCount_BLUFOR_Enabled_1,UO_FW_EndCondition_CasualtyCount_BLUFOR_Percentage_1],[UO_FW_EndCondition_CasualtyCount_OPFOR_Enabled_1,UO_FW_EndCondition_CasualtyCount_OPFOR_Percentage_1],[UO_FW_EndCondition_CasualtyCount_RESISTANCE_Enabled_1,UO_FW_EndCondition_CasualtyCount_RESISTANCE_Percentage_1],[UO_FW_EndCondition_CasualtyCount_CIVILIAN_Enabled_1,UO_FW_EndCondition_CasualtyCount_CIVILIAN_Percentage_1],[UO_FW_EndCondition_EntitiesAlive_Array_1,UO_FW_EndCondition_EntitiesDead_Array_1,UO_FW_EndCondition_EntitiesDamaged_Array_1,UO_FW_EndCondition_EntitiesDeadORDamaged_Array_1],[UO_FW_EndCondition_CustomVariables_Array_1]];
 		//casualties index 0 
 		//blufor casualty index 0 select 0
@@ -23,17 +27,19 @@ if (UO_FW_EndCondition_Enabled_1) then {
 		if (!(UO_FW_EndCondition_EntitiesAlive_Array_1 isEqualto "")) then {_conditionsCountCategory1 = _conditionsCountCategory1 + 1;};
 		if (!(UO_FW_EndCondition_EntitiesDead_Array_1 isEqualto "")) then {_conditionsCountCategory1 = _conditionsCountCategory1 + 1;};
 		if (!(UO_FW_EndCondition_EntitiesDamaged_Array_1 isEqualto "")) then {_conditionsCountCategory1 = _conditionsCountCategory1 + 1;};
-		if (!(UO_FW_EndCondition_EntitiesDeadORDamaged_Array_1 isEqualto "")) then {_conditionsCountCategory1 = _conditionsCountCategory1 + 1;};
 		
 		if (!(UO_FW_EndCondition_CustomVariables_Array_1 isEqualto "")) then {_conditionsCountCategory1 = _conditionsCountCategory1 + 1;};
 		
+		if ((UO_FW_EndCondition_CapturezoneEnabled_1)) then {_conditionsCountCategory1 = _conditionsCountCategory1 + 1;};
+
 		_tempdebugtext = format ["Category 1 Condition Count:%1",_conditionsCountCategory1];
-		UO_FW_DEBUG("",_tempdebugtext)
-		
-		if ((_conditionsCountCategory1) > 0) then {
+		["",_tempdebugtext] call UO_FW_fnc_DebugMessageDetailed;
+		if ((_conditionsCountCategory1) > 0) then 
+		{
 			//spawn loop
 			[] spawn {
-				while {!UO_FW_MissionEnded} do {
+				while {!UO_FW_MissionEnded} do 
+				{
 					sleep(missionNamespace getvariable ["UO_FW_ConditionSleep",30]);
 					
 					_ConditionCheckList = [];
@@ -41,7 +47,8 @@ if (UO_FW_EndCondition_Enabled_1) then {
 					//Casualty Checks
 					_BluforCasConditionCheck = false;
 					
-					if (UO_FW_EndCondition_CasualtyCount_BLUFOR_Enabled_1) then {
+					if (UO_FW_EndCondition_CasualtyCount_BLUFOR_Enabled_1) then 
+					{
 						_westCasualty = UO_FW_TeamSetting_Blufor_TeamName call UO_FW_fnc_CasualtyPercentage;
 						if (_westCasualty >= UO_FW_EndCondition_CasualtyCount_BLUFOR_Percentage_1) then {_BluforCasConditionCheck = true;} else {_BluforCasConditionCheck = false;};
 						_ConditionCheckList pushback ["BLUFOR Cas Check",_BluforCasConditionCheck];
@@ -49,7 +56,8 @@ if (UO_FW_EndCondition_Enabled_1) then {
 					
 					_OpforCasConditionCheck = false;
 					
-					if (UO_FW_EndCondition_CasualtyCount_OPFOR_Enabled_1) then {
+					if (UO_FW_EndCondition_CasualtyCount_OPFOR_Enabled_1) then 
+					{
 						_eastCasualty = UO_FW_TeamSetting_Opfor_TeamName call UO_FW_fnc_CasualtyPercentage;
 						if (_eastCasualty >= UO_FW_EndCondition_CasualtyCount_OPFOR_Percentage_1) then {_OpforCasConditionCheck = true;} else {_OpforCasConditionCheck = false;};
 						_ConditionCheckList pushback ["OPFOR Cas Check",_OpforCasConditionCheck];
@@ -57,7 +65,8 @@ if (UO_FW_EndCondition_Enabled_1) then {
 					
 					_IndforCasConditionCheck = false;
 					
-					if (UO_FW_EndCondition_CasualtyCount_RESISTANCE_Enabled_1) then {
+					if (UO_FW_EndCondition_CasualtyCount_RESISTANCE_Enabled_1) then 
+					{
 						_resCasualty = UO_FW_TeamSetting_Indfor_TeamName call UO_FW_fnc_CasualtyPercentage;
 						if (_resCasualty >= UO_FW_EndCondition_CasualtyCount_RESISTANCE_Percentage_1) then {_IndforCasConditionCheck = true;} else {_IndforCasConditionCheck = false;};
 						_ConditionCheckList pushback ["INDFOR Cas Check",_IndforCasConditionCheck];
@@ -65,20 +74,23 @@ if (UO_FW_EndCondition_Enabled_1) then {
 					
 					_CivilianCasConditionCheck = false;
 					
-					if (UO_FW_EndCondition_CasualtyCount_CIVILIAN_Enabled_1) then {
+					if (UO_FW_EndCondition_CasualtyCount_CIVILIAN_Enabled_1) then 
+					{
 						_civCasualty = UO_FW_TeamSetting_Civ_TeamName call UO_FW_fnc_CasualtyPercentage;
 						if (_civCasualty >= UO_FW_EndCondition_CasualtyCount_CIVILIAN_Percentage_1) then {_CivilianCasConditionCheck = true;} else {_CivilianCasConditionCheck = false;};
 						_ConditionCheckList pushback ["CIVILIAN Cas Check",_CivilianCasConditionCheck];
 					};
 					
 					//alive entity block
-					if (!(UO_FW_EndCondition_EntitiesAlive_Array_1 isEqualto "")) then {
+					if (!(UO_FW_EndCondition_EntitiesAlive_Array_1 isEqualto "")) then 
+					{
 						_tempdebugtext6 = format ["Alive Array 1:%1",UO_FW_EndCondition_EntitiesAlive_Array_1];
-						UO_FW_DEBUG("",_tempdebugtext6)
-						if ((UO_FW_EndCondition_EntitiesAlive_Array_1 find ",") >= 0) then {
+						["",_tempdebugtext6] call UO_FW_fnc_DebugMessageDetailed;
+						if ((UO_FW_EndCondition_EntitiesAlive_Array_1 find ",") >= 0) then 
+						{
 							private _EntityAlive_Array_Separate_1 = UO_FW_EndCondition_EntitiesAlive_Array_1 splitstring ",";
 							_tempdebugtext5 = format ["Alive Separated Array:%1",_EntityAlive_Array_Separate_1];
-							UO_FW_DEBUG("",_tempdebugtext5)
+							["",_tempdebugtext5] call UO_FW_fnc_DebugMessageDetailed;
 							{
 								call compile format ["
 									_%1handle = false;
@@ -88,7 +100,8 @@ if (UO_FW_EndCondition_Enabled_1) then {
 									_ConditionCheckList pushback ['Alive:%1 Check',_%1handle];
 								",_x];
 							} foreach _EntityAlive_Array_Separate_1;
-						} else {
+						} else 
+						{
 						
 							call compile format ["
 								_%1handle = false;
@@ -101,13 +114,15 @@ if (UO_FW_EndCondition_Enabled_1) then {
 					};
 					
 					//dead entity block
-					if (!(UO_FW_EndCondition_EntitiesDead_Array_1 isEqualto "")) then {
+					if (!(UO_FW_EndCondition_EntitiesDead_Array_1 isEqualto "")) then 
+					{
 						_tempdebugtext7 = format ["Dead Array 1:%1",UO_FW_EndCondition_EntitiesDead_Array_1];
-						UO_FW_DEBUG("",_tempdebugtext7)
-						if ((UO_FW_EndCondition_EntitiesDead_Array_1 find ",") >= 0) then {
+						["",_tempdebugtext7] call UO_FW_fnc_DebugMessageDetailed;
+						if ((UO_FW_EndCondition_EntitiesDead_Array_1 find ",") >= 0) then
+						 {
 							private _EntityDead_Array_Separate_1 = UO_FW_EndCondition_EntitiesDead_Array_1 splitstring ",";
 							_tempdebugtext8 = format ["Dead Separated Array:%1",_EntityDead_Array_Separate_1];
-							UO_FW_DEBUG("",_tempdebugtext8)
+							["",_tempdebugtext8] call UO_FW_fnc_DebugMessageDetailed;
 							{
 								call compile format ["
 									_%1handle = false;
@@ -130,13 +145,15 @@ if (UO_FW_EndCondition_Enabled_1) then {
 					};
 					
 					//damaged & immobilized entity block
-					if (!(UO_FW_EndCondition_EntitiesDamaged_Array_1 isEqualto "")) then {
+					if (!(UO_FW_EndCondition_EntitiesDamaged_Array_1 isEqualto "")) then 
+					{
 						_tempdebugtext9 = format ["Damaged Array 1:%1",UO_FW_EndCondition_EntitiesDamaged_Array_1];
-						UO_FW_DEBUG("",_tempdebugtext9)
-						if ((UO_FW_EndCondition_EntitiesDamaged_Array_1 find ",") >= 0) then {
+						["",_tempdebugtext9] call UO_FW_fnc_DebugMessageDetailed;
+						if ((UO_FW_EndCondition_EntitiesDamaged_Array_1 find ",") >= 0) then 
+						{
 							private _EntityDamaged_Array_Separate_1 = UO_FW_EndCondition_EntitiesDamaged_Array_1 splitstring ",";
 							_tempdebugtext10 = format ["Damaged Separated Array:%1",_EntityDamaged_Array_Separate_1];
-							UO_FW_DEBUG("",_tempdebugtext10)
+							["",_tempdebugtext10] call UO_FW_fnc_DebugMessageDetailed;
 							{
 								call compile format ["
 									_%1handle = false;
@@ -159,13 +176,15 @@ if (UO_FW_EndCondition_Enabled_1) then {
 					};
 					
 					//custom variables block
-					if (!(UO_FW_EndCondition_CustomVariables_Array_1 isEqualto "")) then {
+					if (!(UO_FW_EndCondition_CustomVariables_Array_1 isEqualto "")) then 
+					{
 						_tempdebugtext3 = format ["Var Array 1:%1",UO_FW_EndCondition_CustomVariables_Array_1];
-						UO_FW_DEBUG("",_tempdebugtext3)
-						if ((UO_FW_EndCondition_CustomVariables_Array_1 find ",") >= 0) then {
+						["",_tempdebugtext3] call UO_FW_fnc_DebugMessageDetailed;
+						if ((UO_FW_EndCondition_CustomVariables_Array_1 find ",") >= 0) then
+						 {
 							private _CustomVariables_Array_1Separate = UO_FW_EndCondition_CustomVariables_Array_1 splitstring ",";
 							_tempdebugtext4 = format ["Custom Var Separated Array:%1",_CustomVariables_Array_1Separate];
-							UO_FW_DEBUG("",_tempdebugtext4)
+							["",_tempdebugtext4] call UO_FW_fnc_DebugMessageDetailed;
 							{
 								call compile format ["
 									_%1handle = false;
@@ -175,7 +194,8 @@ if (UO_FW_EndCondition_Enabled_1) then {
 									_ConditionCheckList pushback ['Custom Var:%1 Check',_%1handle];
 								",_x];
 							} foreach _CustomVariables_Array_1Separate;
-						} else {
+						} else 
+						{
 						
 							call compile format ["
 								_%1handle = false;
@@ -187,36 +207,64 @@ if (UO_FW_EndCondition_Enabled_1) then {
 						};
 					};
 					
-					_tempdebugtext2 = format ["Category 1 _ConditionCheckList:%1",_ConditionCheckList];
-					UO_FW_DEBUG("",_tempdebugtext2)
 					
+					
+					//capturezoneBlock
+					
+					_CapturezoneConditionCheck = false;
+					
+					if (UO_FW_EndCondition_CapturezoneEnabled_1) then 
+					{
+						_type = UO_FW_EndCondition_CapturezoneMarker_1 call UO_FW_FNC_IsCapturezoneCaptured;
+						
+						_CapturezoneConditionCheck = (_type == (["NOONE","WEST","EAST","RESISTANCE","CIVILIAN"] select UO_FW_EndCondition_CapturezoneTeam_1));
+						
+						_ConditionCheckList pushback ["CapturezoneCheck",_CapturezoneConditionCheck];
+					};
+
+					_tempdebugtext2 = format ["Category 1 _ConditionCheckList:%1",_ConditionCheckList];
+					["",_tempdebugtext2] call UO_FW_fnc_DebugMessageDetailed;
+
 					_ExtractionCheck = false;
 					
 					//check block
-					if (UO_FW_EndCondition_ExtractionEnabled_1) then {
+					if (UO_FW_EndCondition_ExtractionEnabled_1) then 
+					{
 						_team = [UO_FW_TeamSetting_Blufor_TeamName,UO_FW_TeamSetting_Opfor_TeamName,UO_FW_TeamSetting_Indfor_TeamName,UO_FW_TeamSetting_Civ_TeamName] select UO_FW_EndCondition_ExtractionTeam_1;
-						if (UO_FW_EndCondition_ExtractionMarker_1 isEqualto "") exitwith {UO_FW_DEBUG("","No marker entered for extract zone for Category 1!")};
-						if (getMarkerColor UO_FW_EndCondition_ExtractionMarker_1 isEqualto "") exitwith {UO_FW_DEBUG("","Invalid extract marker for Category 1!")};
+						if (UO_FW_EndCondition_ExtractionMarker_1 isEqualto "") exitwith {["","No marker entered for extract zone for Category 1!"] call UO_FW_fnc_DebugMessageDetailed;};
+						if (getMarkerColor UO_FW_EndCondition_ExtractionMarker_1 isEqualto "") exitwith {["","Invalid extract marker for Category 1!"] call UO_FW_fnc_DebugMessageDetailed;};
 							if ([_team,UO_FW_EndCondition_ExtractionMarker_1,UO_FW_EndCondition_ExtractionRatio_1] call UO_FW_fnc_hasExtracted) then {	
 								_ExtractionCheck = true;
 							} else {
 								_ExtractionCheck = false;
 							};
-					} else {
+					} 
+					else 
+					{
 						_ExtractionCheck = true;
 					};
 					
-					if (_ExtractionCheck) then {
-						if (UO_FW_EndCondition_Mode_1 == 1) then {
+					if (_ExtractionCheck) then 
+					{
+						if (UO_FW_EndCondition_Mode_1 == 1) then 
+						{
 							{
 								_x params ["_name","_value"];
-								if (_value) exitwith {
+								if (_value) exitwith 
+								{
+										_tempdebugtext2 = format ["Category 1 Ending due to :%1",_value];
+										["",_tempdebugtext2] call UO_FW_fnc_DebugMessageDetailed;
 										sleep(missionNamespace getvariable ["UO_FW_EndCondition_EndDelay",30]);
 										UO_FW_EndCondition_Message_1 call UO_FW_fnc_EndMission;
-									};
+								};
 							} foreach _ConditionCheckList;
-						} else {
-							if (count ([_ConditionCheckList,false] call UO_FW_fnc_arrayFindAll) <= 0) exitwith {
+						} 
+						else 
+						{
+							if (count ([_ConditionCheckList,false] call UO_FW_fnc_arrayFindAll) <= 0) exitwith 
+							{
+								_tempdebugtext2 = format ["Category 1 Ending due to :%1",_CapturezoneConditionCheck];
+								["",_tempdebugtext2] call UO_FW_fnc_DebugMessageDetailed;
 								sleep(missionNamespace getvariable ["UO_FW_EndCondition_EndDelay",30]);
 								UO_FW_EndCondition_Message_1 call UO_FW_fnc_EndMission;
 							};
@@ -225,7 +273,7 @@ if (UO_FW_EndCondition_Enabled_1) then {
 				};
 			};
 		} else {
-			UO_FW_DEBUG("","No Conditions for Category 1")
+			["","No Conditions for Category 1"] call UO_FW_fnc_DebugMessageDetailed;
 		};
 	};
 };

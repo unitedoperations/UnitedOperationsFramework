@@ -15,7 +15,7 @@ UO_FW_var_isHCorServer = false;
 
 if (isNil "UO_FW_var_HCs") then {
 	UO_FW_var_HCs = []; 
-	publicVariable "FW_var_HCs";
+	publicVariable "UO_FW_var_HCs";
 };
 
 if (!hasInterface && !isServer) then {
@@ -25,7 +25,7 @@ if (!hasInterface && !isServer) then {
 	publicvariable "HC_ID"; 
 	if !(player in UO_FW_var_HCs) then {
 		UO_FW_var_HCs pushback (player);
-		publicVariable "FW_var_HCs";
+		publicVariable "UO_FW_var_HCs";
 	};
 };
 
@@ -40,7 +40,7 @@ if (!isMultiplayer) then {
 	publicvariable "HC_ID"; 
 	if !(player in UO_FW_var_HCs) then {
 		UO_FW_var_HCs pushback (player);
-		publicVariable "FW_var_HCs";
+		publicVariable "UO_FW_var_HCs";
 	};
 };
 

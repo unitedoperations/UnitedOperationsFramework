@@ -1,6 +1,6 @@
 class UO_FW_ArtilleryAIFO
 {
-    displayName = "Artillery AI FO Settings";
+    displayName = "Artillery AI FO Options";
     collapsed = 1;
     class Attributes
     {

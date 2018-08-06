@@ -8,7 +8,7 @@
 		_ctrlTitleBG = _display displayCtrl 1002;
 		_ctrlTime = _display displayCtrl 1003;
 
-		_endTime = serverTime + (missionNamespace getVariable ["FW_ST_TimeLeft", 0]);
+		_endTime = serverTime + (missionNamespace getVariable ["UO_FW_ST_TimeLeft", 0]);
 		_nextBeep = _endTime - 10;
 
 		_break = false;

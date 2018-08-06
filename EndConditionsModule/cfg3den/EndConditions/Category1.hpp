@@ -193,7 +193,7 @@ class EndConditionExtractionSettings_Category1
     {
 		class UO_FW_EndCondition_ExtractionEnabled_1
         {
-            property = "UO_FW_EndCondition_Extraction_1";
+            property = "UO_FW_EndCondition_ExtractionEnabled_1";
             displayName = "Require Extraction";
             tooltip = "Require Extraction in addition to end conditions for this category.";
 			control = "CheckBoxState";
@@ -202,12 +202,12 @@ class EndConditionExtractionSettings_Category1
         };
 		class UO_FW_EndCondition_ExtractionTeam_1
         {
-            property = "UO_FW_EndCondition_Extraction_1";
+            property = "UO_FW_EndCondition_ExtractionTeam_1";
             displayName = "Team";
             tooltip = "Team required to be in extract area.";
 			control = "UO_FW_ENDCONDITIONS_EXTRACTTEAM";
             expression="missionNamespace setVariable ['%s',_value];";
-			defaultValue = "false";
+			defaultValue = "0";
         };
 		class UO_FW_EndCondition_ExtractionMarker_1
         {
@@ -222,7 +222,7 @@ class EndConditionExtractionSettings_Category1
         {
             property = "UO_FW_EndCondition_ExtractionRatio_1";
             displayName = "Ratio";
-            tooltip = "Percentage of alive personnel inside the marker to be considered extracted.";
+            tooltip = "Percentage of alive personnel inside the marker to be considered extracted. Default 75";
 			control = "EditShort";
             expression="missionNamespace setVariable ['%s',_value];";
             validate = "number";
@@ -251,7 +251,7 @@ class EndConditionCapturezoneSettings_Category1
         {
             property = "UO_FW_EndCondition_CapturezoneMarker_1";
             displayName = "Capturezone name";
-            tooltip = "Which capturezone should be checked.";
+            tooltip = "Which capturezone should be checked. Default empty";
 			control = "EditShort";
             expression="missionNamespace setVariable ['%s',_value];";
             defaultValue = "''";
@@ -259,11 +259,12 @@ class EndConditionCapturezoneSettings_Category1
 		class UO_FW_EndCondition_CapturezoneTeam_1
         {
             property = "UO_FW_EndCondition_CapturezoneTeam_1";
-            displayName = "Enable Capturezone";
-            tooltip = "Add Capturezone capture to end conditions for this category.";
+            displayName = "Captured by";
+            tooltip = "End condition will trigger if TEAM captures the zone. Default Noone";
 			control = "UO_FW_ENDCONDITIONS_CAPTUREZONETEAM";
             expression="missionNamespace setVariable ['%s',_value];";
             defaultValue = "0";
         };
+        
 	};
 };

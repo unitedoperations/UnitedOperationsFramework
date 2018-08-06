@@ -26,7 +26,7 @@ class UO_FW_CapturezoneModule: OlsenModule
 		class UO_FW_Capturezone_BluforWin
 		{
 			displayName = "Blufor time";
-			tooltip = "Time needed for Blufor to capture the zone. 0 to disable";
+			tooltip = "Time needed for Blufor to capture the zone in seconds. 0 to disable";
 			property = "UO_FW_Capturezone_BluforWin";
 			control = "EditShort";
 			expression = "_this setVariable ['%s',_value];";
@@ -37,7 +37,7 @@ class UO_FW_CapturezoneModule: OlsenModule
 		class UO_FW_Capturezone_OpforWin
 		{
 			displayName = "Opfor time";
-			tooltip = "Time needed for Opfor to capture the zone. 0 to disable";
+			tooltip = "Time needed for Opfor to capture the zone in seconds. 0 to disable";
 			property = "UO_FW_Capturezone_OpforWin";
 			control = "EditShort";
 			expression = "_this setVariable ['%s',_value];";
@@ -48,7 +48,7 @@ class UO_FW_CapturezoneModule: OlsenModule
 		class UO_FW_Capturezone_IndependentWin
 		{
 			displayName = "Independent time";
-			tooltip = "Time needed for Independent to capture the zone. 0 to disable";
+			tooltip = "Time needed for Independent to capture the zone in seconds. 0 to disable";
 			property = "UO_FW_Capturezone_IndependentWin";
 			control = "EditShort";
 			expression = "_this setVariable ['%s',_value];";
@@ -59,7 +59,7 @@ class UO_FW_CapturezoneModule: OlsenModule
 		class UO_FW_Capturezone_CivilianWin
 		{
 			displayName = "Civilian time";
-			tooltip = "Time needed for Civilian to capture the zone. 0 to disable";
+			tooltip = "Time needed for Civilian to capture the zone in seconds. 0 to disable";
 			property = "UO_FW_Capturezone_CivilianWin";
 			control = "EditShort";
 			expression = "_this setVariable ['%s',_value];";

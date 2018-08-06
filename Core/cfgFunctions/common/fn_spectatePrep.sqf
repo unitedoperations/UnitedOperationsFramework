@@ -12,12 +12,12 @@
  * Public: No
  */
 
-/*if (FW_RespawnTickets > 0) then {
+/*if (UO_FW_RespawnTickets > 0) then {
 
-	private _respawnName = toLower(format ["fw_%1_respawn", side player]);
+	private _respawnName = toLower(format ["UO_fw_%1_respawn", side player]);
 	private _respawnPoint = missionNamespace getVariable [_respawnName, objNull];
 
-	private _loadout = (player getVariable ["FW_Loadout", ""]);
+	private _loadout = (player getVariable ["UO_FW_Loadout", ""]);
 
 	if (_loadout != "") then {
 
@@ -31,11 +31,11 @@
 
 	};
 
-	FW_RespawnTickets = FW_RespawnTickets - 1;
+	UO_FW_RespawnTickets = UO_FW_RespawnTickets - 1;
 
 	private _text = "respawns left";
 
-	if (FW_RespawnTickets == 1) then {
+	if (UO_FW_RespawnTickets == 1) then {
 
 		_text = "respawn left";
 
@@ -43,13 +43,13 @@
 
 	call BIS_fnc_VRFadeIn;
 
-	cutText [format ['%1 %2', FW_RespawnTickets, _text], 'PLAIN DOWN'];
+	cutText [format ['%1 %2', UO_FW_RespawnTickets, _text], 'PLAIN DOWN'];
 
-	player setVariable ["FW_Body", player, true];
+	player setVariable ["UO_FW_Body", player, true];
 
 } else {
 
-	player setVariable ["FW_Dead", true, true]; //Tells the framework the player is dead
+	player setVariable ["UO_FW_Dead", true, true]; //Tells the framework the player is dead
 
 	player setCaptive true;
 	player allowdamage false;
@@ -63,9 +63,9 @@
 
 	hideObjectGlobal player;
 
-	if (!(player getVariable ["FW_Spectating", false])) then {
+	if (!(player getVariable ["UO_FW_Spectating", false])) then {
 
-		player setVariable ["FW_Spectating", true, true];
+		player setVariable ["UO_FW_Spectating", true, true];
 
 		[true] call acre_api_fnc_setSpectator;
 		"" call UO_FW_FNC_Spectate;
@@ -243,7 +243,7 @@ if (!isDedicated) then
 					};
 					sleep 0.1;
 					cutText ["\n", "BLACK", 1.01-_damage, true];
-					["FW_death", 0, true] call ace_common_fnc_setHearingCapability;
+					["UO_FW_death", 0, true] call ace_common_fnc_setHearingCapability;
 					sleep 1.01-_damage;
 					0 fadeSound 0;
 					sleep 0.89+_damage;
@@ -252,7 +252,7 @@ if (!isDedicated) then
 					
 					sleep 3;
 					cutText ["\n","BLACK IN", 5];
-					["FW_death", 0, false] call ace_common_fnc_setHearingCapability;
+					["UO_FW_death", 0, false] call ace_common_fnc_setHearingCapability;
 					0 fadeSound 1;
 				} else {
 					("BIS_layerEstShot" call BIS_fnc_rscLayer) cutRsc ["RscStatic", "PLAIN"];
@@ -278,11 +278,11 @@ if (!isDedicated) then
 
 		private ["_respawnName", "_respawnPoint", "_text", "_loadout", "_pos", "_dir", "_cam", "_body", "_temp", "_temp1", "_killcam_msg"];
 
-		if (FW_RespawnTickets > 0) then {
+		if (UO_FW_RespawnTickets > 0) then {
 
-			_respawnName = toLower(format ["fw_%1_respawn", side player]);
+			_respawnName = toLower(format ["UO_FW_%1_respawn", side player]);
 			_respawnPoint = missionNamespace getVariable [_respawnName, objNull];
-			_loadout = (player getVariable ["FW_Loadout", ""]);
+			_loadout = (player getVariable ["UO_FW_Loadout", ""]);
 
 			if (_loadout != "") then {
 				[player, _loadout] call FNC_GearScript;
@@ -292,19 +292,19 @@ if (!isDedicated) then
 				player setPos getPosATL _respawnPoint;
 			};
 
-			FW_RespawnTickets = FW_RespawnTickets - 1;
+			UO_FW_RespawnTickets = UO_FW_RespawnTickets - 1;
 			_text = "respawns left";
 
-			if (FW_RespawnTickets == 1) then {
+			if (UO_FW_RespawnTickets == 1) then {
 				_text = "respawn left";
 			};
 
-			cutText [format ['%1 %2', FW_RespawnTickets, _text], 'PLAIN DOWN'];
-			player setVariable ["FW_Body", player, true];
+			cutText [format ['%1 %2', UO_FW_RespawnTickets, _text], 'PLAIN DOWN'];
+			player setVariable ["UO_FW_Body", player, true];
 		} 
 		else {
 			
-			player setVariable ["FW_Dead", true, true]; //Tells the framework the player is dead
+			player setVariable ["UO_FW_Dead", true, true]; //Tells the framework the player is dead
 			
 			player remoteExecCall ["hideObject", 0];
 			player remoteExecCall ["hideObjectGlobal", 2];
@@ -320,13 +320,13 @@ if (!isDedicated) then
 			player setPos [0, 0, 0];
 			[player] join grpNull;
 
-			if (!(player getVariable ["FW_Spectating", false])) then {
+			if (!(player getVariable ["UO_FW_Spectating", false])) then {
 
-				player setVariable ["FW_Spectating", true, true];
+				player setVariable ["UO_FW_Spectating", true, true];
 
 				[true] call acre_api_fnc_setSpectator;
 				//If babel is enabled, allowed spectator to hear all languages present in mission.
-				if (!isNil "FW_enable_babel" && {FW_enable_babel}) then {
+				if (!isNil "UO_FW_enable_babel" && {UO_FW_enable_babel}) then {
 					_missionLanguages = [];
 					{
 						{
@@ -334,7 +334,7 @@ if (!isDedicated) then
 								_missionLanguages pushback _x;
 							};
 						} foreach _x;
-					} forEach FW_languages_babel;
+					} forEach UO_FW_languages_babel;
 					_missionLanguages call acre_api_fnc_babelSetSpokenLanguages;
 				};
 
@@ -462,7 +462,7 @@ if (!isDedicated) then
 				[_text, 0.55, 0.8, 20, 1] spawn BIS_fnc_dynamicText;
 
 				[] spawn {
-					while {(player getVariable ["FW_Spectating", false])} do {
+					while {(player getVariable ["UO_FW_Spectating", false])} do {
 						player setOxygenRemaining 1;
 						sleep 0.25;
 					};

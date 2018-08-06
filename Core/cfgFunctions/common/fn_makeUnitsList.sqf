@@ -15,23 +15,23 @@
 
 params ["_class", "_unit"];
 
-if (isNil "FW_missing_gear") then {
-	FW_missing_gear = [];
-	[{time > 0}, {publicVariable "FW_missing_gear"}] call CBA_fnc_waitUntilAndExecute;
+if (isNil "UO_FW_missing_gear") then {
+	UO_FW_missing_gear = [];
+	[{time > 0}, {publicVariable "UO_FW_missing_gear"}] call CBA_fnc_waitUntilAndExecute;
 };
 
 private _index = -1;
 
 {
 	if ((_x select 0) == _class) exitWith {_index = _forEachIndex};
-} foreach FW_missing_gear;
+} foreach UO_FW_missing_gear;
 
 if (_index != -1) then {
-	((FW_missing_gear select _index) select 1) pushBackUnique _unit;
+	((UO_FW_missing_gear select _index) select 1) pushBackUnique _unit;
 } else {
-	FW_missing_gear pushBack [_class, [_unit]];
+	UO_FW_missing_gear pushBack [_class, [_unit]];
 };
 
 if (time > 0) then {
-	publicVariable "FW_missing_gear";
+	publicVariable "UO_FW_missing_gear";
 };

@@ -11,7 +11,7 @@ class DIA_DEBUG {
 
 	class controlsBackground {
 
-		class SOME_TEXT: RscStructuredText
+		class SOME_TEXT:  UO_FW_RscStructuredText
 		{
 
 			idc = 4001;

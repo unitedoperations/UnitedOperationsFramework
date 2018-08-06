@@ -30,16 +30,16 @@ if (!_result) then {
 	[_class, {
 		params ["_class"];
 		private _msg = "Framework has detected an invalid classname - " + str _class + "! Mission will continue but some parts of gear will be missing.";
-		if (!isNil "FW_missing_gear_found") then {
-			if !(_class in FW_missing_gear_found) then {
+		if (!isNil "UO_FW_missing_gear_found") then {
+			if !(_class in UO_FW_missing_gear_found) then {
 				systemChat _msg;
 				diag_log _msg;
-				FW_missing_gear_found pushBackUnique _class;
+				UO_FW_missing_gear_found pushBackUnique _class;
 			};
 		} else {
 			systemChat _msg;
 			diag_log _msg;
-			FW_missing_gear_found = [_class];
+			UO_FW_missing_gear_found = [_class];
 		};
 	}] remoteExec ["BIS_fnc_call", 0, true];
 

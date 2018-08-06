@@ -1,6 +1,6 @@
 class UO_FW_ArtilleryPlayerFO
 {
-    displayName = "Artillery Player FO Settings";
+    displayName = "Artillery Player FO Options";
     collapsed = 1;
     class Attributes
     {
@@ -23,7 +23,7 @@ class UO_FW_ArtilleryPlayerFO
 			control = "EditArray";
 			expression = "_this setVariable ['%s',_value];";
 			condition = "objectControllable";
-			defaultValue = "";
+			defaultValue = "[]";
 			typeName = "STRING";
 		};
 		class UO_FW_ArtilleryFOPlayerAllowBracketFiremission

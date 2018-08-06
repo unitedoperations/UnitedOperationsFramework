@@ -19,8 +19,13 @@ if (time > 0) then {
 
 	UO_FW_MissionEnded = true;
 
-	if (!isNil "aCount_endCount") then {call aCount_endCount};
+	if ((missionNamespace getVariable ["UO_FW_ShotCount_Enabled",false])) then 
+	{
+		["","Sending ShotcountData"] call UO_FW_fnc_DebugMessageDetailed;
+		"" call UO_FW_fnc_aCountendCount;
 
+	};
+	
 	{
 		private _team = (_x select 0);
 		private _assets = _team call UO_FW_fnc_GetDamagedAssets;

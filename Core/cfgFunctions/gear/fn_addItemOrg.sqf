@@ -125,8 +125,8 @@ for "_x" from 1 to _amount do {
 		if (!_succes) then {
 			switch (_position) do {
 				case "backpack": {
-					if (_unit canAddItemToBackpack _item || FW_enableOverfill) then {
-						if (FW_enableOverfill) then {
+					if (_unit canAddItemToBackpack _item || UO_FW_enableOverfill) then {
+						if (UO_FW_enableOverfill) then {
 							(backpackContainer _unit) addItemCargoGlobal [_item, 1];
 						}
 						else {
@@ -136,8 +136,8 @@ for "_x" from 1 to _amount do {
 					};
 				};
 				case "vest": {
-					if (_unit canAddItemToVest _item || FW_enableOverfill) then {
-						if (FW_enableOverfill) then {
+					if (_unit canAddItemToVest _item || UO_FW_enableOverfill) then {
+						if (UO_FW_enableOverfill) then {
 							(vestContainer _unit) addItemCargoGlobal [_item, 1];
 						}
 						else {
@@ -147,8 +147,8 @@ for "_x" from 1 to _amount do {
 					};
 				};
 				case "uniform": {
-					if (_unit canAddItemToUniform _item || FW_enableOverfill) then {
-						if (FW_enableOverfill) then {
+					if (_unit canAddItemToUniform _item || UO_FW_enableOverfill) then {
+						if (UO_FW_enableOverfill) then {
 							(uniformContainer _unit) addItemCargoGlobal [_item, 1];
 						}
 						else {

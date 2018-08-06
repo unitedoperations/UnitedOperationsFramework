@@ -12,7 +12,7 @@ class DIA_GRIDSPOTTINGFIREMISSION
 	controlsBackground[] = {};
 	objects[] = {};
 	controls[] = {GSFM_BACKGROUND,GSFM_DESCRIPTIONTEXT,GSFM_SELECTEDGUNTEXT,GSFM_SELECTEDSHELLTEXT,GSFM_GRIDTEXT,GSFM_SELECTEDGUNEDIT,GSFM_SELECTEDSHELLEDIT,GSFM_GRIDEDIT,GSFM_FIREBUTTON,GSFM_CANCELBUTTON};
-		class GSFM_BACKGROUND: RscText
+		class GSFM_BACKGROUND: UO_FW_RscText
 		{
 			idc = -1;
 			x = ARTIWIDTHMAINSPACE * safezoneW + safezoneX - ARTIBORDERTHICKNESS;
@@ -22,7 +22,7 @@ class DIA_GRIDSPOTTINGFIREMISSION
 				shadow = 0;
 			colorBackground[] = {0.65,0.65,0.65,0.7};
 		};
-		class GSFM_DESCRIPTIONTEXT: RscText
+		class GSFM_DESCRIPTIONTEXT: UO_FW_RscText
 		{
 			idc = -1;
 			text = "Grid Spotting Round"; //--- ToDo: Localize;
@@ -36,7 +36,7 @@ class DIA_GRIDSPOTTINGFIREMISSION
 	shadow = 0;
 
 		};
-	class GSFM_SELECTEDGUNTEXT: RscText
+	class GSFM_SELECTEDGUNTEXT: UO_FW_RscText
 	{
 		idc = -1;
 		text = "Selected gun:"; //--- ToDo: Localize;
@@ -51,7 +51,7 @@ class DIA_GRIDSPOTTINGFIREMISSION
 	shadow = 0;
 
 	};
-	class GSFM_SELECTEDSHELLTEXT: RscText
+	class GSFM_SELECTEDSHELLTEXT: UO_FW_RscText
 	{
 		idc = -1;
 		text = "Aviable ammunition:"; //--- ToDo: Localize;
@@ -63,7 +63,7 @@ class DIA_GRIDSPOTTINGFIREMISSION
 
 		shadow = 0;
 	};
-	class GSFM_GRIDTEXT: RscText
+	class GSFM_GRIDTEXT: UO_FW_RscText
 	{
 		idc = -1;
 		text = "Grid:"; //--- ToDo: Localize;
@@ -75,7 +75,7 @@ class DIA_GRIDSPOTTINGFIREMISSION
 
 	shadow = 0;
 	};
-	class GSFM_FIREBUTTON: RscButton
+	class GSFM_FIREBUTTON: UO_FW_RscButton
 	{
 		idc = 1430;
 		text = "Fire Artillery"; //--- ToDo: Localize;
@@ -86,7 +86,7 @@ class DIA_GRIDSPOTTINGFIREMISSION
 	shadow = 0;
 			onMouseButtonDown = "[] call UO_FW_FNC_DIA_GridSpottingFiremissionFire;";
 	};
-	class GSFM_SELECTEDGUNEDIT: RscListbox
+	class GSFM_SELECTEDGUNEDIT: UO_FW_RscListbox
 	{
 		idc = GSFM_DIA_IDC_GUNSELECT;
 		text = ""; //--- ToDo: Localize;
@@ -99,7 +99,7 @@ class DIA_GRIDSPOTTINGFIREMISSION
 		shadow = 0;
 		onLBSelChanged = "(_this select 1) call UO_FW_FNC_DIA_GridSpottingFiremissionSetArtillery;";
 	};
-	class GSFM_SELECTEDSHELLEDIT: RscListbox
+	class GSFM_SELECTEDSHELLEDIT: UO_FW_RscListbox
 	{
 		idc = GSFM_DIA_IDC_SHELLSELECT;
 		text = ""; //--- ToDo: Localize;
@@ -109,7 +109,7 @@ class DIA_GRIDSPOTTINGFIREMISSION
 		h = ARTILAYOUTHEIGHT * safezoneH;
 			shadow = 0;
 	};
-	class GSFM_GRIDEDIT: RscEdit
+	class GSFM_GRIDEDIT: UO_FW_RscEdit
 	{
 		idc = GSFM_DIA_IDC_GRID;
 		text = ""; //--- ToDo: Localize;
@@ -121,7 +121,7 @@ class DIA_GRIDSPOTTINGFIREMISSION
 
 	shadow = 0;
 	};
-	class GSFM_CANCELBUTTON: RscButton
+	class GSFM_CANCELBUTTON: UO_FW_RscButton
 	{
 		idc = 1600;
 		text = "Cancel"; //--- ToDo: Localize;

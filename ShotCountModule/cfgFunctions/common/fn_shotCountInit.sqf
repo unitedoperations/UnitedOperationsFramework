@@ -10,7 +10,7 @@
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 UO_FW_EXEC_CHECK(ALL)
 
-if (!UO_FW_ShotCount_Enable) exitwith {};
+if (!(missionNamespace getVariable ["UO_FW_ShotCount_Enabled",false])) exitwith {};
 
 if (isServer) then
 {
@@ -35,5 +35,5 @@ if (!isDedicated && hasInterface) then
 		}] call CBA_fnc_waitUntilAndExecute;
 	};
 
-	["aCount_event_scoreScreen",UO_FW_fnc_aCountshotDisplay] call CBA_fnc_addEventHandler;
+	["aCount_event_scoreScreen",{_this call UO_FW_fnc_aCountshotDisplay;}] call CBA_fnc_addEventHandler;
 };

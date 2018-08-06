@@ -6,7 +6,7 @@ _right = 3003;
 _bottomLeft = 3004;
 _bottomMiddleLeft = 3005;
 _bottomMiddleRight = 3006;
-_bottomRight = 3008;
+_bottomRight = 3007;
 
 params ["_scenario", "_timeLimit", "_teams"];
 
@@ -101,12 +101,6 @@ if (_timeLimit != 0) then {
 
 };
 
-if (!isNil "aCount_textBLU" && !isNil "aCount_textOPF" && !isNil "aCount_textRES" && !isNil "aCount_textCIV") then {
-	_bottomTextLeft = format["%1",aCount_textBLU];
-	_bottomTextMiddleLeft = format["%1",aCount_textRED];
-	_bottomTextMiddleRight = format["%1",aCount_textRES];
-	_bottomTextRight = format["%1",aCount_textCIV];
-};
 
 disableSerialization;
 _dia = uiNamespace getVariable "UO_FW_EndScreen";
@@ -114,15 +108,28 @@ _dia = uiNamespace getVariable "UO_FW_EndScreen";
 (_dia displayCtrl _endTitle) ctrlSetStructuredText parseText _endTitleText;
 (_dia displayCtrl _left) ctrlSetStructuredText parseText _leftText;
 (_dia displayCtrl _right) ctrlSetStructuredText parseText _rightText;
-(_dia displayCtrl _bottomLeft) ctrlSetStructuredText parseText _bottomTextLeft;
-(_dia displayCtrl _bottomMiddleLeft) ctrlSetStructuredText parseText _bottomTextMiddleLeft;
-(_dia displayCtrl _bottomMiddleRight) ctrlSetStructuredText parseText _bottomTextMiddleRight;
-(_dia displayCtrl _bottomRight) ctrlSetStructuredText parseText _bottomTextRight;
+
 
 [_dia,_bg] spawn {
 	for "_x" from 1 to 120 do {
 		((uiNamespace getVariable "UO_FW_EndScreen") displayCtrl 3000) ctrlSetBackgroundColor [0, 0, 0, (_x * (1/120))];
 		sleep(0.01);
+	};
+	if (!isNil "aCount_textBLU" && !isNil "aCount_textOPF" && !isNil "aCount_textRES" && !isNil "aCount_textCIV") then
+	{
+		_bottomLeft = 3004;
+		_bottomMiddleLeft = 3005;
+		_bottomMiddleRight = 3006;
+		_bottomRight = 3007;
+
+		_bottomTextLeft = format["%1",aCount_textBLU];
+		_bottomTextMiddleLeft = format["%1",aCount_textOPF];
+		_bottomTextMiddleRight = format["%1",aCount_textRES];
+		_bottomTextRight = format["%1",aCount_textCIV];
+		((_this select 0) displayCtrl _bottomLeft) ctrlSetStructuredText parseText _bottomTextLeft;
+		((_this select 0) displayCtrl _bottomMiddleLeft) ctrlSetStructuredText parseText _bottomTextMiddleLeft;
+		((_this select 0) displayCtrl _bottomMiddleRight) ctrlSetStructuredText parseText _bottomTextMiddleRight;
+		((_this select 0) displayCtrl _bottomRight) ctrlSetStructuredText parseText _bottomTextRight;
 	};
 	
 	sleep (15);

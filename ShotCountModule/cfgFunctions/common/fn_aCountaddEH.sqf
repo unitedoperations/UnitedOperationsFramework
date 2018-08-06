@@ -8,7 +8,7 @@
  */
 
 _obj = param [0];
-
+if(_obj getVariable ["aCount_firedEh", false]) exitWith {};
 _obj setVariable ["aCount_originalSide",side _obj,false];
 
 if (_obj isKindOf "Man") then

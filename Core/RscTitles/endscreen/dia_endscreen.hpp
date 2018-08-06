@@ -11,7 +11,7 @@ class DIA_ENDSCREEN {
 	objects[] = {};
 	controls[] = {TEXT_TITLE, TEXT_LEFT, TEXT_RIGHT, TEXT_BOTTOM_LEFT,TEXT_BOTTOM_MIDDLE_LEFT, TEXT_BOTTOM_MIDDLE_RIGHT, TEXT_BOTTOM_RIGHT};
 
-	class BACKGROUND: RscBackground
+	class BACKGROUND: UO_FW_RscBackground
 	{
 		idc = 3000;
 		x = -1;
@@ -19,7 +19,7 @@ class DIA_ENDSCREEN {
 		w = 4;
 		h = 4;
 	};
-	class TEXT_TITLE: RscStructuredText
+	class TEXT_TITLE:  UO_FW_RscStructuredText
 	{
 		idc = 3001;
 		x = 0.2375 * safezoneW + safezoneX;
@@ -27,7 +27,7 @@ class DIA_ENDSCREEN {
 		w = 0.525 * safezoneW;
 		h = 0.140031 * safezoneH;
 	};
-	class TEXT_LEFT: RscStructuredText
+	class TEXT_LEFT:  UO_FW_RscStructuredText
 	{
 		idc = 3002;
 		x = 0.2375 * safezoneW + safezoneX;
@@ -35,7 +35,7 @@ class DIA_ENDSCREEN {
 		w = 0.2625 * safezoneW;
 		h = 0.560125 * safezoneH;
 	};
-	class TEXT_RIGHT: RscStructuredText
+	class TEXT_RIGHT:  UO_FW_RscStructuredText
 	{
 		idc = 3003;
 		x = 0.5 * safezoneW + safezoneX;
@@ -43,7 +43,7 @@ class DIA_ENDSCREEN {
 		w = 0.2625 * safezoneW;
 		h = 0.560125 * safezoneH;
 	};
-	class TEXT_BOTTOM_LEFT: RscStructuredText
+	class TEXT_BOTTOM_LEFT:  UO_FW_RscStructuredText
 	{
 		idc = 3004;
 		x = 0.2 * safezoneW + safezoneX;
@@ -51,7 +51,7 @@ class DIA_ENDSCREEN {
 		w = 0.8 * safezoneW;
 		h = 0.5 * safezoneH;
 	};
-	class TEXT_BOTTOM_MIDDLE_LEFT: RscStructuredText
+	class TEXT_BOTTOM_MIDDLE_LEFT:  UO_FW_RscStructuredText
 	{
 		idc = 3005;
 		x = 0.4 * safezoneW + safezoneX;
@@ -59,7 +59,7 @@ class DIA_ENDSCREEN {
 		w = 0.8 * safezoneW;
 		h = 0.5 * safezoneH;
 	};
-	class TEXT_BOTTOM_MIDDLE_RIGHT: RscStructuredText
+	class TEXT_BOTTOM_MIDDLE_RIGHT:  UO_FW_RscStructuredText
 	{
 		idc = 3006;
 		x = 0.4 * safezoneW + safezoneX;
@@ -67,7 +67,7 @@ class DIA_ENDSCREEN {
 		w = 0.8 * safezoneW;
 		h = 0.5 * safezoneH;
 	};
-	class TEXT_BOTTOM_RIGHT: RscStructuredText
+	class TEXT_BOTTOM_RIGHT:  UO_FW_RscStructuredText
 	{
 		idc = 3007;
 		x = 0.8 * safezoneW + safezoneX;

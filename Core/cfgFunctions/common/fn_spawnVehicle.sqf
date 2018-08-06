@@ -15,7 +15,7 @@
 
 private _unit =(_this select 0) createVehicle (_this select 1);
 if(!isNil "aCount_addEH") then { ["aCount_event_addEH", _unit] call CBA_fnc_serverEvent};
-if (_unit getVariable ["FW_AssetName", ""] == "" && (count _this >= 3)) then
+if (_unit getVariable ["UO_FW_AssetName", ""] == "" && (count _this >= 3)) then
 {
   {
 	if (_x select 1 == (_this select 2)) exitWith {

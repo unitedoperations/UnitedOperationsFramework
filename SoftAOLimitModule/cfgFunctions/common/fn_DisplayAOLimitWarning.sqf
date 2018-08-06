@@ -9,7 +9,7 @@ _this spawn
 	_ctrlTitleBG = _display displayCtrl 1002;
 	_ctrlTime = _display displayCtrl 1003;
 
-	_endTime = serverTime + (missionNamespace getVariable ["FW_AOL_TimeLeft", 0]);
+	_endTime = serverTime + (missionNamespace getVariable ["UO_FW_AOL_TimeLeft", 0]);
 	_nextBeep = _endTime - 10;
 
 	["AOLimitWarning"] call BIS_fnc_showNotification;
@@ -18,7 +18,7 @@ _this spawn
 
 	while {true} do {
 
-		_shouldDisplay = missionNamespace getVariable ["FW_AOL_Display", false];
+		_shouldDisplay = missionNamespace getVariable ["UO_FW_AOL_Display", false];
 
 		if (serverTime >= _nextBeep) then {
 			_nextBeep = _nextBeep + 1;

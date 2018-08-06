@@ -14,4 +14,4 @@
 
 private _unit = _this;
 
-(alive _unit) && !(_unit getVariable ["FW_Dead", false])
+(alive _unit) && !(_unit getVariable ["UO_FW_Dead", false])

@@ -1,11 +1,11 @@
 class UO_FW_ENDCONDITIONS_EXTRACTTEAM: Title {
-	attributeLoad = "missionnamespace setvariable ['UO_FW_ENDCONDITIONS_EXTRACTTEAM_value',_value]; (_this controlsGroupCtrl 917) lbsetcursel _value;";
+	attributeLoad = "missionnamespace setvariable ['UO_FW_ENDCONDITIONS_EXTRACTTEAM_value',_value]; (_this controlsGroupCtrl 913337) lbsetcursel _value;";
 	attributeSave = "missionnamespace getvariable ['UO_FW_ENDCONDITIONS_EXTRACTTEAM_value',0];";
 	h = "8 * (pixelH * pixelGrid * 0.50)";
 	class Controls: Controls {
 		class Title: Title {};
 		class Value: ctrlToolbox {
-			idc = 917;
+			idc = 913337;
 			style = "0x02";
 			x = "48 * (pixelW * pixelGrid * 0.50)";
             w = "82 * (pixelW * pixelGrid * 0.50)";

@@ -32,7 +32,7 @@ _markers spawn
 
 		_vehicle = (vehicle player);
 		_air = _vehicle isKindOf "Air";
-		_allowedOutside = (FW_AOTimer < 0 && !_air) || (FW_AOTimerAir < 0 && _air);
+		_allowedOutside = (UO_FW_AOTimer < 0 && !_air) || (UO_FW_AOTimerAir < 0 && _air);
 		_outSide = true;
 
 		{
@@ -42,17 +42,17 @@ _markers spawn
 			};
 		} forEach _markers;
 
-		_displayed = missionNamespace getVariable ["FW_AOL_Display", false];
-		missionNamespace setVariable ["FW_AOL_Display", _outSide];
+		_displayed = missionNamespace getVariable ["UO_FW_AOL_Display", false];
+		missionNamespace setVariable ["UO_FW_AOL_Display", _outSide];
 
 		if (_outSide) then
 		{
 			if (!(_allowedOutside) && !_displayed && (_vehicle call UO_FW_fnc_Alive)) then
 			{
-				_timeLeft = if (_air) then {FW_AOTimerAir} else {FW_AOTimer};
+				_timeLeft = if (_air) then {UO_FW_AOTimerAir} else {UO_FW_AOTimer};
 
-				missionNamespace setVariable ["FW_AOL_TimeLeft", _timeLeft];
-				("FW_SoftAOLimit_Layer" call BIS_fnc_rscLayer) cutRsc ["RscAOLimit", "PLAIN", 0.5, false];
+				missionNamespace setVariable ["UO_FW_AOL_TimeLeft", _timeLeft];
+				("UO_FW_SoftAOLimit_Layer" call BIS_fnc_rscLayer) cutRsc ["RscAOLimit", "PLAIN", 0.5, false];
 			};
 		}
 		else

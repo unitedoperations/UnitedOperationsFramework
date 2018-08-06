@@ -9,9 +9,9 @@ class UO_FW_AIDrivers_Settings
             property = "UO_FW_AIDrivers_VehClasses";
             displayName = "Vehicle Classes";
             tooltip = "Classes to give AI Drivers to at mission start. Leave blank to disable.";
-            control = "EditboxShort";
+            control = "EditArray";
             expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
-            defaultValue = "''";
+            defaultValue = "[]";
         };
         class UO_FW_AIDrivers_AllVehs
         {

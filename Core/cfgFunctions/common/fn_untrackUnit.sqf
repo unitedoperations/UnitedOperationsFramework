@@ -14,12 +14,12 @@
 
 private _unit = _this;
 
-if (_unit getVariable ["FW_Tracked", false]) then {
+if (_unit getVariable ["UO_FW_Tracked", false]) then {
 
 	{
 		_x params ["", "_side", "_type", "_total", "_current"];
 
-		if (_unit getVariable "FW_Side" == _side and ((_type == "player" && isPlayer _unit) || (_type == "ai" && !(isPlayer _unit)) || (_type == "both"))) exitWith {
+		if (_unit getVariable "UO_FW_Side" == _side and ((_type == "player" && isPlayer _unit) || (_type == "ai" && !(isPlayer _unit)) || (_type == "both"))) exitWith {
 
 			if (_unit call UO_FW_fnc_Alive) then {
 
@@ -32,7 +32,7 @@ if (_unit getVariable ["FW_Tracked", false]) then {
 
 	} forEach UO_FW_Teams;
 
-	_unit setVariable ["FW_Side", nil];
-	_unit setVariable ["FW_Tracked", nil];
+	_unit setVariable ["UO_FW_Side", nil];
+	_unit setVariable ["UO_FW_Tracked", nil];
 
 };

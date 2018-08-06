@@ -14,7 +14,7 @@
 
 {
 
-	if (!(_x getVariable ["FW_DontTrack", false])) then {
+	if (!(_x getVariable ["UO_FW_DontTrack", false])) then {
 
 		_x call UO_FW_fnc_TrackUnit;
 

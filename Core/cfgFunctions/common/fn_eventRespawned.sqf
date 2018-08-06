@@ -14,7 +14,7 @@
 
 private _new = _this select 0;
 
-if (!(_new getVariable "FW_Dead")) then {
+if (!(_new getVariable "UO_FW_Dead")) then {
 
 	_new call UO_FW_fnc_EventSpawned;
 

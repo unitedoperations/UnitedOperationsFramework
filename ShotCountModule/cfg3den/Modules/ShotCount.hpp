@@ -4,9 +4,9 @@ class ShotCount
     collapsed = 1;
     class Attributes
     {
-        class UO_FW_ShotCount_Enable
+        class UO_FW_ShotCount_Enabled
         {
-            property = "UO_FW_ShotCount_Enable";
+            property = "UO_FW_ShotCount_Enabled";
             displayName = "Shot Count";
             tooltip = "Enable Shot Count";
             control = "CheckboxState";

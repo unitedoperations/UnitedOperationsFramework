@@ -38,7 +38,8 @@ if (!isDedicated && hasinterface) then {
 	
 				_p = _this select 6;
 	
-				if ((UO_FW_SpawnPos distance player) <= UO_FW_Anti_ND_Distance || missionNamespace getVariable ["UO_FW_ND_Active", false]) then {
+				if ((UO_FW_SpawnPos distance player) <= UO_FW_Anti_ND_Distance && missionNamespace getVariable ["UO_FW_ND_Active", false]) then 
+				{
 					deleteVehicle _p;
 					_msg1 = "";
 					_msg2 = "";

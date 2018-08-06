@@ -77,3 +77,5 @@ if (!isDedicated) then
  	//	//add more cases for other factions here
  	//};
 };
+
+UO_FW_Framework_Initialized = true;

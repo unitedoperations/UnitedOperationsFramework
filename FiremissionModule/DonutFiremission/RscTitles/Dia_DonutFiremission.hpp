@@ -14,7 +14,7 @@ class DIA_DONUTFIREMISSION
 	controls[] = {DFM_BACKGROUND,DFM_DESCRIPTIONTEXT,DFM_SELECTEDGUNTEXT,DFM_SELECTEDSHELLTEXT,DFM_GRIDTEXT,DFM_INNERRADIUSTEXT,DFM_OUTERRADIUSTEXT,DFM_BURSTNUMBERTEXT,DFM_BURSTROUNDSTEXT,
 		DFM_DELAYTEXT,DFM_SPOTDISTTEXT,DFM_SELECTEDGUNEDIT,
 		DFM_SELECTEDSHELLEDIT,DFM_GRIDEDIT,DFM_INNERRADIUSEDIT,DFM_OUTERRADIUSEDIT,DFM_BURSTNUMBEREDIT,DFM_BURSTROUNDSEDIT,DFM_BURSTDELAYEDIT,DFM_SPOTTINGDISTANCEDIT,DFM_FIREBUTTON,DFM_CANCELBUTTON};
-		class DFM_BACKGROUND: RscText
+		class DFM_BACKGROUND: UO_FW_RscText
 		{
 			idc = -1;
 			x = ARTIWIDTHMAINSPACE * safezoneW + safezoneX - ARTIBORDERTHICKNESS;
@@ -24,7 +24,7 @@ class DIA_DONUTFIREMISSION
 			shadow = 0;
 			colorBackground[] = {0.65,0.65,0.65,0.7};
 		};
-		class DFM_DESCRIPTIONTEXT: RscText
+		class DFM_DESCRIPTIONTEXT: UO_FW_RscText
 		{
 			idc = -1;
 			text = "Donut Firemission"; //--- ToDo: Localize;
@@ -36,7 +36,7 @@ class DIA_DONUTFIREMISSION
 			colorText[] = {0,0,0,1};
 			shadow = 0;
 		};
-	class DFM_SELECTEDGUNTEXT: RscText
+	class DFM_SELECTEDGUNTEXT: UO_FW_RscText
 	{
 		idc = -1;
 		text = "Selected gun:"; //--- ToDo: Localize;
@@ -48,7 +48,7 @@ class DIA_DONUTFIREMISSION
 		colorText[] = {0,0,0,1};
 		shadow = 0;
 	};
-	class DFM_SELECTEDSHELLTEXT: RscText
+	class DFM_SELECTEDSHELLTEXT: UO_FW_RscText
 	{
 		idc = -1;
 		text = "Aviable ammunition:"; //--- ToDo: Localize;
@@ -59,7 +59,7 @@ class DIA_DONUTFIREMISSION
 		colorText[] = {0,0,0,1};
 		shadow = 0;
 	};
-	class DFM_GRIDTEXT: RscText
+	class DFM_GRIDTEXT: UO_FW_RscText
 	{
 		idc = -1;
 		text = "Targetgrid:"; //--- ToDo: Localize;
@@ -70,7 +70,7 @@ class DIA_DONUTFIREMISSION
 		colorText[] = {0,0,0,1};
 		shadow = 0;
 	};
-	class DFM_INNERRADIUSTEXT: RscText
+	class DFM_INNERRADIUSTEXT: UO_FW_RscText
 	{
 		idc = -1;
 		text = "Inner radius:"; //--- ToDo: Localize;
@@ -81,7 +81,7 @@ class DIA_DONUTFIREMISSION
 		colorText[] = {0,0,0,1};
 		shadow = 0;
 	};
-	class DFM_OUTERRADIUSTEXT: RscText
+	class DFM_OUTERRADIUSTEXT: UO_FW_RscText
 	{
 		idc = -1;
 		text = "Outer radius:"; //--- ToDo: Localize;
@@ -92,7 +92,7 @@ class DIA_DONUTFIREMISSION
 		colorText[] = {0,0,0,1};
 		shadow = 0;
 	};
-	class DFM_BURSTNUMBERTEXT: RscText
+	class DFM_BURSTNUMBERTEXT: UO_FW_RscText
 	{
 		idc = -1;
 		text = "Number of salvos:"; //--- ToDo: Localize;
@@ -103,7 +103,7 @@ class DIA_DONUTFIREMISSION
 		colorText[] = {0,0,0,1};
 		shadow = 0;
 	};
-	class DFM_BURSTROUNDSTEXT: RscText
+	class DFM_BURSTROUNDSTEXT: UO_FW_RscText
 	{
 		idc = -1;
 		text = "Number of rounds per salvo:"; //--- ToDo: Localize;
@@ -114,7 +114,7 @@ class DIA_DONUTFIREMISSION
 		colorText[] = {0,0,0,1};
 		shadow = 0;
 	};
-	class DFM_DELAYTEXT: RscText
+	class DFM_DELAYTEXT: UO_FW_RscText
 	{
 		idc = -1;
 		text = "Delay between salvos:"; //--- ToDo: Localize;
@@ -125,7 +125,7 @@ class DIA_DONUTFIREMISSION
 		colorText[] = {0,0,0,1};
 		shadow = 0;
 	};
-	class DFM_SPOTDISTTEXT: RscText
+	class DFM_SPOTDISTTEXT: UO_FW_RscText
 	{
 		idc = -1;
 		text = "Minimum spotting round distance:"; //--- ToDo: Localize;
@@ -136,7 +136,7 @@ class DIA_DONUTFIREMISSION
 		colorText[] = {0,0,0,1};
 		shadow = 0;
 	};
-	class DFM_FIREBUTTON: RscButton
+	class DFM_FIREBUTTON: UO_FW_RscButton
 	{
 		idc = 1430;
 		text = "Fire Artillery"; //--- ToDo: Localize;
@@ -146,7 +146,7 @@ class DIA_DONUTFIREMISSION
 		h = ARTILAYOUTHEIGHT * safezoneH;
 			onMouseButtonDown = "[] call UO_FW_FNC_DIA_DonutFiremissionFire;";
 	};
-	class DFM_SELECTEDGUNEDIT: RscListbox
+	class DFM_SELECTEDGUNEDIT: UO_FW_RscListbox
 	{
 		idc = DFM_DIA_IDC_GUNSELECT;
 		text = ""; //--- ToDo: Localize;
@@ -159,7 +159,7 @@ class DIA_DONUTFIREMISSION
 		//colorActive[] = {0,1,0,1};
 		onLBSelChanged = "(_this select 1) call UO_FW_FNC_DIA_DonutFiremissionSetArtillery;";
 	};
-	class DFM_SELECTEDSHELLEDIT: RscListbox
+	class DFM_SELECTEDSHELLEDIT: UO_FW_RscListbox
 	{
 		idc = DFM_DIA_IDC_SHELLSELECT;
 		text = ""; //--- ToDo: Localize;
@@ -168,7 +168,7 @@ class DIA_DONUTFIREMISSION
 		w = ARTILAYOUTWIDTH * safezoneW;
 		h = ARTILAYOUTHEIGHT * safezoneH;
 	};
-	class DFM_GRIDEDIT: RscEdit
+	class DFM_GRIDEDIT: UO_FW_RscEdit
 	{
 		idc = DFM_DIA_IDC_GRID;
 		text = ""; //--- ToDo: Localize;
@@ -179,7 +179,7 @@ class DIA_DONUTFIREMISSION
 		colorText[] = {0,0,0,1};
 		shadow = 0;
 	};
-	class DFM_INNERRADIUSEDIT: RscEdit
+	class DFM_INNERRADIUSEDIT: UO_FW_RscEdit
 	{
 		idc = DFM_DIA_IDC_INNERRADIUS;
 		text = ""; //--- ToDo: Localize;
@@ -190,7 +190,7 @@ class DIA_DONUTFIREMISSION
 		colorText[] = {0,0,0,1};
 		shadow = 0;
 	};
-	class DFM_OUTERRADIUSEDIT: RscEdit
+	class DFM_OUTERRADIUSEDIT: UO_FW_RscEdit
 	{
 		idc = DFM_DIA_IDC_OUTERRADIUS;
 		text = ""; //--- ToDo: Localize;
@@ -201,7 +201,7 @@ class DIA_DONUTFIREMISSION
 		colorText[] = {0,0,0,1};
 		shadow = 0;
 	};
-	class DFM_BURSTNUMBEREDIT: RscEdit
+	class DFM_BURSTNUMBEREDIT: UO_FW_RscEdit
 	{
 		idc = DFM_DIA_IDC_BURSTNUMBER;
 		text = ""; //--- ToDo: Localize;
@@ -212,7 +212,7 @@ class DIA_DONUTFIREMISSION
 		colorText[] = {0,0,0,1};
 		shadow = 0;
 	};
-	class DFM_BURSTROUNDSEDIT: RscEdit
+	class DFM_BURSTROUNDSEDIT: UO_FW_RscEdit
 	{
 		idc = DFM_DIA_IDC_BURSTROUNDS;
 		text = ""; //--- ToDo: Localize;
@@ -223,7 +223,7 @@ class DIA_DONUTFIREMISSION
 		colorText[] = {0,0,0,1};
 		shadow = 0;
 	};
-	class DFM_BURSTDELAYEDIT: RscEdit
+	class DFM_BURSTDELAYEDIT: UO_FW_RscEdit
 	{
 		idc = DFM_DIA_IDC_BURSTDELAY;
 		text = ""; //--- ToDo: Localize;
@@ -234,7 +234,7 @@ class DIA_DONUTFIREMISSION
 		colorText[] = {0,0,0,1};
 		shadow = 0;
 	};
-	class DFM_SPOTTINGDISTANCEDIT: RscEdit
+	class DFM_SPOTTINGDISTANCEDIT: UO_FW_RscEdit
 	{
 		idc = DFM_DIA_IDC_SPOTTING;
 		text = ""; //--- ToDo: Localize;
@@ -245,7 +245,7 @@ class DIA_DONUTFIREMISSION
 		colorText[] = {0,0,0,1};
 		shadow = 0;
 	};
-	class DFM_CANCELBUTTON: RscButton
+	class DFM_CANCELBUTTON: UO_FW_RscButton
 	{
 		idc = 1600;
 		text = "Cancel"; //--- ToDo: Localize;
