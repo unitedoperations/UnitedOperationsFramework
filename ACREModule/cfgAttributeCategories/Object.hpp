@@ -1,8 +1,10 @@
 class UO_FW_ACREOptions {
 	displayName = "ACRE Options"; 
 	collapsed = 1;
-	class Attributes {
-		class UO_FW_ACRE_UNITSETTINGS_ENABLE {
+	class Attributes 
+	{
+		class UO_FW_ACRE_UNITSETTINGS_ENABLE 
+		{
 			property = "UO_FW_ACRE_UNITSETTINGS_ENABLE";
 			displayName = "Enable ACRE Unit Settings";
 			tooltip = "Enables Framework ACRE Settings on this unit";

@@ -5,7 +5,7 @@ class UO_FW_StartTextFunctions
 	class InitStartText
 	{
 		
-		postInit = 1; //1 to call the function upon mission start, after objects are initialized. Passed arguments are ["postInit", didJIP]
+		
 	};
 	class ValidateStartText
 	{};

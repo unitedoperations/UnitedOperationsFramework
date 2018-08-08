@@ -40,9 +40,9 @@ class BLUFOR_ACRE_SETTINGS_RADIONET_CAT
     collapsed = 0;
     class Attributes
     {
-		class UO_FW_ACRE_BLUFOR_RADIONET_ENABLE
+		class UO_FW_ACRE_BLUFOR_RADIONET_ENABLED
         {
-            property = "UO_FW_ACRE_BLUFOR_RADIONET_ENABLE";
+            property = "UO_FW_ACRE_BLUFOR_RADIONET_ENABLED";
             displayName = "Enable Radio Net Channel Names";
 			control = "CheckBoxState";
             expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
@@ -120,6 +120,14 @@ class BLUFOR_ACRE_SETTINGS_BABEL_CAT
     collapsed = 1;
     class Attributes
     {
+        class UO_FW_ACRE_BLUFOR_BABEL_ENABLED
+        {
+            property = "UO_FW_ACRE_BLUFOR_BABEL_ENABLED";
+            displayName = "Enable Radio Net Channel Names";
+			control = "CheckBoxState";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            defaultValue = "false";
+        };
 		class UO_FW_ACRE_BLUFOR_BABEL_EN
         {
             property = "UO_FW_ACRE_BLUFOR_BABEL_EN";
@@ -129,9 +137,9 @@ class BLUFOR_ACRE_SETTINGS_BABEL_CAT
             expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "true";
         };
-		class UO_FW_ACRE_BLUFOR_BABEL_RS
+		class UO_FW_ACRE_BLUFOR_BABEL_RU
         {
-            property = "UO_FW_ACRE_BLUFOR_BABEL_RS";
+            property = "UO_FW_ACRE_BLUFOR_BABEL_RU";
             displayName = "Russian";
             tooltip = "Enables the language for this side";
             control = "CheckBox";

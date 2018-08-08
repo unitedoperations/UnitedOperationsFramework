@@ -44,6 +44,16 @@ class Main
             defaultValue = "''";
             
         };
+         class UO_FW_BRIEFING_MISSIONNOTES_CHANGELOG
+        {
+            property = "UO_FW_BRIEFING_MISSIONNOTES_CHANGELOG";
+            displayName = "Mission Changelog";
+            tooltip = "Put any changes for the mission in here(Bugfixes and such)";
+            control = "EditMulti5";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            defaultValue = "''";
+            
+        };
 		class UO_FW_BRIEFING_MISSIONNOTES_GM
         {
             property = "UO_FW_BRIEFING_MISSIONNOTES_GM";

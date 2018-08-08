@@ -39,6 +39,7 @@ class CfgFunctions
 	{
 		tag = "UO_FW";
 		//add custom functions
+		#include "CallExecution\cfgFunctions.hpp"
 		#include "3den\cfgFunctions.hpp"
 		#include "Core\cfgFunctions.hpp"
 		#include "BriefingModule\cfgFunctions.hpp"
@@ -49,7 +50,7 @@ class CfgFunctions
 		#include "ShotCountModule\cfgFunctions.hpp"
 		#include "AntiNDModule\cfgFunctions.hpp"
 		#include "AIDriversModule\cfgFunctions.hpp"
-		//#include "ACREModule\cfgFunctions.hpp"
+		#include "ACREModule\cfgFunctions.hpp"
 		#include "GearModule\cfgFunctions.hpp"
 		#include "AOLimitModule\cfgFunctions.hpp"
 		#include "SetupTimerModule\cfgFunctions.hpp"
@@ -168,7 +169,7 @@ class Cfg3DEN
 		#include "EndConditionsModule\cfg3den\cfg3denMenu.hpp"
 		#include "BriefingModule\cfg3den\cfg3denMenu.hpp"
 		//#include "HeadlessAIModule\cfg3den\cfg3denMenu.hpp"
-		//#include "ACREModule\cfg3den\cfg3denMenu.hpp"
+		#include "ACREModule\cfg3den\cfg3denMenu.hpp"
 	};
 	
 	//add custom base 3den options & categories
@@ -186,7 +187,7 @@ class Cfg3DEN
 			#include "StartInParachuteModule\cfgAttributeCategories\Object.hpp"
 			#include "FiremissionModule\cfgAttributeCategory.hpp"
 			#include "GearModule\cfg3den\UnitGear.hpp"
-			//#include "ACREModule\cfgAttributeCategories\Object.hpp"
+			#include "ACREModule\cfgAttributeCategories\Object.hpp"
 		};
 	};
 	
@@ -206,7 +207,7 @@ class Cfg3DEN
 		#include "TeamColourModule\CfgAttributes.hpp"
 		#include "StartInParachuteModule\CfgAttributes.hpp"
 		#include "JipModule\CfgAttributes.hpp"
-		//#include "ACREModule\CfgAttributes.hpp"
+		#include "ACREModule\CfgAttributes.hpp"
 	};
 };
 
@@ -226,7 +227,7 @@ class display3DEN
 				#include "BriefingModule\display3DEN\Menu.hpp"
 				#include "EndConditionsModule\display3DEN\Menu.hpp"
 				#include "GearModule\display3DEN\Menu.hpp"
-				//#include "ACREModule\display3DEN\Menu.hpp"
+				#include "ACREModule\display3DEN\Menu.hpp"
 				
 				//tools define
 				#include "3DEN\display3DEN\MenuTools.hpp"
@@ -249,7 +250,7 @@ class display3DEN
 				{
 					text = "UO Framework";
 					//items[] = {"UO_FW_Settings","UO_FW_Module_Settings","UO_FW_EndConditions_Settings","UO_FW_Briefing_Folder","UO_FW_ACRE_Folder","UO_FW_AI_Settings","UO_FW_Tools_Folder","UO_FW_Documentation"};
-					items[] = {"UO_FW_Settings","UO_FW_Module_Settings","UO_FW_Gear_Settings","UO_FW_EndConditions_Folder","UO_FW_Briefing_Folder","UO_FW_Documentation"};
+					items[] = {"UO_FW_Settings","UO_FW_Module_Settings","UO_FW_Gear_Settings","UO_FW_EndConditions_Folder","UO_FW_ACRE_Folder","UO_FW_Briefing_Folder","UO_FW_Documentation"};
 				};
 				
 				//compile main menu

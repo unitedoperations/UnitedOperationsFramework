@@ -1,4 +1,6 @@
 #include "\x\UO_FW\addons\main\script_macros.hpp"
+UO_FW_EXEC_CHECK(ALL)
+
 private ["_markers","_isValid"];
 _markers = _this;
 _isValid = _markers call UO_FW_fnc_ValidateMarkerControl;

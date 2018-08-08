@@ -46,7 +46,7 @@ class UO_FW_Firemission
     class GetPolarFiremissionText{};
     class GetPolarSpottingFiremissionText{};
     class GridSpottingFiremission{};
-    class initLoadArtilleryData{postInit = 1;};
+    class initLoadArtilleryData{};
     class initPlayerFO{};
     class InputIsNumber{};
     class InputIsUnit{};

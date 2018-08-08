@@ -118,7 +118,8 @@ NEWTAB("Mission Notes:")
 "<font color='#5BD527'><h1>Author:</h1></font color><br/>" + UO_FW_BRIEFING_MISSIONNOTES_AUTHOR + "<br/><br/>" +
 "<font color='#5BD527'><h1>Testers:</h1></font color><br/>" + UO_FW_BRIEFING_MISSIONNOTES_TESTERS + "<br/><br/>" +
 "<font color='#5BD527'><h1>End Conditions:</h1></font color><br/>" + UO_FW_BRIEFING_MISSIONNOTES_CONDITIONS + "<br/><br/>" +
-"<font color='#5BD527'><h1>Mission Specific Notes:</h1></font color><br/>" + UO_FW_BRIEFING_MISSIONNOTES_CUSTOM
+"<font color='#5BD527'><h1>Mission Specific Notes:</h1></font color><br/>" + UO_FW_BRIEFING_MISSIONNOTES_CUSTOM + "<br/><br/>" +
+"<font color='#5BD527'><h1>Mission Changelog:</h1></font color><br/>" + UO_FW_BRIEFING_MISSIONNOTES_CHANGELOG
 ENDTAB
 
 private _gamemastermsg = "";

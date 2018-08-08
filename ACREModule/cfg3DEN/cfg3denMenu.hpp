@@ -16,29 +16,29 @@ class UO_FW_Blufor_ACRE
     };
 };
 
-//class UO_FW_Opfor_ACRE
-//{
-//    displayName = "Opfor ACRE Configuration";
-//    class AttributeCategories
-//    {
-//		#include "ACRE\Opfor.hpp"
-//    };
-//};
-//
-//class UO_FW_Indfor_ACRE
-//{
-//    displayName = "Indfor ACRE Configuration";
-//    class AttributeCategories
-//    {
-//		#include "ACRE\Indfor.hpp"
-//    };
-//};
-//
-//class UO_FW_CIV_ACRE
-//{
-//    displayName = "Civilian ACRE Configuration";
-//    class AttributeCategories
-//    {
-//		#include "ACRE\Civ.hpp"
-//    };
-//};
+class UO_FW_Opfor_ACRE
+{
+    displayName = "Opfor ACRE Configuration";
+    class AttributeCategories
+    {
+		#include "ACRE\Opfor.hpp"
+    };
+};
+
+class UO_FW_Indfor_ACRE
+{
+    displayName = "Indfor ACRE Configuration";
+    class AttributeCategories
+    {
+		#include "ACRE\Indfor.hpp"
+    };
+};
+
+class UO_FW_CIV_ACRE
+{
+    displayName = "Civilian ACRE Configuration";
+    class AttributeCategories
+    {
+		#include "ACRE\Civ.hpp"
+    };
+};

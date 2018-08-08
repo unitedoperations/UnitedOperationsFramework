@@ -7,7 +7,7 @@ class UO_FW_StartInParachuteFunctions
 	};
 	class StartInParachuteInit
 	{
-		scope = 1; postinit = 1;
+	
 	};
 	
 

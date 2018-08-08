@@ -1,3 +1,5 @@
+#include "\x\UO_FW\addons\main\script_macros.hpp"
+UO_FW_EXEC_CHECK(ALL)
 _isEnabled = missionNamespace getVariable ["UO_FW_MarkerControl_Enabled",false];
 if(!_isEnabled) exitWith {};
 if (!isDedicated) then

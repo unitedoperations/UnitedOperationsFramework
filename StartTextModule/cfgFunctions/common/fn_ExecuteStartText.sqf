@@ -1,8 +1,10 @@
 #include "\x\UO_FW\addons\main\script_macros.hpp"
+UO_FW_EXEC_CHECK(ALL)
 waitUntil {time > 0};
 _startTextArray = _this;
 _isValid = _startTextArray call UO_FW_fnc_ValidateStartText;
 if(!_isValid) exitWith { UO_FW_DEBUG("Start Text Module Failed to validate!",format ["test"]);};
+
 ["Start Text", "Displays animated text on mission start.", "Sacher"] call UO_FW_FNC_RegisterModule; 
 switch (date select 1) do 
 {

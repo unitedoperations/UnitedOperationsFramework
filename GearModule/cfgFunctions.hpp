@@ -7,7 +7,6 @@ class UO_FW_GearFunctions
 	};
 	class LoadGear
 	{
-		postInit = 1;
 	};
 
 };
