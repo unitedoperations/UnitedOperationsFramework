@@ -20,7 +20,7 @@ if (!isDedicated) then
 	if ((_selectedSide == (side player)) && [(vehicle player), _marker] call UO_FW_FNC_InArea) then
 	{
 
-		UO_FW_setup_start_Markers append [[_selectedSide,_time,_marker,_deleteMarker]];
+		UO_FW_setup_start_Markers pushBack [_selectedSide,_time,_marker,_deleteMarker];
 
 	} 
 	else 
@@ -32,7 +32,7 @@ if (!isDedicated) then
 	
 
 	private ["_markers", "_pos", "_timeLeft", "_string", "_displayed"];
-	if(UO_FW_setup_start_Looping) exitWIth {};
+	if(UO_FW_setup_start_Looping) exitWith {};
 	UO_FW_setup_start_Looping = true;
 	waitUntil {time > 0};
 	if ((count UO_FW_setup_start_Markers) > 0) then
@@ -65,7 +65,7 @@ if (!isDedicated) then
 				_marker = UO_FW_setup_start_Markers select 0;
 				_vehicle = (vehicle player);
 
-				if ([_vehicle, (_marker select 1)] call UO_FW_FNC_InArea) then 
+				if ([_vehicle, (_marker select 2)] call UO_FW_FNC_InArea) then 
 				{
 
 					_pos = getPosATL _vehicle;
@@ -77,7 +77,7 @@ if (!isDedicated) then
 
 				};
 
-				_timeLeft = round(_startTime + (_marker select 0) - serverTime);
+				_timeLeft = round(_startTime + (_marker select 1) - serverTime);
 
 				if (_timeLeft < 0) then 
 				{
@@ -96,7 +96,7 @@ if (!isDedicated) then
 				if (_timeLeft == 0) then 
 				{
 
-					if((_marker select 1)) then {(_marker select 1) setMarkerAlphaLocal 0;};
+					if((_marker select 3)) then {(_marker select 2) setMarkerAlphaLocal 0;};
 					UO_FW_setup_start_Markers deleteAt 0;
 
 				};

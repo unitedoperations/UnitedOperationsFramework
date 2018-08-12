@@ -33,16 +33,6 @@ class EndConditionMainSettings_Category1
             expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "'End condition 1 fired!'";
         };
-		class UO_FW_EndCondition_EndDelay
-        {
-            property = "UO_FW_EndCondition_EndDelay";
-            displayName = "Mission End Delay";
-            tooltip = "Delay in seconds between the end condition category being fired and when the mission ends.";
-			control = "EditShort";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
-			validate = "number";
-            defaultValue = "30";
-        };
 	};
 };
 
@@ -142,27 +132,27 @@ class EndConditionEntitySettings_Category1
             property = "UO_FW_EndCondition_EntitiesAlive_Array_1";
             displayName = "Alive Entities";
             tooltip = "Array of entities checked for alive status. Leave blank to disable";
-			control = "EditShort";
+			control = "EditArray";
             expression="missionNamespace setVariable ['%s',_value];";
-            defaultValue = "''";
+            defaultValue = "[]";
         };
 		class UO_FW_EndCondition_EntitiesDead_Array_1
         {
             property = "UO_FW_EndCondition_EntitiesDead_Array_1";
             displayName = "Dead Entities";
             tooltip = "Array of entities checked for dead status. Leave blank to disable";
-			control = "EditShort";
+			control = "EditArray";
             expression="missionNamespace setVariable ['%s',_value];";
-            defaultValue = "''";
+            defaultValue = "[]";
         };
 		class UO_FW_EndCondition_EntitiesDamaged_Array_1
         {
             property = "UO_FW_EndCondition_EntitiesDamaged_Array_1";
             displayName = "Damaged Entities";
             tooltip = "Array of entities checked for over 50 percent damage or immobilized status. Includes dead state. Leave blank to disable";
-			control = "EditShort";
+			control = "EditArray";
             expression="missionNamespace setVariable ['%s',_value];";
-            defaultValue = "''";
+            defaultValue = "[]";
         };
 	};
 };
@@ -178,9 +168,9 @@ class EndConditionVariableSettings_Category1
             property = "UO_FW_EndCondition_CustomVariables_Array_1";
             displayName = "Custom Variables";
             tooltip = "Array of variables to check for true status. Leave blank to disable";
-			control = "EditShort";
+			control = "EditArray";
             expression="missionNamespace setVariable ['%s',_value];";
-            defaultValue = "''";
+            defaultValue = "[]";
         };
 	};
 };

@@ -1,5 +1,5 @@
 _markers = _this;
-
+if(count _markers == 0) exitWith {};
 if(!(_markers call UO_FW_fnc_ValidateSoftAOLimits)) exitWith
 {
 		"Soft AO Limtis failed to Validate" call UO_FW_fnc_DebugMessage;
@@ -8,10 +8,10 @@ if(!(_markers call UO_FW_fnc_ValidateSoftAOLimits)) exitWith
 ["Soft AO Limit", "Allows the mission maker to set AO limits to specific sides.", "Sacher"] call UO_FW_fnc_RegisterModule;
 _markers spawn
 {
-
+	sleep(5);
 	_markers = [];
 
-	_allowedOutside = true;
+	_allowedOutsideAtBegin = true;
 
 	_vehicle = (vehicle player);
 
@@ -22,11 +22,11 @@ _markers spawn
 
 			if ([_vehicle, (_x select 1)] call UO_FW_fnc_InArea) then
 			{
-				_allowedOutside = false;
+				_allowedOutsideAtBegin = false;
 			};
 		};
 	} forEach (_this);
-
+	if(count _markers == 0) exitWith {};
 	while {true} do
 	{
 
@@ -39,13 +39,14 @@ _markers spawn
 			if ([_vehicle, _x] call UO_FW_fnc_InArea) exitWith
 			{
 				_outSide = false;
+				_allowedOutsideAtBegin = false;
 			};
 		} forEach _markers;
 
 		_displayed = missionNamespace getVariable ["UO_FW_AOL_Display", false];
 		missionNamespace setVariable ["UO_FW_AOL_Display", _outSide];
 
-		if (_outSide) then
+		if (_outSide && (!_allowedOutsideAtBegin)) then
 		{
 			if (!(_allowedOutside) && !_displayed && (_vehicle call UO_FW_fnc_Alive)) then
 			{
