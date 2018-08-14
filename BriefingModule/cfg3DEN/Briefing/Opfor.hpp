@@ -39,7 +39,7 @@ class OPFOR_NATOStyle
             property = "UO_FW_BRIEFING_OPFOR_NATO_SIT_TERRAIN";
             displayName = "Terrain";
             tooltip = "Terrain";
-			control = "EditMulti3";
+			control = "EditMulti5";
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
@@ -50,7 +50,7 @@ class OPFOR_NATOStyle
             property = "UO_FW_BRIEFING_OPFOR_NATO_SIT_KEYTERRAIN";
             displayName = "Key Terrain";
             tooltip = "Key Terrain";
-			control = "EditMulti3";
+			control = "EditMulti5";
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
@@ -61,7 +61,7 @@ class OPFOR_NATOStyle
             property = "UO_FW_BRIEFING_OPFOR_NATO_SIT_WEATHER";
             displayName = "Weather";
             tooltip = "Weather";
-			control = "EditMulti3";
+			control = "EditMulti5";
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
@@ -81,7 +81,7 @@ class OPFOR_NATOStyle
             property = "UO_FW_BRIEFING_OPFOR_NATO_ENEMY_DIS";
             displayName = "Enemy Disposition";
             tooltip = "Enemy Disposition";
-			control = "EditMulti3";
+			control = "EditMulti5";
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
@@ -92,7 +92,7 @@ class OPFOR_NATOStyle
             property = "UO_FW_BRIEFING_OPFOR_NATO_ENEMY_STRENGTH";
             displayName = "Enemy Strength";
             tooltip = "Enemy Strength";
-			control = "EditMulti3";
+			control = "EditMulti5";
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
@@ -102,7 +102,7 @@ class OPFOR_NATOStyle
             property = "UO_FW_BRIEFING_OPFOR_NATO_ENEMY_EQUIPMENT";
             displayName = "Enemy Equipment";
             tooltip = "Enemy Equipment";
-			control = "EditMulti3";
+			control = "EditMulti5";
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
@@ -112,7 +112,7 @@ class OPFOR_NATOStyle
             property = "UO_FW_BRIEFING_OPFOR_NATO_ENEMY_APPEARANCE";
             displayName = "Enemy Appearance";
             tooltip = "Enemy Appearance";
-			control = "EditMulti3";
+			control = "EditMulti5";
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
@@ -122,7 +122,7 @@ class OPFOR_NATOStyle
             property = "UO_FW_BRIEFING_OPFOR_NATO_ENEMY_MLCOA";
             displayName = "Most Likely Course of Action";
             tooltip = "Most Likely Course of Action";
-			control = "EditMulti3";
+			control = "EditMulti5";
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
@@ -133,7 +133,7 @@ class OPFOR_NATOStyle
             property = "UO_FW_BRIEFING_OPFOR_NATO_ENEMY_MDCOA";
             displayName = "Most Dangerous Course of Action";
             tooltip = "Most Dangerous Course of Action";
-			control = "EditMulti3";
+			control = "EditMulti5";
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
@@ -153,7 +153,7 @@ class OPFOR_NATOStyle
             property = "UO_FW_BRIEFING_OPFOR_NATO_FRIENDLY_DIS";
             displayName = "Friendly Disposition";
             tooltip = "Friendly Disposition";
-			control = "EditMulti3";
+			control = "EditMulti5";
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
@@ -164,7 +164,7 @@ class OPFOR_NATOStyle
             property = "UO_FW_BRIEFING_OPFOR_NATO_FRIENDLY_HIGHER";
             displayName = "Friendly Higher Units";
             tooltip = "Friendly Higher Units";
-			control = "EditMulti3";
+			control = "EditMulti5";
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
@@ -175,7 +175,7 @@ class OPFOR_NATOStyle
             property = "UO_FW_BRIEFING_OPFOR_NATO_FRIENDLY_STRENGTH";
             displayName = "Friendly Strength";
             tooltip = "Friendly Strength";
-			control = "EditMulti3";
+			control = "EditMulti5";
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
@@ -217,7 +217,7 @@ class OPFOR_NATOStyle
             property = "UO_FW_BRIEFING_OPFOR_NATO_EXECUTION_INTENT";
             displayName = "Intent";
             tooltip = "Intent";
-			control = "EditMulti3";
+			control = "EditMulti5";
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
@@ -281,7 +281,7 @@ class OPFOR_NATOStyle
             property = "UO_FW_BRIEFING_OPFOR_NATO_SANDS_SUPPORT_FIRES";
             displayName = "Fires";
             tooltip = "Fires";
-			control = "EditMulti3";
+			control = "EditMulti5";
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
@@ -292,7 +292,7 @@ class OPFOR_NATOStyle
             property = "UO_FW_BRIEFING_OPFOR_NATO_SANDS_SUPPORT_AMMO";
             displayName = "Ammo";
             tooltip = "Ammo";
-			control = "EditMulti3";
+			control = "EditMulti5";
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
@@ -313,7 +313,7 @@ class OPFOR_NATOStyle
             property = "UO_FW_BRIEFING_OPFOR_NATO_SANDS_SERVICE_GENERAL";
             displayName = "General";
             tooltip = "General";
-			control = "EditMulti3";
+			control = "EditMulti5";
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
@@ -344,7 +344,7 @@ class OPFOR_NATOStyle
             property = "UO_FW_BRIEFING_OPFOR_NATO_CANDS_COMMAND";
             displayName = "Command";
             tooltip = "Command";
-			control = "EditMulti3";
+			control = "EditMulti5";
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
@@ -365,7 +365,7 @@ class OPFOR_NATOStyle
             property = "UO_FW_BRIEFING_OPFOR_NATO_CANDS_SIGNALS_FREQ";
             displayName = "Radio Frequencies";
             tooltip = "Radio Frequencies";
-			control = "EditMulti3";
+			control = "EditMulti5";
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
@@ -376,7 +376,7 @@ class OPFOR_NATOStyle
             property = "UO_FW_BRIEFING_OPFOR_NATO_CANDS_SIGNALS_CODEWORDS";
             displayName = "Codewords";
             tooltip = "Codewords";
-			control = "EditMulti3";
+			control = "EditMulti5";
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
@@ -387,7 +387,7 @@ class OPFOR_NATOStyle
             property = "UO_FW_BRIEFING_OPFOR_NATO_CANDS_SIGNALS_SPECIAL";
             displayName = "Special Signals";
             tooltip = "Special Signals";
-			control = "EditMulti3";
+			control = "EditMulti5";
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
@@ -398,7 +398,7 @@ class OPFOR_NATOStyle
             property = "UO_FW_BRIEFING_OPFOR_NATO_CANDS_SIGNALS_CALLSIGNS";
             displayName = "Callsigns";
             tooltip = "Callsigns";
-			control = "EditMulti3";
+			control = "EditMulti5";
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";
@@ -409,7 +409,7 @@ class OPFOR_NATOStyle
             property = "UO_FW_BRIEFING_OPFOR_NATO_CANDS_SIGNALS_PASSWORDS";
             displayName = "Passwords";
             tooltip = "Passwords";
-			control = "EditMulti3";
+			control = "EditMulti5";
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "''";

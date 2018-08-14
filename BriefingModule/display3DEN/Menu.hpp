@@ -1,7 +1,7 @@
 class UO_FW_Briefing_Folder
 {
     text = "Configure Briefings";
-	items[] = {"UO_FW_Blufor_Briefing_Configure","UO_FW_Opfor_Briefing_Configure","UO_FW_Indfor_Briefing_Configure","UO_FW_CIV_Briefing_Configure","UO_FW_Mission_Notes_Configure"};
+	items[] = {"UO_FW_Blufor_Briefing_Configure","UO_FW_Opfor_Briefing_Configure","UO_FW_Indfor_Briefing_Configure","UO_FW_CIV_Briefing_Configure","UO_FW_Mission_Notes_Configure","UO_FW_Mission_Export"};
     picture = "\a3\3DEN\Data\Cfg3DEN\Comment\texture_ca.paa";
 };
 
@@ -33,4 +33,10 @@ class UO_FW_Mission_Notes_Configure
 {
     text = "Configure Mission Notes";
 	action = "edit3DENMissionAttributes 'UO_FW_Mission_Notes';";
+};
+
+class UO_FW_Mission_Export
+{
+    text = "Export Briefing";
+	action = "call UO_FW_FNC_ExportBriefings;";
 };

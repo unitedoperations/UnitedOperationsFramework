@@ -6,11 +6,13 @@ switch _mode do
 	// Default object init
 	case "init": 
 	{
-		_logic = _input param [0,objNull,[objNull]]; // Module logic
-		_isActivated = _input param [1,true,[true]]; // True when the module was activated, false when it's deactivated
-		_isCuratorPlaced = _input param [2,false,[true]]; // True if the module was placed by Zeus
-		_input call UO_FW_LoadAOLimits;
-		
+		if (!is3DEN) then 
+		{
+			_logic = _input param [0,objNull,[objNull]]; // Module logic
+			_isActivated = _input param [1,true,[true]]; // True when the module was activated, false when it's deactivated
+			_isCuratorPlaced = _input param [2,false,[true]]; // True if the module was placed by Zeus
+			_input call UO_FW_FNC_LoadAOLimits;
+		};
 	};
 	// When some attributes were changed (including position and rotation)
 	case "attributesChanged3DEN": 

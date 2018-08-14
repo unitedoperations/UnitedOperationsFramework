@@ -1,7 +1,7 @@
 _mode = param [0,"",[""]];
 _input = param [1,[],[[]]];
 
-switch _mode do 
+switch (_mode) do 
 {
 	// Default object init
 	case "init": 

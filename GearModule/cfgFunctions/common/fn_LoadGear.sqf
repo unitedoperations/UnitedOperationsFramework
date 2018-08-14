@@ -20,8 +20,8 @@ _gear = ["UO_FW_GearPath_1","UO_FW_GearPath_2","UO_FW_GearPath_3","UO_FW_GearPat
 	
 }forEach _gear;
 
-UO_FW_EXEC_CHECK(CLIENT)
 
+UO_FW_EXEC_CHECK(CLIENT)
 _type = player getVariable ["UO_FW_Gear_UnitGearType",""];
 if(_type != "") then 
 {
@@ -29,3 +29,28 @@ if(_type != "") then
 	if(player getVariable ["UO_FW_Gear_Groupname",""] != "" ) then {_array pushBack (player getVariable ["UO_FW_Gear_Groupname",""])};
 	_array call UO_FW_FNC_GearScript;
 };
+
+UO_FW_EXEC_CHECK(SERVER)
+{
+	if(!(isPlayer _x)) then 
+	{
+		_type = _x getVariable ["UO_FW_Gear_UnitGearType",""];
+		if(_type != "") then 
+		{
+			_array = [_x,_type];
+			if(_x getVariable ["UO_FW_Gear_Groupname",""] != "" ) then {_array pushBack (_x getVariable ["UO_FW_Gear_Groupname",""])};
+			_array call UO_FW_FNC_GearScript;
+		};
+	};
+}forEach allUnits;
+{
+
+	_type = _x getVariable ["UO_FW_Gear_UnitGearType",""];
+	if(_type != "") then 
+	{
+		_array = [_x,_type];
+		if(_x getVariable ["UO_FW_Gear_Groupname",""] != "" ) then {_array pushBack (_x getVariable ["UO_FW_Gear_Groupname",""])};
+		_array call UO_FW_FNC_GearScript;
+	};
+	
+}forEach vehicles;

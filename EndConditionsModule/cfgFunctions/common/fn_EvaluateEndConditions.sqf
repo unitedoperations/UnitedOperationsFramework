@@ -45,3 +45,8 @@ if (UO_FW_ENDCONDITIONS_FILE) exitwith {
 
 //Category 1 loop
 #include "\x\UO_FW\addons\main\EndConditionsModule\defines\Category1Loop.hpp"
+#include "\x\UO_FW\addons\main\EndConditionsModule\defines\Category2Loop.hpp"
+#include "\x\UO_FW\addons\main\EndConditionsModule\defines\Category3Loop.hpp"
+#include "\x\UO_FW\addons\main\EndConditionsModule\defines\Category4Loop.hpp"
+#include "\x\UO_FW\addons\main\EndConditionsModule\defines\Category5Loop.hpp"
+#include "\x\UO_FW\addons\main\EndConditionsModule\defines\Category6Loop.hpp"
