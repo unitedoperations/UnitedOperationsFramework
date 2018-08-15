@@ -10,7 +10,7 @@ if (_activated) then
         
 
         _sides = [west,east,resistance,civilian];
-        _selectedSide = _sides select ((_logic getVariable ["UO_FW_SetupTimer_SideSelect",1]));
+        _selectedSide = _sides select ((_logic getVariable ["UO_FW_SetupTimer_SideSelect",0]));
         _time = _logic getVariable ["UO_FW_SetupTimer_Time",0];
         _marker = _logic getVariable ["UO_FW_SetupTimer_Marker",""];
         _deleteMarker = _logic getVariable ["UO_FW_SetupTimer_DeleteMarker",true];

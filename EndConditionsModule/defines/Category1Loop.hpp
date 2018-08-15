@@ -40,7 +40,7 @@ if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_1",false]) then
 			[] spawn {
 				while {!UO_FW_MissionEnded} do 
 				{
-					sleep(missionNamespace getvariable ["UO_FW_ConditionSleep",30]);
+					
 					
 					_ConditionCheckList = [];
 					
@@ -82,129 +82,99 @@ if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_1",false]) then
 					};
 					
 					//alive entity block
-					if (!(UO_FW_EndCondition_EntitiesAlive_Array_1 isEqualto "")) then 
+					_aliveUnitArray = missionNamespace getVariable ["UO_FW_EndCondition_EntitiesAlive_Array_1",[]];
+					if (!(_aliveUnitArray isEqualto [])) then 
 					{
-						_tempdebugtext6 = format ["Alive Array 1:%1",UO_FW_EndCondition_EntitiesAlive_Array_1];
-						["",_tempdebugtext6] call UO_FW_fnc_DebugMessageDetailed;
-						if ((UO_FW_EndCondition_EntitiesAlive_Array_1 find ",") >= 0) then 
-						{
-							private _EntityAlive_Array_Separate_1 = UO_FW_EndCondition_EntitiesAlive_Array_1 splitstring ",";
-							_tempdebugtext5 = format ["Alive Separated Array:%1",_EntityAlive_Array_Separate_1];
-							["",_tempdebugtext5] call UO_FW_fnc_DebugMessageDetailed;
-							{
-								call compile format ["
-									_%1handle = false;
-									if (isNull '%1') then {%1 = false;} else {
-										if (alive %1) then {_%1handle = true;} else {_%1handle = false;};
-									};
-									_ConditionCheckList pushback ['Alive:%1 Check',_%1handle];
-								",_x];
-							} foreach _EntityAlive_Array_Separate_1;
-						} else 
-						{
 						
-							call compile format ["
-								_%1handle = false;
-								if (isNull '%1') then {%1 = false;} else {
-									if (alive %1) then {_%1handle = true;} else {_%1handle = false;};
-								};
-								_ConditionCheckList pushback ['Alive:%1 Check',_%1handle];
-							",UO_FW_EndCondition_EntitiesAlive_Array_1];
-						};
+						["",format ["Alive Array 1:%1",_aliveUnitArray]] call UO_FW_fnc_DebugMessageDetailed;
+						_alive = true;
+						{
+							_unit = missionNamespace getVariable [_x,objNull];
+							if(typename _unit == "OBJECT" && _unit != objNull) then 
+							{
+								_alive = _alive && (_unit call UO_FW_FNC_alive);
+							}
+							else
+							{
+								_alive = false;
+								["Unit " + _x + " not found!","Unit " + _x + " not found!"] call UO_FW_fnc_DebugMessageDetailed;
+							};
+							
+							
+						} forEach _aliveUnitArray;
+						_ConditionCheckList pushback ["Alive Check",_alive];
+						
 					};
 					
 					//dead entity block
-					if (!(UO_FW_EndCondition_EntitiesDead_Array_1 isEqualto "")) then 
+					_deadUnitArray = missionNamespace getVariable ["UO_FW_EndCondition_EntitiesDead_Array_1",[]];
+					if (!(_deadUnitArray isEqualto [])) then 
 					{
-						_tempdebugtext7 = format ["Dead Array 1:%1",UO_FW_EndCondition_EntitiesDead_Array_1];
-						["",_tempdebugtext7] call UO_FW_fnc_DebugMessageDetailed;
-						if ((UO_FW_EndCondition_EntitiesDead_Array_1 find ",") >= 0) then
-						 {
-							private _EntityDead_Array_Separate_1 = UO_FW_EndCondition_EntitiesDead_Array_1 splitstring ",";
-							_tempdebugtext8 = format ["Dead Separated Array:%1",_EntityDead_Array_Separate_1];
-							["",_tempdebugtext8] call UO_FW_fnc_DebugMessageDetailed;
+						["",format ["Dead Array 1:%1",_deadUnitArray]] call UO_FW_fnc_DebugMessageDetailed;
+						_dead = true;
+						{
+							_unit = missionNamespace getVariable [_x,objNull];
+							if(typename _unit == "OBJECT" && _unit != objNull) then 
 							{
-								call compile format ["
-									_%1handle = false;
-									if (isNull '%1') then {%1 = false;} else {
-										if (!alive %1) then {_%1handle = true;} else {_%1handle = false;};
-									};
-									_ConditionCheckList pushback ['Dead:%1 Check',_%1handle];
-								",_x];
-							} foreach _EntityDead_Array_Separate_1;
-						} else {
-						
-							call compile format ["
-								_%1handle = false;
-								if (isNull '%1') then {%1 = false;} else {
-									if (!alive %1) then {_%1handle = true;} else {_%1handle = false;};
-								};
-								_ConditionCheckList pushback ['Dead:%1 Check',_%1handle];
-							",UO_FW_EndCondition_EntitiesDead_Array_1];
-						};
+								_dead = _dead && (!(_unit call UO_FW_FNC_alive));
+							}
+							else
+							{
+								_dead = false;
+								["Unit " + _x + " not found!","Unit " + _x + " not found!"] call UO_FW_fnc_DebugMessageDetailed;
+							};
+							
+							
+						} forEach _deadUnitArray;
+						_ConditionCheckList pushback ["Dead Check",_dead];
 					};
 					
 					//damaged & immobilized entity block
-					if (!(UO_FW_EndCondition_EntitiesDamaged_Array_1 isEqualto "")) then 
+					_damagedUnitArray = missionNamespace getVariable ["UO_FW_EndCondition_EntitiesDamaged_Array_1",[]];
+					if (!(_damagedUnitArray isEqualto [])) then 
 					{
-						_tempdebugtext9 = format ["Damaged Array 1:%1",UO_FW_EndCondition_EntitiesDamaged_Array_1];
-						["",_tempdebugtext9] call UO_FW_fnc_DebugMessageDetailed;
-						if ((UO_FW_EndCondition_EntitiesDamaged_Array_1 find ",") >= 0) then 
-						{
-							private _EntityDamaged_Array_Separate_1 = UO_FW_EndCondition_EntitiesDamaged_Array_1 splitstring ",";
-							_tempdebugtext10 = format ["Damaged Separated Array:%1",_EntityDamaged_Array_Separate_1];
-							["",_tempdebugtext10] call UO_FW_fnc_DebugMessageDetailed;
-							{
-								call compile format ["
-									_%1handle = false;
-									if (isNull '%1') then {%1 = false;} else {
-										if ((damage %1 > 0.5) || ((%1 isKindOf ""LandVehicle"") && (!canMove %1))) then {_%1handle = true;} else {_%1handle = false;};
-									};
-									_ConditionCheckList pushback ['Damaged:%1 Check',_%1handle];
-								",_x];
-							} foreach _EntityDamaged_Array_Separate_1;
-						} else {
 						
-							call compile format ["
-								_%1handle = false;
-								if (isNull '%1') then {%1 = false;} else {
-										if (((damage %1) >= 0.5) || ((%1 isKindOf ""LandVehicle"") && (!canMove %1))) then {_%1handle = true;} else {_%1handle = false;};
-									};
-								_ConditionCheckList pushback ['Damaged:%1 Check',_%1handle];
-							",UO_FW_EndCondition_EntitiesDamaged_Array_1];
-						};
+						["",format ["Damaged Array 1:%1",_damagedUnitArray]] call UO_FW_fnc_DebugMessageDetailed;
+
+						_damaged = true;
+						{
+							_unit = missionNamespace getVariable [_x,objNull];
+							if(typename _unit == "OBJECT" && _unit != objNull) then 
+							{
+								_damaged = _damaged && ((damage _unit > 0.5) || ((_unit isKindOf LandVehicle) && (!canMove _unit)));
+							}
+							else
+							{
+								_damaged = false;
+								["Unit " + _x + " not found!","Unit " + _x + " not found!"] call UO_FW_fnc_DebugMessageDetailed;
+							};
+							
+							
+						} forEach _damagedUnitArray;
+						_ConditionCheckList pushback ["Damaged Check",_damaged];			
 					};
 					
 					//custom variables block
-					if (!(UO_FW_EndCondition_CustomVariables_Array_1 isEqualto "")) then 
+					_customVariablesArray = missionNamespace getVariable ["UO_FW_EndCondition_CustomVariables_Array_1",[]];
+					if (!(_customVariablesArray isEqualto [])) then 
 					{
 						_tempdebugtext3 = format ["Var Array 1:%1",UO_FW_EndCondition_CustomVariables_Array_1];
 						["",_tempdebugtext3] call UO_FW_fnc_DebugMessageDetailed;
-						if ((UO_FW_EndCondition_CustomVariables_Array_1 find ",") >= 0) then
-						 {
-							private _CustomVariables_Array_1Separate = UO_FW_EndCondition_CustomVariables_Array_1 splitstring ",";
-							_tempdebugtext4 = format ["Custom Var Separated Array:%1",_CustomVariables_Array_1Separate];
-							["",_tempdebugtext4] call UO_FW_fnc_DebugMessageDetailed;
-							{
-								call compile format ["
-									_%1handle = false;
-									if (isNil '%1') then {%1 = false;} else {
-										if (%1) then {_%1handle = true;} else {_%1handle = false;};
-									};
-									_ConditionCheckList pushback ['Custom Var:%1 Check',_%1handle];
-								",_x];
-							} foreach _CustomVariables_Array_1Separate;
-						} else 
+						_custom = true;
 						{
-						
-							call compile format ["
-								_%1handle = false;
-								if (isNil '%1') then {%1 = false;} else {
-									if (%1) then {_%1handle = true;} else {_%1handle = false;};
-								};
-								_ConditionCheckList pushback ['Custom Var:%1 Check',_%1handle];
-							",UO_FW_EndCondition_CustomVariables_Array_1];
-						};
+
+							
+							if(isNil _x) then
+							{
+								["Variable " + _x + " does not exist!","Variable " + _x + " does not exist!"] call UO_FW_fnc_DebugMessageDetailed;
+							} 
+							else
+							{
+								_Var = missionNamespace getVariable _x;
+								_custom = _custom && _Var;
+							};
+						} forEach _customVariablesArray;
+						_ConditionCheckList pushback ["Custom Check",_custom];	
 					};
 					
 					
@@ -254,7 +224,7 @@ if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_1",false]) then
 								{
 										_tempdebugtext2 = format ["Category 1 Ending due to :%1",_value];
 										["",_tempdebugtext2] call UO_FW_fnc_DebugMessageDetailed;
-										sleep(missionNamespace getvariable ["UO_FW_EndCondition_EndDelay",30]);
+										
 										UO_FW_EndCondition_Message_1 call UO_FW_fnc_EndMission;
 								};
 							} foreach _ConditionCheckList;
@@ -265,11 +235,12 @@ if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_1",false]) then
 							{
 								_tempdebugtext2 = format ["Category 1 Ending due to :%1",_CapturezoneConditionCheck];
 								["",_tempdebugtext2] call UO_FW_fnc_DebugMessageDetailed;
-								sleep(missionNamespace getvariable ["UO_FW_EndCondition_EndDelay",30]);
+								
 								UO_FW_EndCondition_Message_1 call UO_FW_fnc_EndMission;
 							};
 						};
 					};
+					sleep(missionNamespace getvariable ["UO_FW_ConditionSleep",30]);
 				};
 			};
 		} else {

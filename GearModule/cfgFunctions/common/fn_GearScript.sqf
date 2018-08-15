@@ -12,6 +12,9 @@ if (count _this > 2) then {
 	(group _unit) setGroupId [_groupId];
 	
 };
+_unit setVariable ["BIS_enableRandomization", false];
+_unit setVariable ["UO_FW_Loadout", _type, true];
+_unit call UO_FW_FNC_RemoveAllGear;
 
 {
 	_string = _this call (compile (preprocessFileLineNumbers _x));

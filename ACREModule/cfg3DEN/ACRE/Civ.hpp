@@ -123,7 +123,7 @@ class CIVILIAN_ACRE_SETTINGS_BABEL_CAT
         class UO_FW_ACRE_CIVILIAN_BABEL_ENABLED
         {
             property = "UO_FW_ACRE_CIVILIAN_BABEL_ENABLED";
-            displayName = "Enable Radio Net Channel Names";
+            displayName = "Enable Babel Languages";
 			control = "CheckBoxState";
             expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "false";

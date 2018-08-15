@@ -1,21 +1,21 @@
-class EndConditionMainSettings_Category1
+class EndConditionMainSettings_Category2
 {
     displayName = "Category Settings";
     collapsed = 0;
     class Attributes
     {
-		class UO_FW_EndCondition_Enabled_1
+		class UO_FW_EndCondition_Enabled_2
         {
-            property = "UO_FW_EndCondition_Enabled_1";
+            property = "UO_FW_EndCondition_Enabled_2";
             displayName = "Enable Category";
             tooltip = "Toggle Activation of the End Condition Category";
 			control = "CheckBoxState";
             expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "false";
         };
-        class UO_FW_EndCondition_Mode_1
+        class UO_FW_EndCondition_Mode_2
         {
-            property = "UO_FW_EndCondition_Mode_1";
+            property = "UO_FW_EndCondition_Mode_2";
             displayName = "Category Mode";
             tooltip = "Whether or not the condition fires if any condition is true, or if all conditions are true";
 			control = "UO_FW_ENDCONDITIONS_MODEATTRIBUTE";
@@ -23,9 +23,9 @@ class EndConditionMainSettings_Category1
 			validate = "number";
             defaultValue = "0";
         };
-		class UO_FW_EndCondition_Message_1
+		class UO_FW_EndCondition_Message_2
         {
-            property = "UO_FW_EndCondition_Message_1";
+            property = "UO_FW_EndCondition_Message_2";
             displayName = "Category Message";
             tooltip = "Message displayed when end condition category is triggered";
             control = "Edit";
@@ -36,24 +36,24 @@ class EndConditionMainSettings_Category1
 	};
 };
 
-class EndConditionCasualtySettings_Category1
+class EndConditionCasualtySettings_Category2
 {
     displayName = "Casualty Settings";
     collapsed = 0;
     class Attributes
     {
-		class UO_FW_EndCondition_CasualtyCount_BLUFOR_Enabled_1
+		class UO_FW_EndCondition_CasualtyCount_BLUFOR_Enabled_2
         {
-            property = "UO_FW_EndCondition_CasualtyCount_BLUFOR_Enabled_1";
+            property = "UO_FW_EndCondition_CasualtyCount_BLUFOR_Enabled_2";
             displayName = "BLUFOR Casualty";
             tooltip = "Enables casualty limit for this team";
             control = "CheckBox";
             expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "false";
         };
-        class UO_FW_EndCondition_CasualtyCount_BLUFOR_Percentage_1
+        class UO_FW_EndCondition_CasualtyCount_BLUFOR_Percentage_2
         {
-            property = "UO_FW_EndCondition_CasualtyCount_BLUFOR_Percentage_1";
+            property = "UO_FW_EndCondition_CasualtyCount_BLUFOR_Percentage_2";
             displayName = "Casualty Percentage";
             tooltip = "End condition fires when team casualty percentage is over this number";
 			control = "EditShort";
@@ -61,18 +61,18 @@ class EndConditionCasualtySettings_Category1
 			validate = "number";
             defaultValue = "75";
         };
-		class UO_FW_EndCondition_CasualtyCount_OPFOR_Enabled_1
+		class UO_FW_EndCondition_CasualtyCount_OPFOR_Enabled_2
         {
-            property = "UO_FW_EndCondition_CasualtyCount_OPFOR_Enabled_1";
+            property = "UO_FW_EndCondition_CasualtyCount_OPFOR_Enabled_2";
             displayName = "OPFOR Casualty";
             tooltip = "Enables casualty limit for this team";
             control = "CheckBox";
             expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "false";
         };
-        class UO_FW_EndCondition_CasualtyCount_OPFOR_Percentage_1
+        class UO_FW_EndCondition_CasualtyCount_OPFOR_Percentage_2
         {
-            property = "UO_FW_EndCondition_CasualtyCount_OPFOR_Percentage_1";
+            property = "UO_FW_EndCondition_CasualtyCount_OPFOR_Percentage_2";
             displayName = "Casualty Percentage";
             tooltip = "End condition fires when team casualty percentage is over this number";
 			control = "EditShort";
@@ -80,18 +80,18 @@ class EndConditionCasualtySettings_Category1
 			validate = "number";
             defaultValue = "75";
         };
-		class UO_FW_EndCondition_CasualtyCount_RESISTANCE_Enabled_1
+		class UO_FW_EndCondition_CasualtyCount_RESISTANCE_Enabled_2
         {
-            property = "UO_FW_EndCondition_CasualtyCount_RESISTANCE_Enabled_1";
+            property = "UO_FW_EndCondition_CasualtyCount_RESISTANCE_Enabled_2";
             displayName = "INDFOR Casualty";
             tooltip = "Enables casualty limit for this team";
             control = "CheckBox";
             expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "false";
         };
-        class UO_FW_EndCondition_CasualtyCount_RESISTANCE_Percentage_1
+        class UO_FW_EndCondition_CasualtyCount_RESISTANCE_Percentage_2
         {
-            property = "UO_FW_EndCondition_CasualtyCount_RESISTANCE_Percentage_1";
+            property = "UO_FW_EndCondition_CasualtyCount_RESISTANCE_Percentage_2";
             displayName = "Casualty Percentage";
             tooltip = "End condition fires when team casualty percentage is over this number";
 			control = "EditShort";
@@ -99,18 +99,18 @@ class EndConditionCasualtySettings_Category1
 			validate = "number";
             defaultValue = "75";
         };
-		class UO_FW_EndCondition_CasualtyCount_CIVILIAN_Enabled_1
+		class UO_FW_EndCondition_CasualtyCount_CIVILIAN_Enabled_2
         {
-            property = "UO_FW_EndCondition_CasualtyCount_CIVILIAN_Enabled_1";
+            property = "UO_FW_EndCondition_CasualtyCount_CIVILIAN_Enabled_2";
             displayName = "CIVILIAN Casualty";
             tooltip = "Enables casualty limit for this team";
             control = "CheckBox";
             expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "false";
         };
-        class UO_FW_EndCondition_CasualtyCount_CIVILIAN_Percentage_1
+        class UO_FW_EndCondition_CasualtyCount_CIVILIAN_Percentage_2
         {
-            property = "UO_FW_EndCondition_CasualtyCount_CIVILIAN_Percentage_1";
+            property = "UO_FW_EndCondition_CasualtyCount_CIVILIAN_Percentage_2";
             displayName = "Casualty Percentage";
             tooltip = "End condition fires when team casualty percentage is over this number";
 			control = "EditShort";
@@ -121,33 +121,33 @@ class EndConditionCasualtySettings_Category1
     };
 };
 
-class EndConditionEntitySettings_Category1
+class EndConditionEntitySettings_Category2
 {
     displayName = "Entity Settings";
     collapsed = 0;
     class Attributes
     {
-		class UO_FW_EndCondition_EntitiesAlive_Array_1
+		class UO_FW_EndCondition_EntitiesAlive_Array_2
         {
-            property = "UO_FW_EndCondition_EntitiesAlive_Array_1";
+            property = "UO_FW_EndCondition_EntitiesAlive_Array_2";
             displayName = "Alive Entities";
             tooltip = "Array of entities checked for alive status. Leave blank to disable";
 			control = "EditArray";
             expression="missionNamespace setVariable ['%s',_value];";
             defaultValue = "[]";
         };
-		class UO_FW_EndCondition_EntitiesDead_Array_1
+		class UO_FW_EndCondition_EntitiesDead_Array_2
         {
-            property = "UO_FW_EndCondition_EntitiesDead_Array_1";
+            property = "UO_FW_EndCondition_EntitiesDead_Array_2";
             displayName = "Dead Entities";
             tooltip = "Array of entities checked for dead status. Leave blank to disable";
 			control = "EditArray";
             expression="missionNamespace setVariable ['%s',_value];";
             defaultValue = "[]";
         };
-		class UO_FW_EndCondition_EntitiesDamaged_Array_1
+		class UO_FW_EndCondition_EntitiesDamaged_Array_2
         {
-            property = "UO_FW_EndCondition_EntitiesDamaged_Array_1";
+            property = "UO_FW_EndCondition_EntitiesDamaged_Array_2";
             displayName = "Damaged Entities";
             tooltip = "Array of entities checked for over 50 percent damage or immobilized status. Includes dead state. Leave blank to disable";
 			control = "EditArray";
@@ -157,15 +157,15 @@ class EndConditionEntitySettings_Category1
 	};
 };
 
-class EndConditionVariableSettings_Category1
+class EndConditionVariableSettings_Category2
 {
     displayName = "Custom Variable Settings";
     collapsed = 0;
     class Attributes
     {
-		class UO_FW_EndCondition_CustomVariables_Array_1
+		class UO_FW_EndCondition_CustomVariables_Array_2
         {
-            property = "UO_FW_EndCondition_CustomVariables_Array_1";
+            property = "UO_FW_EndCondition_CustomVariables_Array_2";
             displayName = "Custom Variables";
             tooltip = "Array of variables to check for true status. Leave blank to disable";
 			control = "EditArray";
@@ -175,42 +175,42 @@ class EndConditionVariableSettings_Category1
 	};
 };
 
-class EndConditionExtractionSettings_Category1
+class EndConditionExtractionSettings_Category2
 {
     displayName = "Extraction Settings";
     collapsed = 0;
     class Attributes
     {
-		class UO_FW_EndCondition_ExtractionEnabled_1
+		class UO_FW_EndCondition_ExtractionEnabled_2
         {
-            property = "UO_FW_EndCondition_ExtractionEnabled_1";
+            property = "UO_FW_EndCondition_ExtractionEnabled_2";
             displayName = "Require Extraction";
             tooltip = "Require Extraction in addition to end conditions for this category.";
 			control = "CheckBoxState";
             expression="missionNamespace setVariable ['%s',_value];";
             defaultValue = "false";
         };
-		class UO_FW_EndCondition_ExtractionTeam_1
+		class UO_FW_EndCondition_ExtractionTeam_2
         {
-            property = "UO_FW_EndCondition_ExtractionTeam_1";
+            property = "UO_FW_EndCondition_ExtractionTeam_2";
             displayName = "Team";
             tooltip = "Team required to be in extract area.";
 			control = "UO_FW_ENDCONDITIONS_EXTRACTTEAM";
             expression="missionNamespace setVariable ['%s',_value];";
 			defaultValue = "0";
         };
-		class UO_FW_EndCondition_ExtractionMarker_1
+		class UO_FW_EndCondition_ExtractionMarker_2
         {
-            property = "UO_FW_EndCondition_ExtractionMarker_1";
+            property = "UO_FW_EndCondition_ExtractionMarker_2";
             displayName = "Extraction Marker";
             tooltip = "Marker name of extraction area.";
 			control = "EditShort";
             expression="missionNamespace setVariable ['%s',_value];";
             defaultValue = "''";
         };
-		class UO_FW_EndCondition_ExtractionRatio_1
+		class UO_FW_EndCondition_ExtractionRatio_2
         {
-            property = "UO_FW_EndCondition_ExtractionRatio_1";
+            property = "UO_FW_EndCondition_ExtractionRatio_2";
             displayName = "Ratio";
             tooltip = "Percentage of alive personnel inside the marker to be considered extracted. Default 75";
 			control = "EditShort";
@@ -221,15 +221,15 @@ class EndConditionExtractionSettings_Category1
 	};
 };
 
-class EndConditionCapturezoneSettings_Category1
+class EndConditionCapturezoneSettings_Category2
 {
     displayName = "Capturezone Settings";
     collapsed = 0;
     class Attributes
     {
-		class UO_FW_EndCondition_CapturezoneEnabled_1
+		class UO_FW_EndCondition_CapturezoneEnabled_2
         {
-            property = "UO_FW_EndCondition_CapturezoneEnabled_1";
+            property = "UO_FW_EndCondition_CapturezoneEnabled_2";
             displayName = "Enable Capturezone";
             tooltip = "Add Capturezone capture to end conditions for this category.";
 			control = "CheckBoxState";
@@ -237,18 +237,18 @@ class EndConditionCapturezoneSettings_Category1
             defaultValue = "false";
         };
 	
-		class UO_FW_EndCondition_CapturezoneMarker_1
+		class UO_FW_EndCondition_CapturezoneMarker_2
         {
-            property = "UO_FW_EndCondition_CapturezoneMarker_1";
+            property = "UO_FW_EndCondition_CapturezoneMarker_2";
             displayName = "Capturezone name";
             tooltip = "Which capturezone should be checked. Default empty";
 			control = "EditShort";
             expression="missionNamespace setVariable ['%s',_value];";
             defaultValue = "''";
         };
-		class UO_FW_EndCondition_CapturezoneTeam_1
+		class UO_FW_EndCondition_CapturezoneTeam_2
         {
-            property = "UO_FW_EndCondition_CapturezoneTeam_1";
+            property = "UO_FW_EndCondition_CapturezoneTeam_2";
             displayName = "Captured by";
             tooltip = "End condition will trigger if TEAM captures the zone. Default Noone";
 			control = "UO_FW_ENDCONDITIONS_CAPTUREZONETEAM";

@@ -1,4 +1,4 @@
-class RscSetupTimer
+class UO_RscSetupTimer
 {
 	onLoad="_this call UO_FW_FNC_SetupTimerInit;";
 	idd=-1;

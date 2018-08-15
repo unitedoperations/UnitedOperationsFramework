@@ -183,11 +183,12 @@ class Cfg3DEN
 		class AttributeCategories {
 			//#include "HeadlessAIModule\cfgAttributeCategories\Object.hpp"
 			#include "TeamColourModule\cfgAttributeCategories\Object.hpp"
+			#include "GearModule\cfg3den\UnitGear.hpp"
+			#include "ACREModule\cfgAttributeCategories\Object.hpp"
 			#include "AIDriversModule\cfgAttributeCategories\Object.hpp"
 			#include "StartInParachuteModule\cfgAttributeCategories\Object.hpp"
 			#include "FiremissionModule\cfgAttributeCategory.hpp"
-			#include "GearModule\cfg3den\UnitGear.hpp"
-			#include "ACREModule\cfgAttributeCategories\Object.hpp"
+			
 		};
 	};
 	

@@ -9,13 +9,13 @@ _startTextArray = [];
 _collectInfo = 
 {
     
-    params["_title","_text"];
+    params["_title","_text","_type"];
     _ret = [];
     _titleQuoteVar = missionNamespace getVariable [_title,""];
     _textVar = missionNamespace getVariable [_text,""];
-    if(_titleQuoteVar != "" ) then {_ret append ["TITLEQUOTE", _titleQuoteVar];};
-    if(_textVar != "" ) then {_ret append ["TEXT", _textVar];};
-    [_ret]
+    if(_titleQuoteVar != "" ) then {_ret pushBack ["TITLEQUOTE", _titleQuoteVar];};
+    if(_textVar != "" ) then {_ret pushBack ["TEXT", _textVar];};
+    _ret
 
 };
 switch (side player) do

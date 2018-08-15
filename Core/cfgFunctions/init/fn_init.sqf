@@ -13,6 +13,7 @@ UO_FW_EXEC_CHECK(ALL)
 //Universal init
 #include "\x\UO_FW\addons\main\Core\defines\mainSettings.hpp"
 
+
 if (isServer) then
 {
 	//Server init
@@ -25,6 +26,9 @@ if (isServer) then
 
 if (!isDedicated) then
 {
+	UO_FW_Version = 1;
+	player createDiarySubject ["UO_Framework","UO Framework"];
+	player createDiaryRecord ["UO_Framework", ["United Operations Framework","United Operations Framework "+ (str UO_FW_Version) + " activated"]];
 	//non server init
 	//Anything done using "player" must be past this line for JIP compatibility
 	//waitUntil {!(isNull player)};

@@ -30,6 +30,6 @@ if (!isDedicated) then
 	}forEach _civ;
 
 
-	_markers call UO_FW_ExecuteAOLimits;
+	_markers call UO_FW_FNC_ExecuteAOLimits;
 
 };
