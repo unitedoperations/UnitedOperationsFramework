@@ -21,3 +21,4 @@ _unit call UO_FW_FNC_RemoveAllGear;
 
 	 
 }forEach UO_FW_GearLoadouts;
+UO_FW_GearReady = true;

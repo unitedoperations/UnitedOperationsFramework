@@ -11,7 +11,7 @@
 UO_FW_EXEC_CHECK(ALL)
 
 if (!UO_FW_ACRE_SETTINGS_ENABLED) exitwith {};
-
+["ACRE Setup", "Module for Acre Settings", "Sacher"] call UO_FW_FNC_RegisterModule; 
 UO_FW_Presets = ["default2", "default3", "default4", "default"];
 UO_FW_Presets_BLUFOR = UO_FW_Presets select 0;
 UO_FW_Presets_OPFOR = UO_FW_Presets select 1;

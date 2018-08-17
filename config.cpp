@@ -92,8 +92,6 @@ class CfgVehicles
 	
 	//#include "HeadlessAIModule\cfgVehicles.hpp"
 	#include "SetupTimerModule\cfgVehicles.hpp"
-	#include "SoftAOLimitModule\cfgVehicles.hpp"
-	#include "AOLimitModule\cfgVehicles.hpp"
 	#include "CapturezoneModule\cfgVehicles.hpp"
 };
 
@@ -161,7 +159,8 @@ class Cfg3DEN
 				#include "MarkerControlModule\cfgAttributeCategories\mission\MarkerControl.hpp"
 				#include "AILinkModule\cfgAttributeCategories\mission\AILink.hpp"
 				#include "AutoTrackAssetModule\cfgAttributeCategories\mission\AutoTrackAsset.hpp"
-				
+				#include "AOLimitModule\cfg3den\Modules\AOLimit.hpp"
+				#include "SoftAOLimitModule\cfg3den\Modules\SoftAOLimit.hpp"
 			};
 		};
 		#include "GearModule\cfg3den\cfg3denMenu.hpp"

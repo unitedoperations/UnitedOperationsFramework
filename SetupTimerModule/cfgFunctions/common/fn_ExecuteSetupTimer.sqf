@@ -26,7 +26,7 @@ if (!isDedicated) then
 	else 
 	{
 
-		(_x select 2) setMarkerAlphaLocal 0;
+		_marker setMarkerAlphaLocal 0;
 
 	};
 	
@@ -37,7 +37,7 @@ if (!isDedicated) then
 	waitUntil {time > 0};
 	if ((count UO_FW_setup_start_Markers) > 0) then
 	{
-
+		["","Starting Setup Timer with: " + (str UO_FW_setup_start_Markers)] call UO_FW_FNC_DebugMessageDetailed;
 		_marker spawn
 		{
 
