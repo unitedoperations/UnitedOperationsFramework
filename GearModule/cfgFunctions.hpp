@@ -5,7 +5,7 @@ class UO_FW_GearFunctions
 	class GearScript
 	{
 	};
-	class LoadGear
+	class GearInit
 	{
 	};
 
