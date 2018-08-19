@@ -12,7 +12,7 @@ UO_FW_EXEC_CHECK(CLIENT)
 
 [{!isNull player}, {
 	if (!UO_FW_SafeStart_Enable) exitwith {};
-	
+	["Safe start", "Extra safety for mission start", "Sacher"] call UO_FW_FNC_RegisterModule; 
 	if (currentWeapon player != "") then {
 		[player, currentWeapon player, currentMuzzle player] call ace_safemode_fnc_lockSafety;
 	};

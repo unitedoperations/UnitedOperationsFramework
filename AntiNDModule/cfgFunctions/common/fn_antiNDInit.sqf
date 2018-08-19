@@ -11,7 +11,7 @@
 UO_FW_EXEC_CHECK(ALL)
 
 if (!UO_FW_Anti_ND_Enabled) exitwith {};
-
+["ANTI ND", "Extra Safety for mission start", "Sacher"] call UO_FW_FNC_RegisterModule; 
 if (isServer) then {
 
 	missionNamespace setVariable ["UO_FW_ND_Active", true];

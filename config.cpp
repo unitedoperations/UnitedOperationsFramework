@@ -92,8 +92,6 @@ class CfgVehicles
 	
 	//#include "HeadlessAIModule\cfgVehicles.hpp"
 	#include "SetupTimerModule\cfgVehicles.hpp"
-	#include "SoftAOLimitModule\cfgVehicles.hpp"
-	#include "AOLimitModule\cfgVehicles.hpp"
 	#include "CapturezoneModule\cfgVehicles.hpp"
 };
 
@@ -151,17 +149,18 @@ class Cfg3DEN
 			class AttributeCategories
 			{
 								//add module settings here
-				#include "SafeStartModule\cfg3den\Modules\SafeStart.hpp"
+				#include "AIDriversModule\cfg3den\Modules\AIDrivers.hpp"
+				#include "AILinkModule\cfgAttributeCategories\mission\AILink.hpp"
+				#include "AOLimitModule\cfg3den\Modules\AOLimit.hpp"
 				#include "AntiNDModule\cfg3den\Modules\AntiND.hpp"
+				#include "AutoTrackAssetModule\cfgAttributeCategories\mission\AutoTrackAsset.hpp"
+				#include "DisconnectControlModule\cfgAttributeCategories\mission\DisconnectControl.hpp"
+				#include "MarkerControlModule\cfgAttributeCategories\mission\MarkerControl.hpp"
+				#include "SafeStartModule\cfg3den\Modules\SafeStart.hpp"
 				#include "SelfActionsModule\cfg3den\Modules\SelfActions.hpp"
 				#include "ShotCountModule\cfg3den\Modules\ShotCount.hpp"
-				#include "AIDriversModule\cfg3den\Modules\AIDrivers.hpp"
-				#include "DisconnectControlModule\cfgAttributeCategories\mission\DisconnectControl.hpp"
+				#include "SoftAOLimitModule\cfg3den\Modules\SoftAOLimit.hpp"
 				#include "StartTextModule\cfgAttributeCategories\mission\StartText.hpp"
-				#include "MarkerControlModule\cfgAttributeCategories\mission\MarkerControl.hpp"
-				#include "AILinkModule\cfgAttributeCategories\mission\AILink.hpp"
-				#include "AutoTrackAssetModule\cfgAttributeCategories\mission\AutoTrackAsset.hpp"
-				
 			};
 		};
 		#include "GearModule\cfg3den\cfg3denMenu.hpp"

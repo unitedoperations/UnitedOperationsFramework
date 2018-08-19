@@ -1,20 +1,18 @@
-
-class UO_FW_SoftAOLimitModule: OlsenModule
+class UO_FW_SoftAOLimit
 {
-
-	displayName = "Soft AO Limit Module"; // Name displayed in the menu
-
-	// Name of function triggered once conditions are met
-	function = "UO_FW_fnc_EdenSoftAOLimits";
-	// Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
-	functionPriority = 3;
-	scope = 2; // Editor visibility; 2 will show it in the menu, 1 will hide it.
-	is3DEN = 1;
-	// Categories collapsible in "Edit Attributes" window
-		// Category class, can be anything
-		// Categories collapsible in "Edit Attributes" window
-	class Attributes 
-	{
+    displayName = "Soft AO Limit Settings";
+    collapsed = 1;
+    class Attributes
+    {
+	 	class UO_FW_SoftAoLimit_Enabled
+        {
+            property = "UO_FW_SoftAoLimit_Enabled";
+            displayName = "Soft AO Limit enabled";
+            tooltip = "Toggle activation";
+            control = "CheckboxState";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            defaultValue = "false";
+        };
 		class UO_FW_SoftAoLimit_TimeOutside
 		{
 			displayName = "Max time outside of AO";
@@ -22,7 +20,7 @@ class UO_FW_SoftAOLimitModule: OlsenModule
 			control = "Edit";
 			typeName = "NUMBER";
 			property = "UO_FW_SoftAoLimit_TimeOutside";
-			expression = "_this setVariable ['%s',_value];";
+			expression = "missionNamespace setVariable ['%s', _value]; %s = _value;";
 			validate = "number";
 			defaultValue = "30";
 		};
@@ -33,7 +31,7 @@ class UO_FW_SoftAOLimitModule: OlsenModule
 			control = "Edit";
 			typeName = "NUMBER";
 			property = "UO_FW_SoftAoLimit_TimeOutsideAir";
-			expression = "_this setVariable ['%s',_value];";
+			expression = "missionNamespace setVariable ['%s', _value]; %s = _value;";
 			validate = "number";
 			defaultValue = "-1";
 		};
@@ -44,7 +42,7 @@ class UO_FW_SoftAOLimitModule: OlsenModule
 			control = "EditArray";
 			typeName = "STRING";
 			property = "UO_FW_SoftAoLimit_BluforMarkers";
-			expression = "_this setVariable ['%s',_value];";
+			expression = "missionNamespace setVariable ['%s', _value]; %s = _value;";
 			validate = "none";
 			defaultValue = "[]";
 		};
@@ -55,7 +53,7 @@ class UO_FW_SoftAOLimitModule: OlsenModule
 			control = "EditArray";
 			typeName = "STRING";
 			property = "UO_FW_SoftAoLimit_OpforMarkers";
-			expression = "_this setVariable ['%s',_value];";
+			expression = "missionNamespace setVariable ['%s', _value]; %s = _value;";
 			validate = "none";
 			defaultValue = "[]";
 		};
@@ -66,7 +64,7 @@ class UO_FW_SoftAOLimitModule: OlsenModule
 			control = "EditArray";
 			typeName = "STRING";
 			property = "UO_FW_SoftAoLimit_IndependentMarkers";
-			expression = "_this setVariable ['%s',_value];";
+			expression = "missionNamespace setVariable ['%s', _value]; %s = _value;";
 			validate = "none";
 			defaultValue = "[]";
 		};
@@ -77,11 +75,10 @@ class UO_FW_SoftAOLimitModule: OlsenModule
 			control = "EditArray";
 			typeName = "STRING";
 			property = "UO_FW_SoftAoLimit_CivilianMarkers";
-			expression = "_this setVariable ['%s',_value];";
+			expression = "missionNamespace setVariable ['%s', _value]; %s = _value;";
 			validate = "none";
 			defaultValue = "[]";
 		};
 	
-	};
-	// Module description. Must inherit from base class, otherwise pre-defined entities won't be available
+    };
 };

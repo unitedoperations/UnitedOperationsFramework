@@ -12,6 +12,7 @@ UO_FW_EXEC_CHECK(CLIENT)
 
 [{!isNull player}, {
 	if (!UO_FW_SelfActions_Enable) exitwith {};
+	["Self Actions", "Extra self actions", "Sacher"] call UO_FW_FNC_RegisterModule; 
 	player setVariable ["mis_originalSide",side player,true];
 	//check own color interaction
 	if (UO_FW_SelfActions_CheckColour_Enabled) then {
