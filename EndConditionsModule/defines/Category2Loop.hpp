@@ -32,7 +32,7 @@ if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_2",false]) then
 		
 		if ((UO_FW_EndCondition_CapturezoneEnabled_2)) then {_conditionsCountCategory2 = _conditionsCountCategory2 + 1;};
 
-		_tempdebugtext = format ["Category 1 Condition Count:%1",_conditionsCountCategory2];
+		_tempdebugtext = format ["Category 2 Condition Count:%1",_conditionsCountCategory2];
 		["",_tempdebugtext] call UO_FW_fnc_DebugMessageDetailed;
 		if ((_conditionsCountCategory2) > 0) then 
 		{
