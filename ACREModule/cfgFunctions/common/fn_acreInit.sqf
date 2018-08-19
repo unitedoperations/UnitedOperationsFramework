@@ -21,9 +21,10 @@ UO_FW_Presets_CIVILIAN = UO_FW_Presets select 3;
 
 //Channel names stuff
 ["","ACRE Init"] call UO_FW_fnc_DebugMessageDetailed;
+["","Setting Netnames"] call UO_FW_fnc_DebugMessageDetailed;
 if(UO_FW_ACRE_BLUFOR_RADIONET_ENABLED  && isServer) then
 {
-	["","Setting Blufor Names"] call UO_FW_fnc_DebugMessageDetailed;
+	
 	UO_FW_ChannelNamesBLUFOR = [];
 	UO_FW_ChannelNamesBLUFOR pushBack (missionNamespace getVariable ["UO_FW_ACRE_BLUFOR_RADIONET_NAME1",""]);	
 	UO_FW_ChannelNamesBLUFOR pushBack (missionNamespace getVariable ["UO_FW_ACRE_BLUFOR_RADIONET_NAME2",""]);	

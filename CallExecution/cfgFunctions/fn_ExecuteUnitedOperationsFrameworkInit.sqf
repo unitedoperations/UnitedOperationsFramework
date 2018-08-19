@@ -2,9 +2,8 @@
 UO_FW_EXEC_CHECK(ALL)
 	["","Starting Framework"] call UO_FW_fnc_DebugMessageDetailed;
 _this call UO_FW_FNC_init;
-_this call UO_FW_FNC_AcreInit;
 _this call UO_FW_FNC_GearInit;
-
+_this call UO_FW_FNC_AcreInit;
 //_this call UO_FW_FNC_debugInit
 _this call UO_FW_FNC_AIDriversInit;
 _this call UO_FW_FNC_antiNDInit;
