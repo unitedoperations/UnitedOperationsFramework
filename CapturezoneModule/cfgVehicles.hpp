@@ -12,6 +12,17 @@ class UO_FW_CapturezoneModule: OlsenModule
 	is3DEN = 1;
 	class Attributes 
 	{
+		class UO_FW_Capturezone_VariableName
+		{
+			displayName = "Variable name";
+			tooltip = "Name of variable which will be set to true via missionNamespace setVariable when capturezone is captured. Enables chaining in endconditions";
+			property = "UO_FW_Capturezone_VariableName";
+			control = "Edit";
+			expression = "_this setVariable ['%s',_value];";
+			defaultValue = "''";
+			typeName = "STRING";
+			validate = "none";
+		};
 		class UO_FW_Capturezone_Markername
 		{
 			displayName = "Capturezone marker";

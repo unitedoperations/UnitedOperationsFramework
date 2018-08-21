@@ -38,5 +38,5 @@ class UO_FW_Mission_Notes_Configure
 class UO_FW_Mission_Export
 {
     text = "Export Briefing";
-	action = "call UO_FW_FNC_ExportBriefings;";
+	action = "[] call UO_FW_FNC_ExportBriefings;";
 };

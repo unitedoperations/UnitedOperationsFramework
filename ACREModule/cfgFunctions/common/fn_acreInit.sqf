@@ -21,11 +21,11 @@ UO_FW_Presets_CIVILIAN = UO_FW_Presets select 3;
 
 //Channel names stuff
 ["","ACRE Init"] call UO_FW_fnc_DebugMessageDetailed;
-["","Setting Netnames"] call UO_FW_fnc_DebugMessageDetailed;
+UO_FW_ChannelNamesBLUFOR = [];
 if(UO_FW_ACRE_BLUFOR_RADIONET_ENABLED  && isServer) then
 {
 	
-	UO_FW_ChannelNamesBLUFOR = [];
+	
 	UO_FW_ChannelNamesBLUFOR pushBack (missionNamespace getVariable ["UO_FW_ACRE_BLUFOR_RADIONET_NAME1",""]);	
 	UO_FW_ChannelNamesBLUFOR pushBack (missionNamespace getVariable ["UO_FW_ACRE_BLUFOR_RADIONET_NAME2",""]);	
 	UO_FW_ChannelNamesBLUFOR pushBack (missionNamespace getVariable ["UO_FW_ACRE_BLUFOR_RADIONET_NAME3",""]);	
@@ -46,10 +46,10 @@ if(UO_FW_ACRE_BLUFOR_RADIONET_ENABLED  && isServer) then
 		
 	} foreach UO_FW_ChannelNamesBLUFOR;
 };
-
+UO_FW_ChannelNamesOPFOR = [];
 if(UO_FW_ACRE_OPFOR_RADIONET_ENABLED  && isServer) then
 {
-	UO_FW_ChannelNamesOPFOR = [];
+	
 	UO_FW_ChannelNamesOPFOR pushBack (missionNamespace getVariable ["UO_FW_ACRE_OPFOR_RADIONET_NAME1",""]);	
 	UO_FW_ChannelNamesOPFOR pushBack (missionNamespace getVariable ["UO_FW_ACRE_OPFOR_RADIONET_NAME2",""]);	
 	UO_FW_ChannelNamesOPFOR pushBack (missionNamespace getVariable ["UO_FW_ACRE_OPFOR_RADIONET_NAME3",""]);	
@@ -70,10 +70,10 @@ if(UO_FW_ACRE_OPFOR_RADIONET_ENABLED  && isServer) then
 		
 	} foreach UO_FW_ChannelNamesOPFOR;
 };
-
+UO_FW_ChannelNamesINDEPENDENT = [];
 if(UO_FW_ACRE_INDEPENDENT_RADIONET_ENABLED  && isServer) then
 {
-	UO_FW_ChannelNamesINDEPENDENT = [];
+	
 	UO_FW_ChannelNamesINDEPENDENT pushBack (missionNamespace getVariable ["UO_FW_ACRE_INDEPENDENT_RADIONET_NAME1",""]);	
 	UO_FW_ChannelNamesINDEPENDENT pushBack (missionNamespace getVariable ["UO_FW_ACRE_INDEPENDENT_RADIONET_NAME2",""]);	
 	UO_FW_ChannelNamesINDEPENDENT pushBack (missionNamespace getVariable ["UO_FW_ACRE_INDEPENDENT_RADIONET_NAME3",""]);	
@@ -94,10 +94,10 @@ if(UO_FW_ACRE_INDEPENDENT_RADIONET_ENABLED  && isServer) then
 		
 	} foreach UO_FW_ChannelNamesINDEPENDENT;
 };
-
+UO_FW_ChannelNamesCIVILIAN = [];
 if(UO_FW_ACRE_CIVILIAN_RADIONET_ENABLED  && isServer) then
 {
-	UO_FW_ChannelNamesCIVILIAN = [];
+	
 	UO_FW_ChannelNamesCIVILIAN pushBack (missionNamespace getVariable ["UO_FW_ACRE_CIVILIAN_RADIONET_NAME1",""]);	
 	UO_FW_ChannelNamesCIVILIAN pushBack (missionNamespace getVariable ["UO_FW_ACRE_CIVILIAN_RADIONET_NAME2",""]);	
 	UO_FW_ChannelNamesCIVILIAN pushBack (missionNamespace getVariable ["UO_FW_ACRE_CIVILIAN_RADIONET_NAME3",""]);	
@@ -118,14 +118,15 @@ if(UO_FW_ACRE_CIVILIAN_RADIONET_ENABLED  && isServer) then
 		
 	} foreach UO_FW_ChannelNamesCIVILIAN;
 };
-
+["","Setting Netnames. Blu:" + (str UO_FW_ChannelNamesBLUFOR) + " Opf: "+ (str UO_FW_ChannelNamesOPFOR)
+ + " Ind: " + (str UO_FW_ChannelNamesINDEPENDENT) + " Civ: " + (str UO_FW_ChannelNamesCIVILIAN)] call UO_FW_fnc_DebugMessageDetailed;
 
 if(!isDedicated) then 
 {
 	[] spawn 
 	{
 		waitUntil { ([] call acre_api_fnc_isInitialized)};
-		["","Player Acre Stuff"] call UO_FW_fnc_DebugMessageDetailed;
+		
 		private _side = side player;
 		private _customSide = (player getVariable ["FW_CustomScramble", nil]);
 		UO_FW_Acre_Volume_Value = -1;
@@ -327,7 +328,7 @@ if(!isDedicated) then
 		if (UO_FW_ACRE_SCRAMBLE_ENABLED) then
 		{
 			private _preset = UO_FW_Presets select _side_i;
-			
+			["","Enabling Acre Scra,böe"] call UO_FW_fnc_DebugMessageDetailed;
 			["ACRE_PRC343", _preset ] call acre_api_fnc_setPreset;
 			["ACRE_PRC77", _preset ] call acre_api_fnc_setPreset;
 			["ACRE_PRC117F", _preset ] call acre_api_fnc_setPreset;

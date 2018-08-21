@@ -18,6 +18,7 @@ if (!isDedicated) then
 	_messages pushBack (_logic getVariable ["UO_FW_Capturezone_CivilianMessage",""]);
 	_messages pushBack (_logic getVariable ["UO_FW_Capturezone_ContestedMessage",""]);
 	_messages pushBack (_logic getVariable ["UO_FW_Capturezone_UncontestedMessage",""]);
+	_variable = _logic getVariable ["UO_FW_Capturezone_VariableName",""];
 	_sides = [];
 	if(_bluforWin > 0) then 
 	{
@@ -37,5 +38,5 @@ if (!isDedicated) then
 	};
 	_colors = ["ColorBlue","ColorRed","ColorGreen","ColorYellow","ColorWhite","ColorKhaki"];
 	_intervall = _logic getVariable ["UO_FW_Capturezone_SleepIntervall",15];
-	[_markerName,_sides,_colors,_intervall,_messages] call UO_FW_FNC_ExecuteCapturezone;
+	[_markerName,_sides,_colors,_intervall,_messages,_variable] call UO_FW_FNC_ExecuteCapturezone;
 };

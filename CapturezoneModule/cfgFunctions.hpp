@@ -13,4 +13,6 @@ class UO_FW_CapturezoneFunctions
 	{};
 	class IsCapturezoneCaptured
 	{};
+	class Defs
+	{preInit = 1;};
 };
