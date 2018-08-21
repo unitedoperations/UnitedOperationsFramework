@@ -250,7 +250,7 @@ class EndConditionCapturezoneSettings_Category1
         {
             property = "UO_FW_EndCondition_CapturezoneTeam_1";
             displayName = "Captured by";
-            tooltip = "End condition will trigger if TEAM captures the zone. Default Noone";
+            tooltip = "End condition will trigger if TEAM captures the zone. Default Noone. Zone needs to be defined via the Capturezone module.";
 			control = "UO_FW_ENDCONDITIONS_CAPTUREZONETEAM";
             expression="missionNamespace setVariable ['%s',_value];";
             defaultValue = "0";

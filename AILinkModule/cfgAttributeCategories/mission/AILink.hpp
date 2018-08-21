@@ -11,7 +11,7 @@ class UO_FW_AILink
             tooltip = "Enables AI Link";
             control = "CheckboxState";
             expression="missionNamespace setVariable ['%s', _value];";
-            defaultValue = "true";
+            defaultValue = "false";
             typeName = "BOOL";
 
         };

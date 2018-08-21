@@ -1,5 +1,5 @@
 private ["_sides","_marker","_wins","_intervall","_colors","_countforwins","_markerCount","_update","_start","_end","_delta","_timer","_messages","_updateContested","_updateUncontested","_run","_oldOwner","_currentOwner"];
-params["_marker","_sides","_colors","_intervall","_messages"];
+params["_marker","_sides","_colors","_intervall","_messages","_variableName"];
 _markerCount = [_marker,[]];
 
 if (isNil "CZMARKERCOLLECTION") then { CZMARKERCOLLECTION = []; };
@@ -8,6 +8,7 @@ CZMARKERCOLLECTION pushBack ["NONE",_marker,false];
 {
 	(_markerCount select 1) pushBack [_x select 0 ,0,_x select 1]; //side,count,win
 }forEach _sides;
+if(_variableName != "") then {missionNamespace setVariable [_variableName,false];};
 //special format [_marker,[[_side,count,win],[_side,count,win]]];
 _update = true;
 _updateContested  = true;
@@ -173,6 +174,7 @@ while{_run} do
 				if(_temp) exitWith
 				{
 					CZMARKERCOLLECTION set [_countforwins,[_currentOwner select 0,_marker,true]];
+					if(_variableName != "") then {missionNamespace setVariable [_variableName,true];};
 					_run = false;
 				};
 			}

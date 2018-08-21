@@ -36,7 +36,16 @@ class UO_FW_Gear_Settings
                     expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
                     defaultValue = "false";
                 };
-                class UO_FW_GearPath_1
+                class UO_FW_Gear_PathToGear
+                {
+                    property = "UO_FW_Gear_PathToGear";
+                    displayName = "Path to Gearscript";
+                    tooltip = "Path to the gearscript file in your mission folder";
+                    control = "EditShort";
+                    expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+                    defaultValue = "'GearScript.sqf'";
+                };
+                /*class UO_FW_GearPath_1
                 {
                     property = "UO_FW_GearPath_1";
                     displayName = "Gear 1";
@@ -125,7 +134,7 @@ class UO_FW_Gear_Settings
                     control = "EditShort";
                     expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
                     defaultValue = "''";
-                };
+                };*/
             };
         };
          

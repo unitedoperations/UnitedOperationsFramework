@@ -1,7 +1,7 @@
 //Do not edit unless you know what you are doing
 //because you are on the highway to the danger zone!
 
-class DIA_ENDSCREEN {
+class UO_FW_DIA_ENDSCREEN {
 	idd = 300;
 	fadeout = 0;
 	fadein = 0;
@@ -46,7 +46,7 @@ class DIA_ENDSCREEN {
 	class TEXT_BOTTOM_LEFT:  UO_FW_RscStructuredText
 	{
 		idc = 3004;
-		x = 0.2 * safezoneW + safezoneX;
+		x = 0.1 * safezoneW + safezoneX;
 		y = 0.6 * safezoneH + safezoneY;
 		w = 0.8 * safezoneW;
 		h = 0.5 * safezoneH;
@@ -54,7 +54,7 @@ class DIA_ENDSCREEN {
 	class TEXT_BOTTOM_MIDDLE_LEFT:  UO_FW_RscStructuredText
 	{
 		idc = 3005;
-		x = 0.4 * safezoneW + safezoneX;
+		x = 0.3 * safezoneW + safezoneX;
 		y = 0.6 * safezoneH + safezoneY;
 		w = 0.8 * safezoneW;
 		h = 0.5 * safezoneH;
@@ -62,7 +62,7 @@ class DIA_ENDSCREEN {
 	class TEXT_BOTTOM_MIDDLE_RIGHT:  UO_FW_RscStructuredText
 	{
 		idc = 3006;
-		x = 0.4 * safezoneW + safezoneX;
+		x = 0.5 * safezoneW + safezoneX;
 		y = 0.6 * safezoneH + safezoneY;
 		w = 0.8 * safezoneW;
 		h = 0.5 * safezoneH;
@@ -70,7 +70,7 @@ class DIA_ENDSCREEN {
 	class TEXT_BOTTOM_RIGHT:  UO_FW_RscStructuredText
 	{
 		idc = 3007;
-		x = 0.8 * safezoneW + safezoneX;
+		x = 0.7 * safezoneW + safezoneX;
 		y = 0.6 * safezoneH + safezoneY;
 		w = 0.8 * safezoneW;
 		h = 0.5 * safezoneH;

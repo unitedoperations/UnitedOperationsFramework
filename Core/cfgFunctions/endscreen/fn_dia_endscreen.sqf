@@ -1,4 +1,4 @@
-90001 cutRsc ["DIA_ENDSCREEN", "PLAIN"];
+90001 cutRsc ["UO_FW_DIA_ENDSCREEN", "PLAIN"];
 _bg = 3000;
 _endTitle = 3001;
 _left = 3002;

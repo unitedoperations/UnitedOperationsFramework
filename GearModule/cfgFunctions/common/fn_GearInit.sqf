@@ -9,7 +9,7 @@
 	//forces adding an item to inventory. Works only if container is specified!
 	UO_FW_enableOverfill = missionNamespace getVariable ["UO_FW_GearOverfillEnabled",false];
 
-	UO_FW_GearLoadouts = [];
+	/*UO_FW_GearLoadouts = [];
 	_gear = ["UO_FW_GearPath_1","UO_FW_GearPath_2","UO_FW_GearPath_3","UO_FW_GearPath_4","UO_FW_GearPath_5",
 			"UO_FW_GearPath_6","UO_FW_GearPath_7","UO_FW_GearPath_8","UO_FW_GearPath_9","UO_FW_GearPath_10"];
 	{
@@ -19,9 +19,11 @@
 			UO_FW_GearLoadouts pushBack _gear;
 		};
 		
-	}forEach _gear;
+	}forEach _gear;*/
 
-	["","Executing gear of files: " + (str UO_FW_GearLoadouts)] call UO_FW_fnc_DebugMessageDetailed;
+	//["","Executing gear of files: " + (str UO_FW_GearLoadouts)] call UO_FW_fnc_DebugMessageDetailed;
+	["","Executing gear of file: " + (str UO_FW_Gear_PathToGear)] call UO_FW_fnc_DebugMessageDetailed;
+
 	UO_FW_EXEC_CHECK(CLIENT)
 	_type = player getVariable ["UO_FW_Gear_UnitGearType",""];
 	if(_type != "") then 
