@@ -26,9 +26,8 @@ if (isServer) then
 
 if (!isDedicated) then
 {
-	UO_FW_Version = 1;
-	player createDiarySubject ["UO_Framework","UO Framework"];
-	player createDiaryRecord ["UO_Framework", ["United Operations Framework","United Operations Framework "+ (str UO_FW_Version) + " activated"]];
+	
+	"" call UO_FW_FNC_BriefingFrameworkEntry;
 	//non server init
 	//Anything done using "player" must be past this line for JIP compatibility
 	//waitUntil {!(isNull player)};
