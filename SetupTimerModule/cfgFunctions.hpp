@@ -6,5 +6,5 @@ class UO_FW_SetupTimerFunctions
 	class ValidateSetupTimer{};
 	class SetupTimerInit{};
 	class EdenSetupTimer{};
-	class GVarSetupTimer{preInit = 1;};
+	class GVarSetupTimer{};
 };

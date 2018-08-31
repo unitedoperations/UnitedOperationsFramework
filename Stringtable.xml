@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project name="United Operations Framework">
+	<Package name="Main">		
+			<Key ID="STR_UO_FW_TEST_YES">
+				<Original>yes</Original>
+				<English>yes</English>
+				<Czech>ano</Czech>
+				<French>oui</French>
+				<German>ja</German>
+				<Italian>sì</Italian>
+				<Polish>tak</Polish>
+				<Portuguese>sim</Portuguese>
+				<Russian>да</Russian>
+				<Spanish>sí</Spanish>
+				<Korean>네</Korean>
+				<Japanese>はい</Japanese>
+                <Chinesesimp>是</Chinesesimp>
+                <Chinese>是（繁體）</Chinese>
+			</Key>
+			<Key ID="STR_UO_FW_TEST_NO">
+				<Original>no</Original>
+			</Key>
+	</Package>
+</Project>

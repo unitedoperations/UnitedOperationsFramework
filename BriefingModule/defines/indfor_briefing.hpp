@@ -27,8 +27,8 @@ if ((UO_FW_BRIEFING_INDFOR_NATO) && !(UO_FW_BRIEFING_INDFOR_WARSAW)) then {
 	NEWTAB("   B. Friendly Forces:")
 	"<font color='#5BD527'><h1>Disposition:</h1></font color><br/>" + UO_FW_BRIEFING_INDFOR_NATO_FRIENDLY_DIS + "<br/><br/>" +
 	"<font color='#5BD527'><h1>Higher Units:</h1></font color><br/>" + UO_FW_BRIEFING_INDFOR_NATO_FRIENDLY_HIGHER + "<br/><br/>" +
-	"<font color='#5BD527'><h1>Strength:</h1></font color><br/>" + UO_FW_BRIEFING_INDFOR_NATO_ENEMY_STRENGTH + "<br/><br/>" +
-	"<font color='#5BD527'><h1>Appearance:</h1></font color><br/>" + UO_FW_BRIEFING_INDFOR_NATO_ENEMY_APPEARANCE + "<br/><br/>"
+	"<font color='#5BD527'><h1>Strength:</h1></font color><br/>" + UO_FW_BRIEFING_INDFOR_NATO_FRIENDLY_STRENGTH + "<br/><br/>" +
+	"<font color='#5BD527'><h1>Appearance:</h1></font color><br/>" + UO_FW_BRIEFING_INDFOR_NATO_FRIENDLY_APPEARANCE + "<br/><br/>"
 	ENDTAB
 	//Mission
 	NEWTAB("II. Mission:")
@@ -47,7 +47,7 @@ if ((UO_FW_BRIEFING_INDFOR_NATO) && !(UO_FW_BRIEFING_INDFOR_WARSAW)) then {
 	"<font color='#5BD527'><h1>Fires:</h1></font color><br/>" + UO_FW_BRIEFING_INDFOR_NATO_SANDS_SUPPORT_FIRES + "<br/><br/>" +
 	"<font color='#5BD527'><h1>Ammo:</h1></font color><br/>" + UO_FW_BRIEFING_INDFOR_NATO_SANDS_SUPPORT_AMMO
 	ENDTAB
-	NEWTAB("   B. Support:")
+	NEWTAB("   B. Service:")
 	"<font color='#5BD527'><h1>General:</h1></font color><br/>" + UO_FW_BRIEFING_INDFOR_NATO_SANDS_SERVICE_GENERAL
 	ENDTAB
 	NEWTAB("V. Command & Signal:")
@@ -112,27 +112,30 @@ if (UO_FW_BRIEFING_INDFOR_APPENDIX) then {
 		UO_FW_DEBUG("No appendix found for INDFOR!","No appendix found for INDFOR!")
 	};
 };
+if(UO_FW_BRIEFING_MISSIONNOTES_ENABLE) then 
+{
+	//Mission Notes
+	NEWTAB("Mission Notes:")
+	"<font color='#5BD527'><h1>Author:</h1></font color><br/>" + UO_FW_BRIEFING_MISSIONNOTES_AUTHOR + "<br/><br/>" +
+	"<font color='#5BD527'><h1>Testers:</h1></font color><br/>" + UO_FW_BRIEFING_MISSIONNOTES_TESTERS + "<br/><br/>" +
+	"<font color='#5BD527'><h1>End Conditions:</h1></font color><br/>" + UO_FW_BRIEFING_MISSIONNOTES_CONDITIONS + "<br/><br/>" +
+	"<font color='#5BD527'><h1>Mission Specific Notes:</h1></font color><br/>" + UO_FW_BRIEFING_MISSIONNOTES_CUSTOM + "<br/><br/>" +
+	"<font color='#5BD527'><h1>Mission Changelog:</h1></font color><br/>" + UO_FW_BRIEFING_MISSIONNOTES_CHANGELOG
+	ENDTAB
 
-//Mission Notes
-NEWTAB("Mission Notes:")
-"<font color='#5BD527'><h1>Author:</h1></font color><br/>" + UO_FW_BRIEFING_MISSIONNOTES_AUTHOR + "<br/><br/>" +
-"<font color='#5BD527'><h1>Testers:</h1></font color><br/>" + UO_FW_BRIEFING_MISSIONNOTES_TESTERS + "<br/><br/>" +
-"<font color='#5BD527'><h1>End Conditions:</h1></font color><br/>" + UO_FW_BRIEFING_MISSIONNOTES_CONDITIONS + "<br/><br/>" +
-"<font color='#5BD527'><h1>Mission Specific Notes:</h1></font color><br/>" + UO_FW_BRIEFING_MISSIONNOTES_CUSTOM + "<br/><br/>" +
-"<font color='#5BD527'><h1>Mission Changelog:</h1></font color><br/>" + UO_FW_BRIEFING_MISSIONNOTES_CHANGELOG
-ENDTAB
+	private _gamemastermsg = "";
 
-private _gamemastermsg = "";
+	if (getMissionConfigValue ["UO_FW_BRIEFING_MISSIONNOTES_GM",false]) then {
+		_gamemastermsg = "This mission is designed for game mastering and can be manipulated as per Mission Notes";
+	} else {
+		_gamemastermsg = "This mission is not designed for game mastering and should only be manipulated for technical, administrative or diagnostic purposes.";
+	};
 
-if (getMissionConfigValue ["UO_FW_BRIEFING_MISSIONNOTES_GM",false]) then {
-	_gamemastermsg = "This mission is designed for game mastering and can be manipulated as per Mission Notes";
-} else {
-	_gamemastermsg = "This mission is not designed for game mastering and should only be manipulated for technical, administrative or diagnostic purposes.";
+	//Game Mastering
+	NEWTAB("Game Mastering")
+	"<font color='#5BD527'><h1>Game Mastering:</h1></font color><br/>" + _gamemastermsg
+	ENDTAB;
 };
 
-//Game Mastering
-NEWTAB("Game Mastering")
-"<font color='#5BD527'><h1>Game Mastering:</h1></font color><br/>" + _gamemastermsg
-ENDTAB;
 
 DISPLAYBRIEFING()
