@@ -27,8 +27,8 @@ if ((UO_FW_BRIEFING_BLUFOR_NATO) && !(UO_FW_BRIEFING_BLUFOR_WARSAW)) then {
 	NEWTAB("   B. Friendly Forces:")
 	"<font color='#5BD527'><h1>Disposition:</h1></font color><br/>" + UO_FW_BRIEFING_BLUFOR_NATO_FRIENDLY_DIS + "<br/><br/>" +
 	"<font color='#5BD527'><h1>Higher Units:</h1></font color><br/>" + UO_FW_BRIEFING_BLUFOR_NATO_FRIENDLY_HIGHER + "<br/><br/>" +
-	"<font color='#5BD527'><h1>Strength:</h1></font color><br/>" + UO_FW_BRIEFING_BLUFOR_NATO_ENEMY_STRENGTH + "<br/><br/>" +
-	"<font color='#5BD527'><h1>Appearance:</h1></font color><br/>" + UO_FW_BRIEFING_BLUFOR_NATO_ENEMY_APPEARANCE + "<br/><br/>"
+	"<font color='#5BD527'><h1>Strength:</h1></font color><br/>" + UO_FW_BRIEFING_BLUFOR_NATO_FRIENDLY_STRENGTH + "<br/><br/>" +
+	"<font color='#5BD527'><h1>Appearance:</h1></font color><br/>" + UO_FW_BRIEFING_BLUFOR_NATO_FRIENDLY_APPEARANCE + "<br/><br/>"
 	ENDTAB
 	//Mission
 	NEWTAB("II. Mission:")
@@ -47,7 +47,7 @@ if ((UO_FW_BRIEFING_BLUFOR_NATO) && !(UO_FW_BRIEFING_BLUFOR_WARSAW)) then {
 	"<font color='#5BD527'><h1>Fires:</h1></font color><br/>" + UO_FW_BRIEFING_BLUFOR_NATO_SANDS_SUPPORT_FIRES + "<br/><br/>" +
 	"<font color='#5BD527'><h1>Ammo:</h1></font color><br/>" + UO_FW_BRIEFING_BLUFOR_NATO_SANDS_SUPPORT_AMMO
 	ENDTAB
-	NEWTAB("   B. Support:")
+	NEWTAB("   B. Service:")
 	"<font color='#5BD527'><h1>General:</h1></font color><br/>" + UO_FW_BRIEFING_BLUFOR_NATO_SANDS_SERVICE_GENERAL
 	ENDTAB
 	NEWTAB("V. Command & Signal:")

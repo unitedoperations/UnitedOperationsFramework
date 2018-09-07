@@ -4,6 +4,16 @@ class Main
     collapsed = 1;
     class Attributes
     {
+        class UO_FW_BRIEFING_MISSIONNOTES_ENABLE
+        {
+            property = "UO_FW_BRIEFING_MISSIONNOTES_ENABLE";
+            displayName = "Enable Mission Notes";
+            tooltip = "Enables Mission Notes";
+            control = "CheckboxState";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            defaultValue = "false";
+            
+        };
 		class UO_FW_BRIEFING_MISSIONNOTES_AUTHOR
         {
             property = "UO_FW_BRIEFING_MISSIONNOTES_AUTHOR";

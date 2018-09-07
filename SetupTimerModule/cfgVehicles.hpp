@@ -19,7 +19,7 @@
 					control = "Combo";
 					typeName = "NUMBER";
 					property = "UO_FW_SetupTimer_SideSelect";
-					expression = "_this setVariable ['%s',_value];";
+					expression = "_this setVariable ['%s',_value,true];";
 					validate = "none";
 					class values
 					{
@@ -41,7 +41,7 @@
 					property = "UO_FW_SetupTimer_Time";
 					defaultValue = "300"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
 					typeName = "NUMBER"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-					expression = "_this setVariable ['%s',_value];";
+					expression = "_this setVariable ['%s',_value,true];";
 					validate = "number";
 					
 				};
@@ -54,7 +54,7 @@
 					property = "UO_FW_SetupTimer_Marker";
 					defaultValue = "''"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
 					typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-					expression = "_this setVariable ['%s',_value];";
+					expression = "_this setVariable ['%s',_value,true];";
 					validate = "none";
 					
 				};
@@ -67,7 +67,7 @@
 					property = "UO_FW_SetupTimer_DeleteMarker";
 					defaultValue = "true"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
 					typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-					expression = "_this setVariable ['%s',_value];";
+					expression = "_this setVariable ['%s',_value,true];";
 					validate = "none";
 					
 				};

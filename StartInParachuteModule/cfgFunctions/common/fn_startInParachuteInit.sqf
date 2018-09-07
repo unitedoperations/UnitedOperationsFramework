@@ -27,6 +27,7 @@ if(isServer) then
 };
 if (!isDedicated) then 
 {
+	waitUntil{(player getVariable ["UO_FW_StartInParachute", ""]) != ""};
 	_parachuteType = player getVariable ["UO_FW_StartInParachute", "NONE"];
 	_altitude = player getVariable ["UO_FW_ParachuteAltitude", 300];
 	_randomAltitude = player getVariable ["UO_FW_ParachuteRandomAltitude", 100];

@@ -181,6 +181,17 @@ class CIVILIAN_NATOStyle
             defaultValue = "''";
             
         };
+        class UO_FW_BRIEFING_CIVILIAN_NATO_FRIENDLY_APPEARANCE
+        {
+            property = "UO_FW_BRIEFING_CIVILIAN_NATO_FRIENDLY_APPEARANCE";
+            displayName = "Friendly Appearance";
+            tooltip = "Friendly Appearance";
+			control = "EditMulti5";
+            validate = "STRING";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            defaultValue = "''";
+            
+        };
 		class UO_FW_BRIEFING_CIVILIAN_NATO_MISSION_TITLE
         {
             property = "UO_FW_BRIEFING_CIVILIAN_NATO_MISSION_TITLE";

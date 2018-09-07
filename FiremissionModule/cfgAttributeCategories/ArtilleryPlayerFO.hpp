@@ -10,7 +10,7 @@ class UO_FW_ArtilleryPlayerFO
 			displayName = "Artillery Player FO";
 			tooltip = "Enables Artillery Player FO";
 			control = "CheckboxState";
-			expression="_this setVariable ['%s', _value];";
+			expression="_this setVariable ['%s', _value,true];";
 			defaultValue = "false";
 			typeName = "BOOL";
 			condition = "objectControllable";
@@ -21,7 +21,7 @@ class UO_FW_ArtilleryPlayerFO
 			tooltip = "List of guns the FO is able to use seperated by comma. Default empty";
 			property = "UO_FW_ArtilleryFOPlayerGuns";
 			control = "EditArray";
-			expression = "_this setVariable ['%s',_value];";
+			expression ="_this setVariable ['%s',_value,true];";
 			condition = "objectControllable";
 			defaultValue = "[]";
 			typeName = "STRING";
@@ -32,7 +32,7 @@ class UO_FW_ArtilleryPlayerFO
 			displayName = "Allow Bracket Firemission";
 			tooltip = "Enables Bracket Firemission";
 			control = "Checkbox";
-			expression="_this setVariable ['%s', _value];";
+			expression="_this setVariable ['%s', _value,true];";
 			defaultValue = "false";
 			typeName = "BOOL";
 			condition = "objectControllable";
@@ -43,7 +43,7 @@ class UO_FW_ArtilleryPlayerFO
 			displayName = "Allow Donut Firemission";
 			tooltip = "Enables Donut Firemission";
 			control = "Checkbox";
-			expression="_this setVariable ['%s', _value];";
+			expression="_this setVariable ['%s', _value,true];";
 			defaultValue = "false";
 			typeName = "BOOL";
 			condition = "objectControllable";
@@ -54,7 +54,7 @@ class UO_FW_ArtilleryPlayerFO
 			displayName = "Allow Gridspotting Firemission";
 			tooltip = "Enables Gridspotting Firemission";
 			control = "Checkbox";
-			expression="_this setVariable ['%s', _value];";
+			expression="_this setVariable ['%s', _value,true];";
 			defaultValue = "false";
 			typeName = "BOOL";
 			condition = "objectControllable";
@@ -65,7 +65,7 @@ class UO_FW_ArtilleryPlayerFO
 			displayName = "Allow Line Firemission";
 			tooltip = "Enables Line Firemission";
 			control = "Checkbox";
-			expression="_this setVariable ['%s', _value];";
+			expression="_this setVariable ['%s', _value,true];";
 			defaultValue = "false";
 			typeName = "BOOL";
 			condition = "objectControllable";
@@ -76,7 +76,7 @@ class UO_FW_ArtilleryPlayerFO
 			displayName = "Allow Marker Firemission";
 			tooltip = "Enables Marker Firemission";
 			control = "Checkbox";
-			expression="_this setVariable ['%s', _value];";
+			expression="_this setVariable ['%s', _value,true];";
 			defaultValue = "false";
 			typeName = "BOOL";
 			condition = "objectControllable";
@@ -87,7 +87,7 @@ class UO_FW_ArtilleryPlayerFO
 			displayName = "Allow Point Firemission";
 			tooltip = "Enables Point Firemission";
 			control = "Checkbox";
-			expression="_this setVariable ['%s', _value];";
+			expression="_this setVariable ['%s', _value,true];";
 			defaultValue = "false";
 			typeName = "BOOL";
 			condition = "objectControllable";
@@ -98,7 +98,7 @@ class UO_FW_ArtilleryPlayerFO
 			displayName = "Allow Polar Firemission";
 			tooltip = "Enables Polar Firemission";
 			control = "Checkbox";
-			expression="_this setVariable ['%s', _value];";
+			expression="_this setVariable ['%s', _value,true];";
 			defaultValue = "false";
 			typeName = "BOOL";
 			condition = "objectControllable";
@@ -109,7 +109,7 @@ class UO_FW_ArtilleryPlayerFO
 			displayName = "Allow Polarspotting Firemission";
 			tooltip = "Enables Polarspotting Firemission";
 			control = "Checkbox";
-			expression="_this setVariable ['%s', _value];";
+			expression="_this setVariable ['%s', _value,true];";
 			defaultValue = "false";
 			typeName = "BOOL";
 			condition = "objectControllable";

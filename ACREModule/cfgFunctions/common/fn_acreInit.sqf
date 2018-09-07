@@ -249,11 +249,11 @@ if(!isDedicated) then
 			}forEach UO_FW_CURRENTBABEL_LANGUAGES;
 
 
-			if(UO_FW_ACRE_BLUFOR_BABEL_ENABLED && isServer && (side player == west)) then
+			if(UO_FW_ACRE_BLUFOR_BABEL_ENABLED  && (side player == west)) then
 			{		
 						UO_FW_ACRE_BLUFOR_BABEL_LANGUAGES call acre_api_fnc_babelSetSpokenLanguages;
 					
-						private _languages = player getVariable ["FW_Languages", []];
+						private _languages = player getVariable ["UO_FW_Languages", []];
 
 						if (count _languages > 0) then 
 						{
@@ -263,11 +263,11 @@ if(!isDedicated) then
 						};
 			};
 
-			if(UO_FW_ACRE_OPFOR_BABEL_ENABLED && isServer && (side player == east)) then
+			if(UO_FW_ACRE_OPFOR_BABEL_ENABLED  && (side player == east)) then
 			{		
 						UO_FW_ACRE_OPFOR_BABEL_LANGUAGES call acre_api_fnc_babelSetSpokenLanguages;
 					
-						private _languages = player getVariable ["FW_Languages", []];
+						private _languages = player getVariable ["UO_FW_Languages", []];
 
 						if (count _languages > 0) then 
 						{
@@ -277,11 +277,11 @@ if(!isDedicated) then
 						};
 			};
 
-			if(UO_FW_ACRE_INDEPENDENT_BABEL_ENABLED && isServer && (side player == independent)) then
+			if(UO_FW_ACRE_INDEPENDENT_BABEL_ENABLED  && (side player == independent)) then
 			{		
 						UO_FW_ACRE_INDEPENDENT_BABEL_LANGUAGES call acre_api_fnc_babelSetSpokenLanguages;
 					
-						private _languages = player getVariable ["FW_Languages", []];
+						private _languages = player getVariable ["UO_FW_Languages", []];
 
 						if (count _languages > 0) then 
 						{
@@ -291,11 +291,11 @@ if(!isDedicated) then
 						};
 			};
 
-			if(UO_FW_ACRE_CIVILIAN_BABEL_ENABLED && isServer && (side player == civilian)) then
+			if(UO_FW_ACRE_CIVILIAN_BABEL_ENABLED  && (side player == civilian)) then
 			{		
 						UO_FW_ACRE_CIVILIAN_BABEL_LANGUAGES call acre_api_fnc_babelSetSpokenLanguages;
 					
-						private _languages = player getVariable ["FW_Languages", []];
+						private _languages = player getVariable ["UO_FW_Languages", []];
 
 						if (count _languages > 0) then 
 						{

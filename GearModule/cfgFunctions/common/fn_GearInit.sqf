@@ -2,12 +2,12 @@
 "" spawn
 {
 	UO_FW_EXEC_CHECK(ALL)
-	if(!(missionNamespace getVariable ["UO_FW_Gear_Enabled",false])) exitWith {};
+	if(!(getMissionConfigValue ["UO_FW_Gear_Enabled",false])) exitWith {};
 	//when set to false, facewear types that are whitelisted will not be removed
-	UO_FW_force_remove_facewear = missionNamespace getVariable ["UO_FW_GearFaceRemovalEnabled",false];;
+	UO_FW_force_remove_facewear = getMissionConfigValue ["UO_FW_GearFaceRemovalEnabled",false];;
 
 	//forces adding an item to inventory. Works only if container is specified!
-	UO_FW_enableOverfill = missionNamespace getVariable ["UO_FW_GearOverfillEnabled",false];
+	UO_FW_enableOverfill = getMissionConfigValue ["UO_FW_GearOverfillEnabled",false];
 
 	/*UO_FW_GearLoadouts = [];
 	_gear = ["UO_FW_GearPath_1","UO_FW_GearPath_2","UO_FW_GearPath_3","UO_FW_GearPath_4","UO_FW_GearPath_5",

@@ -20,7 +20,7 @@ class UO_FW_StartInParachuteOptions
 			tooltip = "Altitude at which unit is parachuted";
 			property = "UO_FW_ParachuteAltitude";
 			control = "EditShort";
-			expression = "_this setVariable ['%s',_value];";
+			expression = "_this setVariable ['%s',_value,true];";
 			condition = "objectControllable";
 			validate = "number";
 			defaultValue = "300";
@@ -31,7 +31,7 @@ class UO_FW_StartInParachuteOptions
 			tooltip = "Adds a random height to the normal parachute altitude";
 			property = "UO_FW_ParachuteRandomAltitude";
 			control = "EditShort";
-			expression = "_this setVariable ['%s',_value];";
+			expression = "_this setVariable ['%s',_value,true];";
 			condition = "objectControllable";
 			validate = "number";
 			defaultValue = "100";

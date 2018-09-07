@@ -18,7 +18,7 @@ class UO_FW_CapturezoneModule: OlsenModule
 			tooltip = "Name of variable which will be set to true via missionNamespace setVariable when capturezone is captured. Enables chaining in endconditions";
 			property = "UO_FW_Capturezone_VariableName";
 			control = "Edit";
-			expression = "_this setVariable ['%s',_value];";
+			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "''";
 			typeName = "STRING";
 			validate = "none";
@@ -29,7 +29,7 @@ class UO_FW_CapturezoneModule: OlsenModule
 			tooltip = "Marker name of the capturezone without quotes. Default: 300";
 			property = "UO_FW_Capturezone_Markername";
 			control = "Edit";
-			expression = "_this setVariable ['%s',_value];";
+			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "''";
 			typeName = "STRING";
 			validate = "none";
@@ -40,7 +40,7 @@ class UO_FW_CapturezoneModule: OlsenModule
 			tooltip = "Time needed for Blufor to capture the zone in seconds. 0 to disable";
 			property = "UO_FW_Capturezone_BluforWin";
 			control = "EditShort";
-			expression = "_this setVariable ['%s',_value];";
+			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "0";
 			typeName = "NUMBER";
 			validate = "number";
@@ -51,7 +51,7 @@ class UO_FW_CapturezoneModule: OlsenModule
 			tooltip = "Time needed for Opfor to capture the zone in seconds. 0 to disable";
 			property = "UO_FW_Capturezone_OpforWin";
 			control = "EditShort";
-			expression = "_this setVariable ['%s',_value];";
+			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "0";
 			typeName = "NUMBER";
 			validate = "number";
@@ -62,7 +62,7 @@ class UO_FW_CapturezoneModule: OlsenModule
 			tooltip = "Time needed for Independent to capture the zone in seconds. 0 to disable";
 			property = "UO_FW_Capturezone_IndependentWin";
 			control = "EditShort";
-			expression = "_this setVariable ['%s',_value];";
+			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "0";
 			typeName = "NUMBER";
 			validate = "number";
@@ -73,7 +73,7 @@ class UO_FW_CapturezoneModule: OlsenModule
 			tooltip = "Time needed for Civilian to capture the zone in seconds. 0 to disable";
 			property = "UO_FW_Capturezone_CivilianWin";
 			control = "EditShort";
-			expression = "_this setVariable ['%s',_value];";
+			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "0";
 			typeName = "NUMBER";
 			validate = "number";
@@ -84,7 +84,7 @@ class UO_FW_CapturezoneModule: OlsenModule
 			tooltip = "Message to display when Blufor captures the zone. empty Edit to disable hints";
 			property = "UO_FW_Capturezone_BluforMessage";
 			control = "Edit";
-			expression = "_this setVariable ['%s',_value];";
+			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "'Blufor is capturing the zone!'";
 			typeName = "STRING";
 			validate = "none";
@@ -95,7 +95,7 @@ class UO_FW_CapturezoneModule: OlsenModule
 			tooltip = "Message to display when Opfor captures the zone. empty Edit to disable hints";
 			property = "UO_FW_Capturezone_OpforMessage";
 			control = "Edit";
-			expression = "_this setVariable ['%s',_value];";
+			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "'Opfor is capturing the zone!'";
 			typeName = "STRING";
 			validate = "none";
@@ -106,7 +106,7 @@ class UO_FW_CapturezoneModule: OlsenModule
 			tooltip = "Message to display when Independent captures the zone. empty Edit to disable hints";
 			property = "UO_FW_Capturezone_IndependentMessage";
 			control = "Edit";
-			expression = "_this setVariable ['%s',_value];";
+			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "'Independent is capturing the zone!'";
 			typeName = "STRING";
 			validate = "none";
@@ -117,7 +117,7 @@ class UO_FW_CapturezoneModule: OlsenModule
 			tooltip = "Message to display when Civilian captures the zone. empty Edit to disable hints";
 			property = "UO_FW_Capturezone_CivilianMessage";
 			control = "Edit";
-			expression = "_this setVariable ['%s',_value];";
+			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "'Civilian is capturing the zone!'";
 			typeName = "STRING";
 			validate = "none";
@@ -128,7 +128,7 @@ class UO_FW_CapturezoneModule: OlsenModule
 			tooltip = "Message to display when the zone is contested. empty Edit to disable hints";
 			property = "UO_FW_Capturezone_ContestedMessage";
 			control = "Edit";
-			expression = "_this setVariable ['%s',_value];";
+			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "'The capturezone is contested!'";
 			typeName = "STRING";
 			validate = "none";
@@ -139,7 +139,7 @@ class UO_FW_CapturezoneModule: OlsenModule
 			tooltip = "Message to display when the zone is uncontested. empty Edit to disable hints";
 			property = "UO_FW_Capturezone_UncontestedMessage";
 			control = "Edit";
-			expression = "_this setVariable ['%s',_value];";
+			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "'The zone is uncontested!'";
 			typeName = "STRING";
 			validate = "none";
@@ -150,7 +150,7 @@ class UO_FW_CapturezoneModule: OlsenModule
 			tooltip = "Time between checking the capturezone when noone was in it";
 			property = "UO_FW_Capturezone_SleepIntervall";
 			control = "EditShort";
-			expression = "_this setVariable ['%s',_value];";
+			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "15";
 			typeName = "NUMBER";
 			validate = "number";
