@@ -56,7 +56,8 @@ if(isServer) then
 	_id = ["CallMarkerFiremission", {_this call UO_FW_FNC_DIA_MarkerFiremissionFireServer;}] call CBA_fnc_addEventHandler;
 	_id = ["Event_ArtPlayerJipped", {_this call UO_FW_FNC_ArtMakePlayerObserverServer}] call CBA_fnc_addEventHandler;
 };
-//expected [paths aviable,units aviable,min ammount of Units spawned, max ammount of units spawned,max ammount of units in the field,delay from mission start,delay between spawns,should clean]
+
+
 waitUntil{player == player};
 _id = ["Event_ArtyReceiveHint", {hint _this;}] call CBA_fnc_addEventHandler;
 _id = ["Event_ReceiveFoGuns", {_this call UO_FW_FNC_initPlayerFO;}] call CBA_fnc_addEventHandler;
