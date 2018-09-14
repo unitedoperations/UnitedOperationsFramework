@@ -4,21 +4,29 @@
 			<Key ID="STR_UO_FW_TEST_YES">
 				<Original>yes</Original>
 				<English>yes</English>
-				<Czech>ano</Czech>
 				<French>oui</French>
 				<German>ja</German>
 				<Italian>sì</Italian>
 				<Polish>tak</Polish>
-				<Portuguese>sim</Portuguese>
 				<Russian>да</Russian>
-				<Spanish>sí</Spanish>
-				<Korean>네</Korean>
-				<Japanese>はい</Japanese>
-                <Chinesesimp>是</Chinesesimp>
-                <Chinese>是（繁體）</Chinese>
 			</Key>
 			<Key ID="STR_UO_FW_TEST_NO">
 				<Original>no</Original>
 			</Key>
 	</Package>
+	<Package name="Parachute Test">		
+			<Key ID="STR_UO_FW_StartInParachute_DisplayName">
+				<Original>yes</Original>
+				<English>yes</English>
+				<French>oui</French>
+				<German>ja</German>
+				<Italian>sì</Italian>
+				<Polish>tak</Polish>
+				<Russian>да</Russian>
+			</Key>
+			<Key ID="STR_UO_FW_StartInParachute_Description">
+				<Original>no</Original>
+			</Key>
+	</Package>
+
 </Project>

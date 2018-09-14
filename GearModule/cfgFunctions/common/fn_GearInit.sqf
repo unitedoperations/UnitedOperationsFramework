@@ -24,19 +24,33 @@
 	//["","Executing gear of files: " + (str UO_FW_GearLoadouts)] call UO_FW_fnc_DebugMessageDetailed;
 	["","Executing gear of file: " + (str UO_FW_Gear_PathToGear)] call UO_FW_fnc_DebugMessageDetailed;
 
-	UO_FW_EXEC_CHECK(CLIENT)
-	_type = player getVariable ["UO_FW_Gear_UnitGearType",""];
-	if(_type != "") then 
+	if(!isDedicated) then 
 	{
-		_array = [player,_type];
-		if(player getVariable ["UO_FW_Gear_Groupname",""] != "" ) then {_array pushBack (player getVariable ["UO_FW_Gear_Groupname",""])};
-		_array call UO_FW_FNC_GearScript;
-	};
-
-	UO_FW_EXEC_CHECK(SERVER)
-	{
-		if(!(isPlayer _x)) then 
+		_type = player getVariable ["UO_FW_Gear_UnitGearType",""];
+		if(_type != "") then 
 		{
+			_array = [player,_type];
+			if(player getVariable ["UO_FW_Gear_Groupname",""] != "" ) then {_array pushBack (player getVariable ["UO_FW_Gear_Groupname",""])};
+			_array call UO_FW_FNC_GearScript;
+		};
+	};
+	
+	if(isServer) then
+	{
+		{
+			if(!(isPlayer _x)) then 
+			{
+				_type = _x getVariable ["UO_FW_Gear_UnitGearType",""];
+				if(_type != "") then 
+				{
+					_array = [_x,_type];
+					if(_x getVariable ["UO_FW_Gear_Groupname",""] != "" ) then {_array pushBack (_x getVariable ["UO_FW_Gear_Groupname",""])};
+					_array call UO_FW_FNC_GearScript;
+				};
+			};
+		}forEach allUnits;
+		{
+
 			_type = _x getVariable ["UO_FW_Gear_UnitGearType",""];
 			if(_type != "") then 
 			{
@@ -44,18 +58,9 @@
 				if(_x getVariable ["UO_FW_Gear_Groupname",""] != "" ) then {_array pushBack (_x getVariable ["UO_FW_Gear_Groupname",""])};
 				_array call UO_FW_FNC_GearScript;
 			};
-		};
-	}forEach allUnits;
-	{
-
-		_type = _x getVariable ["UO_FW_Gear_UnitGearType",""];
-		if(_type != "") then 
-		{
-			_array = [_x,_type];
-			if(_x getVariable ["UO_FW_Gear_Groupname",""] != "" ) then {_array pushBack (_x getVariable ["UO_FW_Gear_Groupname",""])};
-			_array call UO_FW_FNC_GearScript;
-		};
-		
-	}forEach vehicles;
+			
+		}forEach vehicles;
+	};
+	
 
 };

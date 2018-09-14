@@ -3,7 +3,23 @@ _script = "" spawn
 {
 	diag_log "Exporting Briefing";
 	_br = toString [13,10];//(carriage return & line feed)
-	_export = "switch(side player) do " + _br +
+
+	_export = "_briefing = [];" + _br + 
+
+	"#define NEWTAB(NAME) _briefing set [count _briefing, [""Diary"",[NAME,""" + _br +
+	"#define ENDTAB ""]]];" + _br +
+
+	"#define DISPLAYBRIEFING() \" + _br +
+	"_size = count _briefing - 1; \" + _br + 
+	"for '_i' from 0 to _size do \" + _br +
+	"{ \" + _br + 
+	"	player createDiaryRecord (_briefing select _size - _i); \" + _br + 
+	"};" + _br + _br +
+
+
+
+
+	 "switch(side player) do " + _br +
 	"{" + _br +
 	"case west:" + _br + 
 	"{" + _br;
@@ -124,7 +140,7 @@ _script = "" spawn
 			"<font color='#5BD527'><h1>Succession of Command:</h1></font color><br/>" +  _br + UO_FW_BRIEFING_BLUFOR_WARSAW_SUCC_DESC + _br +
 			"ENDTAB" +  _br;
 		};
-	_export = _export + "}" + _br+ 
+	_export = _export + "};" + _br+ 
 	
 	
 	
@@ -278,7 +294,7 @@ _script = "" spawn
 		"<font color='#5BD527'><h1>Succession of Command:</h1></font color><br/>" +  _br + UO_FW_BRIEFING_OPFOR_WARSAW_SUCC_DESC + _br +
 		"ENDTAB" +  _br;
 	};
-	_export = _export + "}" + _br + 
+	_export = _export + "};" + _br + 
 
 
 
@@ -418,7 +434,7 @@ _script = "" spawn
 
 
 
-	_export = _export + "}" + _br+ 
+	_export = _export + "};" + _br+ 
 
 
 
