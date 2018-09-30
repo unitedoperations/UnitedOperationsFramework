@@ -115,8 +115,14 @@ _dia = uiNamespace getVariable "UO_FW_EndScreen";
 		((uiNamespace getVariable "UO_FW_EndScreen") displayCtrl 3000) ctrlSetBackgroundColor [0, 0, 0, (_x * (1/120))];
 		sleep(0.01);
 	};
-	if (!isNil "aCount_textBLU" && !isNil "aCount_textOPF" && !isNil "aCount_textRES" && !isNil "aCount_textCIV") then
+	"" spawn
 	{
+		"" call UO_FW_FNC_aCountShotDisplay;
+		waituntil{!isNil "aCount_textBLU"};
+		waituntil{!isNil "aCount_textOPF"};
+		waituntil{!isNil "aCount_textRES"};
+		waituntil{!isNil "aCount_textCIV"};
+		
 		_bottomLeft = 3004;
 		_bottomMiddleLeft = 3005;
 		_bottomMiddleRight = 3006;
@@ -130,7 +136,9 @@ _dia = uiNamespace getVariable "UO_FW_EndScreen";
 		((_this select 0) displayCtrl _bottomMiddleLeft) ctrlSetStructuredText parseText _bottomTextMiddleLeft;
 		((_this select 0) displayCtrl _bottomMiddleRight) ctrlSetStructuredText parseText _bottomTextMiddleRight;
 		((_this select 0) displayCtrl _bottomRight) ctrlSetStructuredText parseText _bottomTextRight;
+		
 	};
+	
 	
 	sleep (15);
 	endMission "END1";

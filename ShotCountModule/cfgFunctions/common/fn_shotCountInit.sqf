@@ -34,6 +34,4 @@ if (!isDedicated && hasInterface) then
 			["aCount_event_addEH", player] call CBA_fnc_serverEvent;
 		}] call CBA_fnc_waitUntilAndExecute;
 	};
-
-	["aCount_event_scoreScreen",{_this call UO_FW_fnc_aCountshotDisplay;}] call CBA_fnc_addEventHandler;
 };
