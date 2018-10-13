@@ -9,7 +9,7 @@ class UO_FW_MarkerControlFunctions
 	{
 		
 	};
-	class InitMarkerControl
+	class MarkerControlInit
 	{
 		
 	

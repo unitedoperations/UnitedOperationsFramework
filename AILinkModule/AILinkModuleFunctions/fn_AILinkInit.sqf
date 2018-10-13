@@ -17,6 +17,6 @@ tin_aiLink_debug 		= (missionNamespace getVariable ["UO_FW_AILink_Debug",false])
 
 if (!hasInterface) then
 {
-    [{call UO_FW_fnc_LoadAILink},[],tin_aiLink_startDelay] call CBA_fnc_waitAndExecute;
+    [{call UO_FW_fnc_AILink},[],tin_aiLink_startDelay] call CBA_fnc_waitAndExecute;
 }
 

@@ -1,8 +1,8 @@
 ////////////////////////////////////////////////////////
 // GUI EDITOR OUTPUT START (by Sacher, v1.063, #Dyroxu)
 ////////////////////////////////////////////////////////
-#define MEANCALCULATIONTIME 120
-#define MEANAIMTIME 10
+#define MEANCALCULATIONTIME 30
+#define MEANAIMTIME 20
 #define MEANSPOTTINGACCURACY 300
 #define MEANPlOTTEDACCURACY 50
 #define MAXSPOTTINGROUNDS 3

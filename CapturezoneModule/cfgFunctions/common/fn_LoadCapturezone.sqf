@@ -4,7 +4,12 @@ _logic = param [0,objNull,[objNull]];
 // True when the module was activated, false when it's deactivated (i.e., synced triggers are no longer active)
 _activated = param [1,true,[true]];
 if(!(_activated)) exitWith{};
-if (!isDedicated) then
+"" spawn 
+		{
+			waituntil{!isNil "UO_FW_Framework_Initialized"};
+			["Capturezone", "Runs a capturezone on a marker!", "Sacher"] call UO_FW_FNC_RegisterModule;
+		};
+if (isServer) then
 {
 	_markerName = _logic getVariable ["UO_FW_Capturezone_Markername",""];
 	_bluforWin = _logic getVariable ["UO_FW_Capturezone_BluforWin",0];

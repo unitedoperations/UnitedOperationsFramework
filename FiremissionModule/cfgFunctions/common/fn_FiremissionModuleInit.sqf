@@ -7,20 +7,6 @@ if(isServer) then
 {
 
 	{	
-		
-
-		_vehicle = vehicle _x;
-		if((_vehicle getVariable ["UO_FW_ArtilleryEnabled",false])) then
-		{
-			_artilleryFireRate = _vehicle getVariable ["UO_FW_ArtilleryFireRate",1];
-			_artilleryAccuracy = _vehicle getVariable ["UO_FW_ArtilleryAccuracy",50];
-			_artillerySpottingAccuracy = _vehicle getVariable ["UO_FW_ArtillerySpottingAccuracy",50];
-			_artilleryAimTime = _vehicle getVariable ["UO_FW_ArtilleryAimTime",20];
-			_artilleryCalculationTime = _vehicle getVariable ["UO_FW_ArtilleryCalculationTime",30];
-			_artilleryCustomName = _vehicle getVariable ["UO_FW_ArtilleryCustomName",""];
-			_artilleryUnlimitedAmmo = _vehicle getVariable ["UO_FW_ArtilleryUnlimitedAmmo",1];
-			[_vehicle,_artilleryFireRate,_artilleryAccuracy,_artillerySpottingAccuracy,_artilleryAimTime,_artilleryCalculationTime,_artilleryCustomName,_artilleryUnlimitedAmmo] call UO_FW_FNC_SetArtilleryData;
-		};
 
 		if((_x getVariable ["UO_FW_ArtilleryFOAIEnabled",false])) then
 		{
@@ -45,7 +31,19 @@ if(isServer) then
 		
 		
 	}forEach allUnits;
-
+	{
+		if((_x getVariable ["UO_FW_ArtilleryEnabled",false])) then
+		{
+			_artilleryFireRate = _x getVariable ["UO_FW_ArtilleryFireRate",1];
+			_artilleryAccuracy = _x getVariable ["UO_FW_ArtilleryAccuracy",50];
+			_artillerySpottingAccuracy = _x getVariable ["UO_FW_ArtillerySpottingAccuracy",50];
+			_artilleryAimTime = _x getVariable ["UO_FW_ArtilleryAimTime",20];
+			_artilleryCalculationTime = _x getVariable ["UO_FW_ArtilleryCalculationTime",30];
+			_artilleryCustomName = _x getVariable ["UO_FW_ArtilleryCustomName",""];
+			_artilleryUnlimitedAmmo = _x getVariable ["UO_FW_ArtilleryUnlimitedAmmo",false];
+			[_x,_artilleryFireRate,_artilleryAccuracy,_artillerySpottingAccuracy,_artilleryAimTime,_artilleryCalculationTime,_artilleryCustomName,_artilleryUnlimitedAmmo] call UO_FW_FNC_SetArtilleryData;
+		};
+	}forEach vehicles;
 	_id = ["CallBracketFiremission", {_this call UO_FW_FNC_DIA_BracketFiremissionFireServer;}] call CBA_fnc_addEventHandler;
 	_id = ["CallPolarSpotting", {_this call UO_FW_FNC_DIA_PolarSpottingFiremissionFireServer;}] call CBA_fnc_addEventHandler;
 	_id = ["CallPointFiremission", {_this call UO_FW_FNC_DIA_PointFiremissionFireServer;}] call CBA_fnc_addEventHandler;

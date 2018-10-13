@@ -1,7 +1,7 @@
 //Do not edit unless you know what you are doing
 //because you are on the highway to the danger zone!
 
-class DIA_DEBUG {
+class UO_FW_DIA_DEBUG {
 
 	idd = 400;
 	fadeout = 0;

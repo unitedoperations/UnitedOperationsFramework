@@ -7,9 +7,8 @@
  *		TinfoilHate
  */
 
-_munitionsBLU = aCount_west_ExpendedAmmunition;
-_munitionsOPF = aCount_east_ExpendedAmmunition;
-_munitionsRES = aCount_resistance_ExpendedAmmunition;
-_munitionsCIV = aCount_civilian_ExpendedAmmunition;
 
-["aCount_event_scoreScreen", [_munitionsBLU,_munitionsOPF,_munitionsRES,_munitionsCIV]] call CBA_fnc_globalEvent;
+missionNamespace setVariable ["Blufor_Shotcount_Data",aCount_west_ExpendedAmmunition,true];
+missionNamespace setVariable ["Opfor_Shotcount_Data",aCount_east_ExpendedAmmunition,true];
+missionNamespace setVariable ["Independent_Shotcount_Data",aCount_resistance_ExpendedAmmunition,true];
+missionNamespace setVariable ["Civilian_Shotcount_Data",aCount_civilian_ExpendedAmmunition,true];
