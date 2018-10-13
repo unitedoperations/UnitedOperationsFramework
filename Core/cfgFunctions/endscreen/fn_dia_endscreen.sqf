@@ -115,7 +115,7 @@ _dia = uiNamespace getVariable "UO_FW_EndScreen";
 		((uiNamespace getVariable "UO_FW_EndScreen") displayCtrl 3000) ctrlSetBackgroundColor [0, 0, 0, (_x * (1/120))];
 		sleep(0.01);
 	};
-	"" spawn
+	_this spawn
 	{
 		"" call UO_FW_FNC_aCountShotDisplay;
 		waituntil{!isNil "aCount_textBLU"};

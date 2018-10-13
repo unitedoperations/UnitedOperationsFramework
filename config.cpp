@@ -265,3 +265,10 @@ class Params
 	#include "\a3\functions_f\Params\paramDaytimeHour.hpp"
 };
 
+class Extended_PreInit_EventHandlers
+{
+	class UO_Framework_PreInit
+	{
+		init="call compile preProcessFileLineNumbers 'x\UO_FW\addons\main\XEH_preInit.sqf'";
+	};
+};

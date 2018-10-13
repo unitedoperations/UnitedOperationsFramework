@@ -5,9 +5,10 @@
 	//UO_FW_EXEC_CHECK(ALL)
 	//if(!UO_FW_Enabled) exitWith {};
 	UO_FW_EXEC_CHECK(ALL)
-	_this call UO_FW_FNC_initBriefings;
+	if(UO_FW_SERVER_BRIEFING_ALLOWED) then {_this call UO_FW_FNC_initBriefings;};
 	_this call UO_FW_FNC_setDefaults;
 	_this call UO_FW_FNC_CaptureZoneDefs;
 	_this call UO_FW_FNC_GVarSetupTimer;
+	
 };
 

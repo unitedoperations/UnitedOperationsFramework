@@ -7,19 +7,19 @@
  *		TinfoilHate & PiZZADOX
  */
 
-waitUntil(!isnil (missionNamespace getVariable "Blufor_Shotcount_Data"));
-waitUntil(!isnil (missionNamespace getVariable "Opfor_Shotcount_Data"));
-waitUntil(!isnil (missionNamespace getVariable "Independent_Shotcount_Data"));
-waitUntil(!isnil (missionNamespace getVariable "Civilian_Shotcount_Data"));
+waitUntil{count (missionNamespace getVariable ["Blufor_Shotcount_Data",[""]]) != 1};
+waitUntil{count (missionNamespace getVariable ["Opfor_Shotcount_Data",[""]]) != 1};
+waitUntil{count (missionNamespace getVariable ["Independent_Shotcount_Data",[""]]) != 1};
+waitUntil{count (missionNamespace getVariable ["Civilian_Shotcount_Data",[""]]) != 1};
 aCount_textBLU = "BLUFOR Munitions Expended:<br/>";
 aCount_textOPF = "OPFOR Munitions Expended:<br/>";
 aCount_textRES = "RESISTANCE Munitions Expended:<br/>";
 aCount_textCIV = "CIVILIAN Munitions Expended:<br/>";
 
 _arrayBLU = missionNamespace getVariable "Blufor_Shotcount_Data";
-_arrayOPF = missionNamespace getVariable "Blufor_Shotcount_Data";
-_arrayRES = missionNamespace getVariable "Blufor_Shotcount_Data";
-_arrayCIV = missionNamespace getVariable "Blufor_Shotcount_Data";
+_arrayOPF = missionNamespace getVariable "Opfor_Shotcount_Data";
+_arrayRES = missionNamespace getVariable "Independent_Shotcount_Data";
+_arrayCIV = missionNamespace getVariable "Civilian_Shotcount_Data";
 for [{ _i = 0}, {_i < count _arrayBLU}, {_i = _i + 2}] do
 {
 	_label = _arrayBLU select (_i);

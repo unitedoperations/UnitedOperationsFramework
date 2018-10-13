@@ -1,7 +1,7 @@
 class UO_FW_AILinkModuleFunctions
 {
 	file = "\x\UO_FW\addons\main\AILinkModule\AILinkModuleFunctions";
-	class InitAILink
+	class AILinkInit
 	{
 	
 	};

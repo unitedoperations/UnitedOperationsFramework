@@ -604,7 +604,7 @@ _script = "" spawn
 	"};" + _br +
 	//Mission Notes
 	"NEWTAB(""Mission Notes:"")" +  _br +
-	"<font color='#5BD527'><h1>Author:</h1></font color><br/>" + _br + (missionNamespace getVariable ["UO_FW_BRIEFING_MISSIONNOTES_AUTHOR",""]) + "<br/><br/>" + _br +
+	"<font color='#5BD527'><h1>Author:</h1></font color><br/>" + _br + (missionNamespace getVariable ["UO_FW_BRIEFING_MISSIONNOTES_AUTHOR",profileNameSteam]) + "<br/><br/>" + _br +
 	"<font color='#5BD527'><h1>Testers:</h1></font color><br/>" + _br + (missionNamespace getVariable ["UO_FW_BRIEFING_MISSIONNOTES_TESTERS",""]) + "<br/><br/>" + _br +
 	"<font color='#5BD527'><h1>End Conditions:</h1></font color><br/>" + _br + (missionNamespace getVariable ["UO_FW_BRIEFING_MISSIONNOTES_CONDITIONS",""]) + "<br/><br/>" + _br +
 	"<font color='#5BD527'><h1>Mission Specific Notes:</h1></font color><br/>" + _br + (missionNamespace getVariable ["UO_FW_BRIEFING_MISSIONNOTES_CUSTOM",""]) + "<br/><br/>" + _br +
