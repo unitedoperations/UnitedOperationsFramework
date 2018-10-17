@@ -125,7 +125,7 @@ if(!isDedicated) then
 {
 	[] spawn 
 	{
-		waitUntil { ([] call acre_api_fnc_isInitialized)};
+		waitUntil { !isNull acre_player };
 		
 		private _side = side player;
 		private _customSide = (player getVariable ["FW_CustomScramble", nil]);
@@ -159,7 +159,35 @@ if(!isDedicated) then
 		{
 			_side = _customSide;
 		};
+		_side_i = 3;
+		switch (_side) do 
+		{ 
+			case west: { 
+				_side_i = 0;
+			};
+			case east: { 
+				_side_i = 1;
+			};
+			case independent: { 
+				_side_i = 2;
+			};
+			default { 
+				_side_i = 3;
+			};
+		};
 
+		if (UO_FW_ACRE_SCRAMBLE_ENABLED) then
+		{
+			private _preset = UO_FW_Presets select _side_i;
+			["","Enabling Acre Scramble with " + _preset] call UO_FW_fnc_DebugMessageDetailed;
+			["ACRE_PRC343", _preset ] call acre_api_fnc_setPreset;
+			["ACRE_PRC77", _preset ] call acre_api_fnc_setPreset;
+			["ACRE_PRC117F", _preset ] call acre_api_fnc_setPreset;
+			["ACRE_PRC152", _preset ] call acre_api_fnc_setPreset;
+			["ACRE_PRC148", _preset ] call acre_api_fnc_setPreset;
+			["ACRE_SEM52SL", _preset ] call acre_api_fnc_setPreset;
+			["ACRE_SEM70", _preset ] call acre_api_fnc_setPreset;
+		};
 
 
 		//BABBLE STUFF
@@ -306,41 +334,12 @@ if(!isDedicated) then
 			};
 
 		};
-		//SCRAMBLE STUFF
 
-		private _side_i = 3;
-		switch (_side) do 
-		{ 
-			case west: { 
-				_side_i = 0;
-			};
-			case east: { 
-				_side_i = 1;
-			};
-			case independent: { 
-				_side_i = 2;
-			};
-			default { 
-				_side_i = 3;
-			};
-		};
-
-		if (UO_FW_ACRE_SCRAMBLE_ENABLED) then
-		{
-			private _preset = UO_FW_Presets select _side_i;
-			["","Enabling Acre Scra,böe"] call UO_FW_fnc_DebugMessageDetailed;
-			["ACRE_PRC343", _preset ] call acre_api_fnc_setPreset;
-			["ACRE_PRC77", _preset ] call acre_api_fnc_setPreset;
-			["ACRE_PRC117F", _preset ] call acre_api_fnc_setPreset;
-			["ACRE_PRC152", _preset ] call acre_api_fnc_setPreset;
-			["ACRE_PRC148", _preset ] call acre_api_fnc_setPreset;
-			["ACRE_SEM52SL", _preset ] call acre_api_fnc_setPreset;
-			["ACRE_SEM70", _preset ] call acre_api_fnc_setPreset;
-		};
+		
 		
 
 
-		
+		waitUntil { ([] call acre_api_fnc_isInitialized)};
 		waitUntil {(!isNull acre_player) && time > 0};
 		if(player getVariable ["UO_FW_ACRE_UNITSETTINGS_ENABLE",false]) then
 		{
