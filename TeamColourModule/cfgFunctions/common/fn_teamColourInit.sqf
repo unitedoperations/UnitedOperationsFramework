@@ -8,8 +8,7 @@
  */
 
 #include "\x\UO_FW\addons\main\script_macros.hpp"
-UO_FW_EXEC_CHECK(CLIENT)
-
+if(!UO_FW_SERVER_TEAMCOLOURMODULE_ALLOWED) exitWith {};
 if (!isDedicated) then {
 	
 	"" spawn {

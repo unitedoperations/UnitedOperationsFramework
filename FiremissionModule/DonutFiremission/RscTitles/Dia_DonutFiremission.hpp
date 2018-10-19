@@ -3,7 +3,7 @@
 ////////////////////////////////////////////////////////
 
 #include "..\..\Global\defs.hpp"
-class DIA_DONUTFIREMISSION
+class UO_FW_DIA_DONUTFIREMISSION
 {
 	idd = DFM_DIA_IDD_DISPLAY;
 	movingEnable = false;

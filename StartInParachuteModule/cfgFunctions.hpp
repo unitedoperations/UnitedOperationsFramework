@@ -7,7 +7,7 @@ class UO_FW_StartInParachuteFunctions
 	};
 	class StartInParachuteInit
 	{
-	
+		postInit = 1;
 	};
 	
 
