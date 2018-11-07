@@ -10,7 +10,7 @@ class UO_FW_StartInParachuteOptions
 			tooltip = "Set Parachute Type of a unit";
 			property = "UO_FW_StartInParachute";
 			control = "UO_FW_StartInParachuteAttribute";
-			expression = "_parachuteValue = ['NONE','NONSTEERABLE','STEERABLE'] select _value; _this setVariable ['%s',_parachuteValue];";
+			expression = "_parachuteValue = ['NONE','NONSTEERABLE','STEERABLE'] select _value; _this setVariable ['%s',_parachuteValue,true];";
 			condition = "objectControllable";
 			defaultValue = "0";
 		};
