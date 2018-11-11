@@ -1,1 +1,0 @@
-"C:\Program Files\PBO Manager v.1.4 beta\PBOConsole.exe" -pack "C:\Users\Christian\Documents\Arma 3 Projects\UnitedOperationsFramework" "C:\Program Files (x86)\Steam\steamapps\common\Arma 3\@SA\addons\UnitedOperationsFramework.pbo"
