@@ -9,7 +9,7 @@ The United Operations framework is an addon based utility and function library f
 Find out more about the framework on GitHub.<br/>
 github.com/unitedoperations/UnitedOperationsFramework<br/>
 <br/>
-Current Version: 0.2.0
+Current Version: 1.0.1
 ";
 
 player createDiaryRecord ["UO_FW_Menu", ["Framework Info", _info]];
