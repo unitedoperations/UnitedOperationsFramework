@@ -129,6 +129,7 @@ class Cfg3DEN
 {
 	class Mission
 	{
+		
 		class UO_FW_Settings
 		{
 			displayName = "Mission Settings";
@@ -219,6 +220,11 @@ class display3DEN
 		{
 			class Items
 			{
+				class UO_FW_BasicSettings
+				{
+					text = "Load Basic Settings";
+					action = "[] call UO_FW_fnc_BasicSettings3Den;";
+				};
 				//UO menus define
 				#include "3DEN\display3DEN\Menu.hpp"
 				
@@ -250,7 +256,7 @@ class display3DEN
 				{
 					text = "UO Framework";
 					//items[] = {"UO_FW_Settings","UO_FW_Module_Settings","UO_FW_EndConditions_Settings","UO_FW_Briefing_Folder","UO_FW_ACRE_Folder","UO_FW_AI_Settings","UO_FW_Tools_Folder","UO_FW_Documentation"};
-					items[] = {"UO_FW_Settings","UO_FW_Module_Settings","UO_FW_Gear_Settings","UO_FW_EndConditions_Folder","UO_FW_ACRE_Folder","UO_FW_Briefing_Folder","UO_FW_Documentation"};
+					items[] = {"UO_FW_BasicSettings","UO_FW_Settings","UO_FW_Module_Settings","UO_FW_Gear_Settings","UO_FW_EndConditions_Folder","UO_FW_ACRE_Folder","UO_FW_Briefing_Folder","UO_FW_Documentation"};
 				};
 				//compile main menu
 				items[] += {"UO_FW_Folder"};

@@ -18,7 +18,7 @@ class UO_FW_ArtilleryPlayerFO
 		class UO_FW_ArtilleryFOPlayerGuns
 		{
 			displayName = "Guns Available to Observer";
-			tooltip = "List of guns the FO is able to use seperated by comma. Default empty";
+			tooltip = "List of guns the FO is able to use seperated by comma. Use editor variable names for units. Default empty";
 			property = "UO_FW_ArtilleryFOPlayerGuns";
 			control = "EditArray";
 			expression ="_this setVariable ['%s',_value,true];";

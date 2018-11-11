@@ -16,10 +16,11 @@ if (_veh getvariable ["UO_FW_hasAIDriverActions",false]) exitwith {};
 
 //AI driver action
     private _action = ["ai_driver","Add/Remove AI driver","",{
+        
         [_target, _player] call UO_FW_FNC_aiDriversToggle;
     },
     {
-        vehicle _player == _target && ((assignedVehicleRole _player) select 0) == "Turret" && FW_AiDriverVehicle in [objNull, vehicle _player]
+        vehicle _player == _target && ((assignedVehicleRole _player) select 0) == "Turret" && UO_FW_AiDriverVehicle in [objNull, vehicle _player]
     }] call ace_interact_menu_fnc_createAction;
 
     //unflip action
@@ -41,24 +42,24 @@ if (_veh getvariable ["UO_FW_hasAIDriverActions",false]) exitwith {};
 
     //PIP action
     private _pipAction = ["ai_driver_pip","Enable/Disable driver's view","",{
-        (isNil "FW_driverCam" || {isNull FW_driverCam}) call  UO_FW_FNC_aiDriversToggleDriverCam;
+        (isNil "UO_FW_driverCam" || {isNull UO_FW_driverCam}) call  UO_FW_FNC_aiDriversToggleDriverCam;
     },
     {
-        vehicle _player == _target && ((assignedVehicleRole _player) select 0) == "Turret" && !isNull (_target getVariable ["aidrivers_driver", objNull])
+        vehicle _player == _target && ((assignedVehicleRole _player) select 0) == "Turret" && !isNull (_target getVariable ["UO_FW_aidrivers_driver", objNull])
     }] call ace_interact_menu_fnc_createAction;
 
     //toggle NV for PIP
     private _pipNvAction = ["ai_driver_pip_nv","Enable/Disable NV in driver's view","",{
-        if (isNil "FW_pipNvEnabled") then {
-            FW_pipNvEnabled = false;
+        if (isNil "UO_FW_pipNvEnabled") then {
+            UO_FW_pipNvEnabled = false;
         };
-        "FW_rtt" setPiPEffect ([[1], [0]] select FW_pipNvEnabled);
-        FW_pipNvEnabled = !FW_pipNvEnabled;
+        "FW_rtt" setPiPEffect ([[1], [0]] select UO_FW_pipNvEnabled);
+        UO_FW_pipNvEnabled = !UO_FW_pipNvEnabled;
     },
     {
         vehicle _player == _target &&
         ((assignedVehicleRole _player) select 0) == "Turret" &&
-        (!isNil "FW_driverCam" && {!isNull FW_driverCam})
+        (!isNil "UO_FW_driverCam" && {!isNull UO_FW_driverCam})
     }] call ace_interact_menu_fnc_createAction;
 
  [_veh, 1, ["ACE_SelfActions"], _action] call ace_interact_menu_fnc_addActionToObject;
