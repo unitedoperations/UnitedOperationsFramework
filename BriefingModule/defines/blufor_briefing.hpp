@@ -6,7 +6,7 @@ if ((missionNamespace getVariable ["UO_FW_BRIEFING_BLUFOR_FILE",false])) exitwit
 	};
 };
 
-if ((missionNamespace getVariable ["UO_FW_BRIEFING_BLUFOR_NATO",false]) && !(missionNamespace getVariable ["UO_FW_BRIEFING_BLUFOR_WARSAW",false])) then {
+if ((missionNamespace getVariable ["UO_FW_BRIEFING_BLUFOR_NATO",false])) then {
 	//Situation
 	NEWTAB("I. Situation:")
 	"<font color='#5BD527'><h1>Situation:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_BLUFOR_NATO_SIT_MAIN",""]) + "<br/><br/>" +
@@ -65,7 +65,7 @@ if ((missionNamespace getVariable ["UO_FW_BRIEFING_BLUFOR_NATO",false]) && !(mis
 	ENDTAB
 };
 
-if ((missionNamespace getVariable ["UO_FW_BRIEFING_BLUFOR_WARSAW",false]) && !(missionNamespace getVariable ["UO_FW_BRIEFING_BLUFOR_NATO",false])) then {
+if ((missionNamespace getVariable ["UO_FW_BRIEFING_BLUFOR_WARSAW",false])) then {
 	NEWTAB("I. Preliminaries:")
 	"<font color='#5BD527'><h1>Weather:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_BLUFOR_WARSAW_PRELIMINARIES_WEATHER",""])   + "<br/><br/>" +
 	"<font color='#5BD527'><h1>Terrain:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_BLUFOR_WARSAW_PRELIMINARIES_TERRAIN",""])  
