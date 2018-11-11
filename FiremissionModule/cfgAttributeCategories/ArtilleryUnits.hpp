@@ -78,7 +78,7 @@ class UO_FW_Artillery
 		class UO_FW_ArtilleryCustomName
 		{
 			displayName = "Custom Name";
-			tooltip = "Custom name for the artillery gun used in the player FO dialog. Leave empty for Class Display Name";
+			tooltip = "Custom name for the artillery gun used in the player FO dialog. Only used for displaying a different name. Leave empty for Class Display Name";
 			property = "UO_FW_ArtilleryCustomName";
 			control = "EditShort";
 			expression = "_this setVariable ['%s',_value,true];";

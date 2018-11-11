@@ -60,6 +60,8 @@ class UO_InitFunctions
 	class postChecks {};
 	class spectate {};
 	class teamsInit {};
+	class BasicSettings3Den {};
+	
 };
 
 class UO_DebugFunctions
