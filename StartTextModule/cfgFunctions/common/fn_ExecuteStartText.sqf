@@ -5,7 +5,7 @@ _startTextArray = _this;
 _isValid = _startTextArray call UO_FW_fnc_ValidateStartText;
 if(!_isValid) exitWith { UO_FW_DEBUG("Start Text Module Failed to validate!",format ["test"]);};
 
-["Start Text", "Displays animated text on mission start.", "Sacher"] call UO_FW_FNC_RegisterModule; 
+
 
 ["","Executing Start Text with " + (str _this)] call UO_FW_fnc_DebugMessageDetailed;
 switch (date select 1) do 

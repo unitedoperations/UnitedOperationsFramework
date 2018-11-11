@@ -9,10 +9,10 @@
 
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 UO_FW_EXEC_CHECK(CLIENT)
-
+["Self Actions", "Extra self actions", "Sacher"] call UO_FW_FNC_RegisterModule; 
 [{!isNull player}, {
 	if (!UO_FW_SelfActions_Enable) exitwith {};
-	["Self Actions", "Extra self actions", "Sacher"] call UO_FW_FNC_RegisterModule; 
+	
 	player setVariable ["mis_originalSide",side player,true];
 	//check own color interaction
 	if (UO_FW_SelfActions_CheckColour_Enabled) then {

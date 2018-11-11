@@ -20,7 +20,7 @@
 	if(UO_FW_SERVER_AILINK_ALLOWED) then {_this call UO_FW_FNC_AILinkInit;};
 	if(UO_FW_SERVER_AUTOTRACKASSETMODULE_ALLOWED) then {_this call UO_FW_FNC_AutoTrackAssetInit;};
 	if(UO_FW_SERVER_DISCONNECTMODULE_ALLOWED) then {_this call UO_FW_FNC_DisconnectControlInit;};
-	if(UO_FW_SERVER_FIREMISSIONMODULE_ALLOWED) then {_this call UO_FW_FNC_FiremissionModuleInit;};
+	
 	if(UO_FW_SERVER_MARKERCONTROLMODULE_ALLOWED) then {_this call UO_FW_FNC_MarkerControlInit;};
 	if(UO_FW_SERVER_STARTTEXTMODULE_ALLOWED) then {_this call UO_FW_FNC_StartTextInit;};
 	if(UO_FW_SERVER_JIPMODULE_ALLOWED) then {_this call UO_FW_FNC_jipInit;};
@@ -28,8 +28,8 @@
 	if(UO_FW_SERVER_SELFACTIONSMODULE_ALLOWED) then {_this call UO_FW_FNC_selfActionsInit;};
 	if(UO_FW_SERVER_SHOTCOUNTMODULE_ALLOWED) then {_this call UO_FW_FNC_shotCountInit;};
 	if(UO_FW_SERVER_SOFTAOMODULE_ALLOWED) then {_this call UO_FW_FNC_SoftAOLimitInit;};
-	if(UO_FW_SERVER_STARTINPARACHUTEMODULE_ALLOWED) then {_this call UO_FW_FNC_StartInParachuteInit;};
-	if(UO_FW_SERVER_TEAMCOLOURMODULE_ALLOWED) then {_this call UO_FW_FNC_teamColourInit;};
+	
+	
 
 	["","Finished Initializing Framework"] call UO_FW_fnc_DebugMessageDetailed;
 };

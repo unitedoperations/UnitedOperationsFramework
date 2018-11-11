@@ -1,6 +1,6 @@
 _isEnabled = missionNamespace getVariable ["UO_FW_StartText_Enabled",false];
 if(!_isEnabled) exitWith {};
-
+["Start Text", "Displays animated text on mission start.", "Sacher"] call UO_FW_FNC_RegisterModule; 
 
 private ["_month", "_hour", "_min", "_startTextArray", "_line", "_unparsedText"];
 _dateTypeArray = [["DATE"],["TIME"],["DATETIME"]];

@@ -167,6 +167,7 @@ if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_1",false]) then
 							if(isNil _x) then
 							{
 								["Variable " + _x + " does not exist!","Variable " + _x + " does not exist!"] call UO_FW_fnc_DebugMessageDetailed;
+								_custom = false;
 							} 
 							else
 							{
