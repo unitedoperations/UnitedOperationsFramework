@@ -20,12 +20,12 @@ if (isServer || !isServer) then {
 		private ["_unit"];
 
 		{
-		  if(_x getVariable ["UO_FW_Hostage_State",true]) then {
+		  if(_x getVariable ["UO_FW_Hostage_State",false]) then {
 		  	_unit = _x;
 		  };
 		} forEach allUnits;
 
-		[_unit,"UO_FW_Hostage_Rescue_Location"] call UO_FW_FNC_HostageSet; 
+		[_unit,`_unit getVariable ["UO_FW_Hostage_Rescue_Location",""]] call UO_FW_FNC_HostageSet;
 	};
 
 };

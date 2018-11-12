@@ -64,6 +64,7 @@ class CfgFunctions
 		#include "CapturezoneModule\cfgFunctions.hpp"
 		#include "StartInParachuteModule\cfgFunctions.hpp"
 		#include "FiremissionModule\cfgFunctions.hpp"
+		#include "HostageModule\cfgFunctions.hpp"
 	};
 	
 	//#include "HeadlessAIModule\cfgFunctions.hpp"
@@ -187,6 +188,7 @@ class Cfg3DEN
 			#include "AIDriversModule\cfgAttributeCategories\Object.hpp"
 			#include "StartInParachuteModule\cfgAttributeCategories\Object.hpp"
 			#include "FiremissionModule\cfgAttributeCategory.hpp"
+			#include "HostageModule\cfgAttributeCategories\Object.hpp"
 			
 		};
 	};

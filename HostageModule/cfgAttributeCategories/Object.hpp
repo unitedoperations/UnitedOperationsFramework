@@ -1,4 +1,4 @@
-class UO_FW_Hostage
+class UO_FW_Hostage_Attributes
 {
     displayName = "Hostage Options";
     collapsed = 1;
@@ -59,7 +59,7 @@ class UO_FW_Hostage
             displayName = "Hostage Joins Squad";
             tooltip = "Determine wether the hostage will join the squad of the freeing player. (Default: true)";
             property = "UO_FW_Hostage_Freed_JoinSquad";
-            control = "CheckboxReversed";
+            control = "Checkbox";
             expression="_this setVariable ['%s', _value,true];";
             condition = "objectBrain"
             defaultValue = "true";
