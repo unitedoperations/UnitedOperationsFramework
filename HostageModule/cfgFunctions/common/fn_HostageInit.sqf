@@ -14,18 +14,18 @@ if (!UO_FW_Enabled) exitwith {};
 
 if (isServer || !isServer) then {
 
-	[] spawn {
-		//waitUntil {UO_FW_MissionEnded};
+    [] spawn {
+        //waitUntil {UO_FW_MissionEnded};
 
-		private ["_unit"];
+        private ["_unit"];
 
-		{
-		  if(_x getVariable ["UO_FW_Hostage_State",false]) then {
-		  	_unit = _x;
-		  };
-		} forEach allUnits;
+        {
+          if((_x getVariable ["UO_FW_Hostage_State",false])) then {
+              _unit = _x;
+              [_unit,_unit getVariable ["UO_FW_Hostage_Rescue_Location",""]] call UO_FW_FNC_HostageSet;
+          };
+        } forEach allUnits;
 
-		[_unit,`_unit getVariable ["UO_FW_Hostage_Rescue_Location",""]] call UO_FW_FNC_HostageSet;
-	};
+    };
 
 };

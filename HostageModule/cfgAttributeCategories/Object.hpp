@@ -49,7 +49,7 @@ class UO_FW_Hostage_Attributes
             displayName = "Hostage Freed Behavior";
             tooltip = "Determine the hostages behavior when freed by the player. (Default: CARELESS)";
             property = "UO_FW_Hostage_Freed_Behavior";
-            control = "BehaviorGroup";
+            control = "Edit";
             expression="_this setVariable ['%s', _value,true];";
             condition = "objectBrain"
             defaultValue = "CARELESS";
