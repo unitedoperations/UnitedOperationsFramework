@@ -10,8 +10,9 @@ if (!isServer) exitWith {};
 
 _this spawn {
 
-	private ["_EhAnimDone", "_unit", "_break"];
+	private ["_EhAnimDone", "_break"];
 
+	hint (str _this);
 	_unit = _this select 0;
 	_marker = _this select 1;
 
@@ -28,14 +29,14 @@ _this spawn {
 			_unit = _this select 0;
 
 			if (!alive _unit) exitWith {
-				_unit removeEventHandler ["AnimDone", _unit getVariable ["FW_EhAnimDone", 0]];
+				_unit removeEventHandler ["AnimDone", _unit getVariable ["UO_FW_EhAnimDone", 0]];
 			};
 
 			_unit playMoveNow "Acts_AidlPsitMstpSsurWnonDnon04";
 		}
 	];
 
-	_unit setVariable ["FW_EhAnimDone", _EhAnimDone];
+	_unit setVariable ["UO_FW_EhAnimDone", _EhAnimDone];
 
 	_break = false;
 

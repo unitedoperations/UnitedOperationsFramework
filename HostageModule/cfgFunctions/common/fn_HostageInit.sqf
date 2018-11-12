@@ -17,7 +17,7 @@ if (isServer || !isServer) then {
     [] spawn {
         //waitUntil {UO_FW_MissionEnded};
 
-        private ["_unit"];
+        //private ["_unit"];
 
         {
           if((_x getVariable ["UO_FW_Hostage_State",false])) then {
