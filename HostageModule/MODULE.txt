@@ -1,0 +1,16 @@
+========================================================================
+
+	Module: Hostages
+	Author: Starfox64 (Ported by TrainDoctor)
+	Date Created: 11/9/2018
+	Date Last Updated: 11/9/2018
+	
+	Description: Allows AI to be set as hostages which can be rescued
+	
+	Uses 3DEN Menu: ???
+	Uses 3DEN Module: ???
+	Uses PreInit Function: ???
+	Uses PostInit Function: ???
+	
+
+========================================================================
