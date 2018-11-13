@@ -335,12 +335,6 @@ if(!isDedicated) then
 
 		};
 
-		
-		
-
-
-		waitUntil { ([] call acre_api_fnc_isInitialized)};
-		waitUntil {(!isNull acre_player) && time > 0};
 		if(player getVariable ["UO_FW_ACRE_UNITSETTINGS_ENABLE",false]) then
 		{
 			_radioTemp = [["UO_FW_ACRE_BLUFOR_SR_TYPE","UO_FW_ACRE_BLUFOR_LR_TYPE","UO_FW_ACRE_BLUFOR_PK_TYPE"],
@@ -350,90 +344,16 @@ if(!isDedicated) then
 
 			["","Setting Personal Settings"] call UO_FW_fnc_DebugMessageDetailed;
 			_radioTempI = _radioTemp select _side_i;	
+
 			_radioType = ["NONE","ACRE_PRC343","ACRE_SEM52SL"] select (missionNamespace getVariable [_radioTempI select 0,0]);
 			if((player getVariable ["UO_FW_ACRE_SR_RADIO_ENABLED",false])) then {player addItem _radioType;};
-			waitUntil {[] call acre_api_fnc_isInitialized};
-			{
-				private _radioID = [_x] call acre_api_fnc_getRadioByType;
-				if (!isNil "_radioID") then 
-				{
-					_result = (player getVariable ["UO_FW_ACRE_SR_RADIO_CHANNEL","1"]) call BIS_fnc_parseNumber;
-					if(_result < 0) then 
-					{
-						[player getVariable ["UO_FW_ACRE_SR_RADIO_CHANNEL","1"] + " is not a valid Channel Number",""] call UO_FW_fnc_DebugMessageDetailed;
-					}
-					else
-					{
-						["","Setting Personal Channel to " + (player getVariable ["UO_FW_ACRE_SR_RADIO_CHANNEL","1"])] call UO_FW_fnc_DebugMessageDetailed;
-						[_radioID, _result] call acre_api_fnc_setRadioChannel;
-					};
-					
-					[_radioID,( ["CENTER","LEFT","RIGHT"] select  (player getVariable ["UO_FW_ACRE_SR_RADIO_EAR",0]))] call acre_api_fnc_setRadioSpatial;
-				};	
-			}forEach ["ACRE_PRC343","ACRE_SEM52SL"];
-					
-			
 
 			_radioType = ["NONE","ACRE_PRC148","ACRE_PRC152"] select (missionNamespace getVariable [_radioTempI select 1,0]);
 			if((player getVariable ["UO_FW_ACRE_LR_RADIO_ENABLED",false])) then {player addItem _radioType;}; 
-			waitUntil {[] call acre_api_fnc_isInitialized};
-			{
-				private _radioID = [_x] call acre_api_fnc_getRadioByType;
-				if (!isNil "_radioID") then 
-				{
-					_result = (player getVariable ["UO_FW_ACRE_LR_RADIO_CHANNEL","1"]) call BIS_fnc_parseNumber;
-					if(_result < 0) then 
-					{
-						[player getVariable ["UO_FW_ACRE_LR_RADIO_CHANNEL","1"] + " is not a valid Channel Number",""] call UO_FW_fnc_DebugMessageDetailed;
-					}
-					else
-					{
-						[_radioID, _result] call acre_api_fnc_setRadioChannel;
-					};
-					[_radioID,( ["CENTER","LEFT","RIGHT"] select  (player getVariable ["UO_FW_ACRE_LR_RADIO_EAR",0]))] call acre_api_fnc_setRadioSpatial;
-				};
-			}forEach ["ACRE_PRC148","ACRE_PRC152"];
-					
 			
-
 			_radioType = ["NONE","ACRE_PRC117F","ACRE_PRC77","ACRE_SEM70"] select (missionNamespace getVariable [_radioTempI select 2,0]);
 			if((player getVariable ["UO_FW_ACRE_PK_RADIO_ENABLED",false])) then {player addItem _radioType;}; 
-			waitUntil {[] call acre_api_fnc_isInitialized};
-			{
-				private _radioID = [_radioType] call acre_api_fnc_getRadioByType;
-				if (!isNil "_radioID") then 
-				{
-					_result = (player getVariable ["UO_FW_ACRE_PK_RADIO_CHANNEL","1"]) call BIS_fnc_parseNumber;
-					if(_result < 0) then 
-					{
-						[player getVariable ["UO_FW_ACRE_PK_RADIO_CHANNEL","1"] + " is not a valid Channel Number",""] call UO_FW_fnc_DebugMessageDetailed;
-					}
-					else
-					{
-						[_radioID, _result] call acre_api_fnc_setRadioChannel;
-					};
-					[_radioID,( ["CENTER","LEFT","RIGHT"] select  (player getVariable ["UO_FW_ACRE_PK_RADIO_EAR",0]))] call acre_api_fnc_setRadioSpatial;
-				};
-			}forEach ["ACRE_PRC117F","ACRE_PRC77","ACRE_SEM70"];
-					
-					
-
-
-				
 		
-			private _channels = player getVariable ["UO_FW_Channels", []];
-			{
-				_x params [
-					["_radio", ""],
-					["_channel", 1],
-					["_spatial", "CENTER"]
-				];
-				private _radioID = [_radio] call acre_api_fnc_getRadioByType;
-				if (!isNil "_radioID") then {
-					[_radioID, _channel] call acre_api_fnc_setRadioChannel;
-					[_radioID, _spatial] call acre_api_fnc_setRadioSpatial;
-				};
-			} foreach _channels;
 		};		
 	};
 };

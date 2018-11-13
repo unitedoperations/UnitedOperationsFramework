@@ -5,8 +5,9 @@ params [
 	["_spatial", "CENTER", [""]]
 ];
 
-private _channels = _unit getVariable ["UO_FW_Channels", []];
-
-_channels pushBack [_radio, _channel, _spatial];
-
-_unit setVariable ["UO_FW_Channels", _channels, false];
+private _radioID = [_radio] call acre_api_fnc_getRadioByType; 
+if ( ! isNil "_radioID")then 
+{
+	[_radioID, _channel] call acre_api_fnc_setRadioChannel; 
+	[_radioID, _spatial] call acre_api_fnc_setRadioSpatial; 
+}; 

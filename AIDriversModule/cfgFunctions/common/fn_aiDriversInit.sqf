@@ -10,6 +10,7 @@
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 UO_FW_EXEC_CHECK(ALL)
 ["AI Drivers", "Module for adding AI Drivers to vehicles", "Sacher"] call UO_FW_FNC_RegisterModule; 
+if(!UO_FW_SERVER_AIDRIVERSMODULE_ALLOWED) exitWith {};
 UO_FW_AiDriverVehicle = objNull;
 		
 		[{time > 1},{

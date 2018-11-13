@@ -13,7 +13,7 @@
 	if(UO_FW_SERVER_GEARMODULE_ALLOWED) then {_this call UO_FW_FNC_GearInit;};
 	if(UO_FW_SERVER_ACREMODULE_ALLOWED) then {_this call UO_FW_FNC_AcreInit;};
 	//_this call UO_FW_FNC_debugInit
-	if(UO_FW_SERVER_AIDRIVERSMODULE_ALLOWED) then {_this call UO_FW_FNC_AIDriversInit;};
+	
 	if(UO_FW_SERVER_ANTINDMODULE_ALLOWED) then {_this call UO_FW_FNC_antiNDInit;};
 	if(UO_FW_SERVER_AOLIMIT_ALLOWED) then {_this call UO_FW_FNC_AOLimitInit;};
 	if(UO_FW_SERVER_ENDCONDITIONMODULE_ALLOWED) then {_this call UO_FW_FNC_EndConditionsInit;};
