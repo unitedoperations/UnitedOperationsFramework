@@ -12,7 +12,7 @@ UO_FW_EXEC_CHECK(ALL)
 if (!UO_FW_Enabled) exitwith {};
 ["Hostage", "Allows the mission maker to easily add hostages to their missions.", "Starfox64"] call UO_FW_FNC_RegisterModule;
 
-if (isServer || !isServer) then {
+if (isServer) then {
 
     [] spawn {
         //waitUntil {UO_FW_MissionEnded};

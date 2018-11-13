@@ -12,7 +12,7 @@ _this spawn {
 
 	private ["_EhAnimDone", "_break"];
 
-	hint (str _this);
+	//hint (str _this);
 	_unit = _this select 0;
 	_marker = _this select 1;
 
@@ -41,7 +41,7 @@ _this spawn {
 	_break = false;
 
 	while {true} do {
-		if (animationState _unit != "acts_aidlpsitmstpssurwnondnon04" && [_unit, _marker] call FNC_InArea) then {
+		if (animationState _unit != "acts_aidlpsitmstpssurwnondnon04" && [_unit, _marker] call UO_FW_FNC_InArea) then {
 
 			_unit setVariable ["UO_FW_Rescued", true, true];
 
