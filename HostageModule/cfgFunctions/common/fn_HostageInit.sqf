@@ -8,9 +8,8 @@
  */
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 UO_FW_EXEC_CHECK(ALL)
-
+["Hostage Control", "Allows the mission maker to easily add hostages to their missions.", "Original by Starfox64. Ported by TrainDoctor"] call UO_FW_FNC_RegisterModule;
 if (!UO_FW_Enabled) exitwith {};
-["Hostage", "Allows the mission maker to easily add hostages to their missions.", "Starfox64"] call UO_FW_FNC_RegisterModule;
 [] spawn {
 	{
 		if((_x getVariable ["UO_FW_Hostage_State",false])) then {

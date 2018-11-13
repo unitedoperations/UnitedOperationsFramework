@@ -6,7 +6,7 @@ class CfgPatches
 	{
 		name = "United Operations Framework";
 		author = "United Operations";
-		authors[] = {"Sacher","Blackhawk","Olsen","PiZZADOX"};
+		authors[] = {"Sacher","Blackhawk","Olsen","PiZZADOX","TrainDoctor"};
 		url = "https://github.com/unitedoperations/UnitedOperationsFramework";
 		units[] = {};
 		requiredVersion = REQUIRED_VERSION;
