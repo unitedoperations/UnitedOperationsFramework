@@ -12,7 +12,6 @@ _this spawn {
 
 	private ["_EhAnimDone", "_break"];
 
-	//hint (str _this);
 	_unit = _this select 0;
 	_marker = _this select 1;
 

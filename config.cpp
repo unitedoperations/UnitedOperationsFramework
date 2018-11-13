@@ -149,7 +149,7 @@ class Cfg3DEN
 			displayName = "Module Settings";
 			class AttributeCategories
 			{
-								//add module settings here
+				//add module settings here
 				#include "AIDriversModule\cfg3den\Modules\AIDrivers.hpp"
 				#include "AILinkModule\cfgAttributeCategories\mission\AILink.hpp"
 				#include "AOLimitModule\cfg3den\Modules\AOLimit.hpp"
