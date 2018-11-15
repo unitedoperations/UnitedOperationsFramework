@@ -63,6 +63,7 @@ class CfgFunctions
 		#include "JipModule\cfgFunctions.hpp"
 		#include "CapturezoneModule\cfgFunctions.hpp"
 		#include "StartInParachuteModule\cfgFunctions.hpp"
+		#include "MapCompassRemoverModule\cfgFunctions.hpp"
 		#include "FiremissionModule\cfgFunctions.hpp"
 	};
 	
@@ -187,6 +188,7 @@ class Cfg3DEN
 			#include "ACREModule\cfgAttributeCategories\Object.hpp"
 			#include "AIDriversModule\cfgAttributeCategories\Object.hpp"
 			#include "StartInParachuteModule\cfgAttributeCategories\Object.hpp"
+			#include "MapCompassRemoverModule\cfgAttributeCategories\Object.hpp"
 			#include "FiremissionModule\cfgAttributeCategory.hpp"
 			
 		};

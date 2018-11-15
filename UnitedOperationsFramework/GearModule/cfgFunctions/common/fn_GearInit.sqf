@@ -30,7 +30,8 @@
 		if(_type != "") then 
 		{
 			_array = [player,_type];
-			if(player getVariable ["UO_FW_Gear_Groupname",""] != "" ) then {_array pushBack (player getVariable ["UO_FW_Gear_Groupname",""])};
+			
+			if(player getVariable ["UO_FW_Gear_Groupname",""] != "" ) then {	(group player) setGroupId [player getVariable ["UO_FW_Gear_Groupname",""]];};
 			_array call UO_FW_FNC_GearScript;
 		};
 	};
@@ -44,7 +45,7 @@
 				if(_type != "") then 
 				{
 					_array = [_x,_type];
-					if(_x getVariable ["UO_FW_Gear_Groupname",""] != "" ) then {_array pushBack (_x getVariable ["UO_FW_Gear_Groupname",""])};
+					if(_x getVariable ["UO_FW_Gear_Groupname",""] != "" ) then {	(group _x) setGroupId [_x getVariable ["UO_FW_Gear_Groupname",""]];};
 					_array call UO_FW_FNC_GearScript;
 				};
 			};
@@ -55,7 +56,7 @@
 			if(_type != "") then 
 			{
 				_array = [_x,_type];
-				if(_x getVariable ["UO_FW_Gear_Groupname",""] != "" ) then {_array pushBack (_x getVariable ["UO_FW_Gear_Groupname",""])};
+				if(_x getVariable ["UO_FW_Gear_Groupname",""] != "" ) then {	(group _x) setGroupId [_x getVariable ["UO_FW_Gear_Groupname",""]];};
 				_array call UO_FW_FNC_GearScript;
 			};
 			

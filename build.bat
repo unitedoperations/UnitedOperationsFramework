@@ -1,1 +1,4 @@
-"C:\Program Files\PBO Manager v.1.4 beta\PBOConsole.exe" -pack "C:\Users\Christian\Documents\Arma 3 Projects\UnitedOperationsFramework" "C:\Program Files (x86)\Steam\steamapps\common\Arma 3\@SA\addons\UnitedOperationsFramework.pbo"
+"C:\Program Files\PBO Manager v.1.4 beta\PBOConsole.exe" -pack "C:\Users\Christian\Documents\Arma 3 Projects\UnitedOperationsFramework\UnitedOperationsFramework" "C:\Users\Christian\Documents\Arma 3 Projects\UnitedOperationsFramework\UnitedOperationsFramework.pbo"
+xcopy "C:\Users\Christian\Documents\Arma 3 Projects\UnitedOperationsFramework\UnitedOperationsFramework.pbo" "C:\Program Files (x86)\Steam\steamapps\common\Arma 3\@UOF\addons\" /Y
+xcopy "C:\Users\Christian\Documents\Arma 3 Projects\UnitedOperationsFramework\UnitedOperationsFramework.pbo" "C:\Users\Christian\Dropbox\@UOF\addons\" /Y
+pause
