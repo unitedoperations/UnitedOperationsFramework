@@ -1,5 +1,9 @@
 params ["_unit","_marker"];
 
+private "_unit";
+
+_unit = _this select 0;
+
 if(hasInterface) then {
 	_unit addAction ["<t color='#FBB829'>Rescue Hostage</t>",{
 		[-2,{_this call UO_FW_FNC_HostageRescue;},[_this select 0, _this select 1]] call CBA_fnc_globalExecute;
@@ -10,7 +14,7 @@ if (!isServer) exitWith {};
 
 _this spawn {
 
-	private ["_EhAnimDone", "_break"];
+	private ["_EhAnimDone", "_unit","_marker", "_break"];
 
 	_unit = _this select 0;
 	_marker = _this select 1;
@@ -24,9 +28,6 @@ _this spawn {
 	_unit playMoveNow "Acts_AidlPsitMstpSsurWnonDnon04";
 
 	_EhAnimDone = _unit addEventHandler ["AnimDone", {
-			private "_unit";
-			_unit = _this select 0;
-
 			if (!alive _unit) exitWith {
 				_unit removeEventHandler ["AnimDone", _unit getVariable ["UO_FW_EhAnimDone", 0]];
 			};
@@ -40,7 +41,7 @@ _this spawn {
 	_break = false;
 
 	while {true} do {
-		if (animationState _unit != "acts_aidlpsitmstpssurwnondnon04" && [_unit, _marker] call UO_FW_FNC_InArea) then {
+		if (animationState _unit != "acts_aidlpsitmstpssurwnondnon04" && ([_unit, _marker] call UO_FW_FNC_InArea)) then {
 
 			_unit setVariable ["UO_FW_Rescued", true, true];
 

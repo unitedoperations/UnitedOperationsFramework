@@ -17,12 +17,12 @@ class UO_FW_Hostage_Attributes
         class UO_FW_Hostage_Rescue_Location
         {
             displayName = "Hostage Rescue Zone";
-            tooltip = "Location where a hostage is marked as rescued. (Empty by default.)";
+            tooltip = "Location where a hostage is marked as rescued. (marker_0 by default.)";
             property = "UO_FW_Hostage_Rescue_Location";
             control = "Edit";
             expression="_this setVariable ['%s', _value,true];";
             condition = "objectBrain"
-            defaultValue = "'marker0'";
+            defaultValue = "'marker_0'";
         };
          class UO_FW_Hostage_Freed_JoinSquad
         {

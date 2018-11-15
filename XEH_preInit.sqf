@@ -116,6 +116,15 @@
 ] call CBA_Settings_fnc_init;
 
 [
+    "UO_FW_SERVER_HOSTAGEMODULE_ALLOWED", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "CHECKBOX", // setting type
+    "Allow Hostage Module", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
+    "UO Framework Settings", // Pretty name of the category where the setting can be found. Can be stringtable entry.
+    true, // data for this setting: [min, max, default, number of shown trailing decimals]
+    1 // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+] call CBA_Settings_fnc_init;
+
+[
     "UO_FW_SERVER_JIPMODULE_ALLOWED", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "CHECKBOX", // setting type
     "Allow JIP Module", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.

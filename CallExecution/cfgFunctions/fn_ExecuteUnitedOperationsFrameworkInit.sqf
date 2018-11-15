@@ -30,6 +30,7 @@
 	if(UO_FW_SERVER_SOFTAOMODULE_ALLOWED) then {_this call UO_FW_FNC_SoftAOLimitInit;};
 	if(UO_FW_SERVER_STARTINPARACHUTEMODULE_ALLOWED) then {_this call UO_FW_FNC_StartInParachuteInit;};
 	if(UO_FW_SERVER_TEAMCOLOURMODULE_ALLOWED) then {_this call UO_FW_FNC_teamColourInit;};
+	if(UO_FW_SERVER_HOSTAGEMODULE_ALLOWED) then {_this call UO_FW_FNC_HostageInit;};
 
 	["","Finished Initializing Framework"] call UO_FW_fnc_DebugMessageDetailed;
 };
