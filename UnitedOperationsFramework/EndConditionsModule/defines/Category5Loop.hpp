@@ -27,6 +27,7 @@ if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_5",false]) then
 		if (!(UO_FW_EndCondition_EntitiesAlive_Array_5 isEqualto "")) then {_conditionsCountCategory5 = _conditionsCountCategory5 + 1;};
 		if (!(UO_FW_EndCondition_EntitiesDead_Array_5 isEqualto "")) then {_conditionsCountCategory5 = _conditionsCountCategory5 + 1;};
 		if (!(UO_FW_EndCondition_EntitiesDamaged_Array_5 isEqualto "")) then {_conditionsCountCategory5 = _conditionsCountCategory5 + 1;};
+		if (!(UO_FW_EndCondition_HostageRescued_Array_5 isEqualto "")) then {_conditionsCountCategory5 = _conditionsCountCategory5 + 1;};
 		
 		if (!(UO_FW_EndCondition_CustomVariables_Array_5 isEqualto "")) then {_conditionsCountCategory5 = _conditionsCountCategory5 + 1;};
 		
@@ -152,6 +153,30 @@ if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_5",false]) then
 							
 						} forEach _damagedUnitArray;
 						_ConditionCheckList pushback ["Damaged Check",_damaged];			
+					};
+
+					//rescued hostage block
+					_hostageRescuedArray = missionNamespace getVariable ["UO_FW_EndCondition_HostageRescued_Array_5",[]];
+					if (!(_hostageRescuedArray isEqualto [])) then 
+					{
+						
+						["",format ["Rescued Array 5:%1",_hostageRescuedArray]] call UO_FW_fnc_DebugMessageDetailed;
+
+						_rescued = true;
+						{
+							_unit = missionNamespace getVariable [_x,objNull];
+							if(typename _unit == "OBJECT" && _unit != objNull && UO_FW_FNC_alive _unit) then 
+							{
+								_rescued = _rescued && (_unit UO_FW_FNC_HostageIsRescued);
+							}
+							else
+							{
+								_rescued = false;
+								["Unit " + _x + " not found!","Unit " + _x + " not found!"] call UO_FW_fnc_DebugMessageDetailed;
+							};
+							
+						} forEach _hostageRescuedArray;
+						_ConditionCheckList pushback ["Rescued Check",_rescued];			
 					};
 					
 					//custom variables block
