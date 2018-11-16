@@ -155,6 +155,7 @@ if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_1",false]) then
 						_ConditionCheckList pushback ["Damaged Check",_damaged];			
 					};
 
+					//rescued hostage block
 					_hostageRescuedArray = missionNamespace getVariable ["UO_FW_EndCondition_HostageRescued_Array_1",[]];
 					if (!(_hostageRescuedArray isEqualto [])) then 
 					{
@@ -164,16 +165,15 @@ if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_1",false]) then
 						_rescued = true;
 						{
 							_unit = missionNamespace getVariable [_x,objNull];
-							if(typename _unit == "OBJECT" && _unit != objNull) then 
+							if(typename _unit == "OBJECT" && _unit != objNull && UO_FW_FNC_alive _unit) then 
 							{
-								_rescued = _rescued && ((_rescued _unit > 0.5) || ((_unit isKindOf LandVehicle) && (!canMove _unit)));
+								_rescued = _rescued && (_unit UO_FW_FNC_HostageIsRescued);
 							}
 							else
 							{
 								_rescued = false;
 								["Unit " + _x + " not found!","Unit " + _x + " not found!"] call UO_FW_fnc_DebugMessageDetailed;
 							};
-							
 							
 						} forEach _hostageRescuedArray;
 						_ConditionCheckList pushback ["Rescued Check",_rescued];			
