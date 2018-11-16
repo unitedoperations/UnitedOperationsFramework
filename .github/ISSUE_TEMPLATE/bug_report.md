@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Template for reporting issues for the UO Discord Bot
+about: Template for reporting issues for the United Operations Framework (UOFW)
 
 ---
 
