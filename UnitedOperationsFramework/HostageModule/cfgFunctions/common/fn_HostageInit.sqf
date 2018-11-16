@@ -1,4 +1,4 @@
-/*	Description: Initalizes
+/*	Description: Initalizes hostage module
  *	Arguments:
  * 		N/A
  *	Return Value:
