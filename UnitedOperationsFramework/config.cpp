@@ -6,7 +6,7 @@ class CfgPatches
 	{
 		name = "United Operations Framework";
 		author = "United Operations";
-		authors[] = {"Sacher","Blackhawk","Olsen","PiZZADOX"};
+		authors[] = {"Sacher","Blackhawk","Olsen","PiZZADOX","TrainDoctor"};
 		url = "https://github.com/unitedoperations/UnitedOperationsFramework";
 		units[] = {};
 		requiredVersion = REQUIRED_VERSION;
@@ -65,6 +65,7 @@ class CfgFunctions
 		#include "StartInParachuteModule\cfgFunctions.hpp"
 		#include "MapCompassRemoverModule\cfgFunctions.hpp"
 		#include "FiremissionModule\cfgFunctions.hpp"
+		#include "HostageModule\cfgFunctions.hpp"
 	};
 	
 	//#include "HeadlessAIModule\cfgFunctions.hpp"
@@ -190,7 +191,7 @@ class Cfg3DEN
 			#include "StartInParachuteModule\cfgAttributeCategories\Object.hpp"
 			#include "MapCompassRemoverModule\cfgAttributeCategories\Object.hpp"
 			#include "FiremissionModule\cfgAttributeCategory.hpp"
-			
+			#include "HostageModule\cfgAttributeCategories\Object.hpp"
 		};
 	};
 	

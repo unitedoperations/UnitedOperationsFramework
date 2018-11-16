@@ -4,7 +4,7 @@ As a contributor, if you are unsure or not fully confident in the code you've wr
 
 ## Prior to Contributing
 
-If you wish to be a contributor for the project, or an admin/code owner for the repository, please contact Sacher on Discord or [Reyfin](https://github.com/Reyfin) on GitHub. You will need to be added to the test environment Discord server that is used for development and vetting of new features and bug fixing, and added to the United Operations GitHub organization and the `UO Discord` development team within the organization.
+If you wish to be a contributor for the project, or an admin/code owner for the repository, please contact Sacher on Discord or [Reyfin](https://github.com/Reyfin) on GitHub. You will need to be added to the test environment Discord server that is used for development and vetting of new features and bug fixing, and added to the United Operations GitHub organization and the `United Operations Framework` development team within the organization.
 
 The technology stack being used for the project is `SQF` for development,
 
