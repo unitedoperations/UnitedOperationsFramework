@@ -157,6 +157,24 @@ class EndConditionEntitySettings_Category2
 	};
 };
 
+class EndConditionHostageSettings_Category2
+{
+    displayName = "Hostage Settings";
+    collapsed = 0;
+    class Attributes
+    {
+        class UO_FW_EndCondition_HostageRescued_Array_2
+        {
+            property = "UO_FW_EndCondition_HostageRescued_Array_2";
+            displayName = "Hostage(s) Rescued";
+            tooltip = "Array of hostages checked for there rescued status. Leaves blank to disable.";
+            control = "EditArray";
+            expression="missionNamespace setVariable ['%s',_value];";
+            defaultValue = "[]";
+        };
+    };
+};
+
 class EndConditionVariableSettings_Category2
 {
     displayName = "Custom Variable Settings";
