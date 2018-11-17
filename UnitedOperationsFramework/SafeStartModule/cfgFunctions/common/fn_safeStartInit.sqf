@@ -8,7 +8,7 @@
  */
 
 #include "\x\UO_FW\addons\main\script_macros.hpp"
-UO_FW_EXEC_CHECK(CLIENT)
+if(!hasInterface) exitWith {};
 ["Safe start", "Extra safety for mission start", "Sacher"] call UO_FW_FNC_RegisterModule; 
 [{!isNull player}, {
 	if (!UO_FW_SafeStart_Enable) exitwith {};

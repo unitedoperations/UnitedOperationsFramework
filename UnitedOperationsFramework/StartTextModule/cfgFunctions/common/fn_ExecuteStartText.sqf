@@ -1,5 +1,5 @@
 #include "\x\UO_FW\addons\main\script_macros.hpp"
-UO_FW_EXEC_CHECK(ALL)
+
 waitUntil {time > 0};
 _startTextArray = _this;
 _isValid = _startTextArray call UO_FW_fnc_ValidateStartText;

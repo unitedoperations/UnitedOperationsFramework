@@ -8,7 +8,6 @@
  */
 
 #include "\x\UO_FW\addons\main\script_macros.hpp"
-UO_FW_EXEC_CHECK(ALL)
 
 if (!UO_FW_Anti_ND_Enabled) exitwith {};
 ["ANTI ND", "Extra Safety for mission start", "Sacher"] call UO_FW_FNC_RegisterModule; 

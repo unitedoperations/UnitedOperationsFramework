@@ -15,4 +15,3 @@ if (isServer) then
     if((missionNamespace getVariable ["UO_FW_DisconnectControl_CivilianDelete",true])) then {disconnect_control_sides pushBack CIVILIAN;};
     UO_FW_EventDisconnectHandle_BodyCleanup = addMissionEventHandler ["HandleDisconnect", {_this call UO_FW_FNC_EventDisconnect_BodyCleanup;}];
 };
-

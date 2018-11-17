@@ -3,9 +3,8 @@
  * 		N/A * 	Return Value: * 		ARRAY * 	Author * 		PiZZADOX */
 
 #include "\x\UO_FW\addons\main\script_macros.hpp"
-UO_FW_EXEC_CHECK(ALL); 
 
-if ( ! UO_FW_ACRE_SETTINGS_ENABLED)exitwith {}; 
+//if ( ! UO_FW_ACRE_SETTINGS_ENABLED)exitwith {}; 
 
 waitUntil {([] call acre_api_fnc_isInitialized)}; 
 waitUntil {( ! isNull acre_player) && time > 1}; 

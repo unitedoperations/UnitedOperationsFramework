@@ -8,14 +8,14 @@
  */
 
 #include "\x\UO_FW\addons\main\script_macros.hpp"
-UO_FW_EXEC_CHECK(ALL)
 ["AI Drivers", "Module for adding AI Drivers to vehicles", "Sacher"] call UO_FW_FNC_RegisterModule; 
-if(!UO_FW_SERVER_AIDRIVERSMODULE_ALLOWED) exitWith {};
 UO_FW_AiDriverVehicle = objNull;
+_allowNV = UO_FW_AIDrivers_NVEnabled;		
+_allowFlip = UO_FW_AIDrivers_FlipEnabled;
 		
 		[{time > 1},{
 			{
-				if ((typeOf _x) in (missionNamespace getVariable ["UO_FW_AIDrivers_VehClasses",[]])) then {[_x] call UO_FW_fnc_aiDriversEnableAIDriver;};
+				if ((typeOf _x) in (missionNamespace getVariable ["UO_FW_AIDrivers_VehClasses",[]])) then {[_x,_allowNV,_allowFlip] call UO_FW_fnc_aiDriversEnableAIDriver;};
 			} foreach vehicles;
 		}] call CBA_fnc_WaitUntilAndExecute;
 
@@ -23,17 +23,7 @@ UO_FW_AiDriverVehicle = objNull;
 if (UO_FW_AIDrivers_AllVehs) then {
 	[{time > 1},{
 		{
-			[_x] call UO_FW_fnc_aiDriversEnableAIDriver;
+			[_x,_allowNV,_allowFlip] call UO_FW_fnc_aiDriversEnableAIDriver;
 		} foreach vehicles;
 	}] call CBA_fnc_WaitUntilAndExecute;
 };
-
-[{time > 1},{
-		{
-			if(_x getVariable ["UO_FW_AIDriverVeh_Enabled",false]) then
-			{
-				[_x] call UO_FW_fnc_aiDriversEnableAIDriver;
-			};
-			
-		} foreach vehicles;
-	}] call CBA_fnc_WaitUntilAndExecute;

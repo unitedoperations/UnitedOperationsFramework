@@ -8,9 +8,9 @@
  */
 
 #include "\x\UO_FW\addons\main\script_macros.hpp"
-UO_FW_EXEC_CHECK(ALL)
 
-params ["_veh"];
+
+params ["_veh","_enableNV","_enableFlip"];
 
 if (_veh getvariable ["UO_FW_hasAIDriverActions",false]) exitwith {};
 
@@ -66,11 +66,11 @@ if (_veh getvariable ["UO_FW_hasAIDriverActions",false]) exitwith {};
         [_veh, 1, ["ACE_SelfActions"], _engineOffAction] call ace_interact_menu_fnc_addActionToObject;
         [_veh, 1, ["ACE_SelfActions"], _pipAction] call ace_interact_menu_fnc_addActionToObject;
 
-if (UO_FW_AIDrivers_FlipEnabled) then {
+if ( _enableFlip) then {
 	[_veh, 1, ["ACE_SelfActions"], _unflipAction] call ace_interact_menu_fnc_addActionToObject;
 };
 	
-if (UO_FW_AIDrivers_NVEnabled) then {
+if (_enableNV ) then {
 	[_veh, 1, ["ACE_SelfActions"], _pipNvAction] call ace_interact_menu_fnc_addActionToObject;
 };
 

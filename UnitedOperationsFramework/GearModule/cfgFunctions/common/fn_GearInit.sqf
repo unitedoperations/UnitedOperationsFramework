@@ -1,7 +1,7 @@
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 "" spawn
 {
-	UO_FW_EXEC_CHECK(ALL)
+	
 	if(!(getMissionConfigValue ["UO_FW_Gear_Enabled",false])) exitWith {};
 	//when set to false, facewear types that are whitelisted will not be removed
 	UO_FW_force_remove_facewear = getMissionConfigValue ["UO_FW_GearFaceRemovalEnabled",false];;

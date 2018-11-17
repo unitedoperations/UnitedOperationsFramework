@@ -1,7 +1,6 @@
 #include "..\..\Global\defs.hpp"
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 
-if(!UO_FW_SERVER_FIREMISSIONMODULE_ALLOWED) exitWith {};
 if(isServer) then 
 {
 
