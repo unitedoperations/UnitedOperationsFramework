@@ -8,7 +8,7 @@
  */
 
 #include "\x\UO_FW\addons\main\script_macros.hpp"
-UO_FW_EXEC_CHECK(ALL)
+
 
 if (isServer) then {
 	if (2 in [UO_FW_JIP_TypeBLUFOR,UO_FW_JIP_TypeOPFOR,UO_FW_JIP_TypeINDFOR,UO_FW_JIP_TypeCIVILIAN]) then {

@@ -8,7 +8,7 @@
  */
 
 #include "\x\UO_FW\addons\main\script_macros.hpp"
-UO_FW_EXEC_CHECK(ALL)
+
 
 if (!(missionNamespace getVariable ["UO_FW_ShotCount_Enabled",false])) exitwith {};
 ["Shot Count", "Count shots fired by units", "Sacher"] call UO_FW_FNC_RegisterModule; 

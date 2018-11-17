@@ -9,7 +9,7 @@ class INDEPENDENT_ACRE_RADIOTYPES_CAT
             property = "UO_FW_ACRE_INDEPENDENT_SR_TYPE";
             displayName = "Short Range Radio Type";
             tooltip = "Sets the short range radio type for the side";
-            control = "UO_FW_ACRE_SR_INDEPENDENT_SELECT";
+            control = "UO_FW_ACRE_SR_INDFOR_SELECT";
             expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "0";
         };
@@ -18,7 +18,7 @@ class INDEPENDENT_ACRE_RADIOTYPES_CAT
             property = "UO_FW_ACRE_INDEPENDENT_LR_TYPE";
             displayName = "Long Range Radio Type";
             tooltip = "Sets the long range radio type for the side";
-            control = "UO_FW_ACRE_LR_INDEPENDENT_SELECT";
+            control = "UO_FW_ACRE_LR_INDFOR_SELECT";
             expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "0";
         };
@@ -27,7 +27,7 @@ class INDEPENDENT_ACRE_RADIOTYPES_CAT
             property = "UO_FW_ACRE_INDEPENDENT_PK_TYPE";
             displayName = "Long Range Pack Radio Type";
             tooltip = "Sets the long range pack radio type for the side";
-            control = "UO_FW_ACRE_PK_INDEPENDENT_SELECT";
+            control = "UO_FW_ACRE_PK_INDFOR_SELECT";
             expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "0";
         };

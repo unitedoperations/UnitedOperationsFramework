@@ -1,10 +1,12 @@
 #include "\x\UO_FW\addons\main\script_macros.hpp"
-UO_FW_EXEC_CHECK(CLIENT)
+if(!hasinterface) exitWith {};
 private ["_unit", "_type", "_groupId"];
 if(!(getMissionConfigValue ["UO_FW_Gear_Enabled",false])) exitWith {};
 //waitUntil{!(isNil "UO_FW_GearLoadouts")};
+
 _unit = _this select 0;
 _type = _this select 1;
+if(!local _unit) exitWith {};
 if (count _this > 2) then {
 	
 	_groupId = _this select 2;

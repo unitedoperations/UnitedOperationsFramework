@@ -8,7 +8,6 @@
 
 #define UO_FW_EXEC_CHECK(ARG)\
 _argUpper = toUpper(#ARG);\
-waitUntil{!(isNil "UO_FW_Enabled")}; \
 if (isNil "UO_FW_Enabled") then {\
 	UO_FW_Enabled = (getMissionConfigValue ["UO_FW_Enabled",false]);\
 };\

@@ -46,7 +46,7 @@ class UO_FW_Firemission
     class GetPolarFiremissionText{};
     class GetPolarSpottingFiremissionText{};
     class GridSpottingFiremission{};
-    class FiremissionModuleInit{postInit = 1;};
+    class FiremissionModuleInit{};
     class initPlayerFO{};
     class InputIsNumber{};
     class InputIsUnit{};

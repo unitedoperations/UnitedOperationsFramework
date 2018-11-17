@@ -1,5 +1,4 @@
 #include "\x\UO_FW\addons\main\script_macros.hpp"
-if(!UO_FW_SERVER_REMOVER_ALLOWED) exitWith {};
 "" spawn
 {
 	[{time > 1}, {		

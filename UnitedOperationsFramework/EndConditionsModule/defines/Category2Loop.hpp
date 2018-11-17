@@ -165,7 +165,7 @@ if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_2",false]) then
 						_rescued = true;
 						{
 							_unit = missionNamespace getVariable [_x,objNull];
-							if(typename _unit == "OBJECT" && _unit != objNull && UO_FW_FNC_alive _unit) then 
+							if(typename _unit == "OBJECT" && _unit != objNull && (_unit call UO_FW_FNC_alive)) then 
 							{
 								_rescued = _rescued && (_unit call UO_FW_FNC_HostageIsRescued);
 							}

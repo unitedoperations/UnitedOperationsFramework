@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: Template for requesting features for the United Operations Framework (UOFW)
+about: Template for requesting features for the UO Framework
 
 ---
 
