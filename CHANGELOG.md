@@ -1,6 +1,6 @@
 # Changelog
 All notable changes to this project will be documented in this file.
-
+Version Numbers mainly refer to the UO Modpack addition.
 ## [Unreleased]
 ### Changed
 
@@ -15,6 +15,9 @@ All notable changes to this project will be documented in this file.
 - Made more Modules independent
 ### Fixed
 - Ai Driver wasn't being added when ace menued
+- Too much briefing being displayer
+- Gear locality
+- Gear works more reliable
 ### Removed
 
 
