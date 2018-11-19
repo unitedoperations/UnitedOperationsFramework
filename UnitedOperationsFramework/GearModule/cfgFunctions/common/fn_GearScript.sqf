@@ -1,7 +1,7 @@
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 if(!hasinterface) exitWith {};
 private ["_unit", "_type", "_groupId"];
-if(!(getMissionConfigValue ["UO_FW_Gear_Enabled",false])) exitWith {};
+if(!(missionNamespace getVariable ["UO_FW_Gear_Enabled",false])) exitWith {};
 //waitUntil{!(isNil "UO_FW_GearLoadouts")};
 
 _unit = _this select 0;
@@ -25,10 +25,10 @@ _unit call UO_FW_FNC_RemoveAllGear;
 }forEach UO_FW_GearLoadouts;*/
 
 //Other Version
-_path = getMissionConfigValue ["UO_FW_Gear_PathToGear",""];
+_path = missionNamespace getVariable  ["UO_FW_Gear_PathToGear","GearScript.sqf"];
 if(_path != "") then 
 {
-	_string = _this call (compile (preprocessFileLineNumbers UO_FW_Gear_PathToGear));
+	_string = _this call (compile (preprocessFileLineNumbers _path));
 };
 
 

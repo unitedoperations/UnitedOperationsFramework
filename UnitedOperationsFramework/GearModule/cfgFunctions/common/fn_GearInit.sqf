@@ -2,12 +2,12 @@
 "" spawn
 {
 	
-	if(!(getMissionConfigValue ["UO_FW_Gear_Enabled",false])) exitWith {};
+	if(!(missionNamespace getVariable ["UO_FW_Gear_Enabled",false])) exitWith {};
 	//when set to false, facewear types that are whitelisted will not be removed
-	UO_FW_force_remove_facewear = getMissionConfigValue ["UO_FW_GearFaceRemovalEnabled",false];;
+	UO_FW_force_remove_facewear = missionNamespace getVariable ["UO_FW_GearFaceRemovalEnabled",false];;
 
 	//forces adding an item to inventory. Works only if container is specified!
-	UO_FW_enableOverfill = getMissionConfigValue ["UO_FW_GearOverfillEnabled",false];
+	UO_FW_enableOverfill = missionNamespace getVariable ["UO_FW_GearOverfillEnabled",false];
 
 	/*UO_FW_GearLoadouts = [];
 	_gear = ["UO_FW_GearPath_1","UO_FW_GearPath_2","UO_FW_GearPath_3","UO_FW_GearPath_4","UO_FW_GearPath_5",
@@ -26,12 +26,13 @@
 
 	if(!isDedicated) then 
 	{
+		if((player getVariable ["UO_FW_Gear_Groupname",""]) != "" ) then {	(group player) setGroupId [(player getVariable ["UO_FW_Gear_Groupname",""])];};
 		_type = player getVariable ["UO_FW_Gear_UnitGearType",""];
 		if(_type != "") then 
 		{
 			_array = [player,_type];
 			
-			if(player getVariable ["UO_FW_Gear_Groupname",""] != "" ) then {	(group player) setGroupId [player getVariable ["UO_FW_Gear_Groupname",""]];};
+			
 			_array call UO_FW_FNC_GearScript;
 		};
 	};
@@ -41,22 +42,23 @@
 		{
 			if(!(isPlayer _x)) then 
 			{
+				if((_x getVariable ["UO_FW_Gear_Groupname",""]) != "" ) then {	(group _x) setGroupId [(_x getVariable ["UO_FW_Gear_Groupname",""])];};
 				_type = _x getVariable ["UO_FW_Gear_UnitGearType",""];
 				if(_type != "") then 
 				{
 					_array = [_x,_type];
-					if(_x getVariable ["UO_FW_Gear_Groupname",""] != "" ) then {	(group _x) setGroupId [_x getVariable ["UO_FW_Gear_Groupname",""]];};
+					
 					_array call UO_FW_FNC_GearScript;
 				};
 			};
 		}forEach allUnits;
 		{
-
+			if((_x getVariable ["UO_FW_Gear_Groupname",""]) != "" ) then {	(group _x) setGroupId [(_x getVariable ["UO_FW_Gear_Groupname",""])];};
 			_type = _x getVariable ["UO_FW_Gear_UnitGearType",""];
 			if(_type != "") then 
 			{
 				_array = [_x,_type];
-				if(_x getVariable ["UO_FW_Gear_Groupname",""] != "" ) then {	(group _x) setGroupId [_x getVariable ["UO_FW_Gear_Groupname",""]];};
+				
 				_array call UO_FW_FNC_GearScript;
 			};
 			

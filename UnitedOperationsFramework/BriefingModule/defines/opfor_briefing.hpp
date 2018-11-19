@@ -112,27 +112,30 @@ if ((missionNamespace getVariable ["UO_FW_BRIEFING_OPFOR_APPENDIX",false])) then
 		UO_FW_DEBUG("No appendix found for OPFOR!","No appendix found for OPFOR!")
 	};
 };
+if((missionNamespace getVariable ["UO_FW_BRIEFING_MISSIONNOTES_ENABLE",false])) then
+{
+	//Mission Notes
+	NEWTAB("Mission Notes:")
+	"<font color='#5BD527'><h1>Author:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_MISSIONNOTES_AUTHOR",""]) + "<br/><br/>" +
+	"<font color='#5BD527'><h1>Testers:</h1></font color><br/>" +(missionNamespace getVariable ["UO_FW_BRIEFING_MISSIONNOTES_TESTERS",""])  + "<br/><br/>" +
+	"<font color='#5BD527'><h1>End Conditions:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_MISSIONNOTES_CONDITIONS",""]) + "<br/><br/>" +
+	"<font color='#5BD527'><h1>Mission Specific Notes:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_MISSIONNOTES_CUSTOM",""]) + "<br/><br/>" +
+	"<font color='#5BD527'><h1>Mission Changelog:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_MISSIONNOTES_CHANGELOG",""])
+	ENDTAB
 
-//Mission Notes
-NEWTAB("Mission Notes:")
-"<font color='#5BD527'><h1>Author:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_MISSIONNOTES_AUTHOR",""]) + "<br/><br/>" +
-"<font color='#5BD527'><h1>Testers:</h1></font color><br/>" +(missionNamespace getVariable ["UO_FW_BRIEFING_MISSIONNOTES_TESTERS",""])  + "<br/><br/>" +
-"<font color='#5BD527'><h1>End Conditions:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_MISSIONNOTES_CONDITIONS",""]) + "<br/><br/>" +
-"<font color='#5BD527'><h1>Mission Specific Notes:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_MISSIONNOTES_CUSTOM",""]) + "<br/><br/>" +
-"<font color='#5BD527'><h1>Mission Changelog:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_MISSIONNOTES_CHANGELOG",""])
-ENDTAB
+	private _gamemastermsg = "";
 
-private _gamemastermsg = "";
+	if (missionNamespace getVariable ["UO_FW_BRIEFING_MISSIONNOTES_GM",false]) then {
+		_gamemastermsg = "This mission is designed for game mastering and can be manipulated as per Mission Notes";
+	} else {
+		_gamemastermsg = "This mission is not designed for game mastering and should only be manipulated for technical, administrative or diagnostic purposes.";
+	};
 
-if (getMissionConfigValue ["UO_FW_BRIEFING_MISSIONNOTES_GM",false]) then {
-	_gamemastermsg = "This mission is designed for game mastering and can be manipulated as per Mission Notes";
-} else {
-	_gamemastermsg = "This mission is not designed for game mastering and should only be manipulated for technical, administrative or diagnostic purposes.";
+	//Game Mastering
+	NEWTAB("Game Mastering")
+	"<font color='#5BD527'><h1>Game Mastering:</h1></font color><br/>" + _gamemastermsg
+	ENDTAB;
 };
 
-//Game Mastering
-NEWTAB("Game Mastering")
-"<font color='#5BD527'><h1>Game Mastering:</h1></font color><br/>" + _gamemastermsg
-ENDTAB;
 
 DISPLAYBRIEFING()

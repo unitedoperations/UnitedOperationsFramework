@@ -112,7 +112,8 @@ if ((missionNamespace getVariable ["UO_FW_BRIEFING_BLUFOR_APPENDIX",false])) the
 		UO_FW_DEBUG("No appendix found for BLUFOR!","No appendix found for BLUFOR!")
 	};
 };
-
+if((missionNamespace getVariable ["UO_FW_BRIEFING_MISSIONNOTES_ENABLE",false])) then
+{
 //Mission Notes
 NEWTAB("Mission Notes:")
 "<font color='#5BD527'><h1>Author:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_MISSIONNOTES_AUTHOR",""]) + "<br/><br/>" +
@@ -124,7 +125,7 @@ ENDTAB
 
 private _gamemastermsg = "";
 
-if (getMissionConfigValue ["UO_FW_BRIEFING_MISSIONNOTES_GM",false]) then {
+if (missionNamespace getVariable ["UO_FW_BRIEFING_MISSIONNOTES_GM",false]) then {
 	_gamemastermsg = "This mission is designed for game mastering and can be manipulated as per Mission Notes";
 } else {
 	_gamemastermsg = "This mission is not designed for game mastering and should only be manipulated for technical, administrative or diagnostic purposes.";
@@ -134,5 +135,5 @@ if (getMissionConfigValue ["UO_FW_BRIEFING_MISSIONNOTES_GM",false]) then {
 NEWTAB("Game Mastering")
 "<font color='#5BD527'><h1>Game Mastering:</h1></font color><br/>" + _gamemastermsg
 ENDTAB;
-
+};
 DISPLAYBRIEFING()

@@ -19,11 +19,11 @@ params ["_basicmsg","_detailedmsg"];
 
 if (isNil "UO_FW_Debug_Enabled") then 
 {
-	UO_FW_Debug_Enabled = (getMissionConfigValue ["UO_FW_Debug_Enabled",false]);
+	UO_FW_Debug_Enabled = (missionNamespace getVariable ["UO_FW_Debug_Enabled",false]);
 };
 if (isNil "UO_FW_Debug_Detailed_Enabled") then 
 {
-	UO_FW_Debug_Detailed_Enabled = (getMissionConfigValue ["UO_FW_Debug_Detailed_Enabled",false]);
+	UO_FW_Debug_Detailed_Enabled = (missionNamespace getVariable ["UO_FW_Debug_Detailed_Enabled",false]);
 };
 if ((UO_FW_Debug_Enabled) && !(UO_FW_Debug_Detailed_Enabled)) then 
 {

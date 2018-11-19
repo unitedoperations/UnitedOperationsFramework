@@ -9,7 +9,7 @@
 #define UO_FW_EXEC_CHECK(ARG)\
 _argUpper = toUpper(#ARG);\
 if (isNil "UO_FW_Enabled") then {\
-	UO_FW_Enabled = (getMissionConfigValue ["UO_FW_Enabled",false]);\
+	UO_FW_Enabled = (missionNamespace getVariable ["UO_FW_Enabled",false]);\
 };\
 if(_argUpper == "SERVER" && (((!isServer) && isMultiplayer) || (!UO_FW_Enabled))) exitWith {}; \
 if(_argUpper == "CLIENT" && ((!hasinterface) || (!UO_FW_Enabled))) exitWith {};\
@@ -35,4 +35,4 @@ call compile format ['%1 = {
 #define ADD_GROUP(groupName) call call compile format ["%1", #groupName + package]
 
 #define UO_FW_VAR(name,default)\
-getMissionConfigValue [#name,default];
+missionNamespace getVariable [#name,default];
