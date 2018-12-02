@@ -16,7 +16,7 @@ if (player getVariable ["UO_FW_ACRE_UNITSETTINGS_ENABLE", false]) then
 		private _radioID = [_x] call acre_api_fnc_getRadioByType; 
 		if ( ! isNil "_radioID")then 
 		{
-			_result = (player getVariable ["UO_FW_ACRE_SR_RADIO_CHANNEL", "1"])call BIS_fnc_parseNumber; 
+			_result = (player getVariable ["UO_FW_ACRE_SR_RADIO_CHANNEL", "1"]) call BIS_fnc_parseNumber; 
 			if (_result < 0)then 
 			{
 				[player getVariable ["UO_FW_ACRE_SR_RADIO_CHANNEL", "1"] + " is not a valid Channel Number", ""] call UO_FW_fnc_DebugMessageDetailed; 
@@ -34,7 +34,7 @@ if (player getVariable ["UO_FW_ACRE_UNITSETTINGS_ENABLE", false]) then
 	{
 		private _radioID = [_x] call acre_api_fnc_getRadioByType; 
 		if ( ! isNil "_radioID")then {
-			_result = (player getVariable ["UO_FW_ACRE_LR_RADIO_CHANNEL", "1"])call BIS_fnc_parseNumber; 
+			_result = (player getVariable ["UO_FW_ACRE_LR_RADIO_CHANNEL", "1"]) call BIS_fnc_parseNumber; 
 			if (_result < 0)then {
 				[player getVariable ["UO_FW_ACRE_LR_RADIO_CHANNEL", "1"] + " is not a valid Channel Number", ""] call UO_FW_fnc_DebugMessageDetailed; 
 			}
@@ -49,7 +49,7 @@ if (player getVariable ["UO_FW_ACRE_UNITSETTINGS_ENABLE", false]) then
 		private _radioID = [_x] call acre_api_fnc_getRadioByType; 
 		if ( ! isNil "_radioID")then 
 		{
-			_result = (player getVariable ["UO_FW_ACRE_PK_RADIO_CHANNEL", "1"])call BIS_fnc_parseNumber; 
+			_result = (player getVariable ["UO_FW_ACRE_PK_RADIO_CHANNEL", "1"]) call BIS_fnc_parseNumber; 
 			if (_result < 0)then {
 				[player getVariable ["UO_FW_ACRE_PK_RADIO_CHANNEL", "1"] + " is not a valid Channel Number", ""] call UO_FW_fnc_DebugMessageDetailed; 
 			}

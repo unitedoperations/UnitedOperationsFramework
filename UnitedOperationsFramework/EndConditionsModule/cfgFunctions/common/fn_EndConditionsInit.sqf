@@ -36,8 +36,17 @@ if (UO_FW_Timelimit_Enabled) then
 
 //exit for custom file
 if (UO_FW_ENDCONDITIONS_FILE) exitwith {
-	if !(UO_FW_ENDCONDITIONS_FILE_PATH isEqualto "") then {
-		"" call (compile preprocessFileLineNumbers UO_FW_ENDCONDITIONS_FILE_PATH);
+	if !(UO_FW_ENDCONDITIONS_FILE_PATH isEqualto "") then
+	{
+		[] spawn 
+		{
+			_endScript = (compile preprocessFileLineNumbers UO_FW_ENDCONDITIONS_FILE_PATH);
+			while {!UO_FW_MissionEnded} do 
+			{
+				"" call _endScript;		
+				sleep(missionNamespace getvariable ["UO_FW_ConditionSleep",30]);	
+			};
+		};
 	} else {
 		UO_FW_DEBUG("No file found for End Conditions!","No file found for End Conditions!")
 	};

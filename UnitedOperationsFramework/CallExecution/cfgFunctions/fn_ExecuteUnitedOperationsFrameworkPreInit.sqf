@@ -7,7 +7,6 @@
 	{
 		
 	};
-	UO_FW_EXEC_CHECK(ALL);
 	//suspending not allowed
 	_this call UO_FW_FNC_setDefaults;
 	_this call UO_FW_FNC_CaptureZoneDefs;

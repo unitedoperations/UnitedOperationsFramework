@@ -3,6 +3,8 @@ if(!([_selectedSide,_time,_marker,_deleteMarker] call UO_FW_fnc_ValidateSetupTim
 {
 	"Setup timer failed to Validate" call UO_FW_fnc_DebugMessage;
 };
+if (isNil "UO_FW_setup_start_Markers") then { UO_FW_setup_start_Markers = []; };
+if (isNil "UO_FW_setup_start_Looping") then { UO_FW_setup_start_Looping = false; };
 ["Setup Timer", "Allows the mission maker to restrict the AO of a side for a set amount of time.", "Olsen"] call UO_FW_FNC_RegisterModule;
 if (isServer) then
 {

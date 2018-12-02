@@ -31,7 +31,6 @@
 		_id = ["Event_PlayerParachuteJipped", 
 		{
 			_unit = _this select 0;
-			waitUntil{(_unit getVariable ["UO_FW_StartInParachute", ""]) != ""};
 			_parachuteType = _unit getVariable ["UO_FW_StartInParachute", "NONE"];
 			_altitude = _unit getVariable ["UO_FW_ParachuteAltitude", 300];
 			_randomAltitude = _unit getVariable ["UO_FW_ParachuteRandomAltitude", 100];
