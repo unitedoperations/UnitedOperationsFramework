@@ -12,16 +12,23 @@
 if (!UO_FW_ACRE_SETTINGS_ENABLED) exitwith {};
 ["ACRE Setup", "Module for Acre Settings", "Sacher"] call UO_FW_FNC_RegisterModule; 
 UO_FW_Presets = ["default2", "default3", "default4", "default"];
-UO_FW_Presets_BLUFOR = UO_FW_Presets select 0;
-UO_FW_Presets_OPFOR = UO_FW_Presets select 1;
-UO_FW_Presets_INDEPENDENT = UO_FW_Presets select 2;
-UO_FW_Presets_CIVILIAN = UO_FW_Presets select 3;
+UO_FW_Presets_BLUFOR = "default";
+UO_FW_Presets_OPFOR = "default";
+UO_FW_Presets_INDEPENDENT = "default";
+UO_FW_Presets_CIVILIAN = "default";
+if (UO_FW_ACRE_SCRAMBLE_ENABLED) then
+{
+	UO_FW_Presets_BLUFOR = UO_FW_Presets select 0;
+	UO_FW_Presets_OPFOR = UO_FW_Presets select 1;
+	UO_FW_Presets_INDEPENDENT = UO_FW_Presets select 2;
+	UO_FW_Presets_CIVILIAN = UO_FW_Presets select 3;
+};
 //blu,opf,indep,civ
 
 //Channel names stuff
 ["","ACRE Init"] call UO_FW_fnc_DebugMessageDetailed;
 UO_FW_ChannelNamesBLUFOR = [];
-if(UO_FW_ACRE_BLUFOR_RADIONET_ENABLED  && isServer) then
+if(UO_FW_ACRE_BLUFOR_RADIONET_ENABLED && (side player == west)) then
 {
 	
 	
@@ -39,14 +46,14 @@ if(UO_FW_ACRE_BLUFOR_RADIONET_ENABLED  && isServer) then
 		{
 			{
 				_label = [_x, "label"] call acre_api_fnc_mapChannelFieldName;
-				[_x, UO_FW_Presets_BLUFOR, (str _index), _label, _name] remoteExecCall ["acre_api_fnc_setPresetChannelField", 0, true];
+				[_x, UO_FW_Presets_BLUFOR, _index, _label, _name] call acre_api_fnc_setPresetChannelField;
 			} forEach ["ACRE_PRC117F", "ACRE_PRC148", "ACRE_PRC152"];
 		};
 		
 	} foreach UO_FW_ChannelNamesBLUFOR;
 };
 UO_FW_ChannelNamesOPFOR = [];
-if(UO_FW_ACRE_OPFOR_RADIONET_ENABLED  && isServer) then
+if(UO_FW_ACRE_OPFOR_RADIONET_ENABLED   && (side player == east)) then
 {
 	
 	UO_FW_ChannelNamesOPFOR pushBack (missionNamespace getVariable ["UO_FW_ACRE_OPFOR_RADIONET_NAME1",""]);	
@@ -63,14 +70,14 @@ if(UO_FW_ACRE_OPFOR_RADIONET_ENABLED  && isServer) then
 		{
 			{
 				_label = [_x, "label"] call acre_api_fnc_mapChannelFieldName;
-				[_x, UO_FW_Presets_OPFOR, (str _index), _label, _name] remoteExecCall ["acre_api_fnc_setPresetChannelField", 0, true];
+				[_x, UO_FW_Presets_OPFOR, _index, _label, _name] call acre_api_fnc_setPresetChannelField;
 			} forEach ["ACRE_PRC117F", "ACRE_PRC148", "ACRE_PRC152"];
 		};
 		
 	} foreach UO_FW_ChannelNamesOPFOR;
 };
 UO_FW_ChannelNamesINDEPENDENT = [];
-if(UO_FW_ACRE_INDEPENDENT_RADIONET_ENABLED  && isServer) then
+if(UO_FW_ACRE_INDEPENDENT_RADIONET_ENABLED  && (side player == independent)) then
 {
 	
 	UO_FW_ChannelNamesINDEPENDENT pushBack (missionNamespace getVariable ["UO_FW_ACRE_INDEPENDENT_RADIONET_NAME1",""]);	
@@ -87,14 +94,14 @@ if(UO_FW_ACRE_INDEPENDENT_RADIONET_ENABLED  && isServer) then
 		{
 			{
 				_label = [_x, "label"] call acre_api_fnc_mapChannelFieldName;
-				[_x, UO_FW_Presets_INDEPENDENT, (str _index), _label, _name] remoteExecCall ["acre_api_fnc_setPresetChannelField", 0, true];
+				[_x, UO_FW_Presets_INDEPENDENT, _index, _label, _name] call acre_api_fnc_setPresetChannelField;
 			} forEach ["ACRE_PRC117F", "ACRE_PRC148", "ACRE_PRC152"];
 		};
 		
 	} foreach UO_FW_ChannelNamesINDEPENDENT;
 };
 UO_FW_ChannelNamesCIVILIAN = [];
-if(UO_FW_ACRE_CIVILIAN_RADIONET_ENABLED  && isServer) then
+if(UO_FW_ACRE_CIVILIAN_RADIONET_ENABLED   && (side player == civilian)) then
 {
 	
 	UO_FW_ChannelNamesCIVILIAN pushBack (missionNamespace getVariable ["UO_FW_ACRE_CIVILIAN_RADIONET_NAME1",""]);	
@@ -111,7 +118,7 @@ if(UO_FW_ACRE_CIVILIAN_RADIONET_ENABLED  && isServer) then
 		{
 			{
 				_label = [_x, "label"] call acre_api_fnc_mapChannelFieldName;
-				[_x, UO_FW_Presets_CIVILIAN, (str _index), _label, _name] remoteExecCall ["acre_api_fnc_setPresetChannelField", 0, true];
+				[_x, UO_FW_Presets_CIVILIAN, _index, _label, _name] call acre_api_fnc_setPresetChannelField;
 			} forEach ["ACRE_PRC117F", "ACRE_PRC148", "ACRE_PRC152"];
 		};
 		
@@ -158,34 +165,33 @@ if(!isDedicated) then
 		{
 			_side = _customSide;
 		};
-		_side_i = 3;
+		private _presetTemp = "default";
 		switch (_side) do 
 		{ 
 			case west: { 
-				_side_i = 0;
+				_presetTemp = UO_FW_Presets_BLUFOR;
 			};
 			case east: { 
-				_side_i = 1;
+				_presetTemp = UO_FW_Presets_OPFOR;
 			};
 			case independent: { 
-				_side_i = 2;
+				_presetTemp = UO_FW_Presets_INDEPENDENT;
 			};
 			default { 
-				_side_i = 3;
+				_presetTemp = UO_FW_Presets_CIVILIAN;
 			};
 		};
 
 		if (UO_FW_ACRE_SCRAMBLE_ENABLED) then
 		{
-			private _preset = UO_FW_Presets select _side_i;
-			["","Enabling Acre Scramble with " + _preset] call UO_FW_fnc_DebugMessageDetailed;
-			["ACRE_PRC343", _preset ] call acre_api_fnc_setPreset;
-			["ACRE_PRC77", _preset ] call acre_api_fnc_setPreset;
-			["ACRE_PRC117F", _preset ] call acre_api_fnc_setPreset;
-			["ACRE_PRC152", _preset ] call acre_api_fnc_setPreset;
-			["ACRE_PRC148", _preset ] call acre_api_fnc_setPreset;
-			["ACRE_SEM52SL", _preset ] call acre_api_fnc_setPreset;
-			["ACRE_SEM70", _preset ] call acre_api_fnc_setPreset;
+			["","Enabling Acre Scramble with " + _presetTemp] call UO_FW_fnc_DebugMessageDetailed;
+			["ACRE_PRC343", _presetTemp ] call acre_api_fnc_setPreset;
+			["ACRE_PRC77", _presetTemp ] call acre_api_fnc_setPreset;
+			["ACRE_PRC117F", _presetTemp ] call acre_api_fnc_setPreset;
+			["ACRE_PRC152", _presetTemp ] call acre_api_fnc_setPreset;
+			["ACRE_PRC148", _presetTemp ] call acre_api_fnc_setPreset;
+			["ACRE_SEM52SL", _presetTemp ] call acre_api_fnc_setPreset;
+			["ACRE_SEM70", _presetTemp ] call acre_api_fnc_setPreset;
 		};
 
 
@@ -332,28 +338,7 @@ if(!isDedicated) then
 						};
 			};
 
-		};
-
-		if(player getVariable ["UO_FW_ACRE_UNITSETTINGS_ENABLE",false]) then
-		{
-			_radioTemp = [["UO_FW_ACRE_BLUFOR_SR_TYPE","UO_FW_ACRE_BLUFOR_LR_TYPE","UO_FW_ACRE_BLUFOR_PK_TYPE"],
-			["UO_FW_ACRE_OPFOR_SR_TYPE","UO_FW_ACRE_OPFOR_LR_TYPE","UO_FW_ACRE_OPFOR_PK_TYPE"],
-			["UO_FW_ACRE_INDEPENDENT_SR_TYPE","UO_FW_ACRE_INDEPENDENT_LR_TYPE","UO_FW_ACRE_INDEPENDENT_PK_TYPE"],
-			["UO_FW_ACRE_CIVILIAN_SR_TYPE","UO_FW_ACRE_CIVILIAN_LR_TYPE","UO_FW_ACRE_CIVILIAN_PK_TYPE"]];
-
-			["","Setting Personal Settings"] call UO_FW_fnc_DebugMessageDetailed;
-			_radioTempI = _radioTemp select _side_i;	
-
-			_radioType = ["NONE","ACRE_PRC343","ACRE_SEM52SL"] select (missionNamespace getVariable [_radioTempI select 0,0]);
-			if((player getVariable ["UO_FW_ACRE_SR_RADIO_ENABLED",false])) then {player addItem _radioType;};
-
-			_radioType = ["NONE","ACRE_PRC148","ACRE_PRC152"] select (missionNamespace getVariable [_radioTempI select 1,0]);
-			if((player getVariable ["UO_FW_ACRE_LR_RADIO_ENABLED",false])) then {player addItem _radioType;}; 
-			
-			_radioType = ["NONE","ACRE_PRC117F","ACRE_PRC77","ACRE_SEM70"] select (missionNamespace getVariable [_radioTempI select 2,0]);
-			if((player getVariable ["UO_FW_ACRE_PK_RADIO_ENABLED",false])) then {player addItem _radioType;}; 
-		
-		};		
+		};	
 	};
 };
 
