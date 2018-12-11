@@ -4,6 +4,16 @@ class EndConditionSleepMenu
     collapsed = 0;
     class Attributes
     {
+    class UO_FW_ConditionDelay
+        {
+            property = "UO_FW_ConditionDelay";
+            displayName = "End Condition Starting Delay";
+            tooltip = "Time before any automatic end conditions are run!";
+			control = "EditShort";
+            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+			validate = "number";
+            defaultValue = "0";
+        };
 		class UO_FW_ConditionSleep
         {
             property = "UO_FW_ConditionSleep";
