@@ -15,7 +15,7 @@
 
 private _scenario = _this;
 
-if (time > 0) then {
+if (time > ((missionNamespace getvariable ["UO_FW_ConditionDelay",0]) + ((missionNamespace getvariable ["UO_FW_ConditionSleep",30]) *1.5)) ) then {
 
 	UO_FW_MissionEnded = true;
 
@@ -36,5 +36,10 @@ if (time > 0) then {
 	["UO_FW_EndMission_Event", [_scenario, UO_FW_TimeLimit, UO_FW_Teams]] call CBA_fnc_globalEvent;
 
 } else {
-	"End Conditions have just been triggered. Mission will have to be ended manually." remoteExec ["systemChat", 0, false];
+	if (isNil "UO_FW_MissionEndedEarly") then {UO_FW_MissionEndedEarly = false;};
+	if(!UO_FW_MissionEndedEarly) then
+	{
+		"End Conditions have just been triggered. Mission might need to be ended manually!" remoteExec ["systemChat", 0, false];
+	};
+	
 };
