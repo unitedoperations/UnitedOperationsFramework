@@ -6,7 +6,7 @@
         <img src="https://img.shields.io/github/issues/UnitedOperations/UnitedOperationsFramework.svg" alt="Framework Issues">
     </a>
   <a href="https://github.com/unitedoperations/UnitedOperationsFramework/pulls">
-        <img src="https://img.shields.io/github/issues/UnitedOperations/UnitedOperationsFramework.svg" alt="Pull Requests">
+        <img src="https://img.shields.io/github/issues-pr-raw/UnitedOperations/UnitedOperationsFramework.svg" alt="Pull Requests">
     </a>
     <img src="https://img.shields.io/github/languages/code-size/UnitedOperations/UnitedOperationsFramework.svg" alt="Framework Size">
 </p>
