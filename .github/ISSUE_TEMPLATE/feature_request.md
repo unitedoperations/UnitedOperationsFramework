@@ -9,7 +9,7 @@
 
 #### Feature Intent
 
-Add a clear and concise description of your feature or change; explain what you wish to see implemented.
+Add a clear and concise description of your feature or change; explain what you wish to see implemented.  
 eg. "AI should prefer manning CSW over garrisoning a building"
 
 #### Screenshots
@@ -18,8 +18,8 @@ Add any screenshots or images which can help describe your suggestion.
 
 #### Possible Implementation
 
-If possible, add a suggestion of how your feature or change should be implemented.
-eg. "New setting should be put in this menu"
+If possible, add a suggestion of how your feature or change should be implemented.  
+eg. "New setting should be put in this menu"  
 eg. "AI should prefer manning CSW over garrisoning a building or patrolling"
 
 #### Additional notes
