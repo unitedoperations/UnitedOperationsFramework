@@ -1,8 +1,7 @@
----
-name: Bug report
-about: Template for reporting issues for the UO Framework
+#### Naming Convention
 
----
+Bug reports should be named "Bug Report: Short description of Problem"  
+eg. _Bug Report: Players starting with duplicate gear_
 
 #### Description of issue
 
