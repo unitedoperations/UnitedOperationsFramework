@@ -17,4 +17,6 @@ To learn more about the framework, visit [our wiki](https://github.com/unitedope
 
 For information on how to make a mission using the framework read [this guide](https://github.com/unitedoperations/UnitedOperationsFramework/wiki/Guide).
 
+To view bugs or requested features, view the [issues](https://github.com/unitedoperations/UnitedOperationsFramework/issues). If you want to report a bug and do not see your issue listed, you can open a [bug report](https://github.com/unitedoperations/UnitedOperationsFramework/issues/new?template=bug_report.md). If you want to request a feature not listed you can do so using the [feature request](https://github.com/unitedoperations/UnitedOperationsFramework/issues/new?template=feature_request.md).
+
 You can aid in development of this project by [contributing](https://github.com/unitedoperations/UnitedOperationsFramework/blob/master/.github/CONTRIBUTING.md)
