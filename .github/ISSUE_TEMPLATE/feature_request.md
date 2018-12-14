@@ -1,3 +1,11 @@
+---
+name: Feature request
+about: Suggest an idea for this project
+title: ''
+labels: ''
+assignees: ''
+
+---
 >#### Instructions
 >
 >With the exception of the instructions and naming convention, headers should be kept with the description changed to their respective function. Put "nil" if not applicable.
