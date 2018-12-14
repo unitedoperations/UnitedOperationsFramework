@@ -11,7 +11,7 @@
     <img src="https://img.shields.io/github/languages/code-size/UnitedOperations/UnitedOperationsFramework.svg" alt="Framework Size">
 </p>
 
-The **UO Framework** is a modular mission making addon based on the [Olsen Framework](https://github.com/dklollol/Olsen-Framework-Arma-3) designed to help create large scale, high quality Arma 3 scenarios utilizing the in game editor and removing the requirement for mission makers to deal with manual editing of script setting files, implementing editor menus and settings for tailoring the mission. Originally designed for [United Operations](http://unitedoperations.net/).
+The **UO Framework** is a modular mission making addon based on the [Olsen Framework](https://github.com/dklollol/Olsen-Framework-Arma-3) designed to help create high quality Arma 3 scenarios utilizing the in game editor and removing the requirement for mission makers to deal with manual editing of script setting files by implementing editor menus and settings for tailoring the mission. Originally designed for [United Operations](http://unitedoperations.net/).
 
 To learn more about the framework, visit [our wiki](https://github.com/unitedoperations/UnitedOperationsFramework/wiki/Introduction).
 
