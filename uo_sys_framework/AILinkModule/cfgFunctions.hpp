@@ -4,5 +4,4 @@ class UO_FW_AILinkModuleFunctions
 	class AILinkInit {};
 	class EvalRadio {};
 	class AILink {};
-
 };
