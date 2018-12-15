@@ -1,7 +1,7 @@
 class UO_FW_DisconnectControl
 {
     displayName = "Disconnect Control Settings";
-    collapsed = 0;
+    collapsed = 1;
     class Attributes
     {
         class UO_FW_DisconnectControl_Enabled

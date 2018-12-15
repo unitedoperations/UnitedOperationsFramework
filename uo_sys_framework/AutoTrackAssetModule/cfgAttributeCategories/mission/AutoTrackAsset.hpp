@@ -2,7 +2,7 @@ class UO_FW_AutoTrackAsset
 
 {
     displayName = "Auto Track Asset Settings";
-    collapsed = 0;
+    collapsed = 1;
     class Attributes
     {
         class UO_FW_AutoTrackAsset_Enabled
