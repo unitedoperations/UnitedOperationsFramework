@@ -1,0 +1,16 @@
+========================================================================
+
+	Module: Soft AO Limit
+	Author: Olsen, Starfox64, & Sacher
+	Date Created: 4/7/2018
+	Date Last Updated: 5/7/2018
+
+	Description: Allows the mission maker to set AO limits to specific sides.
+
+	Uses 3DEN Menu: Yes
+	Uses 3DEN Module: No
+	Uses PreInit Function: No
+	Uses PostInit Function: Yes
+
+
+========================================================================
