@@ -1,7 +1,7 @@
 class UO_FW_MarkerControl
 {
     displayName = "Marker Control Settings";
-    collapsed = 0;
+    collapsed = 1;
     class Attributes
     {
         class UO_FW_MarkerControl_Enabled
@@ -18,7 +18,7 @@ class UO_FW_MarkerControl
         class UO_FW_MarkerControl_BluforMarkers
 		{
 			displayName = "Blufor markers";
-			tooltip = "Markers which are only visible by Blufor.Marker names without quotes and seperated by ,";
+			tooltip = "Markers which are only visible by Blufor. Marker names without quotes and separated by ,";
 			control = "EditArray";
 			typeName = "STRING";
 			property = "UO_FW_MarkerControl_BluforMarkers";
@@ -29,7 +29,7 @@ class UO_FW_MarkerControl
 		class UO_FW_MarkerControl_BluforBriefingMarkers
 		{
 			displayName = "Blufor briefing markers";
-			tooltip = "Markers which are only visible by Blufor while briefing.Marker names without quotes and seperated by ,";
+			tooltip = "Markers which are only visible by Blufor while briefing. Marker names without quotes and separated by ,";
 			control = "EditArray";
 			typeName = "STRING";
 			property = "UO_FW_MarkerControl_BluforBriefingMarkers";
@@ -40,7 +40,7 @@ class UO_FW_MarkerControl
 		 class UO_FW_MarkerControl_OpforMarkers
 		{
 			displayName = "Opfor markers";
-			tooltip = "Markers which are only visible by Opfor.Marker names without quotes and seperated by ,";
+			tooltip = "Markers which are only visible by Opfor. Marker names without quotes and separated by ,";
 			control = "EditArray";
 			typeName = "STRING";
 			property = "UO_FW_MarkerControl_OpforMarkers";
@@ -51,7 +51,7 @@ class UO_FW_MarkerControl
 		class UO_FW_MarkerControl_OpforBriefingMarkers
 		{
 			displayName = "Opfor briefing markers";
-			tooltip = "Markers which are only visible by Opfor while briefing.Marker names without quotes and seperated by ,";
+			tooltip = "Markers which are only visible by Opfor while briefing. Marker names without quotes and separated by ,";
 			control = "EditArray";
 			typeName = "STRING";
 			property = "UO_FW_MarkerControl_OpforBriefingMarkers";
@@ -62,7 +62,7 @@ class UO_FW_MarkerControl
 		 class UO_FW_MarkerControl_IndependentMarkers
 		{
 			displayName = "Independent markers";
-			tooltip = "Markers which are only visible by Independent.Marker names without quotes and seperated by ,";
+			tooltip = "Markers which are only visible by Independent. Marker names without quotes and separated by ,";
 			control = "EditArray";
 			typeName = "STRING";
 			property = "UO_FW_MarkerControl_IndependentMarkers";
@@ -73,7 +73,7 @@ class UO_FW_MarkerControl
 		class UO_FW_MarkerControl_IndependentBriefingMarkers
 		{
 			displayName = "Independent briefing markers";
-			tooltip = "Markers which are only visible by Independent while briefing.Marker names without quotes and seperated by ,";
+			tooltip = "Markers which are only visible by Independent while briefing. Marker names without quotes and separated by ,";
 			control = "EditArray";
 			typeName = "STRING";
 			property = "UO_FW_MarkerControl_IndependentBriefingMarkers";
@@ -84,7 +84,7 @@ class UO_FW_MarkerControl
 		 class UO_FW_MarkerControl_CivilianMarkers
 		{
 			displayName = "Civilian markers";
-			tooltip = "Markers which are only visible by Civilian.Marker names without quotes and seperated by ,";
+			tooltip = "Markers which are only visible by Civilian. Marker names without quotes and separated by ,";
 			control = "EditArray";
 			typeName = "STRING";
 			property = "UO_FW_MarkerControl_CivilianMarkers";
@@ -95,7 +95,7 @@ class UO_FW_MarkerControl
 		class UO_FW_MarkerControl_CivilianBriefingMarkers
 		{
 			displayName = "Civilian briefing markers";
-			tooltip = "Markers which are only visible by Civilian while briefing.Marker names without quotes and seperated by ,";
+			tooltip = "Markers which are only visible by Civilian while briefing. Marker names without quotes and separated by ,";
 			control = "EditArray";
 			typeName = "STRING";
 			property = "UO_FW_MarkerControl_CivilianBriefingMarkers";
@@ -105,8 +105,8 @@ class UO_FW_MarkerControl
 		};
 		 class UO_FW_MarkerControl_NooneMarkers
 		{
-			displayName = "Noone markers";
-			tooltip = "Markers which are not visible.Marker names without quotes and seperated by ,";
+			displayName = "Hidden markers";
+			tooltip = "Markers which are hidden to all players. Marker names without quotes and separated by ,";
 			control = "EditArray";
 			typeName = "STRING";
 			property = "UO_FW_MarkerControl_NooneMarkers";
