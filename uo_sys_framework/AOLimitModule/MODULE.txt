@@ -1,0 +1,16 @@
+========================================================================
+
+	Module: AO Limit Module
+	Author: Olsen & Sacher
+	Date Created: ?
+	Date Last Updated: ?
+
+	Description: Allows the mission maker to set AO limits to specific sides.
+
+	Uses 3DEN Menu: Yes
+	Uses 3DEN Module: No
+	Uses PreInit Function: No
+	Uses PostInit Function: Yes
+
+
+========================================================================

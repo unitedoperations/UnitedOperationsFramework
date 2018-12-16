@@ -1,0 +1,16 @@
+========================================================================
+
+	Module: Marker Control
+	Author: Olsen & Sacher
+	Date Created: ?
+	Date Last Updated: ?
+
+	Description: Allows the mission maker to create markers visible to a single side.
+
+	Uses 3DEN Menu: Yes
+	Uses 3DEN Module: No
+	Uses PreInit Function: No
+	Uses PostInit Function: Yes
+
+
+========================================================================
