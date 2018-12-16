@@ -24,12 +24,12 @@ class CfgPatches
 class CfgFactionClasses
 {
 	class NO_CATEGORY;
-	
+
 	class UO_FrameworkCategory: NO_CATEGORY
 	{
 			displayName = "United Operations Framework";
 	};
-	
+
 	//#include "HeadlessAIModule\cfgFactionClasses.hpp"
 };
 
@@ -67,7 +67,7 @@ class CfgFunctions
 		#include "FiremissionModule\cfgFunctions.hpp"
 		#include "HostageModule\cfgFunctions.hpp"
 	};
-	
+
 	//#include "HeadlessAIModule\cfgFunctions.hpp"
 };
 
@@ -91,7 +91,7 @@ class CfgVehicles
 	};
 	//add custom cfgVehicles
 	//#include "Core\cfgVehicles.hpp"
-	
+
 	//#include "HeadlessAIModule\cfgVehicles.hpp"
 	#include "SetupTimerModule\cfgVehicles.hpp"
 	#include "CapturezoneModule\cfgVehicles.hpp"
@@ -102,8 +102,8 @@ class RscTitles
 	#include "Core\RscTitles.hpp"
 	#include "SoftAOLimitModule\RscTitles.hpp"
 	#include "SetupTimerModule\RscSetupTimer.hpp"
-	
-	
+
+
 };
 #include "FiremissionModule\RscTitles.hpp"
 class CfgNotifications
@@ -119,19 +119,19 @@ class CfgDebriefingSections
 
 class CfgSounds
 {
-	
+
 };
 
 class CfgUnitInsignia
 {
-	
+
 };
 
 class Cfg3DEN
 {
 	class Mission
 	{
-		
+
 		class UO_FW_Settings
 		{
 			displayName = "Mission Settings";
@@ -145,7 +145,7 @@ class Cfg3DEN
 				#include "Core\cfg3den\Mission\Debug.hpp"
 			};
 		};
-		
+
 		class UO_FW_Module_Settings
 		{
 			displayName = "Module Settings";
@@ -173,14 +173,14 @@ class Cfg3DEN
 		//#include "HeadlessAIModule\cfg3den\cfg3denMenu.hpp"
 		#include "ACREModule\cfg3den\cfg3denMenu.hpp"
 	};
-	
+
 	//add custom base 3den options & categories
 	class Group {
 		class AttributeCategories {
 			//#include "HeadlessAIModule\cfgAttributeCategories\Group.hpp"
 		};
 	};
-	
+
 	class Object {
 		class AttributeCategories {
 			//#include "HeadlessAIModule\cfgAttributeCategories\Object.hpp"
@@ -194,13 +194,13 @@ class Cfg3DEN
 			#include "HostageModule\cfgAttributeCategories\Object.hpp"
 		};
 	};
-	
+
 	class Logic {
 		class AttributeCategories {
 			//#include "HeadlessAIModule\cfgAttributeCategories\Logic.hpp"
 		};
 	};
-	
+
 	//Add custom configs & controls for 3den and modules
 	class Attributes
 	{
@@ -223,36 +223,31 @@ class display3DEN
 		{
 			class Items
 			{
-				class UO_FW_BasicSettings
-				{
-					text = "Load Basic Settings";
-					action = "[] call UO_FW_fnc_BasicSettings3Den;";
-				};
 				//UO menus define
 				#include "3DEN\display3DEN\Menu.hpp"
-				
+
 				//Add custom UO menus
 				//#include "HeadlessAIModule\display3DEN\Menu.hpp"
 				#include "BriefingModule\display3DEN\Menu.hpp"
 				#include "EndConditionsModule\display3DEN\Menu.hpp"
 				#include "GearModule\display3DEN\Menu.hpp"
 				#include "ACREModule\display3DEN\Menu.hpp"
-				
+
 				//tools define
 				#include "3DEN\display3DEN\MenuTools.hpp"
-				
+
 				//add custom tools menus
-				
+
 				/*class UO_FW_Tools_Folder {
 					text = "Tools";
 					items[] = {"UO_FW_Test_Mission","UO_FW_Test_Loadouts"};
 				};*/
-			
+
 				//documentation define
 				#include "3DEN\display3DEN\MenuDoc.hpp"
-				
+
 				//add custom documentation
-				
+
 				//compile UO menu folder
 				//add custom items with an additional entry in items[]
 				class UO_FW_Folder
