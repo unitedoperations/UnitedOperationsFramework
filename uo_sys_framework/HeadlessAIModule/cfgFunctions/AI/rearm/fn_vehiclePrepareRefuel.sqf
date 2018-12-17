@@ -15,7 +15,7 @@
 		[_vehicles, _count], 
 		{
 			(_this select 0) params [["_vehicles",[],[[]]],["_count",0,[0]]];
-			[_vehicles] remoteExec ['UO_AI_fnc_vehicleRefuelAllow',0];
+			[_vehicles] remoteExec ['UO_FW_AI_fnc_vehicleRefuelAllow',0];
 			hint format ["Vehicles(%1) Ready for Refueling",_count]; 
 		}, 
 		{hint "Preparing Failed!"}, 

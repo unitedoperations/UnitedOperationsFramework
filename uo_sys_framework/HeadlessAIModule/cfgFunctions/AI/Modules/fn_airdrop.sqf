@@ -16,7 +16,7 @@ params [["_mode","",[""]],["_input",[],[[]]]];
 				if !(_isActivated) exitWith {};
 				sleep 0.25;
 				if (UO_FW_AI_DEBUG) then {
-					_syncedZoneModule = [_logic,["UO_FW_ZoneModule"]] call UO_FW_fnc_getSyncedModules;
+					_syncedZoneModule = [_logic,["UO_FW_AI_ZoneModule"]] call UO_FW_AI_fnc_getSyncedModules;
 					_type = typeof _logic;
 					if (count _syncedZoneModule == 0) then {
 						(format["%1 a %2 has no Zone Modules linked.\nLink a Zone Module to create a Fast Air Strike when the Zone is activated.",_logic,_type]) call UO_FW_fnc_DebugMessage;

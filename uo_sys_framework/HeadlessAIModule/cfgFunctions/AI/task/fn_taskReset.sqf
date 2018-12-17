@@ -2,7 +2,7 @@
  * 	Arguments:
  * 		GROUP	- Group
  * Example:
- * 		_grp call UO_AI_fnc_taskReset;
+ * 		_grp call UO_FW_AI_fnc_taskReset;
  *	Author:
  *		suits & PiZZADOX
  */

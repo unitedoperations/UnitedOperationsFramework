@@ -12,7 +12,7 @@
 UO_FW_EXEC_CHECK(SERVERHC)
 params["_getBld","_bldTask","_grpSet"];
 	_grpSet params [["_bld",objNull,[objNull]],"_grp","_pos",["_radius",0,[0]],["_wait",3,[0]],["_behave","SAFE",[""]],["_combat","RED",[""]],["_speed","LIMITED",[""]],["_formation","WEDGE",[""]],["_type","MOVE",[""]],["_oncomplete","",[""]],["_compradius",0,[0]],["_bldPos",[],[[]]],["_patrol",false,[false]]];	
-	_grp call UO_AI_fnc_taskReset;
+	_grp call UO_FW_AI_fnc_taskReset;
 	private _bpos = _pos;
 	if(isNull _bld) then {
 		_bld = [_pos,_radius] call _getBld;
@@ -26,9 +26,9 @@ params["_getBld","_bldTask","_grpSet"];
 	};	
 	if(_patrol) then {
 		if(_radius < 1) then {_radius = _radius + 30;};
-		[_grp,_bpos,_radius,_wait,_behave,_combat,_speed,_formation] spawn UO_AI_fnc_taskPatrol;
+		[_grp,_bpos,_radius,_wait,_behave,_combat,_speed,_formation] spawn UO_FW_AI_fnc_taskPatrol;
 	} else {	
-		[0,"OBJECT",1,_bpos,_this] call UO_AI_fnc_createWaypointModified;	
+		[0,"OBJECT",1,_bpos,_this] call UO_FW_AI_fnc_createWaypointModified;	
 		deleteWaypoint ((waypoints _grp) select 0);	
 		while {{alive _x} count (units _grp) <= ((count (units _grp)) * 0.5) || (((getPosATL leader _grp) distance _pos) > 50)} do { sleep 5; };
 		{
@@ -38,9 +38,9 @@ params["_getBld","_bldTask","_grpSet"];
 	};
 	if(UO_FW_AI_DEBUG) then {
 		if(_patrol) then {
-			[_grp,_bpos,"BLD ERROR PATROL","ColorOPFOR"] spawn UO_AI_fnc_debugCreateMarker;
+			[_grp,_bpos,"BLD ERROR PATROL","ColorOPFOR"] spawn UO_FW_AI_fnc_debugCreateMarker;
 		} else {			
-			[_grp,_bpos,"rBldP"] spawn UO_AI_fnc_debugCreateMarker;
+			[_grp,_bpos,"rBldP"] spawn UO_FW_AI_fnc_debugCreateMarker;
 		};
 	};
 	true

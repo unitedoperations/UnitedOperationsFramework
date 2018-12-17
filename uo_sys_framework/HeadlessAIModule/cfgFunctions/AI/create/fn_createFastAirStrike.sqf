@@ -10,8 +10,8 @@
  *		ANY		- OBJECT, MARKER, LOCATION, GROUP, POSITION to determine start/spawn location, closest edge of map if empty array
  *	Return Value:
  *		TRUE
- * ["bomb"] spawn UO_AI_fnc_createFastAirStrike;
- * ["bomb",3,2,200,"rhsusf_f22","Bo_GBU12_LGB_MI10","start"] spawn UO_AI_fnc_createFastAirStrike;
+ * ["bomb"] spawn UO_FW_AI_fnc_createFastAirStrike;
+ * ["bomb",3,2,200,"rhsusf_f22","Bo_GBU12_LGB_MI10","start"] spawn UO_FW_AI_fnc_createFastAirStrike;
  */
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 UO_FW_EXEC_CHECK(SERVERHC)
@@ -28,7 +28,7 @@ UO_FW_EXEC_CHECK(SERVERHC)
 	_spos = _spos vectorAdd [0,0,_fh*3];
 	_dpos = (getPosATL _logic);
 	if(_radius > 0) then {
-		_dpos = (([_dpos,0,_radius,1] call UO_AI_fnc_getRandomPositionCircle) select 0);
+		_dpos = (([_dpos,0,_radius,1] call UO_FW_AI_fnc_getRandomPositionCircle) select 0);
 	};
 	private _dir = _spos getDir _dpos;
 	private _epos = _dpos getPos [((_amtO*70) max 350), _dir];
@@ -42,7 +42,7 @@ UO_FW_EXEC_CHECK(SERVERHC)
 				(_x) set [13,true];
 			};
 		} forEach (_ngrp select 2);
-		_grp = _ngrp call UO_AI_fnc_createGroup;
+		_grp = _ngrp call UO_FW_AI_fnc_createGroup;
 		private _bombers = (units _grp) select {_x != vehicle _x;} apply {vehicle _x};
 		_bombers = _bombers arrayIntersect _bombers;
 		{
@@ -59,9 +59,9 @@ UO_FW_EXEC_CHECK(SERVERHC)
 				};
 			};
 		} forEach _bombers;
-		[_grp,_dpos,0,0,"CARELESS","RED","FULL"] call UO_AI_fnc_createWaypoint;
-		[_grp,_epos,0,0,"CARELESS","RED","FULL"] call UO_AI_fnc_createWaypoint;	
-		[_grp,_spos,0,0,"CARELESS","RED","FULL","WEDGE","MOVE","{deleteVehicle (vehicle _x); deleteVehicle _x;} forEach thisList;",500] call UO_AI_fnc_createWaypoint;
+		[_grp,_dpos,0,0,"CARELESS","RED","FULL"] call UO_FW_AI_fnc_createWaypoint;
+		[_grp,_epos,0,0,"CARELESS","RED","FULL"] call UO_FW_AI_fnc_createWaypoint;	
+		[_grp,_spos,0,0,"CARELESS","RED","FULL","WEDGE","MOVE","{deleteVehicle (vehicle _x); deleteVehicle _x;} forEach thisList;",500] call UO_FW_AI_fnc_createWaypoint;
 		sleep 2;
 			
 		//private _b = createVehicle [_btype, _spos, [], 0, "FLY"];

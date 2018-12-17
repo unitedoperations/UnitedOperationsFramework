@@ -6,8 +6,8 @@
  */
 	params [["_u",objNull,[objNull]],["_sign",objNull,[objNull]],["_global",false,[false]]];
 	openmap true; 
-	private _posMarkerName = [_u, _global, false] call UO_AI_fnc_paraGetMarkerName;
-	private _dirMarkerName = [_u, _global, true] call UO_AI_fnc_paraGetMarkerName;
+	private _posMarkerName = [_u, _global, false] call UO_FW_AI_fnc_paraGetMarkerName;
+	private _dirMarkerName = [_u, _global, true] call UO_FW_AI_fnc_paraGetMarkerName;
 	["paradrop_location", "onMapSingleClick", { 
 		params ["_posMarkerName", "_dirMarkerName"];
 		private _dzPos = markerPos _posMarkerName;

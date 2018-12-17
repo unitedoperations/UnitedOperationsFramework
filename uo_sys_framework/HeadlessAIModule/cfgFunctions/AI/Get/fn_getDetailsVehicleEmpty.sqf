@@ -2,7 +2,7 @@
  *	Arguments:
  * 		OBJECT	- Object Name
  *	Return Value:
- * 		ARRAY 	
+ * 		ARRAY
  *	Author
  *		suits & PiZZADOX
  */
@@ -13,18 +13,17 @@ UO_FW_EXEC_CHECK(SERVERHC)
 	if(typename _unitInit isEqualTo "STRING") then {_unitInit = compile _unitInit;};
 	if(_pos isEqualTo [])then{_pos = (getposATL _obj)};
 	private _return = [
-		typeOf _obj, 
-		_pos, 
-		vectorDir _obj, 
-		vectorUp _obj, 
-		damage _obj, 
-		fuel _obj, 
-		magazinesAllTurrets _obj, 
-		locked _obj, 
+		typeOf _obj,
+		_pos,
+		vectorDir _obj,
+		vectorUp _obj,
+		damage _obj,
+		fuel _obj,
+		magazinesAllTurrets _obj,
+		locked _obj,
 		surfaceIsWater (getposATL _obj),
 		_obj getVariable ["aeUnitName",""],
 		_obj getVariable ['aePersistent',false],
-		_unitInit,
-		_obj getVariable ['aeVBIED',false]
+		_unitInit
 	];
 	_return

@@ -8,7 +8,7 @@ params [["_u",objNull,[objNull]],["_sign",objNull,[objNull]],["_global",false,[f
 	private _markerText = if(_global) then {"ASOR"} else {groupid (group _u)};
     _markerText = format["DZ %1",_markerText];
 
-    private _markerName = [_u,_global, false] call UO_AI_fnc_paraGetMarkerName;
+    private _markerName = [_u,_global, false] call UO_FW_AI_fnc_paraGetMarkerName;
     openmap true; 
     ["paradrop_location", "onMapSingleClick", { 
         _this params ["_markerText", "_markerName"];

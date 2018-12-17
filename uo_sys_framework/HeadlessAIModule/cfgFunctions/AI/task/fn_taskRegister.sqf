@@ -7,6 +7,8 @@
  *	Author
  *		suits & PiZZADOX
  */
+ #include "\x\UO_FW\addons\main\script_macros.hpp"
+ UO_FW_EXEC_CHECK(SERVERHC)
 params [["_grp",grpNull,[grpNull]],["_tasks",[],[[]]],["_visited",[],[[]]]];
 	_unvisited = + _tasks;
 	while {count _unvisited > 0 } do {
@@ -16,6 +18,6 @@ params [["_grp",grpNull,[grpNull]],["_tasks",[],[[]]],["_visited",[],[[]]]];
 		private _taskGroups = _taskModule getVariable ["UO_FW_taskGroups", []];
 		_taskGroups pushBack _grp;
 		_taskModule setVariable ["UO_FW_taskGroups", _taskGroups];
-		_unvisited = _unvisited + (([_taskModule ,["UO_FW_TaskModule"]] call UO_AI_fnc_getSyncedModules) - _visited);
+		_unvisited = _unvisited + (([_taskModule ,["UO_FW_AI_TaskModule"]] call UO_FW_AI_fnc_getSyncedModules) - _visited);
 	};
 	true

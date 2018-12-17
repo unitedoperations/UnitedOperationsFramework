@@ -11,7 +11,7 @@
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 UO_FW_EXEC_CHECK(SERVERHC)
 params [["_mode","",[""]],["_input",[],[[]]]];
-	if(isNil "UO_FW_AI_initialised") then {call UO_AI_fnc_init;};
+	if(isNil "UO_FW_AI_initialised") then {call UO_FW_AI_fnc_init;};
 	switch _mode do {
 		case "init": {
 			if !is3DEN then {
@@ -19,11 +19,11 @@ params [["_mode","",[""]],["_input",[],[[]]]];
 				if !(_isActivated) exitWith {};
 				sleep 0.25;
 
-				if(count ([_logic ,["UO_FW_ZoneModule","UO_FW_ZoneModule_R"]] call UO_AI_fnc_getSyncedModules) > 0 ) then {
+				if(count ([_logic ,["UO_FW_AI_ZoneModule","UO_FW_AI_ZoneModule_R"]] call UO_FW_AI_fnc_getSyncedModules) > 0 ) then {
 					_logic setVariable["UO_FW_taskZoneActivated",true];
 				};
 				
-				[_logic] spawn UO_AI_fnc_debugSyncedModules;
+				[_logic] spawn UO_FW_AI_fnc_debugSyncedModules;
 			};
 		};
 		case "attributesChanged3DEN": {

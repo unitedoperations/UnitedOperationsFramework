@@ -2,16 +2,16 @@
  * 	Arguments:
 		SIDE	- 0 - Side,
 		ARRAY	- 1 - Position,
-		STRING	- 2 - Behavior, 
-		STRING	- 3 - CombatMode, 
-		STRING	- 4 - Speed, 
-		STRING	- 5 - Formation, 
-		STRING	- 6 - GroupStance, 
-		STRING	- 7 - GroupInit, 
-		NUMBER 	- 8 - CreateRadius, 
-		NUMBER 	- 9 - TaskRadius, 
-		NUMBER 	- 10 - WayppointWait, 
-		BOOL	- 11 - StartBuilding, 
+		STRING	- 2 - Behavior,
+		STRING	- 3 - CombatMode,
+		STRING	- 4 - Speed,
+		STRING	- 5 - Formation,
+		STRING	- 6 - GroupStance,
+		STRING	- 7 - GroupInit,
+		NUMBER 	- 8 - CreateRadius,
+		NUMBER 	- 9 - TaskRadius,
+		NUMBER 	- 10 - WayppointWait,
+		BOOL	- 11 - StartBuilding,
 		NUMBER 	- 12 - Task,
 		NUMBER 	- 13 - TaskTimer,
 		NUMBER 	- 14 - Multiplier,
@@ -20,18 +20,17 @@
 		ARRAY	- 17 - Waypoints
 		BOOL	- 18 - OnWater
 		ARRAY	- 19 - Task Modules
-		BOOL	- 20 - aeHeadless
-		BOOL	- 21 - aeForceLights
-		BOOL	- 22 - aeSurrender
-		BOOL	- 23 - aeTracker
-		BOOL	- 24 - ParaEnable
-		NUMBER 	- 25 - ParaHeight
-		NUMBER 	- 26 - ParaDirection
-		NUMBER 	- 27 - ParaColMaxLength
-		NUMBER 	- 28 - ParaSpacing
-		NUMBER 	- 29 - ParaSpread
-		BOOL	- 30 - ParaSmoke
-		BOOL	- 31 - ParaRealism
+		BOOL	- 20 - aeForceLights
+		BOOL	- 21 - aeSurrender
+		BOOL	- 22 - aeTracker
+		BOOL	- 23 - ParaEnable
+		NUMBER 	- 24 - ParaHeight
+		NUMBER 	- 25 - ParaDirection
+		NUMBER 	- 26 - ParaColMaxLength
+		NUMBER 	- 27 - ParaSpacing
+		NUMBER 	- 28 - ParaSpread
+		BOOL	- 29 - ParaSmoke
+		BOOL	- 30 - ParaRealism
  * 	Return Value:
  * 		BOOL 	- True
  *	Author
@@ -61,12 +60,11 @@ _grpSet params [
 	/*17*/	"_waypoints",
 	/*18*/	"_onWater",
 	/*19*/	"_tasks",
-	/*20*/	"_hc",
-	/*21*/	"_fl",
-	/*22*/	"_surrender",
-	/*23*/	"_tracker"
+	/*20*/	"_fl",
+	/*21*/	"_surrender",
+	/*22*/	"_tracker"
 	];
-	_grp setVariable ['aeGroupPos',_gpos]; 
+	_grp setVariable ['aeGroupPos',_gpos];
 	_grp setVariable ['aeBehaviour',_behave];
 	_grp setVariable ['aeCombatMode',_combat];
 	_grp setVariable ['aeSpeed',_speed];
@@ -75,21 +73,19 @@ _grpSet params [
 	_grp setVariable ['aeWaypointWait',_wait];
 	_grp setVariable ['aeTask',_task];
 	_grp setVariable ['aeTaskTimer',_taskTimer];
-	_grp setVariable ['aeOccupyOption',_occupyOption]; 
+	_grp setVariable ['aeOccupyOption',_occupyOption];
 	_grp setVariable ['aeWaypoints',_waypoints];
 	_grp setVariable ['aeTasks',_tasks];
-	_grp setVariable ['aeHeadless',_hc];
 	_grp setVariable ['aeForceLights',_fl];
 	_grp setVariable ['aeSurrender',_surrender];
 	_grp setVariable ['aeTracker',_tracker];
-	//_grp call UO_AI_fnc_taskReset;
-	[_grp,_behave,_combat,_speed,_formation] call UO_AI_fnc_setGroupBehaviour;
+	//_grp call UO_FW_AI_fnc_taskReset;
+	[_grp,_behave,_combat,_speed,_formation] call UO_FW_AI_fnc_setGroupBehaviour;
 	{
-		[_x,_hc] call UO_AI_fnc_setHeadless;
 		_x setUnitPos _grpStance;
 		if(!isNull(assignedVehicle _x)) then {[_x] orderGetIn true;};
 	} forEach (units _grp);
-	if(_fl) then {[_grp] call UO_AI_fnc_setFlashlights;};
-	if(_surrender) then {[_grp] call UO_AI_fnc_setSurrender;};
+	if(_fl) then {[_grp] call UO_FW_AI_fnc_setFlashlights;};
+	if(_surrender) then {[_grp] call UO_FW_AI_fnc_setSurrender;};
 	_grp spawn _grpinit;
 	true

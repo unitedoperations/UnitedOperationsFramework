@@ -1,1 +1,1 @@
-[_this select 0,["Prepare Vehicles for Refueling","[] spawn UO_AI_fnc_vehiclePrepareRefuel"],7,[0,0,0.5]] call UO_AI_fnc_createAction;
+[_this select 0,["Prepare Vehicles for Refueling","[] spawn UO_FW_AI_fnc_vehiclePrepareRefuel"],7,[0,0,0.5]] call UO_FW_AI_fnc_createAction;

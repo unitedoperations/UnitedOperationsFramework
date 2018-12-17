@@ -32,19 +32,19 @@ params [
 	["_speed","LIMITED",[""]],
 	["_formation","WEDGE",[""]],
 	["_type","MOVE",[""]],
-	["_oncomplete","this call UO_AI_fnc_taskSearchNearby",[""]],
+	["_oncomplete","this call UO_FW_AI_fnc_taskSearchNearby",[""]],
 	["_compradius",0,[0]],
 	["_wpcount",10,[0]],
 	"_i"
 ];
-	_grp call UO_AI_fnc_taskReset;
+	_grp call UO_FW_AI_fnc_taskReset;
 	_pos = [_pos,_grp] select (_pos isEqualTo []);
 	_pos = _pos call CBA_fnc_getPos;
 	for [{_i=0},{(_i < _wpcount)},{_i = _i + 1}] do {
-		_wp = _this call UO_AI_fnc_createWaypoint;
+		_wp = _this call UO_FW_AI_fnc_createWaypoint;
 	};
 	_this2 =+ _this;
 	_this2 set [8, "CYCLE"];
-	_this2 call UO_AI_fnc_createWaypoint;
+	_this2 call UO_FW_AI_fnc_createWaypoint;
 	deleteWaypoint ((waypoints _grp) select 0);
 	true

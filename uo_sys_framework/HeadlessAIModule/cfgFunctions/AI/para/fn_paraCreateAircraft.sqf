@@ -21,5 +21,5 @@ params [["_u",objNull,[objNull]],["_vehPos",[],[[]]],["_dropDir",0,[0]],["_aircr
 	_b setVelocity [((velocity _b) select 0) + (sin _dropDir * 120),((velocity _b) select 1) + (cos _dropDir * 120),((velocity _b) select 2)];  
 	_b flyInHeight ((_spos select 2)*0.5);
 	_grp = (group (driver _b));
-	[_grp,_epos,0,0,"CARELESS","RED","FULL","WEDGE","MOVE","{deleteVehicle (vehicle _x); deleteVehicle _x;} forEach thisList;",300] call UO_AI_fnc_createWaypoint;
+	[_grp,_epos,0,0,"CARELESS","RED","FULL","WEDGE","MOVE","{deleteVehicle (vehicle _x); deleteVehicle _x;} forEach thisList;",300] call UO_FW_AI_fnc_createWaypoint;
 	true

@@ -5,7 +5,9 @@
  * 		ARRAY 	- Entities linked to object
  *	Author
  *		suits & PiZZADOX
- */	 
+ */
+ #include "\x\UO_FW\addons\main\script_macros.hpp"
+ UO_FW_EXEC_CHECK(SERVERHC)
 	private _tasks = _this;
 	private _zoneTasks = [];
 	{

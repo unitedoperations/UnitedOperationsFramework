@@ -12,7 +12,7 @@
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 UO_FW_EXEC_CHECK(SERVERHC)
 params["_grp",["_behave","SAFE",[""]],["_combat","RED",[""]],["_speed","LIMITED",[""]],["_formation","WEDGE",[""]],"_i"];
-	_grp call UO_AI_fnc_taskReset;
+	_grp call UO_FW_AI_fnc_taskReset;
 	_grp setBehaviour _behave;
 	_grp setCombatMode _combat;
 	_grp setSpeedMode _speed;

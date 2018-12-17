@@ -10,7 +10,7 @@
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 UO_FW_EXEC_CHECK(SERVERHC)
 params ["_pos","_veh","_side"];
-	_veh params ["_uv","_uc","_vpos","_vcd","_vcu","_dmg","_f","_a","_vlc","_vw","_name","_per","_init","_fly","_flyInHeight","_vbied"];
+	_veh params ["_uv","_uc","_vpos","_vcd","_vcu","_dmg","_f","_a","_vlc","_vw","_name","_per","_init","_fly","_flyInHeight"];
 	private _flying = if(_fly && (_uc isKindOf "Air")) then {"FLY"}else{"NONE"};
 	if(_flying == "FLY")then {
 		_pos = ([_pos select 0, _pos select 1, _flyInHeight] vectorAdd [0,0,150]);
@@ -47,7 +47,6 @@ params ["_pos","_veh","_side"];
 			};
 		};
 	};
-	[_v,_per] call UO_AI_fnc_setPersistent;
-	[_v,_vbied] call UO_AI_fnc_iedCreateVBIED;
+	[_v,_per] call UO_FW_AI_fnc_setPersistent;
 	_v spawn _init;
 	_v

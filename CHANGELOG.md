@@ -1,19 +1,31 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 Version Numbers mainly refer to the UO Modpack addition.
+
 ## [Unreleased]
+### Added
+- [HC] Enabled module
+
 ### Changed
+- Build batch made dynamic to dir path and game registry path
+- Changed all Tracking/Untracking functions to include a server locality check and recall
+- Changed `BIS_fnc_MP` calls to `remoteExec`
+
+### Fixed
+- [HC] Collecting/Spawning function
+
+### Removed
+- [HC] Artillery & IED functions
 
 ## [1.0.2] - 2018-12-02
 ### Added
 
 ### Changed
-- Build batch made dynamic to dir path and game registry path
 
 ### Fixed
 - Endconditions script not running properly
 - Parachute jip error
-- Acre APi 
+- Acre APi
 - Acre Channel Names
 - Setuptimer client race condition error
 ### Removed
@@ -34,5 +46,3 @@ Version Numbers mainly refer to the UO Modpack addition.
 - Gear locality
 - Gear works more reliable
 ### Removed
-
-

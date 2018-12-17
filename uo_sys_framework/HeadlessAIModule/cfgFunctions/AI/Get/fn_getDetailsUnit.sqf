@@ -2,7 +2,7 @@
  *	Arguments:
  * 		OBJECT	- Object Name
  *	Return Value:
- * 		ARRAY 	
+ * 		ARRAY
  *	Author
  *		suits & PiZZADOX
  */
@@ -14,23 +14,23 @@ UO_FW_EXEC_CHECK(SERVERHC)
 	private _vehAssigned = if((assignedVehicleRole _u) isEqualTo [])then{false}else{true};
 	_return = [
 		true,
-		typeOf _u, 
+		typeOf _u,
 		_pos,
-		false, 
-		vectorDir _u, 
-		vectorUp _u, 
-		damage _u, 
-		getUnitLoadout _u, 
-		typeOf _veh, 
+		false,
+		vectorDir _u,
+		vectorUp _u,
+		damage _u,
+		getUnitLoadout _u,
+		typeOf _veh,
 		assignedVehicleRole _u,
 		_vehAssigned,
-		_u getVariable ["ACE_captives_isHandcuffed",false], 
-		(surfaceIsWater (getposATL _u)), 							
-		_u getVariable ['aePersistent',false], 
-		_u getVariable ['aeStance','auto'], 
-		_u getVariable ['aeRemove',0], 
-		_unitInit, 
-		_u getVariable ['aeUnitName',""], 
-		_u getVariable ['aeUnitIdentity',""]							
-	];	
+		_u getVariable ["ACE_captives_isHandcuffed",false],
+		(surfaceIsWater (getposATL _u)),
+		_u getVariable ['aePersistent',false],
+		_u getVariable ['aeStance','auto'],
+		_u getVariable ['aeRemove',0],
+		_unitInit,
+		_u getVariable ['aeUnitName',""],
+		_u getVariable ['aeUnitIdentity',""]
+	];
 	_return

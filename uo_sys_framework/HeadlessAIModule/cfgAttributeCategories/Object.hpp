@@ -1,6 +1,6 @@
 
 class UO_FW_UnitOptions {
-	displayName = "AI Unit Options"; 
+	displayName = "AI Unit Options";
 	collapsed = 0;
 	class Attributes {
 		class aeUnitName {
@@ -27,7 +27,7 @@ class UO_FW_UnitOptions {
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "false";
 			typeName = "BOOL";
-		};					
+		};
 		class aeStance {
 			displayName = "Stance";
 			tooltip = "Force the stance of the unit. Default: AUTO";
@@ -65,16 +65,6 @@ class UO_FW_UnitOptions {
 			defaultValue = "false";
 			typeName = "BOOL";
 		};
-		class aeVBIED {
-			displayName = "Vehicle IED";
-			tooltip = "Is this vehicle a Vehicle Born Improvised Explosive Device - VBIED. Default: False";
-			property = "UO_FW_vbied";
-			control = "UO_FW_boolControl";
-			expression = "_this setVariable ['%s',_value,true];";
-			condition = "objectVehicle";
-			defaultValue = "false";
-			typeName = "BOOL";
-		};
 		class aeFlyInHeight {
 			displayName = "Flight Height";
 			tooltip = "Set the unit flying height. Default: 250";
@@ -100,12 +90,10 @@ class UO_FW_UnitOptions {
 			control = "UO_FW_codeunitControl";
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "";
-		};	
+		};
 	};
 };
 class Init : Init {collapsed = 1;};
 class Transformation : Transformation {collapsed = 1;};
 class Control : Control {collapsed = 1;};
 class State : State {collapsed = 1;};
-
-

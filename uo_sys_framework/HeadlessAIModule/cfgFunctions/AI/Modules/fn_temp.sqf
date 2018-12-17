@@ -19,7 +19,7 @@ switch _mode do {
 			if !(_isActivated) exitWith {};
 			sleep 0.1;
 			if (UO_FW_AI_DEBUG) then {
-				[_logic] spawn UO_AI_fnc_debugSyncedModules;	
+				[_logic] spawn UO_FW_AI_fnc_debugSyncedModules;	
 			};
 		} else {
 			_logic = _input param [0,objNull,[objNull]];

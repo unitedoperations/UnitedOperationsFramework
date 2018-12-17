@@ -9,9 +9,9 @@
  *		ANY		- OBJECT, MARKER, LOCATION, GROUP, POSITION to determine start/spawn location, closest edge of map if empty array 
  *	Return Value:
  *		TRUE
- * ["drop",[groups],height,helitype,"start"] spawn UO_AI_fnc_createHeloInsert;
- * [3,"drop","ASOR_Ammo_Inf_Air",120,"start",true,true,"asor_opfor_pla_mi8_cargo"] spawn UO_AI_fnc_createAirResupply;
- * [3,"drop","bma3_bushmaster_pws127mm_F",120,"start",false,false] spawn UO_AI_fnc_createAirResupply;
+ * ["drop",[groups],height,helitype,"start"] spawn UO_FW_AI_fnc_createHeloInsert;
+ * [3,"drop","Box_NATO_Ammo_F",120,"start",true,true,"asor_opfor_pla_mi8_cargo"] spawn UO_FW_AI_fnc_createAirResupply;
+ * [3,"drop","bma3_bushmaster_pws127mm_F",120,"start",false,false] spawn UO_FW_AI_fnc_createAirResupply;
  * [HELI_NAME] call AR_Rappel_All_Cargo
  */
 #include "\x\UO_FW\addons\main\script_macros.hpp"
@@ -28,7 +28,7 @@ UO_FW_EXEC_CHECK(SERVERHC)
 		_dpos = [_dpos select 0,_dpos select 1,0];
 		[_logic,(_grps select _j),_spos,_dpos] spawn {
 			params["_logic","_group","_spos","_dpos"];
-			private _grp = _group call UO_AI_fnc_createGroup;
+			private _grp = _group call UO_FW_AI_fnc_createGroup;
 			private _h = (driver (vehicle (leader _grp)));
 			if((driver _h) isEqualTo (leader _grp) ) then {
 				_h setPosATL _spos;
@@ -37,11 +37,11 @@ UO_FW_EXEC_CHECK(SERVERHC)
 				_h flyInHeight _fh;				
 				if((_logic getVariable 'aeHIInsertType') isEqualTo 1) then {
 					private _helipad = "Land_HelipadEmpty_F" createVehicle _dpos;
-					[_grp,_dpos,0,0,"CARELESS","RED","NORMAL","COLUMN","TR UNLOAD","this land 'LAND';"] call UO_AI_fnc_createWaypoint;
+					[_grp,_dpos,0,0,"CARELESS","RED","NORMAL","COLUMN","TR UNLOAD","this land 'LAND';"] call UO_FW_AI_fnc_createWaypoint;
 				} else {
-					[_grp,_dpos,0,0,"CARELESS","RED","NORMAL","COLUMN","TR UNLOAD","ADD RAPPEL SCRIPT"] call UO_AI_fnc_createWaypoint;
+					[_grp,_dpos,0,0,"CARELESS","RED","NORMAL","COLUMN","TR UNLOAD","ADD RAPPEL SCRIPT"] call UO_FW_AI_fnc_createWaypoint;
 				};
-				[_grp,_spos,0,0,"CARELESS","RED","FULL","WEDGE","MOVE","{deleteVehicle (vehicle _x); deleteVehicle _x;} forEach thisList;",100] call UO_AI_fnc_createWaypoint;
+				[_grp,_spos,0,0,"CARELESS","RED","FULL","WEDGE","MOVE","{deleteVehicle (vehicle _x); deleteVehicle _x;} forEach thisList;",100] call UO_FW_AI_fnc_createWaypoint;
 				waitUntil{sleep 0.2; ((_h distance _dpos) < 2000 || !alive _h);}; 
 				private _speed = speed _h;
 				private _hIncr = _fh*0.5;

@@ -5,19 +5,21 @@
  *	Return Value:
  *		TRUE
  */
- 
-	//[_sign,["Set SQUAD Drop Zone",{[player] spawn UO_AI_fnc_setParaLocation},[]],2,[.2,0,0.3]] spawn ASOR_fnc_globalddAction;
-	//[_sign,["Set ALL Drop Zone",{[player] spawn UO_AI_fnc_setParaLocationAll},[]],2,[.2,0,0.35]] spawn ASOR_fnc_globalddAction;
-	//[_sign,["Initiate SQUAD Para Insertion",{[player] spawn UO_AI_fnc_paraStart},[]],2,[-.2,0,0.4]] spawn ASOR_fnc_globalddAction;
-if(!isServer) exitWith {_this remoteExec ["UO_AI_fnc_paraStart",[0,2] select isMultiplayer];};
+
+	//[_sign,["Set SQUAD Drop Zone",{[player] spawn UO_FW_AI_fnc_setParaLocation},[]],2,[.2,0,0.3]] spawn UO_FW_AI_fnc_globalddAction;
+	//[_sign,["Set ALL Drop Zone",{[player] spawn UO_FW_AI_fnc_setParaLocationAll},[]],2,[.2,0,0.35]] spawn UO_FW_AI_fnc_globalddAction;
+	//[_sign,["Initiate SQUAD Para Insertion",{[player] spawn UO_FW_AI_fnc_paraStart},[]],2,[-.2,0,0.4]] spawn UO_FW_AI_fnc_globalddAction;
+//if(!isServer) exitWith {_this remoteExec ["UO_FW_AI_fnc_paraStart",[0,2] select isMultiplayer];};
+#include "\x\UO_FW\addons\main\script_macros.hpp"
+UO_FW_EXEC_CHECK(SERVERHC)
 	params [["_u",objNull,[objNull]],["_s",objNull,[objNull]],["_global",false,[false]],["_currentRow",0,[0]],["_currentColumn",0,[0]],["_clients",[],[[]]],["_ldrs",[],[[]]],["_vehPos",[],[[]]]];
-	
+
 	private _dropHeight = _s getVariable["aeDropHeight",3000];
 	private _paraSmoke = _s getVariable["aeParaSmoke",false];
-			
+
 	private _units = if(_global) then { (_u nearEntities [["Man"],30]) } else {units (group _u)};
-	private _posMarker = [_u, _global, false] call UO_AI_fnc_paraGetMarkerName;
-	private _dirMarker = [_u, _global, true] call UO_AI_fnc_paraGetMarkerName;
+	private _posMarker = [_u, _global, false] call UO_FW_AI_fnc_paraGetMarkerName;
+	private _dirMarker = [_u, _global, true] call UO_FW_AI_fnc_paraGetMarkerName;
 
 	private _dropDir = (markerDir _dirMarker);
 	private _dropZone = markerPos _posMarker;
@@ -26,18 +28,16 @@ if(!isServer) exitWith {_this remoteExec ["UO_AI_fnc_paraStart",[0,2] select isM
 	_planePos set [2, _dropHeight];
 
 	{
-		if (_paraSmoke) then {_ldrs pushBackUnique (leader (group (vehicle _x)));};	
-		_clients pushBackUnique owner _x;			
-	} forEach _units; 
+		if (_paraSmoke) then {_ldrs pushBackUnique (leader (group (vehicle _x)));};
+		_clients pushBackUnique owner _x;
+	} forEach _units;
 	private _vehs = _units select {(vehicle _x) != _x } apply { moveOut _x; vehicle _x };
 	_vehs = _vehs arrayIntersect _vehs;
-	{2 cutText ["", "BLACK OUT", 5];} remoteExec ["BIS_fnc_spawn", _clients];
-	[] remoteExec ["UO_AI_fnc_paraBackpackSave", _units];
-	sleep 5;	
+	sleep 5;
 	{
 		moveOut _x;
-		private _upos = (([[-floor(2*0.5*20),0,0],_dropDir] call BIS_fnc_rotateVector2D) vectorAdd _dropZone) vectorAdd 
-		(([[20,0,0],_dropDir] call BIS_fnc_rotateVector2D) vectorMultiply _currentColumn) vectorAdd 
+		private _upos = (([[-floor(2*0.5*20),0,0],_dropDir] call BIS_fnc_rotateVector2D) vectorAdd _dropZone) vectorAdd
+		(([[20,0,0],_dropDir] call BIS_fnc_rotateVector2D) vectorMultiply _currentColumn) vectorAdd
 		(([[0,30,0],_dropDir] call BIS_fnc_rotateVector2D) vectorMultiply _currentRow);
 		removeBackpackGlobal _x;
 		_x addBackpackGlobal "B_Parachute";
@@ -55,12 +55,10 @@ if(!isServer) exitWith {_this remoteExec ["UO_AI_fnc_paraStart",[0,2] select isM
 		_vehPos set [2, _dropHeight];
 		private _v = _vehs select _i;
 		_v setPosATL _vehPos;
-		[_v,false,_paraSmoke] spawn UO_AI_fnc_paraVehicle; 		
+		[_v,false,_paraSmoke] spawn UO_FW_AI_fnc_paraVehicle;
 	};
 
-//	[(_units select 0), _planePos,_dropDir,"RHS_C130J"] spawn UO_AI_fnc_paraCreateAircraft;
-	{2 cutText ["", "BLACK IN", 3];} remoteExec ["BIS_fnc_spawn", _clients];
-	[] remoteExec ["UO_AI_fnc_paraBackpackLoad", _units];
+//	[(_units select 0), _planePos,_dropDir,"RHS_C130J"] spawn UO_FW_AI_fnc_paraCreateAircraft;
 	if (_paraSmoke) then {
 		{
 			[_x] spawn {

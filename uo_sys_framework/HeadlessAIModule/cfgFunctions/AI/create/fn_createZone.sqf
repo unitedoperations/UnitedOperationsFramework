@@ -10,7 +10,7 @@
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 UO_FW_EXEC_CHECK(SERVERHC)
 params [["_zone",objNull,[objNull]],["_entities",[],[[]]],["_delay",0,[0]],["_code",{},[{}]]];
-	sleep _delay;	
+	sleep _delay;
 	_entities params [["_grps",[],[[]]],["_emptyvehs",[],[[]]],["_objs",[],[[]]]];
 	{
 		private _veh = _x;
@@ -18,7 +18,7 @@ params [["_zone",objNull,[objNull]],["_entities",[],[[]]],["_delay",0,[0]],["_co
 		_v setPosATL (_veh select 1);
 		_v setVectorDirAndUp [_veh select 2,_veh select 3];
 		_v setDamage (_veh select 4);
-		_v setFuel (_veh select 5);		 
+		_v setFuel (_veh select 5);
 		{
 			_x params [["_class","",[""]],["_path",[],[[]]],["_ammo",0,[0]]];
 			_v setMagazineTurretAmmo [_class,_ammo,_path];
@@ -27,8 +27,7 @@ params [["_zone",objNull,[objNull]],["_entities",[],[[]]],["_delay",0,[0]],["_co
 		if((count (_veh select 9)) > 1) then {
 			missionNamespace setVariable[(_veh select 9), _v];
 		};
-		[_v,(_veh select 10)] call UO_AI_fnc_setPersistent;
-		[_v,(_veh select 12)] call UO_AI_fnc_iedCreateVBIED;
+		[_v,(_veh select 10)] call UO_FW_AI_fnc_setPersistent;
 		_v spawn (_veh select 11);
 		sleep 0.25;
 	} forEach _emptyvehs;
@@ -42,25 +41,25 @@ params [["_zone",objNull,[objNull]],["_entities",[],[[]]],["_delay",0,[0]],["_co
 		if((count (_obj select 6)) > 1) then {
 			missionNamespace setVariable[(_obj select 6), _o];
 		};
-		[_o,(_obj select 7)] call UO_AI_fnc_setPersistent;		
+		[_o,(_obj select 7)] call UO_FW_AI_fnc_setPersistent;
 		_o spawn (_obj select 8);
 		sleep 0.25;
 	} forEach _objs;
 	{
 		_x params ["_grpid","_grpSet","_grpMem"];
 		if((_grpSet select 15) > 0 && !(_grpSet select 16) && (_grpSet select 12) < 6) then {
-			_x spawn UO_AI_fnc_createOccupyGroup;
-			
+			_x spawn UO_FW_AI_fnc_createOccupyGroup;
+
 		} else {
-			if(_grpSet select 24) then {
-				_x spawn UO_AI_fnc_createParaGroup;
+			if(_grpset select 23) then {
+				_x spawn UO_FW_AI_fnc_createParaGroup;
 			} else {
-				_x spawn UO_AI_fnc_createGroup;
+				_x spawn UO_FW_AI_fnc_createGroup;
 			};
 		};
 		sleep 0.25;
 	} forEach _grps;
 	[_zone] spawn _code;
 	sleep 3;
-	([_zone,["UO_FW_TaskModule"]] call UO_AI_fnc_getSyncedModules) spawn UO_AI_fnc_taskActivate;
+	([_zone,["UO_FW_AI_TaskModule"]] call UO_FW_AI_fnc_getSyncedModules) spawn UO_FW_AI_fnc_taskActivate;
 	true

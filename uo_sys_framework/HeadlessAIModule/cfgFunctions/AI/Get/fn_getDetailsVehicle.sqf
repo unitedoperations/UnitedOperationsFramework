@@ -2,7 +2,7 @@
  *	Arguments:
  * 		OBJECT	- Object Name
  *	Return Value:
- * 		ARRAY 	
+ * 		ARRAY
  *	Author
  *		suits & PiZZADOX
  */
@@ -14,20 +14,19 @@ UO_FW_EXEC_CHECK(SERVERHC)
 	if(_pos isEqualTo [])then{_pos = getPosATL _obj;};
 	private _return = [
 		false,
-		typeOf _obj, 
-		_pos, 
-		vectorDir _obj, 
-		vectorUp _obj, 
-		damage _obj, 
-		fuel _obj, 
-		magazinesAllTurrets _obj, 
-		locked _obj, 
+		typeOf _obj,
+		_pos,
+		vectorDir _obj,
+		vectorUp _obj,
+		damage _obj,
+		fuel _obj,
+		magazinesAllTurrets _obj,
+		locked _obj,
 		surfaceIsWater (getposATL _obj),
 		_obj getVariable ["aeUnitName",""],
 		_obj getVariable ['aePersistent',false],
-		_unitInit, 
+		_unitInit,
 		_obj getVariable ['aeFlying',false],
-		_obj getVariable ['aeFlyInHeight',250],
-		_obj getVariable ['aeVBIED',false]
-	];	
+		_obj getVariable ['aeFlyInHeight',250]
+	];
 	_return

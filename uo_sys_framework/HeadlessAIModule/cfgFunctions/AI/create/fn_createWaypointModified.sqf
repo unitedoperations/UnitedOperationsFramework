@@ -18,5 +18,5 @@ params[["_s",0,[0]],["_t","OBJECT",[""]],["_a",1,[0]],"_var",["_array",[],[[]]]]
 	};
 	_array set [_a,_var];
 	_array set [2,0];
-	private _wp = _array call UO_AI_fnc_createWaypoint;
+	private _wp = _array call UO_FW_AI_fnc_createWaypoint;
 	true

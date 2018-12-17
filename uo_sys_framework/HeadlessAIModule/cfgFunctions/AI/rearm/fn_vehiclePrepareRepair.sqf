@@ -16,7 +16,7 @@
 		{
 			(_this select 0) params [["_vehicles",[],[[]]],["_count",0,[0]]];		
 			if (_count > 0) then {
-				[_vehicles] remoteExec ['UO_AI_fnc_vehicleRepairAllow',0];
+				[_vehicles] remoteExec ['UO_FW_AI_fnc_vehicleRepairAllow',0];
 				hint format ["Vehicles(%1) Ready for Repairing",_count]; 				
 			} else {
 				hint"No Vehicles Require Repairs";

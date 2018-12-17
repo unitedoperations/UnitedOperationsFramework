@@ -12,9 +12,9 @@
  * 	Return Value:
  *		ARRAY 	- Safe Positions
  * 	Examples:
- *		[[_cPos],_numPos,[_range],_gradientPos,_roadPos,_waterPos,_ignoreObjectPos] call UO_AI_fnc_getSafePos;
- *		[[0,0,0],10,[0,20],0.7,false,false,objNull] call UO_AI_fnc_getSafePos;
- *		[position player,3,[0,50],0.7,false,false,objNull] call UO_AI_fnc_getSafePos;
+ *		[[_cPos],_numPos,[_range],_gradientPos,_roadPos,_waterPos,_ignoreObjectPos] call UO_FW_AI_fnc_getSafePos;
+ *		[[0,0,0],10,[0,20],0.7,false,false,objNull] call UO_FW_AI_fnc_getSafePos;
+ *		[position player,3,[0,50],0.7,false,false,objNull] call UO_FW_AI_fnc_getSafePos;
  */
  private["_cPos","_numPos","_range","_rangeMin","_rangeMax","_gradientPos","_roadPos","_water","_ignoreObject","_minSpacingPos","_returnPos","_waterPos","_i","_maxIter","_randomPos","_randomDir","_ramdomDist","_tempPos","_checkPos","_nearRoads","_road","_isWater"];
 	params [["_cPos",[0,0,0],[[]],[3]],["_numPos",0,[0]],["_range",[],[[]],[2]],["_gradientPos",0.7,[0]],["_roadPos",false,[false]],["_water",false,[false]],["_ignoreObject",objNull,[objNull]]];

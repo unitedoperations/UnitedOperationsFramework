@@ -15,7 +15,7 @@
 		[_vehicles, _count], 
 		{
 			(_this select 0) params [["_vehicles",[],[[]]],["_count",0,[0]]];
-			[_vehicles] remoteExec ['UO_AI_fnc_vehicleRearmAllow',0];
+			[_vehicles] remoteExec ['UO_FW_AI_fnc_vehicleRearmAllow',0];
 			hint format ["Vehicles(%1) Ready for Rearming",_count]; 
 		}, 
 		{hint "Preparing Failed!"}, 

@@ -30,7 +30,7 @@ class CfgFactionClasses
 			displayName = "United Operations Framework";
 	};
 
-	//#include "HeadlessAIModule\cfgFactionClasses.hpp"
+	#include "HeadlessAIModule\cfgFactionClasses.hpp"
 };
 
 class CfgFunctions
@@ -68,7 +68,7 @@ class CfgFunctions
 		#include "HostageModule\cfgFunctions.hpp"
 	};
 
-	//#include "HeadlessAIModule\cfgFunctions.hpp"
+	#include "HeadlessAIModule\cfgFunctions.hpp"
 };
 
 class CfgVehicles
@@ -92,7 +92,7 @@ class CfgVehicles
 	//add custom cfgVehicles
 	//#include "Core\cfgVehicles.hpp"
 
-	//#include "HeadlessAIModule\cfgVehicles.hpp"
+	#include "HeadlessAIModule\cfgVehicles.hpp"
 	#include "SetupTimerModule\cfgVehicles.hpp"
 	#include "CapturezoneModule\cfgVehicles.hpp"
 };
@@ -151,7 +151,7 @@ class Cfg3DEN
 			displayName = "Module Settings";
 			class AttributeCategories
 			{
-								//add module settings here
+				//add module settings here
 				#include "AIDriversModule\cfg3den\Modules\AIDrivers.hpp"
 				#include "AILinkModule\cfgAttributeCategories\mission\AILink.hpp"
 				#include "AOLimitModule\cfg3den\Modules\AOLimit.hpp"
@@ -170,20 +170,20 @@ class Cfg3DEN
 		//add custom mission 3den editor categories
 		#include "EndConditionsModule\cfg3den\cfg3denMenu.hpp"
 		#include "BriefingModule\cfg3den\cfg3denMenu.hpp"
-		//#include "HeadlessAIModule\cfg3den\cfg3denMenu.hpp"
+		#include "HeadlessAIModule\cfg3den\cfg3denMenu.hpp"
 		#include "ACREModule\cfg3den\cfg3denMenu.hpp"
 	};
 
 	//add custom base 3den options & categories
 	class Group {
 		class AttributeCategories {
-			//#include "HeadlessAIModule\cfgAttributeCategories\Group.hpp"
+			#include "HeadlessAIModule\cfgAttributeCategories\Group.hpp"
 		};
 	};
 
 	class Object {
 		class AttributeCategories {
-			//#include "HeadlessAIModule\cfgAttributeCategories\Object.hpp"
+			#include "HeadlessAIModule\cfgAttributeCategories\Object.hpp"
 			#include "TeamColourModule\cfgAttributeCategories\Object.hpp"
 			#include "GearModule\cfg3den\UnitGear.hpp"
 			#include "ACREModule\cfgAttributeCategories\Object.hpp"
@@ -197,7 +197,7 @@ class Cfg3DEN
 
 	class Logic {
 		class AttributeCategories {
-			//#include "HeadlessAIModule\cfgAttributeCategories\Logic.hpp"
+			#include "HeadlessAIModule\cfgAttributeCategories\Logic.hpp"
 		};
 	};
 
@@ -207,7 +207,7 @@ class Cfg3DEN
 		#include "3DEN\CfgAttributes.hpp"
 		#include "Core\CfgAttributes.hpp"
 		#include "EndConditionsModule\CfgAttributes.hpp"
-		//#include "HeadlessAIModule\CfgAttributes.hpp"
+		#include "HeadlessAIModule\CfgAttributes.hpp"
 		#include "TeamColourModule\CfgAttributes.hpp"
 		#include "StartInParachuteModule\CfgAttributes.hpp"
 		#include "JipModule\CfgAttributes.hpp"
@@ -227,7 +227,7 @@ class display3DEN
 				#include "3DEN\display3DEN\Menu.hpp"
 
 				//Add custom UO menus
-				//#include "HeadlessAIModule\display3DEN\Menu.hpp"
+				#include "HeadlessAIModule\display3DEN\Menu.hpp"
 				#include "BriefingModule\display3DEN\Menu.hpp"
 				#include "EndConditionsModule\display3DEN\Menu.hpp"
 				#include "GearModule\display3DEN\Menu.hpp"
@@ -254,7 +254,7 @@ class display3DEN
 				{
 					text = "UO Framework";
 					//items[] = {"UO_FW_Settings","UO_FW_Module_Settings","UO_FW_EndConditions_Settings","UO_FW_Briefing_Folder","UO_FW_ACRE_Folder","UO_FW_AI_Settings","UO_FW_Tools_Folder","UO_FW_Documentation"};
-					items[] = {"UO_FW_BasicSettings","UO_FW_Settings","UO_FW_Module_Settings","UO_FW_Gear_Settings","UO_FW_EndConditions_Folder","UO_FW_ACRE_Folder","UO_FW_Briefing_Folder","UO_FW_Documentation"};
+					items[] = {"UO_FW_Settings","UO_FW_Module_Settings","UO_FW_Gear_Settings","UO_FW_EndConditions_Folder","UO_FW_ACRE_Folder","UO_FW_Briefing_Folder","UO_FW_AI_Settings","UO_FW_Documentation"};
 				};
 				//compile main menu
 				items[] += {"UO_FW_Folder"};

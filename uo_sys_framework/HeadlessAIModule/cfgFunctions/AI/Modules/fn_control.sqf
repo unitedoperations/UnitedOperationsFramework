@@ -12,7 +12,7 @@
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 UO_FW_EXEC_CHECK(SERVERHC)
 params [["_mode","",[""]],["_input",[],[[]]]];
-	if(isNil "UO_FW_AI_initialised") then {call UO_AI_fnc_init;};
+	if(isNil "UO_FW_AI_initialised") then {call UO_FW_AI_fnc_init;};
 	switch _mode do {
 		case "init": {
 			if !is3DEN then {
@@ -24,11 +24,11 @@ params [["_mode","",[""]],["_input",[],[[]]]];
 				switch (_logic getVariable ["aeControlInitAction",0]) do {
 					case 1 : {
 						// Disable Linked Zones
-						[([_logic,["UO_FW_ZoneModule","UO_FW_ZoneModule_R"]] call UO_AI_fnc_getSyncedModules),1] call UO_AI_fnc_setZone;
+						[([_logic,["UO_FW_AI_ZoneModule","UO_FW_AI_ZoneModule_R"]] call UO_FW_AI_fnc_getSyncedModules),1] call UO_FW_AI_fnc_setZone;
 					};
 					case 2 : {
 						// Enable Linked Zones
-						[([_logic,["UO_FW_ZoneModule","UO_FW_ZoneModule_R"]] call UO_AI_fnc_getSyncedModules),0] call UO_AI_fnc_setZone;
+						[([_logic,["UO_FW_AI_ZoneModule","UO_FW_AI_ZoneModule_R"]] call UO_FW_AI_fnc_getSyncedModules),0] call UO_FW_AI_fnc_setZone;
 					};
 					default {};
 				};	
@@ -37,13 +37,13 @@ params [["_mode","",[""]],["_input",[],[[]]]];
 				if(typename _cond isEqualTo "STRING") then {_cond = compile _cond;};
 				_code = _logic getVariable ["aeControlCode","true"];
 				if(typename _code isEqualTo "STRING") then {_code = compile _code;};
-				_isRectangle = if((typeof _logic) isEqualTo "UO_FW_ControlModule_R") then {true} else {false};
+				_isRectangle = if((typeof _logic) isEqualTo "UO_FW_AI_ControlModule_R") then {true} else {false};
 				UO_FW_zones pushBack [
 					_logic,
 					(getPosATL _logic),
 					(_logic getVariable ["aeControlRadiusX",200]),
 					(_logic getVariable ["aeControlOn",0]),
-					([_logic getVariable ["aeControlSide",0]] call UO_AI_fnc_getSide),
+					([_logic getVariable ["aeControlSide",0]] call UO_FW_AI_fnc_getSide),
 					(UO_FW_zoneTypes select (_logic getVariable ["aeControlType",1])),
 					_cond,
 					(_logic getVariable ["aeControlDelay",0]),
@@ -53,14 +53,14 @@ params [["_mode","",[""]],["_input",[],[[]]]];
 					(getDir _logic),
 					(_logic getVariable ["aeZoneHazard",false])
 				];
-				_entities = [_logic] call UO_AI_fnc_getSyncedObjects;
+				_entities = [_logic] call UO_FW_AI_fnc_getSyncedObjects;
 				UO_FW_entities pushBack [_logic,_entities];
 				if(UO_FW_AI_DEBUG) then {
-					_syncedZoneModule = [_logic,["UO_FW_ZoneModule","UO_FW_ZoneModule_R"]] call UO_AI_fnc_getSyncedModules;
+					_syncedZoneModule = [_logic,["UO_FW_AI_ZoneModule","UO_FW_AI_ZoneModule_R"]] call UO_FW_AI_fnc_getSyncedModules;
 					if (count _syncedZoneModule == 0) then { 
 						(format["%1 a %2 has no Zone Modules linked.\nLink a Zone Module to the Enable/Disable the zone when the Control Module is activated.",_logic,typeof _logic]) call UO_FW_fnc_DebugMessage; 
 					};
-					[_logic] spawn UO_AI_fnc_debugSyncedModules;
+					[_logic] spawn UO_FW_AI_fnc_debugSyncedModules;
 				};
 				
 			};

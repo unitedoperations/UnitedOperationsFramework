@@ -23,7 +23,7 @@ clearWeaponCargoGlobal (unitBackpack ASORGS_Player);
 		{ 	
 			_class = _x;
 			_isradio = (tolower getText (configFile >> "cfgWeapons" >> _class >> "Simulation")) == "itemradio";
-			_isradio = _isradio || ([_class, "acre_"] call ASOR_fnc_StartsWith);
+			_isradio = _isradio || ([_class, "acre_"] call UO_FW_AI_fnc_StartsWith);
 			if(_isradio) then {
 				_class = [_class, false] call ASORGS_fnc_GetRadioClass;
 			};
@@ -33,7 +33,7 @@ clearWeaponCargoGlobal (unitBackpack ASORGS_Player);
 		} forEach (_uitems);
 		{ 	_class = _x;
 			_isradio = (tolower getText (configFile >> "cfgWeapons" >> _class >> "Simulation")) == "itemradio";
-			_isradio = _isradio || ([_class, "tf_"] call ASOR_fnc_StartsWith) || ([_class, "acre_"] call ASOR_fnc_StartsWith);
+			_isradio = _isradio || ([_class, "tf_"] call UO_FW_AI_fnc_StartsWith) || ([_class, "acre_"] call UO_FW_AI_fnc_StartsWith);
 			if(_isradio) then {
 				_class = [_class, false] call ASORGS_fnc_GetRadioClass; 
 			};
@@ -43,7 +43,7 @@ clearWeaponCargoGlobal (unitBackpack ASORGS_Player);
 		} forEach (_vitems);
 		{ 	_class = _x;
 			_isradio = (tolower getText (configFile >> "cfgWeapons" >> _class >> "Simulation")) == "itemradio";
-			_isradio = _isradio || ([_class, "tf_"] call ASOR_fnc_StartsWith) || ([_class, "acre_"] call ASOR_fnc_StartsWith);
+			_isradio = _isradio || ([_class, "tf_"] call UO_FW_AI_fnc_StartsWith) || ([_class, "acre_"] call UO_FW_AI_fnc_StartsWith);
 			if(_isradio) then {
 				_class = [_class, false] call ASORGS_fnc_GetRadioClass;
 			};

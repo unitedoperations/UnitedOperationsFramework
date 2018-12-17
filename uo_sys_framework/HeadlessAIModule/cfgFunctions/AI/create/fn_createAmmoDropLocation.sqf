@@ -7,7 +7,7 @@
  *      ANY     - OBJECT, MARKER, LOCATION, GROUP, POSITION to determine start/spawn location, closest edge of map if empty array
  *  Return Value:
  *      TRUE
- * [3,"drop"] spawn UO_AI_fnc_createAirResupply;
+ * [3,"drop"] spawn UO_FW_AI_fnc_createAirResupply;
  */
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 UO_FW_EXEC_CHECK(SERVERHC)
@@ -37,10 +37,10 @@ openmap true;
 			default {[_ammoCrate];};
 		};
 		_spos = _spos vectorAdd [0,0,300];   
-		_dpos = (([_pos,0,50,1] call UO_AI_fnc_getRandomPositionCircle) select 0);
+		_dpos = (([_pos,0,50,1] call UO_FW_AI_fnc_getRandomPositionCircle) select 0);
 		_dpos = _dpos vectorAdd [0,0,150];				
 		_wait = (floor random [20,70,150]);
-		[_dpos,_spos,_ordnance,_wait] remoteExec ["UO_AI_fnc_createAmmoDrop",[0,2] select isMultiplayer];
+		[_dpos,_spos,_ordnance,_wait] remoteExec ["UO_FW_AI_fnc_createAmmoDrop",[0,2] select isMultiplayer];
 		sleep 0.5;
 		hint format["Resupply Request Received ETA: %1%2",ceil(_wait/60),if(ceil(_wait/60) > 1)then{"minutes"}else{"minute"}];
 		openMap false;

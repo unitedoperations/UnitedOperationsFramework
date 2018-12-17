@@ -6,7 +6,7 @@ params [["_target", objNull, [objNull]],["_player", objNull, [objNull]]];
 			(_this select 0) params [
 				["_target", objNull, [objNull]]
 			];
-			[_target] remoteExec ['UO_AI_fnc_vehicleRefuel',0];
+			[_target] remoteExec ['UO_FW_AI_fnc_vehicleRefuel',0];
 			hint format["%1 Fully Refueled",(getText(configFile >> "CfgVehicles" >> (typeOf _target) >> "displayName"))]; 
 		}, 
 		{hint "Refuel Failed"}, 

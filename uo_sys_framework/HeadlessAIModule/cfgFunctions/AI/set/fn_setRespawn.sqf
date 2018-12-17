@@ -1,4 +1,4 @@
-if(!isServer) exitWith {_this remoteExec ["UO_AI_fnc_setRespawn", 2];};
+if(!isServer) exitWith {_this remoteExec ["UO_FW_AI_fnc_setRespawn", 2];};
 params [["_logic",objNull,[objNull]],["_marker","respawn_west",[""]]];
 diag_log format["RETURN | %1",_this];
 	{
@@ -18,7 +18,7 @@ diag_log format["RETURN | %1",_this];
 		};	
 		{
 			_unit = _x;
-			_logic remoteExec ["UO_AI_fnc_setQRFPosition", _unit];
+			_logic remoteExec ["UO_FW_AI_fnc_setQRFPosition", _unit];
 		} forEach (allUnits select {side _x == _side});
-	} forEach ([_logic getVariable ["aeRespawnSide",0]] call UO_AI_fnc_getSide);
+	} forEach ([_logic getVariable ["aeRespawnSide",0]] call UO_FW_AI_fnc_getSide);
 	true

@@ -11,7 +11,7 @@ params [["_mode","",[""]],["_input",[],[[]]]];
 	switch _mode do {
 		case "init": {
 			if !is3DEN then {
-				if(isNil "UO_FW_AI_initialised") then {call UO_AI_fnc_init;};
+				if(isNil "UO_FW_AI_initialised") then {call UO_FW_AI_fnc_init;};
 				_input params ["_logic",["_isActivated",true,[true]],["_isCuratorPlaced",false,[false]],["_grps",[],[[]]],["_spos",[0,0,0],[[]]],["_dpos",[],[[]]],["_vehLog",[],[[]]],"_s","_t","_j","_i"];
 				if !(_isActivated) exitWith {};
 				sleep 0.25;	
@@ -31,7 +31,7 @@ params [["_mode","",[""]],["_input",[],[[]]]];
 					private _gx = (_logic getVariable ['aeHIMultiplier',1]);
 					private _radius = (_logic getVariable ['aeHIRadius',0]);
 					if (_obj isKindOf "Logic") then {
-						private _posModules = [_logic,["UO_FW_PositionModule"]] call UO_AI_fnc_getSyncedModules;
+						private _posModules = [_logic,["UO_FW_AI_PositionModule"]] call UO_FW_AI_fnc_getSyncedModules;
 						_msg = format["RETURN _posModules | %1",_posModules];
 						UO_FW_DEBUG("",_msg)
 						for [{_i = (count _posModules) -1}, {_i >= 0}, {_i = _i - 1}] do {
@@ -48,13 +48,13 @@ params [["_mode","",[""]],["_input",[],[[]]]];
 							};							
 						};
 						if(_radius > 0) then {
-							private _safePos = [(getPosATL _logic),(2*_gx),[0,_radius]] call UO_AI_fnc_getSafePos;
+							private _safePos = [(getPosATL _logic),(2*_gx),[0,_radius]] call UO_FW_AI_fnc_getSafePos;
 							_dpos = _dpos + _safePos;
 						} else {
 							if(_gx > (count _dpos)) then {
-								_safePos = [(getPosATL _logic),(2*_gx),[0,_radius]] call UO_AI_fnc_getSafePos;
+								_safePos = [(getPosATL _logic),(2*_gx),[0,_radius]] call UO_FW_AI_fnc_getSafePos;
 								if(_safePos isEqualTo [] || (count _safePos) < _gx) then {
-									_safePos = [(getPosATL _logic),(2*_gx),[0,(_radius*2)]] call UO_AI_fnc_getSafePos;
+									_safePos = [(getPosATL _logic),(2*_gx),[0,(_radius*2)]] call UO_FW_AI_fnc_getSafePos;
 								};
 								_dpos = _dpos + _safePos;
 							};
@@ -74,7 +74,7 @@ params [["_mode","",[""]],["_input",[],[[]]]];
 								UO_FW_DEBUG("",_msg)
 								private _group = [str _grp,[],[]];
 								private _gx = _logic getVariable ['aeMultiplier',1];
-								private _tasks = [_grp,["UO_FW_TaskModule"]] call UO_AI_fnc_getTasks;
+								private _tasks = [_grp,["UO_FW_AI_TaskModule"]] call UO_FW_AI_fnc_getTasks;
 								for [{_j=0}, {(_j < (count _units))}, {_j = _j + 1}] do { 
 									_u = _units select _j;
 									private _veh = assignedVehicle _u;
@@ -129,7 +129,7 @@ params [["_mode","",[""]],["_input",[],[[]]]];
 											_grp getVariable ['aeMultiplier',1],
 											_occupy, 
 											_vehAssigned, 
-											([(waypoints _u)] call UO_AI_fnc_getWaypointDetails),
+											([(waypoints _u)] call UO_FW_AI_fnc_getWaypointDetails),
 											(surfaceIsWater (getposATL _u)),
 											_tasks,
 											_grp getVariable ['aeHeadless',true],
@@ -185,14 +185,14 @@ params [["_mode","",[""]],["_input",[],[[]]]];
 				_msg = format["RETURN aeHIUnits | %1",_logic getVariable "aeHIUnits"];
 				UO_FW_DEBUG("",_msg)
 				_logic setVariable ["aeHIUnits",_grps];
-				[_synced] call UO_AI_fnc_deleteVehicles;				
-				_syncedZoneModule = [_logic,["UO_FW_ZoneModule"]] call UO_AI_fnc_getSyncedModules;
+				[_synced] call UO_FW_AI_fnc_deleteVehicles;				
+				_syncedZoneModule = [_logic,["UO_FW_AI_ZoneModule"]] call UO_FW_AI_fnc_getSyncedModules;
 				_type = typeof _logic;
 				if (count _syncedZoneModule == 0) then { 
 					_msg = format["%1 a %2 has no Zone Modules linked.\nLink a Zone Module to create a Heli insert when the Zone is activated.",_logic,_type];
 					UO_FW_DEBUG("",_msg)
 				};
-				[_logic] spawn UO_AI_fnc_debugSyncedModules;
+				[_logic] spawn UO_FW_AI_fnc_debugSyncedModules;
 			};
 		};
 		case "attributesChanged3DEN": {

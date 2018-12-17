@@ -43,9 +43,9 @@ if (!isNull(_target)) then {
 
 		player moveInAny (vehicle _target);
 		player removeAction _id;
-		
-		[format ["%1 joined the mission and teleported into the vehicle.", name player], "hint", _target] call BIS_fnc_MP;
-		
+
+		(format ["%1 joined the mission and teleported into the vehicle.", name player]) remoteExec ["hint", _target];
+
 	} else {
 
 		_stance = stance _target;
@@ -73,13 +73,13 @@ if (!isNull(_target)) then {
 			if (!_enemy) then {
 				player setPos (_pos);
 				player removeAction _id;
-				[format ["%1 joined the mission and teleported to you.", name player], "hint", _target] call BIS_fnc_MP;
+				(format ["%1 joined the mission and teleported to you.", name player]) remoteExec ["hint", _target];
 				[] spawn {
 					_eventhandlerdamage = player addEventHandler ["HandleDamage",{
 						params ["_unit","","_damage","_shooter"];
 						if (side _shooter == side _unit) then { _damage = 0};
 						_damage
-					}]; 
+					}];
 					sleep 3;
 					player removeEventHandler ["HandleDamage", _eventhandlerdamage]
 				};

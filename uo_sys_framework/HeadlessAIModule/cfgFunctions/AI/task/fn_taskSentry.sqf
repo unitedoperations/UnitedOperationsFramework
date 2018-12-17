@@ -27,13 +27,13 @@ params [
 	["_compradius",0,[0]],
 	["_wpcount",10,[0]]
 ];
-	_grp call UO_AI_fnc_taskReset;
+	_grp call UO_FW_AI_fnc_taskReset;
 	private _wp1pos = (_pos vectorAdd((vectorDir (leader _grp)) vectorMultiply _radius));
 	_this1 =+ _this;
 	_this1 set [1, _wp1pos];
-	_this1 call UO_AI_fnc_createWaypoint;
-	_this call UO_AI_fnc_createWaypoint;
+	_this1 call UO_FW_AI_fnc_createWaypoint;
+	_this call UO_FW_AI_fnc_createWaypoint;
 	_this2 =+ _this;
 	_this2 set [8, "CYCLE"];
-	_this2 call UO_AI_fnc_createWaypoint;
+	_this2 call UO_FW_AI_fnc_createWaypoint;
 	true  

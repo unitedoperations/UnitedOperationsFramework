@@ -11,7 +11,7 @@
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 UO_FW_EXEC_CHECK(SERVERHC)
 params ["_gpos","_taskRadius","_i",["_pos",[],[[]]]];
-	private _bp = (([_gpos,_taskRadius] call UO_AI_fnc_getNearestBuilding) buildingPos -1);
+	private _bp = (([_gpos,_taskRadius] call UO_FW_AI_fnc_getNearestBuilding) buildingPos -1);
 	if((count _bp) >= 1)then{
 		_pos = _bp select (_i % (count _bp));
 	} else {

@@ -11,5 +11,5 @@
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 UO_FW_EXEC_CHECK(SERVERHC)
 params ["_pos",["_radius",500,[0]],["_rbld",objNull,[objNull]]];
-	_rbld = selectRandom ([_pos,_radius] call UO_AI_fnc_getBuildings);
+	_rbld = selectRandom ([_pos,_radius] call UO_FW_AI_fnc_getBuildings);
     _rbld

@@ -1,20 +1,22 @@
-class UO_FW_AI_Module : OlsenModule 
-{	
+#include "cfgFSM.hpp"
+
+class UO_FW_AI_Module : OlsenModule
+{
 	scope = 1;
 	category = "UO_FrameworkCategory_AI";
 	icon = "\a3\3DEN\Data\CfgWaypoints\scripted_ca.paa";
 };
 
-class UO_FW_AI_ZoneModule : UO_FW_AI_Module 
-{		
-	scope = 2; 							
-	displayName = "Zone (Circle)"; 	
-	//icon = "\UO_FW\Resources\Icons\zonemodule_ca.paa"; 
-	function = "UO_AI_fnc_zone";
-	functionPriority = 0;		
-	isGlobal = 0; 						
-	isTriggerActivated = 0; 			
-	isDisposable = 0; 	
+class UO_FW_AI_ZoneModule : UO_FW_AI_Module
+{
+	scope = 2;
+	displayName = "Zone (Circle)";
+	//icon = "\UO_FW\Resources\Icons\zonemodule_ca.paa";
+	function = "UO_FW_AI_fnc_zone";
+	functionPriority = 0;
+	isGlobal = 0;
+	isTriggerActivated = 0;
+	isDisposable = 0;
 	is3DEN = 1;
 	curatorInfoType = "RscDisplayAttributeModuleNuke";
 	canSetArea = 1;
@@ -108,28 +110,27 @@ class UO_FW_AI_ZoneModule : UO_FW_AI_Module
 			property = "UO_FW_headless";
 			control = "UO_FW_headlessControl";
 			expression = "_this setVariable ['%s',_value,true];";
-			defaultValue = "true";
-			typeName = "BOOL";
+			defaultValue = "0";
 		};
 	};
 };
-class UO_FW_AI_ZoneModule_R : UO_FW_AI_ZoneModule {									
-	displayName = "Zone (Square)"; 	
+class UO_FW_AI_ZoneModule_R : UO_FW_AI_ZoneModule {
+	displayName = "Zone (Square)";
 	class AttributeValues {
         size2[] = {100,100};
 		IsRectangle = 1;
     };
 };
 
-class UO_FW_AI_ControlModule : UO_FW_AI_Module {	
-	scope = 2; 									
-	displayName = "Control (Circle)";		
-	//icon = "\UO_FW\Resources\Icons\controlmodule_ca.paa"; 
-	function = "UO_AI_fnc_control"; 	
-	functionPriority = 0; 				
-	isGlobal = 0; 						
-	isTriggerActivated = 0; 			
-	isDisposable = 0; 	
+class UO_FW_AI_ControlModule : UO_FW_AI_Module {
+	scope = 2;
+	displayName = "Control (Circle)";
+	//icon = "\UO_FW\Resources\Icons\controlmodule_ca.paa";
+	function = "UO_FW_AI_fnc_control";
+	functionPriority = 0;
+	isGlobal = 0;
+	isTriggerActivated = 0;
+	isDisposable = 0;
 	is3DEN = 1;
 	curatorInfoType = "RscDisplayAttributeModuleNuke";
 	canSetArea = 1;
@@ -216,7 +217,7 @@ class UO_FW_AI_ControlModule : UO_FW_AI_Module {
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "'false'";
 			validate = "condition";
-		};	
+		};
 		class aeControlCode {
 			displayName = "Custom Code";
 			tooltip = "Pass custom code to be executed when the control module is activated. Default: Nil";
@@ -227,30 +228,30 @@ class UO_FW_AI_ControlModule : UO_FW_AI_Module {
 		};
 	};
 };
-class UO_FW_AI_ControlModule_R : UO_FW_AI_ControlModule {									
-	displayName = "Control (Square)"; 	
+class UO_FW_AI_ControlModule_R : UO_FW_AI_ControlModule {
+	displayName = "Control (Square)";
 	class AttributeValues {
 		size2[] = {100,100};
 		IsRectangle = 1;
 	};
 };
 
-class UO_FW_AI_TaskModule : UO_FW_AI_Module {	
-	scope = 2; 							
-	displayName = "Task"; 			
-	//icon = "\UO_FW\Resources\Icons\taskmodule_ca.paa"; 
-	function = "UO_AI_fnc_task"; 	
-	functionPriority = 0; 				
-	isGlobal = 0; 						
-	isTriggerActivated = 0; 			
-	isDisposable = 0; 	
+class UO_FW_AI_TaskModule : UO_FW_AI_Module {
+	scope = 2;
+	displayName = "Task";
+	//icon = "\UO_FW\Resources\Icons\taskmodule_ca.paa";
+	function = "UO_FW_AI_fnc_task";
+	functionPriority = 0;
+	isGlobal = 0;
+	isTriggerActivated = 0;
+	isDisposable = 0;
 	is3DEN = 1;
 	curatorInfoType = "RscDisplayAttributeModuleNuke";
 	canSetArea = 1;
 	class AttributeValues {
         size2[] = {50,50};
     };
-    class Attributes {			
+    class Attributes {
 		class aeTaskRadius {
 			displayName = "Radius";
 			tooltip = "The range the group will attempt to conduct the set task in. Default: 100";
@@ -306,7 +307,7 @@ class UO_FW_AI_TaskModule : UO_FW_AI_Module {
 			defaultValue = "3";
 			typeName = "NUMBER";
 			validate = "number";
-		};			
+		};
 		class aeTaskBehaviour {
 			displayName = "Change Behaviour";
 			tooltip = "Behaviour of the group or unit on activation. Default: SAFE";
@@ -346,7 +347,7 @@ class UO_FW_AI_TaskModule : UO_FW_AI_Module {
 			control = "UO_FW_stancechangeControl";
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "'unchanged'";
-		};			
+		};
 		class aeTaskCondition {
 			displayName = "Condition";
 			tooltip = "Activate this task with a condition. Default: True";
@@ -363,7 +364,7 @@ class UO_FW_AI_TaskModule : UO_FW_AI_Module {
 			control = "UO_FW_codeControl";
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "(true)";
-		};				
+		};
 		class aeTaskPriority {
 			displayName = "Priority";
 			tooltip = "Task priority allows the group to choose between two assigned tasks. Default: Medium";
@@ -373,18 +374,18 @@ class UO_FW_AI_TaskModule : UO_FW_AI_Module {
 			defaultValue = "1";
 			typeName = "NUMBER";
 			validate = "number";
-		};			
+		};
 	};
 };
-class UO_FW_AI_PositionModule : UO_FW_AI_Module {		
-	scope = 2; 							
-	displayName = "Position (Circle)"; 	
-	//icon = "\UO_FW\Resources\Icons\posmodule_ca.paa"; 
-	function = "UO_AI_fnc_position"; 	
-	functionPriority = 0; 				
-	isGlobal = 0; 						
-	isTriggerActivated = 0; 			
-	isDisposable = 0; 	
+class UO_FW_AI_PositionModule : UO_FW_AI_Module {
+	scope = 2;
+	displayName = "Position (Circle)";
+	//icon = "\UO_FW\Resources\Icons\posmodule_ca.paa";
+	function = "UO_FW_AI_fnc_position";
+	functionPriority = 0;
+	isGlobal = 0;
+	isTriggerActivated = 0;
+	isDisposable = 0;
 	is3DEN = 1;
 	curatorInfoType = "RscDisplayAttributeModuleNuke";
 	canSetArea = 1;
@@ -400,7 +401,7 @@ class UO_FW_AI_PositionModule : UO_FW_AI_Module {
 			control = "UO_FW_positiontypeControl";
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "0";
-		};	
+		};
 		class aePositionRadiusX {
 			displayName = "Radius X";
 			tooltip = "The X radius the position will use to generate a random position. Default: 0";
@@ -433,22 +434,22 @@ class UO_FW_AI_PositionModule : UO_FW_AI_Module {
 		};
 	};
 };
-class UO_FW_AI_PositionModule_R : UO_FW_AI_PositionModule {									
-	displayName = "Position (Square)"; 	
+class UO_FW_AI_PositionModule_R : UO_FW_AI_PositionModule {
+	displayName = "Position (Square)";
 	class AttributeValues {
         size2[] = {0,0};
 		IsRectangle = 1;
     };
 };
-class UO_FW_AI_FastAirStrikeModule : UO_FW_AI_Module {		
-	scope = 2; 							
-	displayName = "Fast Air Strike"; 	
-	//icon = "\UO_FW\Resources\Icons\fastairmodule_ca.paa"; 
-	function = "UO_AI_fnc_fas"; 	
-	functionPriority = 0; 				
-	isGlobal = 0; 						
-	isTriggerActivated = 0; 			
-	isDisposable = 0; 	
+class UO_FW_AI_FastAirStrikeModule : UO_FW_AI_Module {
+	scope = 2;
+	displayName = "Fast Air Strike";
+	//icon = "\UO_FW\Resources\Icons\fastairmodule_ca.paa";
+	function = "UO_FW_AI_fnc_fas";
+	functionPriority = 0;
+	isGlobal = 0;
+	isTriggerActivated = 0;
+	isDisposable = 0;
 	is3DEN = 1;
 	curatorInfoType = "RscDisplayAttributeModuleNuke";
 	canSetArea = 1;
@@ -497,93 +498,15 @@ class UO_FW_AI_FastAirStrikeModule : UO_FW_AI_Module {
 		};
 	};
 };
-class UO_FW_AI_ArtilleryStrikeModule : UO_FW_AI_Module {		
-	scope = 2; 							
-	displayName = "Artillery Strike"; 	
-	//icon = "\UO_FW\Resources\Icons\artillerymodule_ca.paa"; 
-	function = "UO_AI_fnc_art"; 	
-	functionPriority = 0; 				
-	isGlobal = 0; 						
-	isTriggerActivated = 0; 			
-	isDisposable = 0; 	
-	is3DEN = 1;
-	curatorInfoType = "RscDisplayAttributeModuleNuke";
-	canSetArea = 1;
-	class AttributeValues {
-        size2[] = {300,300};
-		IsRectangle = 0;
-    };
-    class Attributes {
-		class aeARTHold {
-			displayName = "Fire Control";
-			tooltip = "The artillery will spawn and either commence firing or hold fire. Default: Fire";
-			property = "UO_FW_artHold";
-			control = "UO_FW_artyfireControl";
-			expression = "_this setVariable ['%s',_value,true];";
-			defaultValue = "false";
-			typeName = "BOOL";
-		};
-		class aeARTRadius {
-			displayName = "Strike Radius";
-			tooltip = "The artillery will use this radius to generate random position for each barrage. Default: 0";
-			property = "UO_FW_artRadius";
-			control = "UO_FW_moduleradiusControl";
-			expression = "_this setVariable ['%s',_value,true];";
-			defaultValue = "300";
-			typeName = "NUMBER";
-			validate = "number";
-		};
-		class aeARTVolleys {
-			displayName = "Volleys";
-			tooltip = "The amount of fire missions each artillery gun will fire. How many barrages it will fire. (If zero will fire until it is killed) Default: 10 (-1 Random Amount 1-20)";
-			property = "UO_FW_artVolleys";
-			control = "UO_FW_standardNumberControl";
-			expression = "_this setVariable ['%s',_value,true];";
-			defaultValue = "10";
-			typeName = "NUMBER";
-			validate = "number";
-		};
-		class aeARTBarrages {
-			displayName = "Barrages";
-			tooltip = "The amount of barrages that will be fired with each volley. How many shots fired each time gun fires. Default: 1 (-1 Random Amount 1-10)";
-			property = "UO_FW_artBarrages";
-			control = "UO_FW_zonedelayControl";
-			expression = "_this setVariable ['%s',_value,true];";
-			defaultValue = "1";
-			typeName = "NUMBER";
-			validate = "number";
-		};
-		class aeARTReload {
-			displayName = "Reload Time";
-			tooltip = "Time taken for the gun to reload for the next barrage. Default: 30 (-1 Random Time 30-120)";
-			property = "UO_FW_artReload";
-			control = "UO_FW_moduleradiusControl2";
-			expression = "_this setVariable ['%s',_value,true];";
-			defaultValue = "30";
-			typeName = "NUMBER";
-			validate = "number";
-		};
-		class aeARTOffset {
-			displayName = "Offset Time";
-			tooltip = "Seperation time between each gun firing. Default: 3 (-1 Random Time 3-20)";
-			property = "UO_FW_artOffset";
-			control = "UO_FW_multiplierControl";
-			expression = "_this setVariable ['%s',_value,true];";
-			defaultValue = "3";
-			typeName = "NUMBER";
-			validate = "number";
-		};
-	};
-};
-class UO_FW_AI_AirDropModule : UO_FW_AI_Module {		
-	scope = 2; 							
-	displayName = "Air Drop"; 	
-	//icon = "\UO_FW\Resources\Icons\supplydropmodule_ca.paa"; 
-	function = "UO_AI_fnc_airdrop"; 	
-	functionPriority = 0; 				
-	isGlobal = 0; 						
-	isTriggerActivated = 0; 			
-	isDisposable = 0; 	
+class UO_FW_AI_AirDropModule : UO_FW_AI_Module {
+	scope = 2;
+	displayName = "Air Drop";
+	//icon = "\UO_FW\Resources\Icons\supplydropmodule_ca.paa";
+	function = "UO_FW_AI_fnc_airdrop";
+	functionPriority = 0;
+	isGlobal = 0;
+	isTriggerActivated = 0;
+	isDisposable = 0;
 	is3DEN = 1;
 	canSetArea = 1;
 	class AttributeValues {
@@ -613,11 +536,11 @@ class UO_FW_AI_AirDropModule : UO_FW_AI_Module {
 		};
 		class aeADOrdnanceType {
 			displayName = "Ordnance Type";
-			tooltip = "Classname of the item type to be dropped. Default: 'ASOR_Ammo_Inf_Air'";
+			tooltip = "Classname of the item type to be dropped. Default: 'Box_NATO_Ammo_F'";
 			property = "UO_FW_adOrdnanceType";
 			control = "UO_FW_standardStringOneControl";
 			expression = "_this setVariable ['%s',_value,true];";
-			defaultValue = "'ASOR_Ammo_Inf_Air'";
+			defaultValue = "'Box_NATO_Ammo_F'";
 		};
 		class aeADHeight {
 			displayName = "Height";
@@ -654,7 +577,7 @@ class UO_FW_AI_AirDropModule : UO_FW_AI_Module {
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "false";
 			typeName = "BOOL";
-		};			
+		};
 		class aeADEscortAircraftType {
 			displayName = "Escort Aircraft Type";
 			tooltip = "Classname of the aircraft type to be use. Default: 'B_Plane_CAS_01_F'";
@@ -662,18 +585,18 @@ class UO_FW_AI_AirDropModule : UO_FW_AI_Module {
 			control = "UO_FW_unitnameControl";
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "'B_Plane_CAS_01_F'";
-		};			
+		};
 	};
 };
-class UO_FW_AI_HeloInsertModule : UO_FW_AI_Module {		
-	scope = 2; 							
-	displayName = "Helicopter Insertion"; 	
-	//icon = "\UO_FW\Resources\Icons\heloinsertmodule_ca.paa"; 
-	function = "UO_AI_fnc_heli"; 	
-	functionPriority = 0; 				
-	isGlobal = 0; 						
-	isTriggerActivated = 0; 			
-	isDisposable = 0; 	
+class UO_FW_AI_HeloInsertModule : UO_FW_AI_Module {
+	scope = 2;
+	displayName = "Helicopter Insertion";
+	//icon = "\UO_FW\Resources\Icons\heloinsertmodule_ca.paa";
+	function = "UO_FW_AI_fnc_heli";
+	functionPriority = 0;
+	isGlobal = 0;
+	isTriggerActivated = 0;
+	isDisposable = 0;
 	is3DEN = 1;
 	canSetArea = 1;
 	class AttributeValues {
@@ -700,7 +623,7 @@ class UO_FW_AI_HeloInsertModule : UO_FW_AI_Module {
 			defaultValue = "1";
 			typeName = "NUMBER";
 			validate = "number";
-		};		
+		};
 		class aeHIHeight {
 			displayName = "Height";
 			tooltip = "Height aircraft will fly in at before starting decent. Default: 200.";
@@ -724,16 +647,16 @@ class UO_FW_AI_HeloInsertModule : UO_FW_AI_Module {
 	};
 };
 
-class UO_FW_AI_RespawnModule : UO_FW_AI_Module {	
-	scope = 2; 							
-	displayName = "Respawn"; 			
-	//icon = "\UO_FW\Resources\Icons\respawnmodule_ca.paa"; 
-	function = "UO_AI_fnc_respawn"; 	
-	functionPriority = 1; 				
-	isGlobal = 2; 						
-	isTriggerActivated = 0; 			
+class UO_FW_AI_RespawnModule : UO_FW_AI_Module {
+	scope = 2;
+	displayName = "Respawn";
+	//icon = "\UO_FW\Resources\Icons\respawnmodule_ca.paa";
+	function = "UO_FW_AI_fnc_respawn";
+	functionPriority = 1;
+	isGlobal = 2;
+	isTriggerActivated = 0;
 	isDisposable = 0;
-	is3DEN = 1;		
+	is3DEN = 1;
 	class Attributes {
 		class aeRespawnSide {
 			displayName = "Respawn Side";
@@ -747,14 +670,14 @@ class UO_FW_AI_RespawnModule : UO_FW_AI_Module {
 		};
 	};
 };
-class UO_FW_AI_TemplateModule : UO_FW_AI_Module {	
-	scope = 2; 							
-	displayName = "Group Template"; 			
-	//icon = "\UO_FW\Resources\Icons\templatemodule_ca.paa"; 
-	function = "UO_AI_fnc_temp"; 	
-	functionPriority = 1; 				
-	isGlobal = 2; 						
-	isTriggerActivated = 0; 			
+class UO_FW_AI_TemplateModule : UO_FW_AI_Module {
+	scope = 2;
+	displayName = "Group Template";
+	//icon = "\UO_FW\Resources\Icons\templatemodule_ca.paa";
+	function = "UO_FW_AI_fnc_temp";
+	functionPriority = 1;
+	isGlobal = 2;
+	isTriggerActivated = 0;
 	isDisposable = 0;
-	is3DEN = 1;		
+	is3DEN = 1;
 };

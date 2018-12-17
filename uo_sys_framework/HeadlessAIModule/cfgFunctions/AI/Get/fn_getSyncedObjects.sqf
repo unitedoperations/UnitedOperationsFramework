@@ -10,17 +10,17 @@
 UO_FW_EXEC_CHECK(SERVERHC)
 params ["_logic",["_entities",[[], [], []],[[]]],["_vehLog",[],[[]]],"_o","_j","_g"];	
 	// Get all Synced units/objects to module (excludes other modules)
-	private _synced = [_logic] call UO_AI_fnc_getSynced; 
+	private _synced = [_logic] call UO_FW_AI_fnc_getSynced; 
 	for [{_o=0}, {(_o < count _synced)}, {_o = _o + 1}] do {
         private _obj =  _synced select _o;
         if (!(_obj isKindOf "Logic")) then {
 			if (_obj isKindOf "Thing") then {
-				(_entities select 2) pushback ([_obj] call UO_AI_fnc_getDetailsThing);			
+				(_entities select 2) pushback ([_obj] call UO_FW_AI_fnc_getDetailsThing);			
 			};
 			if(_obj isKindOf "StaticWeapon" || _obj isKindOf "Static" || _obj isKindOf "Air" || _obj isKindOf "Ship" || _obj isKindOf "LandVehicle") then {
 				private _grp = if(_obj isKindOf "StaticWeapon" || _obj isKindOf "Static") then {group (gunner _obj)} else {group (driver _obj)};				
 				if(isNull _grp) then {
-					(_entities select 1) pushback ([_obj] call UO_AI_fnc_getDetailsVehicleEmpty);
+					(_entities select 1) pushback ([_obj] call UO_FW_AI_fnc_getDetailsVehicleEmpty);
 				}; 
 			};
 			if (_obj isKindOf "Man") then {
@@ -34,7 +34,7 @@ params ["_logic",["_entities",[[], [], []],[[]]],["_vehLog",[],[[]]],"_o","_j","
 					private _grpPosArray = [];
 					private _grpPosNew = _grpPos;
 					if(_grp getVariable ['aeCreateRadius',0] > 1) then {						
-						_grpPosArray = [_grpPos,0,(_grp getVariable 'aeCreateRadius'),(_gx*5)] call UO_AI_fnc_getRandomPositionCircle;
+						_grpPosArray = [_grpPos,0,(_grp getVariable 'aeCreateRadius'),(_gx*5)] call UO_FW_AI_fnc_getRandomPositionCircle;
 						if(!(_grpPosArray isEqualTo [])) then {
 							_index = (floor random (count _grpPosArray));
 							_grpPosNew = _grpPosArray select _index;
@@ -45,27 +45,27 @@ params ["_logic",["_entities",[[], [], []],[[]]],["_vehLog",[],[[]]],"_o","_j","
 						private _u = _units select _j;
 						private _unitpos = getPosATL _u;
 						if(!(_grpPosNew isEqualTo _grpPos)) then {
-							_unitpos = [_grpPosNew,_grpldr,_u] call UO_AI_fnc_getNewPos;
+							_unitpos = [_grpPosNew,_grpldr,_u] call UO_FW_AI_fnc_getNewPos;
 						};
 						private _veh = assignedVehicle _u;	
 						if (!isNull _veh) then {
 							private _vehPos = getposATL _veh;
 							if(!(_grpPosNew isEqualTo _grpPos)) then {_vehPos = _grpPosNew;};
 							if(!(_veh in _vehLog)) then {							
-								(_group select 2) pushBack ([_veh,_vehPos] call UO_AI_fnc_getDetailsVehicle);								
+								(_group select 2) pushBack ([_veh,_vehPos] call UO_FW_AI_fnc_getDetailsVehicle);								
 								_vehLog pushBack _veh;
 							};
 						}; 						
 						if(_grpldr == _u) then {
 							{
 								(_group select 1) pushback _x; 							
-							} forEach ([_u,_grpPosNew] call UO_AI_fnc_getDetailsGroup);
+							} forEach ([_u,_grpPosNew] call UO_FW_AI_fnc_getDetailsGroup);
 						};
-						(_group select 2) pushback ([_u,_unitpos,_veh] call UO_AI_fnc_getDetailsUnit);
+						(_group select 2) pushback ([_u,_unitpos,_veh] call UO_FW_AI_fnc_getDetailsUnit);
 					};
 					private _occupy = ((_group select 1) select 15);
 					private _multiOccupy = _grp getVariable ['aeMultiOccupy',0];
-					private _newOccupy = [(_grp getVariable ['aeMultiOccupy',0])] call UO_AI_fnc_setMultiOccupy;					
+					private _newOccupy = [(_grp getVariable ['aeMultiOccupy',0])] call UO_FW_AI_fnc_setMultiOccupy;					
 					private _currentPos = ((_group select 1) select 1);	
 					for [{_g=0},{(_g < _gx)},{_g=_g+1}] do {
 						if(_newOccupy isEqualTo 0 && _gx isEqualTo 1) then {
@@ -103,26 +103,26 @@ params ["_logic",["_entities",[[], [], []],[[]]],["_vehLog",[],[[]]],"_o","_j","
 			};
 		};
     };
-	[_synced] call UO_AI_fnc_deleteVehicles;	
+	[_synced] call UO_FW_AI_fnc_deleteVehicles;	
 	// Check for Synced Position Modules
-	private _posModules = [_logic,["UO_FW_PositionModule"]] call UO_AI_fnc_getSyncedModules;
+	private _posModules = [_logic,["UO_FW_AI_PositionModule"]] call UO_FW_AI_fnc_getSyncedModules;
 	for [{_p=0}, {(_p < count _posModules)}, {_p = _p + 1}] do {
 		private _posModule = _posModules select _p;
 		private _position = (getPosATL _posModule);
-		private _tempModules = [_posModule,["UO_FW_TemplateModule"]] call UO_AI_fnc_getSyncedModules;
+		private _tempModules = [_posModule,["UO_FW_AI_TemplateModule"]] call UO_FW_AI_fnc_getSyncedModules;
 		for [{_t=0}, {(_t < count _tempModules)}, {_t = _t + 1}] do {
 			private _tempModule = _tempModules select _t;
-			private _tempSynced = [_tempModule] call UO_AI_fnc_getSynced;
+			private _tempSynced = [_tempModule] call UO_FW_AI_fnc_getSynced;
 			for [{_b=0}, {(_b < count _tempSynced)}, {_b = _b + 1}] do {
 				private _obj = _tempSynced select _b;
 				if (!(_obj isKindOf "Logic")) then {
 					if (_obj isKindOf "Thing") then {
-						(_entities select 2) pushback ([_obj,_position] call UO_AI_fnc_getDetailsThing);			
+						(_entities select 2) pushback ([_obj,_position] call UO_FW_AI_fnc_getDetailsThing);			
 					};
 					if(_obj isKindOf "StaticWeapon" || _obj isKindOf "Static" || _obj isKindOf "Air" || _obj isKindOf "Ship" || _obj isKindOf "LandVehicle") then {
 						private _grp = if(_obj isKindOf "StaticWeapon" || _obj isKindOf "Static") then {group (gunner _obj)} else {group (driver _obj)};				
 						if(isNull _grp) then {
-							(_entities select 1) pushback ([_obj,_position] call UO_AI_fnc_getDetailsVehicleEmpty);
+							(_entities select 1) pushback ([_obj,_position] call UO_FW_AI_fnc_getDetailsVehicleEmpty);
 						}; 
 					};
 					if (_obj isKindOf "Man") then {
@@ -139,10 +139,10 @@ params ["_logic",["_entities",[[], [], []],[[]]],["_vehLog",[],[[]]],"_o","_j","
 							private _posRadius = _posModule getVariable ['aePositionRadius',0];
 							if(_grpRadius > 1 || _posRadius > 1) then {
 								if (_grpRadius > 1) then {
-									_grpPosArray = [_grpPos,0,_grpRadius,(_gx*5)] call UO_AI_fnc_getRandomPositionCircle;
+									_grpPosArray = [_grpPos,0,_grpRadius,(_gx*5)] call UO_FW_AI_fnc_getRandomPositionCircle;
 								} else {
 									if (_posRadius > 1) then {
-										_grpPosArray = [_grpPos,0,_posRadius,(_gx*5)] call UO_AI_fnc_getRandomPositionCircle;
+										_grpPosArray = [_grpPos,0,_posRadius,(_gx*5)] call UO_FW_AI_fnc_getRandomPositionCircle;
 									};
 								};
 								if(!(_grpPosArray isEqualTo [])) then {
@@ -153,26 +153,26 @@ params ["_logic",["_entities",[[], [], []],[[]]],["_vehLog",[],[[]]],"_o","_j","
 							};
 							for [{_j=0}, {(_j < (count _units))}, {_j = _j + 1}] do { 
 								private _u = _units select _j;
-								private _unitpos = [_grpPosNew,_grpldr,_u] call UO_AI_fnc_getNewPos;
+								private _unitpos = [_grpPosNew,_grpldr,_u] call UO_FW_AI_fnc_getNewPos;
 								private _veh = assignedVehicle _u;	
 								if (!isNull _veh) then {
 									private _vehPos = getposATL _veh;
 									if(!(_grpPosNew isEqualTo _grpPos)) then {_vehPos = _grpPosNew;};
 									if(!(_veh in _vehLog)) then {
-										(_group select 2) pushBack ([_veh,_vehPos] call UO_AI_fnc_getDetailsVehicle);								
+										(_group select 2) pushBack ([_veh,_vehPos] call UO_FW_AI_fnc_getDetailsVehicle);								
 										_vehLog pushBack _veh;
 									};
 								}; 						
 								if(_grpldr == _u) then {
 									{
 										(_group select 1) pushback _x; 							
-									} forEach ([_u,_grpPosNew] call UO_AI_fnc_getDetailsGroup);
+									} forEach ([_u,_grpPosNew] call UO_FW_AI_fnc_getDetailsGroup);
 								};
-								private _unitDetails = [_u,_unitpos,_veh] call UO_AI_fnc_getDetailsUnit;
+								private _unitDetails = [_u,_unitpos,_veh] call UO_FW_AI_fnc_getDetailsUnit;
 								(_group select 2) pushback _unitDetails;
 							};
 							private _occupy = ((_group select 1) select 15);
-							private _newOccupy = [(_grp getVariable ['aeMultiOccupy',0])] call UO_AI_fnc_setMultiOccupy;					
+							private _newOccupy = [(_grp getVariable ['aeMultiOccupy',0])] call UO_FW_AI_fnc_setMultiOccupy;					
 							private _currentPos = ((_group select 1) select 1);	
 							for [{_g=0},{(_g < _gx)},{_g=_g+1}] do {
 								if(_newOccupy isEqualTo 0 && _gx isEqualTo 1) then {

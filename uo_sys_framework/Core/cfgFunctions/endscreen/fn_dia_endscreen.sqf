@@ -37,48 +37,48 @@ _textSide = 0;
 {
 
 	_x params ["_name", "_side", "_type", "_start", "_current", "_disabled", "_destroyed"];
-	
+
 	if (_start > 0) then {
-	
+
 		_temp = format ["%1<br />Casualties: %2 out of %3<br />", _name, (_start - _current), _start];
-	
+
 		if (count _disabled != 0) then {
-	
+
 			_temp = _temp + "<br />Disabled assets:<br />";
-	
+
 			{
-	
+
 				_temp = _temp + format ["%1<br />", _x];
-	
+
 			} forEach _disabled;
-	
+
 		};
-	
+
 		if (count _destroyed != 0) then {
-	
+
 			_temp = _temp + "<br />Destroyed assets:<br />";
-	
+
 			{
-	
+
 				_temp = _temp + format ["%1<br />", _x];
-	
+
 			} forEach _destroyed;
 		};
-	
+
 		_temp = _temp + "<br />";
-	
+
 		if (_textSide == 0) then {
-	
+
 			_textSide = 1;
 			_leftText = _leftText + _temp;
-	
+
 		} else {
-	
+
 			_textSide = 0;
 			_rightText = _rightText + _temp;
-	
+
 		};
-	
+
 	};
 
 } forEach _teams;
@@ -117,12 +117,12 @@ _dia = uiNamespace getVariable "UO_FW_EndScreen";
 	};
 	_this spawn
 	{
-		"" call UO_FW_FNC_aCountShotDisplay;
+		"" call UO_FW_FNC_aCount_ShotDisplay;
 		waituntil{!isNil "aCount_textBLU"};
 		waituntil{!isNil "aCount_textOPF"};
 		waituntil{!isNil "aCount_textRES"};
 		waituntil{!isNil "aCount_textCIV"};
-		
+
 		_bottomLeft = 3004;
 		_bottomMiddleLeft = 3005;
 		_bottomMiddleRight = 3006;
@@ -136,11 +136,10 @@ _dia = uiNamespace getVariable "UO_FW_EndScreen";
 		((_this select 0) displayCtrl _bottomMiddleLeft) ctrlSetStructuredText parseText _bottomTextMiddleLeft;
 		((_this select 0) displayCtrl _bottomMiddleRight) ctrlSetStructuredText parseText _bottomTextMiddleRight;
 		((_this select 0) displayCtrl _bottomRight) ctrlSetStructuredText parseText _bottomTextRight;
-		
+
 	};
-	
-	
+
+
 	sleep (15);
 	endMission "END1";
 };
-

@@ -21,27 +21,27 @@
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 UO_FW_EXEC_CHECK(SERVERHC)
 params[["_bld",objNull,[objNull]],"_grp","_pos",["_radius",0,[0]],["_wait",3,[0]],["_behave","SAFE",[""]],["_combat","RED",[""]],["_speed","LIMITED",[""]],["_formation","WEDGE",[""]],["_type","MOVE",[""]],["_oncomplete","",[""]],["_compradius",0,[0]],["_bldPos",[],[[]]],["_patrol",false,[false]]];
-	_grp call UO_AI_fnc_taskReset;
+	_grp call UO_FW_AI_fnc_taskReset;
 	private _bpos = _pos;
 	if(isNull _bld) then {
-		_bld = [_pos] call UO_AI_fnc_getNearestBuilding;
+		_bld = [_pos] call UO_FW_AI_fnc_getNearestBuilding;
 		if(!isNull _bld) then {
 			if(count _bldPos == 0) then {_bldPos = _bld buildingPos -1;};
 			_bpos = getPosATL _bld;
 		};
 	};
 	if(_patrol) then {
-		[_grp,_bpos,_radius,_wait,_behave,_combat,_speed,_formation] spawn UO_AI_fnc_taskPatrol;
+		[_grp,_bpos,_radius,_wait,_behave,_combat,_speed,_formation] spawn UO_FW_AI_fnc_taskPatrol;
 	} else {
-		[0,"OBJECT",1,_bpos,_this] call UO_AI_fnc_createWaypointModified;	
+		[0,"OBJECT",1,_bpos,_this] call UO_FW_AI_fnc_createWaypointModified;	
 		deleteWaypoint ((waypoints _grp) select 0);
 		while {{alive _x} count (units _grp) >= ((count (units _grp)) * 0.5) && (((getPosATL leader _grp) distance (getposatl _bld)) > 30)} do {sleep 5;};
 		{
 			_x setvariable["aeOccupy",true];
-			[_x,_bld,_bldPos,_wait,[_behave,_combat,_speed,_formation]] spawn UO_AI_fnc_taskBuildingPatrol;
+			[_x,_bld,_bldPos,_wait,[_behave,_combat,_speed,_formation]] spawn UO_FW_AI_fnc_taskBuildingPatrol;
 		} forEach (units _grp);
 	};
 	if(UO_FW_AI_DEBUG) then {
-		[_grp,(getposatl _bld),"nBldP"] spawn UO_AI_fnc_debugCreateMarker;
+		[_grp,(getposatl _bld),"nBldP"] spawn UO_FW_AI_fnc_debugCreateMarker;
 	};
 	true
