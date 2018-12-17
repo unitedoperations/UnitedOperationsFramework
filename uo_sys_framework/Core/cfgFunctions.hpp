@@ -20,7 +20,6 @@ class UO_CoreFunctions
 	class getTeamVariable {};
 	class hasEmptyPositions {};
 	class hasExtracted {};
-	class inArea {};
 	class inVehicle {};
 	class makeUnitsList {};
 	class notTrackUnit {};

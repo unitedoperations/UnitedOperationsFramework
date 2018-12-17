@@ -22,73 +22,73 @@ _civ = missionNamespace getVariable ["UO_FW_AOLimit_CivilianMarker",[]];
 {
 	if(markerType (_x select 1) == "") then
 	{
-		
-		_temp = format ["AO limit module:<br></br>Warning marker ""%1"" does not exist.", _x]; 
+
+		_temp = format ["AO limit module:<br></br>Warning marker ""%1"" does not exist.", _x];
 		_temp call UO_FW_fnc_DebugMessage;
 	}
 	else
 	{
 		_markers pushBack _x;
-		
+
 	};
 }forEach _tempMarkers;
 
 
-if ((count _markers) > 0) then 
+if ((count _markers) > 0) then
 {
 
-	[_markers] spawn 
+	[_markers] spawn
 	{
 
 		_markers = [];
-		
+
 		_allowedOutside = true;
 
 		_vehicle = (vehicle player);
 		_pos = getPosATL _vehicle;
 
 		{
-			if ((_x select 0) == (side player) || (_x select 0) == sideLogic) then 
+			if ((_x select 0) == (side player) || (_x select 0) == sideLogic) then
 			{
 				_markers set [count _markers, (_x select 1)];
 
-				if ([_vehicle, (_x select 1)] call UO_FW_FNC_InArea) then 
+				if (_vehicle inArea (_x select 1)) then
 				{
 					_allowedOutside = false;
 				};
 			};
 		} forEach (_this select 0);
 		["","Executing AO Limit with: " + (str _markers)] call UO_FW_fnc_DebugMessageDetailed;
-		while {true} do 
+		while {true} do
 		{
 
 			_vehicle = (vehicle player);
 
-			if (!(_vehicle isKindOf "Air")) then 
+			if (!(_vehicle isKindOf "Air")) then
 			{
 
 				_outSide = true;
 
 				{
-					if ([_vehicle, _x] call UO_FW_FNC_InArea) exitWith 
+					if (_vehicle inArea _x) exitWith
 					{
 						_outSide = false;
 					};
 				} forEach _markers;
 
-				if (_outside) then 
+				if (_outside) then
 				{
-					if (!(_allowedOutside) && (_vehicle call UO_FW_FNC_Alive)) then 
+					if (!(_allowedOutside) && (_vehicle call UO_FW_FNC_Alive)) then
 					{
 						_vehicle setPos _pos;
 					};
-				} else 
+				} else
 				{
 					_allowedOutside = false;
 					_pos = getPosATL _vehicle;
 				};
 
-			} else 
+			} else
 			{
 				_allowedOutside = true;
 			};

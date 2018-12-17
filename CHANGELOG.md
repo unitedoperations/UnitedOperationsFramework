@@ -10,6 +10,7 @@ Version Numbers mainly refer to the UO Modpack addition.
 - Build batch made dynamic to dir path and game registry path
 - Changed all Tracking/Untracking functions to include a server locality check and recall
 - Changed `BIS_fnc_MP` calls to `remoteExec`
+- Changed `UO_FW_fnc_inArea` calls to `inArea` command - fnc removed
 
 ### Fixed
 - [HC] Collecting/Spawning function

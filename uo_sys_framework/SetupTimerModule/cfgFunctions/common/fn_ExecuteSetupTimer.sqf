@@ -1,5 +1,5 @@
 params[["_selectedSide",sideLogic,[west]],["_time",0,[0]],["_marker","",[""]],["_deleteMarker",true,[true]]];
-if(!([_selectedSide,_time,_marker,_deleteMarker] call UO_FW_fnc_ValidateSetupTimer)) exitWith 
+if(!([_selectedSide,_time,_marker,_deleteMarker] call UO_FW_fnc_ValidateSetupTimer)) exitWith
 {
 	"Setup timer failed to Validate" call UO_FW_fnc_DebugMessage;
 };
@@ -19,19 +19,19 @@ if (isServer) then
 
 if (!isDedicated) then
 {
-	if ((_selectedSide == (side player)) && [(vehicle player), _marker] call UO_FW_FNC_InArea) then
+	if ((_selectedSide == (side player)) && ((vehicle player) inArea _marker)) then
 	{
 
 		UO_FW_setup_start_Markers pushBack [_selectedSide,_time,_marker,_deleteMarker];
 
-	} 
-	else 
+	}
+	else
 	{
 
 		_marker setMarkerAlphaLocal 0;
 
 	};
-	
+
 
 	private ["_markers", "_pos", "_timeLeft", "_string", "_displayed"];
 	if(UO_FW_setup_start_Looping) exitWith {};
@@ -67,12 +67,12 @@ if (!isDedicated) then
 				_marker = UO_FW_setup_start_Markers select 0;
 				_vehicle = (vehicle player);
 
-				if ([_vehicle, (_marker select 2)] call UO_FW_FNC_InArea) then 
+				if (_vehicle inArea (_marker select 2)) then
 				{
 
 					_pos = getPosATL _vehicle;
 
-				} else 
+				} else
 				{
 
 					_vehicle setPos _pos;
@@ -81,21 +81,21 @@ if (!isDedicated) then
 
 				_timeLeft = round(_startTime + (_marker select 1) - serverTime);
 
-				if (_timeLeft < 0) then 
+				if (_timeLeft < 0) then
 				{
 
 					_timeLeft = 0;
 
 				};
 
-				if (_timeLeft > 0 && !_displayed) then 
+				if (_timeLeft > 0 && !_displayed) then
 				{
 					_displayed = true;
 					missionNamespace setVariable ["UO_FW_ST_TimeLeft", _timeLeft];
 					("UO_FW_SetupTimer_Layer" call BIS_fnc_rscLayer) cutRsc ["UO_RscSetupTimer", "PLAIN", 0.5, false];
 				};
 
-				if (_timeLeft == 0) then 
+				if (_timeLeft == 0) then
 				{
 
 					if((_marker select 3)) then {(_marker select 2) setMarkerAlphaLocal 0;};

@@ -37,7 +37,7 @@ while{_run} do
 	{
 		_unit = _x;
 
-		if([_unit,_markerCount select 0] call UO_FW_FNC_InArea && alive _unit) then
+		if((_unit inArea (_markerCount select 0)) && alive _unit) then
 		{
 			{
 

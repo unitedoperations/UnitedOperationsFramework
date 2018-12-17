@@ -41,7 +41,7 @@ _this spawn {
 	_break = false;
 
 	while {true} do {
-		if (animationState _unit != "acts_aidlpsitmstpssurwnondnon04" && ([_unit, _marker] call UO_FW_FNC_InArea)) then {
+		if (animationState _unit != "acts_aidlpsitmstpssurwnondnon04" && (_unit inArea _marker) then {
 
 			_unit setVariable ["UO_FW_Rescued", true, true];
 

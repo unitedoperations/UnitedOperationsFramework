@@ -20,28 +20,31 @@
 			private _area = [_loc,_radiusX,_radiusY,_direction,_isRectangle];
 			if(call _cond && _isOn isEqualTo 0) then {
 				[_zone,_delay,_code] spawn UO_FW_AI_fnc_setup;
-				_x set [3, 1];  
+				_x set [3, 1];
 			} else {
-				_populated = { 
+				_populated = {
 					_player = _x;
-					!(_player isKindOf "HeadlessClient_F") && alive _player 
+					!(_player isKindOf "HeadlessClient_F") && alive _player
 					&& (({(vehicle _player) isKindOf _x} count _type) > 0)
 					&& (side _player) in _side
 					&& _player inArea _area
 				} count allPlayers;
-			};				
+			};
 			private _shouldBeOn = if ( _populated > 0 ) then { 1 } else { 0 };
-			if(_isOn != _shouldBeOn) then {
-				if(_shouldBeOn > 0) then {
-					[_zone,_delay,_code] spawn UO_FW_AI_fnc_setup;
-					_x set [3, 1];
-					_isOn = 1;
-					_zone setVariable ["UO_FW_zone_activated",true];
+			private _initial = _zone getVariable ["aeZoneInitial",false];
+			if (!_initial) then {
+				if(_isOn != _shouldBeOn) then {
+					if(_shouldBeOn > 0) then {
+						[_zone,_delay,_code] spawn UO_FW_AI_fnc_setup;
+						_x set [3, 1];
+						_isOn = 1;
+						_zone setVariable ["UO_FW_zone_activated",true];
+					};
 				};
 			};
 		} forEach UO_FW_zones;
 		[] spawn UO_FW_AI_fnc_taskMonitor;
-		sleep 7;	
+		sleep 7;
 	};
 };
 true
