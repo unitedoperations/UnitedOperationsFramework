@@ -1,7 +1,7 @@
 class UO_FW_Gear
 {
     displayName = "Gear Options";
-    collapsed = 0;
+    collapsed = 1;
     class Attributes
     {
         class UO_FW_Gear_UnitGearType
@@ -24,4 +24,3 @@ class UO_FW_Gear
         };
     };
 };
-         

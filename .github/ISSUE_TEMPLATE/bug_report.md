@@ -1,8 +1,20 @@
 ---
 name: Bug report
-about: Template for reporting issues for the UO Framework
+about: Report a bug
+title: ''
+labels: ''
+assignees: ''
 
 ---
+
+>#### Instructions
+>
+>With the exception of the instructions and naming convention, headers should be kept with the description changed to their respective function. Put "nil" if not applicable.
+>
+>#### Naming Convention
+>
+>Bug reports should be named "Bug Report: Short description of Problem"  
+>eg. "Bug Report: Player vehicles not activating AI spawn zone" 
 
 #### Description of issue
 

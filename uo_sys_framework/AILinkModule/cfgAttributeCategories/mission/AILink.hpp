@@ -1,7 +1,7 @@
 class UO_FW_AILink
 {
     displayName = "AI Link Settings";
-    collapsed = 0;
+    collapsed = 1;
     class Attributes
     {
         class UO_FW_AILink_Enabled

@@ -3,6 +3,7 @@ class UO_CoreFunctions
 	file = "x\UO_FW\addons\main\Core\cfgFunctions\common";
 	class addTeam {};
 	class alive {};
+	class alivePlayers {};
 	class areaCount {};
 	class casualtyCount {};
 	class casualtyPercentage {};
@@ -61,7 +62,7 @@ class UO_InitFunctions
 	class spectate {};
 	class teamsInit {};
 	class BasicSettings3Den {};
-	
+
 };
 
 class UO_DebugFunctions

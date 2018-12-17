@@ -1,7 +1,7 @@
 class UO_FW_StartText
 {
     displayName = "Start Text Settings";
-    collapsed = 0;
+    collapsed = 1;
     class Attributes
     {
         class UO_FW_StartText_Enabled
@@ -29,7 +29,7 @@ class UO_FW_StartText
 				class Date    {name = "Date"; value = 0;};
 				class Time    {name = "Time"; value = 1;};
 				class DateTime    {name = "Date and Time"; value = 2;default = 2;};
-				
+
 			};
 			defaultValue = "2";
 		};
@@ -45,7 +45,7 @@ class UO_FW_StartText
 			typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 			expression = "missionNamespace setVariable ['%s',_value];";
 			validate = "none";
-			
+
 		};
 		class UO_FW_StartText_BluforText
 		{
@@ -58,7 +58,7 @@ class UO_FW_StartText
 			typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 			expression = "missionNamespace setVariable ['%s',_value];";
 			validate = "none";
-			
+
 		};
 		class UO_FW_StartText_OpforTitleQuote
 		{
@@ -71,7 +71,7 @@ class UO_FW_StartText
 			typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 			expression = "missionNamespace setVariable ['%s',_value];";
 			validate = "none";
-			
+
 		};
 		class UO_FW_StartText_OpforText
 		{
@@ -84,7 +84,7 @@ class UO_FW_StartText
 			typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 			expression = "missionNamespace setVariable ['%s',_value];";
 			validate = "none";
-			
+
 		};
 		class UO_FW_StartText_IndependentTitleQuote
 		{
@@ -97,7 +97,7 @@ class UO_FW_StartText
 			typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 			expression = "missionNamespace setVariable ['%s',_value];";
 			validate = "none";
-			
+
 		};
 		class UO_FW_StartText_IndependentText
 		{
@@ -110,7 +110,7 @@ class UO_FW_StartText
 			typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 			expression = "missionNamespace setVariable ['%s',_value];";
 			validate = "none";
-			
+
 		};
 		class UO_FW_StartText_CivilianTitleQuote
 		{
@@ -123,7 +123,7 @@ class UO_FW_StartText
 			typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 			expression = "missionNamespace setVariable ['%s',_value];";
 			validate = "none";
-			
+
 		};
 		class UO_FW_StartText_CivilianText
 		{
@@ -136,7 +136,7 @@ class UO_FW_StartText
 			typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 			expression = "missionNamespace setVariable ['%s',_value];";
 			validate = "none";
-			
+
 		};
     };
 };

@@ -8,6 +8,7 @@ Version Numbers mainly refer to the UO Modpack addition.
 ### Added
 
 ### Changed
+- Build batch made dynamic to dir path and game registry path
 
 ### Fixed
 - Endconditions script not running properly
