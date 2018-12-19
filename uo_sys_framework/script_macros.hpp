@@ -19,20 +19,9 @@ if(_argUpper == "SERVERHC" && (((hasinterface) && isMultiplayer) || (!UO_FW_Enab
 if(_argUpper == "ALL" && (!UO_FW_Enabled)) exitWith {};\
 if (!UO_FW_Enabled) exitWith {};
 
-
 //Debug function call
-
 #define UO_FW_DEBUG(basicmsg,detailedmsg)\
 [basicmsg,detailedmsg] call UO_FW_fnc_DebugMessageDetailed;
 
-//Gear/Groups
-
-#define SET_GROUP(groupName) _temp = #groupName + package;\
-call compile format ['%1 = {
-
-#define END_GROUP };', _temp]
-
-#define ADD_GROUP(groupName) call call compile format ["%1", #groupName + package]
-
-#define UO_FW_VAR(name,default)\
-missionNamespace getVariable [#name,default];
+#define UO_FW_VAR(NAME,DEFAULT)\
+missionNamespace getVariable [#NAME,#DEFAULT];

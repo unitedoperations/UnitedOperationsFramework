@@ -6,13 +6,14 @@
  * 		BOOL	- True
  *
  */
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
 UO_FW_EXEC_CHECK(SERVERHC)
+
 params [
 	"_grp",
 	["_waypoints",[],[[]]]
 ];
-	for [{_w=0}, {(_w < count _waypoints)}, {_w = _w + 1}] do { 
+	for [{_w=0}, {(_w < count _waypoints)}, {_w = _w + 1}] do {
 	private	_currentWaypoint = _waypoints select _w;
 	private	_wp = _grp addWaypoint [(_currentWaypoint select 2),5,(_currentWaypoint select 0 select 1),(_currentWaypoint select 1)];
 		_wp setWaypointType (_currentWaypoint select 3);

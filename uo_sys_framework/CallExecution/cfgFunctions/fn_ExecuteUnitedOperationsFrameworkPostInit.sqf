@@ -1,6 +1,7 @@
 
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 
+[] spawn {
 //Module functions
 if(getMissionConfigValue["UO_FW_Enabled",false]) then
 {
@@ -9,7 +10,7 @@ if(getMissionConfigValue["UO_FW_Enabled",false]) then
 		["","Framework is disabled by the Server."] call UO_FW_fnc_DebugMessageDetailed;
 	};
 	["","Initializing Framework"] call UO_FW_fnc_DebugMessageDetailed;
-	_this call UO_FW_FNC_init;
+	_this call UO_FW_FNC_postInit;
 	if(UO_FW_SERVER_ACREMODULE_ALLOWED) then {_this call UO_FW_FNC_AcreInit;};
 	if(UO_FW_SERVER_GEARMODULE_ALLOWED) then {_this call UO_FW_FNC_GearInit;};
 	if(UO_FW_SERVER_ACREMODULE_ALLOWED) then {_this call UO_FW_FNC_addRadiosInit;};
@@ -40,4 +41,4 @@ if(UO_FW_SERVER_STARTINPARACHUTEMODULE_ALLOWED) then {_this call UO_FW_FNC_Start
 if(UO_FW_SERVER_TEAMCOLOURMODULE_ALLOWED) then {_this call UO_FW_FNC_teamColourInit;};
 
 ["","Finished Initializing Framework"] call UO_FW_fnc_DebugMessageDetailed;
-
+};

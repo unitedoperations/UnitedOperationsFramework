@@ -9,8 +9,7 @@
 	//[_sign,["Set SQUAD Drop Zone",{[player] spawn UO_FW_AI_fnc_setParaLocation},[]],2,[.2,0,0.3]] spawn UO_FW_AI_fnc_globalddAction;
 	//[_sign,["Set ALL Drop Zone",{[player] spawn UO_FW_AI_fnc_setParaLocationAll},[]],2,[.2,0,0.35]] spawn UO_FW_AI_fnc_globalddAction;
 	//[_sign,["Initiate SQUAD Para Insertion",{[player] spawn UO_FW_AI_fnc_paraStart},[]],2,[-.2,0,0.4]] spawn UO_FW_AI_fnc_globalddAction;
-//if(!isServer) exitWith {_this remoteExec ["UO_FW_AI_fnc_paraStart",[0,2] select isMultiplayer];};
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
 UO_FW_EXEC_CHECK(SERVERHC)
 	params [["_u",objNull,[objNull]],["_s",objNull,[objNull]],["_global",false,[false]],["_currentRow",0,[0]],["_currentColumn",0,[0]],["_clients",[],[[]]],["_ldrs",[],[[]]],["_vehPos",[],[[]]]];
 

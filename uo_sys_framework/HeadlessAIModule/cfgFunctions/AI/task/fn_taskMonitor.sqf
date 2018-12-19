@@ -6,7 +6,7 @@
  *	Author
  *		suits & PiZZADOX
  */
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
 UO_FW_EXEC_CHECK(SERVERHC)
 	{							
 		_x params ["_grp"];
@@ -25,8 +25,8 @@ UO_FW_EXEC_CHECK(SERVERHC)
 				};
 			};		
 		} else {
-			_index = UO_FW_taskedGroups find [_grp];
-			UO_FW_taskedGroups deleteAt _index;
+			_index = UO_FW_AI_taskedGroups find [_grp];
+			UO_FW_AI_taskedGroups deleteAt _index;
 		};
-	} forEach UO_FW_taskedGroups;
+	} forEach UO_FW_AI_taskedGroups;
 	true

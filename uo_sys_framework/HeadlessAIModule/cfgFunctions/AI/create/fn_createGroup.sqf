@@ -7,8 +7,9 @@
  *	Author
  *		suits & PiZZADOX
  */
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
 UO_FW_EXEC_CHECK(SERVERHC)
+
 
 params ["_grpid","_grpSet","_grpMem",["_currentVeh",objNull,[objNull]]];
 	_grpSet params ["_side","_gpos","_behave","_combat","_speed","_formation","_grpStance","_grpInit","_createRadius","_taskRadius","_wait","_startBld","_task","_taskTimer","_multi","_occupyOption","_vehAssigned","_waypoints","_onWater","_tasks","_fl"];
@@ -29,7 +30,7 @@ params ["_grpid","_grpSet","_grpMem",["_currentVeh",objNull,[objNull]]];
 		[_ngrp,_tasks] call UO_FW_AI_fnc_taskRegister;
 		_tasks = _tasks call UO_FW_AI_fnc_taskRemoveZoneActivated;
 	};
-	if(count _tasks > 0) then {UO_FW_taskedGroups pushBack [_ngrp];};
+	if(count _tasks > 0) then {UO_FW_AI_taskedGroups pushBack [_ngrp];};
 	if(count _waypoints > 2) then {
 		[_ngrp,_waypoints] call UO_FW_AI_fnc_createWaypoints;
 	} else {

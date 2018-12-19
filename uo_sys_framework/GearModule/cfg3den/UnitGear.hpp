@@ -24,4 +24,3 @@ class UO_FW_Gear
         };
     };
 };
-         

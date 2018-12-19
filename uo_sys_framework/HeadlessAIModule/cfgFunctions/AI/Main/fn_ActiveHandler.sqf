@@ -1,4 +1,4 @@
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
 UO_FW_EXEC_CHECK(HC)
 
 if (!(UO_FW_AI_Enabled)) exitWith {};

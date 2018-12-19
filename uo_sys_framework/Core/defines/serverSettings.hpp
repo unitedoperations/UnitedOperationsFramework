@@ -1,6 +1,3 @@
-UO_FW_Teams = []; //DO NOT REMOVE
-UO_FW_MissionEnded = false; //Mission has not ended
-
 //Create respawn markers
 {_x call UO_FW_fnc_CreateRespawnMarker;} foreach ["west","east","guer","civ"];
 

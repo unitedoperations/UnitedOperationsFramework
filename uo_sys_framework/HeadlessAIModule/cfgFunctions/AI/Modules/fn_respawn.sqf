@@ -8,8 +8,9 @@
  *	Author
  *		suits & PiZZADOX
  */
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
 UO_FW_EXEC_CHECK(SERVERHC)
+
 params [["_mode","",[""]],["_input",[],[[]]]];
 	if(isNil "UO_FW_AI_initialised") then {call UO_FW_AI_fnc_init;};
 	switch _mode do {
@@ -18,7 +19,7 @@ params [["_mode","",[""]],["_input",[],[[]]]];
 				_input params ["_logic",["_isActivated",true,[true]],["_isCuratorPlaced",false,[false]],["_grpPosArray",[],[[]]],["_grpPosNew",[],[[]]]];
 				if !(_isActivated) exitWith {};
 				sleep 0.3;
-				[_logic] spawn UO_FW_AI_fnc_debugSyncedModules;	
+				[_logic] spawn UO_FW_AI_fnc_debugSyncedModules;
 			};
 		};
 		case "attributesChanged3DEN": {};

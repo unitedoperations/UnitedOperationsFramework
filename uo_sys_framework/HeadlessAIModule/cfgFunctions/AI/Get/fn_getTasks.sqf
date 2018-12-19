@@ -4,7 +4,7 @@
  * 	Return Value:
  * 		GROUP 	- Synchronised Task Modules
  */
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
 UO_FW_EXEC_CHECK(SERVERHC)
 params ["_grp",["_allowedModules",[],[[]]],["_allowedSynced",[],[[]]],["_item",objNull,[objNull]],["_allowed",false,[false]],"_j"];
 	private _grpldr = leader _grp;

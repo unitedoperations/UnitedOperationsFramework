@@ -9,10 +9,11 @@
  *      TRUE
  * [3,"drop"] spawn UO_FW_AI_fnc_createAirResupply;
  */
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
 UO_FW_EXEC_CHECK(SERVERHC)
 
-params [["_ordnanceType",1,[0]]];    
+
+params [["_ordnanceType",1,[0]]];
 openmap true;
 ["ammodrop_location", "onMapSingleClick", {
 	[_this select 1,_this select 4,_this select 5] spawn {
@@ -21,7 +22,7 @@ openmap true;
 		createMarker [_markerName,_pos];
 		_markerName setMarkerText "AD";
 		_markerName setMarkerColor "ColorWEST";
-		_markerName setMarkerType  "b_unknown";	
+		_markerName setMarkerType  "b_unknown";
 		private _factionPlayer = faction player;
 		private _ammoCrate = format ["%1_ammo_air", _factionPlayer];
 		private _medicalCrate = format ["%1_ammo_med_air", _factionPlayer];
@@ -36,9 +37,9 @@ openmap true;
 			case 7: {[_ammoCrate,_ammoCrate,_medicalCrate];};
 			default {[_ammoCrate];};
 		};
-		_spos = _spos vectorAdd [0,0,300];   
+		_spos = _spos vectorAdd [0,0,300];
 		_dpos = (([_pos,0,50,1] call UO_FW_AI_fnc_getRandomPositionCircle) select 0);
-		_dpos = _dpos vectorAdd [0,0,150];				
+		_dpos = _dpos vectorAdd [0,0,150];
 		_wait = (floor random [20,70,150]);
 		[_dpos,_spos,_ordnance,_wait] remoteExec ["UO_FW_AI_fnc_createAmmoDrop",[0,2] select isMultiplayer];
 		sleep 0.5;

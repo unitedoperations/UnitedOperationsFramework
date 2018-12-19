@@ -7,7 +7,7 @@
  *	Author
  *		suits & PiZZADOX
  */
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
 UO_FW_EXEC_CHECK(SERVERHC)
 params ["_grp","_check",["_init",false,[false]],["_syncedTasks",[],[[]]],["_task",objNull,[objNull]],["_taskCheck",[],[[]]],["_taskOrder",[],[[]]]];
 	if(_grp getVariable "aeCurrentTaskEndTime" < time || _init) then {
@@ -47,8 +47,8 @@ params ["_grp","_check",["_init",false,[false]],["_syncedTasks",[],[[]]],["_task
 			};
 			private _tasks = _syncedTasks select {!(_x in (_grp getVariable["aeCompletedTasks",[]]))};
 			if(_tasks isEqualTo []) then {
-				_index = UO_FW_taskedGroups find [_grp];
-				UO_FW_taskedGroups deleteAt _index;
+				_index = UO_FW_AI_taskedGroups find [_grp];
+				UO_FW_AI_taskedGroups deleteAt _index;
 			} else {
 				private _activeTasks = [];
 				for "_i" from 0 to ((count _tasks)-1) do {

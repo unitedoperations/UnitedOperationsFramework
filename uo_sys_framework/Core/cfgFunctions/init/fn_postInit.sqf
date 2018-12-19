@@ -2,13 +2,12 @@
  *	Arguments:
  * 		N/A
  *	Return Value:
- * 		N/A 	
+ * 		N/A
  *	Author
  *		PiZZADOX
  */
 
 #include "\x\UO_FW\addons\main\script_macros.hpp"
-
 
 //Universal init
 #include "\x\UO_FW\addons\main\Core\defines\mainSettings.hpp"
@@ -18,15 +17,15 @@ if (isServer) then
 {
 	//Server init
 	#include "\x\UO_FW\addons\main\Core\defines\serverSettings.hpp"
-	
-	"" call UO_FW_fnc_teamsInit;
+
+	//"" call UO_FW_fnc_teamsInit;
 
 	"" call UO_FW_fnc_StartingCount; //DO NOT REMOVE
 };
 
 if (!isDedicated) then
 {
-	
+
 	"" call UO_FW_FNC_BriefingFrameworkEntry;
 	//non server init
 	//Anything done using "player" must be past this line for JIP compatibility
@@ -47,7 +46,7 @@ if (!isDedicated) then
 			_msg call UO_FW_fnc_EndMission;
 		}, "admin"] call CBA_fnc_registerChatCommand;
 	};
-	
+
 	if (!isServer && !hasinterface) then {
 		//HC init
 	};
@@ -58,7 +57,7 @@ if (!isDedicated) then
 	//#include "\x\UO_FW\addons\main\Core\defines\RespawnInit.hpp"
 
 	UO_FW_RespawnTickets = 0; //Initialize respawn tickets to 0
-	
+
 	//switch (side player) do
 	//{ //Checks what team the player is on
  	//	case west:

@@ -6,14 +6,16 @@
  *	Author
  *		suits & PiZZADOX
  */
-if(!isServer) exitWith {_this remoteExec ["UO_FW_AI_fnc_enableZones", 2];};
+#include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
+UO_FW_EXEC_CHECK(SERVERHC)
+
 	private _zones = [];
 	if ((_this select 0) isEqualType []) then {
 		_zones = _this select 0;
 	} else {
-		_zones = _this; 
-	};	
+		_zones = _this;
+	};
 	{
-		([_x,UO_FW_zones] call UO_FW_AI_fnc_getDetails) set [3, 0];
+		([_x,UO_FW_AI_Zones] call UO_FW_AI_fnc_getDetails) set [3, 0];
 	} forEach _zones;
 	true

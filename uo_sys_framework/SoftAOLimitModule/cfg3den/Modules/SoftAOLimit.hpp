@@ -10,7 +10,7 @@ class UO_FW_SoftAOLimit
             displayName = "Soft AO Limit enabled";
             tooltip = "Toggle activation";
             control = "CheckboxState";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "false";
         };
 		class UO_FW_SoftAoLimit_TimeOutside

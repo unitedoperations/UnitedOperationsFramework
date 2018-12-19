@@ -6,7 +6,7 @@
  *	Return Value:
  *		TRUE
  */
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
 UO_FW_EXEC_CHECK(SERVERHC)
 	params [["_v",objNull,[objNull]],["_pr",false,[false]],["_ps",false,[false]],["_c",0,[0]]];
 	waitUntil {sleep 0.1; _c = _c + 1; (((getPosATL _v) select 2) < 200 || !alive _v || _c > 1800); };

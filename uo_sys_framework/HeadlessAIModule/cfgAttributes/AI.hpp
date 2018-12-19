@@ -602,7 +602,7 @@ class UO_FW_moduleradiusControl2 : Edit {
          };
      };
  };
-class UO_FW_zonedelayControl : Edit {
+class UO_FW_AI_zoneDelayControl : Edit {
      attributeLoad = "if(typename _value != typename '')then{_value = str _value;};(_this controlsGroupCtrl 128) ctrlSetText _value;";
      attributeSave = "_value = ctrlText (_this controlsGroupCtrl 128);if(gettext (_config >> 'typeName') == 'NUMBER')then{_value = parsenumber _value;};_value";
      class Controls: Controls {
@@ -617,7 +617,7 @@ class UO_FW_zonedelayControl : Edit {
          };
      };
  };
- class UO_FW_zoneInitialSpawn : Title {
+ class UO_FW_AI_zoneInitialSpawn : Title {
 	attributeLoad = "missionnamespace setvariable ['UO_FW_intial_value',_value]; (_this controlsGroupCtrl 129) lbsetcursel _value;";
 	attributeSave = "missionnamespace getvariable ['UO_FW_intial_value',0];";
 	class Controls: Controls {
@@ -636,9 +636,9 @@ class UO_FW_zonedelayControl : Edit {
 		};
 	};
 };
-class UO_FW_zoneonControl : Title {
-	attributeLoad = "missionnamespace setvariable ['UO_FW_zoneon_value',_value]; (_this controlsGroupCtrl 129) lbsetcursel _value;";
-	attributeSave = "missionnamespace getvariable ['UO_FW_zoneon_value',0];";
+class UO_FW_AI_zoneOnControl : Title {
+	attributeLoad = "missionnamespace setvariable ['UO_FW_AI_zoneOn_value',_value]; (_this controlsGroupCtrl 129) lbsetcursel _value;";
+	attributeSave = "missionnamespace getvariable ['UO_FW_AI_zoneOn_value',0];";
 	class Controls: Controls {
 		class Title: Title{};
 		class Value: ctrlToolbox {
@@ -651,7 +651,7 @@ class UO_FW_zoneonControl : Title {
              columns = 2;
 			values[] = {0,1};
              strings[] = {"ENABLED","SUSPENDED"};
-			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_zoneon_value',_this select 1];";
+			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_zoneOn_value',_this select 1];";
 		};
 	};
 };
@@ -671,9 +671,9 @@ class UO_FW_moduleconditionControl : Edit {
 		};
 	};
 };
-class UO_FW_zonetypeControl : Title	{
-	attributeLoad = "missionnamespace setvariable ['UO_FW_zonetype_value',_value]; (_this controlsGroupCtrl 131) lbsetcursel (((_value) min 11) max 0);";
-	attributeSave = "missionnamespace getvariable ['UO_FW_zonetype_value',1];";
+class UO_FW_AI_zoneTypeControl : Title	{
+	attributeLoad = "missionnamespace setvariable ['UO_FW_AI_zoneType_value',_value]; (_this controlsGroupCtrl 131) lbsetcursel (((_value) min 11) max 0);";
+	attributeSave = "missionnamespace getvariable ['UO_FW_AI_zoneType_value',1];";
 	h = "25 * (pixelH * pixelGrid * 0.50)";
 	class Controls: Controls {
 		class Title: Title{
@@ -704,13 +704,13 @@ class UO_FW_zonetypeControl : Title	{
 				"Activate zone on Ground Vehicle Only type of units present in zone.","Activate zone on Water Vehicle Only type of units present in zone.",
 				"Activate zone on Helicopter Unit Only type of units present in zone.","Activate zone on Plane Unit Only type of units present in zone."
 			};
-			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_zonetype_value',_this select 1];";
+			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_zoneType_value',_this select 1];";
 		};
 	};
 };
-class UO_FW_zonesideControl : Title	{
-	attributeLoad = "missionnamespace setvariable ['UO_FW_zoneside_value',_value]; (_this controlsGroupCtrl 132) lbsetcursel (((_value) min 12) max 0);";
-	attributeSave = "missionnamespace getvariable ['UO_FW_zoneside_value',1];";
+class UO_FW_AI_ZonesideControl : Title	{
+	attributeLoad = "missionnamespace setvariable ['UO_FW_AI_Zoneside_value',_value]; (_this controlsGroupCtrl 132) lbsetcursel (((_value) min 12) max 0);";
+	attributeSave = "missionnamespace getvariable ['UO_FW_AI_Zoneside_value',1];";
 	h = "35 * (pixelH * pixelGrid * 0.50)";
 	class Controls: Controls {
 		class Title: Title{
@@ -743,7 +743,7 @@ class UO_FW_zonesideControl : Title	{
 				"The side of the unit needs to be EAST or CIVILIAN to activate the zone.","The side of the unit needs to be EAST or INDEPENDENT or CIVILIAN to activate the zone.",
 				"The side of the unit needs to be INDEPENDENT or CIVILIAN to activate the zone."
 			};
-			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_zoneside_value',_this select 1];";
+			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_Zoneside_value',_this select 1];";
 		};
 	};
 };
@@ -945,9 +945,9 @@ class UO_FW_standardNumberAltControl : Edit {
          };
      };
  };
-class UO_FW_headlessControl : Title {
-	attributeLoad = "_index = (if(_value isequaltype 0) then {_value} else {[false,true] find _value}); missionnamespace setvariable ['UO_FW_headless_value',_index]; (_this controlsGroupCtrl 141) lbsetcursel _index;";
-	attributeSave = "[false,true] select (missionnamespace getvariable ['UO_FW_headless_value',0]);";
+class UO_FW_AI_headlessControl : Title {
+	attributeLoad = "_index = (if(_value isequaltype 0) then {_value} else {[true,false] find _value}); missionnamespace setvariable ['UO_FW_AI_headless_value',_index]; (_this controlsGroupCtrl 141) lbsetcursel _index;";
+	attributeSave = "[true,false] select (missionnamespace getvariable ['UO_FW_AI_headless_value',0]);";
 	class Controls: Controls {
 		class Title: Title{};
 		class Value: ctrlToolbox {
@@ -958,9 +958,9 @@ class UO_FW_headlessControl : Title {
              h = "5 * (pixelH * pixelGrid * 0.50)";
              rows = 1;
              columns = 2;
-			values[] = {0,1};
+						 values[] = {0,1};
              strings[] = {"Headless","Server"};
-			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_headless_value',_this select 1];";
+			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_headless_value',_this select 1];";
 		};
 	};
 };

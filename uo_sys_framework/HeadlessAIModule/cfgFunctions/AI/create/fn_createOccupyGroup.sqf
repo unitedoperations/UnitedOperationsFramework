@@ -6,8 +6,9 @@
  * 	Return Value:
  * 		BOOL 	- True
  */
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
 UO_FW_EXEC_CHECK(SERVERHC)
+
 params ["_grpid","_grpSet","_grpMem",["_blds",[],[[]]],["_bldPos",[],[[]]],["_uBld",objNull,[objNull]]];
 	_grpSet params["_side","_gpos","_behave","_combat","_speed","_formation","_grpStance","_grpInit","_createRadius","_taskRadius","_wait","_startBld","_task","_taskTimer","_multi","_occupyOption","_vehAssigned","_waypoints","_onWater","_tasks","_fl"];
 	private _spos = _gpos;
@@ -34,7 +35,7 @@ params ["_grpid","_grpSet","_grpMem",["_blds",[],[[]]],["_bldPos",[],[[]]],["_uB
 		[_ngrp,_tasks] call UO_FW_AI_fnc_taskRegister;
 		_tasks = _tasks call UO_FW_AI_fnc_taskRemoveZoneActivated;
 	};
-	if(count _tasks > 0) then {UO_FW_taskedGroups pushBack [_ngrp];};
+	if(count _tasks > 0) then {UO_FW_AI_taskedGroups pushBack [_ngrp];};
 	if(count _tasks > 0 && _taskTimer isEqualTo 0) then {
 		[_ngrp,_tasks] call UO_FW_AI_fnc_taskInit;
 	} else {

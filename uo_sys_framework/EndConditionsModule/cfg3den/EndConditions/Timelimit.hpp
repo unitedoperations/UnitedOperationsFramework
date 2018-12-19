@@ -10,7 +10,7 @@ class Timelimit
             displayName = "Mission Time Limit";
             tooltip = "Enables mission time limit";
             control = "CheckboxState";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "false";
         };
         class UO_FW_Timelimit
@@ -19,7 +19,7 @@ class Timelimit
             displayName = "Time Limit";
             tooltip = "Ends mission after this time has been reached. Time in minutes";
 			control = "EditShort";
-            expression="missionNamespace setVariable ['%s',_value];";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
 			validate = "number";
             defaultValue = "30";
         };
@@ -30,7 +30,7 @@ class Timelimit
             tooltip = "Message displayed on time limit reached";
             control = "Edit";
 			validate = "string";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "'Time Limit Reached!'";
         };
     };

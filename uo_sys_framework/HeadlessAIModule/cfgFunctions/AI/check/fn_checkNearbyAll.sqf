@@ -9,8 +9,9 @@
  * 	Return Value:
  * 		NUMBER	- A count of any units of specified type within the given radius of selected position.
  */
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
 UO_FW_EXEC_CHECK(SERVERHC)
+
 params [
 	["_pos",[0,0,0],[[]],[3]],
 	["_radius",5,[0]],

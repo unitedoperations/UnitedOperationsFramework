@@ -4,7 +4,7 @@
  * 	Return Value:
  *		BOOL 	- True
  */
-if(!isServer) exitWith{};
+
 	params [["_unit",objNull,[objNull]],"_backpackArray","_backpack","_backpackContents"];
 	_backpackArray		= _unit getVariable ["unitBackpack", ["",[]] ];
 	_backpackArray params [["_backpack","",[""]],["_backpackContents",[],[[]]]];
@@ -12,5 +12,5 @@ if(!isServer) exitWith{};
 	_unit addBackpack _backpack;
 	{
 		_unit addItemToBackpack _x;
-	} forEach _backpackContents;	
+	} forEach _backpackContents;
 	true

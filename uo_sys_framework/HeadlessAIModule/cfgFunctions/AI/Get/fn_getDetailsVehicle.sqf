@@ -6,7 +6,7 @@
  *	Author
  *		suits & PiZZADOX
  */
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
 UO_FW_EXEC_CHECK(SERVERHC)
 	params ["_obj","_pos"];
 	private _unitInit = _obj getVariable ["aeUnitInit",""];

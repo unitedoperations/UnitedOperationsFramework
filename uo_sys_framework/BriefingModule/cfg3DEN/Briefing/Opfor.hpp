@@ -10,7 +10,7 @@ class OPFOR_NATOStyle
             displayName = "NATO style briefing";
             tooltip = "Enables NATO style briefing";
             control = "CheckboxState";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "false";
             
         };
@@ -30,7 +30,7 @@ class OPFOR_NATOStyle
             tooltip = "Situation";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -41,7 +41,7 @@ class OPFOR_NATOStyle
             tooltip = "Terrain";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -52,7 +52,7 @@ class OPFOR_NATOStyle
             tooltip = "Key Terrain";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -63,7 +63,7 @@ class OPFOR_NATOStyle
             tooltip = "Weather";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -83,7 +83,7 @@ class OPFOR_NATOStyle
             tooltip = "Enemy Disposition";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -94,7 +94,7 @@ class OPFOR_NATOStyle
             tooltip = "Enemy Strength";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 		class UO_FW_BRIEFING_OPFOR_NATO_ENEMY_EQUIPMENT
@@ -104,7 +104,7 @@ class OPFOR_NATOStyle
             tooltip = "Enemy Equipment";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 		class UO_FW_BRIEFING_OPFOR_NATO_ENEMY_APPEARANCE
@@ -114,7 +114,7 @@ class OPFOR_NATOStyle
             tooltip = "Enemy Appearance";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 		class UO_FW_BRIEFING_OPFOR_NATO_ENEMY_MLCOA
@@ -124,7 +124,7 @@ class OPFOR_NATOStyle
             tooltip = "Most Likely Course of Action";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -135,7 +135,7 @@ class OPFOR_NATOStyle
             tooltip = "Most Dangerous Course of Action";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -155,7 +155,7 @@ class OPFOR_NATOStyle
             tooltip = "Friendly Disposition";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -166,7 +166,7 @@ class OPFOR_NATOStyle
             tooltip = "Friendly Higher Units";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -177,7 +177,7 @@ class OPFOR_NATOStyle
             tooltip = "Friendly Strength";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -188,7 +188,7 @@ class OPFOR_NATOStyle
             tooltip = "Friendly Appearance";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -208,7 +208,7 @@ class OPFOR_NATOStyle
             tooltip = "Mission";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -230,7 +230,7 @@ class OPFOR_NATOStyle
             tooltip = "Intent";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -241,7 +241,7 @@ class OPFOR_NATOStyle
             tooltip = "Maneuver";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -252,7 +252,7 @@ class OPFOR_NATOStyle
             tooltip = "Timings";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -263,7 +263,7 @@ class OPFOR_NATOStyle
             tooltip = "Tasks";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -294,7 +294,7 @@ class OPFOR_NATOStyle
             tooltip = "Fires";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -305,7 +305,7 @@ class OPFOR_NATOStyle
             tooltip = "Ammo";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -326,7 +326,7 @@ class OPFOR_NATOStyle
             tooltip = "General";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -357,7 +357,7 @@ class OPFOR_NATOStyle
             tooltip = "Command";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -378,7 +378,7 @@ class OPFOR_NATOStyle
             tooltip = "Radio Frequencies";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -389,7 +389,7 @@ class OPFOR_NATOStyle
             tooltip = "Codewords";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -400,7 +400,7 @@ class OPFOR_NATOStyle
             tooltip = "Special Signals";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -411,7 +411,7 @@ class OPFOR_NATOStyle
             tooltip = "Callsigns";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -422,7 +422,7 @@ class OPFOR_NATOStyle
             tooltip = "Passwords";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
     };
@@ -440,7 +440,7 @@ class OPFOR_WPStyle
             displayName = "Warsaw Pact style briefing";
             tooltip = "Enables Warsaw Pact style briefing";
             control = "CheckboxState";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "false";
         };
 		class UO_FW_BRIEFING_OPFOR_WARSAW_PRELIMINARIES_TITLE
@@ -458,7 +458,7 @@ class OPFOR_WPStyle
             tooltip = "Weather";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 		class UO_FW_BRIEFING_OPFOR_WARSAW_PRELIMINARIES_TERRAIN
@@ -468,7 +468,7 @@ class OPFOR_WPStyle
             tooltip = "Terrain";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 		class UO_FW_BRIEFING_OPFOR_WARSAW_REFERENCE_TITLE
@@ -486,7 +486,7 @@ class OPFOR_WPStyle
             tooltip = "Deployment Reference Points";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 		class UO_FW_BRIEFING_OPFOR_WARSAW_REFERENCE_SUBSEQUENTPOINTS
@@ -496,7 +496,7 @@ class OPFOR_WPStyle
             tooltip = "Subsequent Reference Points";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 		class UO_FW_BRIEFING_OPFOR_WARSAW_ENEMY_TITLE
@@ -514,7 +514,7 @@ class OPFOR_WPStyle
             tooltip = "Enemy Disposition";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 		class UO_FW_BRIEFING_OPFOR_WARSAW_ENEMY_EQUIP
@@ -524,7 +524,7 @@ class OPFOR_WPStyle
             tooltip = "Enemy Equipment";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 		class UO_FW_BRIEFING_OPFOR_WARSAW_ENEMY_PROB_HQ
@@ -534,7 +534,7 @@ class OPFOR_WPStyle
             tooltip = "Probable Enemy HQ Location";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 		class UO_FW_BRIEFING_OPFOR_WARSAW_ENEMY_PROB_LINE
@@ -544,7 +544,7 @@ class OPFOR_WPStyle
             tooltip = "Probable Enemy Main Element Location";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 		class UO_FW_BRIEFING_OPFOR_WARSAW_ENEMY_PROB_DIR_ATTACK
@@ -554,7 +554,7 @@ class OPFOR_WPStyle
             tooltip = "Probable Enemy Direction of Attack";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 		class UO_FW_BRIEFING_OPFOR_WARSAW_ENEMY_PROB_ARTY
@@ -564,7 +564,7 @@ class OPFOR_WPStyle
             tooltip = "Probable Enemy Artillery Positions & Capability";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 		class UO_FW_BRIEFING_OPFOR_WARSAW_HIGHER_TITLE
@@ -582,7 +582,7 @@ class OPFOR_WPStyle
             tooltip = "Description";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 		class UO_FW_BRIEFING_OPFOR_WARSAW_HIGHER_BOUNDARY
@@ -592,7 +592,7 @@ class OPFOR_WPStyle
             tooltip = "Boundaries";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 		class UO_FW_BRIEFING_OPFOR_WARSAW_HIGHER_ARTY
@@ -602,7 +602,7 @@ class OPFOR_WPStyle
             tooltip = "Location and Capability of Artillery";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 		class UO_FW_BRIEFING_OPFOR_WARSAW_MISSION_TITLE
@@ -620,7 +620,7 @@ class OPFOR_WPStyle
             tooltip = "Mission Statement";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 		class UO_FW_BRIEFING_OPFOR_WARSAW_MISSION_DIR
@@ -630,7 +630,7 @@ class OPFOR_WPStyle
             tooltip = "End State Direction";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 		class UO_FW_BRIEFING_OPFOR_WARSAW_ORDER_TITLE
@@ -648,7 +648,7 @@ class OPFOR_WPStyle
             tooltip = "Tasks";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 		class UO_FW_BRIEFING_OPFOR_WARSAW_ORDER_TASKS_ARTY
@@ -658,7 +658,7 @@ class OPFOR_WPStyle
             tooltip = "Tasks for Artillery Elements";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 		class UO_FW_BRIEFING_OPFOR_WARSAW_ORDER_TIMINGS
@@ -668,7 +668,7 @@ class OPFOR_WPStyle
             tooltip = "Readiness Timings";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 		class UO_FW_BRIEFING_OPFOR_WARSAW_ORDER_SIGNALS
@@ -678,7 +678,7 @@ class OPFOR_WPStyle
             tooltip = "Signals";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 		class UO_FW_BRIEFING_OPFOR_WARSAW_COMM_TITLE
@@ -696,7 +696,7 @@ class OPFOR_WPStyle
             tooltip = "Location of the Commander";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 		class UO_FW_BRIEFING_OPFOR_WARSAW_SUCC_TITLE
@@ -714,7 +714,7 @@ class OPFOR_WPStyle
             tooltip = "Succession of Command";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 	};
@@ -732,7 +732,7 @@ class OPFOR_Custom_File
             displayName = "Briefing File";
             tooltip = "Loads file as briefing";
             control = "CheckboxState";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "false";
         };
 		class UO_FW_BRIEFING_OPFOR_FILE_PATH
@@ -742,7 +742,7 @@ class OPFOR_Custom_File
             tooltip = "Path to briefing file";
 			control = "Edit";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 	};
@@ -760,7 +760,7 @@ class OPFOR_APPENDIX
             displayName = "Appendix File";
             tooltip = "Enables Appendix File";
             control = "CheckboxState";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "false";
             
         };
@@ -771,7 +771,7 @@ class OPFOR_APPENDIX
             tooltip = "Path to Appendix Briefing File";
 			control = "Edit";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };

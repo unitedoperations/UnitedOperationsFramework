@@ -5,12 +5,17 @@ Version Numbers mainly refer to the UO Modpack addition.
 ## [Unreleased]
 ### Added
 - [HC] Enabled module
+- [HC] New locality check macro for module (checks for HC, reexecutes function if on wrong locality)
+- MarkerControl module input now accepts 3den layers - adds all markers from named layer
+- Server broadcasts it's debug messages to clients if debug detailed enabled
 
 ### Changed
 - Build batch made dynamic to dir path and game registry path
 - Changed all Tracking/Untracking functions to include a server locality check and recall
 - Changed `BIS_fnc_MP` calls to `remoteExec`
 - Changed `UO_FW_fnc_inArea` calls to `inArea` command - fnc removed
+- Hostage module rewritten to activate via unit attribute expression instead of an allUnits spawn
+- Changed setDefaults to PreInit (finds mission values directly in preInit, sets config default values from cfg3DEN if not found)
 
 ### Fixed
 - [HC] Collecting/Spawning function

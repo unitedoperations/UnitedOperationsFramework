@@ -6,7 +6,7 @@
  *	Author
  *		suits & PiZZADOX
  */
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
 UO_FW_EXEC_CHECK(SERVERHC)
 params ["_grp",["_vars",[],[[]]]];
 	_vars = [
@@ -22,7 +22,7 @@ params ["_grp",["_vars",[],[[]]]];
 		_grp getVariable ['aeOccupyOption',0], 
 		_grp getVariable ['aeWaypoints',[]],
 		_grp getVariable ['aeTasks',[]],
-		_grp getVariable ['aeHeadless',true],
+		_grp getVariable ['UO_FW_AI_headless',true],
 		_grp getVariable ['aeForceLights',false],
 		_grp getVariable ['aeSurrender',false],
 		_grp getVariable ['aeTracker',false]

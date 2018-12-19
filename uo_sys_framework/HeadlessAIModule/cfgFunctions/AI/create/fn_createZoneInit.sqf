@@ -7,9 +7,14 @@
  *	Author
  *		suits & PiZZADOX
  */
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
 UO_FW_EXEC_CHECK(SERVERHC)
-params [["_zone",objNull,[objNull]],["_entities",[],[[]]],["_code",{},[{}]]];
+if (isMultiplayer) then {
+	waituntil {!isNil "UO_FW_var_HC_ID"};
+};
+
+	params [["_zone",objNull,[objNull]],["_entities",[],[[]]],["_code",{},[{}]]];
+	diag_log format ["zone spawning!: %1",_zone];
 	_entities params [["_grps",[],[[]]],["_emptyvehs",[],[[]]],["_objs",[],[[]]]];
 	{
 		private _veh = _x;

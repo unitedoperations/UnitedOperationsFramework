@@ -10,7 +10,7 @@ class SafeStart
             displayName = "Safe Start";
             tooltip = "Enable Safe Start";
             control = "CheckboxState";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "true";
         };
 		class UO_FW_SafeStart_Lowered
@@ -19,7 +19,7 @@ class SafeStart
             displayName = "Start Lowered";
             tooltip = "Enable Lowered Weapon on Mission Start";
             control = "Checkbox";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "true";
         };
 		class UO_FW_SafeStart_Unloaded
@@ -28,7 +28,7 @@ class SafeStart
             displayName = "Start Unloaded";
             tooltip = "Enable Unloaded Weapon on Mission Start";
             control = "Checkbox";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "true";
         };
     };

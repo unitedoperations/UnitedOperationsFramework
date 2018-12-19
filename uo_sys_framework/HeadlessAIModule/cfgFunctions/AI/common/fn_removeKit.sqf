@@ -3,8 +3,9 @@
  * 		OBJECT - Unit to Remove From
  * 		NUMBER - Remove Option
  */
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
 UO_FW_EXEC_CHECK(SERVERHC)
+
 	params["_u",["_r",0,[0]]];
 	switch (_r) do {
 		case 1: {
@@ -34,7 +35,7 @@ UO_FW_EXEC_CHECK(SERVERHC)
 			_u unassignItem "NVGoggles_OPFOR";
 			_u removeItem "NVGoggles_OPFOR";
 			_u unassignItem "NVGoggles_INDEP";
-			_u removeItem "NVGoggles_INDEP";		
+			_u removeItem "NVGoggles_INDEP";
 		};
 		case 3: {
 			removeAllWeapons _u;

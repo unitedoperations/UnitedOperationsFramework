@@ -15,11 +15,12 @@
  * [3,"drop"] spawn UO_FW_AI_fnc_createAirResupply;
  * [3,"drop","bma3_bushmaster_pws127mm_F",120,false,false,"start"] spawn UO_FW_AI_fnc_createAirDrop;
  */
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
 UO_FW_EXEC_CHECK(SERVERHC)
 
 
-	params ["_logic",["_radius",300,[0]],["_amount",3,[0]],["_ord","Box_NATO_Ammo_F",[""]],["_fh",120,[0]],["_ps",true,[true]],["_btype","RHS_C130J",[""]],["_escort",true,[true]],["_ftype","rhsusf_f22",[""]],["_spos",[],[[]]],["_grp",grpNull,[grpNull]],"j","f"];	
+
+	params ["_logic",["_radius",300,[0]],["_amount",3,[0]],["_ord","Box_NATO_Ammo_F",[""]],["_fh",120,[0]],["_ps",true,[true]],["_btype","RHS_C130J",[""]],["_escort",true,[true]],["_ftype","rhsusf_f22",[""]],["_spos",[],[[]]],["_grp",grpNull,[grpNull]],"j","f"];
 	_spos = _spos vectorAdd [0,0,_fh*3];
 	for [{_j=0},{(_j < _amtB)},{_j = _j + 1}] do {
 		if(_radius > 0) then {

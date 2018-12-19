@@ -9,7 +9,7 @@
  *	Author
  *		suits & PiZZADOX
  */
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
 UO_FW_EXEC_CHECK(SERVERHC)
 params ["_pos","_radius","_occupy","_grpcount",["_bld",[],[[]]],["_bldPos",[],[[]]],["_return",[],[[]]]];
 	switch (_occupy) do {

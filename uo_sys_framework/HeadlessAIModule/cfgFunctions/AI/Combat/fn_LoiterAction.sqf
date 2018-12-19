@@ -2,7 +2,6 @@
 Snippet of Code from Genesis92x the autor of VCOM, modified by crewt
 */
 
-if (!isServer) exitWith {};
 private ["_unit "];
 _unit  = _this select 0;
 _UnitGroup = _this select 1;
@@ -26,10 +25,10 @@ while {((behaviour _unit ) != "COMBAT") && ((behaviour _unit ) != "STEALTH") && 
 		Waituntil {sleep 4; unitReady _unit;};
 	};
 	_CurrentAction = _unit  getVariable ["UO_FW_AI_LOITERINGACT",0];
-	if (((behaviour _unit) == "COMBAT") || ((behaviour _unit) == "AWARE") || ((behaviour _unit) == "STEALTH")) then {  breakOut "SAFE_Loop1";}; 
+	if (((behaviour _unit) == "COMBAT") || ((behaviour _unit) == "AWARE") || ((behaviour _unit) == "STEALTH")) then {  breakOut "SAFE_Loop1";};
 	_RandomAction = selectRandom ([1,3,4] - [_CurrentAction]);
 	switch (_RandomAction) do {
-		case 1: 
+		case 1:
 		{
 			//Wander around and play random animation
 			//Get random position
@@ -86,12 +85,12 @@ while {((behaviour _unit ) != "COMBAT") && ((behaviour _unit ) != "STEALTH") && 
 			_positions2 = [(_positions select 0) + (sin _dir) * _dist, (_positions select 1) + (cos _dir) * _dist, 0];
 			_ClosestUnit doMove _positions2;
 			WaitUntil {sleep 2;(_unit  distance _positions) < 5 && (_ClosestUnit distance _positions) < 5};
-				
-			
+
+
 			if (!(alive _unit ))exitWith {};
 			if ((behaviour _unit )  == "COMBAT") then {  breakOut "SAFE_Loop1";};
 			sleep 10;
-			
+
 			_ClosestUnit spawn
 			{
 				_Counter = 0;
@@ -116,7 +115,7 @@ while {((behaviour _unit ) != "COMBAT") && ((behaviour _unit ) != "STEALTH") && 
 					_Counter = _Counter + 1;
 					sleep 12;
 				};
-			};				
+			};
 		};
 
 		case 4:
@@ -160,7 +159,7 @@ while {((behaviour _unit ) != "COMBAT") && ((behaviour _unit ) != "STEALTH") && 
 			//	if ((behaviour _unit )  == "COMBAT") then {  breakOut "SAFE_Loop1";};
 			//	if (!(alive _unit ))exitWith {};
 			//	sleep 10;
-			//};	
+			//};
 			//_unit action ["SitDown", _unit];
 		};
 	};

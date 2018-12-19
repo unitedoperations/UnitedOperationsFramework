@@ -1,8 +1,9 @@
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
 UO_FW_EXEC_CHECK(HC)
 
-if (UO_FW_AI_DEBUG) then {
-diag_log "running fn_initMain";};
+if (!(getMissionConfigValue ["UO_FW_AI_DEBUG",false])) then {
+	diag_log "running fn_initMain";
+};
 
 if (!(getMissionConfigValue ["UO_FW_AI_Enabled",false])) exitWith {};
 
@@ -63,7 +64,7 @@ UO_FW_AI_WaypointDistance = 300;
 //The distance a unit needs to be away for PZAI scripts to temporary disable itself upon the unit? The AI unit will also need to be out of combat.
 UO_FW_AI_DisableDistance = 3000;
 //Aid to the AI spotting distance and time
-UO_FW_AI_SightAid = true;
+UO_FW_AI_SIGHTAID_ENABLED = true;
 //Distance at which the AI will start seeings enemies in LOS of them
 UO_FW_AI_SightAid_Distance = 800;
 //Minimum reveal value per increase +n reveal value per check every 5 seconds of targets in LOS of enemies.
@@ -92,6 +93,8 @@ UO_FW_AI_Radio_NeedRadio = false;
 UO_FW_AI_PatrolDistance = 200;
 //Whether the AI will patrol between garrison positions. Pretty buggy, but nice for 'mersion
 UO_FW_AI_GarrisonPatrol = true;
+UO_FW_AI_FORCETIME_ENABLED = false;
+UO_FW_AI_FORCETIME_TIME = 12;
 
 //Lets gets the queue handler going
 [] spawn UO_FW_AI_fnc_QueueHandle;

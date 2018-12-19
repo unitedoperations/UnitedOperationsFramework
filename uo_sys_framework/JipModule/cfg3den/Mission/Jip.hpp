@@ -48,7 +48,7 @@ class JIPCategory
             displayName = "JiP Type";
             tooltip = "TELEPORT: Player can teleport to his squad. TRANSPORT: Player can send a hint to all group leaders requesting transport. DENY: Player is killed and put in spectator.";
             control = "UO_FW_JIPTypeAtt";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
 			validate = "number";
             defaultValue = "0";
         };
@@ -58,7 +58,7 @@ class JIPCategory
             displayName = "JiP Distance";
             tooltip = "If distance to group members upon spawn is greater than this you will be granted the defined JiP action";
             control = "EditShort";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
 			validate = "number";
             defaultValue = "200";
         };
@@ -68,7 +68,7 @@ class JIPCategory
             displayName = "Spawn Radius";
             tooltip = "Exiting this radius will remove the JiP actions from the player.";
             control = "EditShort";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
 			validate = "number";
             defaultValue = "50";
         };
@@ -86,7 +86,7 @@ class JIPCategory
             displayName = "JiP Type";
             tooltip = "TELEPORT: Player can teleport to his squad. TRANSPORT: Player can send a hint to all group leaders requesting transport. DENY: Player is killed and put in spectator.";
             control = "UO_FW_JIPTypeAtt";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
 			validate = "number";
             defaultValue = "0";
         };
@@ -96,7 +96,7 @@ class JIPCategory
             displayName = "JiP Distance";
             tooltip = "If distance to group members upon spawn is greater than this you will be granted the defined JiP action";
             control = "EditShort";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
 			validate = "number";
             defaultValue = "200";
         };
@@ -106,7 +106,7 @@ class JIPCategory
             displayName = "Spawn Radius";
             tooltip = "Exiting this radius will remove the JiP actions from the player.";
             control = "EditShort";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
 			validate = "number";
             defaultValue = "50";
         };
@@ -124,7 +124,7 @@ class JIPCategory
             displayName = "JiP Type";
             tooltip = "TELEPORT: Player can teleport to his squad. TRANSPORT: Player can send a hint to all group leaders requesting transport. DENY: Player is killed and put in spectator.";
             control = "UO_FW_JIPTypeAtt";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
 			validate = "number";
             defaultValue = "0";
         };
@@ -134,7 +134,7 @@ class JIPCategory
             displayName = "JiP Distance";
             tooltip = "If distance to group members upon spawn is greater than this you will be granted the defined JiP action";
             control = "EditShort";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
 			validate = "number";
             defaultValue = "200";
         };
@@ -144,7 +144,7 @@ class JIPCategory
             displayName = "Spawn Radius";
             tooltip = "Exiting this radius will remove the JiP actions from the player.";
             control = "EditShort";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
 			validate = "number";
             defaultValue = "50";
         };
@@ -162,7 +162,7 @@ class JIPCategory
             displayName = "JiP Type";
             tooltip = "TELEPORT: Player can teleport to his squad. TRANSPORT: Player can send a hint to all group leaders requesting transport. DENY: Player is killed and put in spectator.";
             control = "UO_FW_JIPTypeAtt";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
 			validate = "number";
             defaultValue = "0";
         };
@@ -172,7 +172,7 @@ class JIPCategory
             displayName = "JiP Distance";
             tooltip = "If distance to group members upon spawn is greater than this you will be granted the defined JiP action";
             control = "EditShort";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
 			validate = "number";
             defaultValue = "200";
         };
@@ -182,7 +182,7 @@ class JIPCategory
             displayName = "Spawn Radius";
             tooltip = "Exiting this radius will remove the JiP actions from the player.";
             control = "EditShort";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
 			validate = "number";
             defaultValue = "50";
         };

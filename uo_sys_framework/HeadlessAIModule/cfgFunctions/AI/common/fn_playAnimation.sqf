@@ -5,6 +5,6 @@
  * 	Return Value:
  * 		BOOL 	- True
  */
-params["_u","_a"]; 
+params["_u","_a"];
 	_u switchMove _a;
 	true

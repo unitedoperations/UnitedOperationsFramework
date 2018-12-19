@@ -55,7 +55,7 @@ class UO_GearFunctions
 class UO_InitFunctions
 {
 	file = "x\UO_FW\addons\main\Core\cfgFunctions\init";
-	class init {};
+	class postInit {};
 	class briefingFrameworkEntry {};
 	class postChecks {};
 	class spectate {};

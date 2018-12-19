@@ -1,6 +1,9 @@
+#include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
+UO_FW_EXEC_CHECK(SERVERHC)
+
 params["_arr","_v","_x","_a"];
 {
-	_v = _x; 
+	_v = _x;
 	if (!(_v isKindOf "Logic") && !isNull _v) then {
 		{
 			_a = _x;

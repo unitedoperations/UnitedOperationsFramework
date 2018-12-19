@@ -1,4 +1,5 @@
-if(!isServer) exitWith {_this remoteExec ["UO_FW_AI_fnc_setRespawn", 2];};
+#include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
+UO_FW_EXEC_CHECK(SERVERHC)
 params [["_logic",objNull,[objNull]],["_marker","respawn_west",[""]]];
 diag_log format["RETURN | %1",_this];
 	{
@@ -15,7 +16,7 @@ diag_log format["RETURN | %1",_this];
 			_marker setMarkerPos (getPos _logic);
 		} else {
 			createMarker [_marker, getPos _logic];
-		};	
+		};
 		{
 			_unit = _x;
 			_logic remoteExec ["UO_FW_AI_fnc_setQRFPosition", _unit];

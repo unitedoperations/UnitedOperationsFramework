@@ -10,7 +10,7 @@ class CIVILIAN_ACRE_RADIOTYPES_CAT
             displayName = "Short Range Radio Type";
             tooltip = "Sets the short range radio type for the side";
             control = "UO_FW_ACRE_SR_CIVILIAN_SELECT";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "0";
         };
 		class UO_FW_ACRE_CIVILIAN_LR_TYPE
@@ -19,7 +19,7 @@ class CIVILIAN_ACRE_RADIOTYPES_CAT
             displayName = "Long Range Radio Type";
             tooltip = "Sets the long range radio type for the side";
             control = "UO_FW_ACRE_LR_CIVILIAN_SELECT";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "0";
         };
 		class UO_FW_ACRE_CIVILIAN_PK_TYPE
@@ -28,7 +28,7 @@ class CIVILIAN_ACRE_RADIOTYPES_CAT
             displayName = "Long Range Pack Radio Type";
             tooltip = "Sets the long range pack radio type for the side";
             control = "UO_FW_ACRE_PK_CIVILIAN_SELECT";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "0";
         };
 	};
@@ -45,7 +45,7 @@ class CIVILIAN_ACRE_SETTINGS_RADIONET_CAT
             property = "UO_FW_ACRE_CIVILIAN_RADIONET_ENABLED";
             displayName = "Enable Radio Net Channel Names";
 			control = "CheckBoxState";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "false";
         };
         class UO_FW_ACRE_CIVILIAN_RADIONET_NAME1
@@ -54,7 +54,7 @@ class CIVILIAN_ACRE_SETTINGS_RADIONET_CAT
             displayName = "Channel 1 Name";
             tooltip = "Sets the name of the channel";
             control = "EditShort";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "'PLTNET 1'";
         };
 		class UO_FW_ACRE_CIVILIAN_RADIONET_NAME2
@@ -63,7 +63,7 @@ class CIVILIAN_ACRE_SETTINGS_RADIONET_CAT
             displayName = "Channel 2 Name";
             tooltip = "Sets the name of the channel";
             control = "EditShort";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "'PLTNET 2'";
         };
 		class UO_FW_ACRE_CIVILIAN_RADIONET_NAME3
@@ -72,7 +72,7 @@ class CIVILIAN_ACRE_SETTINGS_RADIONET_CAT
             displayName = "Channel 3 Name";
             tooltip = "Sets the name of the channel";
             control = "EditShort";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "'PLTNET 3'";
         };
 		class UO_FW_ACRE_CIVILIAN_RADIONET_NAME4
@@ -81,7 +81,7 @@ class CIVILIAN_ACRE_SETTINGS_RADIONET_CAT
             displayName = "Channel 4 Name";
             tooltip = "Sets the name of the channel";
             control = "EditShort";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "'PLTNET 4'";
         };
 		class UO_FW_ACRE_CIVILIAN_RADIONET_NAME5
@@ -90,7 +90,7 @@ class CIVILIAN_ACRE_SETTINGS_RADIONET_CAT
             displayName = "Channel 5 Name";
             tooltip = "Sets the name of the channel";
             control = "EditShort";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "'COY'";
         };
 		class UO_FW_ACRE_CIVILIAN_RADIONET_NAME6
@@ -99,7 +99,7 @@ class CIVILIAN_ACRE_SETTINGS_RADIONET_CAT
             displayName = "Channel 6 Name";
             tooltip = "Sets the name of the channel";
             control = "EditShort";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "'CAS'";
         };
 		class UO_FW_ACRE_CIVILIAN_RADIONET_NAME7
@@ -108,7 +108,7 @@ class CIVILIAN_ACRE_SETTINGS_RADIONET_CAT
             displayName = "Channel 7 Name";
             tooltip = "Sets the name of the channel";
             control = "EditShort";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "'FIRES'";
         };
 	};
@@ -125,7 +125,7 @@ class CIVILIAN_ACRE_SETTINGS_BABEL_CAT
             property = "UO_FW_ACRE_CIVILIAN_BABEL_ENABLED";
             displayName = "Enable Babel Languages";
 			control = "CheckBoxState";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "false";
         };
 		class UO_FW_ACRE_CIVILIAN_BABEL_EN
@@ -134,7 +134,7 @@ class CIVILIAN_ACRE_SETTINGS_BABEL_CAT
             displayName = "English";
             tooltip = "Enables the language for this side";
             control = "CheckBox";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "true";
         };
 		class UO_FW_ACRE_CIVILIAN_BABEL_RU
@@ -143,7 +143,7 @@ class CIVILIAN_ACRE_SETTINGS_BABEL_CAT
             displayName = "Russian";
             tooltip = "Enables the language for this side";
             control = "CheckBox";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "false";
         };
 		class UO_FW_ACRE_CIVILIAN_BABEL_FR
@@ -152,7 +152,7 @@ class CIVILIAN_ACRE_SETTINGS_BABEL_CAT
             displayName = "French";
             tooltip = "Enables the language for this side";
             control = "CheckBox";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "false";
         };
 		class UO_FW_ACRE_CIVILIAN_BABEL_AR
@@ -161,7 +161,7 @@ class CIVILIAN_ACRE_SETTINGS_BABEL_CAT
             displayName = "Arabic";
             tooltip = "Enables the language for this side";
             control = "CheckBox";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "false";
         };
 		class UO_FW_ACRE_CIVILIAN_BABEL_GK
@@ -170,7 +170,7 @@ class CIVILIAN_ACRE_SETTINGS_BABEL_CAT
             displayName = "Greek";
             tooltip = "Enables the language for this side";
             control = "CheckBox";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "false";
         };
 		class UO_FW_ACRE_CIVILIAN_BABEL_CUSTOM
@@ -179,7 +179,7 @@ class CIVILIAN_ACRE_SETTINGS_BABEL_CAT
             displayName = "Custom Language";
             tooltip = "Define a custom language for this side";
             control = "EditShort";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 		class UO_FW_ACRE_CIVILIAN_BABEL_CUSTOM2
@@ -188,7 +188,7 @@ class CIVILIAN_ACRE_SETTINGS_BABEL_CAT
             displayName = "Custom Language 2";
             tooltip = "Define a custom language for this side";
             control = "EditShort";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
     };

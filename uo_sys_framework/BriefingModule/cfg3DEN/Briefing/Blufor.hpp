@@ -10,7 +10,7 @@ class BLUFOR_NATOStyle
             displayName = "NATO style briefing";
             tooltip = "Enables NATO style briefing";
             control = "CheckboxState";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "false";
             
         };
@@ -29,7 +29,7 @@ class BLUFOR_NATOStyle
             tooltip = "Situation";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -40,7 +40,7 @@ class BLUFOR_NATOStyle
             tooltip = "Terrain";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -51,7 +51,7 @@ class BLUFOR_NATOStyle
             tooltip = "Key Terrain";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -62,7 +62,7 @@ class BLUFOR_NATOStyle
             tooltip = "Weather";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -82,7 +82,7 @@ class BLUFOR_NATOStyle
             tooltip = "Enemy Disposition";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -93,7 +93,7 @@ class BLUFOR_NATOStyle
             tooltip = "Enemy Strength";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 		class UO_FW_BRIEFING_BLUFOR_NATO_ENEMY_EQUIPMENT
@@ -103,7 +103,7 @@ class BLUFOR_NATOStyle
             tooltip = "Enemy Equipment";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 		class UO_FW_BRIEFING_BLUFOR_NATO_ENEMY_APPEARANCE
@@ -113,7 +113,7 @@ class BLUFOR_NATOStyle
             tooltip = "Enemy Appearance";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 		class UO_FW_BRIEFING_BLUFOR_NATO_ENEMY_MLCOA
@@ -123,7 +123,7 @@ class BLUFOR_NATOStyle
             tooltip = "Most Likely Course of Action";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -134,7 +134,7 @@ class BLUFOR_NATOStyle
             tooltip = "Most Dangerous Course of Action";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -154,7 +154,7 @@ class BLUFOR_NATOStyle
             tooltip = "Friendly Disposition";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -165,7 +165,7 @@ class BLUFOR_NATOStyle
             tooltip = "Friendly Higher Units";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -176,7 +176,7 @@ class BLUFOR_NATOStyle
             tooltip = "Friendly Strength";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -187,7 +187,7 @@ class BLUFOR_NATOStyle
             tooltip = "Friendly Appearance";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -207,7 +207,7 @@ class BLUFOR_NATOStyle
             tooltip = "Mission";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -229,7 +229,7 @@ class BLUFOR_NATOStyle
             tooltip = "Intent";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -240,7 +240,7 @@ class BLUFOR_NATOStyle
             tooltip = "Maneuver";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -251,7 +251,7 @@ class BLUFOR_NATOStyle
             tooltip = "Timings";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -262,7 +262,7 @@ class BLUFOR_NATOStyle
             tooltip = "Tasks";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -293,7 +293,7 @@ class BLUFOR_NATOStyle
             tooltip = "Fires";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -304,7 +304,7 @@ class BLUFOR_NATOStyle
             tooltip = "Ammo";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -325,7 +325,7 @@ class BLUFOR_NATOStyle
             tooltip = "General";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -356,7 +356,7 @@ class BLUFOR_NATOStyle
             tooltip = "Command";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -377,7 +377,7 @@ class BLUFOR_NATOStyle
             tooltip = "Radio Frequencies";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -388,7 +388,7 @@ class BLUFOR_NATOStyle
             tooltip = "Codewords";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -399,7 +399,7 @@ class BLUFOR_NATOStyle
             tooltip = "Special Signals";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -410,7 +410,7 @@ class BLUFOR_NATOStyle
             tooltip = "Callsigns";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -421,7 +421,7 @@ class BLUFOR_NATOStyle
             tooltip = "Passwords";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
     };
@@ -439,7 +439,7 @@ class BLUFOR_WPStyle
             displayName = "Warsaw Pact style briefing";
             tooltip = "Enables Warsaw Pact style briefing";
             control = "CheckboxState";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "false";
         };
 		class UO_FW_BRIEFING_BLUFOR_WARSAW_PRELIMINARIES_TITLE
@@ -457,7 +457,7 @@ class BLUFOR_WPStyle
             tooltip = "Weather";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 		class UO_FW_BRIEFING_BLUFOR_WARSAW_PRELIMINARIES_TERRAIN
@@ -467,7 +467,7 @@ class BLUFOR_WPStyle
             tooltip = "Terrain";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 		class UO_FW_BRIEFING_BLUFOR_WARSAW_REFERENCE_TITLE
@@ -485,7 +485,7 @@ class BLUFOR_WPStyle
             tooltip = "Deployment Reference Points";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 		class UO_FW_BRIEFING_BLUFOR_WARSAW_REFERENCE_SUBSEQUENTPOINTS
@@ -495,7 +495,7 @@ class BLUFOR_WPStyle
             tooltip = "Subsequent Reference Points";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 		class UO_FW_BRIEFING_BLUFOR_WARSAW_ENEMY_TITLE
@@ -513,7 +513,7 @@ class BLUFOR_WPStyle
             tooltip = "Enemy Disposition";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 		class UO_FW_BRIEFING_BLUFOR_WARSAW_ENEMY_EQUIP
@@ -523,7 +523,7 @@ class BLUFOR_WPStyle
             tooltip = "Enemy Equipment";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 		class UO_FW_BRIEFING_BLUFOR_WARSAW_ENEMY_PROB_HQ
@@ -533,7 +533,7 @@ class BLUFOR_WPStyle
             tooltip = "Probable Enemy HQ Location";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 		class UO_FW_BRIEFING_BLUFOR_WARSAW_ENEMY_PROB_LINE
@@ -543,7 +543,7 @@ class BLUFOR_WPStyle
             tooltip = "Probable Enemy Main Element Location";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 		class UO_FW_BRIEFING_BLUFOR_WARSAW_ENEMY_PROB_DIR_ATTACK
@@ -553,7 +553,7 @@ class BLUFOR_WPStyle
             tooltip = "Probable Enemy Direction of Attack";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 		class UO_FW_BRIEFING_BLUFOR_WARSAW_ENEMY_PROB_ARTY
@@ -563,7 +563,7 @@ class BLUFOR_WPStyle
             tooltip = "Probable Enemy Artillery Positions & Capability";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 		class UO_FW_BRIEFING_BLUFOR_WARSAW_HIGHER_TITLE
@@ -581,7 +581,7 @@ class BLUFOR_WPStyle
             tooltip = "Description";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 		class UO_FW_BRIEFING_BLUFOR_WARSAW_HIGHER_BOUNDARY
@@ -591,7 +591,7 @@ class BLUFOR_WPStyle
             tooltip = "Boundaries";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 		class UO_FW_BRIEFING_BLUFOR_WARSAW_HIGHER_ARTY
@@ -601,7 +601,7 @@ class BLUFOR_WPStyle
             tooltip = "Location and Capability of Artillery";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 		class UO_FW_BRIEFING_BLUFOR_WARSAW_MISSION_TITLE
@@ -619,7 +619,7 @@ class BLUFOR_WPStyle
             tooltip = "Mission Statement";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 		class UO_FW_BRIEFING_BLUFOR_WARSAW_MISSION_DIR
@@ -629,7 +629,7 @@ class BLUFOR_WPStyle
             tooltip = "End State Direction";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 		class UO_FW_BRIEFING_BLUFOR_WARSAW_ORDER_TITLE
@@ -647,7 +647,7 @@ class BLUFOR_WPStyle
             tooltip = "Tasks";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 		class UO_FW_BRIEFING_BLUFOR_WARSAW_ORDER_TASKS_ARTY
@@ -657,7 +657,7 @@ class BLUFOR_WPStyle
             tooltip = "Tasks for Artillery Elements";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 		class UO_FW_BRIEFING_BLUFOR_WARSAW_ORDER_TIMINGS
@@ -667,7 +667,7 @@ class BLUFOR_WPStyle
             tooltip = "Readiness Timings";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 		class UO_FW_BRIEFING_BLUFOR_WARSAW_ORDER_SIGNALS
@@ -677,7 +677,7 @@ class BLUFOR_WPStyle
             tooltip = "Signals";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 		class UO_FW_BRIEFING_BLUFOR_WARSAW_COMM_TITLE
@@ -695,7 +695,7 @@ class BLUFOR_WPStyle
             tooltip = "Location of the Commander";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 		class UO_FW_BRIEFING_BLUFOR_WARSAW_SUCC_TITLE
@@ -713,7 +713,7 @@ class BLUFOR_WPStyle
             tooltip = "Succession of Command";
 			control = "EditMulti5";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 	};
@@ -731,7 +731,7 @@ class BLUFOR_Custom_File
             displayName = "Briefing File";
             tooltip = "Loads file as briefing";
             control = "CheckboxState";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "false";
         };
 		class UO_FW_BRIEFING_BLUFOR_FILE_PATH
@@ -741,7 +741,7 @@ class BLUFOR_Custom_File
             tooltip = "Path to briefing file";
 			control = "Edit";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
 	};
@@ -759,7 +759,7 @@ class BLUFOR_APPENDIX
             displayName = "Appendix File";
             tooltip = "Enables Appendix File";
             control = "CheckboxState";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "false";
             
         };
@@ -770,7 +770,7 @@ class BLUFOR_APPENDIX
             tooltip = "Path to Appendix Briefing File";
 			control = "Edit";
             validate = "STRING";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };

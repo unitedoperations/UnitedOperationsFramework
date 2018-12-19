@@ -10,7 +10,7 @@
  *	Author
  *		suits & PiZZADOX
  */		
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
 UO_FW_EXEC_CHECK(SERVERHC)
 params ["_pos",["_radius",500,[0]],["_amount",3,[0]],["_blds",[],[[]]]];
 	_blds = [_pos,_radius,_amount] call UO_FW_AI_fnc_getNearestBuildings;	

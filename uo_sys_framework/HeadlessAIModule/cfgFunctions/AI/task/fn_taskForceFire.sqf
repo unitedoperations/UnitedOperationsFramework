@@ -1,4 +1,4 @@
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
 UO_FW_EXEC_CHECK(SERVERHC)
 params ["_unit","_target",["_rounds",1,[0]],["_fireMode","close",[""]]];
 _unit doWatch _target;

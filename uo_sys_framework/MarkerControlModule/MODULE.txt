@@ -1,9 +1,9 @@
 ========================================================================
 
 	Module: Marker Control
-	Author: Olsen & Sacher
+	Author: Olsen & Sacher & PiZZADOX
 	Date Created: ?
-	Date Last Updated: ?
+	Date Last Updated: 17/12/2018
 
 	Description: Allows the mission maker to create markers visible to a single side.
 

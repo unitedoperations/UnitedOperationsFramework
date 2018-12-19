@@ -8,7 +8,7 @@
  *	Author
  *		suits & PiZZADOX
  */
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
 UO_FW_EXEC_CHECK(SERVERHC)
 params ["_newPos","_grpldr","_u",["_pos",[],[[]]]];
 	private _grpPos = getPosATL _grpldr;                            

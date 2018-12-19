@@ -8,7 +8,7 @@
  *	Return Value:
  *		TRUE
  */
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
 UO_FW_EXEC_CHECK(SERVERHC)
 	params ["_uc","_pos",["_ph",500,[0]],["_pr",false,[false]],["_ps",true,[true]],["_v",objNull,[objNull]]];
 	private _dloc = (_pos vectorAdd [0,0,_ph]);

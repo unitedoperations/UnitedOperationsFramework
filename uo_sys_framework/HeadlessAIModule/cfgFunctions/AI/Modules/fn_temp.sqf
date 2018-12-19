@@ -8,7 +8,9 @@
  *	Author
  *		suits & PiZZADOX
  */
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
+UO_FW_EXEC_CHECK(SERVERHC)
+
 
 params [["_mode","",[""]],["_input",[],[[]]]];
 switch _mode do {
@@ -19,7 +21,7 @@ switch _mode do {
 			if !(_isActivated) exitWith {};
 			sleep 0.1;
 			if (UO_FW_AI_DEBUG) then {
-				[_logic] spawn UO_FW_AI_fnc_debugSyncedModules;	
+				[_logic] spawn UO_FW_AI_fnc_debugSyncedModules;
 			};
 		} else {
 			_logic = _input param [0,objNull,[objNull]];

@@ -10,7 +10,7 @@
  *	Author
  *		suits & PiZZADOX
  */		
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
 UO_FW_EXEC_CHECK(SERVERHC)
 params ["_grp",["_pos",[0,0,0],[[]]],["_text","",[""]],["_markerColor","ColorBLUFOR",[""]],["_markerShape","ICON",[""]],["_markerAlpha",1,[0]],["_markerType","b_unknown",[""]]];
 	private _count = (leader _grp) getvariable["debugMarker",0];
