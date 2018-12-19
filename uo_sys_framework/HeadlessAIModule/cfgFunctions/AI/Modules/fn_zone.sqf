@@ -64,7 +64,7 @@ params [["_mode","",[""]],["_input",[],[[]]]];
 				if (UO_FW_AI_DEBUG) then {
 					private _syncedModules = [_logic,[]] call UO_FW_AI_fnc_getSyncedModules;
 					_entities params [["_grps",[],[[]]],["_emptyvehs",[],[[]]],["_objs",[],[[]]]];
-					if (count _syncedModules == 0 && ({(count _x) > 0 } count _grps) == 0 && ({(count _x) > 0 } count _emptyvehs) == 0 && ({(count _x) > 0 } count _objs) == 0) then {
+					if ((_syncedModules isEqualto []) && ({(count _x) > 0 } count _grps) == 0 && ({(count _x) > 0 } count _emptyvehs) == 0 && ({(count _x) > 0 } count _objs) == 0) then {
 						_msg = format["%1 a %2 has nothing linked.\nYou can link Units, Groups, Objects or other modules to a Zone Module.",_logic,typeof _logic];
 						UO_FW_DEBUG("",_msg)
 					};

@@ -26,7 +26,7 @@ params[["_bld",objNull,[objNull]],"_grp","_pos",["_radius",0,[0]],["_wait",3,[0]
 	if(isNull _bld) then {
 		_bld = [_pos] call UO_FW_AI_fnc_getNearestBuilding;
 		if(!isNull _bld) then {
-			if(count _bldPos == 0) then {_bldPos = _bld buildingPos -1;};
+			if(_bldPos isEqualto []) then {_bldPos = _bld buildingPos -1;};
 			_bpos = getPosATL _bld;
 		};
 	};

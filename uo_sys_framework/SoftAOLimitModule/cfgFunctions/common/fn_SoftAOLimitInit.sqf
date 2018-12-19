@@ -33,7 +33,7 @@ if(!isDedicated && (missionNamespace getVariable ["UO_FW_SoftAoLimit_Enabled",fa
 	}forEach _tempMarker;
 
 
-	if(count _markers == 0) exitWith {};
+	if(_markers isEqualto []) exitWith {};
 
 	["Soft AO Limit", "Allows the mission maker to set AO limits to specific sides.", "Sacher"] call UO_FW_fnc_RegisterModule;
 	_markers spawn
@@ -56,7 +56,7 @@ if(!isDedicated && (missionNamespace getVariable ["UO_FW_SoftAoLimit_Enabled",fa
 				};
 			};
 		} forEach (_this);
-		if(count _markers == 0) exitWith {};
+		if(_markers isEqualto []) exitWith {};
 		while {true} do
 		{
 

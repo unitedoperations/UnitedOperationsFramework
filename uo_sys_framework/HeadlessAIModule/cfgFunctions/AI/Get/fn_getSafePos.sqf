@@ -30,7 +30,7 @@
 		_randomDir 		= random 360;
 		_ramdomDist 	= _rangeMin + (random (_rangeMax - _rangeMin));
 		_tempPos 		= [_cPos, _ramdomDist, _randomDir] call BIS_fnc_relPos;
-		if (!((count (_tempPos isFlatEmpty [0.5,0,_gradientPos,_minSpacingPos, _waterPos, false, _ignoreObject])) == 0)) then {
+		if (!(((_tempPos isFlatEmpty [0.5,0,_gradientPos,_minSpacingPos, _waterPos, false, _ignoreObject])) isEqualto [])) then {
 			_randomPos 	= _tempPos;
 			_checkPos 	= true;
 			if (_minSpacingPos > 0) then {
@@ -39,7 +39,7 @@
 						_checkPos = false;
 					};
 				} forEach _returnPos;
-			};			
+			};
 			if(_roadPos) then {
 				_nearRoads 		= _randomPos nearRoads 30;
 				if(count _nearRoads > 0) then {
@@ -48,13 +48,13 @@
 				} else {
 					_checkPos 	= false;
 				};
-			};			
-			if !(_water) then { 
+			};
+			if !(_water) then {
 				_isWater = surfaceIsWater _randomPos;
 				if (_isWater) then {
 					_checkPos = false;
 				};
-			}; 
+			};
 			if (_checkPos) then	{
 				_returnPos pushBack _randomPos;
 			};

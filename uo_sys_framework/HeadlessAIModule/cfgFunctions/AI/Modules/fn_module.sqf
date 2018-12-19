@@ -18,7 +18,7 @@ params [["_mode","",[""]],["_input",[],[[]]]];
 				sleep 0.25;
 				_syncedZoneModule = [_logic,["UO_FW_AI_ZoneModule"]] call UO_FW_AI_fnc_getSyncedModules;
 				_type = typeof _logic;
-				if (count _syncedZoneModule == 0) then {
+				if (_syncedZoneModule isEqualto []) then {
 					_msg = format["%1 a %2 has no Zone Modules linked.",_logic,_type];
 					UO_FW_DEBUG("",_msg)
 				};

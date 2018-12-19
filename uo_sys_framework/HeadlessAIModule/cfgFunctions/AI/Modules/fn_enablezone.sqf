@@ -51,7 +51,7 @@ params [["_mode","",[""]],["_input",[],[[]]]];
 				UO_FW_AI_entities pushBack [_logic,_entities];
 				if(UO_FW_AI_DEBUG) then {
 					_syncedZoneModule = [_logic,["UO_FW_AI_ZoneModule","UO_FW_AI_ZoneModule_R"]] call UO_FW_AI_fnc_getSyncedModules;
-					if (count _syncedZoneModule == 0) then {
+					if (_syncedZoneModule isEqualto []) then {
 						(format["%1 a %2 has no Zone Modules linked.\nLink a Zone Module to the Enable Zone Module to suspend and enable Zones when the Enable Zone Module is activated.",_logic,typeof _logic]) call UO_FW_fnc_DebugMessage;
 					};
 					[_logic] spawn UO_FW_AI_fnc_debugSyncedModules;

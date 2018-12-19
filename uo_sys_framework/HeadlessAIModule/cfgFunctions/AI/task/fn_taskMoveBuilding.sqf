@@ -21,7 +21,7 @@ params["_getBld","_bldTask","_grpSet"];
 			_patrol = true;
 		} else {
 			_bpos = getposatl _bld;
-			if(count _bldPos == 0) then {_bldPos = _bld buildingPos -1;};
+			if(_bldPos isEqualto []) then {_bldPos = _bld buildingPos -1;};
 		};
 	};	
 	if(_patrol) then {

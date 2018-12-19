@@ -30,7 +30,7 @@ params[["_bld",objNull,[objNull]],"_grp","_pos",["_radius",0,[0]],["_wait",3,[0]
 			_patrol = true;
 		} else {
 			_bpos = getPosATL _bld;
-			if(count _bldPos == 0) then {_bldPos = _bld buildingPos -1;};
+			if(_bldPos isEqualto []) then {_bldPos = _bld buildingPos -1;};
 		};
 	};	
 	if(_patrol) then {

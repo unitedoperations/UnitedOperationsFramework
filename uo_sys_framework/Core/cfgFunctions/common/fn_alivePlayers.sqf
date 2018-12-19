@@ -12,7 +12,7 @@
  * Public: Yes
  */
 
-private _alivePlayers = allPlayers select {{alive _x} && {(_x getVariable ["UO_FW_Dead", false])} && {!(_x isKindOf "HeadlessClient_F")}};
+private _alivePlayers = allPlayers select {{alive _x} && {!(_x getVariable ["UO_FW_Dead", false])} && {!(_x isKindOf "HeadlessClient_F")}};
 
 if (count _this > 0) then {
   _lowerThis = [];

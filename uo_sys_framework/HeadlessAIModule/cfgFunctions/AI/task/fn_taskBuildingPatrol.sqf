@@ -17,7 +17,7 @@
 UO_FW_EXEC_CHECK(SERVERHC)
 params ["_unit",["_bld",objNull,[objNull]],["_bldPos",[],[[]]],["_wpWait",5,[0]],["_uSet",[],[[]]],["_sec",[],[[]]],["_error",false,[false]],["_m",0,[0]],"_i"];
 	_uSet params [["_behave","safe",[""]],["_combat","red",[""]],["_speed","limited",[""]],["_formation","wedge",[""]]];
-	if(isNull _bld || count _bldPos == 0) then {
+	if(isNull _bld || _bldPos isEqualto []) then {
 		if(isNull _bld) then {
 			_bld = [(getposATL _unit),100,false] call UO_FW_AI_fnc_getNearestBuilding;
 		};

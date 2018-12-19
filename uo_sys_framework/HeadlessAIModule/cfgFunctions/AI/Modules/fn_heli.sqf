@@ -189,7 +189,7 @@ params [["_mode","",[""]],["_input",[],[[]]]];
 				[_synced] call UO_FW_AI_fnc_deleteVehicles;
 				_syncedZoneModule = [_logic,["UO_FW_AI_ZoneModule"]] call UO_FW_AI_fnc_getSyncedModules;
 				_type = typeof _logic;
-				if (count _syncedZoneModule == 0) then {
+				if (_syncedZoneModule isEqualto []) then {
 					_msg = format["%1 a %2 has no Zone Modules linked.\nLink a Zone Module to create a Heli insert when the Zone is activated.",_logic,_type];
 					UO_FW_DEBUG("",_msg)
 				};
