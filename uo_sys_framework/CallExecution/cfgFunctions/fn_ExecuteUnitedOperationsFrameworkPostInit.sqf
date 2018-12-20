@@ -16,7 +16,6 @@ if(getMissionConfigValue["UO_FW_Enabled",false]) then
 	if(UO_FW_SERVER_ACREMODULE_ALLOWED) then {_this call UO_FW_FNC_addRadiosInit;};
 	if(UO_FW_SERVER_BRIEFING_ALLOWED) then {_this call UO_FW_FNC_initBriefings;};
 	if(UO_FW_SERVER_ANTINDMODULE_ALLOWED) then {_this call UO_FW_FNC_antiNDInit;};
-	if(UO_FW_SERVER_AOLIMIT_ALLOWED) then {_this call UO_FW_FNC_AOLimitInit;};
 	if(UO_FW_SERVER_ENDCONDITIONMODULE_ALLOWED) then {_this call UO_FW_FNC_EndConditionsInit;};
 	if(UO_FW_SERVER_AILINK_ALLOWED) then {_this call UO_FW_FNC_AILinkInit;};
 	if(UO_FW_SERVER_AUTOTRACKASSETMODULE_ALLOWED) then {_this call UO_FW_FNC_AutoTrackAssetInit;};

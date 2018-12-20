@@ -1,11 +1,10 @@
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 
-_isEnabled = missionNamespace getVariable ["UO_FW_DisconnectControl_Enabled",false];
-if(!_isEnabled) exitWith {};
+if !(missionNamespace getVariable ["UO_FW_DisconnectControl_Enabled",false]) exitWith {};
 
-["Disconect Control", "Controls when player bodies should be deleted", "Sacher"] call UO_FW_FNC_RegisterModule;
+["Disconnect Control", "Controls when player bodies should be deleted", "Sacher"] call UO_FW_FNC_RegisterModule;
 ace_respawn_RemoveDeadBodiesDisconnected = false;
-if (isServer) then 
+if (isServer) then
 {
     disconnect_control_time = missionNamespace getVariable ["UO_FW_DisconnectControl_Time",2];
     disconnect_control_sides = [];

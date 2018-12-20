@@ -3,7 +3,7 @@
 	Module: Headless AI
 	Author: PIZZADOX
 	Date Created: 11/6/2018
-	Date Last Updated: 16/12/2018
+	Date Last Updated: 20/12/2018
 
 	Description: Adds in 3DEN integration of PiZZADOX AI scripts. Includes
 	Zone module activation and PreInit local spawning of AI on HC server.

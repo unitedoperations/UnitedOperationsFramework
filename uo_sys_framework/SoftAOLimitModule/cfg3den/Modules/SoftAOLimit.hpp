@@ -79,6 +79,6 @@ class UO_FW_SoftAOLimit
 			validate = "none";
 			defaultValue = "[]";
 		};
-	
+
     };
 };

@@ -2,7 +2,7 @@
  *	Arguments:
  * 		N/A
  *	Return Value:
- * 		ARRAY 	
+ * 		ARRAY
  *	Author
  *		Starfox64 & PiZZADOX
  */
@@ -10,7 +10,7 @@
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 
 if (!UO_FW_Anti_ND_Enabled) exitwith {};
-["ANTI ND", "Extra Safety for mission start", "Sacher"] call UO_FW_FNC_RegisterModule; 
+["ANTI ND", "Extra Safety for mission start", "Starfox64 & PiZZADOX & Sacher"] call UO_FW_FNC_RegisterModule;
 if (isServer) then {
 
 	missionNamespace setVariable ["UO_FW_ND_Active", true];
@@ -18,7 +18,9 @@ if (isServer) then {
 
 	[] spawn {
 
-		waitUntil {time > UO_FW_Anti_ND_Time};
+		waitUntil {!isNil "UO_FW_START_TIME"};
+		waitUntil {!isNil "UO_FW_ELAPSED_TIME"};
+		waitUntil {UO_FW_ELAPSED_TIME > UO_FW_Anti_ND_Time};
 
 		missionNamespace setVariable ["UO_FW_ND_Active", false];
 		publicVariable "UO_FW_ND_Active";
@@ -34,10 +36,10 @@ if (!isDedicated && hasinterface) then {
 
 			UO_FW_FiredEh = player addEventHandler ["Fired", {
 				private ["_p"];
-	
+
 				_p = _this select 6;
-	
-				if ((UO_FW_SpawnPos distance player) <= UO_FW_Anti_ND_Distance && missionNamespace getVariable ["UO_FW_ND_Active", false]) then 
+
+				if ((UO_FW_SpawnPos distance player) <= UO_FW_Anti_ND_Distance && missionNamespace getVariable ["UO_FW_ND_Active", false]) then
 				{
 					deleteVehicle _p;
 					_msg1 = "";

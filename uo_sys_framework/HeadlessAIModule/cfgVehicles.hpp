@@ -20,11 +20,14 @@ class UO_FW_AI_ZoneModule : UO_FW_AI_Module
 	is3DEN = 1;
 	curatorInfoType = "RscDisplayAttributeModuleNuke";
 	canSetArea = 1;
+	canSetAreaHeight = 0;
+	canSetAreaShape = 0;
 
-	class AttributeValues {
+		class AttributeValues {
         size2[] = {100,100};
-		IsRectangle = 0;
+				IsRectangle = 0;
     };
+
     class Attributes {
 		class UO_FW_AI_zoneInitial {
 			displayName = "Initial Spawn";
@@ -103,14 +106,6 @@ class UO_FW_AI_ZoneModule : UO_FW_AI_Module
 			control = "UO_FW_codeControl";
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "'true'";
-		};
-		class UO_FW_AI_headless {
-			displayName = "Headless";
-			tooltip = "Will the zone spawn on the headless client or the server? Default: Headless";
-			property = "UO_FW_AI_headless";
-			control = "UO_FW_AI_headlessControl";
-			expression = "_this setVariable ['%s',_value,true];";
-			defaultValue = "true";
 		};
 	};
 };
@@ -252,7 +247,7 @@ class UO_FW_AI_TaskModule : UO_FW_AI_Module {
         size2[] = {50,50};
     };
     class Attributes {
-		class aeTaskRadius {
+		class UO_FW_taskRadius {
 			displayName = "Radius";
 			tooltip = "The range the group will attempt to conduct the set task in. Default: 100";
 			property = "UO_FW_taskRadius";
@@ -262,7 +257,7 @@ class UO_FW_AI_TaskModule : UO_FW_AI_Module {
 			typeName = "NUMBER";
 			validate = "number";
 		};
-		class aeTaskTime {
+		class UO_FW_TaskTime {
 			displayName = "Time";
 			tooltip = "How long the linked units will perform this task. Default: 0 (forever).";
 			property = "UO_FW_TaskTime";
@@ -272,7 +267,7 @@ class UO_FW_AI_TaskModule : UO_FW_AI_Module {
 			typeName = "NUMBER";
 			validate = "number";
 		};
-		class aeTaskId {
+		class UO_FW_TaskId {
 			displayName = "Task ID";
 			tooltip = "The order that the linked units will perform this task in when multiple tasks used. To use a priority order leave off. Default: OFF.";
 			property = "UO_FW_TaskId";
@@ -282,7 +277,7 @@ class UO_FW_AI_TaskModule : UO_FW_AI_Module {
 			typeName = "NUMBER";
 			validate = "number";
 		};
-		class aeTaskSet {
+		class UO_FW_taskSet {
 			displayName = "Task";
 			tooltip = "Task the unit or group will conduct on activation. Default: Hold Until";
 			property = "UO_FW_taskSet";
@@ -290,7 +285,7 @@ class UO_FW_AI_TaskModule : UO_FW_AI_Module {
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "4";
 		};
-		class aeTaskOccupy {
+		class UO_FW_occupyOptionSet {
 			displayName = "Occupy Building Options";
 			tooltip = "Should the group occupy a building or buildings. Default: OFF";
 			property = "UO_FW_occupyOptionSet";
@@ -298,7 +293,7 @@ class UO_FW_AI_TaskModule : UO_FW_AI_Module {
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "0";
 		};
-		class aeTaskWaypointWait {
+		class UO_FW_changeWaypointWait {
 			displayName = "Waypoint Wait Time";
 			tooltip = "Time unit or group will wait at each auto generated waypoint. Default: 3 secs.";
 			property = "UO_FW_changeWaypointWait";
@@ -308,7 +303,7 @@ class UO_FW_AI_TaskModule : UO_FW_AI_Module {
 			typeName = "NUMBER";
 			validate = "number";
 		};
-		class aeTaskBehaviour {
+		class UO_FW_behaviourChange {
 			displayName = "Change Behaviour";
 			tooltip = "Behaviour of the group or unit on activation. Default: SAFE";
 			property = "UO_FW_behaviourChange";
@@ -316,7 +311,7 @@ class UO_FW_AI_TaskModule : UO_FW_AI_Module {
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "'unchanged'";
 		};
-		class aeTaskCombatMode {
+		class UO_FW_combatMode {
 			displayName = "Change CombatMode";
 			tooltip = "Combat Mode of the group or unit on activation. Default: Fire at Will, Engage at Will";
 			property = "UO_FW_combatMode";
@@ -324,7 +319,7 @@ class UO_FW_AI_TaskModule : UO_FW_AI_Module {
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "'unchanged'";
 		};
-		class aeTaskSpeed {
+		class UO_FW_speed {
 			displayName = "Change Speed";
 			tooltip = "Speed of the group or unit on activation. Default: Limited";
 			property = "UO_FW_speed";
@@ -332,7 +327,7 @@ class UO_FW_AI_TaskModule : UO_FW_AI_Module {
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "'unchanged'";
 		};
-		class aeTaskFormation {
+		class UO_FW_formation {
 			displayName = "Change Formation";
 			tooltip = "Formation of the group or unit on activation. Default: WEDGE";
 			property = "UO_FW_formation";
@@ -340,7 +335,7 @@ class UO_FW_AI_TaskModule : UO_FW_AI_Module {
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "'unchanged'";
 		};
-		class aeTaskGroupStance {
+		class UO_FW_groupStance {
 			displayName = "Change Group Stance";
 			tooltip = "Force the stance of the group. Default: AUTO";
 			property = "UO_FW_groupStance";
@@ -348,7 +343,7 @@ class UO_FW_AI_TaskModule : UO_FW_AI_Module {
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "'unchanged'";
 		};
-		class aeTaskCondition {
+		class UO_FW_taskCondition {
 			displayName = "Condition";
 			tooltip = "Activate this task with a condition. Default: True";
 			property = "UO_FW_taskCondition";
@@ -357,7 +352,7 @@ class UO_FW_AI_TaskModule : UO_FW_AI_Module {
 			defaultValue = "";
 			validate = "condition";
 		};
-		class aeTaskOnComplete {
+		class UO_FW_taskOnComplete {
 			displayName = "On Completion";
 			tooltip = "Pass custom parameters or code when the group completes this task. (_this = [GROUP,TASK Module]) Default: Nil";
 			property = "UO_FW_taskOnComplete";
@@ -365,7 +360,7 @@ class UO_FW_AI_TaskModule : UO_FW_AI_Module {
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "(true)";
 		};
-		class aeTaskPriority {
+		class UO_FW_TaskPriority {
 			displayName = "Priority";
 			tooltip = "Task priority allows the group to choose between two assigned tasks. Default: Medium";
 			property = "UO_FW_TaskPriority";
@@ -394,7 +389,7 @@ class UO_FW_AI_PositionModule : UO_FW_AI_Module {
 		IsRectangle = 0;
     };
     class Attributes {
-		class aePositionType {
+		class UO_FW_positionType {
 			displayName = "Type of Position";
 			tooltip = "Sets the type of position other modules will identify this position as. Default: Standard";
 			property = "UO_FW_positionType";
@@ -402,7 +397,7 @@ class UO_FW_AI_PositionModule : UO_FW_AI_Module {
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "0";
 		};
-		class aePositionRadiusX {
+		class UO_FW_positionRadiusX {
 			displayName = "Radius X";
 			tooltip = "The X radius the position will use to generate a random position. Default: 0";
 			property = "UO_FW_positionRadiusX";
@@ -412,7 +407,7 @@ class UO_FW_AI_PositionModule : UO_FW_AI_Module {
 			typeName = "NUMBER";
 			validate = "number";
 		};
-		class aePositionRadiusY {
+		class UO_FW_positionRadiusY {
 			displayName = "Radius Y";
 			tooltip = "The Y radius the position will use to generate a random position. Default: 0";
 			property = "UO_FW_positionRadiusY";
@@ -422,7 +417,7 @@ class UO_FW_AI_PositionModule : UO_FW_AI_Module {
 			typeName = "NUMBER";
 			validate = "number";
 		};
-		class aePositionWarnRadius {
+		class UO_FW_positionWarnRadius {
 			displayName = "Warn Area Radius";
 			tooltip = "Distance for player to be warned before entering area. Default: 20.";
 			property = "UO_FW_positionWarnRadius";
@@ -458,7 +453,7 @@ class UO_FW_AI_FastAirStrikeModule : UO_FW_AI_Module {
 		IsRectangle = 0;
     };
     class Attributes {
-		class aeFASRadius {
+		class UO_FW_fasRadius {
 			displayName = "Strike Radius";
 			tooltip = "The air strike will use this radius to generate a random position for each bomber. Default: 0";
 			property = "UO_FW_fasRadius";
@@ -468,7 +463,7 @@ class UO_FW_AI_FastAirStrikeModule : UO_FW_AI_Module {
 			typeName = "NUMBER";
 			validate = "number";
 		};
-		class aeFASOrdnance {
+		class UO_FW_fasOrdinance {
 			displayName = "Ordnance";
 			tooltip = "The amount of bombs each aircraft will drop. Default: 3";
 			property = "UO_FW_fasOrdinance";
@@ -478,7 +473,7 @@ class UO_FW_AI_FastAirStrikeModule : UO_FW_AI_Module {
 			typeName = "NUMBER";
 			validate = "number";
 		};
-		class aeFASHeight {
+		class UO_FW_fasHeight {
 			displayName = "Height";
 			tooltip = "Height aircraft will fly at and release ordnance, higher the altitude the less accuracy. Default: 200.";
 			property = "UO_FW_fasHeight";
@@ -488,7 +483,7 @@ class UO_FW_AI_FastAirStrikeModule : UO_FW_AI_Module {
 			typeName = "NUMBER";
 			validate = "number";
 		};
-		class aeFASOrdnanceType {
+		class UO_FW_fasOrdnanceType {
 			displayName = "Ordnance Type";
 			tooltip = "Classname of the bomb type to be use. Default: 'Bo_GBU12_LGB_MI10'";
 			property = "UO_FW_fasOrdnanceType";
@@ -514,7 +509,7 @@ class UO_FW_AI_AirDropModule : UO_FW_AI_Module {
 		IsRectangle = 0;
     };
     class Attributes {
-		class aeADRadius {
+		class UO_FW_artRadius {
 			displayName = "Drop Radius";
 			tooltip = "The aircraft will use this radius to generate random position for air drop. Default: 0";
 			property = "UO_FW_artRadius";
@@ -524,7 +519,7 @@ class UO_FW_AI_AirDropModule : UO_FW_AI_Module {
 			typeName = "NUMBER";
 			validate = "number";
 		};
-		class aeADOrdnance {
+		class UO_FW_adOrdinance {
 			displayName = "Ordnance";
 			tooltip = "The amount of items aircraft will drop. Default: 3";
 			property = "UO_FW_adOrdinance";
@@ -534,7 +529,7 @@ class UO_FW_AI_AirDropModule : UO_FW_AI_Module {
 			typeName = "NUMBER";
 			validate = "number";
 		};
-		class aeADOrdnanceType {
+		class UO_FW_adOrdnanceType {
 			displayName = "Ordnance Type";
 			tooltip = "Classname of the item type to be dropped. Default: 'Box_NATO_Ammo_F'";
 			property = "UO_FW_adOrdnanceType";
@@ -542,7 +537,7 @@ class UO_FW_AI_AirDropModule : UO_FW_AI_Module {
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "'Box_NATO_Ammo_F'";
 		};
-		class aeADHeight {
+		class UO_FW_adHeight {
 			displayName = "Height";
 			tooltip = "Height aircraft will fly at and release ordnance, higher the altitude the less accuracy. Default: 120.";
 			property = "UO_FW_adHeight";
@@ -552,7 +547,7 @@ class UO_FW_AI_AirDropModule : UO_FW_AI_Module {
 			typeName = "NUMBER";
 			validate = "number";
 		};
-		class aeADSmoke {
+		class UO_FW_adSmoke {
 			displayName = "Drop Smoke";
 			tooltip = "Item deploys smoke to indicate its position on the ground. Default: Off";
 			property = "UO_FW_adSmoke";
@@ -561,7 +556,7 @@ class UO_FW_AI_AirDropModule : UO_FW_AI_Module {
 			defaultValue = "false";
 			typeName = "BOOL";
 		};
-		class aeADAircraftType {
+		class UO_FW_adAircraftType {
 			displayName = "Drop Aircraft Type";
 			tooltip = "Classname of the aircraft to drop ordnance. Default: 'RHS_C130J'";
 			property = "UO_FW_adAircraftType";
@@ -569,7 +564,7 @@ class UO_FW_AI_AirDropModule : UO_FW_AI_Module {
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "'RHS_C130J'";
 		};
-		class aeADEscorted {
+		class UO_FW_adEscorted {
 			displayName = "Fighter Escort";
 			tooltip = "Does the drop vehicle have a fighter escort. Default: Off";
 			property = "UO_FW_adEscorted";
@@ -578,7 +573,7 @@ class UO_FW_AI_AirDropModule : UO_FW_AI_Module {
 			defaultValue = "false";
 			typeName = "BOOL";
 		};
-		class aeADEscortAircraftType {
+		class UO_FW_adEscortAircraftType {
 			displayName = "Escort Aircraft Type";
 			tooltip = "Classname of the aircraft type to be use. Default: 'B_Plane_CAS_01_F'";
 			property = "UO_FW_adEscortAircraftType";
@@ -604,7 +599,7 @@ class UO_FW_AI_HeloInsertModule : UO_FW_AI_Module {
 		IsRectangle = 0;
     };
     class Attributes {
-		class aeHIRadius {
+		class UO_FW_hiRadius {
 			displayName = "Insert Radius";
 			tooltip = "The aircraft will use this radius to generate random position for inserting units. Default: 0";
 			property = "UO_FW_hiRadius";
@@ -614,7 +609,7 @@ class UO_FW_AI_HeloInsertModule : UO_FW_AI_Module {
 			typeName = "NUMBER";
 			validate = "number";
 		};
-		class aeHIMultiplier {
+		class UO_FW_hiMultiplier {
 			displayName = "Vehicle Multiplier";
 			tooltip = "Multiplies the amount of helicopters and cargo linked to module to perform insetion. Default: 1";
 			property = "UO_FW_hiMultiplier";
@@ -624,7 +619,7 @@ class UO_FW_AI_HeloInsertModule : UO_FW_AI_Module {
 			typeName = "NUMBER";
 			validate = "number";
 		};
-		class aeHIHeight {
+		class UO_FW_hiHeight {
 			displayName = "Height";
 			tooltip = "Height aircraft will fly in at before starting decent. Default: 200.";
 			property = "UO_FW_hiHeight";
@@ -634,7 +629,7 @@ class UO_FW_AI_HeloInsertModule : UO_FW_AI_Module {
 			typeName = "NUMBER";
 			validate = "number";
 		};
-		class aeHIInsertType {
+		class UO_FW_hiInsertType {
 			displayName = "Insertion Type";
 			tooltip = "The type of insertion that will be performed at the insertion point. Default: Rappel";
 			property = "UO_FW_hiInsertType";
@@ -658,7 +653,7 @@ class UO_FW_AI_RespawnModule : UO_FW_AI_Module {
 	isDisposable = 0;
 	is3DEN = 1;
 	class Attributes {
-		class aeRespawnSide {
+		class UO_FW_AI_respawnside {
 			displayName = "Respawn Side";
 			tooltip = "Side of the unit that will respawn at the new location. Default: WEST";
 			property = "UO_FW_AI_respawnside";

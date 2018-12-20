@@ -114,6 +114,6 @@ class UO_FW_ArtilleryPlayerFO
 			typeName = "BOOL";
 			condition = "objectControllable";
 		};
-		
+
 	};
 };

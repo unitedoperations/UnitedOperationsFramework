@@ -1,9 +1,9 @@
-# Arma
 *.cache
-*.pbo
 texHeaders.bin
 *.swp
 *.swo
 *.biprivatekey
 Thumbs.db
 *.log
+*.pbo
+*.bak

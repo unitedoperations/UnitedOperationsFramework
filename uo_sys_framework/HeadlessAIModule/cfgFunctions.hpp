@@ -2,7 +2,7 @@ class UO_Framework_AI
 {
 	tag = "UO_FW_AI";
 	class UO_FW_AI_Common {
-		file = "x\UO_FW\addons\main\HeadlessAIModule\cfgFunctions\AI\common";
+		file = "x\UO_FW\addons\main\HeadlessAIModule\cfgFunctions\common";
 		class init { scope = 1;};
 		class deleteVehicles {scope = 1;};
 		class enableZones {scope = 1;};
@@ -12,7 +12,7 @@ class UO_Framework_AI
 		class setup {scope = 1;};
 	};
 	class UO_FW_AI_Check {
-		file = "x\UO_FW\addons\main\HeadlessAIModule\cfgFunctions\AI\check";
+		file = "x\UO_FW\addons\main\HeadlessAIModule\cfgFunctions\check";
 		class checkManualPos {scope = 1;};
 		class checkNearbyAll {scope = 1;};
 		class checkNearbyPlayer {scope = 1;};
@@ -20,7 +20,7 @@ class UO_Framework_AI
 		class checkifHC { scope = 1; postinit = 1; };
 	};
 	class UO_FW_AI_Create {
-		file = "x\UO_FW\addons\main\HeadlessAIModule\cfgFunctions\AI\create";
+		file = "x\UO_FW\addons\main\HeadlessAIModule\cfgFunctions\create";
 		class createAction {scope = 1;};
 		class createAirDrop {scope = 1;};
 		class createAmmoDrop {scope = 1;};
@@ -43,27 +43,12 @@ class UO_Framework_AI
 		class createZoneInit {scope = 1;};
 	};
 	class UO_FW_AI_Debug {
-		file = "x\UO_FW\addons\main\HeadlessAIModule\cfgFunctions\AI\debug";
+		file = "x\UO_FW\addons\main\HeadlessAIModule\cfgFunctions\debug";
 		class debugSyncedModules {scope = 1;};
 		class debugCreateMarker {scope = 1;};
 	};
-	class UO_FW_AI_Para {
-		file = "x\UO_FW\addons\main\HeadlessAIModule\cfgFunctions\AI\para";
-		class backpackLoad {scope = 1;};
-		class backpackSave {scope = 1;};
-		class paraCreateAircraft {scope = 1;};
-		class paraDrop {scope = 1;};
-		class paraResupply {scope = 1;};
-		class paraSetDirection {scope = 1;};
-		class paraSetHeight {scope = 1;};
-		class paraSetLocation {scope = 1;};
-		class paraSetSmoke {scope = 1;};
-		class paraGetMarkerName {scope = 1;};
-		class paraStart {scope = 1;};
-		class paraVehicle {scope = 1;};
-	};
 	class UO_FW_AI_Get {
-		file = "x\UO_FW\addons\main\HeadlessAIModule\cfgFunctions\AI\get";
+		file = "x\UO_FW\addons\main\HeadlessAIModule\cfgFunctions\get";
 		class getBuildingList {scope = 1;};
 		class getBuildings {scope = 1;};
 		class getGroupVariables {scope = 1;};
@@ -101,7 +86,7 @@ class UO_Framework_AI
 		class getVehicleRoles {scope = 1;};
 	};
 	class UO_FW_AI_Modules {
-		file = "x\UO_FW\addons\main\HeadlessAIModule\cfgFunctions\AI\modules";
+		file = "x\UO_FW\addons\main\HeadlessAIModule\cfgFunctions\modules";
 		class airdrop {scope = 1;};
 		class control {scope = 1;};
 		class fas {scope = 1;};
@@ -114,25 +99,8 @@ class UO_Framework_AI
 		class temp {scope = 1;};
 		class zone {scope = 1;};
 	};
-	class UO_FW_AI_Rearm {
-		file = "x\UO_FW\addons\main\HeadlessAIModule\cfgFunctions\AI\rearm";
-		class vehicleAmmo {scope = 1;};
-		class vehicleAmmoMenu {scope = 1;};
-		class vehicleFuel {scope = 1;};
-		class vehicleFuelMenu {scope = 1;};
-		class vehiclePrepareRearm {scope = 1;};
-		class vehicleRearm {scope = 1;};
-		class vehicleRearmAllow {scope = 1;};
-		class vehiclePrepareRefuel {scope = 1;};
-		class vehicleRefuel {scope = 1;};
-		class vehicleRefuelAllow {scope = 1;};
-		class vehicleRepair {scope = 1;};
-		class vehicleRepairAction {scope = 1;};
-		class vehiclePrepareRepair {scope = 1;};
-		class vehicleRepairAllow {scope = 1;};
-	};
 	class UO_FW_AI_Set {
-		file = "x\UO_FW\addons\main\HeadlessAIModule\cfgFunctions\AI\set";
+		file = "x\UO_FW\addons\main\HeadlessAIModule\cfgFunctions\set";
 		class setAssignedVehicle {scope = 1;};
 		class setBuildingPos {scope = 1;};
 		class setCaptive {scope = 1;};
@@ -154,7 +122,7 @@ class UO_Framework_AI
 		class setZone {scope = 1;};
 	};
 	class UO_FW_AI_Task {
-		file = "x\UO_FW\addons\main\HeadlessAIModule\cfgFunctions\AI\task";
+		file = "x\UO_FW\addons\main\HeadlessAIModule\cfgFunctions\task";
 		class taskActivate {scope = 1;};
 		class taskAssign {scope = 1;};
 		class taskCheck {scope = 1;};
@@ -192,7 +160,7 @@ class UO_Framework_AI
 		class taskPatrolPerimeter {scope = 1;};
 	};
 	class UO_FW_AI_Main {
-		file = "x\UO_FW\addons\main\HeadlessAIModule\cfgFunctions\AI\Main";
+		file = "x\UO_FW\addons\main\HeadlessAIModule\cfgFunctions\Main";
 		class ActiveHandler {scope = 1;};
 		class GroupHandler {scope = 1;};
 		class initMain {scope = 1; postinit = 1;};
@@ -200,11 +168,11 @@ class UO_Framework_AI
 		class UnitInit {scope = 1;};
 	};
 	class UO_FW_AI_Misc {
-			file = "x\UO_FW\addons\main\HeadlessAIModule\cfgFunctions\AI\Misc";
-			class playerInit {scope = 1;};
+			file = "x\UO_FW\addons\main\HeadlessAIModule\cfgFunctions\Misc";
+			class playerInit {scope = 1; postinit = 1;};
 		};
 		class UO_FW_AI_Diag {
-			file = "x\UO_FW\addons\main\HeadlessAIModule\cfgFunctions\AI\Diag";
+			file = "x\UO_FW\addons\main\HeadlessAIModule\cfgFunctions\Diag";
 			class AIHit {scope = 1;};
 			class AttachPosition {scope = 1;};
 			class BuildingCheck {scope = 1;};
@@ -230,7 +198,7 @@ class UO_Framework_AI
 			class WepSupCheck {scope = 1;};
 		};
 		class UO_FW_AI_Danger {
-			file = "x\UO_FW\addons\main\HeadlessAIModule\cfgFunctions\AI\dangercauses";
+			file = "x\UO_FW\addons\main\HeadlessAIModule\cfgFunctions\dangercauses";
 			class CombatMovement {scope = 1;};
 			class CurrentStance {scope = 1;};
 			class DeadBodyDetection {scope = 1;};
@@ -242,7 +210,7 @@ class UO_Framework_AI
 			class VehicleHandleDanger {scope = 1;};
 		};
 		class UO_FW_AI_Combat {
-			file = "x\UO_FW\addons\main\HeadlessAIModule\cfgFunctions\AI\combat";
+			file = "x\UO_FW\addons\main\HeadlessAIModule\cfgFunctions\combat";
 			class ArmEmptyStatic {scope = 1;};
 			class CombatAttack {scope = 1;};
 			class CombatDefend {scope = 1;};

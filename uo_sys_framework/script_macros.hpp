@@ -17,7 +17,8 @@ if(_argUpper == "HC" && (((hasinterface || isServer) && isMultiplayer) || (!UO_F
 if(_argUpper == "CLIENTHC" && (((isDedicated) && isMultiplayer) || (!UO_FW_Enabled))) exitWith {};\
 if(_argUpper == "SERVERHC" && (((hasinterface) && isMultiplayer) || (!UO_FW_Enabled))) exitWith {};\
 if(_argUpper == "ALL" && (!UO_FW_Enabled)) exitWith {};\
-if (!UO_FW_Enabled) exitWith {};
+if (!UO_FW_Enabled) exitWith {};\
+if(!UO_FW_SERVER_FRAMEWORK_ALLOWED) exitWith {};
 
 //Debug function call
 #define UO_FW_DEBUG(basicmsg,detailedmsg)\

@@ -16,6 +16,12 @@ Version Numbers mainly refer to the UO Modpack addition.
 - Changed `UO_FW_fnc_inArea` calls to `inArea` command - fnc removed
 - Hostage module rewritten to activate via unit attribute expression instead of an allUnits spawn
 - Changed setDefaults to PreInit (finds mission values directly in preInit, sets config default values from cfg3DEN if not found)
+- Changed End Conditions for CaptureZones
+- Converted CaptureZone modules to work off modules using their areas set in the editor, functions run independently of each other and define dynamically named vars according to user friendly text input. Many new features of the new function - needs testing.
+- Replaced `(count _x == 0)` evals with `isEqualto`
+- [HC] Folder Restructure
+- Converted AO Limit to editor module, option to spawn outside of AO and be restricted once you enter AO.
+- Converted Setup Timer to editor module, singleplayer compatibility
 
 ### Fixed
 - [HC] Collecting/Spawning function

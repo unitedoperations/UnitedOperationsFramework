@@ -2,7 +2,7 @@
 private ["_return"];
 if(markerType _this == "") then
 {
-	["Capturezone " + (str _this) + "does not exist!",""] call UO_FW_fnc_DebugMessageDetailed;
+	["CaptureZone " + (str _this) + "does not exist!",""] call UO_FW_fnc_DebugMessageDetailed;
 };
 if (isNil "CZMARKERCOLLECTION") then { CZMARKERCOLLECTION = []; };
 _return = "NONE";

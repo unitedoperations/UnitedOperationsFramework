@@ -61,7 +61,7 @@ class CfgFunctions
 		#include "StartTextModule\cfgFunctions.hpp"
 		#include "AutoTrackAssetModule\cfgFunctions.hpp"
 		#include "JipModule\cfgFunctions.hpp"
-		#include "CapturezoneModule\cfgFunctions.hpp"
+		#include "CaptureZoneModule\cfgFunctions.hpp"
 		#include "StartInParachuteModule\cfgFunctions.hpp"
 		#include "MapCompassRemoverModule\cfgFunctions.hpp"
 		#include "FiremissionModule\cfgFunctions.hpp"
@@ -94,7 +94,8 @@ class CfgVehicles
 
 	#include "HeadlessAIModule\cfgVehicles.hpp"
 	#include "SetupTimerModule\cfgVehicles.hpp"
-	#include "CapturezoneModule\cfgVehicles.hpp"
+	#include "CaptureZoneModule\cfgVehicles.hpp"
+	#include "AOLimitModule\cfgVehicles.hpp"
 };
 
 class RscTitles
@@ -102,10 +103,9 @@ class RscTitles
 	#include "Core\RscTitles.hpp"
 	#include "SoftAOLimitModule\RscTitles.hpp"
 	#include "SetupTimerModule\RscSetupTimer.hpp"
-
-
 };
 #include "FiremissionModule\RscTitles.hpp"
+
 class CfgNotifications
 {
 	#include "SoftAOLimitModule\cfgNotifications.hpp"
@@ -154,7 +154,6 @@ class Cfg3DEN
 				//add module settings here
 				#include "AIDriversModule\cfg3den\Modules\AIDrivers.hpp"
 				#include "AILinkModule\cfgAttributeCategories\mission\AILink.hpp"
-				#include "AOLimitModule\cfg3den\Modules\AOLimit.hpp"
 				#include "AntiNDModule\cfg3den\Modules\AntiND.hpp"
 				#include "AutoTrackAssetModule\cfgAttributeCategories\mission\AutoTrackAsset.hpp"
 				#include "DisconnectControlModule\cfgAttributeCategories\mission\DisconnectControl.hpp"
@@ -209,6 +208,7 @@ class Cfg3DEN
 		#include "EndConditionsModule\CfgAttributes.hpp"
 		#include "HeadlessAIModule\CfgAttributes.hpp"
 		#include "TeamColourModule\CfgAttributes.hpp"
+		#include "CaptureZoneModule\CfgAttributes.hpp"
 		#include "StartInParachuteModule\CfgAttributes.hpp"
 		#include "JipModule\CfgAttributes.hpp"
 		#include "ACREModule\CfgAttributes.hpp"

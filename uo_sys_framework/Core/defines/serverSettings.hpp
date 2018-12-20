@@ -8,3 +8,15 @@ UO_FW_EventDisconnectHandle = addMissionEventHandler ["HandleDisconnect", {_this
 
 _AIViewDistance = missionNamespace getvariable ["UO_FW_AI_ViewDistance",2000];
 setViewDistance _AIViewDistance;
+
+[] spawn {
+	waitUntil {time > 0};
+	UO_FW_START_TIME = diag_tickTime;
+	publicvariable "UO_FW_START_TIME";
+	while {true} do
+	{
+	   UO_FW_ELAPSED_TIME = diag_tickTime - UO_FW_START_TIME;
+		 publicvariable "UO_FW_ELAPSED_TIME";
+	   sleep 0.1;
+	};
+};
