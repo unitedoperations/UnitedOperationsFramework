@@ -34,7 +34,7 @@ class Teams
         {
             property = "UO_FW_TeamSetting_Blufor_RespawnTickets";
             displayName = "Respawns";
-            tooltip = "Number of individual respawns";
+            tooltip = "Number of individual respawns. Place down Gamelogic with name uo_fw_west_respawn to define respawn location.";
             control = "EditShort";
             expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "0";
@@ -70,7 +70,7 @@ class Teams
         {
             property = "UO_FW_TeamSetting_Opfor_RespawnTickets";
             displayName = "Respawns";
-            tooltip = "Number of individual respawns";
+            tooltip = "Number of individual respawns.Place down Gamelogic with name uo_fw_east_respawn to define respawn location.";
             control = "EditShort";
             expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "0";
@@ -106,7 +106,7 @@ class Teams
         {
             property = "UO_FW_TeamSetting_Indfor_RespawnTickets";
             displayName = "Respawns";
-            tooltip = "Number of individual respawns";
+            tooltip = "Number of individual respawns. Place down Gamelogic with name uo_fw_guer_respawn to define respawn location.";
             control = "EditShort";
             expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "0";
@@ -142,7 +142,7 @@ class Teams
         {
             property = "UO_FW_TeamSetting_Civ_RespawnTickets";
             displayName = "Respawns";
-            tooltip = "Number of individual respawns";
+            tooltip = "Number of individual respawns.Place down Gamelogic with name uo_fw_civ_respawn to define respawn location.";
             control = "EditShort";
             expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "0";
