@@ -285,7 +285,7 @@ if (!isDedicated) then
 			_loadout = (player getVariable ["UO_FW_Loadout", ""]);
 
 			if (_loadout != "") then {
-				[player, _loadout] call FNC_GearScript;
+				[player, _loadout] call UO_FW_FNC_GearScript;
 			};
 
 			if (!isNull(_respawnPoint)) then {

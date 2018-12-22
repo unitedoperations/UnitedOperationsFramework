@@ -36,7 +36,6 @@
 			_array call UO_FW_FNC_GearScript;
 		};
 	};
-	
 	if(isServer) then
 	{
 		{
