@@ -55,4 +55,3 @@ for "_i" from 1 to _count do {
 	waituntil {((behaviour _Unitleader) in ["AWARE","COMBAT","STEALTH"])};
 	[_Group] call CBA_fnc_clearWaypoints;
 };
-

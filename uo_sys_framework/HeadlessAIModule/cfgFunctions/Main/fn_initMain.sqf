@@ -1,5 +1,5 @@
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_EXEC_CHECK(HC)
+UO_FW_AI_EXEC_CHECK(HC)
 
 if (!(getMissionConfigValue ["UO_FW_AI_DEBUG",false])) then {
 	diag_log "running fn_initMain";
@@ -123,3 +123,5 @@ if ((!hasinterface) && (!isDedicated)) then {
 		};
 	};
 };
+
+UO_FW_AI_InitMainInitialized = true;

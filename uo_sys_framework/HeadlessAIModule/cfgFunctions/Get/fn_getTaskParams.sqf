@@ -7,7 +7,7 @@
  *		suits & PiZZADOX
  */
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_EXEC_CHECK(SERVERHC)
+UO_FW_AI_EXEC_CHECK(SERVERHC)
 params ["_logic",["_params",[],[[]]]];
 	_cond = _logic getVariable ["UO_FW_taskCondition","true"];
 	_onComp = _logic getVariable ["UO_FW_taskOnComplete","true"];

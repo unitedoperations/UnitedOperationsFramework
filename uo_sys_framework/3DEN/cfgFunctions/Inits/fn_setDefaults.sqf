@@ -44,24 +44,24 @@ _configCategories = "(((str(configname _x)) find 'UO_FW') >= 0)" configClasses (
 
 {
 	private _propertyname = getText (_x >> "property");
-	//diag_log format ["_propertyname: %1",_propertyname];
+	diag_log format ["_propertyname: %1",_propertyname];
 	private _missionvalue = getMissionConfigValue [_propertyname,"NONE"];
 	if (_missionvalue isEqualTo "NONE") then {
 		if ((missionNamespace getvariable [_propertyname,""]) isEqualto "") then {
 			private _valuetext = getText(_x >> "defaultValue");
 			if (!(_valuetext isEqualto "")) then {
 				missionNamespace setvariable [_propertyname, (call compile _valuetext), true];
-				//diag_log format ["_propertyname: %1 set with value: %2",_propertyname,(missionNamespace getvariable [_propertyname,""])];
+				diag_log format ["_propertyname: %1 set with value: %2",_propertyname,(missionNamespace getvariable [_propertyname,""])];
 			} else {
-				//diag_log format ["_propertyname: %1 null default value! not set!",_propertyname];
+				diag_log format ["_propertyname: %1 null default value! not set!",_propertyname];
 			};
 		} else {
-			//diag_log format ["_propertyname: %1 already defined with value of %2! not set!",_propertyname,(missionNamespace getvariable [_propertyname,""])];
+			diag_log format ["_propertyname: %1 already defined with value of %2! not set!",_propertyname,(missionNamespace getvariable [_propertyname,""])];
 		};
 	} else {
-		//diag_log format ["_propertyname: %1 has mission value!",_propertyname];
+		diag_log format ["_propertyname: %1 has mission value!",_propertyname];
 		missionNamespace setvariable [_propertyname, _missionvalue, true];
-		//diag_log format ["_propertyname: %1 set with value: %2",_propertyname,(missionNamespace getvariable [_propertyname,""])];
+		diag_log format ["_propertyname: %1 set with value: %2",_propertyname,(missionNamespace getvariable [_propertyname,""])];
 	};
 } foreach _configAttributes;
 

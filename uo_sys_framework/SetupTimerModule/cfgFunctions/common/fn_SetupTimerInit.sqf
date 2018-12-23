@@ -8,7 +8,10 @@
 		_ctrlTitleBG = _display displayCtrl 1002;
 		_ctrlTime = _display displayCtrl 1003;
 
-		_endTime = UO_FW_ELAPSED_TIME + (missionNamespace getVariable ["UO_FW_ST_TimeLeft", 0]);
+		_timecheckStart = serverTime;
+		if (_timecheckStart isEqualto 0) then {_timecheckStart = time;};
+
+		_endTime = _timecheckStart + (missionNamespace getVariable ["UO_FW_ST_TimeLeft", 0]);
 		_nextBeep = _endTime - 10;
 
 		_break = false;
@@ -16,12 +19,15 @@
 
 		while {_run} do {
 
-			if (UO_FW_ELAPSED_TIME >= _nextBeep) then {
+			_timecheck = serverTime;
+			if (_timecheck isEqualto 0) then {_timecheck = time;};
+
+			if (_timecheck >= _nextBeep) then {
 				_nextBeep = _nextBeep + 1;
 				playSound "Beep_Target";
 			};
 
-			private _timeLeft = _endTime - UO_FW_ELAPSED_TIME;
+			private _timeLeft = _endTime - _timecheck;
 
 			_colorSet = ["IGUI","TEXT_RGB"];
 			if (_timeLeft <= 30) then {

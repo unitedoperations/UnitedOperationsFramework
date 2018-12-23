@@ -7,7 +7,7 @@
  *		suits & PiZZADOX
  */
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_EXEC_CHECK(SERVERHC)
+UO_FW_AI_EXEC_CHECK(SERVERHC)
 params [["_grp",grpNull,[grpNull]],["_target",objNull,[objNull]]];
 diag_log format["RETURN tracker | %1",_this];
 diag_log format["RETURN group alive | %1",count ((units _grp) select {alive _x}) > 0];

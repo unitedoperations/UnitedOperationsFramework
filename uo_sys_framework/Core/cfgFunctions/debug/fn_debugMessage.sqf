@@ -20,7 +20,7 @@ private _found = false;
 
 if (isNil "UO_FW_DebugMessages") then {UO_FW_DebugMessages = [];};
 
-if (UO_FW_Debug_Logs) then {
+if (missionNamespace getvariable ["UO_FW_Debug_Logs",false]) then {
 	diag_log _message;
 };
 

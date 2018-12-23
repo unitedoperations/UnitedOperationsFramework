@@ -19,7 +19,7 @@
  *		suits & PiZZADOX
  */
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_EXEC_CHECK(SERVERHC)
+UO_FW_AI_EXEC_CHECK(SERVERHC)
 params[["_blds",[],[[]]],"_grp","_pos",["_radius",0,[0]],["_wait",3,[0]],["_behave","SAFE",[""]],["_combat","RED",[""]],["_speed","LIMITED",[""]],["_formation","WEDGE",[""]],["_type","MOVE",[""]],["_oncomplete","",[""]],["_compradius",0,[0]],["_bldPos",[],[[]]],["_bpos",[],[[]]],["_bld1",objNull,[objNull]],["_bld2",[],[[]]],["_patrol",false,[false]]];
 	_grp call UO_FW_AI_fnc_taskReset;
 	private _bpos = _pos;

@@ -1,7 +1,13 @@
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 
 //Script control
+//Script control
+#define UO_FW_AI_EXEC_CHECK(ARG)\
+_argUpper = toUpper(#ARG);\
+if !(getMissionConfigValue ["UO_FW_AI_Enabled",false]) exitwith {};\
+UO_FW_EXEC_CHECK(_argUpper)
 
+// Locality Check and Redirect
 #define UO_FW_AI_LOC_CHECK(ARG1)\
 _argUpper = toUpper(#ARG1);\
 if (isNil "UO_FW_var_HC_ID") then {_nul = [] call UO_FW_AI_fnc_checkifHC;};\

@@ -11,12 +11,6 @@ setViewDistance _AIViewDistance;
 
 [] spawn {
 	waitUntil {time > 0};
-	UO_FW_START_TIME = diag_tickTime;
-	publicvariable "UO_FW_START_TIME";
-	while {true} do
-	{
-	   UO_FW_ELAPSED_TIME = diag_tickTime - UO_FW_START_TIME;
-		 publicvariable "UO_FW_ELAPSED_TIME";
-	   sleep 0.1;
-	};
+	UO_FW_ServerStartTime = diag_tickTime;
+	publicvariable "UO_FW_ServerStartTime";
 };

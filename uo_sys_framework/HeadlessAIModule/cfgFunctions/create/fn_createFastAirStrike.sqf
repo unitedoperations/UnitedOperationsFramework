@@ -14,7 +14,7 @@
  * ["bomb",3,2,200,"rhsusf_f22","Bo_GBU12_LGB_MI10","start"] spawn UO_FW_AI_fnc_createFastAirStrike;
  */
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_EXEC_CHECK(SERVERHC)
+UO_FW_AI_EXEC_CHECK(SERVERHC)
 
 	params ["_logic",["_spos",[0,0,0],[[]]],["_bombers",[],[[]]],"_j"];
 	_amtO = _logic getVariable ['UO_FW_fasOrdinance',3];

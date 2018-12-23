@@ -26,7 +26,6 @@ if(getMissionConfigValue["UO_FW_Enabled",false]) then
 	if(UO_FW_SERVER_SAFESTARTMODULE_ALLOWED) then {_this call UO_FW_FNC_safeStartInit;};
 	if(UO_FW_SERVER_SELFACTIONSMODULE_ALLOWED) then {_this call UO_FW_FNC_selfActionsInit;};
 	if(UO_FW_SERVER_SHOTCOUNTMODULE_ALLOWED) then {_this call UO_FW_FNC_shotCountInit;};
-	if(UO_FW_SERVER_SOFTAOMODULE_ALLOWED) then {_this call UO_FW_FNC_SoftAOLimitInit;};
 };
 
 //Universally activated modules/functions - modules/functions that are safe to activate and run in

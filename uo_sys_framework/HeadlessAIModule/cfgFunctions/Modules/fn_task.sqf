@@ -9,7 +9,7 @@
  *		suits & PiZZADOX & Lecks
  */
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_EXEC_CHECK(SERVERHC)
+UO_FW_AI_EXEC_CHECK(SERVERHC)
 
 params [["_mode","",[""]],["_input",[],[[]]]];
 	if(isNil "UO_FW_AI_initialised") then {call UO_FW_AI_fnc_init;};
@@ -33,8 +33,8 @@ params [["_mode","",[""]],["_input",[],[[]]]];
 		case "attributesChanged3DEN": {
 			_logic = _input param [0,objNull,[objNull]];
 			private _radius = (_logic getVariable ["UO_FW_taskRadius",100]);
-            private _area = _logic get3DENAttribute "size2";
-            set3DENAttributes [[[_logic],"size2",[_radius,_radius]]];
+      private _area = _logic get3DENAttribute "size2";
+      set3DENAttributes [[[_logic],"size2",[_radius,_radius]]];
 		};
 	};
 	true

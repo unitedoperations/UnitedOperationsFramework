@@ -3,7 +3,7 @@
 	Module: AO Limit Module
 	Author: Olsen & Sacher & PiZZADOX
 	Date Created: ?
-	Date Last Updated: 20/12/2018
+	Date Last Updated: 21/12/2018
 
 	Description: Allows the mission maker to set AO limits to specific sides.
 

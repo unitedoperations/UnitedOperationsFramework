@@ -141,8 +141,8 @@ item136[] = {"Set_Target_as_Cu",2,250,-811.361816,1055.334717,-721.361511,1105.3
 item137[] = {"",7,210,-770.790649,1010.182373,-762.790649,1018.182312,0.000000,""};
 item138[] = {"",7,210,-187.249054,1009.674988,-179.249039,1017.674683,0.000000,""};
 item139[] = {"Enemy_Set",4,218,-664.848145,1091.441040,-574.848145,1141.439453,1.000000,"Enemy Set"};
-item140[] = {"Dead",4,218,-810.263794,1165.866211,-720.263916,1215.866211,5.000000,"Dead"};
-item141[] = {"Check_State_of_E",2,250,-664.029175,1226.658936,-574.029175,1276.658936,0.000000,"Check State" \n "of Enemy"};
+item140[] = {"Dead",4,218,-810.263794,1165.866211,-720.263916,1215.866211,2.000000,"Dead"};
+item141[] = {"Check_State_of_E",2,250,-664.029175,1227.738892,-574.029175,1277.738892,0.000000,"Check State" \n "of Enemy"};
 item142[] = {"",7,210,-722.347351,1246.094604,-714.347351,1254.094604,0.000000,""};
 item143[] = {"",7,210,-843.593811,1245.913086,-835.593811,1253.913086,0.000000,""};
 item144[] = {"",7,210,-845.911499,1010.646973,-837.911499,1018.646973,0.000000,""};
@@ -214,18 +214,28 @@ item209[] = {"",7,210,2610.842285,544.775452,2618.842285,552.775452,0.000000,""}
 item210[] = {"",7,210,-823.506714,1384.281494,-815.506714,1392.281494,0.000000,""};
 item211[] = {"WP__not_set",4,218,-864.926147,1446.592773,-773.811096,1496.592773,4.000000,"WP " \n "not set"};
 item212[] = {"",7,210,-883.844604,1752.620850,-875.844543,1760.620850,0.000000,""};
-item213[] = {"",7,210,-782.517517,1752.359741,-774.517517,1760.359741,0.000000,""};
+item213[] = {"",7,210,-759.051208,1752.359741,-751.051208,1760.359741,0.000000,""};
 item214[] = {"",7,210,-674.146790,1752.545166,-666.146790,1760.545166,0.000000,""};
 item215[] = {"wait",4,218,-1005.166687,1733.038330,-946.836609,1783.038330,0.000000,"wait"};
-item216[] = {"Check_Tasks",2,4346,-866.126038,1513.223022,-776.126038,1563.223022,0.000000,"Check Tasks"};
+item216[] = {"Check_Tasks",2,250,-866.126038,1513.223022,-776.126038,1563.223022,0.000000,"Check Tasks"};
 item217[] = {"timeout",4,218,-1002.632507,1513.340576,-944.302429,1563.340576,0.000000,"timeout"};
 item218[] = {"",7,210,-545.747559,1538.322510,-537.747559,1546.322510,0.000000,""};
 item219[] = {"",7,210,-585.075623,1752.545166,-577.075623,1760.545166,0.000000,""};
-item220[] = {"Stationary",4,218,-530.449585,1583.195190,-462.119507,1633.195190,2.000000,"Stationary"};
+item220[] = {"Stationary",4,218,-530.449585,1583.195190,-462.119507,1633.195190,99.000000,"Stationary"};
 item221[] = {"Set_Initial_Chec",2,250,-524.319092,1667.559448,-455.989014,1717.559448,0.000000,"Set" \n "Initial" \n "Checked"};
 item222[] = {"",7,210,-496.451294,1752.545166,-488.451294,1760.545166,0.000000,""};
 item223[] = {"Task_evaluation",-1,250,-1336.231812,1533.970703,-1139.749146,1753.238525,0.000000,"Task evaluation " \n "cycle - checks for" \n "task assignment," \n "sets default patrol" \n "if none found, sets" \n "respective fnc" \n "if value found." \n ""};
-item224[] = {"____FAKE____",9,1707064,0.000000,0.000000,0.000000,0.000000,0.000000,"____FAKE____"};
+item224[] = {"None",4,218,-620.134338,1584.119751,-551.804260,1634.119751,99.000000,"None"};
+item225[] = {"Default__Patrol",2,250,-616.777710,1668.484009,-548.447632,1718.484009,0.000000,"Default " \n "Patrol"};
+item226[] = {"",7,210,-595.338013,1537.818481,-587.338013,1545.818481,0.000000,""};
+item227[] = {"IsNil",4,218,-732.925293,1129.213989,-642.925293,1179.213989,4.000000,"IsNil"};
+item228[] = {"Patrol",2,250,-696.897705,1669.745728,-628.567627,1719.745728,0.000000," Patrol"};
+item229[] = {"Patrol",4,218,-697.730896,1585.381470,-629.400818,1635.381470,99.000000,"Patrol"};
+item230[] = {"",7,210,-665.867065,1536.935303,-657.867065,1544.935303,0.000000,""};
+item231[] = {"Loiter",2,250,-783.097900,1670.508545,-714.767822,1720.508545,0.000000,"Loiter"};
+item232[] = {"Loiter",4,218,-777.828430,1586.907104,-709.498352,1636.907104,99.000000,"Loiter"};
+item233[] = {"",7,210,-740.325317,1535.740356,-732.325317,1543.740356,0.000000,""};
+item234[] = {"____FAKE____",9,100,0.000000,0.000000,0.000000,0.000000,0.000000,"____FAKE____"};
 version=1;
 class LayoutItems
 {
@@ -458,102 +468,116 @@ link170[] = {139,141};
 link171[] = {140,136};
 link172[] = {141,140};
 link173[] = {141,142};
-link174[] = {142,143};
-link175[] = {143,144};
-link176[] = {144,137};
-link177[] = {145,146};
-link178[] = {146,148};
-link179[] = {147,180};
-link180[] = {148,149};
-link181[] = {148,183};
-link182[] = {149,134};
-link183[] = {150,156};
-link184[] = {151,150};
-link185[] = {152,151};
-link186[] = {152,203};
-link187[] = {153,159};
-link188[] = {154,160};
-link189[] = {155,165};
-link190[] = {156,153};
-link191[] = {156,157};
-link192[] = {156,158};
-link193[] = {157,155};
-link194[] = {158,154};
-link195[] = {158,170};
-link196[] = {159,165};
-link197[] = {160,161};
-link198[] = {161,162};
-link199[] = {162,163};
-link200[] = {163,118};
-link201[] = {164,147};
-link202[] = {165,164};
-link203[] = {170,162};
-link204[] = {171,116};
-link205[] = {172,173};
-link206[] = {173,138};
-link207[] = {174,179};
-link208[] = {175,178};
-link209[] = {176,177};
-link210[] = {177,135};
-link211[] = {177,139};
-link212[] = {177,174};
-link213[] = {177,175};
-link214[] = {178,141};
-link215[] = {179,178};
-link216[] = {180,186};
-link217[] = {181,182};
-link218[] = {182,6};
-link219[] = {183,180};
-link220[] = {184,185};
-link221[] = {185,187};
-link222[] = {186,189};
-link223[] = {187,188};
-link224[] = {188,121};
-link225[] = {189,190};
-link226[] = {190,181};
-link227[] = {191,192};
-link228[] = {191,202};
-link229[] = {192,193};
-link230[] = {193,107};
-link231[] = {193,108};
-link232[] = {194,198};
-link233[] = {194,201};
-link234[] = {194,205};
-link235[] = {195,194};
-link236[] = {196,195};
-link237[] = {196,204};
-link238[] = {197,200};
-link239[] = {198,109};
-link240[] = {199,200};
-link241[] = {200,80};
-link242[] = {201,109};
-link243[] = {202,110};
-link244[] = {203,162};
-link245[] = {204,80};
-link246[] = {205,197};
-link247[] = {205,199};
-link248[] = {206,207};
-link249[] = {207,208};
-link250[] = {208,209};
-link251[] = {209,77};
-link252[] = {210,211};
-link253[] = {211,216};
-link254[] = {212,215};
-link255[] = {213,212};
-link256[] = {214,213};
-link257[] = {215,118};
-link258[] = {216,217};
-link259[] = {216,218};
-link260[] = {217,119};
-link261[] = {218,220};
-link262[] = {219,214};
-link263[] = {220,221};
-link264[] = {221,222};
-link265[] = {222,219};
-link266[] = {166,224};
-link267[] = {224,166};
-globals[] = {0.000000,0,0,0,0,640,480,2,918,6316128,1,-1227.686401,-43.503845,1869.543091,1083.977173,1218,808,1};
-window[] = {0,-1,-1,-1,-1,992,156,1709,12,1,1236};
+link174[] = {141,227};
+link175[] = {142,143};
+link176[] = {143,144};
+link177[] = {144,137};
+link178[] = {145,146};
+link179[] = {146,148};
+link180[] = {147,180};
+link181[] = {148,149};
+link182[] = {148,183};
+link183[] = {149,134};
+link184[] = {150,156};
+link185[] = {151,150};
+link186[] = {152,151};
+link187[] = {152,203};
+link188[] = {153,159};
+link189[] = {154,160};
+link190[] = {155,165};
+link191[] = {156,153};
+link192[] = {156,157};
+link193[] = {156,158};
+link194[] = {157,155};
+link195[] = {158,154};
+link196[] = {158,170};
+link197[] = {159,165};
+link198[] = {160,161};
+link199[] = {161,162};
+link200[] = {162,163};
+link201[] = {163,118};
+link202[] = {164,147};
+link203[] = {165,164};
+link204[] = {170,162};
+link205[] = {171,116};
+link206[] = {172,173};
+link207[] = {173,138};
+link208[] = {174,179};
+link209[] = {175,178};
+link210[] = {176,177};
+link211[] = {177,135};
+link212[] = {177,139};
+link213[] = {177,174};
+link214[] = {177,175};
+link215[] = {178,141};
+link216[] = {179,178};
+link217[] = {180,186};
+link218[] = {181,182};
+link219[] = {182,6};
+link220[] = {183,180};
+link221[] = {184,185};
+link222[] = {185,187};
+link223[] = {186,189};
+link224[] = {187,188};
+link225[] = {188,121};
+link226[] = {189,190};
+link227[] = {190,181};
+link228[] = {191,192};
+link229[] = {191,202};
+link230[] = {192,193};
+link231[] = {193,107};
+link232[] = {193,108};
+link233[] = {194,198};
+link234[] = {194,201};
+link235[] = {194,205};
+link236[] = {195,194};
+link237[] = {196,195};
+link238[] = {196,204};
+link239[] = {197,200};
+link240[] = {198,109};
+link241[] = {199,200};
+link242[] = {200,80};
+link243[] = {201,109};
+link244[] = {202,110};
+link245[] = {203,162};
+link246[] = {204,80};
+link247[] = {205,197};
+link248[] = {205,199};
+link249[] = {206,207};
+link250[] = {207,208};
+link251[] = {208,209};
+link252[] = {209,77};
+link253[] = {210,211};
+link254[] = {211,216};
+link255[] = {212,215};
+link256[] = {213,212};
+link257[] = {214,213};
+link258[] = {215,118};
+link259[] = {216,217};
+link260[] = {216,233};
+link261[] = {217,119};
+link262[] = {218,220};
+link263[] = {219,214};
+link264[] = {220,221};
+link265[] = {221,222};
+link266[] = {222,219};
+link267[] = {224,225};
+link268[] = {225,219};
+link269[] = {226,218};
+link270[] = {226,224};
+link271[] = {227,136};
+link272[] = {228,214};
+link273[] = {229,228};
+link274[] = {230,226};
+link275[] = {230,229};
+link276[] = {231,213};
+link277[] = {232,231};
+link278[] = {233,230};
+link279[] = {233,232};
+link280[] = {166,234};
+link281[] = {234,166};
+globals[] = {0.000000,0,0,0,0,640,480,2,929,6316128,1,-1174.466064,68.228577,1996.360840,1171.979004,1218,808,1};
+window[] = {0,-1,-1,-1,-1,1168,-1550,3,188,1,1236};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -663,6 +687,7 @@ class FSM
                          "//Unit Inits" \n
                          "_InitReturn = [_Unit] call UO_FW_AI_fnc_UnitInit;" \n
                          "_MyNearestEnemy = _Unit call UO_FW_AI_fnc_ClosestEnemy;" \n
+                         "_StartMission = _group getvariable [""UO_FW_Task"",4];" \n
                          "_side = side _unit;"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
@@ -989,7 +1014,6 @@ class FSM
                                         action=/*%FSM<ACTION""">*/"_LastTimeCheck3 = diag_ticktime;" \n
                                          "" \n
                                          "_UO_FW_AI_FLANKING = false;" \n
-                                         "_Unit spawn UO_FW_AI_fnc_RearmSelf;" \n
                                          "" \n
                                          "" \n
                                          ""/*%FSM</ACTION""">*/;
@@ -1822,14 +1846,25 @@ class FSM
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
+                                /*%FSM<LINK "IsNil">*/
+                                class IsNil
+                                {
+                                        itemno = 227;
+                                        priority = 4.000000;
+                                        to="Set_Target_as_Cu";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(_currenttarget isEqualto objnull)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
                                 /*%FSM<LINK "Dead">*/
                                 class Dead
                                 {
                                         itemno = 140;
-                                        priority = 5.000000;
+                                        priority = 2.000000;
                                         to="Set_Target_as_Cu";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"(!alive _currenttarget) || (isNull _currenttarget)"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(!alive _currenttarget)"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -2253,18 +2288,57 @@ class FSM
                         name = "Check_Tasks";
                         itemno = 216;
                         init = /*%FSM<STATEINIT""">*/"_leadertime2 = diag_ticktime;" \n
-                         "_wait = 5;"/*%FSM</STATEINIT""">*/;
+                         "_wait = 5;" \n
+                         "" \n
+                         "if (UO_FW_AI_AIDEBUG_ENABLED) then {" \n
+                         "	diag_log format [""_group: %1"",_group];" \n
+                         "	diag_log format [""_TaskIs: %1"",_currentmission];" \n
+                         "	diag_log format [""_StartTask: %1"",_StartMission];" \n
+                         "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
+                                /*%FSM<LINK "Loiter">*/
+                                class Loiter
+                                {
+                                        itemno = 232;
+                                        priority = 99.000000;
+                                        to="Loiter";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(_StartMission isEqualto 4) && (_currentmission isEqualto ""NONE"")"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Patrol">*/
+                                class Patrol
+                                {
+                                        itemno = 229;
+                                        priority = 99.000000;
+                                        to="Patrol";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(_StartMission isEqualto 4) && (_currentmission isEqualto ""NONE"")"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "None">*/
+                                class None
+                                {
+                                        itemno = 224;
+                                        priority = 99.000000;
+                                        to="Default__Patrol";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(_currentmission isEqualto ""NONE"")"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
                                 /*%FSM<LINK "Stationary">*/
                                 class Stationary
                                 {
                                         itemno = 220;
-                                        priority = 2.000000;
+                                        priority = 99.000000;
                                         to="Set_Initial_Chec";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"(_unit getvariable [""UO_FW_AI_STATIONARY"",false])"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(_unit getvariable [""UO_FW_AI_STATIONARY"",false]) && (_currentmission isEqualto ""NONE"")"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -2307,11 +2381,95 @@ class FSM
                         };
                 };
                 /*%FSM</STATE>*/
+                /*%FSM<STATE "Default__Patrol">*/
+                class Default__Patrol
+                {
+                        name = "Default__Patrol";
+                        itemno = 225;
+                        init = /*%FSM<STATEINIT""">*/"[_Unit,(group _unit),_thisfsm] spawn UO_FW_AI_fnc_DefaultGroupPatrol;" \n
+                         "if (UO_FW_AI_AIDEBUG_ENABLED) then {" \n
+                         "	diag_log format [""setting _group: %1 to default patrol"",_group];" \n
+                         "};" \n
+                         "{_x forcespeed -1;} foreach units _group;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait">*/
+                                class wait
+                                {
+                                        itemno = 215;
+                                        priority = 0.000000;
+                                        to="Execute_Count__1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"diag_ticktime > (_leadertime2 + _wait)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Patrol">*/
+                class Patrol
+                {
+                        name = "Patrol";
+                        itemno = 228;
+                        init = /*%FSM<STATEINIT""">*/"[_Unit,(group _unit),_thisfsm] spawn UO_FW_AI_fnc_GroupPatrol;" \n
+                         "if (UO_FW_AI_AIDEBUG_ENABLED) then {" \n
+                         "	diag_log format [""setting _group: %1 to default patrol"",_group];" \n
+                         "};" \n
+                         "{_x forcespeed -1;} foreach units _group;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait">*/
+                                class wait
+                                {
+                                        itemno = 215;
+                                        priority = 0.000000;
+                                        to="Execute_Count__1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"diag_ticktime > (_leadertime2 + _wait)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Loiter">*/
+                class Loiter
+                {
+                        name = "Loiter";
+                        itemno = 231;
+                        init = /*%FSM<STATEINIT""">*/"[_Unit,(group _unit),_thisfsm] spawn UO_FW_AI_fnc_GroupPatrol;" \n
+                         "if (UO_FW_AI_AIDEBUG_ENABLED) then {" \n
+                         "	diag_log format [""setting _group: %1 to default patrol"",_group];" \n
+                         "};" \n
+                         "{_x forcespeed -1;} foreach units _group;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait">*/
+                                class wait
+                                {
+                                        itemno = 215;
+                                        priority = 0.000000;
+                                        to="Execute_Count__1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"diag_ticktime > (_leadertime2 + _wait)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
                 /*%FSM<STATE "____FAKE____">*/
                 class ____FAKE____
                 {
                         name = "____FAKE____";
-                        itemno = 224;
+                        itemno = 234;
                         init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links

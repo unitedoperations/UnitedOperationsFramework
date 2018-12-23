@@ -9,14 +9,13 @@
  *		suits & PiZZADOX
  */
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_EXEC_CHECK(SERVERHC)
+UO_FW_AI_EXEC_CHECK(SERVERHC)
 
 
 params [["_mode","",[""]],["_input",[],[[]]]];
 switch _mode do {
 	case "init": {
 		if !is3DEN then {
-			UO_FW_EXEC_CHECK(SERVERHC)
 			_input params ["_logic",["_isActivated",true,[true]],["_isCuratorPlaced",false,[false]],["_grpPosArray",[],[[]]],["_grpPosNew",[],[[]]]];
 			if !(_isActivated) exitWith {};
 			sleep 0.1;

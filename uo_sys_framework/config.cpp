@@ -10,7 +10,7 @@ class CfgPatches
 		url = "https://github.com/unitedoperations/UnitedOperationsFramework";
 		units[] = {};
 		requiredVersion = REQUIRED_VERSION;
-		requiredAddons[] = {"cba_main","3den","A3_Modules_F"};
+		requiredAddons[] = {"cba_main","3DEN","A3_Modules_F"};
 		VERSION_CONFIG;
 	};
 };
@@ -39,8 +39,8 @@ class CfgFunctions
 	{
 		tag = "UO_FW";
 		//add custom functions
+		#include "3DEN\cfgFunctions.hpp"
 		#include "CallExecution\cfgFunctions.hpp"
-		#include "3den\cfgFunctions.hpp"
 		#include "Core\cfgFunctions.hpp"
 		#include "BriefingModule\cfgFunctions.hpp"
 		#include "EndConditionsModule\cfgFunctions.hpp"
@@ -54,7 +54,6 @@ class CfgFunctions
 		#include "GearModule\cfgFunctions.hpp"
 		#include "AOLimitModule\cfgFunctions.hpp"
 		#include "SetupTimerModule\cfgFunctions.hpp"
-		#include "SoftAOLimitModule\cfgFunctions.hpp"
 		#include "AILinkModule\cfgFunctions.hpp"
 		#include "DisconnectControlModule\cfgFunctions.hpp"
 		#include "MarkerControlModule\cfgFunctions.hpp"
@@ -71,12 +70,30 @@ class CfgFunctions
 	#include "HeadlessAIModule\cfgFunctions.hpp"
 };
 
+class CfgEditorCategories {
+	class UO_FW_Category {
+		displayName = "UO_FW"
+	};
+};
+
+class CfgEditorSubcategories {
+	class UO_FW_SubCategory {
+		displayName = "UO_FW"
+	};
+};
+
 class CfgVehicles
 {
 	class Logic;
 	class Module_F: Logic
 	{
-		class ModuleDescription;
+		class EventHandlers;
+		class ArgumentsBaseUnits {
+			class Units;
+		};
+		class ModuleDescription {
+			class AnyBrain;
+		};
 	};
     class OlsenModule: Module_F
 	{
@@ -87,7 +104,8 @@ class CfgVehicles
 		is3DEN = 0;
 		scope = 1;
 		icon = "\a3\3DEN\Data\CfgWaypoints\scripted_ca.paa";
-		curatorInfoType = "RscDisplayAttributeModuleNuke";
+		editorCategory = "UO_FW_Category";
+		editorSubCategory = "UO_FW_SubCategory";
 	};
 	//add custom cfgVehicles
 	//#include "Core\cfgVehicles.hpp"
@@ -101,14 +119,14 @@ class CfgVehicles
 class RscTitles
 {
 	#include "Core\RscTitles.hpp"
-	#include "SoftAOLimitModule\RscTitles.hpp"
+	#include "AOLimitModule\RscTitles.hpp"
 	#include "SetupTimerModule\RscSetupTimer.hpp"
 };
 #include "FiremissionModule\RscTitles.hpp"
 
 class CfgNotifications
 {
-	#include "SoftAOLimitModule\cfgNotifications.hpp"
+	#include "AOLimitModule\cfgNotifications.hpp"
 	#include "SetupTimerModule\CfgNotifications.hpp"
 };
 
@@ -161,7 +179,6 @@ class Cfg3DEN
 				#include "SafeStartModule\cfg3den\Modules\SafeStart.hpp"
 				#include "SelfActionsModule\cfg3den\Modules\SelfActions.hpp"
 				#include "ShotCountModule\cfg3den\Modules\ShotCount.hpp"
-				#include "SoftAOLimitModule\cfg3den\Modules\SoftAOLimit.hpp"
 				#include "StartTextModule\cfgAttributeCategories\mission\StartText.hpp"
 			};
 		};
@@ -219,7 +236,7 @@ class display3DEN
 {
 	class Controls
 	{
-		class MenuStrip : ctrlMenuStrip
+		class MenuStrip: ctrlMenuStrip
 		{
 			class Items
 			{

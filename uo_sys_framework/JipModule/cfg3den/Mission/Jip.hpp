@@ -9,9 +9,9 @@ class JIPCategory
             property = "UO_FW_JIP_DENYTIME";
             displayName = "Deny Time";
             tooltip = "After how many seconds should a player be considered JIP (this only applies if you are using DENY";
-			control = "EditShort";
+						control = "EditShort";
             expression = "missionNamespace setVariable ['%s', _value]; %s = _value;";
-			validate = "number";
+						validate = "number";
             defaultValue = "300";
         };
 		class UO_FW_JIP_EXPIRETIME
@@ -19,9 +19,9 @@ class JIPCategory
             property = "UO_FW_JIP_EXPIRETIME";
             displayName = "Expire Time";
             tooltip = "After how many minutes JiPs will no longer have teleport or transport actions.";
-			control = "EditShort";
+						control = "EditShort";
             expression = "missionNamespace setVariable ['%s', _value]; %s = _value;";
-			validate = "number";
+						validate = "number";
             defaultValue = "30";
         };
 		class UO_FW_JIP_ENEMYDISTANCE
@@ -29,16 +29,16 @@ class JIPCategory
             property = "UO_FW_JIP_ENEMYDISTANCE";
             displayName = "Nearby Enemy Distance";
             tooltip = "Denies teleport action if the distance between enemies and the intended teleport location is less than this value in metres";
-			control = "EditShort";
+						control = "EditShort";
             expression = "missionNamespace setVariable ['%s', _value]; %s = _value;";
-			validate = "number";
+						validate = "number";
             defaultValue = "100";
         };
 		class UO_FW_JIP_TitleBLUFOR
         {
             property = "UO_FW_JIP_TitleBLUFOR";
             displayName = "BLUFOR";
-			control = "CategoryTitleIndent";
+						control = "CategoryTitleIndent";
             expression = "true";
             defaultValue = "";
         };
@@ -49,7 +49,7 @@ class JIPCategory
             tooltip = "TELEPORT: Player can teleport to his squad. TRANSPORT: Player can send a hint to all group leaders requesting transport. DENY: Player is killed and put in spectator.";
             control = "UO_FW_JIPTypeAtt";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
-			validate = "number";
+						validate = "number";
             defaultValue = "0";
         };
 		class UO_FW_JIP_DistanceBLUFOR
@@ -59,7 +59,7 @@ class JIPCategory
             tooltip = "If distance to group members upon spawn is greater than this you will be granted the defined JiP action";
             control = "EditShort";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
-			validate = "number";
+						validate = "number";
             defaultValue = "200";
         };
 		class UO_FW_JIP_SpawnDistanceBLUFOR

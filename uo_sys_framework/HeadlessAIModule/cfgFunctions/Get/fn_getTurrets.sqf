@@ -12,7 +12,7 @@
  *
  */
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_EXEC_CHECK(SERVERHC)
+UO_FW_AI_EXEC_CHECK(SERVERHC)
 	private ["_arr","_trts"];
 		_arr = [];
 		_trts = configFile / "CfgVehicles" / typeOf _this / "Turrets";

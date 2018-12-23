@@ -3,7 +3,7 @@
 	Module: Setup Timer Module
 	Author: Sacher & PiZZADOX
 	Date Created: 16/6/2018
-	Date Last Updated: 20/12/2018
+	Date Last Updated: 21/12/2018
 
 	Description: Adds a setup timer to a unit if it spawns inside the zone
 

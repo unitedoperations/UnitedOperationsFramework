@@ -16,27 +16,19 @@ if (!isDedicated) then {
 	_this spawn {
 
 		waitUntil {!isNull player};
-		waitUntil {!isNil "UO_FW_START_TIME"};
-		waitUntil {!isNil "UO_FW_ELAPSED_TIME"};
+		waitUntil {!isNil "UO_FW_ServerStartTime"};
 
 		params ["_logic","_area","_selectedSide","_waittime"];
 		private ["_run","_pos","_startTime","_displayed"];
 
-		if ((round(0 + _waittime - UO_FW_ELAPSED_TIME)) < 1) exitwith {};
+		_timecheckStart = serverTime;
+		if (_timecheckStart isEqualto 0) then {_timecheckStart = time;};
+
+		if ((round(0 + _waittime - _timecheckStart)) < 1) exitwith {};
 
 		if (!((side player) isEqualto _selectedSide) || !((vehicle player) inArea _area)) exitwith {};
 
-		//if (isMultiplayer) then {
-		////we are checking for a bug described on serverTime wiki page
-		////bugged value is usually around 400 000
-		//if (abs (UO_FW_setup_start_time - serverTime) > 100000) then {
-		//	_startTime = serverTime;
-		//	UO_FW_setup_start_time = serverTime; //client time is used instead, according to wiki it's always correct
-		//	//we send it across network. Possible issue: multiple clients send it at the same time
-		//	//and increase network traffic. Shouldn't be too bad because data is small.
-		//	publicVariable "UO_FW_setup_start_time";
-		//	UO_FW_DEBUG("","Setup Timer: Detected desynchronized server and client clock, using client's time instead.")
-		//};
+		UO_FW_ServerTimeVerify(CHECK)
 
 		UO_FW_DEBUG("","Starting Setup Timer")
 		_alreadyInATimer = MissionNameSpace getvariable ["UO_FW_InSetupTimer",false];
@@ -48,6 +40,9 @@ if (!isDedicated) then {
 
 		while {_run} do {
 
+			_timecheck = serverTime;
+			if (_timecheck isEqualto 0) then {_timecheck = time;};
+
 			if ((vehicle player) inArea _area) then {
 				_pos = getPosATL (vehicle player);
 			} else {
@@ -58,9 +53,9 @@ if (!isDedicated) then {
 				//(vehicle player) setPos _backpos;
 			};
 
-			_timeLeft = round(_waittime - UO_FW_ELAPSED_TIME);
+			_timeLeft = round(_waittime - _timecheck);
 
-			diag_log format ["_timeLeft: %1",_timeLeft];
+			//diag_log format ["_timeLeft: %1",_timeLeft];
 
 			if (_timeLeft < 0) then {
 				_timeLeft = 0;
@@ -77,6 +72,6 @@ if (!isDedicated) then {
 			};
 
 			sleep(0.1);
-			};
+		};
 	};
 };

@@ -1,9 +1,11 @@
 
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_EXEC_CHECK(CLIENT)
+UO_FW_AI_EXEC_CHECK(CLIENT)
 
 [] spawn {
 	waituntil {!isNull player};
+	waituntil {!isNil "UO_FW_AI_InitMainInitialized"};
+	waituntil {UO_FW_AI_InitMainInitialized};
 	_unit = player;
 	if (!local _unit) exitwith {};
 	if !(UO_FW_AI_HEARINGAIDS_ENABLED) exitwith {};

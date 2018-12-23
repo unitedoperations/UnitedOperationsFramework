@@ -101,6 +101,36 @@
 					typeName = "BOOL";
 					validate = "none";
 				};
+				class UO_FW_AOLimit_SoftAOMode {
+					displayName = "Soft AO";
+					tooltip = "Enable to set the AO as a 'Soft AO' which will display a notification and countdown if player leaves the AO. Disable to have player contained in the AO via an invisible wall.";
+					property = "UO_FW_AOLimit_SoftAOMode";
+					control = "CheckBox";
+					expression = "_this setVariable ['%s',_value,true];";
+					defaultValue = "false";
+					typeName = "BOOL";
+					validate = "none";
+				};
+				class UO_FW_AoLimit_SoftTimeOutside {
+					displayName = "Max time outside of AO";
+					tooltip = "The amount of time in seconds a land based unit is allowed to stay outside the AO (-1 = Infinity)";
+					property = "UO_FW_AoLimit_SoftTimeOutside";
+					control = "EditShort";
+					expression = "_this setVariable ['%s',_value,true];";
+					defaultValue = "30";
+					typeName = "number";
+					validate = "number";
+				};
+				class UO_FW_AoLimit_SoftTimeOutsideAir {
+					displayName = "Max time outside of AO";
+					tooltip = "The amount of time in seconds an air based unit is allowed to stay outside the AO (-1 = Infinity)";
+					property = "UO_FW_AoLimit_SoftTimeOutsideAir";
+					control = "EditShort";
+					expression = "_this setVariable ['%s',_value,true];";
+					defaultValue = "120";
+					typeName = "number";
+					validate = "number";
+				};
 			};
 	};
 

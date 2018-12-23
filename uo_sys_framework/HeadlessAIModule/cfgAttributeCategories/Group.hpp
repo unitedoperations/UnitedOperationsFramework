@@ -175,88 +175,88 @@ class UO_FW_GroupPopulate {
 	};
 };
 
-class UO_FW_ParaOptions {
-	displayName = "AI Para Options";
-	collapsed = 1;
-	class Attributes {
-		class UO_FW_paraEnable {
-			displayName = "Enable Para Drop";
-			tooltip = "Set to ON to enable para drop insertion of this group when they spawn.";
-			property = "UO_FW_paraEnable";
-			control = "UO_FW_paraenableControl";
-			expression = "_this setVariable ['%s',_value,true];";
-			defaultValue = "false";
-			typeName = "BOOL";
-		};
-		class UO_FW_paraHeight {
-			displayName = "Height";
-			tooltip = "Height that the parachuter's will start falling from. Default: 3000m.";
-			property = "UO_FW_paraHeight";
-			control = "UO_FW_paraheightControl";
-			expression = "_this setVariable ['%s',_value,true];";
-			defaultValue = "3000";
-			typeName = "NUMBER";
-			validate = "number";
-		};
-		class UO_FW_paraDirection {
-			displayName = "Direction";
-			tooltip = "The direction the entities will face to form the drop column when parachuting. Default: Random 360 (-1)";
-			property = "UO_FW_paraDirection";
-			control = "UO_FW_paradirectionControl";
-			expression = "_this setVariable ['%s',_value,true];";
-			defaultValue = "-1";
-			typeName = "NUMBER";
-			validate = "number";
-		};
-		class UO_FW_paraColMaxLength {
-			displayName = "Column Max Length";
-			tooltip = "The maximum length a column will be before another one is started. Default: 100m";
-			property = "UO_FW_paraColMaxLength";
-			control = "UO_FW_paralengthControl";
-			expression = "_this setVariable ['%s',_value,true];";
-			defaultValue = "100";
-			typeName = "NUMBER";
-			validate = "number";
-		};
-		class UO_FW_paraSpacing {
-			displayName = "Spacing";
-			tooltip = "The spacing between each entity in the column. Default: 25m";
-			property = "UO_FW_paraSpacing";
-			control = "UO_FW_paraspacingControl";
-			expression = "_this setVariable ['%s',_value,true];";
-			defaultValue = "25";
-			typeName = "NUMBER";
-			validate = "number";
-		};
-		class UO_FW_paraSpread {
-			displayName = "Spread";
-			tooltip = "Spread of each column side by side. Default: 25m";
-			property = "UO_FW_paraSpread";
-			control = "UO_FW_paraspreadControl";
-			expression = "_this setVariable ['%s',_value,true];";
-			defaultValue = "25";
-			typeName = "NUMBER";
-			validate = "number";
-		};
-		class UO_FW_paraSmoke {
-			displayName = "Vehicle Smoke";
-			tooltip = "Vehicle deploys smoke to indicate its position on the ground. Default: Off";
-			property = "UO_FW_paraSmoke";
-			control = "UO_FW_parasmokeControl";
-			expression = "_this setVariable ['%s',_value,true];";
-			defaultValue = "false";
-			typeName = "BOOL";
-		};
-		class UO_FW_paraRealism {
-			displayName = "Realism";
-			tooltip = "Turn realism off to enable parachuting of all vehicles otherwise limited by realistic weight limits. Default: On (Weight Limit: 25000)";
-			property = "UO_FW_paraRealism";
-			control = "UO_FW_pararealsmControl";
-			expression = "_this setVariable ['%s',_value,true];";
-			defaultValue = "true";
-			typeName = "BOOL";
-		};
-	};
-};
+//class UO_FW_ParaOptions {
+//	displayName = "AI Para Options";
+//	collapsed = 1;
+//	class Attributes {
+//		class UO_FW_paraEnable {
+//			displayName = "Enable Para Drop";
+//			tooltip = "Set to ON to enable para drop insertion of this group when they spawn.";
+//			property = "UO_FW_paraEnable";
+//			control = "UO_FW_paraenableControl";
+//			expression = "_this setVariable ['%s',_value,true];";
+//			defaultValue = "false";
+//			typeName = "BOOL";
+//		};
+//		class UO_FW_paraHeight {
+//			displayName = "Height";
+//			tooltip = "Height that the parachuter's will start falling from. Default: 3000m.";
+//			property = "UO_FW_paraHeight";
+//			control = "UO_FW_paraheightControl";
+//			expression = "_this setVariable ['%s',_value,true];";
+//			defaultValue = "3000";
+//			typeName = "NUMBER";
+//			validate = "number";
+//		};
+//		class UO_FW_paraDirection {
+//			displayName = "Direction";
+//			tooltip = "The direction the entities will face to form the drop column when parachuting. Default: Random 360 (-1)";
+//			property = "UO_FW_paraDirection";
+//			control = "UO_FW_paradirectionControl";
+//			expression = "_this setVariable ['%s',_value,true];";
+//			defaultValue = "-1";
+//			typeName = "NUMBER";
+//			validate = "number";
+//		};
+//		class UO_FW_paraColMaxLength {
+//			displayName = "Column Max Length";
+//			tooltip = "The maximum length a column will be before another one is started. Default: 100m";
+//			property = "UO_FW_paraColMaxLength";
+//			control = "UO_FW_paralengthControl";
+//			expression = "_this setVariable ['%s',_value,true];";
+//			defaultValue = "100";
+//			typeName = "NUMBER";
+//			validate = "number";
+//		};
+//		class UO_FW_paraSpacing {
+//			displayName = "Spacing";
+//			tooltip = "The spacing between each entity in the column. Default: 25m";
+//			property = "UO_FW_paraSpacing";
+//			control = "UO_FW_paraspacingControl";
+//			expression = "_this setVariable ['%s',_value,true];";
+//			defaultValue = "25";
+//			typeName = "NUMBER";
+//			validate = "number";
+//		};
+//		class UO_FW_paraSpread {
+//			displayName = "Spread";
+//			tooltip = "Spread of each column side by side. Default: 25m";
+//			property = "UO_FW_paraSpread";
+//			control = "UO_FW_paraspreadControl";
+//			expression = "_this setVariable ['%s',_value,true];";
+//			defaultValue = "25";
+//			typeName = "NUMBER";
+//			validate = "number";
+//		};
+//		class UO_FW_paraSmoke {
+//			displayName = "Vehicle Smoke";
+//			tooltip = "Vehicle deploys smoke to indicate its position on the ground. Default: Off";
+//			property = "UO_FW_paraSmoke";
+//			control = "UO_FW_parasmokeControl";
+//			expression = "_this setVariable ['%s',_value,true];";
+//			defaultValue = "false";
+//			typeName = "BOOL";
+//		};
+//		class UO_FW_paraRealism {
+//			displayName = "Realism";
+//			tooltip = "Turn realism off to enable parachuting of all vehicles otherwise limited by realistic weight limits. Default: On (Weight Limit: 25000)";
+//			property = "UO_FW_paraRealism";
+//			control = "UO_FW_pararealsmControl";
+//			expression = "_this setVariable ['%s',_value,true];";
+//			defaultValue = "true";
+//			typeName = "BOOL";
+//		};
+//	};
+//};
 class Init : Init {collapsed = 1;};
 class State : State {collapsed = 1;};

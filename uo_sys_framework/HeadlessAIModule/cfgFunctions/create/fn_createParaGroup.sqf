@@ -6,7 +6,7 @@
  * 		BOOL 	- True
  */
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_EXEC_CHECK(SERVERHC)
+UO_FW_AI_EXEC_CHECK(SERVERHC)
 
 params ["_grpid","_grpSet","_grpMem",["_sqdv",[],[[]]],["_currentVeh",[],[[]]]];
 	_grpSet params ["_side","_gpos","_behave","_combat","_speed","_formation","_grpStance","_grpInit","_createRadius","_taskRadius","_wait","_startBld","_task","_taskTimer","_multi","_occupyOption","_vehAssigned","_waypoints","_onWater","_tasks","_fl","_pe","_ph","_pd","_pc","_psc","_psd","_ps","_pr"];

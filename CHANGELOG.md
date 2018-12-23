@@ -8,6 +8,8 @@ Version Numbers mainly refer to the UO Modpack addition.
 - [HC] New locality check macro for module (checks for HC, reexecutes function if on wrong locality)
 - MarkerControl module input now accepts 3den layers - adds all markers from named layer
 - Server broadcasts it's debug messages to clients if debug detailed enabled
+- Added serverTime/client time sync check macro: `UO_FW_ServerTimeVerify(CHECK)`
+- Added `UO_FW_ServerStartTime` initial server diag_ticktime publicVariable
 
 ### Changed
 - Build batch made dynamic to dir path and game registry path
@@ -22,6 +24,8 @@ Version Numbers mainly refer to the UO Modpack addition.
 - [HC] Folder Restructure
 - Converted AO Limit to editor module, option to spawn outside of AO and be restricted once you enter AO.
 - Converted Setup Timer to editor module, singleplayer compatibility
+- Removes fired eventhandler when AntiND time has passed
+- Combined SoftAO and AO module, now as a setting inside the module
 
 ### Fixed
 - [HC] Collecting/Spawning function

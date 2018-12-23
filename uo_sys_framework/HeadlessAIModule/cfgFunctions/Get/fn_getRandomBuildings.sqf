@@ -10,7 +10,7 @@
  *		suits & PiZZADOX
  */		
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_EXEC_CHECK(SERVERHC)
+UO_FW_AI_EXEC_CHECK(SERVERHC)
 params ["_pos",["_radius",500,[0]],["_bldAmt",25,[0]],["_blds",[],[[]]],["_rblds",[],[[]]],["_bIndex",[],[[]]],"_b","_i"];
 	_rblds = [_pos,_radius] call UO_FW_AI_fnc_getBuildings;
     for [{_i=0},{(_i < _bldAmt && (count _rblds) > 0)},{_i = _i + 1}] do {

@@ -16,7 +16,7 @@
  * [3,"drop","bma3_bushmaster_pws127mm_F",120,false,false,"start"] spawn UO_FW_AI_fnc_createAirDrop;
  */
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_EXEC_CHECK(SERVERHC)
+UO_FW_AI_EXEC_CHECK(SERVERHC)
 
 
 

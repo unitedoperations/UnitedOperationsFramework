@@ -1,5 +1,5 @@
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_EXEC_CHECK(SERVERHC)
+UO_FW_AI_EXEC_CHECK(SERVERHC)
 params [["_logic",objNull,[objNull]],["_marker","respawn_west",[""]]];
 diag_log format["RETURN | %1",_this];
 	{

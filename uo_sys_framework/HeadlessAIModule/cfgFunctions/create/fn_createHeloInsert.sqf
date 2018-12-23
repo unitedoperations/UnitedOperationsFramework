@@ -15,7 +15,7 @@
  * [HELI_NAME] call AR_Rappel_All_Cargo
  */
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_EXEC_CHECK(SERVERHC)
+UO_FW_AI_EXEC_CHECK(SERVERHC)
 
 	params ["_logic",["_radius",200,[0]],["_gx",1,[0]],["_fh",200,[0]],"_j"];
 	private _spos = (_logic getVariable ["startPos",[0,0,0]]) vectorAdd [0,0,(_fh*2)];

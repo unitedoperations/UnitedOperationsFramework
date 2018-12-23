@@ -10,7 +10,7 @@
  * 		NUMBER	- A count of players of specified type within the given radius of selected position.
  */
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_EXEC_CHECK(SERVERHC)
+UO_FW_AI_EXEC_CHECK(SERVERHC)
 
 private["_pos","_radius","_side","_types","_enabledEntities","_nearEntities","_x"];
 	params [["_pos",[0,0,0],[[]],[3]],["_radius",5,[0]],["_side",[west],[[]]],["_types",["CAManBase","LandVehicle","Ship","Helicopter","Plane"],[[]]]];
