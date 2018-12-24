@@ -1,7 +1,7 @@
 class Custom_File
 {
     displayName = "Custom File";
-    collapsed = 0;
+    collapsed = 1;
     class Attributes
     {
 		class UO_FW_ENDCONDITIONS_FILE
