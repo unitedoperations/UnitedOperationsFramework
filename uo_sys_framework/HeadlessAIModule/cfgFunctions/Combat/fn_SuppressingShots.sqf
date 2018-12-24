@@ -69,7 +69,7 @@ if (UO_FW_AI_CurrentlySuppressing < UO_FW_AI_CurrentlySuppressingLimit) then
 						_x setAnimSpeedCoef UO_FW_AI_AdrenalineVar;
 						_x spawn {sleep 8; _this setAnimSpeedCoef 1;};
 					};
-					if (UO_FW_AI_AIDEBUG_ENABLED) then
+					if (UO_FW_AI_DEBUG) then
 					{
 						private _debugmsg = format ["%1 is suppressed!",_x];
 						UO_FW_DEBUG("",_debugmsg)

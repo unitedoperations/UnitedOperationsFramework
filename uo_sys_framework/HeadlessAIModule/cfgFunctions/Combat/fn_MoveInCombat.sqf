@@ -72,7 +72,7 @@ if (UO_FW_AI_CurrentlyMoving < UO_FW_AI_CurrentlyMovingLimit) then
 				
 						if !(isNil "_CoverPos") then
 						{
-						if (UO_FW_AI_AIDEBUG_ENABLED) then
+						if (UO_FW_AI_DEBUG) then
 						{
 							_arrow = "Sign_Sphere200cm_F" createVehicle [0,0,0];
 							_arrow setpos _CoverPos;

@@ -12,7 +12,8 @@ private _isValid = true;
 
 if (count _area < 4) then {
 	_isValid = false;
-		UO_FW_DEBUG("",format ["Setup timer module:<br></br>Warning marker ""%1"" does not exist.", _marker])
+	private _msg = format ["Setup timer module:<br></br>Warning marker ""%1"" does not exist.", _marker];
+		UO_FW_DEBUG("",_msg)
 };
 
 if (_selectedSide isEqualto "") then {
@@ -27,7 +28,8 @@ if (_waittime < 10) then {
 
 if (!UO_FW_SERVER_SETUPMODULE_ALLOWED) then {
 	_isValid = false;
-    ["",format ["Setup timer has been disabled by the Server"]] call UO_FW_fnc_DebugMessageDetailed;
+	private _msg = format ["Setup timer has been disabled by the Server"];
+    UO_FW_DEBUG("",_msg)
 };
 
 _isValid

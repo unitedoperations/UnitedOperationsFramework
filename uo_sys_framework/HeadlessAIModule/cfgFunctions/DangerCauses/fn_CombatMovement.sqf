@@ -25,7 +25,7 @@ private ["_Unit", "_UO_FW_AI_MovedRecently", "_UO_FW_AI_VisuallyCanSee", "_Neare
 		if (_ReturnedFriendly distance _Unit > 30 && !(_ReturnedFriendly isEqualTo [0,0,0])) then 
 		{
 			_Unit doMove (getpos _ReturnedFriendly);_Unit forcespeed -1;		
-			if (UO_FW_AI_AIDEBUG_ENABLED) then
+			if (UO_FW_AI_DEBUG) then
 			{
 				private _debugmsg = format ["%1 wandering too far, returning to group!",_Unit];
 				UO_FW_DEBUG("",_debugmsg)
@@ -46,7 +46,7 @@ private ["_Unit", "_UO_FW_AI_MovedRecently", "_UO_FW_AI_VisuallyCanSee", "_Neare
 			_Unit forceSpeed 0;
 			_Unit setUnitPos "AUTO";
 			_Unit doSuppressiveFire _NearestEnemy;				
-			if (UO_FW_AI_AIDEBUG_ENABLED) then
+			if (UO_FW_AI_DEBUG) then
 			{
 				private _debugmsg = format ["%1 has close enemies! Fire!",_Unit];
 				UO_FW_DEBUG("",_debugmsg)

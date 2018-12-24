@@ -1,8 +1,8 @@
-private ["_Unit", "_UnitSide", "_Array1", "_ReturnedEnemy"];
+private ["_UnitSide", "_Array1", "_ReturnedEnemy"];
 //Created on ???
 // Modified on : 8/19/14 - 8/3/15
 
-_Unit = _this;
+params ["_Unit"];
 _UnitSide = (side _Unit);
 _Array1 = [];
 {

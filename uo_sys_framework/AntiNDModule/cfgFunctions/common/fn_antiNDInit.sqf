@@ -10,7 +10,7 @@
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 
 if (!UO_FW_Anti_ND_Enabled) exitwith {};
-["ANTI ND", "Extra Safety for mission start", "Starfox64 & PiZZADOX & Sacher"] call UO_FW_FNC_RegisterModule;
+["ANTI ND", "Extra Safety for mission start", "Starfox64 and PiZZADOX and Sacher"] call UO_FW_FNC_RegisterModule;
 
 if (isServer) then {
 	missionNamespace setVariable ["UO_FW_ND_Active", true];

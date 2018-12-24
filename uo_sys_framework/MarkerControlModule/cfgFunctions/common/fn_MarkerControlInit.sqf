@@ -2,7 +2,7 @@
 
 _isEnabled = missionNamespace getVariable ["UO_FW_MarkerControl_Enabled",false];
 if(!_isEnabled) exitWith {};
-["Marker Control", "Change visibility of markers", "Sacher & PiZZADOX"] call UO_FW_FNC_RegisterModule;
+["Marker Control", "Change visibility of markers", "Sacher and PiZZADOX"] call UO_FW_FNC_RegisterModule;
 if (!isDedicated) then
 {
 	_west = missionNamespace getVariable ["UO_FW_MarkerControl_BluforMarkers",[]];

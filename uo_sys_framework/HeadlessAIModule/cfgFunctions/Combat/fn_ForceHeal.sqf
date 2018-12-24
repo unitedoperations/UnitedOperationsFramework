@@ -17,7 +17,7 @@ private _Friendlies = allUnits select {Side _x isEqualTo _USide && (_x distance 
 				_this domove (getposATL _x);
 				_this forcespeed -1;				
 				sleep 5;
-				if (UO_FW_AI_AIDEBUG_ENABLED) then
+				if (UO_FW_AI_DEBUG) then
 				{
 					private _debugmsg = format ["%1 moving to heal unit",_this];
 					UO_FW_DEBUG("",_debugmsg)
@@ -28,7 +28,7 @@ private _Friendlies = allUnits select {Side _x isEqualTo _USide && (_x distance 
 				_this action ["HealSoldier",_x];
 				_this forcespeed -1;
 				[objNull, _x] call ace_medical_fnc_treatmentAdvanced_fullHealLocal;
-				if (UO_FW_AI_AIDEBUG_ENABLED) then
+				if (UO_FW_AI_DEBUG) then
 				{
 					private _debugmsg = format ["%1 moving to heal unit",_this];
 					UO_FW_DEBUG("",_debugmsg)

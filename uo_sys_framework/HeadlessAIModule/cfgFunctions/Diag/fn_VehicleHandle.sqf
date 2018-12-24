@@ -47,7 +47,7 @@ private _Vehicle = (vehicle _Driver);
 					unassignVehicle _U;
 					sleep 1;
 					//[_x,false,false,false,false] spawn UO_FW_AI_fnc_MoveToCover;			
-					if (UO_FW_AI_AIDEBUG_ENABLED) then
+					if (UO_FW_AI_DEBUG) then
 					{
 						private _debugmsg = format ["%1 was hit! Passengers disembarking!",_Vehicle];
 						UO_FW_DEBUG("",_debugmsg)
@@ -89,7 +89,7 @@ private _Vehicle = (vehicle _Driver);
 						unassignVehicle _U;
 						sleep 1;
 						//[_x,false,false,false,false] spawn UO_FW_AI_fnc_MoveToCover;
-						if (UO_FW_AI_AIDEBUG_ENABLED) then
+						if (UO_FW_AI_DEBUG) then
 						{
 							private _debugmsg = format ["%1 was hit! Passengers disembarking!",_Vehicle];
 							UO_FW_DEBUG("",_debugmsg)

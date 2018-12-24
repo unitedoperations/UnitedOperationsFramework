@@ -17,7 +17,7 @@ class UO_Framework_AI
 		class checkNearbyAll {scope = 1;};
 		class checkNearbyPlayer {scope = 1;};
 		class checkStance {scope = 1;};
-		class checkifHC { scope = 1; postinit = 1; };
+		class checkifHC { scope = 1; preInit = 1; };
 	};
 	class UO_FW_AI_Create {
 		file = "x\UO_FW\addons\main\HeadlessAIModule\cfgFunctions\create";
@@ -165,7 +165,6 @@ class UO_Framework_AI
 		class GroupHandler {scope = 1;};
 		class initMain {scope = 1; postinit = 1;};
 		class QueueHandle {scope = 1;};
-		class UnitInit {scope = 1;};
 	};
 	class UO_FW_AI_Misc {
 			file = "x\UO_FW\addons\main\HeadlessAIModule\cfgFunctions\Misc";

@@ -10,7 +10,7 @@ class UO_FW_Hostage_Attributes
             tooltip = "Makes this unit a hostage that starts bound/captive and must be rescued via player action.";
             property = "UO_FW_Hostage_State";
             control = "CheckboxState";
-            expression= "_this setVariable ['%s', _value,true]; if (_value) then {[_this] call UO_FW_FNC_HostageSet;};";
+            expression= "_this setVariable ['%s', _value,true]; if (_value) then {[{time > 1},{[_this] call UO_FW_FNC_HostageSet;},_this] call CBA_fnc_WaitUntilAndExecute;};";
 						condition = "objectBrain";
             defaultValue = "false";
         };

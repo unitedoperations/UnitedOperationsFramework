@@ -52,7 +52,7 @@
 					validate = "none";
 				};
 				class UO_FW_AOLimit_Civilian {
-					displayName = "Radius X";
+					displayName = "Civilian";
 					tooltip = "Restrict Civilian to this AO. Units that start outside of the AO will be not be restricted.";
 					property = "UO_FW_AOLimit_Civilian";
 					control = "CheckBox";

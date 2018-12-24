@@ -4,10 +4,10 @@
 private ["_markers","_isValid"];
 _markers = _this;
 _isValid = _markers call UO_FW_fnc_ValidateMarkerControl;
-if(!_isValid) exitWith { UO_FW_DEBUG("Marker Control Module Failed to validate!",format ["Something is wrong"])};
-["Marker Control", "Allows the mission maker to create markers visible to a single side.", "Olsen"] call UO_FW_FNC_RegisterModule;
+if(!_isValid) exitWith { UO_FW_DEBUG("Marker Control Module Failed to validate!","Marker Control Module Failed to validate!")};
+["Marker Control", "Allows the mission maker to create markers visible to a single side.", "Olsen amd Sacher"] call UO_FW_FNC_RegisterModule;
 {
-	if ((_x select 0) != (side player)) then 
+	if ((_x select 0) != (side player)) then
 	{
 		(_x select 1) setMarkerAlphaLocal 0;
 	};

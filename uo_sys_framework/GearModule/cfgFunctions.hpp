@@ -1,12 +1,7 @@
 class UO_FW_GearFunctions
 {
 	file = "\x\UO_FW\addons\main\GearModule\cfgFunctions\common";
-
-	class GearScript
-	{
-	};
-	class GearInit
-	{
-	};
-
+	
+	class GearScript {};
+	class GearInit {};
 };

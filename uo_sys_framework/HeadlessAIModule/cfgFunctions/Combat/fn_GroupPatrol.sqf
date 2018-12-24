@@ -56,4 +56,3 @@ for "_i" from 1 to _count do {
 	waituntil {((behaviour _Unitleader) in ["AWARE","COMBAT","STEALTH"])};
 	[_Group] call UO_FW_AI_fnc_CombatResponse;
 };
-

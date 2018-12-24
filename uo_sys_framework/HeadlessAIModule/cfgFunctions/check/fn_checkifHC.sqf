@@ -8,8 +8,6 @@
  *		PiZZADOX
  */
 
-if (!(getMissionConfigValue ["UO_FW_AI_Enabled",false])) exitWith {};
-
 _hc = false;
 
 UO_FW_var_isHC = false;

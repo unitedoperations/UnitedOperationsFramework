@@ -1,4 +1,5 @@
 #include "\x\UO_FW\addons\main\script_macros.hpp"
+UO_FW_EXEC_CHECK(ALL)
 [] spawn {
 
 	if(!(missionNamespace getVariable ["UO_FW_Gear_Enabled",false])) exitWith {};
@@ -22,7 +23,7 @@
 
 	//["","Executing gear of files: " + (str UO_FW_GearLoadouts)] call UO_FW_fnc_DebugMessageDetailed;
 
-	if(!isDedicated) then {
+	if (!isDedicated && hasinterface) then {
 		if !((player getVariable ["UO_FW_Gear_Groupname",""]) isEqualto "") then {
 			(group player) setGroupId [(player getVariable ["UO_FW_Gear_Groupname",""])];
 		};

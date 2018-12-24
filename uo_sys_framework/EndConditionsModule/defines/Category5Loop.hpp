@@ -24,12 +24,12 @@ if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_5",false]) then
 		if (UO_FW_EndCondition_CasualtyCount_RESISTANCE_Enabled_5) then {_conditionsCountCategory5 = _conditionsCountCategory5 + 1;};
 		if (UO_FW_EndCondition_CasualtyCount_CIVILIAN_Enabled_5) then {_conditionsCountCategory5 = _conditionsCountCategory5 + 1;};
 
-		if (!(UO_FW_EndCondition_EntitiesAlive_Array_5 isEqualto "")) then {_conditionsCountCategory5 = _conditionsCountCategory5 + 1;};
-		if (!(UO_FW_EndCondition_EntitiesDead_Array_5 isEqualto "")) then {_conditionsCountCategory5 = _conditionsCountCategory5 + 1;};
-		if (!(UO_FW_EndCondition_EntitiesDamaged_Array_5 isEqualto "")) then {_conditionsCountCategory5 = _conditionsCountCategory5 + 1;};
-		if (!(UO_FW_EndCondition_HostageRescued_Array_5 isEqualto "")) then {_conditionsCountCategory5 = _conditionsCountCategory5 + 1;};
-		if (!(UO_FW_EndCondition_CustomVariables_Array_5 isEqualto "")) then {_conditionsCountCategory5 = _conditionsCountCategory5 + 1;};
-		if (!(UO_FW_EndCondition_CaptureZoneEnabled_5 isEqualto "")) then {_conditionsCountCategory5 = _conditionsCountCategory5 + 1;};
+		if (!(UO_FW_EndCondition_EntitiesAlive_Array_5 isEqualto [])) then {_conditionsCountCategory5 = _conditionsCountCategory5 + 1;};
+		if (!(UO_FW_EndCondition_EntitiesDead_Array_5 isEqualto [])) then {_conditionsCountCategory5 = _conditionsCountCategory5 + 1;};
+		if (!(UO_FW_EndCondition_EntitiesDamaged_Array_5 isEqualto [])) then {_conditionsCountCategory5 = _conditionsCountCategory5 + 1;};
+		if (!(UO_FW_EndCondition_HostageRescued_Array_5 isEqualto [])) then {_conditionsCountCategory5 = _conditionsCountCategory5 + 1;};
+		if (!(UO_FW_EndCondition_CustomVariables_Array_5 isEqualto [])) then {_conditionsCountCategory5 = _conditionsCountCategory5 + 1;};
+		if (!(UO_FW_EndCondition_CaptureZoneCaptured_Array_5 isEqualto [])) then {_conditionsCountCategory5 = _conditionsCountCategory5 + 1;};
 
 		_tempdebugtext = format ["Category 5 Condition Count:%1",_conditionsCountCategory5];
 		["",_tempdebugtext] call UO_FW_fnc_DebugMessageDetailed;
@@ -85,7 +85,7 @@ if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_5",false]) then
 					if (!(_aliveUnitArray isEqualto [])) then
 					{
 
-						["",format ["Alive Array 5:%1",_aliveUnitArray]] call UO_FW_fnc_DebugMessageDetailed;
+						["",format ["Alive Array 1:%1",_aliveUnitArray]] call UO_FW_fnc_DebugMessageDetailed;
 						_alive = true;
 						{
 							_unit = missionNamespace getVariable [_x,objNull];
@@ -109,7 +109,7 @@ if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_5",false]) then
 					_deadUnitArray = missionNamespace getVariable ["UO_FW_EndCondition_EntitiesDead_Array_5",[]];
 					if (!(_deadUnitArray isEqualto [])) then
 					{
-						["",format ["Dead Array 5:%1",_deadUnitArray]] call UO_FW_fnc_DebugMessageDetailed;
+						["",format ["Dead Array 1:%1",_deadUnitArray]] call UO_FW_fnc_DebugMessageDetailed;
 						_dead = true;
 						{
 							_unit = missionNamespace getVariable [_x,objNull];
@@ -133,7 +133,7 @@ if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_5",false]) then
 					if (!(_damagedUnitArray isEqualto [])) then
 					{
 
-						["",format ["Damaged Array 5:%1",_damagedUnitArray]] call UO_FW_fnc_DebugMessageDetailed;
+						["",format ["Damaged Array 1:%1",_damagedUnitArray]] call UO_FW_fnc_DebugMessageDetailed;
 
 						_damaged = true;
 						{
@@ -158,7 +158,7 @@ if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_5",false]) then
 					if (!(_hostageRescuedArray isEqualto [])) then
 					{
 
-						["",format ["Rescued Array 5:%1",_hostageRescuedArray]] call UO_FW_fnc_DebugMessageDetailed;
+						["",format ["Rescued Array 1:%1",_hostageRescuedArray]] call UO_FW_fnc_DebugMessageDetailed;
 
 						_rescued = true;
 						{
@@ -181,7 +181,7 @@ if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_5",false]) then
 					_customVariablesArray = missionNamespace getVariable ["UO_FW_EndCondition_CustomVariables_Array_5",[]];
 					if (!(_customVariablesArray isEqualto [])) then
 					{
-						_tempdebugtext3 = format ["Var Array 5:%1",UO_FW_EndCondition_CustomVariables_Array_5];
+						_tempdebugtext3 = format ["Var Array 1:%1",UO_FW_EndCondition_CustomVariables_Array_5];
 						["",_tempdebugtext3] call UO_FW_fnc_DebugMessageDetailed;
 						_custom = true;
 						{
@@ -200,8 +200,6 @@ if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_5",false]) then
 						} forEach _customVariablesArray;
 					};
 
-
-
 					//CaptureZoneBlock
 					//UO_FW_DEBUG("","")
 
@@ -211,28 +209,57 @@ if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_5",false]) then
 					if (!(_captureZones_Array_5 isEqualto [])) then {
 						//derp
 						_zone = true;
-						_captureZones_TeamArray_5 = missionNamespace getVariable ["UO_FW_EndCondition_CaptureZoneCaptured_Team_5",[]];
+						_captureZones_TeamSetting_5 = missionNamespace getVariable ["UO_FW_EndCondition_CaptureZoneCaptured_Team_5",1];
 						{
 							if !(_x in CaptureZone_Array) then {
 								["CaptureZone " + _x + " does not exist!","CaptureZone " + _x + " does not exist!"] call UO_FW_fnc_DebugMessageDetailed;
 								_zone = false;
 							} else {
-								private _capturezonetext = format ["CaptureZoneCheck: %1",_x];
-								private _varstring = _x + "_var";
-								private _varTeamstring = _x + "_teamControlling";
-								if (!(_captureZones_TeamArray_5 isEqualto [])) then {
-									private _varvalue = missionNamespace getVariable _varstring;
-									private _varTeamstringvalue = missionNamespace getVariable _varTeamstring;
-									_zone = _zone && _varvalue && (_varTeamstring in _captureZones_TeamArray_5);
-									_checklisttext = format ["CaptureZoneCheck Check: %1", _x];
-		 							_ConditionCheckList pushback [_checklisttext,_zone];
-								} else {
-									private _varvalue = missionNamespace getVariable _varstring;
-									_zone = _zone && _varvalue;
-									_checklisttext = format ["CaptureZoneCheck Check: %1", _x];
-		 							_ConditionCheckList pushback [_checklisttext,_zone];
+								private _varName = format ["%1_var",_zone];
+								private _teamControllingvarName = format ["%1_teamControlling",_zone];
+
+								switch (_captureZones_TeamSetting_5) do {
+									case 0: {
+										if ((MissionNamespace getVariable [_teamControllingvarName,false]) isEqualto "UNCONTESTED") then {
+											_zone = true;
+										} else {
+											_zone = false;
+										};
+									};
+									case 1: {
+										if ((MissionNamespace getVariable [_teamControllingvarName,false]) isEqualto "BLUFOR") then {
+											_zone = true;
+										} else {
+											_zone = false;
+										};
+									};
+									case 2: {
+										if ((MissionNamespace getVariable [_teamControllingvarName,false]) isEqualto "OPFOR") then {
+											_zone = true;
+										} else {
+											_zone = false;
+										};
+									};
+									case 3: {
+										if ((MissionNamespace getVariable [_teamControllingvarName,false]) isEqualto "INDFOR") then {
+											_zone = true;
+										} else {
+											_zone = false;
+										};
+									};
+									case 4: {
+										if ((MissionNamespace getVariable [_teamControllingvarName,false]) isEqualto "CIV") then {
+											_zone = true;
+										} else {
+											_zone = false;
+										};
+									};
+									default {_zone = false;};
 								};
-								_ConditionCheckList pushback [_capturezonetext,_CaptureZoneConditionCheck];
+
+								_zone = _zone + (MissionNamespace getVariable [_varName,false]);
+								_checklisttext = format ["CaptureZoneCheck Check: %1 _var: %2 _team: %3", _x,(MissionNamespace getVariable [_varName,false]),(MissionNamespace getVariable [_teamControllingvarName,false])];
+		 						_ConditionCheckList pushback [_checklisttext,_zone];
 							};
 						} foreach _captureZones_Array_5;
 					};
@@ -261,13 +288,14 @@ if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_5",false]) then
 
 					if (_ExtractionCheck) then
 					{
-						if (UO_FW_EndCondition_Mode_5 == 1) then
+						if (UO_FW_EndCondition_Mode_5 isEqualto 1) then
 						{
 							{
 								_x params ["_name","_value"];
 								if (_value) exitwith
 								{
-										UO_FW_DEBUG("",format ["Category 5 Ending due to :%1",_value])
+										private _msg = format ["Category 5 Ending due to :%1",_value];
+										UO_FW_DEBUG("",_msg)
 
 										UO_FW_EndCondition_Message_5 call UO_FW_fnc_EndMission;
 								};
@@ -275,12 +303,23 @@ if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_5",false]) then
 						}
 						else
 						{
-							if (([_ConditionCheckList,false] call UO_FW_fnc_arrayFindAll) isEqualto 0) exitwith
+							private _fullcheck = true;
 							{
+								_x params ["_name","_value"];
+								_fullcheck = _fullcheck && _value;
+								private _msg = format ["Category 5 checking var:%1 result:%2",_name,_value];
+								UO_FW_DEBUG("",_msg)
+							} foreach _ConditionCheckList;
+							if (_fullcheck) then {
 								UO_FW_DEBUG("","Category 5 Ending due to all conditions met!")
-
 								UO_FW_EndCondition_Message_5 call UO_FW_fnc_EndMission;
 							};
+							//if (([_ConditionCheckList,false] call UO_FW_fnc_arrayFindAll) isEqualto 0) exitwith
+							//{
+							//	UO_FW_DEBUG("","Category 5 Ending due to all conditions met!")
+
+							//	UO_FW_EndCondition_Message_5 call UO_FW_fnc_EndMission;
+							//};
 						};
 					};
 					sleep(missionNamespace getvariable ["UO_FW_ConditionSleep",30]);

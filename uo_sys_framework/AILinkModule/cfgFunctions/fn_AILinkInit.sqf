@@ -1,6 +1,5 @@
-_isEnabled = missionNamespace getVariable ["UO_FW_AILink_Enabled",false];
-if(!_isEnabled) exitWith {};
-["AI link", "Shares targeting information between AI groups based on radios.", "Sacher"] call UO_FW_FNC_RegisterModule;
+if !(missionNamespace getVariable ["UO_FW_AILink_Enabled",false]) exitWith {};
+["AI link", "Shares targeting information between AI groups based on radios.", "TinfoilHate and Sacher"] call UO_FW_FNC_RegisterModule;
 tin_aiLink_startDelay 	= (missionNamespace getVariable ["UO_FW_AILink_StartDelay",30]);		//Delay in seconds when starting the mission until the first loop runs.
 tin_aiLink_shareDelay	= (missionNamespace getVariable ["UO_FW_AILink_ShareDelay",15]);		//Delay in seconds  between loops after the first.
 tin_aiLink_transDelay	= (missionNamespace getVariable ["UO_FW_AILink_TransDelay",10]);		//Delay in seconds, maximum randomized, for target information to be transmitted. No effect if set higher than tin_aiLink_shareDelay.
@@ -13,10 +12,6 @@ tin_aiLink_maxKnows		= (missionNamespace getVariable ["UO_FW_AILink_MaxKnows",3.
 
 tin_aiLink_debug 		= (missionNamespace getVariable ["UO_FW_AILink_Debug",false]);;	//Debug Information; Very spammy.
 
-
-
-if (!hasInterface) then
-{
+if (!hasInterface) then {
     [{call UO_FW_fnc_AILink},[],tin_aiLink_startDelay] call CBA_fnc_waitAndExecute;
 }
-

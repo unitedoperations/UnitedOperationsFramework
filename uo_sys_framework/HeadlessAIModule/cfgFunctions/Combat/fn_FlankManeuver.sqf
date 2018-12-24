@@ -27,7 +27,7 @@ if (isNull _myNearestEnemy) exitWith
 
 	if ((count (waypoints (group _Unit))) < 2) then
 	{
-		
+
 		_wPos = waypointPosition [_group, 1];
 		_WType = waypointType [_group,1];
 		_speed = waypointSpeed [_group,1];
@@ -44,14 +44,14 @@ if (isNull _myNearestEnemy) exitWith
 		_waypoint2 setWaypointSpeed _speed;
 		_waypoint2 setWaypointBehaviour _Beh;
 		//_group setCurrentWaypoint [_group, _waypoint2 select 1];
-		_this spawn UO_FW_AI_fnc_FlankManeuver;	
+		_this spawn UO_FW_AI_fnc_FlankManeuver;
 	};
 
 };
 
 
 if (isNil "_myNearestEnemy" || {(typeName _myNearestEnemy) isEqualTo "ARRAY"}) exitWith {};
- 
+
 if (_UO_FW_AI_Flanking) exitWith {};
 
 if ((count (waypoints (group _Unit))) >= 3) exitWith {};
@@ -73,7 +73,7 @@ _myEnemyPos = (getposATL _myNearestEnemy);
 if (_myEnemyPos isEqualTo [0,0,0]) exitWith
 {
 	sleep 30;
-	[_Unit,_UO_FW_AI_Flanking] spawn UO_FW_AI_fnc_FlankManeuver;	
+	[_Unit,_UO_FW_AI_Flanking] spawn UO_FW_AI_fnc_FlankManeuver;
 };
 
 _RandomChance = random 100;
@@ -86,22 +86,22 @@ if (_RandomChance < 25) then
 		deleteWaypoint ((waypoints _group) select 0);
 		sleep 0.25;
 		};
-		
-	
+
+
 		_waypoint2 = _group addwaypoint[_myEnemyPos,1];
 		_waypoint2 setwaypointtype "MOVE";
 		_waypoint2 setWaypointSpeed "NORMAL";
 		_waypoint2 setWaypointBehaviour "COMBAT";
-	
-	if (UO_FW_AI_AIDEBUG_ENABLED) then
+
+	if (UO_FW_AI_DEBUG) then
 	{
 		private _debugmsg = format ["%1 set a flank waypoint",_Unit];
 		UO_FW_DEBUG("",_debugmsg)
-	};		
-
-	
 	};
-	
+
+
+	};
+
 };
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//systemchat format ["%1 RAWR C",side _unit];
@@ -148,8 +148,8 @@ _waypoint2 setwaypointtype "MOVE";
 _waypoint2 setWaypointSpeed "NORMAL";
 _waypoint2 setWaypointBehaviour "COMBAT";
 
-if (UO_FW_AI_AIDEBUG_ENABLED) then
+if (UO_FW_AI_DEBUG) then
 {
 	private _debugmsg = format ["%1 set a flank waypoint",_Unit];
 	UO_FW_DEBUG("",_debugmsg)
-};	
+};

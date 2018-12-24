@@ -9,7 +9,7 @@ if(!(_this call UO_FW_fnc_ValidateSetupTimer)) exitWith {
 	UO_FW_DEBUG("","Setup timer failed to Validate")
 };
 
-["Setup Timer", "Allows the mission maker to restrict the AO of a side for a set amount of time.", "Olsen & Sacher & PiZZADOX"] call UO_FW_FNC_RegisterModule;
+["Setup Timer", "Allows the mission maker to restrict the AO of a side for a set amount of time.", "Olsen and Sacher and PiZZADOX"] call UO_FW_FNC_RegisterModule;
 
 if (!isDedicated) then {
 

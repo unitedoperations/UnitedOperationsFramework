@@ -5,7 +5,7 @@ item0[] = {"Begin_State",0,250,317.534943,212.638245,407.534912,262.638184,0.000
 item1[] = {"_UseAI_NO",4,218,793.203308,189.845825,876.552979,225.805908,50.000000,"_UseAI NO"};
 item2[] = {"_UseAI_YES",4,218,313.238617,510.139099,403.238678,560.139160,48.000000,"_UseAI YES"};
 item3[] = {"Exit_FSM",1,250,906.459290,190.683472,978.724976,225.904602,0.000000,"Exit FSM"};
-item4[] = {"Set_Basic",2,250,310.688141,619.798889,400.688110,669.798828,0.000000,"Set Basic"};
+item4[] = {"Set_Basic",2,4346,310.688141,619.798889,400.688110,669.798828,0.000000,"Set Basic"};
 item5[] = {"Moving_Along",8,218,311.339172,734.300049,401.339172,784.300049,0.000000,"Moving Along"};
 item6[] = {"Main_Loop",2,250,304.633118,872.367432,394.633209,922.367188,0.000000,"Main" \n "Loop"};
 item7[] = {"",7,210,38.378113,1386.543945,46.378113,1394.543945,0.000000,""};
@@ -225,17 +225,17 @@ item220[] = {"Stationary",4,218,-530.449585,1583.195190,-462.119507,1633.195190,
 item221[] = {"Set_Initial_Chec",2,250,-524.319092,1667.559448,-455.989014,1717.559448,0.000000,"Set" \n "Initial" \n "Checked"};
 item222[] = {"",7,210,-496.451294,1752.545166,-488.451294,1760.545166,0.000000,""};
 item223[] = {"Task_evaluation",-1,250,-1336.231812,1533.970703,-1139.749146,1753.238525,0.000000,"Task evaluation " \n "cycle - checks for" \n "task assignment," \n "sets default patrol" \n "if none found, sets" \n "respective fnc" \n "if value found." \n ""};
-item224[] = {"None",4,218,-620.134338,1584.119751,-551.804260,1634.119751,99.000000,"None"};
+item224[] = {"None",4,218,-620.134338,1584.119751,-551.804260,1634.119751,98.000000,"None"};
 item225[] = {"Default__Patrol",2,250,-616.777710,1668.484009,-548.447632,1718.484009,0.000000,"Default " \n "Patrol"};
 item226[] = {"",7,210,-595.338013,1537.818481,-587.338013,1545.818481,0.000000,""};
 item227[] = {"IsNil",4,218,-732.925293,1129.213989,-642.925293,1179.213989,4.000000,"IsNil"};
 item228[] = {"Patrol",2,250,-696.897705,1669.745728,-628.567627,1719.745728,0.000000," Patrol"};
-item229[] = {"Patrol",4,218,-697.730896,1585.381470,-629.400818,1635.381470,99.000000,"Patrol"};
+item229[] = {"Patrol",4,218,-697.730896,1585.381470,-629.400818,1635.381470,97.000000,"Patrol"};
 item230[] = {"",7,210,-665.867065,1536.935303,-657.867065,1544.935303,0.000000,""};
 item231[] = {"Loiter",2,250,-783.097900,1670.508545,-714.767822,1720.508545,0.000000,"Loiter"};
-item232[] = {"Loiter",4,218,-777.828430,1586.907104,-709.498352,1636.907104,99.000000,"Loiter"};
+item232[] = {"Loiter",4,218,-777.828430,1586.907104,-709.498352,1636.907104,96.000000,"Loiter"};
 item233[] = {"",7,210,-740.325317,1535.740356,-732.325317,1543.740356,0.000000,""};
-item234[] = {"____FAKE____",9,100,0.000000,0.000000,0.000000,0.000000,0.000000,"____FAKE____"};
+item234[] = {"____FAKE____",9,7081016,0.000000,0.000000,0.000000,0.000000,0.000000,"____FAKE____"};
 version=1;
 class LayoutItems
 {
@@ -576,8 +576,8 @@ link278[] = {233,230};
 link279[] = {233,232};
 link280[] = {166,234};
 link281[] = {234,166};
-globals[] = {0.000000,0,0,0,0,640,480,2,929,6316128,1,-1174.466064,68.228577,1996.360840,1171.979004,1218,808,1};
-window[] = {0,-1,-1,-1,-1,1168,-1550,3,188,1,1236};
+globals[] = {0.000000,0,0,0,0,640,480,2,929,6316128,1,-722.741638,955.559692,1298.339478,184.983566,1218,808,1};
+window[] = {0,-1,-1,-1,-1,1064,-1654,-101,84,1,1236};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -590,14 +590,12 @@ class FSM
                         name = "Begin_State";
                         itemno = 0;
                         init = /*%FSM<STATEINIT""">*/"params [""_unit""];" \n
-                         "_group = group _unit;" \n
+                         "private _group = group _unit;" \n
                          "" \n
                          "if ((UO_FW_AI_MARKERS_ENABLED) && !(_unit in UO_FW_AI_TRACKEDUNITS)) then {UO_FW_AI_TRACKEDUNITS pushback _Unit;};" \n
                          "" \n
                          "_ReturnVariable = [_Unit] call UO_FW_AI_fnc_UnitCheck;" \n
-                         "_NoAICheck = _ReturnVariable select 0;" \n
-                         "_IsPlayerCheck = _ReturnVariable select 1;" \n
-                         "_IsBunkerCheck = _ReturnVariable select 2;"/*%FSM</STATEINIT""">*/;
+                         "_ReturnVariable params [""_NoAICheck"",""_IsPlayerCheck"",""_IsBunkerCheck""];"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -681,14 +679,18 @@ class FSM
                          "_leadertime = diag_ticktime;" \n
                          "_leadertime2 = diag_ticktime;" \n
                          "" \n
-                         "//Danger FSM" \n
-                         "//[_unit] execFSM ""x\UO_FW\addons\main\HeadlessAIModule\cfgFunctions\AI\FSM\AIDangerTest.fsm"";" \n
+                         "if (UO_FW_AI_REINFORCE) then {" \n
+                         "	_Group setVariable [""UO_FW_AI_REINFORCE"",true];" \n
+                         "} else {" \n
+                         "	_Group setVariable [""UO_FW_AI_REINFORCE"",false];" \n
+                         "};" \n
                          "" \n
                          "//Unit Inits" \n
-                         "_InitReturn = [_Unit] call UO_FW_AI_fnc_UnitInit;" \n
-                         "_MyNearestEnemy = _Unit call UO_FW_AI_fnc_ClosestEnemy;" \n
+                         "_MyNearestEnemy = [_Unit] call UO_FW_AI_fnc_ClosestEnemy;" \n
                          "_StartMission = _group getvariable [""UO_FW_Task"",4];" \n
-                         "_side = side _unit;"/*%FSM</STATEINIT""">*/;
+                         "_side = side _unit;" \n
+                         "_unit forcespeed 0;" \n
+                         ""/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -2298,39 +2300,6 @@ class FSM
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
-                                /*%FSM<LINK "Loiter">*/
-                                class Loiter
-                                {
-                                        itemno = 232;
-                                        priority = 99.000000;
-                                        to="Loiter";
-                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"(_StartMission isEqualto 4) && (_currentmission isEqualto ""NONE"")"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
-                                };
-                                /*%FSM</LINK>*/
-                                /*%FSM<LINK "Patrol">*/
-                                class Patrol
-                                {
-                                        itemno = 229;
-                                        priority = 99.000000;
-                                        to="Patrol";
-                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"(_StartMission isEqualto 4) && (_currentmission isEqualto ""NONE"")"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
-                                };
-                                /*%FSM</LINK>*/
-                                /*%FSM<LINK "None">*/
-                                class None
-                                {
-                                        itemno = 224;
-                                        priority = 99.000000;
-                                        to="Default__Patrol";
-                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"(_currentmission isEqualto ""NONE"")"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
-                                };
-                                /*%FSM</LINK>*/
                                 /*%FSM<LINK "Stationary">*/
                                 class Stationary
                                 {
@@ -2339,6 +2308,39 @@ class FSM
                                         to="Set_Initial_Chec";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"(_unit getvariable [""UO_FW_AI_STATIONARY"",false]) && (_currentmission isEqualto ""NONE"")"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "None">*/
+                                class None
+                                {
+                                        itemno = 224;
+                                        priority = 98.000000;
+                                        to="Default__Patrol";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(_currentmission isEqualto ""NONE"")"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Patrol">*/
+                                class Patrol
+                                {
+                                        itemno = 229;
+                                        priority = 97.000000;
+                                        to="Patrol";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(_StartMission isEqualto 4) && (_currentmission isEqualto ""NONE"")"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Loiter">*/
+                                class Loiter
+                                {
+                                        itemno = 232;
+                                        priority = 96.000000;
+                                        to="Loiter";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(_StartMission isEqualto 5) && (_currentmission isEqualto ""NONE"")"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -2361,9 +2363,8 @@ class FSM
                 {
                         name = "Set_Initial_Chec";
                         itemno = 221;
-                        init = /*%FSM<STATEINIT""">*/"(group _unit) setvariable [""InitialWPSet"",true];" \n
-                         "(group _unit) setVariable [""PZAI_Mission"",""STATIONARY""];" \n
-                         ""/*%FSM</STATEINIT""">*/;
+                        init = /*%FSM<STATEINIT""">*/"_Group setVariable [""UO_FW_AI_Mission"",""STATIONARY""];" \n
+                         "_Group setvariable [""InitialWPSet"",true];"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
