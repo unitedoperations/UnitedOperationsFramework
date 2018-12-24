@@ -13,6 +13,12 @@
  * Public: Yes
  */
 
+#include "\x\UO_FW\addons\main\script_macros.hpp"
+
+if (!isServer) exitwith {_this remoteExec ["UO_FW_fnc_notTrackUnit",2];};
+
+UO_FW_EXEC_CHECK(SERVER)
+
 private _unit = _this;
 
 if (isServer) then {

@@ -1,6 +1,3 @@
-UO_FW_Teams = []; //DO NOT REMOVE
-UO_FW_MissionEnded = false; //Mission has not ended
-
 //Create respawn markers
 {_x call UO_FW_fnc_CreateRespawnMarker;} foreach ["west","east","guer","civ"];
 
@@ -11,3 +8,9 @@ UO_FW_EventDisconnectHandle = addMissionEventHandler ["HandleDisconnect", {_this
 
 _AIViewDistance = missionNamespace getvariable ["UO_FW_AI_ViewDistance",2000];
 setViewDistance _AIViewDistance;
+
+[] spawn {
+	waitUntil {time > 0};
+	UO_FW_ServerStartTime = diag_tickTime;
+	publicvariable "UO_FW_ServerStartTime";
+};

@@ -10,7 +10,7 @@ class ShotCount
             displayName = "Shot Count";
             tooltip = "Enable Shot Count";
             control = "CheckboxState";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "true";
         };
     };

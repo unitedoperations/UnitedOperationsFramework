@@ -20,7 +20,6 @@ class UO_CoreFunctions
 	class getTeamVariable {};
 	class hasEmptyPositions {};
 	class hasExtracted {};
-	class inArea {};
 	class inVehicle {};
 	class makeUnitsList {};
 	class notTrackUnit {};
@@ -56,13 +55,11 @@ class UO_GearFunctions
 class UO_InitFunctions
 {
 	file = "x\UO_FW\addons\main\Core\cfgFunctions\init";
-	class init {};
+	class postInit {};
 	class briefingFrameworkEntry {};
 	class postChecks {};
 	class spectate {};
 	class teamsInit {};
-	class BasicSettings3Den {};
-
 };
 
 class UO_DebugFunctions

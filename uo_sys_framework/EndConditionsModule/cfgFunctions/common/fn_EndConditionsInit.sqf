@@ -2,7 +2,7 @@
  *	Arguments:
  * 		N/A
  *	Return Value:
- * 		ARRAY 	
+ * 		ARRAY
  *	Author
  *		PiZZADOX
  */
@@ -12,21 +12,17 @@ UO_FW_EXEC_CHECK(SERVER)
 
 if (isNil "UO_FW_MissionEnded") then {UO_FW_MissionEnded = false;};
 
-"" spawn 
-{
+[] spawn {
 	sleep(missionNamespace getvariable ["UO_FW_ConditionDelay",0]);
 	//timelimit loop
-	if (UO_FW_Timelimit_Enabled) then 
-	{
-		if (UO_FW_Timelimit > 0) then 
-		{
+	if (UO_FW_Timelimit_Enabled) then {
+		if (UO_FW_Timelimit > 0) then	{
 			[] spawn {
-				while {!UO_FW_MissionEnded} do 
-				{
+				while {!UO_FW_MissionEnded} do {
 					sleep(missionNamespace getvariable ["UO_FW_ConditionSleep",30]);
 					UO_FW_DEBUG("",format ["checking timelimit: %1",UO_FW_Timelimit])
 					UO_FW_DEBUG("",format ["checking timelimit message: %1",UO_FW_Timelimit_Message])
-					
+
 					if ((time / 60) >= UO_FW_Timelimit) exitWith {
 						(missionNamespace getvariable ["UO_FW_Timelimit_Message","Time Limit Reached!"]) call UO_FW_fnc_EndMission;
 					};
@@ -38,22 +34,16 @@ if (isNil "UO_FW_MissionEnded") then {UO_FW_MissionEnded = false;};
 	};
 
 	//exit for custom file
-	if (UO_FW_ENDCONDITIONS_FILE) exitwith 
-	{
-		if !(UO_FW_ENDCONDITIONS_FILE_PATH isEqualto "") then
-		{
-			[] spawn 
-			{
+	if (UO_FW_ENDCONDITIONS_FILE) exitwith {
+		if !(UO_FW_ENDCONDITIONS_FILE_PATH isEqualto "") then {
+			[] spawn {
 				_endScript = (compile preprocessFileLineNumbers UO_FW_ENDCONDITIONS_FILE_PATH);
-				while {!UO_FW_MissionEnded} do 
-				{
-					sleep(missionNamespace getvariable ["UO_FW_ConditionSleep",30]);	
-					"" call _endScript;		
-					
+				while {!UO_FW_MissionEnded} do {
+					sleep(missionNamespace getvariable ["UO_FW_ConditionSleep",30]);
+					"" call _endScript;
 				};
 			};
-		} else 
-		{
+		} else {
 			UO_FW_DEBUG("No file found for End Conditions!","No file found for End Conditions!")
 		};
 	};

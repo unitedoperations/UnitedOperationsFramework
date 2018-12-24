@@ -21,7 +21,7 @@ class UO_FW_AILink
             displayName = "Start Delay";
             tooltip = "Delay in seconds when starting the mission until the first loop runs.";
 			control = "EditShort";
-            expression="missionNamespace setVariable ['%s',_value];";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
 			validate = "number";
             defaultValue = "30";
             typeName = "NUMBER";
@@ -32,7 +32,7 @@ class UO_FW_AILink
             displayName = "Share Delay";
             tooltip = "Delay in seconds  between loops after the first.";
 			control = "EditShort";
-            expression="missionNamespace setVariable ['%s',_value];";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
 			validate = "number";
             defaultValue = "15";
             typeName = "NUMBER";
@@ -43,7 +43,7 @@ class UO_FW_AILink
             displayName = "Trans Delay";
             tooltip = "Delay in seconds, maximum randomized, for target information to be transmitted. No effect if set higher than tin_aiLink_shareDelay.";
 			control = "EditShort";
-            expression="missionNamespace setVariable ['%s',_value];";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
 			validate = "number";
             defaultValue = "10";
             typeName = "NUMBER";
@@ -54,7 +54,7 @@ class UO_FW_AILink
             displayName = "LR Range";
             tooltip = "Range if both groups have long-range radios, also used if tin_aiLink_needRadio is false.";
 			control = "EditShort";
-            expression="missionNamespace setVariable ['%s',_value];";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
 			validate = "number";
             defaultValue = "800";
             typeName = "NUMBER";
@@ -65,7 +65,7 @@ class UO_FW_AILink
             displayName = "SR Range";
             tooltip = "Range if both groups have short-range radios.";
 			control = "EditShort";
-            expression="missionNamespace setVariable ['%s',_value];";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
 			validate = "number";
             defaultValue = "400";
             typeName = "NUMBER";
@@ -76,7 +76,7 @@ class UO_FW_AILink
             displayName = "Need Radio";
             tooltip = "Controls if both AI groups need radios. If false, it will work regardless of radios. Will also perform somewhat better.";
 			control = "Checkbox";
-            expression="missionNamespace setVariable ['%s',_value];";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
 			validate = "none";
             defaultValue = "false";
             typeName = "BOOL";
@@ -87,7 +87,7 @@ class UO_FW_AILink
             displayName = "Max Knows about";
             tooltip = "The maximum amount that knowsAbout will be set to via this script.";
 			control = "EditShort";
-            expression="missionNamespace setVariable ['%s',_value];";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
 			validate = "number";
             defaultValue = "3.5";
             typeName = "NUMBER";
@@ -98,7 +98,7 @@ class UO_FW_AILink
             displayName = "Debug?";
             tooltip = "Debug Information; Very spammy.";
 			control = "Checkbox";
-            expression="missionNamespace setVariable ['%s',_value];";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
 			validate = "none";
             defaultValue = "false";
             typeName = "BOOL";

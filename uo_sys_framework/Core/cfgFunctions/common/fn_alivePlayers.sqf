@@ -1,5 +1,5 @@
 /*
- * Author: TrainDoctor & PiZZADOX
+ * Author: TrainDoctor & PiZZADOX & TheMagnetar
  *
  * Returns an array of all alive players. Can return alive players of given sides
  *
@@ -12,7 +12,8 @@
  * Public: Yes
  */
 
-_alivePlayers = [];
+private _alivePlayers = [];
+_alivePlayers = allPlayers select {(alive _x) && !(_x getVariable ["UO_FW_Dead", false]) && !(_x isKindOf "HeadlessClient_F")};
 
 if (count _this > 0) then {
   _lowerThis = [];
@@ -20,28 +21,25 @@ if (count _this > 0) then {
     _lowerThis pushback (tolower _x);
   } foreach _this;
 
+	_return = [];
+
   if (("blufor" in _this) || ("west" in _this)) then {
-    _alivePlayersBlufor = allPlayers select {(side _x == west) && (isPlayer _x) && (alive _x) && !(_x isKindOf "HeadlessClient_F") && (_x getVariable ["UO_FW_Dead", false])};
-    _alivePlayers append _alivePlayersBlufor;
+    _return append (_alivePlayers select {side _x == west});
   };
 
   if (("opfor" in _this) || ("east" in _this)) then {
-    _alivePlayersOpfor = allPlayers select {(side _x == east) && (isPlayer _x) && (alive _x) && !(_x isKindOf "HeadlessClient_F") && (_x getVariable ["UO_FW_Dead", false])};
-    _alivePlayers append _alivePlayersOpfor;
+    _return append (_alivePlayers select {side _x == east});
   };
 
-  if (("independent" in _this) || ("resistance" in _this)) then {
-    _alivePlayersIndependent = allPlayers select {(side _x == independent) && (isPlayer _x) && (alive _x) && !(_x isKindOf "HeadlessClient_F") && (_x getVariable ["UO_FW_Dead", false])};
-    _alivePlayers append _alivePlayersIndependent;
+  if (("independent" in _this) || ("resistance" in _this) || ("guer" in _this)) then {
+    _return append (_alivePlayers select {side _x == independent});
   };
 
   if (("civilian" in _this)) then {
-    _alivePlayersCivilian = allPlayers select {(side _x == civilian) && (isPlayer _x) && (alive _x) && !(_x isKindOf "HeadlessClient_F") && (_x getVariable ["UO_FW_Dead", false])};
-    _alivePlayers append _alivePlayersCivilian;
+    _return append (_alivePlayers select {side _x == civilian});
   };
 
-  _alivePlayers
+  _return
 } else {
-  _alivePlayers = allPlayers select {(isPlayer _x) && (alive _x) && !(_x isKindOf "HeadlessClient_F") && (_x getVariable ["UO_FW_Dead", false])};
   _alivePlayers
 };

@@ -10,7 +10,7 @@ class Main
             displayName = "Enable Mission Notes";
             tooltip = "Enables Mission Notes";
             control = "CheckboxState";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "false";
             
         };
@@ -20,7 +20,7 @@ class Main
             displayName = "Mission Author";
             tooltip = "Mission Author";
             control = "EditShort";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "profileNameSteam";
             
         };
@@ -30,7 +30,7 @@ class Main
             displayName = "Mission Testers and Additional Credit";
             tooltip = "Mission Testers and Additional Credit";
             control = "Edit";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -40,7 +40,7 @@ class Main
             displayName = "End Conditions";
             tooltip = "Describe the specific end conditions for the mission here";
             control = "EditMulti5";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -50,7 +50,7 @@ class Main
             displayName = "Mission Specific Notes";
             tooltip = "Put any special notes for the mission in here";
             control = "EditMulti5";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -60,7 +60,7 @@ class Main
             displayName = "Mission Changelog";
             tooltip = "Put any changes for the mission in here(Bugfixes and such)";
             control = "EditMulti5";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
             
         };
@@ -70,7 +70,7 @@ class Main
             displayName = "Allow Game Mastering";
             tooltip = "Allow Game Mastering";
             control = "CheckBox";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "false";
             
         };

@@ -8,20 +8,26 @@
 		_ctrlTitleBG = _display displayCtrl 1002;
 		_ctrlTime = _display displayCtrl 1003;
 
-		_endTime = serverTime + (missionNamespace getVariable ["UO_FW_ST_TimeLeft", 0]);
+		_timecheckStart = serverTime;
+		if (_timecheckStart isEqualto 0) then {_timecheckStart = time;};
+
+		_endTime = _timecheckStart + (missionNamespace getVariable ["UO_FW_ST_TimeLeft", 0]);
 		_nextBeep = _endTime - 10;
 
 		_break = false;
+		_run = true;
 
-		while {true} do {
+		while {_run} do {
 
-			if (serverTime >= _nextBeep) then {
+			_timecheck = serverTime;
+			if (_timecheck isEqualto 0) then {_timecheck = time;};
+
+			if (_timecheck >= _nextBeep) then {
 				_nextBeep = _nextBeep + 1;
 				playSound "Beep_Target";
 			};
 
-			private "_timeLeft";
-			_timeLeft = _endTime - serverTime;
+			private _timeLeft = _endTime - _timecheck;
 
 			_colorSet = ["IGUI","TEXT_RGB"];
 			if (_timeLeft <= 30) then {
@@ -39,13 +45,14 @@
 				_ctrlTime ctrlSetText ([_timeLeft,"MM:SS.MS"] call bis_fnc_secondsToString);
 			} else {
 				_ctrlTime ctrlSetText "00:00.000";
-				["SetupTimerEnded"] call BIS_fnc_showNotification;
+				["UO_FW_SetupTimerEnded"] call BIS_fnc_showNotification;
 				sleep 3;
 				_break = true;
 			};
 
 			if (_break) exitWith {
 				_display closeDisplay 1;
+				_run = false;
 			};
 
 			sleep 0.08;

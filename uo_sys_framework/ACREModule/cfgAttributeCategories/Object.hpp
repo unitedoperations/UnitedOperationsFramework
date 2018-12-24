@@ -1,9 +1,9 @@
 class UO_FW_ACREOptions {
-	displayName = "ACRE Options"; 
+	displayName = "ACRE Options";
 	collapsed = 1;
-	class Attributes 
+	class Attributes
 	{
-		class UO_FW_ACRE_UNITSETTINGS_ENABLE 
+		class UO_FW_ACRE_UNITSETTINGS_ENABLE
 		{
 			property = "UO_FW_ACRE_UNITSETTINGS_ENABLE";
 			displayName = "Enable ACRE Unit Settings";
@@ -12,7 +12,7 @@ class UO_FW_ACREOptions {
 			expression = "_this setVariable ['%s',_value,true];";
 			condition = "objectBrain";
 			defaultValue = "false";
-		}
+		};
 		class UO_FW_ACRE_SR_RADIO_ENABLED {
 			property = "UO_FW_ACRE_SR_RADIO_ENABLED";
 			displayName = "Give Short Range Radio";

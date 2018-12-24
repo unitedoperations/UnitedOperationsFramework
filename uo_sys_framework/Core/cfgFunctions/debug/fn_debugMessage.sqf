@@ -11,17 +11,18 @@
  *
  * Public: No
  */
- 
+
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 
-if(!UO_FW_SERVER_FRAMEWORK_ALLOWED || !UO_FW_SERVER_DEBUG_ALLOWED) exitWith 
-{
-	
-};
+if(!UO_FW_SERVER_FRAMEWORK_ALLOWED || !UO_FW_SERVER_DEBUG_ALLOWED) exitWith {};
 private _message = _this;
 private _found = false;
 
 if (isNil "UO_FW_DebugMessages") then {UO_FW_DebugMessages = [];};
+
+if (missionNamespace getvariable ["UO_FW_Debug_Logs",false]) then {
+	diag_log _message;
+};
 
 if (!(_message in UO_FW_DebugMessages)) then {
 	UO_FW_DebugMessages pushback _message;
@@ -48,4 +49,3 @@ if (isNull (uiNamespace getVariable ["UO_FW_Debug_Control",displaynull])) then {
 		[] call UO_FW_fnc_refreshDebug;
 	};
 };
-

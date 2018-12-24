@@ -19,13 +19,13 @@ if (time > ((missionNamespace getvariable ["UO_FW_ConditionDelay",0]) + ((missio
 
 	UO_FW_MissionEnded = true;
 
-	if ((missionNamespace getVariable ["UO_FW_ShotCount_Enabled",false])) then 
+	if ((missionNamespace getVariable ["UO_FW_ShotCount_Enabled",false])) then
 	{
 		["","Sending ShotcountData"] call UO_FW_fnc_DebugMessageDetailed;
-		"" call UO_FW_fnc_aCountendCount;
+		"" call UO_FW_fnc_aCount_endCount;
 
 	};
-	
+
 	{
 		private _team = (_x select 0);
 		private _assets = _team call UO_FW_fnc_GetDamagedAssets;
@@ -41,5 +41,5 @@ if (time > ((missionNamespace getvariable ["UO_FW_ConditionDelay",0]) + ((missio
 	{
 		"End Conditions have just been triggered. Mission might need to be ended manually!" remoteExec ["systemChat", 0, false];
 	};
-	
+
 };

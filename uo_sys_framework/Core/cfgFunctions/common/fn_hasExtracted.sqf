@@ -21,7 +21,7 @@ params [["_team", "", [""]],
 ];
 private _side = [_team, 1] call UO_FW_fnc_getTeamVariable;
 private _count = {
-	side _x == _side && [_x, _marker] call UO_FW_fnc_inArea
+	(side _x == _side) && (_x inArea _marker)
 } count allUnits;
 
 private _result = false;

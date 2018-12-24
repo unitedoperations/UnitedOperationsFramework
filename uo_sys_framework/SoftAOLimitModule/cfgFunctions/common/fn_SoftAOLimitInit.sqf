@@ -1,7 +1,7 @@
 
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 
-if(!isDedicated && (missionNamespace getVariable ["UO_FW_SoftAoLimit_Enabled",false])) then 
+if(!isDedicated && (missionNamespace getVariable ["UO_FW_SoftAoLimit_Enabled",false])) then
 {// The amount of time in seconds a land based unit is allowed to stay outside the AO (-1 = Infinity)
 	UO_FW_AOTimer = missionNamespace getVariable ["UO_FW_SoftAoLimit_TimeOutside",30];
 	// The amount of time in seconds an air based unit is allowed to stay outside the AO (-1 = Infinity)
@@ -33,7 +33,7 @@ if(!isDedicated && (missionNamespace getVariable ["UO_FW_SoftAoLimit_Enabled",fa
 	}forEach _tempMarker;
 
 
-	if(count _markers == 0) exitWith {};
+	if(_markers isEqualto []) exitWith {};
 
 	["Soft AO Limit", "Allows the mission maker to set AO limits to specific sides.", "Sacher"] call UO_FW_fnc_RegisterModule;
 	_markers spawn
@@ -50,13 +50,13 @@ if(!isDedicated && (missionNamespace getVariable ["UO_FW_SoftAoLimit_Enabled",fa
 			{
 				_markers set [count _markers, (_x select 1)];
 
-				if ([_vehicle, (_x select 1)] call UO_FW_fnc_InArea) then
+				if (_vehicle inArea (_x select 1)) then
 				{
 					_allowedOutsideAtBegin = false;
 				};
 			};
 		} forEach (_this);
-		if(count _markers == 0) exitWith {};
+		if(_markers isEqualto []) exitWith {};
 		while {true} do
 		{
 
@@ -66,7 +66,7 @@ if(!isDedicated && (missionNamespace getVariable ["UO_FW_SoftAoLimit_Enabled",fa
 			_outSide = true;
 
 			{
-				if ([_vehicle, _x] call UO_FW_fnc_InArea) exitWith
+				if (_vehicle inArea _x) exitWith
 				{
 					_outSide = false;
 					_allowedOutsideAtBegin = false;

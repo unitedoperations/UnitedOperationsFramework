@@ -10,9 +10,9 @@ class Main
             displayName = "Enable UO Framework";
             tooltip = "Enable UO Framework";
             control = "Checkbox";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="if (is3DEN) then {if (_value) then {[] call UO_FW_fnc_BasicSettings3Den;};}; missionNamespace setVariable ['%s', _value]; %s = _value;";
             defaultValue = "false";
-            
+
         };
         class UO_FW_Type
         {
@@ -20,7 +20,7 @@ class Main
             displayName = "Mission Type";
             tooltip = "Determines Mission Type";
             control = "MissionType";
-            expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "0";
         };
     };

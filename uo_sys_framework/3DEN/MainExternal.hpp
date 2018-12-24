@@ -1,3 +1,8 @@
+class Display;
+class DisplaySimulated;
+class ctrlControlsGroupNoScrollbars;
+class ctrlDefaultText;
+class ctrlDefault;
 class ctrlMenuStrip;
 class ctrlToolbox;
 class ctrlCheckbox;
@@ -11,3 +16,4 @@ class Transformation;
 class Control;
 class Presence;
 class Size;
+class ctrlTree;

@@ -14,6 +14,8 @@
 
 private _unit = _this;
 
+if (isNil "UO_FW_Teams") then {[] call UO_FW_fnc_teamsInit;};
+
 if (_unit getVariable ["UO_FW_Tracked", false]) then {
 
 	_unit setVariable ["UO_FW_HasDied", false]; //we will use this variable to make sure killed eventHandler doesn't fire twice

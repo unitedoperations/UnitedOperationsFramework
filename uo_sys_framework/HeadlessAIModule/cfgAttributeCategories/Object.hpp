@@ -1,9 +1,9 @@
 
 class UO_FW_UnitOptions {
-	displayName = "AI Unit Options"; 
+	displayName = "AI Unit Options";
 	collapsed = 0;
 	class Attributes {
-		class aeUnitName {
+		class UO_FW_unitName {
 			displayName = "Name";
 			tooltip = "Pass custom name to the unit. Default: Nil";
 			property = "UO_FW_unitName";
@@ -11,7 +11,7 @@ class UO_FW_UnitOptions {
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "''";
 		};
-		class aeUnitIdentity {
+		class UO_FW_unitIdentity {
 			displayName = "Identity";
 			tooltip = "Set the custom name to appear when the units Identity is checked. Default: Nil";
 			property = "UO_FW_unitIdentity";
@@ -19,7 +19,7 @@ class UO_FW_UnitOptions {
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "''";
 		};
-		class aePersistent {
+		class UO_FW_unitPersistent {
 			displayName = "Persistent";
 			tooltip = "Is the unit persistent, will be it get cleaned up by the clean up script if it dies. Default: Not Persistent";
 			property = "UO_FW_unitPersistent";
@@ -27,8 +27,8 @@ class UO_FW_UnitOptions {
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "false";
 			typeName = "BOOL";
-		};					
-		class aeStance {
+		};
+		class UO_FW_stance {
 			displayName = "Stance";
 			tooltip = "Force the stance of the unit. Default: AUTO";
 			property = "UO_FW_stance";
@@ -37,7 +37,7 @@ class UO_FW_UnitOptions {
 			defaultValue = "'auto'";
 			condition = "objectControllable";
 		};
-		class aeRemove {
+		class UO_FW_remove {
 			displayName = "Remove Menu";
 			tooltip = "Select option to remove certain equipment from unit. Default: OFF";
 			property = "UO_FW_remove";
@@ -55,7 +55,7 @@ class UO_FW_UnitOptions {
 			defaultValue = "0";
 			condition = "objectControllable";
 		};*/
-		class aeFlying {
+		class UO_FW_unitFlying {
 			displayName = "Flying";
 			tooltip = "Is the unit spawning in flight. Default: False";
 			property = "UO_FW_unitFlying";
@@ -65,17 +65,7 @@ class UO_FW_UnitOptions {
 			defaultValue = "false";
 			typeName = "BOOL";
 		};
-		class aeVBIED {
-			displayName = "Vehicle IED";
-			tooltip = "Is this vehicle a Vehicle Born Improvised Explosive Device - VBIED. Default: False";
-			property = "UO_FW_vbied";
-			control = "UO_FW_boolControl";
-			expression = "_this setVariable ['%s',_value,true];";
-			condition = "objectVehicle";
-			defaultValue = "false";
-			typeName = "BOOL";
-		};
-		class aeFlyInHeight {
+		class UO_FW_unitFlyInHeight {
 			displayName = "Flight Height";
 			tooltip = "Set the unit flying height. Default: 250";
 			property = "UO_FW_unitFlyInHeight";
@@ -93,19 +83,17 @@ class UO_FW_UnitOptions {
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "";
 		}; */
-		class aeUnitInit {
+		class UO_FW_unitInit {
 			displayName = "Init";
 			tooltip = "Pass custom parameters or code to the unit.( _this = unit ) Default: Nil";
 			property = "UO_FW_unitInit";
 			control = "UO_FW_codeunitControl";
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "";
-		};	
+		};
 	};
 };
 class Init : Init {collapsed = 1;};
 class Transformation : Transformation {collapsed = 1;};
 class Control : Control {collapsed = 1;};
 class State : State {collapsed = 1;};
-
-
