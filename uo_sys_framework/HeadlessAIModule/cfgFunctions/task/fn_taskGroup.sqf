@@ -15,24 +15,30 @@ params ["_grp","_i"];
 		if(_task isEqualTo 2 || _task isEqualTo 4 || _task isEqualTo 5) then {
 			for [{_i=0},{(_i < (count(units _grp)))},{_i = _i + 1}] do {
 				_u = (units _group) select _i;
-				_u setvariable["UO_FW_Occupy",true];
+				_u setvariable["UO_FW_AI_Occupy",true];
 				_blds = ["_spos","_taskRadius","_occupyOption","_grpcount"] call UO_FW_AI_fnc_getBuildingList;
 				_blds params [["_bld",[],[[]]],["_bldPos",[],[[]]]];
 				_setBldPos = [_occupyOption,_i,_bld,_bldPos] call UO_FW_AI_fnc_setBuildingPos;
 				_setBldPos params [["_spos",[],[[]]],["_uBld",objNull,[objNull]]];
 				[_u,_uBld,_bldPos,_wait,[_behave,_combat,_speed,_formation]] spawn UO_FW_AI_fnc_taskBuildingPatrol;
 			};
-			_grp setVariable["UO_FW_CompletedTasks",[]];
-			_grp setVariable["UO_FW_CurrentTaskEndTime",(time + _taskTimer)];
+			_grp setVariable["UO_FW_AI_CompletedTasks",[]];
+			_grp setVariable["UO_FW_AI_CurrentTaskEndTime",(time + _taskTimer)];
 		};
 		if(_task isEqualTo 0 || _task isEqualTo 1 || _task isEqualTo 3) then {
-			{_x setvariable["UO_FW_Occupy",true]} forEach (units _grp);
-			_grp setVariable["UO_FW_CompletedTasks",[]];
-			_grp setVariable["UO_FW_CurrentTaskEndTime",(time + _taskTimer)];
-			[_task,_grp,_pos,_taskRadius,_wait,_behave,_combat,_speed,_formation,_occupyOption] call UO_FW_AI_fnc_taskAssign;
+			{_x setvariable["UO_FW_AI_Occupy",true]} forEach (units _grp);
+			_grp setVariable["UO_FW_AI_CompletedTasks",[]];
+			_grp setVariable["UO_FW_AI_CurrentTaskEndTime",(time + _taskTimer)];
+			_passarray = [_task,_grp,_pos,_taskRadius,_wait,_behave,_combat,_speed,_formation,_occupyOption];
+			[{!((count units (_this select 1)) isEqualto 0)},{
+				_this call UO_FW_AI_fnc_taskAssign;
+			},_passarray] call CBA_fnc_waitUntilAndExecute;
 		};
 	} else {
-		_grp setVariable["UO_FW_CompletedTasks",[]];
-		_grp setVariable["UO_FW_CurrentTaskEndTime",(time + _taskTimer)];
-		[_task,_grp,_pos,_taskRadius,_wait,_behave,_combat,_speed,_formation,_occupyOption] call UO_FW_AI_fnc_taskAssign;
+		_grp setVariable["UO_FW_AI_CompletedTasks",[]];
+		_grp setVariable["UO_FW_AI_CurrentTaskEndTime",(time + _taskTimer)];
+		_passarray = [_task,_grp,_pos,_taskRadius,_wait,_behave,_combat,_speed,_formation,_occupyOption];
+		[{!((count units (_this select 1)) isEqualto 0)},{
+			_this call UO_FW_AI_fnc_taskAssign;
+		},_passarray] call CBA_fnc_waitUntilAndExecute;
 	};

@@ -23,13 +23,13 @@ UO_FW_AI_EXEC_CHECK(SERVERHC)
 				[_zone,_delay,_code] spawn UO_FW_AI_fnc_setup;
 				_x set [3, 1];
 			} else {
+				_aliveplayers = [] call UO_FW_fnc_alivePlayers;
 				_populated = {
 					_player = _x;
-					!(_player isKindOf "HeadlessClient_F") && alive _player
-					&& (({(vehicle _player) isKindOf _x} count _type) > 0)
+					(({(vehicle _player) isKindOf _x} count _type) > 0)
 					&& (side _player) in _side
 					&& _player inArea _area
-				} count allPlayers;
+				} count _aliveplayers;
 			};
 			private _shouldBeOn = if ( _populated > 0 ) then { 1 } else { 0 };
 			if (!_initial) then {

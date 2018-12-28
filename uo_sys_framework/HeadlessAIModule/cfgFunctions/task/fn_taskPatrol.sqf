@@ -37,14 +37,24 @@ params [
 	["_wpcount",10,[0]],
 	"_i"
 ];
-	_grp call UO_FW_AI_fnc_taskReset;
-	_pos = [_pos,_grp] select (_pos isEqualTo []);
-	_pos = _pos call CBA_fnc_getPos;
-	for [{_i=0},{(_i < _wpcount)},{_i = _i + 1}] do {
-		_wp = _this call UO_FW_AI_fnc_createWaypoint;
-	};
-	_this2 =+ _this;
-	_this2 set [8, "CYCLE"];
-	_this2 call UO_FW_AI_fnc_createWaypoint;
-	deleteWaypoint ((waypoints _grp) select 0);
-	true
+
+diag_log format ["taskPatrol started _this: %1",_this];
+//_grp call CBA_fnc_clearWaypoints;
+{_x forcespeed -1; _x enableAI "PATH";} foreach units _grp;
+//CBA backup
+//private _timeout = [_wait*0.5,_wait,_wait*1.5];
+//[_grp, _pos, _radius, _wpcount, _type, _behave, _combat, _speed, _formation, _oncomplete, _timeout] call CBA_fnc_taskPatrol;
+
+_pos = [_pos,_grp] select (_pos isEqualTo []);
+_pos = _pos call CBA_fnc_getPos;
+for [{_i=0},{(_i < _wpcount)},{_i = _i + 1}] do {
+	_wp = _this call UO_FW_AI_fnc_createWaypoint;
+};
+_this2 =+ _this;
+_this2 set [(count _this2), "CYCLE"];
+_this2 call UO_FW_AI_fnc_createWaypoint;
+deleteWaypoint ((waypoints _grp) select 0);
+
+_grp setvariable ["InitialWPSet",true];
+_grp setVariable ["UO_FW_AI_Mission","PATROLLING"];
+true

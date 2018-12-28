@@ -48,7 +48,7 @@ switch _mode do {
 					(_logic getVariable ["UO_FW_AI_zoneRadiusY",100]),
 					_isRectangle,
 					(getDir _logic),
-					(_logic getVariable ["aeZoneHazard",false])
+					(_logic getVariable ["UO_FW_AI_ZoneHazard",false])
 				];
 				diag_log format ["_zone added to Zones array: %1",_logic];
 				diag_log format ["Zones array: %1",UO_FW_AI_Zones];
@@ -73,7 +73,7 @@ switch _mode do {
 
 			if (_initial) then {
 				[_logic,0,_code,{},_initial] call UO_FW_AI_fnc_setup;
-				_logic setVariable ["UO_FW_zone_activated",true];
+				_logic setVariable ["UO_FW_AI_zone_activated",true];
 				_logic setVariable ["UO_FW_AI_zoneOn",1];
 			};
 		};

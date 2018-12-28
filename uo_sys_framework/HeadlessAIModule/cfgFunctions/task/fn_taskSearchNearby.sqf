@@ -33,6 +33,9 @@ if !(local _group) exitWith {}; // Don't create waypoints on each machine
 private _building = nearestBuilding (leader _group);
 if ((leader _group) distanceSqr _building > 10e3) exitwith {};
 
+{_x forcespeed -1; _x enableAI "PATH";} foreach units _group;
+
+
 [_group,_building] spawn {
     params ["_group","_building"];
     private _leader = leader _group;
@@ -73,4 +76,6 @@ if ((leader _group) distanceSqr _building > 10e3) exitwith {};
     };
 
     _group lockWP false;
+		_group setvariable ["InitialWPSet",true];
+		_group setVariable ["UO_FW_AI_Mission","BLD SEARCH"];
 };

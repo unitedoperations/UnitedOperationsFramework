@@ -25,7 +25,7 @@ params ["_grp",["_tasks",[],[[]]],["_task",objNull,[objNull]],["_taskOrdered",fa
 		_activeTasks sort true;
 		if(_taskOrdered) then {				
 			_task = (_activeTasks select 0 select 2);
-			_grp setVariable ["UO_FW_groupTaskOrder",[true,_activeTasks]];
+			_grp setVariable ["UO_FW_AI_groupTaskOrder",[true,_activeTasks]];
 		} else {
 			_task = (_activeTasks select 0 select 2);
 		};

@@ -25,24 +25,27 @@ params ["_unit",["_bld",objNull,[objNull]],["_bldPos",[],[[]]],["_wpWait",5,[0]]
 	};
 	if(isNull _bld) then {_error = true};
 	_unit enableAI "PATH";
+	_unit forcespeed -1;
 	_unit setBehaviour _behave;
 	_unit setCombatMode _combat;
 	_unit setSpeedMode _speed;
 	_unit setFormation _formation;
-	_unit setvariable["UO_FW_OccupiedBuilding",_bld];
-	while {alive _unit && !_error && (_unit getvariable["UO_FW_Occupy",true]) && (_unit getvariable["UO_FW_OccupiedBuilding",objNull]) isEqualTo _bld} do {
+	_unit setvariable["UO_FW_AI_OccupiedBuilding",_bld];
+	while {alive _unit && !_error && (_unit getvariable["UO_FW_AI_Occupy",true]) && (_unit getvariable["UO_FW_AI_OccupiedBuilding",objNull]) isEqualTo _bld} do {
 		private _pos = _bldPos select (floor (random (count _bldPos)));
 		private _timer = 60;
 		_unit doMove _pos;
 		sleep 5;
-		while {alive _unit && _timer > 0 && ((getPosATL _unit) distance _pos) > 2 && (_unit getvariable["UO_FW_Occupy",true]) && (_unit getvariable["UO_FW_OccupiedBuilding",objNull]) isEqualTo _bld} do {
+		while {alive _unit && _timer > 0 && ((getPosATL _unit) distance _pos) > 2 && (_unit getvariable["UO_FW_AI_Occupy",true]) && (_unit getvariable["UO_FW_AI_OccupiedBuilding",objNull]) isEqualTo _bld} do {
 			sleep 1;
 			_timer = _timer - 1;
 		};
-		if(_unit getvariable["UO_FW_Occupy",true] && (_unit getvariable["UO_FW_OccupiedBuilding",objNull]) isEqualTo _bld) then {
+		if(_unit getvariable["UO_FW_AI_Occupy",true] && (_unit getvariable["UO_FW_AI_OccupiedBuilding",objNull]) isEqualTo _bld) then {
 			doStop _unit;
 			private _wait = floor random [(_wpWait*0.5), _wpWait, (_wpWait*1.2)];
 			sleep _wait;
 		};
 	};
+	(group _unit) setvariable ["InitialWPSet",true];
+	(group _unit) setVariable ["UO_FW_AI_Mission","BLD PATROL"];
 	true

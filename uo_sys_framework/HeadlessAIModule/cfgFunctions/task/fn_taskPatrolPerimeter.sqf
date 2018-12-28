@@ -1,6 +1,6 @@
 /*	Description: Task a group to patrol a box around their patrol position.
  * 	Arguments:
- * 		GROUP	- Group 
+ * 		GROUP	- Group
  * 	Optional:
  * 		ARRAY	- Task Position
  * 		NUMBER	- Task Radius
@@ -34,27 +34,32 @@ params [
 	["_type","MOVE",[""]],
 	["_oncomplete","this call UO_FW_AI_fnc_taskSearchNearby",[""]],
 	["_compradius",0,[0]],
-	["_wpcount",10,[0]]
+	["_wpcount",10,[0]],
+	"_i"
 ];
-	_grp call UO_FW_AI_fnc_taskReset;
-	_pos = [_pos,_grp] select (_pos isEqualTo []);
-	_pos = _pos call CBA_fnc_getPos;
-	_forwards = (vectorDir (leader _grp)) vectorMultiply _radius; 
-	_sideways = [_forwards select 1, -(_forwards select 0), 0];
-	_poswp1 = _pos vectorAdd _sideways;
-	_poswp2 = _poswp1 vectorAdd _forwards;
-	_poswp4 = _pos vectorAdd (_sideways vectormultiply -1);
-	_poswp3 = _poswp4 vectorAdd _forwards;
-	{ 
-		_this1 =+ _this;
-		_this1 set [1,_x];
-		_this1 set [2,0];
-		_this1 call UO_FW_AI_fnc_createWaypoint;	
-	} foreach [_poswp1,_poswp2,_poswp3,_poswp4]; 
-	_this2 =+ _this;
-	_this2 set [1,_poswp1];
-	_this2 set [2,0];
-	_this2 set [8, "CYCLE"];
-	_this2 call UO_FW_AI_fnc_createWaypoint;
-	deleteWaypoint ((waypoints _grp) select 0);
-	true
+
+{_x forcespeed -1; _x enableAI "PATH";} foreach units _grp;
+_grp call CBA_fnc_clearWaypoints;
+_pos = [_pos,_grp] select (_pos isEqualTo []);
+_pos = _pos call CBA_fnc_getPos;
+_forwards = (vectorDir (leader _grp)) vectorMultiply _radius;
+_sideways = [_forwards select 1, -(_forwards select 0), 0];
+_poswp1 = _pos vectorAdd _sideways;
+_poswp2 = _poswp1 vectorAdd _forwards;
+_poswp4 = _pos vectorAdd (_sideways vectormultiply -1);
+_poswp3 = _poswp4 vectorAdd _forwards;
+{
+	_this1 =+ _this;
+	_this1 set [1,_x];
+	_this1 set [2,0];
+	_this1 call UO_FW_AI_fnc_createWaypoint;
+} foreach [_poswp1,_poswp2,_poswp3,_poswp4];
+_this2 =+ _this;
+_this2 set [1,_poswp1];
+_this2 set [2,0];
+_this2 set [8, "CYCLE"];
+_this2 call UO_FW_AI_fnc_createWaypoint;
+deleteWaypoint ((waypoints _grp) select 0);
+_grp setvariable ["InitialWPSet",true];
+_grp setVariable ["UO_FW_AI_Mission","PATROLLING PERIMETER"];
+true

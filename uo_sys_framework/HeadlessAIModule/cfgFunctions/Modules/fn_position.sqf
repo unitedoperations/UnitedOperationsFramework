@@ -24,8 +24,8 @@ params [["_mode","",[""]],["_input",[],[[]]]];
 		};
 		case "attributesChanged3DEN": {
 			_logic = _input param [0,objNull,[objNull]];
-			private _radiusX = _logic getVariable ["UO_FW_positionRadiusX",0];
-			private _radiusY = _logic getVariable ["UO_FW_positionRadiusY",0];
+			private _radiusX = _logic getVariable ["UO_FW_AI_positionRadiusX",0];
+			private _radiusY = _logic getVariable ["UO_FW_AI_positionRadiusY",0];
 			set3DENAttributes [[[_logic],"size2",[_radiusX,_radiusY]]];
 		};
 		case "registeredToWorld3DEN": {};

@@ -7,7 +7,7 @@ while {true} do {
 	{
 		if (local _x && {simulationEnabled _x}) then {
 				if (!(_x in UO_FW_AI_ActiveList) && {!(_x in UO_FW_AI_UnitQueue)}) then {
-					_x forcespeed 0;
+					//_x forcespeed 0;
 					UO_FW_AI_UnitQueue pushback _x;
 				};
 		};

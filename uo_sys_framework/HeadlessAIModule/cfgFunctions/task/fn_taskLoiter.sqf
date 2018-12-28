@@ -1,4 +1,4 @@
-/*	Description: Task a group to hold position until contact with enemy.
+/*	Description: Task a group to loiter in position
  * 	Arguments:
  * 		GROUP	- Group
  * 	Optional:
@@ -28,17 +28,18 @@ params [
 ];
 {_x forcespeed -1; _x enableAI "PATH";} foreach units _grp;
 
-_grp call CBA_fnc_clearWaypoints;
-_grp setBehaviour _behave;
-_grp setCombatMode _combat;
-_grp setSpeedMode _speed;
-_grp setFormation _formation;
-private _units = units _grp;
-for [{_i=0},{(_i < count _units)},{_i = _i + 1}] do {
-	private _u = _units select _i;
-	_u doWatch ((getPosATL _u) vectorAdd((vectorDir _u) vectorMultiply 100));
-	doStop _u;
-};
+//We need a list of actions that the AI can do for loitering.
+private _UnitArray = units _grp;
+{
+	if (_x isEqualTo (vehicle _x)) then
+	{
+		//Each AI will need to join their own group. The plan is to make them re-form when combat starts.
+		//[_x] joinsilent grpnull;
+		//(group _x) setVariable ["UO_FW_AI_Mission","LOITERING"];
+		_x setVariable ["UO_FW_AI_LOITERINGACT",0];
+		[_x,_UnitArray] spawn UO_FW_AI_fnc_LoiterAction;
+	};
+} foreach _UnitArray;
 _grp setvariable ["InitialWPSet",true];
-_grp setVariable ["UO_FW_AI_Mission","HOLD"];
+_grp setVariable ["UO_FW_AI_Mission","LOITERING"];
 true

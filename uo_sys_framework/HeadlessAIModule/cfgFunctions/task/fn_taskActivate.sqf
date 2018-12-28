@@ -13,9 +13,9 @@
 		_task = _x;
 		{
 			_grp = _x;
-			_grp setVariable["UO_FW_isNotZoneActivated",false];
-			_grp setVariable["UO_FW_CurrentTaskEndTime",time - 1];
+			_grp setVariable["UO_FW_AI_isNotZoneActivated",false];
+			_grp setVariable["UO_FW_AI_CurrentTaskEndTime",time - 1];
 			[_grp,_task] call UO_FW_AI_fnc_taskSet;
-		} forEach (_task getVariable ["UO_FW_taskGroups", []]);
+		} forEach (_task getVariable ["UO_FW_AI_taskGroups", []]);
 	} forEach _this;
 	true

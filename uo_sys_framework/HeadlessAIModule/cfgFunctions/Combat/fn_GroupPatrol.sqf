@@ -1,58 +1,29 @@
 //This script will dictate how the loiter WP works for the AI
-params ["_unit","_Group","_wp","_thisFSM"];
+params ["_unit","_grp","_wp","_thisFSM"];
 
 _Unitleader = leader _unit;
-_wpPos = waypointPosition [_group, _wp];
+_wpPos = waypointPosition [_grp, _wp];
 
 //mission var
-_Group setVariable ["UO_FW_AI_Mission","PATROLLING"];
-_Group setvariable ["InitialWPSet",true];
+_grp setVariable ["UO_FW_AI_Mission","PATROLLING"];
+_grp setvariable ["InitialWPSet",true];
 
 //CBA backup
 //[_Unitleader, _wpPos, UO_FW_AI_PatrolDistance] call CBA_fnc_taskPatrol;
 
-_usemarker = false;
-
 if (isNil "UO_FW_AI_PatrolDistance") then {UO_FW_AI_PatrolDistance = 200;};
 _radius = _Unitleader getvariable ["PatrolDistance",UO_FW_AI_PatrolDistance];
-//if (!isNil (_Unitleader getvariable "AreaMarker")) then {
-//	_areamarker = _Unitleader getvariable "AreaMarker";
-//	if (!(getMarkerColor _areamarker == "")) then {
-//		_usemarker = true;
-//	};
-//};
 
 //clear waypoints
-[_Group] call CBA_fnc_clearWaypoints;
+_grp call CBA_fnc_clearWaypoints;
 
-_Group setBehaviour "SAFE";
-_Group setCombatMode "YELLOW";
-
-//!((behaviour _Unitleader) in ["AWARE","COMBAT","STEALTH"])
-//Move to separate function?
-//_randomposition = [_unit,_wpPos] call UO_FW_AI_fnc_getRandomPos;
-private _count = 6;
-private _step = 360 / _count;
-private _offset = random _step;
-
-for "_i" from 1 to _count do {
-	//if (_usemarker) then {
-	//	private _randompositiontemp = _areamarker call BIS_fnc_randomPosTrigger;
-	//} else {
-		private _rad = _radius * random [0.1, 0.75, 1];
-		private _theta = (_i % 2) * 180 + sin (deg (_step * _i)) * _offset + _step * _i;
-		private _randompositiontemp = _wpPos getPos [_rad, _theta];
-	//};
-	_randomposition = _randompositiontemp;
-	//_randomposition = [_randompositiontemp, 1, 20, -1, 0, 35] call BIS_fnc_findSafePos;
-	[_Group, _randomposition, 10, "MOVE", "UNCHANGED", "NO CHANGE", "FULL", "FILE", "", [3,6,9], 20] call CBA_fnc_addWaypoint;
+_pos = [_pos,_grp] select (_pos isEqualTo []);
+_pos = _pos call CBA_fnc_getPos;
+for [{_i=0},{(_i < _wpcount)},{_i = _i + 1}] do {
+	_wp = _this call UO_FW_AI_fnc_createWaypoint;
 };
-
-
-[_Group, _wpPos, 10, "CYCLE", "UNCHANGED", "NO CHANGE", "FULL", "FILE", "", [3,6,9], 20] call CBA_fnc_addWaypoint;
-
-[_Group,_Unitleader] spawn {
-	params ["_Group","_Unitleader"];
-	waituntil {((behaviour _Unitleader) in ["AWARE","COMBAT","STEALTH"])};
-	[_Group] call UO_FW_AI_fnc_CombatResponse;
-};
+_this2 =+ _this;
+_this2 set [8, "CYCLE"];
+_this2 call UO_FW_AI_fnc_createWaypoint;
+deleteWaypoint ((waypoints _grp) select 0);
+true

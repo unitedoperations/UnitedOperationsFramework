@@ -24,7 +24,7 @@ params [["_mode","",[""]],["_input",[],[[]]]];
 				sleep 0.25;
 
 				if(count ([_logic ,["UO_FW_AI_ZoneModule","UO_FW_AI_ZoneModule_R"]] call UO_FW_AI_fnc_getSyncedModules) > 0 ) then {
-					_logic setVariable["UO_FW_taskZoneActivated",true];
+					_logic setVariable["UO_FW_AI_taskZoneActivated",true];
 				};
 
 				[_logic] spawn UO_FW_AI_fnc_debugSyncedModules;
@@ -32,7 +32,7 @@ params [["_mode","",[""]],["_input",[],[[]]]];
 		};
 		case "attributesChanged3DEN": {
 			_logic = _input param [0,objNull,[objNull]];
-			private _radius = (_logic getVariable ["UO_FW_taskRadius",100]);
+			private _radius = (_logic getVariable ["UO_FW_AI_taskRadius",100]);
       private _area = _logic get3DENAttribute "size2";
       set3DENAttributes [[[_logic],"size2",[_radius,_radius]]];
 		};

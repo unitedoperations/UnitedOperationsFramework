@@ -14,6 +14,7 @@
  */
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
 UO_FW_AI_EXEC_CHECK(SERVERHC)
+
 params [
 	["_task",4,[0]],
 	["_grp",grpNull,[grpNull]],
@@ -33,8 +34,7 @@ params [
 	private _taskSetBld = [_bld,_grp,_pos,_radius,_wait,_behave,_combat,_speed,_formation];
 	private _taskSetBlds = [_blds,_grp,_pos,_radius,_wait,_behave,_combat,_speed,_formation];
 	switch (_task) do {
-		default {_taskSet spawn UO_FW_AI_fnc_taskPatrol;};
-		case 0: {_taskSetBasic spawn UO_FW_AI_fnc_taskForceHold;}; 	//Hold
+		case 0: {_taskSet spawn UO_FW_AI_fnc_taskLoiter;}; 	//Loiter
 		case 1: {_taskSetBasic spawn UO_FW_AI_fnc_taskHoldUntil;}; 	//Hold Until
 		case 2: {_taskSet spawn UO_FW_AI_fnc_taskSentry;};				//Sentry
 		case 3: {_taskSetBasic spawn UO_FW_AI_fnc_taskPlacement;};		//Stationary
@@ -62,7 +62,8 @@ params [
 				default {_taskSetBld spawn UO_FW_AI_fnc_taskMoveNearestBuildingDefend;};
 			};
 		};
-		case 8: {_taskSet spawn {};};	//Entrenched
+		case 8: {_taskSet spawn UO_FW_AI_fnc_TaskSetBunker;};	//Entrenched
 		case 9: {_taskSet spawn {};};	//Reinforcements
+		default {_taskSet spawn UO_FW_AI_fnc_taskPatrol;};
 	};
 	true

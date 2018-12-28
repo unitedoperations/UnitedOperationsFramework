@@ -41,7 +41,7 @@ class UO_FW_AI_ZoneModule : UO_FW_AI_Module
 			displayName = "Activation Radius X";
 			tooltip = "The size of the X value of the area the player will initiate this zone at in metres. Default: 100";
 			property = "UO_FW_AI_zoneRadiusX";
-			control = "UO_FW_moduleradiusControl";
+			control = "UO_FW_AI_moduleradiusControl";
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "100";
 			typeName = "NUMBER";
@@ -51,7 +51,7 @@ class UO_FW_AI_ZoneModule : UO_FW_AI_Module
 			displayName = "Activation Radius Y";
 			tooltip = "The size of the Y value of the area the player will initiate this zone at in metres. Default: 100";
 			property = "UO_FW_AI_zoneRadiusY";
-			control = "UO_FW_moduleradiusControl2";
+			control = "UO_FW_AI_moduleradiusControl2";
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "100";
 			typeName = "NUMBER";
@@ -95,7 +95,7 @@ class UO_FW_AI_ZoneModule : UO_FW_AI_Module
 			displayName = "Custom Condition";
 			tooltip = "Enter a custom condition that must be met for this zone to be activated, condition true will spawn the zone. Default: Nil";
 			property = "UO_FW_AI_zoneCondition";
-			control = "UO_FW_moduleconditionControl";
+			control = "UO_FW_AI_moduleconditionControl";
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "'false'";
 		};
@@ -103,7 +103,7 @@ class UO_FW_AI_ZoneModule : UO_FW_AI_Module
 			displayName = "Custom Code";
 			tooltip = "Pass custom code to be executed when zone is activated. Default: Nil";
 			property = "UO_FW_AI_zoneCode";
-			control = "UO_FW_codeControl";
+			control = "UO_FW_AI_codeControl";
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "'true'";
 		};
@@ -134,90 +134,90 @@ class UO_FW_AI_ControlModule : UO_FW_AI_Module {
 		IsRectangle = 0;
 	};
 	class Attributes {
-		class aeControlRadiusX {
+		class UO_FW_AI_ControlRadiusX {
 			displayName = "Activation Radius X";
 			tooltip = "The size of the X value of the area the player will initiate the control zone at in metres. Default: 100";
-			property = "UO_FW_ControlRadiusX";
-			control = "UO_FW_moduleradiusControl";
+			property = "UO_FW_AI_ControlRadiusX";
+			control = "UO_FW_AI_moduleradiusControl";
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "100";
 			typeName = "NUMBER";
 			validate = "number";
 		};
-		class aeControlRadiusY {
+		class UO_FW_AI_ControlRadiusY {
 			displayName = "Activation Radius Y";
 			tooltip = "The size of the Y value of the area the player will initiate the control zone at in metres. Default: 100";
-			property = "UO_FW_ControlRadiusY";
-			control = "UO_FW_moduleradiusControl2";
+			property = "UO_FW_AI_ControlRadiusY";
+			control = "UO_FW_AI_moduleradiusControl2";
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "100";
 			typeName = "NUMBER";
 			validate = "number";
 		};
-		class aeControlOn {
+		class UO_FW_AI_controlOn {
 			displayName = "Suspension";
 			tooltip = "Suspending the control module to be enabled later, suspended control modules will not detect player is with in radius or that a custom condition is met until enabled. Default: Enabled";
-			property = "UO_FW_controlOn";
+			property = "UO_FW_AI_controlOn";
 			control = "UO_FW_AI_zoneOnControl";
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "0";
 		};
-		class aeControlInitAction {
+		class UO_FW_AI_ControlInitAction {
 			displayName = "Initiate Action";
 			tooltip = "The action the control module performs to linked zones when initiated, toggle Enable,Disable or Do Nothing. Default: Do Nothing";
-			property = "UO_FW_ControlInitAction";
-			control = "UO_FW_initActionControl";
+			property = "UO_FW_AI_ControlInitAction";
+			control = "UO_FW_AI_initActionControl";
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "0";
 		};
-		class aeControlAction {
+		class UO_FW_AI_ControlAction {
 			displayName = "Activate Action";
 			tooltip = "The action the control module performs to linked zones when activated, toggle Enable or Disable. Default: Enable";
-			property = "UO_FW_ControlAction";
-			control = "UO_FW_actionControl";
+			property = "UO_FW_AI_ControlAction";
+			control = "UO_FW_AI_actionControl";
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "0";
 		};
-		class aeControlDelay {
+		class UO_FW_AI_ControlDelay {
 			displayName = "Delay";
 			tooltip = "Delay after control module is activated that actual toggle of linked zones occurs. Default: 0secs";
-			property = "UO_FW_ControlDelay";
+			property = "UO_FW_AI_ControlDelay";
 			control = "UO_FW_AI_zoneDelayControl";
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "0";
 			typeName = "NUMBER";
 			validate = "number";
 		};
-		class aeControlSide {
+		class UO_FW_AI_ControlSide {
 			displayName = "Activating Player Side";
 			tooltip = "Side of the player that activates the control module. Default: WEST";
-			property = "UO_FW_ControlSide";
+			property = "UO_FW_AI_ControlSide";
 			control = "UO_FW_AI_ZonesideControl";
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "0";
 		};
-		class aeControlType {
+		class UO_FW_AI_ControlType {
 			displayName = "Activating Player Type";
 			tooltip = "Type of unit the player is that activates the control module. Default: All Units";
-			property = "UO_FW_ControlType";
+			property = "UO_FW_AI_ControlType";
 			control = "UO_FW_AI_zoneTypeControl";
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "0";
 		};
-		class aeControlCondition {
+		class UO_FW_AI_ControlCondition {
 			displayName = "Custom Condition";
 			tooltip = "Enter a custom condition that must be met for this control module to be activated, condition true will initiate the control module. Default: Nil";
-			property = "UO_FW_ControlCondition";
-			control = "UO_FW_moduleconditionControl";
+			property = "UO_FW_AI_ControlCondition";
+			control = "UO_FW_AI_moduleconditionControl";
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "'false'";
 			validate = "condition";
 		};
-		class aeControlCode {
+		class UO_FW_AI_ControlCode {
 			displayName = "Custom Code";
 			tooltip = "Pass custom code to be executed when the control module is activated. Default: Nil";
-			property = "UO_FW_ControlCode";
-			control = "UO_FW_codeControl";
+			property = "UO_FW_AI_ControlCode";
+			control = "UO_FW_AI_codeControl";
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "'true'";
 		};
@@ -247,124 +247,124 @@ class UO_FW_AI_TaskModule : UO_FW_AI_Module {
         size2[] = {50,50};
     };
     class Attributes {
-		class UO_FW_taskRadius {
+		class UO_FW_AI_taskRadius {
 			displayName = "Radius";
 			tooltip = "The range the group will attempt to conduct the set task in. Default: 100";
-			property = "UO_FW_taskRadius";
-			control = "UO_FW_moduleradiusControl";
+			property = "UO_FW_AI_taskRadius";
+			control = "UO_FW_AI_moduleradiusControl";
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "100";
 			typeName = "NUMBER";
 			validate = "number";
 		};
-		class UO_FW_TaskTime {
+		class UO_FW_AI_TaskTime {
 			displayName = "Time";
 			tooltip = "How long the linked units will perform this task. Default: 0 (forever).";
-			property = "UO_FW_TaskTime";
-			control = "UO_FW_standardNumberControl";
+			property = "UO_FW_AI_TaskTime";
+			control = "UO_FW_AI_standardNumberControl";
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "0";
 			typeName = "NUMBER";
 			validate = "number";
 		};
-		class UO_FW_TaskId {
+		class UO_FW_AI_TaskId {
 			displayName = "Task ID";
 			tooltip = "The order that the linked units will perform this task in when multiple tasks used. To use a priority order leave off. Default: OFF.";
-			property = "UO_FW_TaskId";
-			control = "UO_FW_numberSelect1Control";
+			property = "UO_FW_AI_TaskId";
+			control = "UO_FW_AI_numberSelect1Control";
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "0";
 			typeName = "NUMBER";
 			validate = "number";
 		};
-		class UO_FW_taskSet {
+		class UO_FW_AI_taskSet {
 			displayName = "Task";
 			tooltip = "Task the unit or group will conduct on activation. Default: Hold Until";
-			property = "UO_FW_taskSet";
-			control = "UO_FW_taskControl";
+			property = "UO_FW_AI_taskSet";
+			control = "UO_FW_AI_taskControl";
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "4";
 		};
-		class UO_FW_occupyOptionSet {
+		class UO_FW_AI_occupyOptionSet {
 			displayName = "Occupy Building Options";
 			tooltip = "Should the group occupy a building or buildings. Default: OFF";
-			property = "UO_FW_occupyOptionSet";
-			control = "UO_FW_occupyoptionControl";
+			property = "UO_FW_AI_occupyOptionSet";
+			control = "UO_FW_AI_occupyoptionControl";
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "0";
 		};
-		class UO_FW_changeWaypointWait {
+		class UO_FW_AI_changeWaypointWait {
 			displayName = "Waypoint Wait Time";
 			tooltip = "Time unit or group will wait at each auto generated waypoint. Default: 3 secs.";
-			property = "UO_FW_changeWaypointWait";
-			control = "UO_FW_waypointwaitControl";
+			property = "UO_FW_AI_changeWaypointWait";
+			control = "UO_FW_AI_waypointwaitControl";
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "3";
 			typeName = "NUMBER";
 			validate = "number";
 		};
-		class UO_FW_behaviourChange {
+		class UO_FW_AI_behaviourChange {
 			displayName = "Change Behaviour";
 			tooltip = "Behaviour of the group or unit on activation. Default: SAFE";
-			property = "UO_FW_behaviourChange";
-			control = "UO_FW_behaviourchangeControl";
+			property = "UO_FW_AI_behaviourChange";
+			control = "UO_FW_AI_behaviourchangeControl";
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "'unchanged'";
 		};
-		class UO_FW_combatMode {
+		class UO_FW_AI_combatMode {
 			displayName = "Change CombatMode";
 			tooltip = "Combat Mode of the group or unit on activation. Default: Fire at Will, Engage at Will";
-			property = "UO_FW_combatMode";
-			control = "UO_FW_combatmodechangeControl";
+			property = "UO_FW_AI_combatMode";
+			control = "UO_FW_AI_combatmodechangeControl";
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "'unchanged'";
 		};
-		class UO_FW_speed {
+		class UO_FW_AI_speed {
 			displayName = "Change Speed";
 			tooltip = "Speed of the group or unit on activation. Default: Limited";
-			property = "UO_FW_speed";
-			control = "UO_FW_speedchangeControl";
+			property = "UO_FW_AI_speed";
+			control = "UO_FW_AI_speedchangeControl";
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "'unchanged'";
 		};
-		class UO_FW_formation {
+		class UO_FW_AI_formation {
 			displayName = "Change Formation";
 			tooltip = "Formation of the group or unit on activation. Default: WEDGE";
-			property = "UO_FW_formation";
-			control = "UO_FW_formationchangeControl";
+			property = "UO_FW_AI_formation";
+			control = "UO_FW_AI_formationchangeControl";
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "'unchanged'";
 		};
-		class UO_FW_groupStance {
+		class UO_FW_AI_groupStance {
 			displayName = "Change Group Stance";
 			tooltip = "Force the stance of the group. Default: AUTO";
-			property = "UO_FW_groupStance";
-			control = "UO_FW_stancechangeControl";
+			property = "UO_FW_AI_groupStance";
+			control = "UO_FW_AI_stancechangeControl";
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "'unchanged'";
 		};
-		class UO_FW_taskCondition {
+		class UO_FW_AI_taskCondition {
 			displayName = "Condition";
 			tooltip = "Activate this task with a condition. Default: True";
-			property = "UO_FW_taskCondition";
-			control = "UO_FW_moduleconditionControl";
+			property = "UO_FW_AI_taskCondition";
+			control = "UO_FW_AI_moduleconditionControl";
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "";
 			validate = "condition";
 		};
-		class UO_FW_taskOnComplete {
+		class UO_FW_AI_taskOnComplete {
 			displayName = "On Completion";
 			tooltip = "Pass custom parameters or code when the group completes this task. (_this = [GROUP,TASK Module]) Default: Nil";
-			property = "UO_FW_taskOnComplete";
-			control = "UO_FW_codeControl";
+			property = "UO_FW_AI_taskOnComplete";
+			control = "UO_FW_AI_codeControl";
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "(true)";
 		};
-		class UO_FW_TaskPriority {
+		class UO_FW_AI_TaskPriority {
 			displayName = "Priority";
 			tooltip = "Task priority allows the group to choose between two assigned tasks. Default: Medium";
-			property = "UO_FW_TaskPriority";
-			control = "UO_FW_taskpriorityControl";
+			property = "UO_FW_AI_TaskPriority";
+			control = "UO_FW_AI_taskpriorityControl";
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "1";
 			typeName = "NUMBER";
@@ -389,39 +389,39 @@ class UO_FW_AI_PositionModule : UO_FW_AI_Module {
 		IsRectangle = 0;
     };
     class Attributes {
-		class UO_FW_positionType {
+		class UO_FW_AI_positionType {
 			displayName = "Type of Position";
 			tooltip = "Sets the type of position other modules will identify this position as. Default: Standard";
-			property = "UO_FW_positionType";
-			control = "UO_FW_positiontypeControl";
+			property = "UO_FW_AI_positionType";
+			control = "UO_FW_AI_positiontypeControl";
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "0";
 		};
-		class UO_FW_positionRadiusX {
+		class UO_FW_AI_positionRadiusX {
 			displayName = "Radius X";
 			tooltip = "The X radius the position will use to generate a random position. Default: 0";
-			property = "UO_FW_positionRadiusX";
-			control = "UO_FW_moduleradiusControl";
+			property = "UO_FW_AI_positionRadiusX";
+			control = "UO_FW_AI_moduleradiusControl";
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "0";
 			typeName = "NUMBER";
 			validate = "number";
 		};
-		class UO_FW_positionRadiusY {
+		class UO_FW_AI_positionRadiusY {
 			displayName = "Radius Y";
 			tooltip = "The Y radius the position will use to generate a random position. Default: 0";
-			property = "UO_FW_positionRadiusY";
-			control = "UO_FW_moduleradiusControl2";
+			property = "UO_FW_AI_positionRadiusY";
+			control = "UO_FW_AI_moduleradiusControl2";
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "0";
 			typeName = "NUMBER";
 			validate = "number";
 		};
-		class UO_FW_positionWarnRadius {
+		class UO_FW_AI_positionWarnRadius {
 			displayName = "Warn Area Radius";
 			tooltip = "Distance for player to be warned before entering area. Default: 20.";
-			property = "UO_FW_positionWarnRadius";
-			control = "UO_FW_standardNumberControl";
+			property = "UO_FW_AI_positionWarnRadius";
+			control = "UO_FW_AI_standardNumberControl";
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "20";
 			typeName = "NUMBER";
@@ -436,212 +436,6 @@ class UO_FW_AI_PositionModule_R : UO_FW_AI_PositionModule {
 		IsRectangle = 1;
     };
 };
-class UO_FW_AI_FastAirStrikeModule : UO_FW_AI_Module {
-	scope = 2;
-	displayName = "Fast Air Strike";
-	//icon = "\UO_FW\Resources\Icons\fastairmodule_ca.paa";
-	function = "UO_FW_AI_fnc_fas";
-	functionPriority = 0;
-	isGlobal = 1;
-	isTriggerActivated = 0;
-	isDisposable = 0;
-	is3DEN = 1;
-	curatorInfoType = "RscDisplayAttributeModuleNuke";
-	canSetArea = 1;
-	class AttributeValues {
-        size2[] = {100,100};
-		IsRectangle = 0;
-    };
-    class Attributes {
-		class UO_FW_fasRadius {
-			displayName = "Strike Radius";
-			tooltip = "The air strike will use this radius to generate a random position for each bomber. Default: 0";
-			property = "UO_FW_fasRadius";
-			control = "UO_FW_moduleradiusControl";
-			expression = "_this setVariable ['%s',_value,true];";
-			defaultValue = "0";
-			typeName = "NUMBER";
-			validate = "number";
-		};
-		class UO_FW_fasOrdinance {
-			displayName = "Ordnance";
-			tooltip = "The amount of bombs each aircraft will drop. Default: 3";
-			property = "UO_FW_fasOrdinance";
-			control = "UO_FW_moduleradiusControl";
-			expression = "_this setVariable ['%s',_value,true];";
-			defaultValue = "3";
-			typeName = "NUMBER";
-			validate = "number";
-		};
-		class UO_FW_fasHeight {
-			displayName = "Height";
-			tooltip = "Height aircraft will fly at and release ordnance, higher the altitude the less accuracy. Default: 200.";
-			property = "UO_FW_fasHeight";
-			control = "UO_FW_standardNumberControl";
-			expression = "_this setVariable ['%s',_value,true];";
-			defaultValue = "200";
-			typeName = "NUMBER";
-			validate = "number";
-		};
-		class UO_FW_fasOrdnanceType {
-			displayName = "Ordnance Type";
-			tooltip = "Classname of the bomb type to be use. Default: 'Bo_GBU12_LGB_MI10'";
-			property = "UO_FW_fasOrdnanceType";
-			control = "UO_FW_standardStringOneControl";
-			expression = "_this setVariable ['%s',_value,true];";
-			defaultValue = "'Bo_GBU12_LGB_MI10'";
-		};
-	};
-};
-class UO_FW_AI_AirDropModule : UO_FW_AI_Module {
-	scope = 2;
-	displayName = "Air Drop";
-	//icon = "\UO_FW\Resources\Icons\supplydropmodule_ca.paa";
-	function = "UO_FW_AI_fnc_airdrop";
-	functionPriority = 0;
-	isGlobal = 1;
-	isTriggerActivated = 0;
-	isDisposable = 0;
-	is3DEN = 1;
-	canSetArea = 1;
-	class AttributeValues {
-        size2[] = {100,100};
-		IsRectangle = 0;
-    };
-    class Attributes {
-		class UO_FW_artRadius {
-			displayName = "Drop Radius";
-			tooltip = "The aircraft will use this radius to generate random position for air drop. Default: 0";
-			property = "UO_FW_artRadius";
-			control = "UO_FW_moduleradiusControl";
-			expression = "_this setVariable ['%s',_value,true];";
-			defaultValue = "0";
-			typeName = "NUMBER";
-			validate = "number";
-		};
-		class UO_FW_adOrdinance {
-			displayName = "Ordnance";
-			tooltip = "The amount of items aircraft will drop. Default: 3";
-			property = "UO_FW_adOrdinance";
-			control = "UO_FW_AI_zoneDelayControl";
-			expression = "_this setVariable ['%s',_value,true];";
-			defaultValue = "3";
-			typeName = "NUMBER";
-			validate = "number";
-		};
-		class UO_FW_adOrdnanceType {
-			displayName = "Ordnance Type";
-			tooltip = "Classname of the item type to be dropped. Default: 'Box_NATO_Ammo_F'";
-			property = "UO_FW_adOrdnanceType";
-			control = "UO_FW_standardStringOneControl";
-			expression = "_this setVariable ['%s',_value,true];";
-			defaultValue = "'Box_NATO_Ammo_F'";
-		};
-		class UO_FW_adHeight {
-			displayName = "Height";
-			tooltip = "Height aircraft will fly at and release ordnance, higher the altitude the less accuracy. Default: 120.";
-			property = "UO_FW_adHeight";
-			control = "UO_FW_standardNumberControl";
-			expression = "_this setVariable ['%s',_value,true];";
-			defaultValue = "120";
-			typeName = "NUMBER";
-			validate = "number";
-		};
-		class UO_FW_adSmoke {
-			displayName = "Drop Smoke";
-			tooltip = "Item deploys smoke to indicate its position on the ground. Default: Off";
-			property = "UO_FW_adSmoke";
-			control = "UO_FW_parasmokeControl";
-			expression = "_this setVariable ['%s',_value,true];";
-			defaultValue = "false";
-			typeName = "BOOL";
-		};
-		class UO_FW_adAircraftType {
-			displayName = "Drop Aircraft Type";
-			tooltip = "Classname of the aircraft to drop ordnance. Default: 'RHS_C130J'";
-			property = "UO_FW_adAircraftType";
-			control = "UO_FW_standardStringTwoControl";
-			expression = "_this setVariable ['%s',_value,true];";
-			defaultValue = "'RHS_C130J'";
-		};
-		class UO_FW_adEscorted {
-			displayName = "Fighter Escort";
-			tooltip = "Does the drop vehicle have a fighter escort. Default: Off";
-			property = "UO_FW_adEscorted";
-			control = "UO_FW_pararealsmControl";
-			expression = "_this setVariable ['%s',_value,true];";
-			defaultValue = "false";
-			typeName = "BOOL";
-		};
-		class UO_FW_adEscortAircraftType {
-			displayName = "Escort Aircraft Type";
-			tooltip = "Classname of the aircraft type to be use. Default: 'B_Plane_CAS_01_F'";
-			property = "UO_FW_adEscortAircraftType";
-			control = "UO_FW_unitnameControl";
-			expression = "_this setVariable ['%s',_value,true];";
-			defaultValue = "'B_Plane_CAS_01_F'";
-		};
-	};
-};
-class UO_FW_AI_HeloInsertModule : UO_FW_AI_Module {
-	scope = 2;
-	displayName = "Helicopter Insertion";
-	//icon = "\UO_FW\Resources\Icons\heloinsertmodule_ca.paa";
-	function = "UO_FW_AI_fnc_heli";
-	functionPriority = 0;
-	isGlobal = 1;
-	isTriggerActivated = 0;
-	isDisposable = 0;
-	is3DEN = 1;
-	canSetArea = 1;
-	class AttributeValues {
-        size2[] = {0,0};
-		IsRectangle = 0;
-    };
-    class Attributes {
-		class UO_FW_hiRadius {
-			displayName = "Insert Radius";
-			tooltip = "The aircraft will use this radius to generate random position for inserting units. Default: 0";
-			property = "UO_FW_hiRadius";
-			control = "UO_FW_moduleradiusControl";
-			expression = "_this setVariable ['%s',_value,true];";
-			defaultValue = "0";
-			typeName = "NUMBER";
-			validate = "number";
-		};
-		class UO_FW_hiMultiplier {
-			displayName = "Vehicle Multiplier";
-			tooltip = "Multiplies the amount of helicopters and cargo linked to module to perform insetion. Default: 1";
-			property = "UO_FW_hiMultiplier";
-			control = "UO_FW_AI_zoneDelayControl";
-			expression = "_this setVariable ['%s',_value,true];";
-			defaultValue = "1";
-			typeName = "NUMBER";
-			validate = "number";
-		};
-		class UO_FW_hiHeight {
-			displayName = "Height";
-			tooltip = "Height aircraft will fly in at before starting decent. Default: 200.";
-			property = "UO_FW_hiHeight";
-			control = "UO_FW_standardNumberControl";
-			expression = "_this setVariable ['%s',_value,true];";
-			defaultValue = "200";
-			typeName = "NUMBER";
-			validate = "number";
-		};
-		class UO_FW_hiInsertType {
-			displayName = "Insertion Type";
-			tooltip = "The type of insertion that will be performed at the insertion point. Default: Rappel";
-			property = "UO_FW_hiInsertType";
-			control = "UO_FW_heliControl";
-			expression = "_this setVariable ['%s',_value,true];";
-			defaultValue = "0";
-			typeName = "NUMBER";
-			validate = "number";
-		};
-	};
-};
-
 class UO_FW_AI_RespawnModule : UO_FW_AI_Module {
 	scope = 2;
 	displayName = "Respawn";

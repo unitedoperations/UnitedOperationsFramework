@@ -42,8 +42,9 @@ While {true} do {
 
 				_usedest = switch (_behaviourtasking) do {
 					case "GARRISON": {false;};
-					case "DEFAULT PATROLLING": {true;};
 					case "PATROLLING": {true;};
+					case "PATROLLING PERIMETER": {true;};
+					case "SENTRY": {true;};
 					case "ATTACK": {true;};
 					case "ASSAULT": {true;};
 					case "FLANK": {true;};
@@ -52,9 +53,12 @@ While {true} do {
 					case "BUNKER": {false;};
 					case "LOITERING": {false;};
 					case "STATIONARY": {false;};
-					case "IDLE": {false;};
+					case "HOLD": {false;};
+					case "FORCE HOLD": {false;};
 					case "NONE": {false;};
-					case "DEFAULT WP": {true;};
+					case "BLD MOVE": {true;};
+					case "BLD DEFEND": {false;};
+					case "BLD SEARCH": {true;};
 					default {false};
 				};
 

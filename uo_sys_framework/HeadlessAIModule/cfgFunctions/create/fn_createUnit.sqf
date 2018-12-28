@@ -33,7 +33,7 @@ params ["_occupy","_grp","_gpos","_startBld","_i","_u","_taskRadius",["_currentV
 	if(count _name > 1) then {
 		missionNamespace setVariable[_name, _unit];
 	};
-	_unit setVariable["UO_FW_unitIdentity",_identity,true];
+	_unit setVariable["UO_FW_AI_unitIdentity",_identity,true];
 	[_unit,_per] call UO_FW_AI_fnc_setPersistent;
 	_unit spawn _uint;
 	if(_veha && !isNull _currentVeh) then {

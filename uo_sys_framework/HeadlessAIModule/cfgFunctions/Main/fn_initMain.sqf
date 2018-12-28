@@ -100,9 +100,11 @@ UO_FW_AI_FORCETIME_ENABLED = false;
 UO_FW_AI_FORCETIME_TIME = 12;
 
 //Lets gets the queue handler going
+[{time > 3},{
 [] spawn UO_FW_AI_fnc_QueueHandle;
 [] spawn UO_FW_AI_fnc_ActiveHandler;
 [] spawn UO_FW_AI_fnc_GroupHandler;
+}] call CBA_fnc_waitUntilAndExecute;
 
 //leader/group behavior handling loop
 //[] spawn UO_FW_AI_fnc_MainLoop;

@@ -22,7 +22,19 @@
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
 UO_FW_AI_EXEC_CHECK(SERVERHC)
 
-params ["_grp",["_pos",[],[[]]],["_radius",0,[0]],["_wait",3,[0]],["_behaviour","SAFE",[""]],["_combat","RED",[""]],["_speed","LIMITED",[""]],["_formation","WEDGE",[""]],["_type","MOVE",[""]],["_oncomplete","",[""]],["_compradius",0,[0]]];
+params ["_grp",
+	["_pos",[],[[]]],
+	["_radius",0,[0]],
+	["_wait",3,[0]],
+	["_behaviour","SAFE",[""]],
+	["_combat","RED",[""]],
+	["_speed","LIMITED",[""]],
+	["_formation","WEDGE",[""]],
+	["_type","MOVE",[""]],
+	["_oncomplete","",[""]],
+	["_compradius",0,[0]]
+];
+
 	private _timeout = [_wait*0.5,_wait,_wait*1.5];
 	_pos = _pos call CBA_fnc_getPos;
 	private _wp = _grp addWaypoint [_pos,_radius];

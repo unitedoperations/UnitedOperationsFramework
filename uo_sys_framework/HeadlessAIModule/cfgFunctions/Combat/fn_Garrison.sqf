@@ -27,20 +27,20 @@ private _WaypointIs = "HOLD";
 while {_WaypointIs isEqualTo "HOLD"} do
 {
 	private _index = currentWaypoint _Group;
-	private _WaypointIs = waypointType [_Group,_index];		
+	private _WaypointIs = waypointType [_Group,_index];
 	private _TempA = _BuildingPositions;
 	if (count _TempA > 0) then
 	{
 		{
 			private _Foot = isNull objectParent _x;
 			if (_Foot) then
-			{		
+			{
 			private _BuildingLocation = selectRandom _TempA;
 			if !(isNil "_BuildingLocation") then
 			{
 				_x doMove _BuildingLocation;
 				_x setUnitPos "UP";
-				[_x,_BuildingLocation] spawn 
+				[_x,_BuildingLocation] spawn
 				{
 					params ["_unit","_BuildingLocation"];
 					if (isNil "_BuildingLocation") exitWith {};
@@ -52,15 +52,9 @@ while {_WaypointIs isEqualTo "HOLD"} do
 				};
 			};
 			true;
-		} count _GroupUnits;		
-		
-		
+		} count _GroupUnits;
+
+
 	};
 	sleep (30 + (random 60));
-};
-
-[_Group,_Unitleader] spawn {
-	params ["_Group","_Unitleader"];
-	waituntil {((behaviour _Unitleader) in ["AWARE","COMBAT","STEALTH"])};
-	[_Group] call UO_FW_AI_fnc_CombatResponse;
 };

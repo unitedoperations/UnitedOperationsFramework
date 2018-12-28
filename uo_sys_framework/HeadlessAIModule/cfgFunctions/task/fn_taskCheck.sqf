@@ -10,12 +10,12 @@
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
 UO_FW_AI_EXEC_CHECK(SERVERHC)
 params ["_grp","_check",["_init",false,[false]],["_syncedTasks",[],[[]]],["_task",objNull,[objNull]],["_taskCheck",[],[[]]],["_taskOrder",[],[[]]]];
-	if(_grp getVariable "UO_FW_CurrentTaskEndTime" < time || _init) then {
-		if( !isNull (_grp getVariable["UO_FW_CurrentTask",objNull]) ) then {[_grp,_check] call UO_FW_AI_fnc_setCompletedTasks;};
-		private _groupTaskOrder = _grp getVariable ["UO_FW_groupTaskOrder",[]];
+	if(_grp getVariable "UO_FW_AI_CurrentTaskEndTime" < time || _init) then {
+		if( !isNull (_grp getVariable["UO_FW_AI_CurrentTask",objNull]) ) then {[_grp,_check] call UO_FW_AI_fnc_setCompletedTasks;};
+		private _groupTaskOrder = _grp getVariable ["UO_FW_AI_groupTaskOrder",[]];
 		if(count _groupTaskOrder > 1) then {_taskOrder = _groupTaskOrder select 1;};
 		if(count _taskOrder > 0) then {
-			private _tasks = _taskOrder select {!(_x in (_grp getVariable["UO_FW_CompletedTasks",[]]))};
+			private _tasks = _taskOrder select {!(_x in (_grp getVariable["UO_FW_AI_CompletedTasks",[]]))};
 			if(count _tasks > 0) then {
 				_tasks sort (_groupTaskOrder select 0);
 				_task = (_tasks select 0 select 2);
@@ -23,15 +23,15 @@ params ["_grp","_check",["_init",false,[false]],["_syncedTasks",[],[[]]],["_task
 			} else {
 				private _sort = if(_groupTaskOrder select 0) then {false} else {true};
 				_taskOrder sort _sort;
-				_grp setVariable["UO_FW_CompletedTasks",[]];
+				_grp setVariable["UO_FW_AI_CompletedTasks",[]];
 				[_grp,(_taskOrder select 0 select 2)] call UO_FW_AI_fnc_setCompletedTasks;
-				private _tasks = _taskOrder select {!(_x in (_grp getVariable["UO_FW_CompletedTasks",[]]))};
+				private _tasks = _taskOrder select {!(_x in (_grp getVariable["UO_FW_AI_CompletedTasks",[]]))};
 				if(count _tasks > 0) then {
 					_task = (_tasks select 0 select 2);
 					_taskCheck = [_task];
-					_grp setVariable ["UO_FW_groupTaskOrder",[_sort,_taskOrder]];
+					_grp setVariable ["UO_FW_AI_groupTaskOrder",[_sort,_taskOrder]];
 				} else {
-					_taskCheck = [(_grp getVariable["UO_FW_CurrentTask",objNull])];
+					_taskCheck = [(_grp getVariable["UO_FW_AI_CurrentTask",objNull])];
 				};
 			};
 		} else {
@@ -45,7 +45,7 @@ params ["_grp","_check",["_init",false,[false]],["_syncedTasks",[],[[]]],["_task
 					_syncedTasks = [_check,["UO_FW_AI_TaskModule"]] call UO_FW_AI_fnc_getSyncedModules;
 				};
 			};
-			private _tasks = _syncedTasks select {!(_x in (_grp getVariable["UO_FW_CompletedTasks",[]]))};
+			private _tasks = _syncedTasks select {!(_x in (_grp getVariable["UO_FW_AI_CompletedTasks",[]]))};
 			if(_tasks isEqualTo []) then {
 				_index = UO_FW_AI_taskedGroups find [_grp];
 				UO_FW_AI_taskedGroups deleteAt _index;
