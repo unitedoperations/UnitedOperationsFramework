@@ -25,6 +25,10 @@ if (!isDedicated) then {
 	//non server init
 	//Anything done using "player" must be past this line for JIP compatibility
 
+	["CBA_loadingScreenDone", {
+		UO_FW_LoadedIntoMission = true;
+	}] call CBA_fnc_addEventHandler;
+
 	if (!isServer && hasinterface) then {
 		//MP player init
 		//Tells the server the player has spawned

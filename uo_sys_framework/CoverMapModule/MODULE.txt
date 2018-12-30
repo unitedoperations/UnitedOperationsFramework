@@ -1,0 +1,16 @@
+========================================================================
+
+	Module: CoverMap Module
+	Author: BlackHawk & PiZZADOX
+	Date Created: 29/12/2018
+	Date Last Updated: 29/12/2018
+
+	Description: Covers and centers the map
+
+	Uses 3DEN Menu: No
+	Uses 3DEN Module: Yes
+	Uses PreInit Function: No
+	Uses PostInit Function: Yes
+
+
+========================================================================

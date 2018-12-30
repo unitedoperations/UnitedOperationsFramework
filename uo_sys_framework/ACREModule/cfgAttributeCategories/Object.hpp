@@ -10,7 +10,7 @@ class UO_FW_ACREOptions {
 			tooltip = "Enables Framework ACRE Settings on this unit";
 			control = "CheckBoxState";
 			expression = "_this setVariable ['%s',_value,true];";
-			condition = "objectBrain";
+			condition = "objectControllable";
 			defaultValue = "false";
 		};
 		class UO_FW_ACRE_SR_RADIO_ENABLED {
@@ -19,7 +19,7 @@ class UO_FW_ACREOptions {
 			tooltip = "Gives this unit a short range radio defined in ACRE settings";
 			control = "CheckBox";
 			expression = "_this setVariable ['%s',_value,true];";
-			condition = "objectBrain";
+			condition = "objectControllable";
 			defaultValue = "false";
 		};
 		class UO_FW_ACRE_SR_RADIO_CHANNEL {
@@ -28,7 +28,7 @@ class UO_FW_ACREOptions {
 			tooltip = "Sets the short range radio channel of this unit";
 			control = "EditShort";
 			expression = "_this setVariable ['%s',_value,true];";
-			condition = "objectBrain";
+			condition = "objectControllable";
 			defaultValue = "1";
 		};
 		class UO_FW_ACRE_SR_RADIO_EAR {
@@ -37,7 +37,7 @@ class UO_FW_ACREOptions {
 			tooltip = "Sets the short range radio earpiece setting";
 			control = "UO_FW_ACRE_EarSetting_SR";
 			expression = "_this setVariable ['%s',_value,true];";
-			condition = "objectBrain";
+			condition = "objectControllable";
 			defaultValue = "0";
 		};
 		class UO_FW_ACRE_LR_RADIO_ENABLED {
@@ -46,7 +46,7 @@ class UO_FW_ACREOptions {
 			tooltip = "Gives this unit a long range radio defined in ACRE settings";
 			control = "CheckBox";
 			expression = "_this setVariable ['%s',_value,true];";
-			condition = "objectBrain";
+			condition = "objectControllable";
 			defaultValue = "false";
 		};
 		class UO_FW_ACRE_LR_RADIO_CHANNEL {
@@ -55,7 +55,7 @@ class UO_FW_ACREOptions {
 			tooltip = "Sets the long range radio channel of this unit";
 			control = "EditShort";
 			expression = "_this setVariable ['%s',_value,true];";
-			condition = "objectBrain";
+			condition = "objectControllable";
 			defaultValue = "1";
 		};
 		class UO_FW_ACRE_LR_RADIO_EAR {
@@ -64,7 +64,7 @@ class UO_FW_ACREOptions {
 			tooltip = "Sets the long range radio earpiece setting";
 			control = "UO_FW_ACRE_EarSetting_LR";
 			expression = "_this setVariable ['%s',_value,true];";
-			condition = "objectBrain";
+			condition = "objectControllable";
 			defaultValue = "0";
 		};
 		class UO_FW_ACRE_PK_RADIO_ENABLED {
@@ -73,7 +73,7 @@ class UO_FW_ACREOptions {
 			tooltip = "Gives this unit a long range pack radio defined in ACRE settings";
 			control = "CheckBox";
 			expression = "_this setVariable ['%s',_value,true];";
-			condition = "objectBrain";
+			condition = "objectControllable";
 			defaultValue = "false";
 		};
 		class UO_FW_ACRE_PK_RADIO_CHANNEL {
@@ -82,7 +82,7 @@ class UO_FW_ACREOptions {
 			tooltip = "Sets the long range pack radio channel of this unit";
 			control = "EditShort";
 			expression = "_this setVariable ['%s',_value,true];";
-			condition = "objectBrain";
+			condition = "objectControllable";
 			defaultValue = "1";
 		};
 		class UO_FW_ACRE_PK_RADIO_EAR {
@@ -91,7 +91,7 @@ class UO_FW_ACREOptions {
 			tooltip = "Sets the long range pack radio earpiece setting";
 			control = "UO_FW_ACRE_EarSetting_PK";
 			expression = "_this setVariable ['%s',_value,true];";
-			condition = "objectBrain";
+			condition = "objectControllable";
 			defaultValue = "0";
 		};
 	};

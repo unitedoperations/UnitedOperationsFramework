@@ -27,7 +27,7 @@ class CfgFactionClasses
 
 	class UO_FrameworkCategory: NO_CATEGORY
 	{
-			displayName = "United Operations Framework";
+			displayName = " United Operations Framework";
 	};
 
 	#include "HeadlessAIModule\cfgFactionClasses.hpp"
@@ -65,6 +65,7 @@ class CfgFunctions
 		#include "MapCompassRemoverModule\cfgFunctions.hpp"
 		#include "FiremissionModule\cfgFunctions.hpp"
 		#include "HostageModule\cfgFunctions.hpp"
+		#include "CoverMapModule\cfgFunctions.hpp"
 	};
 
 	#include "HeadlessAIModule\cfgFunctions.hpp"
@@ -114,6 +115,7 @@ class CfgVehicles
 	#include "SetupTimerModule\cfgVehicles.hpp"
 	#include "CaptureZoneModule\cfgVehicles.hpp"
 	#include "AOLimitModule\cfgVehicles.hpp"
+	#include "CoverMapModule\cfgVehicles.hpp"
 };
 
 class RscTitles
@@ -171,15 +173,17 @@ class Cfg3DEN
 			{
 				//add module settings here
 				#include "AIDriversModule\cfg3den\Modules\AIDrivers.hpp"
-				#include "AILinkModule\cfgAttributeCategories\mission\AILink.hpp"
+				#include "AILinkModule\cfg3den\Modules\AILink.hpp"
 				#include "AntiNDModule\cfg3den\Modules\AntiND.hpp"
-				#include "AutoTrackAssetModule\cfgAttributeCategories\mission\AutoTrackAsset.hpp"
-				#include "DisconnectControlModule\cfgAttributeCategories\mission\DisconnectControl.hpp"
-				#include "MarkerControlModule\cfgAttributeCategories\mission\MarkerControl.hpp"
+				#include "AutoTrackAssetModule\cfg3den\Modules\AutoTrackAsset.hpp"
+				#include "MapCompassRemoverModule\cfg3den\Modules\MapAndCompass.hpp"
+				#include "DisconnectControlModule\cfg3den\Modules\DisconnectControl.hpp"
+				#include "MarkerControlModule\cfg3den\Modules\MarkerControl.hpp"
 				#include "SafeStartModule\cfg3den\Modules\SafeStart.hpp"
 				#include "SelfActionsModule\cfg3den\Modules\SelfActions.hpp"
 				#include "ShotCountModule\cfg3den\Modules\ShotCount.hpp"
-				#include "StartTextModule\cfgAttributeCategories\mission\StartText.hpp"
+				#include "StartTextModule\cfg3den\Modules\StartText.hpp"
+				#include "CoverMapModule\cfg3den\Modules\CoverMap.hpp"
 			};
 		};
 		#include "GearModule\cfg3den\cfg3denMenu.hpp"
@@ -201,17 +205,53 @@ class Cfg3DEN
 		class AttributeCategories {
 			#include "HeadlessAIModule\cfgAttributeCategories\Object.hpp"
 			#include "TeamColourModule\cfgAttributeCategories\Object.hpp"
-			#include "GearModule\cfg3den\UnitGear.hpp"
+			#include "GearModule\cfgAttributeCategories\Object.hpp"
 			#include "ACREModule\cfgAttributeCategories\Object.hpp"
 			#include "AIDriversModule\cfgAttributeCategories\Object.hpp"
 			#include "StartInParachuteModule\cfgAttributeCategories\Object.hpp"
 			#include "MapCompassRemoverModule\cfgAttributeCategories\Object.hpp"
-			#include "FiremissionModule\cfgAttributeCategory.hpp"
+			#include "FiremissionModule\cfgAttributeCategories\Object.hpp"
 			#include "HostageModule\cfgAttributeCategories\Object.hpp"
+			#include "CoverMapModule\cfgAttributeCategories\Object.hpp"
 		};
 	};
 
 	class Logic {
+		class Draw {
+			class 3D {
+				//textureBackgroundModule =  "\x\UO_FW\addons\main\3DEN\Resources\UI\textureBackgroundModule_ca.paa";
+				sizeModule="32 * pixelW";
+				sizeBackgroundModule="48 * pixelW";
+				colorModule[]={0.333,0.333,0.333};
+				//colorModuleBackground[]={0.333,0.333,0.333};
+				colorModulePreview[]={0.333,0.333,0.333};
+				//colorModulePreviewBackground[]={0.333,0.333,0.333};
+				alphaNormal=1;
+				alphaNormalBackground=0.5;
+				alphaSelected=1;
+				alphaSelectedBackground=1;
+				alphaHover=1;
+				alphaHoverBackground=1;
+				fadeDistance=2500;
+			};
+			class 2D {
+				//textureBackgroundModule = "\x\UO_FW\addons\main\3DEN\Resources\UI\textureBackgroundModule_ca.paa";
+				sizeModule="32 * pixelW";
+				sizeBackgroundModule="48 * pixelW";
+				presenceBorder=2;
+				colorModule[]={0.333,0.333,0.333};
+				//colorModuleBackground[]={0.333,0.333,0.333};
+				colorModulePreview[]={0.333,0.333,0.333};
+				//colorModulePreviewBackground[]={0.333,0.333,0.333};
+				alphaNormal=1;
+				alphaNormalBackground=0.5;
+				alphaSelected=1;
+				alphaSelectedBackground=1;
+				alphaHover=1;
+				alphaHoverBackground=1;
+			};
+		};
+
 		class AttributeCategories {
 			#include "HeadlessAIModule\cfgAttributeCategories\Logic.hpp"
 		};

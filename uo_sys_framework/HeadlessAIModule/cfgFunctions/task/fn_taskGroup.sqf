@@ -30,7 +30,7 @@ params ["_grp","_i"];
 			_grp setVariable["UO_FW_AI_CompletedTasks",[]];
 			_grp setVariable["UO_FW_AI_CurrentTaskEndTime",(time + _taskTimer)];
 			_passarray = [_task,_grp,_pos,_taskRadius,_wait,_behave,_combat,_speed,_formation,_occupyOption];
-			[{!((count units (_this select 1)) isEqualto 0)},{
+			[{!((count waypoints (_this select 1)) isEqualto 0)},{
 				_this call UO_FW_AI_fnc_taskAssign;
 			},_passarray] call CBA_fnc_waitUntilAndExecute;
 		};
@@ -38,7 +38,7 @@ params ["_grp","_i"];
 		_grp setVariable["UO_FW_AI_CompletedTasks",[]];
 		_grp setVariable["UO_FW_AI_CurrentTaskEndTime",(time + _taskTimer)];
 		_passarray = [_task,_grp,_pos,_taskRadius,_wait,_behave,_combat,_speed,_formation,_occupyOption];
-		[{!((count units (_this select 1)) isEqualto 0)},{
+		[{!((count waypoints (_this select 1)) isEqualto 0)},{
 			_this call UO_FW_AI_fnc_taskAssign;
 		},_passarray] call CBA_fnc_waitUntilAndExecute;
 	};

@@ -1,4 +1,4 @@
-class OPFOR_NATOStyle
+class UO_FW_OPFOR_NATOStyle
 {
     displayName = "NATO Style Briefing";
     collapsed = 1;
@@ -12,7 +12,7 @@ class OPFOR_NATOStyle
             control = "CheckboxState";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "false";
-            
+
         };
 		class UO_FW_BRIEFING_OPFOR_NATO_SITUATION_TITLE
         {
@@ -21,7 +21,7 @@ class OPFOR_NATOStyle
 			control = "CategoryTitleIndent";
             expression = "true";
             defaultValue = "";
-            
+
         };
 		class UO_FW_BRIEFING_OPFOR_NATO_SIT_MAIN
         {
@@ -32,7 +32,7 @@ class OPFOR_NATOStyle
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_OPFOR_NATO_SIT_TERRAIN
         {
@@ -43,7 +43,7 @@ class OPFOR_NATOStyle
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_OPFOR_NATO_SIT_KEYTERRAIN
         {
@@ -54,7 +54,7 @@ class OPFOR_NATOStyle
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_OPFOR_NATO_SIT_WEATHER
         {
@@ -65,7 +65,7 @@ class OPFOR_NATOStyle
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_OPFOR_NATO_ENEMY_TITLE
         {
@@ -74,7 +74,7 @@ class OPFOR_NATOStyle
 			control = "SubTitle";
             expression = "true";
             defaultValue = "";
-            
+
         };
 		class UO_FW_BRIEFING_OPFOR_NATO_ENEMY_DIS
         {
@@ -85,7 +85,7 @@ class OPFOR_NATOStyle
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_OPFOR_NATO_ENEMY_STRENGTH
         {
@@ -126,7 +126,7 @@ class OPFOR_NATOStyle
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_OPFOR_NATO_ENEMY_MDCOA
         {
@@ -137,7 +137,7 @@ class OPFOR_NATOStyle
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_OPFOR_NATO_FRIENDLY_TITLE
         {
@@ -146,7 +146,7 @@ class OPFOR_NATOStyle
 			control = "SubTitle";
             expression = "true";
             defaultValue = "";
-            
+
         };
 		class UO_FW_BRIEFING_OPFOR_NATO_FRIENDLY_DIS
         {
@@ -157,7 +157,7 @@ class OPFOR_NATOStyle
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_OPFOR_NATO_FRIENDLY_HIGHER
         {
@@ -168,7 +168,7 @@ class OPFOR_NATOStyle
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_OPFOR_NATO_FRIENDLY_STRENGTH
         {
@@ -179,7 +179,7 @@ class OPFOR_NATOStyle
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
         class UO_FW_BRIEFING_OPFOR_NATO_FRIENDLY_APPEARANCE
         {
@@ -190,7 +190,7 @@ class OPFOR_NATOStyle
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_OPFOR_NATO_MISSION_TITLE
         {
@@ -199,7 +199,7 @@ class OPFOR_NATOStyle
 			control = "CategoryTitleIndent";
             expression = "true";
             defaultValue = "";
-            
+
         };
         class UO_FW_BRIEFING_OPFOR_NATO_MISSION
         {
@@ -210,7 +210,7 @@ class OPFOR_NATOStyle
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_OPFOR_NATO_EXECUTION_TITLE
         {
@@ -221,7 +221,7 @@ class OPFOR_NATOStyle
             validate = "STRING";
             expression = "true";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_OPFOR_NATO_EXECUTION_INTENT
         {
@@ -232,7 +232,7 @@ class OPFOR_NATOStyle
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_OPFOR_NATO_EXECUTION_MANEUVER
         {
@@ -243,7 +243,7 @@ class OPFOR_NATOStyle
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_OPFOR_NATO_EXECUTION_TIMINGS
         {
@@ -254,7 +254,7 @@ class OPFOR_NATOStyle
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_OPFOR_NATO_EXECUTION_TASKS
         {
@@ -265,7 +265,7 @@ class OPFOR_NATOStyle
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_OPFOR_NATO_SANDS_TITLE
         {
@@ -275,7 +275,7 @@ class OPFOR_NATOStyle
 			control = "CategoryTitleIndent";
             expression = "true";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_OPFOR_NATO_SANDS_SUPPORT_TITLE
         {
@@ -285,7 +285,7 @@ class OPFOR_NATOStyle
 			control = "SubTitle";
             expression = "true";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_OPFOR_NATO_SANDS_SUPPORT_FIRES
         {
@@ -296,7 +296,7 @@ class OPFOR_NATOStyle
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_OPFOR_NATO_SANDS_SUPPORT_AMMO
         {
@@ -307,7 +307,7 @@ class OPFOR_NATOStyle
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_OPFOR_NATO_SANDS_SERVICE_TITLE
         {
@@ -317,7 +317,7 @@ class OPFOR_NATOStyle
 			control = "SubTitle";
             expression = "true";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_OPFOR_NATO_SANDS_SERVICE_GENERAL
         {
@@ -328,7 +328,7 @@ class OPFOR_NATOStyle
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_OPFOR_NATO_CANDS_TITLE
         {
@@ -338,7 +338,7 @@ class OPFOR_NATOStyle
 			control = "CategoryTitleIndent";
             expression = "true";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_OPFOR_NATO_CANDS_COMMAND_TITLE
         {
@@ -348,7 +348,7 @@ class OPFOR_NATOStyle
 			control = "SubTitle";
             expression = "true";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_OPFOR_NATO_CANDS_COMMAND
         {
@@ -359,7 +359,7 @@ class OPFOR_NATOStyle
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_OPFOR_NATO_CANDS_SIGNALS_TITLE
         {
@@ -369,7 +369,7 @@ class OPFOR_NATOStyle
 			control = "SubTitle";
             expression = "true";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_OPFOR_NATO_CANDS_SIGNALS_FREQ
         {
@@ -380,7 +380,7 @@ class OPFOR_NATOStyle
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_OPFOR_NATO_CANDS_SIGNALS_CODEWORDS
         {
@@ -391,7 +391,7 @@ class OPFOR_NATOStyle
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_OPFOR_NATO_CANDS_SIGNALS_SPECIAL
         {
@@ -402,7 +402,7 @@ class OPFOR_NATOStyle
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_OPFOR_NATO_CANDS_SIGNALS_CALLSIGNS
         {
@@ -413,7 +413,7 @@ class OPFOR_NATOStyle
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_OPFOR_NATO_CANDS_SIGNALS_PASSWORDS
         {
@@ -762,7 +762,7 @@ class OPFOR_APPENDIX
             control = "CheckboxState";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "false";
-            
+
         };
 		class UO_FW_BRIEFING_OPFOR_APPENDIX_PATH
         {
@@ -773,7 +773,7 @@ class OPFOR_APPENDIX
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 	};
 };

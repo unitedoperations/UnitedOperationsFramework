@@ -40,7 +40,7 @@ class UO_FW_CaptureZoneModule: OlsenModule
 			displayName = "Activation Radius X";
 			tooltip = "The size of the X value of the capture zone. Default: 100";
 			property = "UO_FW_CaptureZone_RadiusX";
-			control = "UO_FW_moduleradiusControl";
+			control = "UO_FW_AI_moduleradiusControl";
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "100";
 			typeName = "NUMBER";
@@ -50,7 +50,7 @@ class UO_FW_CaptureZoneModule: OlsenModule
 			displayName = "Activation Radius Y";
 			tooltip = "The size of the Y value of the capture zone. Default: 100";
 			property = "UO_FW_CaptureZone_RadiusY";
-			control = "UO_FW_moduleradiusControl2";
+			control = "UO_FW_AI_moduleradiusControl2";
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "100";
 			typeName = "NUMBER";
@@ -282,7 +282,7 @@ class UO_FW_CaptureZoneModule: OlsenModule
 			displayName = "Custom Condition";
 			tooltip = "Enter a custom condition that must be met for this zone to be captured. Default: true";
 			property = "UO_FW_CaptureZone_Condition";
-			control = "UO_FW_codeControl";
+			control = "UO_FW_AI_codeControl";
 			expression = "_this setVariable ['%s',_value,true];";
 			defaultValue = "''";
 		};

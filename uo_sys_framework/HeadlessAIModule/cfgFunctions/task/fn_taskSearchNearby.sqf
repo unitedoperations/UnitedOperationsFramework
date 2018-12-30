@@ -25,6 +25,9 @@ Modified:
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
 UO_FW_AI_EXEC_CHECK(SERVERHC)
 
+
+
+
 params ["_group"];
 
 _group = _group call CBA_fnc_getGroup;
@@ -34,17 +37,19 @@ private _building = nearestBuilding (leader _group);
 if ((leader _group) distanceSqr _building > 10e3) exitwith {};
 
 {_x forcespeed -1; _x enableAI "PATH";} foreach units _group;
+_otask = _group getvariable ["UO_FW_AI_Mission","NONE"];
 
-
-[_group,_building] spawn {
+[_group,_building,_otask] spawn {
     params ["_group","_building"];
     private _leader = leader _group;
+		_group setvariable ["InitialWPSet",true];
+		_group setVariable ["UO_FW_AI_Mission","BLD SEARCH"];
 
     // Add a waypoint to regroup after the search
     _group lockWP true;
     private _wp = _group addWaypoint [getPos _leader, 0, currentWaypoint _group];
     private _cond = "({unitReady _x || !(alive _x)} count thisList) == count thisList";
-    private _comp = format ["this setFormation '%1'; this setBehaviour '%2'; deleteWaypoint [group this, currentWaypoint (group this)];",formation _group,behaviour _leader];
+    private _comp = format ["this setFormation '%1'; this setBehaviour '%2'; deleteWaypoint [group this, currentWaypoint (group this)];",(formation _group),(behaviour _leader)];
     _wp setWaypointStatements [_cond,_comp];
 
     // Prepare group to search
@@ -76,6 +81,5 @@ if ((leader _group) distanceSqr _building > 10e3) exitwith {};
     };
 
     _group lockWP false;
-		_group setvariable ["InitialWPSet",true];
-		_group setVariable ["UO_FW_AI_Mission","BLD SEARCH"];
+		_group setVariable ["UO_FW_AI_Mission",_otask];
 };

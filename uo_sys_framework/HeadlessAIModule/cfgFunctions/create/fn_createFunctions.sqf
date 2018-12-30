@@ -4,7 +4,7 @@
  * 		OBJECT	- Module (name, _logic)
  * 	Return Value:
  * 		BOOL 	- True
- *	["UO_FW_AI_FastAirStrikeModule","UO_FW_AI_AirDropModule","UO_FW_AI_HeloInsertModule"];
+ *	
  */
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
 UO_FW_AI_EXEC_CHECK(SERVERHC)

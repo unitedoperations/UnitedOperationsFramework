@@ -1,5 +1,5 @@
 
-	class UO_SetupTimerModule: OlsenModule {
+	class UO_FW_SetupTimerModule: OlsenModule {
 		displayName = "Setup Timer Module"; // Name displayed in the menu
 		scope = 2; // Editor visibility; 2 will show it in the menu, 1 will hide it.
 		// Name of function triggered once conditions are met
@@ -37,12 +37,11 @@
 					};
 					defaultValue = "0";
 				};
-
 				class UO_FW_SetupTimer_RadiusX {
 					displayName = "Radius X";
 					tooltip = "The size of the X value of the setup zone. Default: 100";
 					property = "UO_FW_SetupTimer_RadiusX";
-					control = "UO_FW_moduleradiusControl";
+					control = "UO_FW_AI_moduleradiusControl";
 					expression = "_this setVariable ['%s',_value,true];";
 					defaultValue = "100";
 					typeName = "NUMBER";
@@ -52,7 +51,7 @@
 					displayName = "Radius Y";
 					tooltip = "The size of the Y value of the setup zone. Default: 100";
 					property = "UO_FW_SetupTimer_RadiusY";
-					control = "UO_FW_moduleradiusControl2";
+					control = "UO_FW_AI_moduleradiusControl2";
 					expression = "_this setVariable ['%s',_value,true];";
 					defaultValue = "100";
 					typeName = "NUMBER";
@@ -73,7 +72,7 @@
 			};
 	};
 
-	class UO_SetupTimerModule_R : UO_SetupTimerModule {
+	class UO_FW_SetupTimerModule_R : UO_FW_SetupTimerModule {
 		displayName = "Setup Timer Module (Rectangle)"; // Name displayed in the menu
 		class AttributeValues {
 	      size2[] = {100,100};

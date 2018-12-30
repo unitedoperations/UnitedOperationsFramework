@@ -121,9 +121,9 @@ class UO_FW_AI_taskControl : Title	{
              x = "48 * (pixelW * pixelGrid * 0.50)";
              w = "82 * (pixelW * pixelGrid * 0.50)";
              h = "20 * (pixelH * pixelGrid * 0.50)";
-             rows = 6;
+             rows = 5;
              columns = 2;
-			values[] = {0,1,2,3,4,5,6,7,8,9};
+			values[] = {0,1,2,3,4,5,6,7,8,9,10};
              strings[] = {
 				"Loiter",
 				"Hold Until",
@@ -134,7 +134,8 @@ class UO_FW_AI_taskControl : Title	{
 				"Move to Patrol Buildings",
 				"Move to Defend Buildings",
 				"Entrenched",
-				"Reinforcments"
+				"Reinforcments",
+				"None"
 			};
 			tooltips[] = {
 				"Loiter in position, ambient animations.",
@@ -146,7 +147,8 @@ class UO_FW_AI_taskControl : Title	{
 				"From start location move to buildings and patrol within them.",
 				"From start location move to buildings and hold position until contacted.",
 				"Stationary units with far engagement ranges",
-				"Squad which holds until called by friendlies to reinforce"
+				"Squad which holds until called by friendlies to reinforce",
+				"None"
 			};
 			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_task_value',_this select 1];";
 		};

@@ -29,7 +29,7 @@ params ["_grp",["_newTask",objNull,[objNull]],["_setTime",0,[0]]];
 		private _newSpeed = if(_speed isEqualTo "unchanged") then {(speedMode _grp)} else {_speed};
 		private _newForm = if(_form isEqualTo "unchanged") then {(formation _grp)} else {_form};
 		_passarray = [_task,_grp,(getPosATL _newTask),_radius,_wait,_newBehave,_newCombat,_newSpeed,_newForm,_occupy];
-		[{!((count units (_this select 1)) isEqualto 0)},{
+		[{!((count waypoints (_this select 1)) isEqualto 0)},{
 			_this call UO_FW_AI_fnc_taskAssign;
 		},_passarray] call CBA_fnc_waitUntilAndExecute;
 	};

@@ -1,4 +1,4 @@
-class Main
+class UO_FW_MissionNotes
 {
     displayName = "Mission Notes";
     collapsed = 1;
@@ -12,7 +12,7 @@ class Main
             control = "CheckboxState";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "false";
-            
+
         };
 		class UO_FW_BRIEFING_MISSIONNOTES_AUTHOR
         {
@@ -22,7 +22,7 @@ class Main
             control = "EditShort";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "profileNameSteam";
-            
+
         };
 		class UO_FW_BRIEFING_MISSIONNOTES_TESTERS
         {
@@ -32,7 +32,7 @@ class Main
             control = "Edit";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_MISSIONNOTES_CONDITIONS
         {
@@ -42,7 +42,7 @@ class Main
             control = "EditMulti5";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
         class UO_FW_BRIEFING_MISSIONNOTES_CUSTOM
         {
@@ -52,7 +52,7 @@ class Main
             control = "EditMulti5";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
          class UO_FW_BRIEFING_MISSIONNOTES_CHANGELOG
         {
@@ -62,7 +62,7 @@ class Main
             control = "EditMulti5";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_MISSIONNOTES_GM
         {
@@ -72,7 +72,7 @@ class Main
             control = "CheckBox";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "false";
-            
+
         };
     };
 };

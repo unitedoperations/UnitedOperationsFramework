@@ -25,7 +25,7 @@ UO_FW_AI_EXEC_CHECK(SERVERHC)
 		_grp getVariable ['UO_FW_AI_groupStance','auto'],
 		_grpInit,
 		_grp getVariable ['UO_FW_AI_createRadius',0],
-		_grp getVariable ['UO_FW_AI_patrolRadius',0],
+		_grp getVariable ['UO_FW_AI_patrolRadius',30],
 		_grp getVariable ['UO_FW_AI_waypointWait',3],
 		_grp getVariable ['UO_FW_AI_startBuilding',false],
 		_grp getVariable ['UO_FW_AI_task',4],

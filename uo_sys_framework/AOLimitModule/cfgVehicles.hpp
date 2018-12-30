@@ -10,8 +10,7 @@
 		isDisposable = 0;
 		is3DEN = 1;
 		canSetArea = 1;
-		canSetAreaHeight = 0;
-		canSetAreaShape = 0;
+		icon = "\x\UO_FW\addons\main\AOLimitModule\resources\icon_test.paa";
 
 		class AttributeValues {
 	    size2[] = {100,100};
@@ -65,7 +64,7 @@
 					displayName = "Radius X";
 					tooltip = "The size of the X value of the setup zone. Default: 100";
 					property = "UO_FW_AOLimit_RadiusX";
-					control = "UO_FW_moduleradiusControl";
+					control = "UO_FW_AI_moduleradiusControl";
 					expression = "_this setVariable ['%s',_value,true];";
 					defaultValue = "100";
 					typeName = "NUMBER";
@@ -75,7 +74,7 @@
 					displayName = "Radius Y";
 					tooltip = "The size of the Y value of the setup zone. Default: 100";
 					property = "UO_FW_AOLimit_RadiusY";
-					control = "UO_FW_moduleradiusControl2";
+					control = "UO_FW_AI_moduleradiusControl2";
 					expression = "_this setVariable ['%s',_value,true];";
 					defaultValue = "100";
 					typeName = "NUMBER";

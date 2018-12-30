@@ -13,6 +13,7 @@ switch _mode do {
 				_loc = getPosATL _logic;
 				_radiusX = _logic getVariable ["UO_FW_SetupTimer_RadiusX",100];
 				_radiusY = _logic getVariable ["UO_FW_SetupTimer_RadiusY",100];
+				//_isRectangle = _logic getVariable ["UO_FW_SetupTimer_RectangleShape",false];
 				_direction = getdir _logic;
 				_isRectangle = if((typeof _logic) isEqualTo "UO_SetupTimerModule_R") then {true} else {false};
 				_area = [_loc,_radiusX,_radiusY,_direction,_isRectangle];

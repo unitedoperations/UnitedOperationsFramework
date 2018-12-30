@@ -11,6 +11,9 @@
  */
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
 UO_FW_AI_EXEC_CHECK(SERVERHC)
+
+
+
 params["_grp",["_behave","SAFE",[""]],["_combat","RED",[""]],["_speed","LIMITED",[""]],["_formation","WEDGE",[""]],"_i"];
 {_x forcespeed -1; _x enableAI "PATH";} foreach units _grp;
 _grp setBehaviour _behave;

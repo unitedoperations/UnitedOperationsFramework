@@ -42,7 +42,7 @@ params ["_grpid","_grpSet","_grpMem",["_blds",[],[[]]],["_bldPos",[],[[]]],["_uB
 			{_x setvariable["UO_FW_AI_Occupy",true]} forEach (units _ngrp);
 			_ngrp setVariable["UO_FW_AI_CurrentTaskEndTime",(time + _taskTimer)];
 			_passarray = [_task,_ngrp,_spos,_taskRadius,_wait,_behave,_combat,_speed,_formation];
-			[{!((count units (_this select 1)) isEqualto 0)},{
+			[{!((count waypoints (_this select 1)) isEqualto 0)},{
 				_this call UO_FW_AI_fnc_taskAssign;
 			},_passarray] call CBA_fnc_waitUntilAndExecute;
 		};

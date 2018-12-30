@@ -86,11 +86,11 @@ class UO_FW_AI_GroupTask {
 		};
 		class UO_FW_AI_patrolRadius {
 			displayName = "Task Radius";
-			tooltip = "Radius that Group will conduct the assigned task in. Default: 100m";
+			tooltip = "Radius that Group will conduct the assigned task in. Default: 30m";
 			property = "UO_FW_AI_patrolRadius";
 			control = "UO_FW_AI_patrolradiusControl";
 			expression = "_this setVariable ['%s',_value,true];";
-			defaultValue = "100";
+			defaultValue = "30";
 			typeName = "NUMBER";
 			validate = "number";
 		};

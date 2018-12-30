@@ -10,6 +10,9 @@ Version Numbers mainly refer to the UO Modpack addition.
 - Server broadcasts it's debug messages to clients if debug detailed enabled
 - Added serverTime/client time sync check macro: `UO_FW_ServerTimeVerify(CHECK)`
 - Added `UO_FW_ServerStartTime` initial server diag_ticktime publicVariable
+- Added debug option in setDefaults file for checking that new attributes/vars are defined correctly
+- Added CoverMap module
+
 
 ### Changed
 - Build batch made dynamic to dir path and game registry path
@@ -26,6 +29,7 @@ Version Numbers mainly refer to the UO Modpack addition.
 - Converted Setup Timer to editor module, singleplayer compatibility
 - Removes fired eventhandler when AntiND time has passed
 - Combined SoftAO and AO module, now as a setting inside the module
+- Changed Map and Compass remover to work through expression inits
 
 ### Fixed
 - [HC] Collecting/Spawning function

@@ -44,9 +44,7 @@ switch _mode do
 			_silent = _logic getVariable ["UO_FW_CaptureZone_Silent",false];
 			_automessages = _logic getVariable ["UO_FW_CaptureZone_AutoMessages",false];
 			_cond = _logic getVariable ["UO_FW_CaptureZone_Condition","true"];
-
 			[_logic,_zoneName,_area,_interval,_repeatable,_capArray,_timeArray,_messagesArray,_colours,_hidden,_silent,_automessages,_ratioNeeded,_cond] call UO_FW_FNC_CaptureZoneLoop;
-
 		};
 
 	};

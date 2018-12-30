@@ -1,4 +1,4 @@
-class JIPCategory
+class UO_FW_JIPCategory
 {
     displayName = "JiP Settings";
     collapsed = 1;

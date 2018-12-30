@@ -1,4 +1,4 @@
-class CIVILIAN_ACRE_RADIOTYPES_CAT
+class UO_FW_CIVILIAN_ACRE_RADIOTYPES_CAT
 {
     displayName = "Radio Configuration";
     collapsed = 0;

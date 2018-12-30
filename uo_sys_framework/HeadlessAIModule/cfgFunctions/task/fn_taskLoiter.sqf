@@ -11,15 +11,18 @@
  */
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
 UO_FW_AI_EXEC_CHECK(SERVERHC)
+
+
+
 params [
 	"_grp",
 	"_pos",
 	["_radius",30,[0]],
 	["_wait",3,[0]],
-	["_behave","SAFE",[""]],
-	["_combat","RED",[""]],
-	["_speed","LIMITED",[""]],
-	["_formation","WEDGE",[""]],
+	["_behaviour", "UNCHANGED", [""]],
+  ["_combat", "NO CHANGE", [""]],
+  ["_speed", "UNCHANGED", [""]],
+	["_formation", "NO CHANGE", [""]],
 	["_type","MOVE",[""]],
 	["_oncomplete","this call UO_FW_AI_fnc_taskSearchNearby",[""]],
 	["_compradius",0,[0]],

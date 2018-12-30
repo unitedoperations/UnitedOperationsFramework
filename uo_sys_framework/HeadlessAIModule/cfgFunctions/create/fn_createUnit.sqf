@@ -41,4 +41,18 @@ params ["_occupy","_grp","_gpos","_startBld","_i","_u","_taskRadius",["_currentV
 	};
 	if(!isNil "UO_FW_aCount_event_addEH") then { ["UO_FW_aCount_event_addEH", _unit] call CBA_fnc_serverEvent};
 	_unit call UO_FW_FNC_trackUnit;
+	if (UO_FW_MACR_MAP_ALL) then {
+		_unit unlinkItem "ItemMap";
+	} else {
+		if(_unit getVariable ["UO_FW_RemoveMap",false]) then {
+			_unit unlinkItem "ItemMap";
+		};
+	};
+	if (UO_FW_MACR_COMPASS_ALL) then {
+		_unit unlinkItem "ItemCompass";
+	} else {
+		if(_unit getVariable ["UO_FW_RemoveCompass",false]) then {
+			_unit unlinkItem "ItemCompass";
+		};
+	};
 	_unit
