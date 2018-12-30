@@ -79,3 +79,11 @@
 				IsRectangle = 1;
 	    };
 	};
+
+	class UO_SetupTimerModule_R : UO_FW_SetupTimerModule_R {
+		scope = 0;
+	};
+
+	class UO_SetupTimerModule : UO_FW_SetupTimerModule {
+		scope = 0;
+	};

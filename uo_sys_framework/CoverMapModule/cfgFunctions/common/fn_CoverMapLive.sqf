@@ -65,8 +65,8 @@ private _colors = ["colorBlack","colorBlack",_colorForest,"colorGreen",_colorFor
 		_w = _radiusX + 2 * _mainBS;
 		_bw = _radiusX + _mainBS;
 	};
-	_posos_x = _posx + (sin _dir) * (_mainS + _s + _mainBS);
-	_posos_y = _posy + (cos _dir) * (_mainS + _s + _mainBS);
+	private _posos_x = _posx + (sin _dir) * (_mainS + _s + _mainBS);
+	private _posos_y = _posy + (cos _dir) * (_mainS + _s + _mainBS);
 
 	{
 		_x params ["_color"];
@@ -88,15 +88,8 @@ private _colors = ["colorBlack","colorBlack",_colorForest,"colorGreen",_colorFor
 
 	} forEach _colors;
 
-} forEach [_dir, (_dir + 90), (_dir + 180), (_dir + 270)];
-
-{
-	private _i = _forEachIndex;
-	private _posos_x = _posx + (sin _dir) * (_mainBS / 2 + _s);
-	private _posos_y = _posy + (cos _dir) * (_mainBS / 2 + _s);
-
 	for [{_m = 0;},{(_m < 8)},{_m = _m + 1;}] do {
-		private _markername2 = format ["UO_FW_CoverMap_Marker_%1_%2",_i,_m];
+		private _markername2 = format ["UO_FW_CoverMap_Marker_w_%1",_m];
 		private _marker2 = createMarkerLocal [_markername2,[_posos_x, _posos_y]];
 		MissionNamespace setvariable [_markername2,_marker2];
 
@@ -107,6 +100,7 @@ private _colors = ["colorBlack","colorBlack",_colorForest,"colorGreen",_colorFor
 		(MissionNamespace getvariable _markername2) setMarkerColorLocal "colorwhite";
 		UO_FW_CoverMap_MarkerArray pushBack (MissionNamespace getvariable _markername2);
 	};
+
 } forEach [_dir, (_dir + 90), (_dir + 180), (_dir + 270)];
 
 private _markername3 = format ["UO_FW_CoverMap_Marker_b1_%1",_index];

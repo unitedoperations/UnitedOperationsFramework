@@ -16,7 +16,7 @@ Returns:
     Nil
 
 Author:
-    Rommel, SilentSpike
+    Rommel, SilentSpike and PiZZADOX
 
 Modified:
 	suits (removed _group setBehaviour "Combat"; under Prepare group to search)
@@ -24,9 +24,6 @@ Modified:
 
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
 UO_FW_AI_EXEC_CHECK(SERVERHC)
-
-
-
 
 params ["_group"];
 
@@ -40,7 +37,7 @@ if ((leader _group) distanceSqr _building > 10e3) exitwith {};
 _otask = _group getvariable ["UO_FW_AI_Mission","NONE"];
 
 [_group,_building,_otask] spawn {
-    params ["_group","_building"];
+    params ["_group","_building","_otask"];
     private _leader = leader _group;
 		_group setvariable ["InitialWPSet",true];
 		_group setVariable ["UO_FW_AI_Mission","BLD SEARCH"];

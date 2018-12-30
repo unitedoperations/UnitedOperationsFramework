@@ -95,7 +95,6 @@ private _colors = ["colorBlack","colorBlack",_colorForest,"colorGreen",_colorFor
 		private _markername2 = format ["UO_FW_CoverMap_Marker_%1_%2",_i,_m];
 		private _marker2 = createMarkerLocal [_markername2,[_posos_x, _posos_y]];
 		MissionNamespace setvariable [_markername2,_marker2];
-
 		(MissionNamespace getvariable _markername2) setMarkerSizeLocal [_bw, _mainBS / 2];
 		(MissionNamespace getvariable _markername2) setMarkerDirLocal _dir;
 		(MissionNamespace getvariable _markername2) setMarkerShapeLocal "rectangle";

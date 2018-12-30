@@ -15,10 +15,9 @@ switch _mode do {
 				_loc = getPosATL _logic;
 				_radiusX = _logic getVariable ["UO_FW_CoverMap_RadiusX",100];
 				_radiusY = _logic getVariable ["UO_FW_CoverMap_RadiusY",100];
-				//_isRectangle = _logic getVariable ["UO_FW_SetupTimer_RectangleShape",false];
 				_direction = getdir _logic;
-				_isRectangle = if((typeof _logic) isEqualTo "UO_FW_CoverMapModule_R") then {true} else {false};
-				_area = [_loc,_radiusX,_radiusY,_direction,_isRectangle];
+				//_isRectangle = if((typeof _logic) isEqualTo "UO_FW_CoverMapModule_R") then {true} else {false};
+				_area = [_loc,_radiusX,_radiusY,_direction,true];
 
 				if (isNil "UO_FW_CoverMap_AO_Array") then {UO_FW_CoverMap_AO_Array = [];};
 				UO_FW_CoverMap_AO_Array pushback [_AOName,_area,_AOZoom];
