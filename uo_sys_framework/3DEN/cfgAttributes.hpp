@@ -10,6 +10,25 @@ class Title: Default
 	};
 };
 
+class Combo: Title
+{
+	class Controls
+	{
+		class Title;
+		class Value;
+	};
+};
+
+class ComboPreview: Combo
+{
+	class Controls
+	{
+		class Title;
+		class Value;
+		class Preview;
+	};
+};
+
 class Toolbox: Title
 {
 	class Controls

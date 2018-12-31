@@ -28,7 +28,7 @@ class UO_FW_StartText
 			{
 				class Date    {name = "Date"; value = 0;};
 				class Time    {name = "Time"; value = 1;};
-				class DateTime    {name = "Date and Time"; value = 2;default = 2;};
+				class DateTime    {name = "Date and Time"; value = 2; default = 2;};
 
 			};
 			defaultValue = "2";

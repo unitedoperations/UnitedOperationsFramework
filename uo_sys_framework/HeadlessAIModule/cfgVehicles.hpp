@@ -22,6 +22,7 @@ class UO_FW_AI_ZoneModule : UO_FW_AI_Module
 	canSetArea = 1;
 	canSetAreaHeight = 0;
 	canSetAreaShape = 0;
+	icon = "\x\UO_FW\addons\main\HeadlessAIModule\resources\aizonemodule_ca.paa";
 
 		class AttributeValues {
         size2[] = {100,100};
@@ -129,6 +130,7 @@ class UO_FW_AI_ControlModule : UO_FW_AI_Module {
 	is3DEN = 1;
 	curatorInfoType = "RscDisplayAttributeModuleNuke";
 	canSetArea = 1;
+	icon = "\x\UO_FW\addons\main\HeadlessAIModule\resources\aicontrolmodule_ca.paa";
 	class AttributeValues {
 		size2[] = {100,100};
 		IsRectangle = 0;
@@ -469,4 +471,5 @@ class UO_FW_AI_TemplateModule : UO_FW_AI_Module {
 	isTriggerActivated = 0;
 	isDisposable = 0;
 	is3DEN = 1;
+	icon = "\x\UO_FW\addons\main\HeadlessAIModule\resources\aitemplatemodule_ca.paa";
 };

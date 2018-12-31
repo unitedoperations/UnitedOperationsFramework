@@ -166,6 +166,9 @@ class Cfg3DEN
 			};
 		};
 
+		//Additional Core cfg3denMenu defines
+		#include "Core\cfg3den\cfg3denMenu.hpp"
+
 		class UO_FW_Module_Settings
 		{
 			displayName = "Module Settings";
@@ -219,15 +222,15 @@ class Cfg3DEN
 	class Logic {
 		class Draw {
 			class 3D {
-				//textureBackgroundModule =  "\x\UO_FW\addons\main\3DEN\Resources\UI\textureBackgroundModule_ca.paa";
-				sizeModule="32 * pixelW";
-				sizeBackgroundModule="48 * pixelW";
-				colorModule[]={0.333,0.333,0.333};
-				//colorModuleBackground[]={0.333,0.333,0.333};
-				colorModulePreview[]={0.333,0.333,0.333};
-				//colorModulePreviewBackground[]={0.333,0.333,0.333};
+				textureBackgroundModule =  "\x\UO_FW\addons\main\3DEN\Resources\UI\textureBackgroundModuleSquareInv_ca.paa";
+				sizeModule="(32 + 14) * pixelW";
+				sizeBackgroundModule="(48 + 14) * pixelW";
+				colorModule[]={0,0,0};
+				colorModuleBackground[]={1,1,1};
+				colorModulePreview[]={1,1,1};
+				colorModulePreviewBackground[]={1,1,1};
 				alphaNormal=1;
-				alphaNormalBackground=0.5;
+				alphaNormalBackground=0.75;
 				alphaSelected=1;
 				alphaSelectedBackground=1;
 				alphaHover=1;
@@ -235,16 +238,17 @@ class Cfg3DEN
 				fadeDistance=2500;
 			};
 			class 2D {
-				//textureBackgroundModule = "\x\UO_FW\addons\main\3DEN\Resources\UI\textureBackgroundModule_ca.paa";
-				sizeModule="32 * pixelW";
-				sizeBackgroundModule="48 * pixelW";
+				textureBackgroundModule =  "\x\UO_FW\addons\main\3DEN\Resources\UI\textureBackgroundModuleSquareInv_ca.paa";
+				sizeModule="(32 + 6) * pixelW";
+				sizeBackgroundModule="(48 + 6) * pixelW";
 				presenceBorder=2;
-				colorModule[]={0.333,0.333,0.333};
-				//colorModuleBackground[]={0.333,0.333,0.333};
-				colorModulePreview[]={0.333,0.333,0.333};
-				//colorModulePreviewBackground[]={0.333,0.333,0.333};
+				areaBorder=1;
+				colorModule[]={0,0,0};
+				colorModuleBackground[]={1,1,1};
+				colorModulePreview[]={0,0,0};
+				colorModulePreviewBackground[]={1,1,1};
 				alphaNormal=1;
-				alphaNormalBackground=0.5;
+				alphaNormalBackground=0.75;
 				alphaSelected=1;
 				alphaSelectedBackground=1;
 				alphaHover=1;
@@ -269,6 +273,7 @@ class Cfg3DEN
 		#include "StartInParachuteModule\CfgAttributes.hpp"
 		#include "JipModule\CfgAttributes.hpp"
 		#include "ACREModule\CfgAttributes.hpp"
+		#include "GearModule\CfgAttributes.hpp"
 	};
 };
 
@@ -281,7 +286,8 @@ class display3DEN
 			class Items
 			{
 				//UO menus define
-				#include "3DEN\display3DEN\Menu.hpp"
+				#include "Core\display3DEN\Menu.hpp"
+				#include "Core\display3DEN\MenuRespawn.hpp"
 
 				//Add custom UO menus
 				#include "HeadlessAIModule\display3DEN\Menu.hpp"
@@ -291,7 +297,7 @@ class display3DEN
 				#include "ACREModule\display3DEN\Menu.hpp"
 
 				//tools define
-				#include "3DEN\display3DEN\MenuTools.hpp"
+				#include "Core\display3DEN\MenuTools.hpp"
 
 				//add custom tools menus
 
@@ -301,7 +307,7 @@ class display3DEN
 				};*/
 
 				//documentation define
-				#include "3DEN\display3DEN\MenuDoc.hpp"
+				#include "Core\display3DEN\MenuDoc.hpp"
 
 				//add custom documentation
 
@@ -310,7 +316,7 @@ class display3DEN
 				class UO_FW_Folder
 				{
 					text = "UO Framework";
-					items[] = {"UO_FW_Settings","UO_FW_Module_Settings","UO_FW_Gear_Settings","UO_FW_EndConditions_Folder","UO_FW_ACRE_Folder","UO_FW_Briefing_Folder","UO_FW_AI_Settings","UO_FW_Documentation"};
+					items[] = {"UO_FW_Settings","UO_FW_Briefing_Folder","UO_FW_Respawn_Settings","UO_FW_Module_Settings","UO_FW_EndConditions_Folder","UO_FW_ACRE_Folder","UO_FW_Gear_Folder","UO_FW_AI_Settings","UO_FW_Documentation"};
 					//items[] = {"UO_FW_Settings","UO_FW_Module_Settings","UO_FW_Gear_Settings","UO_FW_EndConditions_Folder","UO_FW_ACRE_Folder","UO_FW_Briefing_Folder","UO_FW_Documentation"};
 				};
 				//compile main menu

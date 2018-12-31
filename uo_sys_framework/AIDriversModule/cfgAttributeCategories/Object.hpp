@@ -18,6 +18,7 @@ class UO_FW_AIDriversOptions {
         displayName = "Night Vision";
         tooltip = "Whether the player can use NVGs in AI Driver view";
         control = "CheckBox";
+				condition = "objectVehicle";
         expression="_this setVariable ['%s',_value,true];";
         defaultValue = "false";
     };
@@ -27,6 +28,7 @@ class UO_FW_AIDriversOptions {
         displayName = "Flip Vehicle";
         tooltip = "Whether the player can flip the vehicle via ACE action";
         control = "CheckBox";
+				condition = "objectVehicle";
         expression = "_this setVariable ['%s',_value,true];";
         defaultValue = "true";
     };

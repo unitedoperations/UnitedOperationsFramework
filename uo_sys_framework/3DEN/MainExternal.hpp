@@ -1,6 +1,8 @@
 class Display;
 class DisplaySimulated;
 class ctrlControlsGroupNoScrollbars;
+class ctrlButton;
+class ctrlButtonPictureKeepAspect;
 class ctrlDefaultText;
 class ctrlDefault;
 class ctrlMenuStrip;

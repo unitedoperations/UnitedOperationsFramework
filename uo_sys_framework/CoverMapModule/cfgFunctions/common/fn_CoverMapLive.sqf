@@ -33,9 +33,7 @@ if (isNil "UO_FW_CoverMap_MarkerArray") then {
 UO_FW_CoverMap_currentAO = _AONameCalled;
 
 _areaCalled params ["_pos","_radiusX","_radiusY","_dir"];
-
-private _posx = _pos select 0;
-private _posy = _pos select 1;
+_pos params ["_posx","_posy"];
 private _radiusXo = _radiusX;
 private _radiusYo = _radiusY;
 private _mainS = 20000;
@@ -51,32 +49,32 @@ private _colorForest = "colorKhaki";
 private _colors = ["colorBlack","colorBlack",_colorForest,"colorGreen",_colorForest,/**/"colorBlack"/**/,_colorForest,_colorForest];
 
 {
-	_x params ["_dir"];
+	_x params ["_a"];
 	private _i = _forEachIndex;
 
-	_dir = _dir mod 360;
-	if (_dir < 0) then {_dir = _dir + 360};
+	_a = _a mod 360;
+	if (_a < 0) then {_a = _a + 360};
 
 	private _s = _radiusX;
 	private _w = 2 * _mainS +_radiusY;
 	private _bw = _radiusY + _mainBS;
-	if !((_dir > 0 && _dir <= 90) || (_dir > 180 && _dir <= 270)) then {
+	if !((_a > 0 && _a <= 90) || (_a > 180 && _a <= 270)) then {
 		_s = _radiusY;
 		_w = _radiusX + 2 * _mainBS;
 		_bw = _radiusX + _mainBS;
 	};
-	private _posos_x = _posx + (sin _dir) * (_mainS + _s + _mainBS);
-	private _posos_y = _posy + (cos _dir) * (_mainS + _s + _mainBS);
+	private _posos_x = _posx + (sin _a) * (_mainS + _s + _mainBS);
+	private _posos_y = _posy + (cos _a) * (_mainS + _s + _mainBS);
 
 	{
 		_x params ["_color"];
 
-		private _markername1 = format ["UO_FW_CoverMap_Marker_%1_%2",_i,_forEachIndex];
+		private _markername1 = format ["UO_FW_CoverMap_Marker_c_%1_%2",_i,_forEachIndex];
 		private _marker1 = createMarkerLocal [_markername1,[_posos_x, _posos_y]];
 		MissionNamespace setvariable [_markername1,_marker1];
 
 		(MissionNamespace getvariable _markername1) setMarkerSizeLocal [_w,_mainS];
-		(MissionNamespace getvariable _markername1) setMarkerDirLocal _dir;
+		(MissionNamespace getvariable _markername1) setMarkerDirLocal _a;
 		(MissionNamespace getvariable _markername1) setMarkerShapeLocal "rectangle";
 		(MissionNamespace getvariable _markername1) setMarkerBrushLocal "solid";
 		(MissionNamespace getvariable _markername1) setMarkerColorLocal _color;
@@ -94,7 +92,7 @@ private _colors = ["colorBlack","colorBlack",_colorForest,"colorGreen",_colorFor
 		MissionNamespace setvariable [_markername2,_marker2];
 
 		(MissionNamespace getvariable _markername2) setMarkerSizeLocal [_bw, _mainBS / 2];
-		(MissionNamespace getvariable _markername2) setMarkerDirLocal _dir;
+		(MissionNamespace getvariable _markername2) setMarkerDirLocal _a;
 		(MissionNamespace getvariable _markername2) setMarkerShapeLocal "rectangle";
 		(MissionNamespace getvariable _markername2) setMarkerBrushLocal "solid";
 		(MissionNamespace getvariable _markername2) setMarkerColorLocal "colorwhite";

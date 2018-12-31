@@ -11,7 +11,7 @@ switch _mode do {
 			if !(_isActivated) exitWith {};
 
 				_AOName = _logic getVariable ["UO_FW_CoverMap_AOName","Area0"];
-				_AOZoom = _logic getVariable ["UO_FW_CoverMap_ZoomLevel",0.2];
+				_AOZoom = _logic getVariable ["UO_FW_CoverMap_ZoomLevel",0.1];
 				_loc = getPosATL _logic;
 				_radiusX = _logic getVariable ["UO_FW_CoverMap_RadiusX",100];
 				_radiusY = _logic getVariable ["UO_FW_CoverMap_RadiusY",100];

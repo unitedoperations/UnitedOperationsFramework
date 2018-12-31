@@ -10,7 +10,7 @@
 		isDisposable = 0;
 		is3DEN = 1;
 		canSetArea = 1;
-		icon = "\x\UO_FW\addons\main\AOLimitModule\resources\icon_test.paa";
+		icon = "\x\UO_FW\addons\main\AOLimitModule\resources\aolimitmodule_ca.paa";
 
 		class AttributeValues {
 	    size2[] = {100,100};
