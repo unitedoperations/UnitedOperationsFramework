@@ -3,7 +3,7 @@
  * 		OBJECT - vehicle
  * 		OBJECT - player
  *	Return Value:
- * 		ARRAY 	
+ * 		ARRAY
  *	Author
  *		BlackHawk & PiZZADOX
  */
@@ -26,7 +26,7 @@ if (side _caller == INDEPENDENT) then {
     _class = "I_Soldier_F";
 };
 
-_unit = createAgent [_class, [0,0,0], [], 0, "CAN_COLLIDE"];
+private _unit = createAgent [_class, [0,0,0], [], 0, "CAN_COLLIDE"];
 
 removeAllWeapons _unit;
 removeUniform _unit;

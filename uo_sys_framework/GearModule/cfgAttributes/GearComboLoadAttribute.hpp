@@ -1,4 +1,4 @@
-class ComboGearLoad: ComboPreview
+class UO_FW_Gear_ComboGearLoad: ComboPreview
 		{
 			class Controls: Controls
 			{
@@ -19,7 +19,11 @@ class ComboGearLoad: ComboPreview
 					w="0.99 * 	5 * (pixelW * pixelGrid * 	0.50)";
 					h="5 * (pixelH * pixelGrid * 	0.50)";
 					text="\a3\3DEN\Data\Attributes\ComboPreview\play_ca.paa";
-					onMouseButtonClick="_ctrlButton = _this select 0; _ctrlGroup = ctrlParentControlsGroup _ctrlButton; _ctrlCombo = _ctrlGroup controlsgroupctrl 100; [(_ctrlCombo lbvalue lbcursel _ctrlCombo)] call UO_FW_fnc_GearTypeLoad;";
+					onMouseButtonClick="\
+						_ctrlButton = _this select 0;\
+						_ctrlGroup = ctrlParentControlsGroup _ctrlButton;\
+						_ctrlCombo = _ctrlGroup controlsgroupctrl 100;\
+						[(_ctrlCombo lbvalue lbcursel _ctrlCombo)] call UO_FW_fnc_GearTypeLoad;";
 				};
 			};
 		};

@@ -17,7 +17,7 @@ class UO_FW_CoverMapUnitSettings {
         property = "UO_FW_CoverMap_UnitDefaultAO";
         displayName = "CoverMap Default AO";
         tooltip = "AO that the unit will be set to upon mission start. Leave blank to set AO to side default set in module settings. ";
-        control = "EditShort";
+        control = "UO_FW_EditShortPlayerOnlyCategory";
         validate = "STRING";
 				condition = "ObjectControllable";
         expression="_this setVariable ['%s', _value]; %s = _value;";

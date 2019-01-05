@@ -2,7 +2,7 @@
  *	Arguments:
  * 		Bool - off or on
  *	Return Value:
- * 		ARRAY 	
+ * 		ARRAY
  *	Author
  *		PiZZADOX
  */
@@ -19,11 +19,11 @@ if (_arg) then {
     UO_FW_driverCam camCommit 0;
 
     UO_FW_pipNvEnabled = false;
-    
-    _veh = vehicle player;
-    _mempoint = getText ( configfile >> "CfgVehicles" >> (typeOf _veh) >> "memoryPointDriverOptics" );
+
+    private _veh = vehicle player;
+    private _mempoint = getText ( configfile >> "CfgVehicles" >> (typeOf _veh) >> "memoryPointDriverOptics" );
     UO_FW_driverCam attachTo [_veh,[0,0,0], _mempoint];
-    
+
     with uiNamespace do {
         "UO_FW_pipDriver" cutRsc ["RscTitleDisplayEmpty", "PLAIN"];
         UO_FW_pipDisplay = uiNamespace getVariable "RscTitleDisplayEmpty";

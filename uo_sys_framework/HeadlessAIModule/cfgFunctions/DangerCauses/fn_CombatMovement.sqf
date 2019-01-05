@@ -2,14 +2,10 @@
 // Modified on : 8/3/16: Resolved AI getting stuck when no enemies existed, or enemies were far away.
 
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_AI_EXEC_CHECK(SERVERHC)
+UO_FW_AI_EXEC_CHECK(SERVERHC);
 
-private ["_Unit", "_UO_FW_AI_MovedRecently", "_UO_FW_AI_VisuallyCanSee", "_NearestEnemy", "_intersections"];
-
-	_Unit = _this select 0;
-	_UO_FW_AI_MovedRecently = _this select 1;
-	_UO_FW_AI_VisuallyCanSee = _this select 2;
-	_UO_FW_AI_MovedRecentlyCover = _this select 3;
+params ["_Unit","_UO_FW_AI_MovedRecently","_UO_FW_AI_VisuallyCanSee","_UO_FW_AI_MovedRecentlyCover"];
+private ["_NearestEnemy", "_intersections"];
 
 	////systemchat format ["M %1",_Unit];
 	//_NearestEnemy = _Unit call UO_FW_AI_fnc_ClosestEnemy;
@@ -25,11 +21,11 @@ private ["_Unit", "_UO_FW_AI_MovedRecently", "_UO_FW_AI_VisuallyCanSee", "_Neare
 		if (_ReturnedFriendly distance _Unit > 30 && !(_ReturnedFriendly isEqualTo [0,0,0])) then
 		{
 			_Unit doMove (getpos _ReturnedFriendly);
-			_Unit forcespeed -1;		
+			_Unit forcespeed -1;
 			if (UO_FW_AI_DEBUG) then
 			{
 				private _debugmsg = format ["%1 wandering too far, returning to group!",_Unit];
-				UO_FW_DEBUG("",_debugmsg)
+				UO_FW_DEBUG("",_debugmsg);
 			};
 
 		};
@@ -50,7 +46,7 @@ private ["_Unit", "_UO_FW_AI_MovedRecently", "_UO_FW_AI_VisuallyCanSee", "_Neare
 			if (UO_FW_AI_DEBUG) then
 			{
 				private _debugmsg = format ["%1 has close enemies! Fire!",_Unit];
-				UO_FW_DEBUG("",_debugmsg)
+				UO_FW_DEBUG("",_debugmsg);
 			};
 			_UO_FW_AI_VisuallyCanSee
 

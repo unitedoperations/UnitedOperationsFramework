@@ -1,6 +1,6 @@
 class UO_FW_AI_GroupBehaviour {
 	displayName = "AI Group Behavour Options";
-	collapsed = 0;
+	collapsed = 1;
 	class Attributes {
 		class UO_FW_AI_behaviour {
 			displayName = "Behaviour";
@@ -72,7 +72,7 @@ class UO_FW_AI_GroupBehaviour {
 };
 class UO_FW_AI_GroupTask {
 	displayName = "AI Group Task Options";
-	collapsed = 0;
+	collapsed = 1;
 	class Attributes {
 		class UO_FW_AI_createRadius {
 			displayName = "Creation Radius";
@@ -135,7 +135,7 @@ class UO_FW_AI_GroupTask {
 };
 class UO_FW_AI_GroupPopulate {
 	displayName = "AI Populate Options";
-	collapsed = 0;
+	collapsed = 1;
 	class Attributes {
 		class UO_FW_AI_multiplier {
 			displayName = "Group Multiplier";

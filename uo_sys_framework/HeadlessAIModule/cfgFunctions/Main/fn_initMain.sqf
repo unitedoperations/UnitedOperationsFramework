@@ -1,5 +1,5 @@
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_AI_EXEC_CHECK(HC)
+UO_FW_AI_EXEC_CHECK(HC);
 
 if (!(getMissionConfigValue ["UO_FW_AI_Enabled",false])) exitWith {};
 
@@ -122,7 +122,7 @@ if ((!hasinterface) && (!isDedicated)) then {
 			waituntil {time > 1};
 			while {true} do {
 				sleep 2;
-				skiptime ((missionnamespace getvariable ["UO_FW_AI_FORCETIME_TIME",daytime]) / 3600) - daytime;
+				skiptime ((missionnamespace getvariable ["UO_FW_AI_FORCETIME_TIME",daytime]) / 3600) - (daytime);
 			};
 		};
 	};

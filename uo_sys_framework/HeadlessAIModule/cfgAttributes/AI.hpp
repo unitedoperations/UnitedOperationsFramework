@@ -391,6 +391,35 @@ class UO_FW_AI_persistentControl : Title {
 	};
 };
 class UO_FW_AI_unitnameControl : Edit {
+		onLoad="\
+		diag_log 'onload triggered';\
+		_this spawn {\
+			 disableserialization;\
+			 private ['_isUnitPlayable'];\
+			 private _ctrl = _this select 0;\
+			 private _unit = ((get3denselected 'object') select 0);\
+			 private _ctrlGroup = ctrlParentControlsGroup ctrlParentControlsGroup _ctrl;\
+			{\
+				if (ctrlParentControlsGroup _x isEqualto _ctrlGroup) then {\
+					if !(isNull player) then {\
+						 _isUnitPlayable = ((_unit in playableUnits) || (_unit isEqualto player));\
+					} else {\
+						 _isUnitPlayable = (_unit in playableUnits);\
+					};\
+					diag_log format ['_isUnitPlayable: %1',_isUnitPlayable];\
+					_state = [true,false] select (_isUnitPlayable);\
+					diag_log format ['_state: %1',_state];\
+					_fade = [0.75,0] select _state;\
+					_x ctrlenable _state;\
+					_x ctrlsetfade _fade;\
+					_x ctrlshow _state;\
+					_x ctrlcommit 0;\
+					ctrlsetfocus _x;\
+					ctrlsetfocus _ctrl;\
+				};\
+			} foreach (allcontrols (ctrlparent _ctrl));\
+		};\
+		";
      attributeLoad = "if(typename _value != typename '')then{_value = str _value;};(_this controlsGroupCtrl 125) ctrlSetText _value;";
      attributeSave = "_value = ctrlText (_this controlsGroupCtrl 125);if(gettext (_config >> 'typeName') == 'NUMBER')then{_value = parsenumber _value;};_value";
      class Controls: Controls {
@@ -401,7 +430,7 @@ class UO_FW_AI_unitnameControl : Edit {
              x = "48 * (pixelW * pixelGrid * 0.50)";
              w = "82 * (pixelW * pixelGrid * 0.50)";
              h = "5 * (pixelH * pixelGrid * 0.50)";
-			canModify = 1;
+						 canModify = 1;
          };
      };
  };
@@ -414,14 +443,14 @@ class UO_FW_AI_multioccupyControl : Title {
 			h = "10 * (pixelH * pixelGrid * 0.50)";
 		};
 		class Value: ctrlToolbox {
-			idc = 126;
+				idc = 126;
              style = "0x02";
              x = "48 * (pixelW * pixelGrid * 0.50)";
              w = "82 * (pixelW * pixelGrid * 0.50)";
              h = "10 * (pixelH * pixelGrid * 0.50)";
              rows = 2;
              columns = 5;
-			values[] = {0,1,2,3,4,5,6,7,8,9};
+						 values[] = {0,1,2,3,4,5,6,7,8,9};
              strings[] = {
 				"ALL","25%","50%","75%","RANDOM",
 				"ONE","TWO","THREE","FOUR","FIVE"

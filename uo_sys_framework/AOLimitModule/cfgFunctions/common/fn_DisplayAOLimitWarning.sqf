@@ -4,27 +4,27 @@ _this spawn
 {
 	disableserialization;
 
-	_display = _this select 0;
-	_ctrlTitle = _display displayCtrl 1001;
-	_ctrlTitleBG = _display displayCtrl 1002;
-	_ctrlTime = _display displayCtrl 1003;
+	params ["_display"];
+	//private _ctrlTitle = _display displayCtrl 1001;
+	//private _ctrlTitleBG = _display displayCtrl 1002;
+	private _ctrlTime = _display displayCtrl 1003;
 
-	_timecheckInit = serverTime;
+	private _timecheckInit = serverTime;
 	if (_timecheckInit isEqualto 0) then {_timecheckInit = time;};
-	_endTime = _timecheckInit + (missionNamespace getVariable ["UO_FW_AOL_TimeLeft", 30]);
-	_nextBeep = _endTime - 10;
+	private _endTime = _timecheckInit + (missionNamespace getVariable ["UO_FW_AOL_TimeLeft", 30]);
+	private _nextBeep = _endTime - 10;
 
 	["AOLimitWarning"] call BIS_fnc_showNotification;
 
 	missionNamespace setVariable ["UO_FW_AOL_DisplayOpen", true];
 
-	_break = false;
+	private _break = false;
 
 	while {true} do {
 
-		_shouldDisplay = missionNamespace getVariable ["UO_FW_AOL_Display", false];
+		private _shouldDisplay = missionNamespace getVariable ["UO_FW_AOL_Display", false];
 
-		_timecheck = serverTime;
+		private _timecheck = serverTime;
 		if (_timecheck isEqualto 0) then {_timecheck = time;};
 
 		if (_timecheck >= _nextBeep) then {
@@ -35,7 +35,7 @@ _this spawn
 		private "_timeLeft";
 		_timeLeft = _endTime - _timecheck;
 
-		_colorSet = ["IGUI","TEXT_RGB"];
+		private _colorSet = ["IGUI","TEXT_RGB"];
 		if (_timeLeft <= 10) then {
 			_colorSet = ["IGUI","WARNING_RGB"];
 		};
@@ -44,7 +44,7 @@ _this spawn
 			_colorSet = ["IGUI","ERROR_RGB"];
 		};
 
-		_color = _colorSet call bis_fnc_displaycolorget;
+		private _color = _colorSet call bis_fnc_displaycolorget;
 		_ctrlTime ctrlSetTextColor _color;
 
 		if (_timeLeft > 0) then {

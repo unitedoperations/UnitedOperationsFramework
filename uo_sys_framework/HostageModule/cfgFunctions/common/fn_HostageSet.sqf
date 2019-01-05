@@ -1,6 +1,6 @@
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 if (!UO_FW_SERVER_HOSTAGEMODULE_ALLOWED) exitWith {};
-UO_FW_EXEC_CHECK(ALL)
+UO_FW_EXEC_CHECK(ALL);
 
 ["Hostage Control", "Allows the mission maker to easily add hostages to their missions.", "Starfox64 and TrainDoctor"] call UO_FW_FNC_RegisterModule;
 
@@ -10,7 +10,7 @@ private _marker = _unit getVariable ["UO_FW_Hostage_Rescue_Location","hostage_re
 
 if (getMarkerColor _marker isEqualto "") exitwith {
 	private _msg = format ["hostage _marker: %1 does not exist!",_marker];
-	UO_FW_DEBUG("",_msg)
+	UO_FW_DEBUG("",_msg);
 };
 
 _marker setMarkerAlpha 0;

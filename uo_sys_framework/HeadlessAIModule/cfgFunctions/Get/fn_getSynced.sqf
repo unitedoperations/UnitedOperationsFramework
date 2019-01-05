@@ -7,7 +7,7 @@
  *		suits & PiZZADOX
  */
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_AI_EXEC_CHECK(SERVERHC)
+UO_FW_AI_EXEC_CHECK(SERVERHC);
 	params ["_logic","_s"];
 	private _synced	= synchronizedObjects _logic;
 	for [{_s=(count _synced)-1}, {(_s >= 0)}, {_s = _s - 1}] do {

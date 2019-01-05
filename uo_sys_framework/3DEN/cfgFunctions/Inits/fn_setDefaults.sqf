@@ -7,11 +7,12 @@
  *		PiZZADOX
  */
 
-if(!UO_FW_SERVER_FRAMEWORK_ALLOWED) exitWith {};
+if (!UO_FW_SERVER_FRAMEWORK_ALLOWED) exitWith {};
 
 #include "\x\UO_FW\addons\main\script_macros.hpp"
-UO_FW_EXEC_CHECK(ALL)
+UO_FW_EXEC_CHECK(ALL);
 
+private ["_configCategories","_configCategories2","_configAttributes"];
 UO_FW_SETDEFAULTSDEBUGMODE = false;
 _configCategories = [];
 _configCategories2 = [];
@@ -26,7 +27,7 @@ _configCategories = "(((str(configname _x)) find 'UO_FW') >= 0)" configClasses (
 	if (UO_FW_SETDEFAULTSDEBUGMODE) then {
 		diag_log format ["_configCategories foreach _x: %1",_x];
 	};
-	_configCategories2temp = [_x,1,false] call BIS_fnc_returnChildren;
+	private _configCategories2temp = [_x,1,false] call BIS_fnc_returnChildren;
 	{
 		_configCategories2 pushback _x;
 	} foreach _configCategories2temp;
@@ -40,7 +41,7 @@ _configCategories = "(((str(configname _x)) find 'UO_FW') >= 0)" configClasses (
 	if (UO_FW_SETDEFAULTSDEBUGMODE) then {
 		diag_log format ["Foreach1 _x: %1",_x];
 	};
-	_configAttributesTemp = [_x,1,false] call BIS_fnc_returnChildren;
+	private _configAttributesTemp = [_x,1,false] call BIS_fnc_returnChildren;
 	if (UO_FW_SETDEFAULTSDEBUGMODE) then {
 		diag_log format ["_configAttributesTemp: %1",_configAttributesTemp];
 	};

@@ -10,7 +10,7 @@
  *		suits & PiZZADOX
  */
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_AI_EXEC_CHECK(SERVERHC)
+UO_FW_AI_EXEC_CHECK(SERVERHC);
 if (isMultiplayer) then {
 	waituntil {!isNil "UO_FW_var_HC_ID"};
 };

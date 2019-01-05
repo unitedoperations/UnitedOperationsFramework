@@ -10,7 +10,7 @@ class CfgPatches
 		url = "https://github.com/unitedoperations/UnitedOperationsFramework";
 		units[] = {};
 		requiredVersion = REQUIRED_VERSION;
-		requiredAddons[] = {"cba_main","3DEN","A3_Modules_F"};
+		requiredAddons[] = {"cba_main","3DEN","ace_main","A3_Modules_F"};
 		VERSION_CONFIG;
 	};
 };
@@ -195,6 +195,7 @@ class Cfg3DEN
 		#include "BriefingModule\cfg3den\cfg3denMenu.hpp"
 		#include "HeadlessAIModule\cfg3den\cfg3denMenu.hpp"
 		#include "ACREModule\cfg3den\cfg3denMenu.hpp"
+		#include "3DEN\cfg3den\cfg3denMenu.hpp"
 	};
 
 	//add custom base 3den options & categories
@@ -274,6 +275,7 @@ class Cfg3DEN
 		#include "JipModule\CfgAttributes.hpp"
 		#include "ACREModule\CfgAttributes.hpp"
 		#include "GearModule\CfgAttributes.hpp"
+		#include "AOLimitModule\CfgAttributes.hpp"
 	};
 };
 
@@ -295,6 +297,7 @@ class display3DEN
 				#include "EndConditionsModule\display3DEN\Menu.hpp"
 				#include "GearModule\display3DEN\Menu.hpp"
 				#include "ACREModule\display3DEN\Menu.hpp"
+				#include "3DEN\display3DEN\Menu.hpp"
 
 				//tools define
 				#include "Core\display3DEN\MenuTools.hpp"
@@ -316,7 +319,7 @@ class display3DEN
 				class UO_FW_Folder
 				{
 					text = "UO Framework";
-					items[] = {"UO_FW_Settings","UO_FW_Briefing_Folder","UO_FW_Respawn_Settings","UO_FW_Module_Settings","UO_FW_EndConditions_Folder","UO_FW_ACRE_Folder","UO_FW_Gear_Folder","UO_FW_AI_Settings","UO_FW_Documentation"};
+					items[] = {"UO_FW_Settings","UO_FW_Briefing_Folder","UO_FW_Respawn_Settings","UO_FW_Module_Settings","UO_FW_EndConditions_Folder","UO_FW_ACRE_Folder","UO_FW_Gear_Folder","UO_FW_AI_Settings","UO_FW_ExportImport_Folder","UO_FW_Documentation"};
 					//items[] = {"UO_FW_Settings","UO_FW_Module_Settings","UO_FW_Gear_Settings","UO_FW_EndConditions_Folder","UO_FW_ACRE_Folder","UO_FW_Briefing_Folder","UO_FW_Documentation"};
 				};
 				//compile main menu

@@ -1,12 +1,5 @@
 private ["_Unit", "_MovePosition", "_NearestEnemy", "_TypeListFinal", "_TypeList", "_Type", "_type", "_BoundingArray", "_p1", "_p2", "_maxWidth", "_maxLength", "_maxHeight", "_ClosestCover", "_GuessLocation", "_coverObjectspos","_WeakListFinal","_MovePos"];
-
-_Unit = _this select 0;
-_MovePos = _this select 1;
-_UO_FW_AI_GARRISONED = _this select 2;
-_UO_FW_AI_MovedRecentlyCover = _this select 3;
-_UO_FW_AI_ActivelyClearing = _this select 4;
-_UO_FW_AI_StartedInside = _this select 5;
-_NearestEnemy = _this select 6;
+params ["_Unit","_MovePos","_UO_FW_AI_GARRISONED","_UO_FW_AI_MovedRecentlyCover","_UO_FW_AI_ActivelyClearing","_UO_FW_AI_StartedInside","_NearestEnemy"];
 
 if (_UO_FW_AI_MovedRecentlyCover || {_UO_FW_AI_ActivelyClearing} || {_UO_FW_AI_StartedInside} || {_UO_FW_AI_GARRISONED}) exitWith {};
 
@@ -21,7 +14,7 @@ _ClosestCover = [];
 _TypeListFinal = [];
 _MovePosition = [_MovePos,10 + (random 10),(direction _Unit)] call BIS_fnc_relPos;
 _TypeList = nearestObjects [_MovePosition, [], 30];
-_Roads = _MovePosition nearRoads 30;
+private _Roads = _MovePosition nearRoads 30;
 {
 	_Type = typeOf _x;
 	if !(_type in ["#crater","#crateronvehicle","#soundonvehicle","#particlesource","#lightpoint","#slop","#mark","HoneyBee","Mosquito","HouseFly","FxWindPollen1","ButterFly_random","Snake_random_F","Rabbit_F","FxWindGrass2","FxWindLeaf1","FxWindGrass1","FxWindLeaf3","FxWindLeaf2"]) then
@@ -36,10 +29,10 @@ _Roads = _MovePosition nearRoads 30;
 			_maxHeight = abs ((_p2 select 2) - (_p1 select 2));
 			if (_maxWidth > 2 && _maxLength > 2 && _maxHeight > 2) then
 			{
-				if (_type isEqualTo "") then 
+				if (_type isEqualTo "") then
 				{
 					_WeakListFinal pushback _x
-				} 
+				}
 				else
 				{
 					_TypeListFinal pushback _x;

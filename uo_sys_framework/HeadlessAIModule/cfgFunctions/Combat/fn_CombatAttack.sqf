@@ -1,6 +1,7 @@
 //UO_FW_AI_fnc_CombatAttack
 
 params ["_Group","_currenttarget","_enemydir"];
+private ["_position","_radius"];
 
 _position = getposASL _currenttarget;
 _radius = 100;
@@ -21,5 +22,3 @@ _Group setVariable ["UO_FW_AI_Mission","ATTACK"];
 //	_Group setVariable ["UO_FW_AI_Mission","FLANK"];
 //	[_Group,false] spawn UO_FW_AI_fnc_FlankManeuver;
 //};
-
-

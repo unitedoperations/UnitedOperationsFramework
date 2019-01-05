@@ -92,7 +92,7 @@ if (!isDedicated) then
 
 	if (UO_FW_Debug_Detailed_Enabled) then {
 		private _msg = format ["markerControl module _markers array: %1",_markers];
-		UO_FW_DEBUG("",_msg)
+		UO_FW_DEBUG("",_msg);
 	};
 
 	_markers call UO_FW_fnc_ExecuteMarkerControl;

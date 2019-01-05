@@ -9,7 +9,7 @@
 
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 #include "\x\UO_FW\addons\main\Core\module_macros.hpp"
-UO_FW_EXEC_CHECK(SERVER)
+UO_FW_EXEC_CHECK(SERVER);
 
 _bluforname = (getMissionConfigValue  ["UO_FW_TeamSetting_Blufor_TeamName","BLUFOR"]);
 _opforname = (getMissionConfigValue  ["UO_FW_TeamSetting_Opfor_TeamName","OPFOR"]);

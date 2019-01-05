@@ -1,10 +1,10 @@
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_EXEC_CHECK(ALL)
+UO_FW_EXEC_CHECK(ALL);
 
 ["AO Limit", "Allows the mission maker to set AO limits to specific sides.", "Olsen, Sacher and PiZZADOX"] call UO_FW_FNC_RegisterModule;
 
-//[_logic,_area,_selectedSides,_entryMode,_airsetting,_softAOMode,_softAOtime,_softAOtimeAir] passed array
-params ["_logic","_area","_selectedSides","_entryMode","_airsetting","_softAOMode","_softAOtime","_softAOtimeAir"];
+//[_logic,_area,_selectedSides,_entryMode,_airsetting,_AOMode,_softAOtime,_softAOtimeAir] passed array
+params ["_logic","_area","_selectedSides","_entryMode","_airsetting","_AOMode","_softAOtime","_softAOtimeAir"];
 
 if (!isDedicated && hasInterface) then {
 
@@ -15,9 +15,11 @@ if (!isDedicated && hasInterface) then {
 		waitUntil {!isNull player};
 		waitUntil {time > 1};
 
-		//[_logic,_area,_selectedSides,_entryMode,_airsetting,_softAOMode,_softAOtime,_softAOtimeAir] passed array
-		params ["_logic","_area","_selectedSides","_entryMode","_airsetting","_softAOMode","_softAOtime","_softAOtimeAir"];
+		//[_logic,_area,_selectedSides,_entryMode,_airsetting,_AOMode,_softAOtime,_softAOtimeAir] passed array
+		params ["_logic","_area","_selectedSides","_entryMode","_airsetting","_AOMode","_softAOtime","_softAOtimeAir"];
 		private ["_startedInside","_pos","_startTime","_displayed","_run","_arrayname","_enteredZone","_outSide","_allowedOutside"];
+		private _softAOMode = false;
+		if (_AOMode isEqualto 1) then {_softAOMode = true;};
 
 		if !((side player) in _selectedSides) exitwith {};
 
@@ -43,8 +45,8 @@ if (!isDedicated && hasInterface) then {
 						breakOut "AOLimitMainSpawn";
 				};
 			} foreach UO_FW_AOLimit_Arrays;
-			_count = (count UO_FW_AOLimit_Arrays);
-			_arrayname = format ["UO_FW_AOLimit_Array_%1",_count];
+			private _count = (count UO_FW_AOLimit_Arrays);
+			private _arrayname = format ["UO_FW_AOLimit_Array_%1",_count];
 			missionNamespace setvariable [_arrayname,[_area]];
 			_run = true;
 		};
@@ -62,12 +64,12 @@ if (!isDedicated && hasInterface) then {
 			_enteredZone = true;
 		};
 
-		UO_FW_DEBUG("","Starting AO Limit")
-		_recheckDead = false;
+		UO_FW_DEBUG("","Starting AO Limit");
+		private _recheckDead = false;
 
 		while {_run} do {
 
-			_air = (vehicle player) isKindOf "Air";
+			private _air = (vehicle player) isKindOf "Air";
 
 			if ((_airsetting) && (_air)) then {
 				waituntil {sleep 30; !(_air)};
@@ -99,7 +101,7 @@ if (!isDedicated && hasInterface) then {
 							//diag_log "going out of soft area 1";
 							_outSide = true;
 							if !(missionNamespace getVariable ["UO_FW_AOL_DisplayOpen", false]) then {
-								_timeLeft = if (_air) then {_softAOtimeAir} else {_softAOtime};
+								private _timeLeft = if (_air) then {_softAOtimeAir} else {_softAOtime};
 								//diag_log "created display";
 								missionNamespace setVariable ["UO_FW_AOL_Display", _outSide];
 								missionNamespace setVariable ["UO_FW_AOL_TimeLeft", _timeLeft];
@@ -132,7 +134,7 @@ if (!isDedicated && hasInterface) then {
 							//diag_log "going out of soft area 2";
 							_outSide = true;
 							if !(missionNamespace getVariable ["UO_FW_AOL_DisplayOpen", false]) then {
-								_timeLeft = if (_air) then {_softAOtimeAir} else {_softAOtime};
+								private _timeLeft = if (_air) then {_softAOtimeAir} else {_softAOtime};
 								//diag_log "created display";
 								missionNamespace setVariable ["UO_FW_AOL_Display", _outSide];
 								missionNamespace setVariable ["UO_FW_AOL_TimeLeft", _timeLeft];

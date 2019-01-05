@@ -7,7 +7,7 @@
  *		suits & PiZZADOX
  */
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_AI_EXEC_CHECK(SERVERHC)
+UO_FW_AI_EXEC_CHECK(SERVERHC);
 	{							
 		_x params ["_grp"];
 		if({alive _x} count (units _grp) > 0 && _grp getVariable["UO_FW_AI_isNotZoneActivated",true]) then {

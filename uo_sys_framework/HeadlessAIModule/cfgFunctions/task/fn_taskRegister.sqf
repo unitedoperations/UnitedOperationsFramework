@@ -8,7 +8,7 @@
  *		suits & PiZZADOX
  */
  #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
- UO_FW_AI_EXEC_CHECK(SERVERHC)
+ UO_FW_AI_EXEC_CHECK(SERVERHC);
 params [["_grp",grpNull,[grpNull]],["_tasks",[],[[]]],["_visited",[],[[]]]];
 	_unvisited = + _tasks;
 	while {count _unvisited > 0 } do {

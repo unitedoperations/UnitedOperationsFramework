@@ -6,7 +6,7 @@ params ["_Unit"];
 _UnitSide = (side _Unit);
 _Array1 = [];
 {
-	_TargetSide = side _x;
+	private _TargetSide = side _x;
 	if ([_UnitSide, _TargetSide] call BIS_fnc_sideIsEnemy) then {_Array1 pushback _x;};
 } forEach allUnits;
 

@@ -1,7 +1,7 @@
 
 class UO_FW_AI_UnitOptions {
 	displayName = "AI Unit Options";
-	collapsed = 0;
+	collapsed = 1;
 	class Attributes {
 		class UO_FW_AI_unitName {
 			displayName = "Name";

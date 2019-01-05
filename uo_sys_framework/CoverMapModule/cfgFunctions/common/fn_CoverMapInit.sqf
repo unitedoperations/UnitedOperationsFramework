@@ -1,5 +1,5 @@
 #include "\x\UO_FW\addons\main\script_macros.hpp"
-UO_FW_EXEC_CHECK(ALL)
+UO_FW_EXEC_CHECK(ALL);
 if (!UO_FW_SERVER_COVERMAPMODULE_ALLOWED) exitWith {};
 if (!UO_FW_CoverMap_Enable) exitWith {};
 
@@ -12,48 +12,48 @@ if (!hasInterface) exitwith {};
 		_DefaultAO = player getvariable ["UO_FW_CoverMap_UnitDefaultAO",""];
 		if ((UO_FW_CoverMap_AO_Array findif {_DefaultAO isEqualto (_x select 0)}) isEqualto -1) exitwith {
 			private _msg = format ["Default CoverMap for unit: %1 area: %1 does not exist!",player,_DefaultAO];
-			UO_FW_DEBUG("",_msg)
+			UO_FW_DEBUG("",_msg);
 		};
 	} else {
 		switch (side player) do {
 			case west: {
 				_DefaultAO = MissionNamespace getvariable ["UO_FW_CoverMap_DefaultAO_West",""];
 				if (_DefaultAO isEqualto "") exitwith {
-					UO_FW_DEBUG("","No Default BLUFOR Area defined for CoverMap!")
+					UO_FW_DEBUG("","No Default BLUFOR Area defined for CoverMap!");
 				};
 				if ((UO_FW_CoverMap_AO_Array findif {_DefaultAO isEqualto (_x select 0)}) isEqualto -1) exitwith {
 					private _msg = format ["Default CoverMap BLUFOR area: %1 does not exist!",_DefaultAO];
-					UO_FW_DEBUG("",_msg)
+					UO_FW_DEBUG("",_msg);
 				};
 			};
 			case east: {
 				_DefaultAO = MissionNamespace getvariable ["UO_FW_CoverMap_DefaultAO_East",""];
 				if (_DefaultAO isEqualto "") exitwith {
-					UO_FW_DEBUG("","No Default OPFOR Area defined for CoverMap!")
+					UO_FW_DEBUG("","No Default OPFOR Area defined for CoverMap!");
 				};
 				if ((UO_FW_CoverMap_AO_Array findif {_DefaultAO isEqualto (_x select 0)}) isEqualto -1) exitwith {
 					private _msg = format ["Default CoverMap OPFOR area: %1 does not exist!",_DefaultAO];
-					UO_FW_DEBUG("",_msg)
+					UO_FW_DEBUG("",_msg);
 				};
 			};
 			case resistance: {
 				_DefaultAO = MissionNamespace getvariable ["UO_FW_CoverMap_DefaultAO_West",""];
 				if (_DefaultAO isEqualto "") exitwith {
-					UO_FW_DEBUG("","No Default INDFOR Area defined for CoverMap!")
+					UO_FW_DEBUG("","No Default INDFOR Area defined for CoverMap!");
 				};
 				if ((UO_FW_CoverMap_AO_Array findif {_DefaultAO isEqualto (_x select 0)}) isEqualto -1) exitwith {
 					private _msg = format ["Default CoverMap INDFOR area: %1 does not exist!",_DefaultAO];
-					UO_FW_DEBUG("",_msg)
+					UO_FW_DEBUG("",_msg);
 				};
 			};
 			case civilian: {
 				_DefaultAO = MissionNamespace getvariable ["UO_FW_CoverMap_DefaultAO_Civ",""];
 				if (_DefaultAO isEqualto "") exitwith {
-					UO_FW_DEBUG("","No Default Civilian Area defined for CoverMap!")
+					UO_FW_DEBUG("","No Default Civilian Area defined for CoverMap!");
 				};
 				if ((UO_FW_CoverMap_AO_Array findif {_DefaultAO isEqualto (_x select 0)}) isEqualto -1) exitwith {
 					private _msg = format ["Default CoverMap Civilian area: %1 does not exist!",_DefaultAO];
-					UO_FW_DEBUG("",_msg)
+					UO_FW_DEBUG("",_msg);
 				};
 			};
 			default {};

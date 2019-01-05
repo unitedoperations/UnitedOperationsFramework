@@ -1,4 +1,4 @@
-params ["_Unit","_Group","","_thisFSM"];
+params ["_Unit","_Group","",""];
 
 _Group setVariable ["UO_FW_AI_Mission","GARRISON"];
 _Group setvariable ["InitialWPSet",true];
@@ -20,7 +20,7 @@ if ((_nBuilding distance2D _UnitLeader) > 50) exitWith {};
 //If the array is not more than 0 - then exit.
 
 //Find the units in the group!
-_GroupUnits = units _Group;
+private _GroupUnits = units _Group;
 _Unit setVariable ["UO_FW_AI_GARRISONED",true];
 _Group setVariable ["UO_FW_AI_GARRISONED",true];
 private _WaypointIs = "HOLD";
@@ -47,7 +47,7 @@ while {_WaypointIs isEqualTo "HOLD"} do
 					waitUntil {!alive _unit || {_unit distance _BuildingLocation < 1.3}};
 					_unit disableAI "PATH";
 				};
-				private _RMV = _TempA findIf {_BuildingLocation isEqualTo _x};
+				private _RMV = _TempA findIf {BuildingLocation isEqualTo _x};
 				_TempA deleteAt _RMV;
 				};
 			};

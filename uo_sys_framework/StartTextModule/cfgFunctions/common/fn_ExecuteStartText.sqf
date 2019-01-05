@@ -3,7 +3,7 @@
 waitUntil {time > 0};
 _startTextArray = _this;
 _isValid = _startTextArray call UO_FW_fnc_ValidateStartText;
-if(!_isValid) exitWith {
+if (!_isValid) exitWith {
 	UO_FW_DEBUG("Start Text Module Failed to validate!","Start Text Module Failed to validate!");
 };
 

@@ -4,7 +4,7 @@
 //Module functions
 if !(getMissionConfigValue["UO_FW_Enabled",false]) exitwith {};
 
-if(!UO_FW_SERVER_FRAMEWORK_ALLOWED) exitWith {
+if (!UO_FW_SERVER_FRAMEWORK_ALLOWED) exitWith {
 	["","Framework is disabled by the Server."] call UO_FW_fnc_DebugMessageDetailed;
 };
 

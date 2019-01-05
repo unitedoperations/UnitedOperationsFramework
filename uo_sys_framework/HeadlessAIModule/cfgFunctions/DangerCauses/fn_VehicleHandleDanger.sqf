@@ -1,5 +1,3 @@
-
-/*
 _AssignedCargo = assignedCargo (vehicle _this);
 
 if (_this in _AssignedCargo) then
@@ -11,6 +9,5 @@ if (_this in _AssignedCargo) then
 	doGetOut _this;
 	_this action ["eject", _Vehicle];
 	(vehicle _this) land "GET OUT";
-	_Vehicle land "GET OUT";	
+	_Vehicle land "GET OUT";
 };
-

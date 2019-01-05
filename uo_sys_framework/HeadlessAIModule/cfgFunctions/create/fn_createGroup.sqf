@@ -8,7 +8,7 @@
  *		suits & PiZZADOX
  */
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_AI_EXEC_CHECK(SERVERHC)
+UO_FW_AI_EXEC_CHECK(SERVERHC);
 
 
 params ["_grpid","_grpSet","_grpMem",["_currentVeh",objNull,[objNull]]];
@@ -38,10 +38,10 @@ params ["_grpid","_grpSet","_grpMem",["_currentVeh",objNull,[objNull]]];
 			[_ngrp,_tasks] call UO_FW_AI_fnc_taskInit;
 		} else {
 			_ngrp setVariable["UO_FW_AI_CurrentTaskEndTime",(time + _taskTimer)];
-		_passarray = [_task,_ngrp,_gpos,_taskRadius,_wait,_behave,_combat,_speed,_formation,_occupyOption];
-		[{!((count waypoints (_this select 1)) isEqualto 0)},{
-			_this call UO_FW_AI_fnc_taskAssign;
-		},_passarray] call CBA_fnc_waitUntilAndExecute;
+			_passarray = [_task,_ngrp,_gpos,_taskRadius,_wait,_behave,_combat,_speed,_formation,_occupyOption];
+			[{!((count waypoints (_this select 1)) isEqualto 0)},{
+				_this call UO_FW_AI_fnc_taskAssign;
+			},_passarray] call CBA_fnc_waitUntilAndExecute;
 		};
 	};
 	_ngrp

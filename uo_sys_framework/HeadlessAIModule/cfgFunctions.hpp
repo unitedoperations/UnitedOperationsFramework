@@ -178,7 +178,6 @@ class UO_Framework_AI
 		class NearEnemies {scope = 1;};
 		class searchNestedArray {scope = 1;};
 		class StanceModifier {scope = 1;};
-		class SuppressedEffect {scope = 1;};
 		class UnitCheck {scope = 1;};
 		class VehicleHandle {scope = 1;};
 		class Waypointcheck {scope = 1;};

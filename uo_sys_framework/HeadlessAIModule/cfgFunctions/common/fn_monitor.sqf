@@ -7,7 +7,7 @@
  *		suits & PiZZADOX
  */
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_AI_EXEC_CHECK(SERVERHC)
+UO_FW_AI_EXEC_CHECK(SERVERHC);
 
 
 [] spawn {
@@ -23,9 +23,9 @@ UO_FW_AI_EXEC_CHECK(SERVERHC)
 				[_zone,_delay,_code] spawn UO_FW_AI_fnc_setup;
 				_x set [3, 1];
 			} else {
-				_aliveplayers = [] call UO_FW_fnc_alivePlayers;
+				private _aliveplayers = [] call UO_FW_fnc_alivePlayers;
 				_populated = {
-					_player = _x;
+					private _player = _x;
 					(({(vehicle _player) isKindOf _x} count _type) > 0)
 					&& (side _player) in _side
 					&& _player inArea _area

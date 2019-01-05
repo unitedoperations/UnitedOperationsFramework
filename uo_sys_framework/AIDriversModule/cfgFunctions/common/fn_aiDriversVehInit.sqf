@@ -15,8 +15,8 @@ if (isNil "UO_FW_AiDriverVehicle") then {UO_FW_AiDriverVehicle = objNull;};
 
 [{time > 1},{
 		if(_vehicle getVariable ["UO_FW_AIDriverVeh_Enabled",false]) then {
-			_allowNV = (_vehicle getVariable ["UO_FW_AIDriversVeh_NVEnabled",false]);
-			_allowFlip = (_vehicle getVariable ["UO_FW_AIDriversVeh_FlipEnabled",false]);
+			private _allowNV = (_vehicle getVariable ["UO_FW_AIDriversVeh_NVEnabled",false]);
+			private _allowFlip = (_vehicle getVariable ["UO_FW_AIDriversVeh_FlipEnabled",false]);
 			[_vehicle,_allowNV,_allowFlip] call UO_FW_fnc_aiDriversEnableAIDriver;
 		};
 }] call CBA_fnc_WaitUntilAndExecute;

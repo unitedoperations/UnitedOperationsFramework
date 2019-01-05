@@ -19,3 +19,9 @@ class EditorFunctions
 	file = "x\UO_FW\addons\main\3den\cfgFunctions\editor";
 	class BasicSettings3Den {};
 };
+class ExportImport
+{
+	file = "x\UO_FW\addons\main\3den\cfgFunctions\ExportImport";
+	class ExportSettings {};
+	class ImportSettings {};
+};

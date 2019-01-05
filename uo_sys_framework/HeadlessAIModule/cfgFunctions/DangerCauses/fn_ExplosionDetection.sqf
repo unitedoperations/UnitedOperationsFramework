@@ -1,4 +1,4 @@
-private ["_CraterList"];
+private ["_CraterList","_Enemy"];
 
 _CraterList = position _this nearObjects ["#crater",100];
 

@@ -2,7 +2,7 @@
 // Modified on : 8/19/14 - 8/3/15 - 9/1/15 - 9/9/2017
 
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_AI_EXEC_CHECK(SERVERHC)
+UO_FW_AI_EXEC_CHECK(SERVERHC);
 
 private _Driver = _this select 0;
 private _myNearestEnemy = _this select 1;
@@ -50,7 +50,7 @@ private _Vehicle = (vehicle _Driver);
 					if (UO_FW_AI_DEBUG) then
 					{
 						private _debugmsg = format ["%1 was hit! Passengers disembarking!",_Vehicle];
-						UO_FW_DEBUG("",_debugmsg)
+						UO_FW_DEBUG("",_debugmsg);
 					};	
 					if ((leader _U) isEqualTo _U) then 
 					{
@@ -92,7 +92,7 @@ private _Vehicle = (vehicle _Driver);
 						if (UO_FW_AI_DEBUG) then
 						{
 							private _debugmsg = format ["%1 was hit! Passengers disembarking!",_Vehicle];
-							UO_FW_DEBUG("",_debugmsg)
+							UO_FW_DEBUG("",_debugmsg);
 						};							
 						if ((leader _U) isEqualTo _U) then 
 						{

@@ -1,5 +1,5 @@
 #include "\x\UO_FW\addons\main\script_macros.hpp"
-UO_FW_EXEC_CHECK(ALL)
+UO_FW_EXEC_CHECK(ALL);
 [] spawn {
 
 	if(!(missionNamespace getVariable ["UO_FW_Gear_Enabled",false])) exitWith {};
@@ -32,11 +32,11 @@ UO_FW_EXEC_CHECK(ALL)
 			_array = [player,_type];
 
 			private _msg = format ["Executing gear of file: %1 for unit %2",(player getVariable ["UO_FW_Gear_Groupname",""]),player];
-			UO_FW_DEBUG("",_msg)
+			UO_FW_DEBUG("",_msg);
 			_array call UO_FW_FNC_GearScript;
 		} else {
 			private _msg = format ["Player unit %1 has no gear type defined, exiting gearscript.",player];
-			UO_FW_DEBUG("",_msg)
+			UO_FW_DEBUG("",_msg);
 			UO_FW_GearReady = true;
 		};
 	};

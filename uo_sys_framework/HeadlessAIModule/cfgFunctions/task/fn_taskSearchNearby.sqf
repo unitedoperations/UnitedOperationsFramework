@@ -23,10 +23,11 @@ Modified:
 ---------------------------------------------------------------------------- */
 
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_AI_EXEC_CHECK(SERVERHC)
+UO_FW_AI_EXEC_CHECK(SERVERHC);
 
 params ["_group"];
 
+private _leader = leader _group;
 private _buildings = nearestObjects [_leader, ["House", "Building"], 50, true];
 if (_buildings isEqualto []) exitWith {};
 private _screenedBuildings = _buildings select {(count ([_x] call BIS_fnc_buildingPositions)) >= 2};
@@ -40,7 +41,7 @@ _otask = _group getvariable ["UO_FW_AI_Mission","NONE"];
 
 [_group,_building,_otask] spawn {
     params ["_group","_building","_otask"];
-    private _leader = leader _group;
+		private _leader = leader _group;
 
 			{_x forcespeed -1; _x enableAI "PATH";} foreach units _group;
 			_group setvariable ["InitialWPSet",true];

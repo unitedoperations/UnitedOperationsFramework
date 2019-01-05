@@ -8,7 +8,7 @@
  *		suits & PiZZADOX
  */
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_AI_EXEC_CHECK(SERVERHC)
+UO_FW_AI_EXEC_CHECK(SERVERHC);
 params ["_grp","_check",["_init",false,[false]],["_syncedTasks",[],[[]]],["_task",objNull,[objNull]],["_taskCheck",[],[[]]],["_taskOrder",[],[[]]]];
 	if(_grp getVariable "UO_FW_AI_CurrentTaskEndTime" < time || _init) then {
 		if( !isNull (_grp getVariable["UO_FW_AI_CurrentTask",objNull]) ) then {[_grp,_check] call UO_FW_AI_fnc_setCompletedTasks;};
@@ -36,7 +36,7 @@ params ["_grp","_check",["_init",false,[false]],["_syncedTasks",[],[[]]],["_task
 			};
 		} else {
 			if(_init) then {
-				_grpSet = [_grp] call UO_FW_AI_fnc_getGroupVariables;
+				private _grpSet = [_grp] call UO_FW_AI_fnc_getGroupVariables;
 				_syncedTasks = (_grpSet select 11);
 			} else {
 				if((typeName _check) isEqualTo "GROUP") then {
@@ -47,7 +47,7 @@ params ["_grp","_check",["_init",false,[false]],["_syncedTasks",[],[[]]],["_task
 			};
 			private _tasks = _syncedTasks select {!(_x in (_grp getVariable["UO_FW_AI_CompletedTasks",[]]))};
 			if(_tasks isEqualTo []) then {
-				_index = UO_FW_AI_taskedGroups find [_grp];
+				private _index = UO_FW_AI_taskedGroups find [_grp];
 				UO_FW_AI_taskedGroups deleteAt _index;
 			} else {
 				private _activeTasks = [];

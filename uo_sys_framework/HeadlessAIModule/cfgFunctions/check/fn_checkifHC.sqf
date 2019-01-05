@@ -8,7 +8,7 @@
  *		PiZZADOX
  */
 
-_hc = false;
+private _hc = false;
 
 UO_FW_var_isHC = false;
 

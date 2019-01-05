@@ -1,11 +1,5 @@
 private ["_Enemy", "_nBuilding", "_Locations"];
-
-_Unit = _this select 0;
-_UO_FW_AI_MovedRecentlyCover = _this select 1;
-_UO_FW_AI_InCover = _this select 2;
-_UO_FW_AI_ActivelyClearing = _this select 3;
-_UO_FW_AI_StartedInside = _this select 4;
-_UO_FW_AI_GARRISONED = _this select 5;
+params ["_Unit","_UO_FW_AI_MovedRecentlyCover","_UO_FW_AI_InCover","_UO_FW_AI_ActivelyClearing","_UO_FW_AI_StartedInside","_UO_FW_AI_GARRISONED"];
 
 //Function to send AI to clear buildings
 if (_UO_FW_AI_MovedRecentlyCover || {_UO_FW_AI_ActivelyClearing} || {_UO_FW_AI_StartedInside} || {_UO_FW_AI_GARRISONED}) exitWith {};
@@ -30,4 +24,3 @@ _Locations = [_nBuilding] call BIS_fnc_buildingPositions;
 		[_Locations,_x,_UO_FW_AI_InCover,_UO_FW_AI_ActivelyClearing,_Enemy] spawn UO_FW_AI_fnc_GarrisonClearPatrol;
 	};
 } foreach units (group _Unit);
-

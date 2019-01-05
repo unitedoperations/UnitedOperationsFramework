@@ -7,7 +7,7 @@
  *		suits & PiZZADOX
  */
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_AI_EXEC_CHECK(SERVERHC)
+UO_FW_AI_EXEC_CHECK(SERVERHC);
 	params ["_u","_pos","_veh"];
 	private _unitInit = _u getVariable ["UO_FW_AI_unitInit","true"];
 	if(typename _unitInit isEqualTo "STRING") then {_unitInit = compile _unitInit;};

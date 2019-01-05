@@ -3,9 +3,9 @@ private ["_unit", "_bullet", "_TimeShot","_FrameRateCheck", "_Unit", "_Array2", 
 //If framerate is below 20 - exit this script.
 
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_AI_EXEC_CHECK(SERVERHC)
+UO_FW_AI_EXEC_CHECK(SERVERHC);
 
-_FrameRateCheck = diag_fps;
+private _FrameRateCheck = diag_fps;
 if (_FrameRateCheck <= UO_FW_AI_FPSFreeze) exitWith {};
 
 _unit = (_this select 0) select 0;
@@ -14,20 +14,20 @@ if (UO_FW_AI_CurrentlySuppressing < UO_FW_AI_CurrentlySuppressingLimit) then
 {
 	UO_FW_AI_CurrentlySuppressing = UO_FW_AI_CurrentlySuppressing + 1;
 	_TimeShot = _unit getVariable "UO_FW_AI_FiredTime";
-	if ((diag_tickTime - _TimeShot) > 25) then 
+	if ((diag_tickTime - _TimeShot) > 25) then
 	{
-		
 
-	
-		
+
+
+
 		_unit setVariable ["UO_FW_AI_FiredTime",diag_tickTime,true];
-		
-		_pos = cursorTarget;
-		if (isNull _pos) then 
+
+		private _pos = cursorTarget;
+		if (isNull _pos) then
 		{
-			if (isPlayer _Unit) then 
+			if (isPlayer _Unit) then
 			{
-				//Remember, screenToWorld is using UI coordinates! 
+				//Remember, screenToWorld is using UI coordinates!
 				_pos = screenToWorld [0.5,0.5];
 			}
 			else
@@ -40,46 +40,52 @@ if (UO_FW_AI_CurrentlySuppressing < UO_FW_AI_CurrentlySuppressingLimit) then
 		{
 			_pos = getPosATL _pos;
 		};
-		
+
 		_Point = _Unit call UO_FW_AI_fnc_ClosestEnemy;
 		if (_Point isEqualTo [] || {isNil "_Point"}) exitWith {};
-		
+
 		_ArrayCheck = typeName _Point;
 		if (_ArrayCheck isEqualTo "ARRAY") exitWith {};
-	
+
 		_UnitGroup = group _Point;
-		
-		
+
+
 		{
 				_CheckDistance = (_pos distance _x);
-				_Kn = _unit knowsAbout _x;
-				if (_CheckDistance < 4 && (_Kn > 3.5)) then 
+				private _Kn = _unit knowsAbout _x;
+				if (_CheckDistance < 4 && (_Kn > 3.5)) then
 				{
 					if (UO_FW_AI_Suppression) then
 					{
-						if (isPlayer _x) then {remoteExec ["PSup",_x];}
-						else
-						{
+						if !(isPlayer _x) then {
 							_x setCustomAimCoef UO_FW_AI_SuppressionVar;
-							_x spawn {sleep 8; _this setCustomAimCoef 1;};
+							_x spawn {
+								params ["_thisunit"];
+								sleep 8;
+								_thisunit setCustomAimCoef 1;
+							};
 						};
 					};
 					if (UO_FW_AI_Adrenaline) then
 					{
 						_x setAnimSpeedCoef UO_FW_AI_AdrenalineVar;
-						_x spawn {sleep 8; _this setAnimSpeedCoef 1;};
+						_x spawn {
+							params ["_thisunit"];
+							sleep 8;
+							_thisunit setAnimSpeedCoef 1;
+						};
 					};
 					if (UO_FW_AI_DEBUG) then
 					{
 						private _debugmsg = format ["%1 is suppressed!",_x];
-						UO_FW_DEBUG("",_debugmsg)
-					};			
-					
-				};		
+						UO_FW_DEBUG("",_debugmsg);
+					};
+
+				};
 		} forEach units _UnitGroup;
-		
-	
-		
+
+
+
 	};
 	UO_FW_AI_CurrentlySuppressing = UO_FW_AI_CurrentlySuppressing - 1;
 };

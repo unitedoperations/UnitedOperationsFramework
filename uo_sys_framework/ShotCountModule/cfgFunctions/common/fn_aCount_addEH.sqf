@@ -7,7 +7,7 @@
  *		TinfoilHate
  */
 
-_obj = param [0];
+params ["_obj"];
 if(_obj getVariable ["aCount_firedEh", false]) exitWith {};
 _obj setVariable ["aCount_originalSide",side _obj,false];
 

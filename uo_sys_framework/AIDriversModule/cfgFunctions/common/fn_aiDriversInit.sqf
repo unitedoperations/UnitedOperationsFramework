@@ -8,7 +8,7 @@
  */
 
 #include "\x\UO_FW\addons\main\script_macros.hpp"
-UO_FW_EXEC_CHECK(ALL)
+UO_FW_EXEC_CHECK(ALL);
 if (((MissionNameSpace getvariable ["UO_FW_AIDrivers_VehClasses",""]) isEqualto "") && !(MissionNameSpace getvariable ["UO_FW_AIDrivers_AllVehs",false])) exitwith {};
 ["AI Drivers", "Module for adding AI Drivers to vehicles", "PiZZADOX and Sacher"] call UO_FW_FNC_RegisterModule;
 if (isNil "UO_FW_AiDriverVehicle") then {UO_FW_AiDriverVehicle = objNull;};

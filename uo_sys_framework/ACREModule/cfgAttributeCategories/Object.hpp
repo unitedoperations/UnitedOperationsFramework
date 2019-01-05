@@ -8,7 +8,7 @@ class UO_FW_ACREOptions {
 			property = "UO_FW_ACRE_UNITSETTINGS_ENABLE";
 			displayName = "Enable ACRE Unit Settings";
 			tooltip = "Enables Framework ACRE Settings on this unit";
-			control = "CheckBoxState";
+			control = "UO_FW_CheckBoxStatePlayerOnlyCategory";
 			expression = "_this setVariable ['%s',_value,true];";
 			condition = "objectControllable";
 			defaultValue = "false";

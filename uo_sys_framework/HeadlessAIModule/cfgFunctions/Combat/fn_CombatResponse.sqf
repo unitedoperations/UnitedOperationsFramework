@@ -1,6 +1,7 @@
 //UO_FW_AI_fnc_CombatResponse
 
 params ["_Group",["_RadioEnemy",objnull],["_reinforcementcall",false]];
+private ["_leader","_currentmission","_currenttarget","_enemydir","_enemydist"];
 
 _leader = leader _group;
 _currentmission = _group getVariable ["UO_FW_AI_Mission","NONE"];
@@ -51,7 +52,7 @@ switch (_currentmission) do {
 			};
 		};
 	case "LOITERING": {
-			(group _unit) setSpeedMode "FULL";
+			_group setSpeedMode "FULL";
 			{_x setUnitPos "AUTO";} foreach (units _group);
 			if (((floor random 1) > 0)|| _reinforcementcall) then {
 				[_Group,_currenttarget,_enemydir] call UO_FW_AI_fnc_CombatAttack;

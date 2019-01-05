@@ -1,9 +1,9 @@
 #include "\x\UO_FW\addons\main\script_macros.hpp"
-UO_FW_EXEC_CHECK(SERVER)
+UO_FW_EXEC_CHECK(SERVER);
 
 //[_logic,_zoneName,_area,_interval,_repeatable,_capArray,_timeArray,_messagesArray,_colours,_hidden,_silent,_automessages,_ratioNeeded,_cond]
 params ["_logic","_zoneName","_area","_interval","_repeatable","_capArray","_timeArray","_messagesArray","_colours","_hidden","_silent","_automessages","_ratioNeeded","_cond"];
-_isValid = true;
+private _isValid = true;
 
 if (isNil "CaptureZone_Array") then {
 	CaptureZone_Array = [];
@@ -25,7 +25,6 @@ if ((count _colours) < 6) then {
 	_isValid = false;
 	private _msg = format ["No sides defined for capture for CaptureZone %1", _zoneName];
 	UO_FW_DEBUG("",_msg);
-	 UO_FW_DEBUG("",format ["Invalid colour array for CaptureZone %1", _zoneName]);
 };
 
 if (({!(_x isEqualto 2)} count _capArray) isEqualTo 0) exitwith {

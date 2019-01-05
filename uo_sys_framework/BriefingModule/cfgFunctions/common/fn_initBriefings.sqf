@@ -4,9 +4,9 @@
 
 [] spawn {
 	waituntil {!isNull player};
-	_side = (side player);
-	_briefing = [];
-	
+	private _side = (side player);
+	private _briefing = [];
+
 	switch (_side) do {
 		case west: {
 			#include "\x\UO_FW\addons\main\BriefingModule\defines\blufor_briefing.hpp"

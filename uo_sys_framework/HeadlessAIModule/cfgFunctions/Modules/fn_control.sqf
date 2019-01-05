@@ -10,7 +10,7 @@
  * 		BOOL	- True
  */
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_AI_EXEC_CHECK(ALL)
+UO_FW_AI_EXEC_CHECK(ALL);
 
 params [["_mode","",[""]],["_input",[],[[]]]];
 	if(isNil "UO_FW_AI_initialised") then {call UO_FW_AI_fnc_init;};
@@ -20,7 +20,7 @@ params [["_mode","",[""]],["_input",[],[[]]]];
 				_input params ["_logic",["_isActivated",true,[true]],["_isCuratorPlaced",false,[false]]];
 				if !(_isActivated) exitWith {};
 				sleep 1;
-				UO_FW_AI_EXEC_CHECK(SERVERHC)
+				UO_FW_AI_EXEC_CHECK(SERVERHC);
 				//Check if should disable/enable linked zones or do nothing. default: do nothing
 				switch (_logic getVariable ["UO_FW_AI_ControlInitAction",0]) do {
 					case 1 : {
@@ -34,11 +34,11 @@ params [["_mode","",[""]],["_input",[],[[]]]];
 					default {};
 				};
 				//Setup Control Module as Zone
-				_cond = _logic getVariable ["UO_FW_AI_ControlCondition","false"];
+				private _cond = _logic getVariable ["UO_FW_AI_ControlCondition","false"];
 				if(typename _cond isEqualTo "STRING") then {_cond = compile _cond;};
-				_code = _logic getVariable ["UO_FW_AI_ControlCode","true"];
+				private _code = _logic getVariable ["UO_FW_AI_ControlCode","true"];
 				if(typename _code isEqualTo "STRING") then {_code = compile _code;};
-				_isRectangle = if((typeof _logic) isEqualTo "UO_FW_AI_ControlModule_R") then {true} else {false};
+				private _isRectangle = if((typeof _logic) isEqualTo "UO_FW_AI_ControlModule_R") then {true} else {false};
 				UO_FW_AI_Zones pushBack [
 					_logic,
 					(getPosATL _logic),
@@ -54,10 +54,10 @@ params [["_mode","",[""]],["_input",[],[[]]]];
 					(getDir _logic),
 					(_logic getVariable ["UO_FW_AI_ZoneHazard",false])
 				];
-				_entities = [_logic] call UO_FW_AI_fnc_getSyncedObjects;
+				private _entities = [_logic] call UO_FW_AI_fnc_getSyncedObjects;
 				UO_FW_AI_entities pushBack [_logic,_entities];
 				if(UO_FW_AI_DEBUG) then {
-					_syncedZoneModule = [_logic,["UO_FW_AI_ZoneModule","UO_FW_AI_ZoneModule_R"]] call UO_FW_AI_fnc_getSyncedModules;
+					private _syncedZoneModule = [_logic,["UO_FW_AI_ZoneModule","UO_FW_AI_ZoneModule_R"]] call UO_FW_AI_fnc_getSyncedModules;
 					if (_syncedZoneModule isEqualto []) then {
 						(format["%1 a %2 has no Zone Modules linked.\nLink a Zone Module to the Enable/Disable the zone when the Control Module is activated.",_logic,typeof _logic]) call UO_FW_fnc_DebugMessage;
 					};
@@ -67,7 +67,7 @@ params [["_mode","",[""]],["_input",[],[[]]]];
 			};
 		};
 		case "attributesChanged3DEN": {
-			_logic = _input param [0,objNull,[objNull]];
+			private _logic = _input param [0,objNull,[objNull]];
 			private _radiusX = _logic getVariable ["UO_FW_AI_ControlRadiusX",_logic getVariable ["UO_FW_AI_ControlRadius", 100]];
 			private _radiusY = _logic getVariable ["UO_FW_AI_ControlRadiusY",_logic getVariable ["UO_FW_AI_ControlRadius", 100]];
 			set3DENAttributes [[[_logic],"size2",[_radiusX,_radiusY]]];

@@ -1,6 +1,7 @@
 //UO_FW_AI_fnc_CombatMoveTo
 
 params ["_Group","_currenttarget","_enemydir"];
+private ["_position","_radius"];
 
 _position = getposASL _currenttarget;
 _radius = 100;

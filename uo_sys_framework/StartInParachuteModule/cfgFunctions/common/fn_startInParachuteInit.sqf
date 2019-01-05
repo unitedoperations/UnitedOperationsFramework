@@ -4,9 +4,9 @@ if !(UO_FW_SERVER_STARTINPARACHUTEMODULE_ALLOWED) exitwith {};
 
 if(isServer) then {
 	{
-			_parachuteType = _x getVariable ["UO_FW_StartInParachute", "NONE"];
-			_altitude = _x getVariable ["UO_FW_ParachuteAltitude", 300];
-			_randomAltitude = _x getVariable ["UO_FW_ParachuteRandomAltitude", 100];
+			private _parachuteType = _x getVariable ["UO_FW_StartInParachute", "NONE"];
+			private _altitude = _x getVariable ["UO_FW_ParachuteAltitude", 300];
+			private _randomAltitude = _x getVariable ["UO_FW_ParachuteRandomAltitude", 100];
 			switch(_parachuteType) do
 			{
 				case "NONE": {};
@@ -20,10 +20,10 @@ if(isServer) then {
 	} forEach (allUnits select {!(isPlayer _x)});
 	_id = ["Event_PlayerParachuteJipped",
 	{
-		_unit = _this select 0;
-		_parachuteType = _unit getVariable ["UO_FW_StartInParachute", "NONE"];
-		_altitude = _unit getVariable ["UO_FW_ParachuteAltitude", 300];
-		_randomAltitude = _unit getVariable ["UO_FW_ParachuteRandomAltitude", 100];
+		params ["_unit"];
+		private _parachuteType = _unit getVariable ["UO_FW_StartInParachute", "NONE"];
+		private _altitude = _unit getVariable ["UO_FW_ParachuteAltitude", 300];
+		private _randomAltitude = _unit getVariable ["UO_FW_ParachuteRandomAltitude", 100];
 		switch(_parachuteType) do
 		{
 			case "NONE": {};

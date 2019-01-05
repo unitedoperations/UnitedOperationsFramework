@@ -7,7 +7,7 @@
  *		suits & PiZZADOX
  */
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_AI_EXEC_CHECK(SERVERHC)
+UO_FW_AI_EXEC_CHECK(SERVERHC);
 	params ["_u","_pos","_veh"];
 	private _grp = (group _u);
 	private _grpInit = _grp getVariable ["UO_FW_AI_groupInit","true"];

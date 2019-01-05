@@ -1,5 +1,5 @@
-private ["_list", "_position"];
 params ["_list","_object"];
+private ["_position","_ClosestObject"];
 //[_list,_object] call UO_FW_AI_fnc_ClosestObject;
 ////systemchat format ["%1",_object];
 
@@ -10,15 +10,15 @@ if (TypeName _object isEqualTo "OBJECT") then {_position = getPosWorld _object;}
 if (TypeName _object isEqualTo "STRING") then {_position = getMarkerPos _object;};
 if (TypeName _object isEqualTo "ARRAY") then {_position = _object;};
 
-_DistanceArray = [];
+private _DistanceArray = [];
 
 {
 	if !(isNil "_x") then {
-		_CompareObjectPos = [0,0,0];
+		private _CompareObjectPos = [0,0,0];
 		if (TypeName _x isEqualTo "OBJECT") then {_CompareObjectPos = getPosWorld _x;};
 		if (TypeName _x isEqualTo "STRING") then {_CompareObjectPos = getMarkerPos _x;};
 		if (TypeName _x isEqualTo "ARRAY") then {_CompareObjectPos = _x;};
-		_NewObjectDistance = _CompareObjectPos distance _position;
+		private _NewObjectDistance = _CompareObjectPos distance _position;
 		_DistanceArray pushback [_NewObjectDistance,_x];
 	};
 } foreach _list;

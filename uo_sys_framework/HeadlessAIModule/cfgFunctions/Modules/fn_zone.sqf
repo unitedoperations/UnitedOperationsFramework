@@ -10,7 +10,7 @@
  */
 
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_AI_EXEC_CHECK(SERVERHC)
+UO_FW_AI_EXEC_CHECK(SERVERHC);
 
 params [["_mode","",[""]],["_input",[],[[]]]];
 switch _mode do {
@@ -65,8 +65,8 @@ switch _mode do {
 				private _syncedModules = [_logic,[]] call UO_FW_AI_fnc_getSyncedModules;
 				_entities params [["_grps",[],[[]]],["_emptyvehs",[],[[]]],["_objs",[],[[]]]];
 				if ((_syncedModules isEqualto []) && ({(count _x) > 0 } count _grps) == 0 && ({(count _x) > 0 } count _emptyvehs) == 0 && ({(count _x) > 0 } count _objs) == 0) then {
-					_msg = format["%1 a %2 has nothing linked.\nYou can link Units, Groups, Objects or other modules to a Zone Module.",_logic,typeof _logic];
-					UO_FW_DEBUG("",_msg)
+					private _msg = format["%1 a %2 has nothing linked.\nYou can link Units, Groups, Objects or other modules to a Zone Module.",_logic,typeof _logic];
+					UO_FW_DEBUG("",_msg);
 				};
 				[_logic] spawn UO_FW_AI_fnc_debugSyncedModules;
 			};
@@ -79,7 +79,7 @@ switch _mode do {
 		};
 	};
 	case "attributesChanged3DEN": {
-		_logic = _input param [0,objNull,[objNull]];
+		private _logic = _input param [0,objNull,[objNull]];
 		private _radiusX = _logic getVariable ["UO_FW_AI_zoneRadiusX",_logic getVariable ["UO_FW_AI_zoneRadiusX", 100]];
 		private _radiusY = _logic getVariable ["UO_FW_AI_zoneRadiusY",_logic getVariable ["UO_FW_AI_zoneRadiusY", 100]];
 		set3DENAttributes [[[_logic],"size2",[_radiusX,_radiusY]]];

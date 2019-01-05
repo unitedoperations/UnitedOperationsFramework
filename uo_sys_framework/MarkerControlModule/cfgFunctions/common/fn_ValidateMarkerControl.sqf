@@ -5,7 +5,7 @@ _isValid = true;
 {
 	if(markerType (_x select 1) == "") then
 	{
-		_temp = format ["Marker control module:<br></br>Warning marker ""%1"" does not exist.", (_x select 1)]; \
+		private _temp = format ["Marker control module:<br></br>Warning marker ""%1"" does not exist.", (_x select 1)]; \
     	_temp call UO_FW_FNC_DebugMessage;
 		_isValid = false;
 	};

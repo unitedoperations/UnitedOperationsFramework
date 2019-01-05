@@ -7,7 +7,7 @@
  *		suits & PiZZADOX
  */
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_AI_EXEC_CHECK(SERVERHC)
+UO_FW_AI_EXEC_CHECK(SERVERHC);
 params ["_logic",["_entities",[[], [], []],[[]]],["_vehLog",[],[[]]],"_t","_j","_g"];
 	private _synced = [_logic] call UO_FW_AI_fnc_getSynced; 
 	private _posModules = [_logic,["UO_FW_AI_PositionModule"]] call UO_FW_AI_fnc_getSyncedModules;

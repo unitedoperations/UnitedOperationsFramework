@@ -1,7 +1,6 @@
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 
 //Script control
-//Script control
 #define UO_FW_AI_EXEC_CHECK(ARG)\
 _argUpper = toUpper(#ARG);\
 if (!UO_FW_SERVER_HCMODULE_ALLOWED) exitWith {};\
@@ -30,4 +29,4 @@ if ((_argUpper isEqualto "AUTO") && (!isNil "UO_FW_var_HC_ID")) then {\
 			_this remoteExec [_fnc_scriptName,UO_FW_var_HC_ID];\
 		};\
 	};\
-};
+}

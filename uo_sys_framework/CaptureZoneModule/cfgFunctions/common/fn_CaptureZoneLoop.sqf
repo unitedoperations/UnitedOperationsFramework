@@ -1,5 +1,5 @@
 #include "\x\UO_FW\addons\main\script_macros.hpp"
-UO_FW_EXEC_CHECK(SERVER)
+UO_FW_EXEC_CHECK(SERVER);
 
 _this spawn {
 private ["_markername","_marker","_oldOwner","_playersInArea","_owner"];
@@ -15,18 +15,18 @@ _capArray params ["_bluforCapMode","_opforCapMode","_indforCapMode","_civCapMode
 
 if(!(_this call UO_FW_fnc_ValidateCaptureZone)) exitWith {
 	private _msg = format ["CaptureZone %1 failed to Validate",_zoneName];
-	UO_FW_DEBUG("",_msg)
+	UO_FW_DEBUG("",_msg);
 };
 
 if (_interval < 5) then {
 	private _msginterval = format ["CaptureZone %1 has too low an interval check! Setting to 5 seconds", _zoneName];
-	UO_FW_DEBUG("",_msginterval);
+	UO_FW_DEBUG("",_msginterval);;
 	_interval = 5;
 };
 
 if !(_hidden) then {
 	private _msghidden = format ["Creating CaptureZone %1 Marker",_zoneName];
-	UO_FW_DEBUG("",_msghidden)
+	UO_FW_DEBUG("",_msghidden);
 	_markername = format ["%1_ZoneMarker",_zoneName];
 	_marker = createmarker [_markername,_loc];
 	if (_isRectangle) then {
@@ -47,27 +47,27 @@ private  _teamControllingvarName = format ["%1_teamControlling",_zoneName];
 MissionNamespace setVariable [_varName,false,true];
 MissionNamespace setVariable [_teamControllingvarName,"UNCONTESTED",true];
 
-_run = true;
-_oldOwner = "UNCONTESTED";
-_owner = "UNCONTESTED";
-_ownerControlCount = 0;
-_bluforIndex = 0;
-_opforIndex = 1;
-_indforIndex = 2;
-_civIndex = 3;
+private _run = true;
+private _oldOwner = "UNCONTESTED";
+private _owner = "UNCONTESTED";
+private _ownerControlCount = 0;
+private _bluforIndex = 0;
+private _opforIndex = 1;
+private _indforIndex = 2;
+private _civIndex = 3;
 if (isNil "CaptureZone_Array") then {CaptureZone_Array = [];};
 CaptureZone_Array pushBack _logic;
 
 	private _msgloop = format ["Starting CaptureZone %1 Loop",_zoneName];
-	UO_FW_DEBUG("",_msgloop)
+	UO_FW_DEBUG("",_msgloop);
 
 	while {_run} do {
 		//var redeclares
 
-		_bluCount = 0;
-		_opCount = 0;
-		_indCount = 0;
-		_civCount = 0;
+		private _bluCount = 0;
+		private _opCount = 0;
+		private _indCount = 0;
+		private _civCount = 0;
 
 		private _condvalue = missionNamespace getVariable [_cond,true];
 		waituntil {_condvalue};
@@ -125,7 +125,7 @@ CaptureZone_Array pushBack _logic;
 		if (({(selectMax [_bluCount, _opCount, _indCount, _civCount] isEqualTo _x) && !(_x isEqualto 0)} count [_bluCount, _opCount, _indCount, _civCount]) > 1) then {
 			//it's a tie between 2 or more teams
 			_owner = "CONTESTED";
-			_ownerControlCount = 0;
+			private _ownerControlCount = 0;
 			if !(_owner isEqualto _oldOwner) then {
 				if !(_hidden) then {
 					_marker setMarkerColor _contestedcolour;
@@ -143,8 +143,8 @@ CaptureZone_Array pushBack _logic;
 			//a team has a number advantage
 			private _ratio = 10;
 			private _findMax = ([_bluCount,_opCount,_indCount,_civCount] call CBA_fnc_findMax);
-			private _max = _findMax # 0;
-			private _maxindex = _findMax # 1;
+			private _max = _findMax select 0;
+			private _maxindex = _findMax select 1;
 			private _2ndplace = 0;
 			private _ratioNeeded = 0;
 			if !(_ratioNeeded isEqualto 0) then {
@@ -166,7 +166,7 @@ CaptureZone_Array pushBack _logic;
 					case "BLUFOR": {
 						if (_owner isEqualto _oldOwner) then {
 							if (_bluforCapMode isEqualTo 0) then {
-								_ownerControlCount = _ownerControlCount + 1;
+								private _ownerControlCount = _ownerControlCount + 1;
 								if (_ownerControlCount > (_timeArray select _bluforIndex)) then {
 									//message is blufor has captured
 									if !(_hidden) then {
@@ -205,7 +205,7 @@ CaptureZone_Array pushBack _logic;
 					case "OPFOR": {
 						if (_owner isEqualto _oldOwner) then {
 							if (_opforCapMode isEqualTo 0) then {
-								_ownerControlCount = _ownerControlCount + 1;
+								private _ownerControlCount = _ownerControlCount + 1;
 								if (_ownerControlCount > (_timeArray select _opforIndex)) then {
 									//message is blufor has captured
 									if !(_hidden) then {
@@ -244,7 +244,7 @@ CaptureZone_Array pushBack _logic;
 					case "INDFOR": {
 						if (_owner isEqualto _oldOwner) then {
 							if (_indforCapMode isEqualTo 0) then {
-								_ownerControlCount = _ownerControlCount + 1;
+								private _ownerControlCount = _ownerControlCount + 1;
 								if (_ownerControlCount > (_timeArray select _indforIndex)) then {
 									//message is blufor has captured
 									if !(_hidden) then {
@@ -283,7 +283,7 @@ CaptureZone_Array pushBack _logic;
 					case "CIV": {
 						if (_owner isEqualto _oldOwner) then {
 							if (_civCapMode isEqualTo 0) then {
-								_ownerControlCount = _ownerControlCount + 1;
+								private _ownerControlCount = _ownerControlCount + 1;
 								if (_ownerControlCount > (_timeArray select _civIndex)) then {
 									//message is blufor has captured
 									if !(_hidden) then {
@@ -336,7 +336,7 @@ CaptureZone_Array pushBack _logic;
 			} else {
 				//not enough of a ratio to gain control!
 				_owner = "CONTESTED";
-				_ownerControlCount = 0;
+				private _ownerControlCount = 0;
 				if !(_owner isEqualto _oldOwner) then {
 					if !(_hidden) then {
 						_marker setMarkerColor _contestedcolour;

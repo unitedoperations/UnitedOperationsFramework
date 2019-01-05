@@ -201,7 +201,7 @@ if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_1",false]) then
 					};
 
 					//CaptureZoneBlock
-					//UO_FW_DEBUG("","")
+					//UO_FW_DEBUG("","");
 
 					_CaptureZoneConditionCheck = false;
 
@@ -295,7 +295,7 @@ if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_1",false]) then
 								if (_value) exitwith
 								{
 										private _msg = format ["Category 1 Ending due to :%1",_value];
-										UO_FW_DEBUG("",_msg)
+										UO_FW_DEBUG("",_msg);
 
 										UO_FW_EndCondition_Message_1 call UO_FW_fnc_EndMission;
 								};
@@ -308,15 +308,15 @@ if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_1",false]) then
 								_x params ["_name","_value"];
 								_fullcheck = _fullcheck && _value;
 								private _msg = format ["Category 1 checking var:%1 result:%2",_name,_value];
-								UO_FW_DEBUG("",_msg)
+								UO_FW_DEBUG("",_msg);
 							} foreach _ConditionCheckList;
 							if (_fullcheck) then {
-								UO_FW_DEBUG("","Category 1 Ending due to all conditions met!")
+								UO_FW_DEBUG("","Category 1 Ending due to all conditions met!");
 								UO_FW_EndCondition_Message_1 call UO_FW_fnc_EndMission;
 							};
 							//if (([_ConditionCheckList,false] call UO_FW_fnc_arrayFindAll) isEqualto 0) exitwith
 							//{
-							//	UO_FW_DEBUG("","Category 1 Ending due to all conditions met!")
+							//	UO_FW_DEBUG("","Category 1 Ending due to all conditions met!");
 
 							//	UO_FW_EndCondition_Message_1 call UO_FW_fnc_EndMission;
 							//};

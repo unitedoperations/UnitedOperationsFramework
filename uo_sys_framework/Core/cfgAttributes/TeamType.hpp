@@ -2,7 +2,7 @@ class TeamTypeWest: Title
 {
 	attributeLoad="missionnamespace setvariable ['teamtype_BLUFOR',_value]; (_this controlsGroupCtrl 103) lbsetcursel _value;";
 	attributeSave="missionnamespace getvariable ['teamtype_BLUFOR',0]";
-	
+
 	class Controls : Controls
 	{
 		class Title: Title {};
@@ -26,7 +26,7 @@ class TeamTypeEast: TeamTypeWest
 {
 	attributeLoad="missionnamespace setvariable ['teamtype_OPFOR',_value]; (_this controlsGroupCtrl 104) lbsetcursel _value;";
 	attributeSave="missionnamespace getvariable ['teamtype_OPFOR',0]";
-	
+
 	class Controls : Controls
 	{
 		class Title: Title {};
@@ -50,7 +50,7 @@ class TeamTypeIndfor: TeamTypeWest
 {
 	attributeLoad="missionnamespace setvariable ['teamtype_INDFOR',_value]; (_this controlsGroupCtrl 105) lbsetcursel _value;";
 	attributeSave="missionnamespace getvariable ['teamtype_INDFOR',0]";
-	
+
 	class Controls : Controls
 	{
 		class Title: Title {};
@@ -74,7 +74,7 @@ class TeamTypeCiv: TeamTypeWest
 {
 	attributeLoad="missionnamespace setvariable ['teamtype_CIV',_value]; (_this controlsGroupCtrl 106) lbsetcursel _value;";
 	attributeSave="missionnamespace getvariable ['teamtype_CIV',0]";
-	
+
 	class Controls : Controls
 	{
 		class Title: Title {};
@@ -93,4 +93,3 @@ class TeamTypeCiv: TeamTypeWest
 		};
 	};
 };
-
