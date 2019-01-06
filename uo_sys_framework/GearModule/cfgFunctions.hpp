@@ -12,5 +12,4 @@ class UO_FW_OlsenGearFunctions
 {
 	file = "\x\UO_FW\addons\main\GearModule\cfgFunctions\Olsen";
 	class OlsenGearScript {};
-	class OlsenGearInit {};
 };

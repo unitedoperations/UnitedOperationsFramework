@@ -8,9 +8,10 @@ class UO_FW_TeamRespawnSettings_Blufor
 				displayName = "Respawn System";
 				tooltip = "Type of respawn system for BLUFOR. Place down Gamelogic with name uo_fw_west_respawn to define respawn location.";
 				control = "UO_FW_RespawnComboAttribute";
+				typeName = "STRING";
 				property = "UO_FW_RespawnSetting_Type_Blufor";
 				expression = "missionNamespace setVariable ['%s', _value]; %s = _value;";
-				defaultValue = "0";
+				defaultValue = "'ONELIFE'";
 			};
 	    class UO_FW_RespawnSetting_IndTickets_Blufor
 	    {

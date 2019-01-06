@@ -1,7 +1,6 @@
 class UO_FW_CheckBoxAIOnlyCategory: CheckBox
 {
 	onLoad="\
-	diag_log 'onload triggered';\
 	_this spawn {\
 		 disableserialization;\
 		 private ['_isUnitPlayable'];\
@@ -37,7 +36,6 @@ class UO_FW_CheckBoxAIOnlyCategory: CheckBox
 class UO_FW_CheckBoxStateAIOnlyCategory: CheckBoxState
 {
 	onLoad="\
-	diag_log 'onload triggered';\
 	_this spawn {\
 		 disableserialization;\
 		 private ['_isUnitPlayable'];\
@@ -73,7 +71,6 @@ class UO_FW_CheckBoxStateAIOnlyCategory: CheckBoxState
 class UO_FW_CheckboxNumberAIOnlyCategory: Edit
 {
 	onLoad="\
-	diag_log 'onload triggered';\
 	_this spawn {\
 		 disableserialization;\
 		 private ['_isUnitPlayable'];\
@@ -109,7 +106,6 @@ class UO_FW_CheckboxNumberAIOnlyCategory: Edit
 class UO_FW_CheckboxReversedAIOnlyCategory: Edit
 {
 	onLoad="\
-	diag_log 'onload triggered';\
 	_this spawn {\
 		 disableserialization;\
 		 private ['_isUnitPlayable'];\
@@ -145,7 +141,6 @@ class UO_FW_CheckboxReversedAIOnlyCategory: Edit
 class UO_FW_EditAIOnlyCategory: Edit
 {
 	onLoad="\
-	diag_log 'onload triggered';\
 	_this spawn {\
 		 disableserialization;\
 		 private ['_isUnitPlayable'];\
@@ -181,7 +176,6 @@ class UO_FW_EditAIOnlyCategory: Edit
 class UO_FW_EditShortAIOnlyCategory: Edit
 {
 	onLoad="\
-	diag_log 'onload triggered';\
 	_this spawn {\
 		 disableserialization;\
 		 private ['_isUnitPlayable'];\
@@ -217,7 +211,6 @@ class UO_FW_EditShortAIOnlyCategory: Edit
 class UO_FW_EditArrayAIOnlyCategory: Edit
 {
 	onLoad="\
-	diag_log 'onload triggered';\
 	_this spawn {\
 		 disableserialization;\
 		 private ['_isUnitPlayable'];\

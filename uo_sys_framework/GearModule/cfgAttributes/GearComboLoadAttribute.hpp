@@ -28,11 +28,17 @@ class UO_FW_Gear_ComboGearLoad: ComboPreview
 				{
 					idc=101;
 					onMouseButtonClick="\
-						_ctrlButton = _this select 0;\
-						_ctrlGroup = ctrlParentControlsGroup _ctrlButton;\
-						_ctrlCombo = _ctrlGroup controlsgroupctrl 100;\
-						_unit = ((get3denselected 'object') select 0);\
-						[(_ctrlCombo lbData lbcursel _ctrlCombo),_unit] call UO_FW_fnc_GearTypeLoadfromAttribute;\
+						_this spawn {\
+							disableserialization;\
+							_ctrlButton = _this select 0;\
+							_ctrlGroup = ctrlParentControlsGroup _ctrlButton;\
+							_ctrlCombo = _ctrlGroup controlsgroupctrl 100;\
+							_unit = ((get3denselected 'object') select 0);\
+							_GearSystem = _unit getvariable ['UO_FW_3DENATTR_GearSystem','NONE'];\
+							if (_GearSystem isEqualto 'ACEAR') then {\
+								[(_ctrlCombo lbData lbcursel _ctrlCombo),_unit] call UO_FW_fnc_GearTypeLoadfromAttribute;\
+							};\
+						};\
 					";
 				};
 			};

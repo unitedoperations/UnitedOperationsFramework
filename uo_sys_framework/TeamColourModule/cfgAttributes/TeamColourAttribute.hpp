@@ -44,7 +44,6 @@ class UO_FW_TeamColourAttribute: Combo {
 	};\
 	";
 	onLoad="\
-	diag_log 'onload triggered';\
 	_this spawn {\
 		 disableserialization;\
 		 private ['_isUnitPlayable'];\

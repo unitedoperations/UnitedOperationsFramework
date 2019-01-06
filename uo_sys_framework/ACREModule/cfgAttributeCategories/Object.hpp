@@ -26,7 +26,7 @@ class UO_FW_ACREOptions {
 			property = "UO_FW_ACRE_SR_RADIO_CHANNEL";
 			displayName = "Short Range Radio Channel";
 			tooltip = "Sets the short range radio channel of this unit";
-			control = "EditShort";
+			control = "UO_FW_ACRE_ChannelSelect";
 			expression = "_this setVariable ['%s',_value,true];";
 			condition = "objectControllable";
 			defaultValue = "1";
@@ -53,7 +53,7 @@ class UO_FW_ACREOptions {
 			property = "UO_FW_ACRE_LR_RADIO_CHANNEL";
 			displayName = "Long Range Radio Channel";
 			tooltip = "Sets the long range radio channel of this unit";
-			control = "EditShort";
+			control = "UO_FW_ACRE_ChannelSelect";
 			expression = "_this setVariable ['%s',_value,true];";
 			condition = "objectControllable";
 			defaultValue = "1";
@@ -80,7 +80,7 @@ class UO_FW_ACREOptions {
 			property = "UO_FW_ACRE_PK_RADIO_CHANNEL";
 			displayName = "Pack Radio Channel";
 			tooltip = "Sets the long range pack radio channel of this unit";
-			control = "EditShort";
+			control = "UO_FW_ACRE_ChannelSelect";
 			expression = "_this setVariable ['%s',_value,true];";
 			condition = "objectControllable";
 			defaultValue = "1";

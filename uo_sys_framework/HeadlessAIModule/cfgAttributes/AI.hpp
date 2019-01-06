@@ -392,7 +392,6 @@ class UO_FW_AI_persistentControl : Title {
 };
 class UO_FW_AI_unitnameControl : Edit {
 		onLoad="\
-		diag_log 'onload triggered';\
 		_this spawn {\
 			 disableserialization;\
 			 private ['_isUnitPlayable'];\

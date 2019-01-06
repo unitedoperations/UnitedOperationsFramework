@@ -40,4 +40,4 @@ private _defaultloadoutsArray = MissionNamespace getvariable ['ace_arsenal_defau
 	if (_loadoutName isEqualto _name) exitwith {
 		_unit setUnitLoadout _loadoutData;
 	};
-} foreach _defaultloadoutsArray
+} foreach _defaultloadoutsArray;

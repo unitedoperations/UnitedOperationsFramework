@@ -9,9 +9,9 @@ class UO_FW_Gear_Settings
             collapsed = 0;
             class Attributes
             {
-								class UO_FW_GearSystem_Enabled
+								class UO_FW_Gear_ACEA_System_Enabled
                 {
-                    property = "UO_FW_GearSystem_Enabled";
+                    property = "UO_FW_Gear_ACEA_System_Enabled";
                     displayName = "Enable ACE Arsenal System";
                     tooltip = "Should Gear System be enabled";
                     control = "CheckboxState";

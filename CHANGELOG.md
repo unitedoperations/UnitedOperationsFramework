@@ -12,6 +12,7 @@ Version Numbers mainly refer to the UO Modpack addition.
 - Added `UO_FW_ServerStartTime` initial server diag_ticktime publicVariable
 - Added debug option in setDefaults file for checking that new attributes/vars are defined correctly
 - Added CoverMap module
+- Added ACE Arsenal Gear System
 
 
 ### Changed
