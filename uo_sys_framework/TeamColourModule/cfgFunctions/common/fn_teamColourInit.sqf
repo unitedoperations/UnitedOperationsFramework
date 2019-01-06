@@ -13,6 +13,8 @@ if (!isDedicated) then {
 	[{!isNull player && (time > 1)}, {
 		private _colour = player getVariable ["UO_FW_TeamColour", "NONE"];
 
+		if (_colour isEqualto "White") then {_colour = "MAIN";};
+
 		if !(_colour isEqualto "NONE") then {
 			["CBA_teamColorChanged", [player, _colour]] call CBA_fnc_globalEvent;
 			player setVariable ["UO_FW_TeamColour", nil, false];

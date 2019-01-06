@@ -9,7 +9,7 @@ class UO_FW_AI_standardNumberControl : Edit {
              x = "48 * (pixelW * pixelGrid * 0.50)";
              w = "82 * (pixelW * pixelGrid * 0.50)";
              h = "5 * (pixelH * pixelGrid * 0.50)";
-			canModify = 1;
+					   canModify = 1;
          };
      };
  };
@@ -24,7 +24,7 @@ class UO_FW_AI_patrolradiusControl : Edit {
              x = "48 * (pixelW * pixelGrid * 0.50)";
              w = "82 * (pixelW * pixelGrid * 0.50)";
              h = "5 * (pixelH * pixelGrid * 0.50)";
-			canModify = 1;
+					   canModify = 1;
          };
      };
  };
@@ -74,7 +74,7 @@ class UO_FW_AI_waypointwaitControl : Edit {
              x = "48 * (pixelW * pixelGrid * 0.50)";
              w = "82 * (pixelW * pixelGrid * 0.50)";
              h = "5 * (pixelH * pixelGrid * 0.50)";
-			canModify = 1;
+					   canModify = 1;
          };
      };
  };
@@ -262,14 +262,14 @@ class UO_FW_AI_startbuildingControl : Title	{
 		class Title: Title{};
 		class Value: ctrlToolbox {
 			idc = 119;
-             style = "0x02";
-             x = "48 * (pixelW * pixelGrid * 0.50)";
-             w = "82 * (pixelW * pixelGrid * 0.50)";
-             h = "5 * (pixelH * pixelGrid * 0.50)";
-             rows = 1;
-             columns = 2;
+      style = "0x02";
+      x = "48 * (pixelW * pixelGrid * 0.50)";
+      w = "82 * (pixelW * pixelGrid * 0.50)";
+      h = "5 * (pixelH * pixelGrid * 0.50)";
+      rows = 1;
+      columns = 2;
 			values[] = {0,1};
-             strings[] = {"OFF","ON"};
+      strings[] = {"OFF","ON"};
 			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_startbuilding_value',_this select 1];";
 		};
 	};
@@ -285,7 +285,7 @@ class UO_FW_AI_multiplierControl : Edit {
              x = "48 * (pixelW * pixelGrid * 0.50)";
              w = "82 * (pixelW * pixelGrid * 0.50)";
              h = "5 * (pixelH * pixelGrid * 0.50)";
-			canModify = 1;
+					   canModify = 1;
          };
      };
  };
@@ -299,14 +299,14 @@ class UO_FW_AI_occupyoptionControl : Title {
 		};
 		class Value: ctrlToolbox {
 			idc = 121;
-             style = "0x02";
-             x = "48 * (pixelW * pixelGrid * 0.50)";
-             w = "82 * (pixelW * pixelGrid * 0.50)";
-             h = "20 * (pixelH * pixelGrid * 0.50)";
-             rows = 4;
-             columns = 2;
+      style = "0x02";
+      x = "48 * (pixelW * pixelGrid * 0.50)";
+      w = "82 * (pixelW * pixelGrid * 0.50)";
+      h = "20 * (pixelH * pixelGrid * 0.50)";
+      rows = 4;
+      columns = 2;
 			values[] = {0,1,2,3,4,5,6,7};
-             strings[] = {
+      strings[] = {
 				"OFF","Random Option Below",
 				"Nearest Building","Random Building",
 				"Near GROUP of Buildings","Random GROUP of Buildings",
@@ -332,14 +332,14 @@ class UO_FW_AI_removeControl : Title {
 		};
 		class Value: ctrlToolbox {
 			idc = 122;
-             style = "0x02";
-             x = "48 * (pixelW * pixelGrid * 0.50)";
-             w = "82 * (pixelW * pixelGrid * 0.50)";
-             h = "20 * (pixelH * pixelGrid * 0.50)";
-             rows = 4;
-             columns = 3;
+      style = "0x02";
+      x = "48 * (pixelW * pixelGrid * 0.50)";
+      w = "82 * (pixelW * pixelGrid * 0.50)";
+      h = "20 * (pixelH * pixelGrid * 0.50)";
+      rows = 4;
+      columns = 3;
 			values[] = {0,1,2,3,4,5,6,7,8,9,10,11};
-             strings[] = {
+      strings[] = {
 				"OFF","Everything","All Weapons and Equip",
 				"All Weapons","All Equipment","All Items",
 				"All Magazines","Vest","Uniform",
@@ -378,14 +378,14 @@ class UO_FW_AI_persistentControl : Title {
 		class Title: Title{};
 		class Value: ctrlToolbox {
 			idc = 124;
-             style = "0x02";
-             x = "48 * (pixelW * pixelGrid * 0.50)";
-             w = "82 * (pixelW * pixelGrid * 0.50)";
-             h = "5 * (pixelH * pixelGrid * 0.50)";
-             rows = 1;
-             columns = 2;
+      style = "0x02";
+      x = "48 * (pixelW * pixelGrid * 0.50)";
+      w = "82 * (pixelW * pixelGrid * 0.50)";
+      h = "5 * (pixelH * pixelGrid * 0.50)";
+      rows = 1;
+      columns = 2;
 			values[] = {0,1};
-             strings[] = {"Not Persistent","Persistent"};
+      strings[] = {"Not Persistent","Persistent"};
 			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_persistent_value',_this select 1];";
 		};
 	};
@@ -406,9 +406,7 @@ class UO_FW_AI_unitnameControl : Edit {
 					} else {\
 						 _isUnitPlayable = (_unit in playableUnits);\
 					};\
-					diag_log format ['_isUnitPlayable: %1',_isUnitPlayable];\
 					_state = [true,false] select (_isUnitPlayable);\
-					diag_log format ['_state: %1',_state];\
 					_fade = [0.75,0] select _state;\
 					_x ctrlenable _state;\
 					_x ctrlsetfade _fade;\
@@ -444,30 +442,30 @@ class UO_FW_AI_multioccupyControl : Title {
 		};
 		class Value: ctrlToolbox {
 				idc = 126;
-             style = "0x02";
-             x = "48 * (pixelW * pixelGrid * 0.50)";
-             w = "82 * (pixelW * pixelGrid * 0.50)";
-             h = "10 * (pixelH * pixelGrid * 0.50)";
-             rows = 2;
-             columns = 5;
-						 values[] = {0,1,2,3,4,5,6,7,8,9};
-             strings[] = {
+        style = "0x02";
+        x = "48 * (pixelW * pixelGrid * 0.50)";
+        w = "82 * (pixelW * pixelGrid * 0.50)";
+        h = "10 * (pixelH * pixelGrid * 0.50)";
+        rows = 2;
+        columns = 5;
+				values[] = {0,1,2,3,4,5,6,7,8,9};
+        strings[] = {
 				"ALL","25%","50%","75%","RANDOM",
 				"ONE","TWO","THREE","FOUR","FIVE"
-			};
-			tooltips[] = {
-				"All generated groups will use the same occupy option as this group.",
-				"25% generated groups will use the occupy options.",
-				"50% generated groups will use the occupy options.",
-				"75% generated groups will use the occupy options.",
-				"A random number of generated groups will use the occupy options.",
-				"One generated group will use the occupy options.",
-				"Two generated groups will use the occupy options.",
-				"Three generated groups will use the occupy options.",
-				"Four generated groups will use the occupy options.",
-				"Five generated groups will use the occupy options."
-			};
-			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_multioccupy_value',_this select 1];";
+				};
+				tooltips[] = {
+					"All generated groups will use the same occupy option as this group.",
+					"25% generated groups will use the occupy options.",
+					"50% generated groups will use the occupy options.",
+					"75% generated groups will use the occupy options.",
+					"A random number of generated groups will use the occupy options.",
+					"One generated group will use the occupy options.",
+					"Two generated groups will use the occupy options.",
+					"Three generated groups will use the occupy options.",
+					"Four generated groups will use the occupy options.",
+					"Five generated groups will use the occupy options."
+				};
+				onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_multioccupy_value',_this select 1];";
 		};
 	};
 };
@@ -482,7 +480,7 @@ class UO_FW_AI_moduleradiusControl : Edit {
              x = "48 * (pixelW * pixelGrid * 0.50)";
              w = "82 * (pixelW * pixelGrid * 0.50)";
              h = "5 * (pixelH * pixelGrid * 0.50)";
-			canModify = 1;
+					   canModify = 1;
          };
      };
  };
@@ -497,7 +495,7 @@ class UO_FW_AI_moduleradiusControl2 : Edit {
              x = "48 * (pixelW * pixelGrid * 0.50)";
              w = "82 * (pixelW * pixelGrid * 0.50)";
              h = "5 * (pixelH * pixelGrid * 0.50)";
-			canModify = 1;
+					   canModify = 1;
          };
      };
  };
@@ -512,7 +510,7 @@ class UO_FW_AI_zoneDelayControl : Edit {
              x = "48 * (pixelW * pixelGrid * 0.50)";
              w = "82 * (pixelW * pixelGrid * 0.50)";
              h = "5 * (pixelH * pixelGrid * 0.50)";
-			canModify = 1;
+					   canModify = 1;
          };
      };
  };
@@ -523,14 +521,14 @@ class UO_FW_AI_zoneDelayControl : Edit {
 		class Title: Title{};
 		class Value: ctrlToolbox {
 			idc = 129;
-             style = "0x02";
-             x = "48 * (pixelW * pixelGrid * 0.50)";
-             w = "82 * (pixelW * pixelGrid * 0.50)";
-             h = "5 * (pixelH * pixelGrid * 0.50)";
-             rows = 1;
-             columns = 2;
+      style = "0x02";
+      x = "48 * (pixelW * pixelGrid * 0.50)";
+      w = "82 * (pixelW * pixelGrid * 0.50)";
+      h = "5 * (pixelH * pixelGrid * 0.50)";
+      rows = 1;
+      columns = 2;
 			values[] = {0,1};
-             strings[] = {"Yes","No"};
+      strings[] = {"Yes","No"};
 			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_intial_value',_this select 1];";
 		};
 	};
@@ -542,14 +540,14 @@ class UO_FW_AI_zoneOnControl : Title {
 		class Title: Title{};
 		class Value: ctrlToolbox {
 			idc = 129;
-             style = "0x02";
-             x = "48 * (pixelW * pixelGrid * 0.50)";
-             w = "82 * (pixelW * pixelGrid * 0.50)";
-             h = "5 * (pixelH * pixelGrid * 0.50)";
-             rows = 1;
-             columns = 2;
+      style = "0x02";
+      x = "48 * (pixelW * pixelGrid * 0.50)";
+      w = "82 * (pixelW * pixelGrid * 0.50)";
+      h = "5 * (pixelH * pixelGrid * 0.50)";
+      rows = 1;
+      columns = 2;
 			values[] = {0,1};
-             strings[] = {"ENABLED","SUSPENDED"};
+      strings[] = {"ENABLED","SUSPENDED"};
 			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_zoneOn_value',_this select 1];";
 		};
 	};
@@ -580,14 +578,14 @@ class UO_FW_AI_zoneTypeControl : Title	{
 		};
 		class Value: ctrlToolbox {
 			idc = 131;
-             style = "0x02";
-             x = "48 * (pixelW * pixelGrid * 0.50)";
-             w = "82 * (pixelW * pixelGrid * 0.50)";
-             h = "25 * (pixelH * pixelGrid * 0.50)";
-             rows = 5;
-             columns = 2;
+      style = "0x02";
+      x = "48 * (pixelW * pixelGrid * 0.50)";
+      w = "82 * (pixelW * pixelGrid * 0.50)";
+      h = "25 * (pixelH * pixelGrid * 0.50)";
+      rows = 5;
+      columns = 2;
 			values[] = {0,1,2,3,4,5,6,7,8,9,10,11};
-             strings[] = {
+      strings[] = {
 				"All","All Ground",
 				"All Air","All Ground and Helicopter",
 				"All Ground and Water","All Ground and Plane",
@@ -617,14 +615,14 @@ class UO_FW_AI_ZonesideControl : Title	{
 		};
 		class Value: ctrlToolbox {
 			idc = 132;
-             style = "0x02";
-             x = "48 * (pixelW * pixelGrid * 0.50)";
-             w = "82 * (pixelW * pixelGrid * 0.50)";
-             h = "35 * (pixelH * pixelGrid * 0.50)";
-             rows = 7;
-             columns = 2;
+      style = "0x02";
+      x = "48 * (pixelW * pixelGrid * 0.50)";
+      w = "82 * (pixelW * pixelGrid * 0.50)";
+      h = "35 * (pixelH * pixelGrid * 0.50)";
+      rows = 7;
+      columns = 2;
 			values[] = {0,1,2,3,4,5,6,7,8,9,10,11.12};
-             strings[] = {
+      strings[] = {
 				"WEST","EAST",
 				"INDEPENDENT","CIVILIAN",
 				"ANY","WEST/EAST",
@@ -653,14 +651,14 @@ class UO_FW_AI_behaviourchangeControl : Title	{
 		class Title: Title{};
 		class Value: ctrlToolbox {
 			idc = 134;
-             style = "0x02";
-             x = "48 * (pixelW * pixelGrid * 0.50)";
-             w = "82 * (pixelW * pixelGrid * 0.50)";
-             h = "5 * (pixelH * pixelGrid * 0.50)";
-             rows = 1;
-             columns = 6;
+      style = "0x02";
+      x = "48 * (pixelW * pixelGrid * 0.50)";
+      w = "82 * (pixelW * pixelGrid * 0.50)";
+      h = "5 * (pixelH * pixelGrid * 0.50)";
+      rows = 1;
+      columns = 6;
 			values[] = {0,1,2,3,4,5};
-             strings[] = {"No Change","Careless","Safe","Aware","Combat","Stealth"};
+      strings[] = {"No Change","Careless","Safe","Aware","Combat","Stealth"};
 			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_behaviourchange_value',_this select 1];";
 		};
 	};
@@ -675,14 +673,14 @@ class UO_FW_AI_combatmodechangeControl : Title	{
 		};
 		class Value: ctrlToolbox {
 			idc = 135;
-             style = "0x02";
-             x = "48 * (pixelW * pixelGrid * 0.50)";
-             w = "82 * (pixelW * pixelGrid * 0.50)";
-             h = "25 * (pixelH * pixelGrid * 0.50)";
-             rows = 6;
-             columns = 1;
+      style = "0x02";
+      x = "48 * (pixelW * pixelGrid * 0.50)";
+      w = "82 * (pixelW * pixelGrid * 0.50)";
+      h = "25 * (pixelH * pixelGrid * 0.50)";
+      rows = 6;
+      columns = 1;
 			values[] = {0,1,2,3,4,5};
-             strings[] = {"$STR_3den_attributes_default_unchanged_text","$STR_3DEN_Attributes_CombatMode_Blue_text","$STR_3DEN_Attributes_CombatMode_Green_text","$STR_3DEN_Attributes_CombatMode_White_text","$STR_3DEN_Attributes_CombatMode_Yellow_text","$STR_3DEN_Attributes_CombatMode_Red_text"};
+      strings[] = {"$STR_3den_attributes_default_unchanged_text","$STR_3DEN_Attributes_CombatMode_Blue_text","$STR_3DEN_Attributes_CombatMode_Green_text","$STR_3DEN_Attributes_CombatMode_White_text","$STR_3DEN_Attributes_CombatMode_Yellow_text","$STR_3DEN_Attributes_CombatMode_Red_text"};
 			tooltips[] = {
 				"$STR_3den_attributes_default_unchanged_tooltip",
 				"$STR_3DEN_Attributes_CombatMode_Blue_tooltip",
@@ -840,7 +838,7 @@ class UO_FW_AI_standardNumberAltControl : Edit {
              x = "48 * (pixelW * pixelGrid * 0.50)";
              w = "82 * (pixelW * pixelGrid * 0.50)";
              h = "5 * (pixelH * pixelGrid * 0.50)";
-			canModify = 1;
+					   canModify = 1;
          };
      };
  };
@@ -851,14 +849,14 @@ class UO_FW_AI_forcelightsControl : Title {
 		class Title: Title{};
 		class Value: ctrlToolbox {
 			idc = 142;
-             style = "0x02";
-             x = "48 * (pixelW * pixelGrid * 0.50)";
-             w = "82 * (pixelW * pixelGrid * 0.50)";
-             h = "5 * (pixelH * pixelGrid * 0.50)";
-             rows = 1;
-             columns = 2;
+      style = "0x02";
+      x = "48 * (pixelW * pixelGrid * 0.50)";
+      w = "82 * (pixelW * pixelGrid * 0.50)";
+      h = "5 * (pixelH * pixelGrid * 0.50)";
+      rows = 1;
+      columns = 2;
 			values[] = {0,1};
-             strings[] = {"Off","Force Flashlights"};
+      strings[] = {"Off","Force Flashlights"};
 			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_persistent_value',_this select 1];";
 		};
 	};
@@ -870,14 +868,14 @@ class UO_FW_AI_mainControl : Title	{
 		class Title: Title{};
 		class Value: ctrlToolbox {
 			idc = 143;
-             style = "0x02";
-             x = "48 * (pixelW * pixelGrid * 0.50)";
-             w = "82 * (pixelW * pixelGrid * 0.50)";
-             h = "5 * (pixelH * pixelGrid * 0.50)";
-             rows = 1;
-             columns = 2;
+      style = "0x02";
+      x = "48 * (pixelW * pixelGrid * 0.50)";
+      w = "82 * (pixelW * pixelGrid * 0.50)";
+      h = "5 * (pixelH * pixelGrid * 0.50)";
+      rows = 1;
+      columns = 2;
 			values[] = {0,1};
-             strings[] = {"ENABLED","DISABLED"};
+      strings[] = {"ENABLED","DISABLED"};
 			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_main_value',_this select 1];";
 		};
 	};
@@ -889,14 +887,14 @@ class UO_FW_AI_mainconsoleControl : Title	{
 		class Title: Title{};
 		class Value: ctrlToolbox {
 			idc = 144;
-             style = "0x02";
-             x = "48 * (pixelW * pixelGrid * 0.50)";
-             w = "82 * (pixelW * pixelGrid * 0.50)";
-             h = "5 * (pixelH * pixelGrid * 0.50)";
-             rows = 1;
-             columns = 2;
+      style = "0x02";
+      x = "48 * (pixelW * pixelGrid * 0.50)";
+      w = "82 * (pixelW * pixelGrid * 0.50)";
+      h = "5 * (pixelH * pixelGrid * 0.50)";
+      rows = 1;
+      columns = 2;
 			values[] = {0,1};
-             strings[] = {"ON","OFF"};
+      strings[] = {"ON","OFF"};
 			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_mainconsole_value',_this select 1];";
 		};
 	};
@@ -908,14 +906,14 @@ class UO_FW_AI_maindebugControl : Title	{
 		class Title: Title{};
 		class Value: ctrlToolbox {
 			idc = 145;
-             style = "0x02";
-             x = "48 * (pixelW * pixelGrid * 0.50)";
-             w = "82 * (pixelW * pixelGrid * 0.50)";
-             h = "5 * (pixelH * pixelGrid * 0.50)";
-             rows = 1;
-             columns = 2;
+      style = "0x02";
+      x = "48 * (pixelW * pixelGrid * 0.50)";
+      w = "82 * (pixelW * pixelGrid * 0.50)";
+      h = "5 * (pixelH * pixelGrid * 0.50)";
+      rows = 1;
+      columns = 2;
 			values[] = {0,1};
-             strings[] = {"ON","OFF"};
+      strings[] = {"ON","OFF"};
 			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_maindebug_value',_this select 1];";
 		};
 	};
@@ -931,7 +929,7 @@ class UO_FW_AI_standardStringOneControl : Edit {
              x = "48 * (pixelW * pixelGrid * 0.50)";
              w = "82 * (pixelW * pixelGrid * 0.50)";
              h = "5 * (pixelH * pixelGrid * 0.50)";
-			canModify = 1;
+					   canModify = 1;
          };
      };
  };
@@ -946,7 +944,7 @@ class UO_FW_AI_standardStringTwoControl : Edit {
              x = "48 * (pixelW * pixelGrid * 0.50)";
              w = "82 * (pixelW * pixelGrid * 0.50)";
              h = "5 * (pixelH * pixelGrid * 0.50)";
-			canModify = 1;
+					   canModify = 1;
          };
      };
  };
@@ -961,7 +959,7 @@ class UO_FW_AI_standardStringThreeControl : Edit {
              x = "48 * (pixelW * pixelGrid * 0.50)";
              w = "82 * (pixelW * pixelGrid * 0.50)";
              h = "5 * (pixelH * pixelGrid * 0.50)";
-			canModify = 1;
+					   canModify = 1;
          };
      };
  };
@@ -972,14 +970,14 @@ class UO_FW_AI_positiontypeControl : Title	{
 		class Title: Title{};
 		class Value: ctrlToolbox {
 			idc = 149;
-             style = "0x02";
-             x = "48 * (pixelW * pixelGrid * 0.50)";
-             w = "82 * (pixelW * pixelGrid * 0.50)";
-             h = "5 * (pixelH * pixelGrid * 0.50)";
-             rows = 1;
-             columns = 2;
+      style = "0x02";
+      x = "48 * (pixelW * pixelGrid * 0.50)";
+      w = "82 * (pixelW * pixelGrid * 0.50)";
+      h = "5 * (pixelH * pixelGrid * 0.50)";
+      rows = 1;
+      columns = 2;
 			values[] = {0,1};
-             strings[] = {"STANDARD","START"};
+      strings[] = {"STANDARD","START"};
 			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_postiontype_value',_this select 1];";
 		};
 	};
@@ -991,14 +989,14 @@ class UO_FW_AI_flyingControl : Title	{
 		class Title: Title{};
 		class Value: ctrlToolbox {
 			idc = 150;
-             style = "0x02";
-             x = "48 * (pixelW * pixelGrid * 0.50)";
-             w = "82 * (pixelW * pixelGrid * 0.50)";
-             h = "5 * (pixelH * pixelGrid * 0.50)";
-             rows = 1;
-             columns = 2;
+      style = "0x02";
+      x = "48 * (pixelW * pixelGrid * 0.50)";
+      w = "82 * (pixelW * pixelGrid * 0.50)";
+      h = "5 * (pixelH * pixelGrid * 0.50)";
+      rows = 1;
+      columns = 2;
 			values[] = {0,1};
-             strings[] = {"NOT FLYING","FLYING"};
+      strings[] = {"NOT FLYING","FLYING"};
 			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_flying_value',_this select 1];";
 		};
 	};
@@ -1010,14 +1008,14 @@ class UO_FW_AI_heliControl : Title	{
 		class Title: Title{};
 		class Value: ctrlToolbox {
 			idc = 151;
-             style = "0x02";
-             x = "48 * (pixelW * pixelGrid * 0.50)";
-             w = "82 * (pixelW * pixelGrid * 0.50)";
-             h = "5 * (pixelH * pixelGrid * 0.50)";
-             rows = 1;
-             columns = 2;
+      style = "0x02";
+      x = "48 * (pixelW * pixelGrid * 0.50)";
+      w = "82 * (pixelW * pixelGrid * 0.50)";
+      h = "5 * (pixelH * pixelGrid * 0.50)";
+      rows = 1;
+      columns = 2;
 			values[] = {0,1};
-             strings[] = {"RAPPEL","LAND"};
+      strings[] = {"RAPPEL","LAND"};
 			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_helitype_value',_this select 1];";
 		};
 	};
@@ -1087,7 +1085,7 @@ class UO_FW_AI_flyinheightControl : Edit {
              x = "48 * (pixelW * pixelGrid * 0.50)";
              w = "82 * (pixelW * pixelGrid * 0.50)";
              h = "5 * (pixelH * pixelGrid * 0.50)";
-			canModify = 1;
+					   canModify = 1;
          };
      };
  };
@@ -1098,14 +1096,14 @@ class UO_FW_AI_boolControl : Title	{
 		class Title: Title{};
 		class Value: ctrlToolbox {
 			idc = 155;
-             style = "0x02";
-             x = "48 * (pixelW * pixelGrid * 0.50)";
-             w = "82 * (pixelW * pixelGrid * 0.50)";
-             h = "5 * (pixelH * pixelGrid * 0.50)";
-             rows = 1;
-             columns = 2;
+      style = "0x02";
+      x = "48 * (pixelW * pixelGrid * 0.50)";
+      w = "82 * (pixelW * pixelGrid * 0.50)";
+      h = "5 * (pixelH * pixelGrid * 0.50)";
+      rows = 1;
+      columns = 2;
 			values[] = {0,1};
-             strings[] = {"FALSE","TRUE"};
+      strings[] = {"FALSE","TRUE"};
 			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_bool_value',_this select 1];";
 		};
 	};
@@ -1117,14 +1115,14 @@ class UO_FW_AI_boolControl2 : Title	{
 		class Title: Title{};
 		class Value: ctrlToolbox {
 			idc = 156;
-             style = "0x02";
-             x = "48 * (pixelW * pixelGrid * 0.50)";
-             w = "82 * (pixelW * pixelGrid * 0.50)";
-             h = "5 * (pixelH * pixelGrid * 0.50)";
-             rows = 1;
-             columns = 2;
+      style = "0x02";
+      x = "48 * (pixelW * pixelGrid * 0.50)";
+      w = "82 * (pixelW * pixelGrid * 0.50)";
+      h = "5 * (pixelH * pixelGrid * 0.50)";
+      rows = 1;
+      columns = 2;
 			values[] = {0,1};
-             strings[] = {"FALSE","TRUE"};
+      strings[] = {"FALSE","TRUE"};
 			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_bool2_value',_this select 1];";
 		};
 	};
@@ -1139,14 +1137,14 @@ class UO_FW_AI_numberSelect1Control : Title	{
 		};
 		class Value: ctrlToolbox {
 			idc = 159;
-             style = "0x02";
-             x = "48 * (pixelW * pixelGrid * 0.50)";
-             w = "82 * (pixelW * pixelGrid * 0.50)";
-             h = "5 * (pixelH * pixelGrid * 0.50)";
-             rows = 1;
-             columns = 7;
+      style = "0x02";
+      x = "48 * (pixelW * pixelGrid * 0.50)";
+      w = "82 * (pixelW * pixelGrid * 0.50)";
+      h = "5 * (pixelH * pixelGrid * 0.50)";
+      rows = 1;
+      columns = 7;
 			values[] = {0,1,2,3,4,5,6};
-             strings[] = {"OFF","1","2","3","4","5","6"};
+      strings[] = {"OFF","1","2","3","4","5","6"};
 			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_numberSelect1_value',_this select 1];";
 		};
 	};

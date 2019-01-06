@@ -8,7 +8,7 @@ class UO_FW_ExportToProfileAttribute: ComboPreview {
 			w="(	82 - 	5) * (pixelW * pixelGrid * 	0.50)";
 			h="5 * (pixelH * pixelGrid * 	0.50)";
 		};
-		class Preview: ctrlButtonPictureKeepAspect
+		class Preview: Preview
 		{
 			idc=101;
 			x="(	48 + 	82 - 	5) * (pixelW * pixelGrid * 	0.50)";

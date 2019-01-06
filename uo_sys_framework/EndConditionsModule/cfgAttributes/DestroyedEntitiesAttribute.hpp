@@ -8,10 +8,10 @@ class UO_FW_ENDCONDITIONS_DESTROYTYPE: Title {
 			idc = 194;
 			style = "0x02";
 			x = "48 * (pixelW * pixelGrid * 0.50)";
-            w = "82 * (pixelW * pixelGrid * 0.50)";
-            h = "8 * (pixelH * pixelGrid * 0.50)";
+      w = "82 * (pixelW * pixelGrid * 0.50)";
+      h = "8 * (pixelH * pixelGrid * 0.50)";
 			rows = 1;
-            columns = 4;
+      columns = 4;
 			strings[] = {"DESTROYED","DAMAGED","EITHER","ALIVE"};
 			values[] = {0,1,2,3};
 			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_ENDCONDITIONS_DESTROYTYPE_value',(_this select 1)];";

@@ -1,32 +1,34 @@
-
 #include "\x\UO_FW\addons\main\script_macros.hpp"
+UO_FW_EXEC_CHECK(ALL);
 
 //Module functions
 if !(getMissionConfigValue["UO_FW_Enabled",false]) exitwith {};
 
 if (!UO_FW_SERVER_FRAMEWORK_ALLOWED) exitWith {
-	["","Framework is disabled by the Server."] call UO_FW_fnc_DebugMessageDetailed;
+	//["","Framework is disabled by the Server."] call UO_FW_fnc_DebugMessageDetailed;
+	UO_FW_DEBUG_1("Framework Disabled on Server, exiting init","Framework Server setting: %1",UO_FW_SERVER_FRAMEWORK_ALLOWED);
 };
 
-["","Initializing Framework"] call UO_FW_fnc_DebugMessageDetailed;
+//["","Initializing Framework"] call UO_FW_fnc_DebugMessageDetailed;
+UO_FW_DEBUG_1("Framework enabled on Server, executing init","Framework Server setting: %1",UO_FW_SERVER_FRAMEWORK_ALLOWED);
 
 [] call UO_FW_FNC_postInit;
-if(UO_FW_SERVER_ACREMODULE_ALLOWED) then {[] call UO_FW_FNC_AcreInit;};
-if(UO_FW_SERVER_GEARMODULE_ALLOWED) then {[] call UO_FW_FNC_GearInit;};
-if(UO_FW_SERVER_ACREMODULE_ALLOWED) then {[] call UO_FW_FNC_addRadiosInit;};
-if(UO_FW_SERVER_BRIEFING_ALLOWED) then {[] call UO_FW_FNC_initBriefings;};
-if(UO_FW_SERVER_ANTINDMODULE_ALLOWED) then {[] call UO_FW_FNC_antiNDInit;};
-if(UO_FW_SERVER_AILINK_ALLOWED) then {[] call UO_FW_FNC_AILinkInit;};
-if(!UO_FW_SERVER_AIDRIVERSMODULE_ALLOWED) then {[] call UO_FW_FNC_AIDriversInit;};
-if(UO_FW_SERVER_AUTOTRACKASSETMODULE_ALLOWED) then {[] call UO_FW_FNC_AutoTrackAssetInit;};
-if(UO_FW_SERVER_DISCONNECTMODULE_ALLOWED) then {[] call UO_FW_FNC_DisconnectControlInit;};
-if(UO_FW_SERVER_MARKERCONTROLMODULE_ALLOWED) then {[] call UO_FW_FNC_MarkerControlInit;};
-if(UO_FW_SERVER_STARTTEXTMODULE_ALLOWED) then {[] call UO_FW_FNC_StartTextInit;};
-if(UO_FW_SERVER_JIPMODULE_ALLOWED) then {[] call UO_FW_FNC_jipInit;};
-if(UO_FW_SERVER_SAFESTARTMODULE_ALLOWED) then {[] call UO_FW_FNC_safeStartInit;};
-if(UO_FW_SERVER_SELFACTIONSMODULE_ALLOWED) then {[] call UO_FW_FNC_selfActionsInit;};
-if(UO_FW_SERVER_SHOTCOUNTMODULE_ALLOWED) then {[] call UO_FW_FNC_shotCountInit;};
-if(UO_FW_SERVER_ENDCONDITIONMODULE_ALLOWED) then {[] call UO_FW_FNC_EndConditionsInit;};
+if (UO_FW_SERVER_ACREMODULE_ALLOWED) then {[] call UO_FW_FNC_AcreInit;};
+if (UO_FW_SERVER_ACREMODULE_ALLOWED) then {[] call UO_FW_FNC_addRadiosInit;};
+if (UO_FW_SERVER_BRIEFING_ALLOWED) then {[] call UO_FW_FNC_initBriefings;};
+if (UO_FW_SERVER_ANTINDMODULE_ALLOWED) then {[] call UO_FW_FNC_antiNDInit;};
+if (UO_FW_SERVER_AILINK_ALLOWED) then {[] call UO_FW_FNC_AILinkInit;};
+if (UO_FW_SERVER_AIDRIVERSMODULE_ALLOWED) then {[] call UO_FW_FNC_AIDriversInit;};
+if (UO_FW_SERVER_AUTOTRACKASSETMODULE_ALLOWED) then {[] call UO_FW_FNC_AutoTrackAssetInit;};
+if (UO_FW_SERVER_DISCONNECTMODULE_ALLOWED) then {[] call UO_FW_FNC_DisconnectControlInit;};
+if (UO_FW_SERVER_MARKERCONTROLMODULE_ALLOWED) then {[] call UO_FW_FNC_MarkerControlInit;};
+if (UO_FW_SERVER_STARTTEXTMODULE_ALLOWED) then {[] call UO_FW_FNC_StartTextInit;};
+if (UO_FW_SERVER_JIPMODULE_ALLOWED) then {[] call UO_FW_FNC_jipInit;};
+if (UO_FW_SERVER_SAFESTARTMODULE_ALLOWED) then {[] call UO_FW_FNC_safeStartInit;};
+if (UO_FW_SERVER_SELFACTIONSMODULE_ALLOWED) then {[] call UO_FW_FNC_selfActionsInit;};
+if (UO_FW_SERVER_SHOTCOUNTMODULE_ALLOWED) then {[] call UO_FW_FNC_shotCountInit;};
+if (UO_FW_SERVER_ENDCONDITIONMODULE_ALLOWED) then {[] call UO_FW_FNC_EndConditionsInit;};
 
-["","Finished Initializing Framework"] call UO_FW_fnc_DebugMessageDetailed;
+//["","Finished Initializing Framework"] call UO_FW_fnc_DebugMessageDetailed;
 UO_FW_Framework_Initialized = true;
+UO_FW_DEBUG_1("Finished framework init","Finished framework init, var value: %1",UO_FW_Framework_Initialized);

@@ -30,7 +30,7 @@ class UO_FW_Gear_Settings
                 {
                     property = "UO_FW_Gear_Olsen_Enabled";
                     displayName = "Enable Olsen System";
-                    tooltip = "Should Gear be enabled";
+                    tooltip = "Should Olsen Gear be enabled";
                     control = "CheckboxState";
                     expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
                     defaultValue = "false";
@@ -74,4 +74,27 @@ class UO_FW_GearSettings_Blufor
     {
 			#include "Gear\Blufor.hpp"
     };
+};
+
+class ace_arsenal_DummyCategory
+{
+	displayName="Dummy attribute, should never show up";
+	class AttributeCategories
+	{
+		class ACE3_Arsenal
+		{
+			class Attributes
+			{
+				class ace_arsenal_DefaultLoadoutsListAttribute
+				{
+					property="ace_arsenal_DefaultLoadoutsListAttribute";
+					value=0;
+					expression="MissionNamespace setvariable ['ace_arsenal_defaultLoadoutsList',_value];";
+					defaultValue="[]";
+					validate="none";
+					wikiType="[[Array]]";
+				};
+			};
+		};
+	};
 };

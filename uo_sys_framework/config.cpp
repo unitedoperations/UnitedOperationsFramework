@@ -10,7 +10,7 @@ class CfgPatches
 		url = "https://github.com/unitedoperations/UnitedOperationsFramework";
 		units[] = {};
 		requiredVersion = REQUIRED_VERSION;
-		requiredAddons[] = {"cba_main","3DEN","ace_main","A3_Modules_F"};
+		requiredAddons[] = {"cba_main","3DEN","ace_main","ace_arsenal","A3_Modules_F"};
 		VERSION_CONFIG;
 	};
 };

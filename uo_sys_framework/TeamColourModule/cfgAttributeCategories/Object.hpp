@@ -7,10 +7,11 @@ class UO_FW_TeamColourOptions {
 			tooltip = "Set Player Colour";
 			property = "UO_FW_TeamColour";
 			control = "UO_FW_TeamColourAttribute";
-			//expression = "_teamvalue = ['NONE','MAIN','RED','BLUE','GREEN','YELLOW'] select _value; _this setVariable ['%s',_teamvalue,true];";
+			typeName = "STRING";
 			expression = "_this setVariable ['%s',_teamvalue,true];";
+			//expression = "_this setVariable ['%s',_value,true];";
 			condition = "objectControllable ";
-			defaultValue = "'NONE'";
+			defaultValue = "'None'";
 		};
 	};
 };

@@ -1,7 +1,6 @@
 class UO_FW_CheckBoxPlayerOnlyCategory: CheckBox
 {
 	onLoad="\
-	diag_log 'onload triggered';\
 	_this spawn {\
 		 disableserialization;\
 		 private ['_isUnitPlayable'];\
@@ -37,7 +36,6 @@ class UO_FW_CheckBoxPlayerOnlyCategory: CheckBox
 class UO_FW_CheckBoxStatePlayerOnlyCategory: CheckBoxState
 {
 	onLoad="\
-	diag_log 'onload triggered';\
 	_this spawn {\
 		 disableserialization;\
 		 private ['_isUnitPlayable'];\
@@ -73,7 +71,6 @@ class UO_FW_CheckBoxStatePlayerOnlyCategory: CheckBoxState
 class UO_FW_CheckboxNumberPlayerOnlyCategory: Edit
 {
 	onLoad="\
-	diag_log 'onload triggered';\
 	_this spawn {\
 		 disableserialization;\
 		 private ['_isUnitPlayable'];\
@@ -87,9 +84,7 @@ class UO_FW_CheckboxNumberPlayerOnlyCategory: Edit
 				} else {\
 					 _isUnitPlayable = (_unit in playableUnits);\
 				};\
-				diag_log format ['_isUnitPlayable: %1',_isUnitPlayable];\
 				_state = [false,true] select (_isUnitPlayable);\
-				diag_log format ['_state: %1',_state];\
 				_fade = [0.75,0] select _state;\
 				_x ctrlenable _state;\
 				_x ctrlsetfade _fade;\
@@ -111,7 +106,6 @@ class UO_FW_CheckboxNumberPlayerOnlyCategory: Edit
 class UO_FW_CheckboxReversedPlayerOnlyCategory: Edit
 {
 	onLoad="\
-	diag_log 'onload triggered';\
 	_this spawn {\
 		 disableserialization;\
 		 private ['_isUnitPlayable'];\
@@ -125,9 +119,7 @@ class UO_FW_CheckboxReversedPlayerOnlyCategory: Edit
 				} else {\
 					 _isUnitPlayable = (_unit in playableUnits);\
 				};\
-				diag_log format ['_isUnitPlayable: %1',_isUnitPlayable];\
 				_state = [false,true] select (_isUnitPlayable);\
-				diag_log format ['_state: %1',_state];\
 				_fade = [0.75,0] select _state;\
 				_x ctrlenable _state;\
 				_x ctrlsetfade _fade;\
@@ -149,7 +141,6 @@ class UO_FW_CheckboxReversedPlayerOnlyCategory: Edit
 class UO_FW_EditPlayerOnlyCategory: Edit
 {
 	onLoad="\
-	diag_log 'onload triggered';\
 	_this spawn {\
 		 disableserialization;\
 		 private ['_isUnitPlayable'];\
@@ -163,9 +154,7 @@ class UO_FW_EditPlayerOnlyCategory: Edit
 				} else {\
 					 _isUnitPlayable = (_unit in playableUnits);\
 				};\
-				diag_log format ['_isUnitPlayable: %1',_isUnitPlayable];\
 				_state = [false,true] select (_isUnitPlayable);\
-				diag_log format ['_state: %1',_state];\
 				_fade = [0.75,0] select _state;\
 				_x ctrlenable _state;\
 				_x ctrlsetfade _fade;\
@@ -187,7 +176,6 @@ class UO_FW_EditPlayerOnlyCategory: Edit
 class UO_FW_EditShortPlayerOnlyCategory: Edit
 {
 	onLoad="\
-	diag_log 'onload triggered';\
 	_this spawn {\
 		 disableserialization;\
 		 private ['_isUnitPlayable'];\
@@ -201,9 +189,7 @@ class UO_FW_EditShortPlayerOnlyCategory: Edit
 				} else {\
 					 _isUnitPlayable = (_unit in playableUnits);\
 				};\
-				diag_log format ['_isUnitPlayable: %1',_isUnitPlayable];\
 				_state = [false,true] select (_isUnitPlayable);\
-				diag_log format ['_state: %1',_state];\
 				_fade = [0.75,0] select _state;\
 				_x ctrlenable _state;\
 				_x ctrlsetfade _fade;\
@@ -225,7 +211,6 @@ class UO_FW_EditShortPlayerOnlyCategory: Edit
 class UO_FW_EditArrayPlayerOnlyCategory: Edit
 {
 	onLoad="\
-	diag_log 'onload triggered';\
 	_this spawn {\
 		 disableserialization;\
 		 private ['_isUnitPlayable'];\
@@ -239,9 +224,7 @@ class UO_FW_EditArrayPlayerOnlyCategory: Edit
 				} else {\
 					 _isUnitPlayable = (_unit in playableUnits);\
 				};\
-				diag_log format ['_isUnitPlayable: %1',_isUnitPlayable];\
 				_state = [false,true] select (_isUnitPlayable);\
-				diag_log format ['_state: %1',_state];\
 				_fade = [0.75,0] select _state;\
 				_x ctrlenable _state;\
 				_x ctrlsetfade _fade;\

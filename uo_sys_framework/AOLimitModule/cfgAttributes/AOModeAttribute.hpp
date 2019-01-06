@@ -1,21 +1,21 @@
-class UO_FW_AOModeAttribute: Combo {
+class UO_FW_AOModeAttribute: Title {
+	attributeLoad = "[_this controlsGroupCtrl 100,_config] call UO_FW_fnc_attributeLoadCombo";
+	attributeSave = "[_this controlsGroupCtrl 100,_config] call UO_FW_fnc_attributeSaveCombo";
 	class Controls: Controls {
 		class Title: Title {};
-		class Value: Value {
+		class Value: ctrlCombo {
 			class Items {
 				class Hard
 				{
 					text="Hard AO";
 					//tooltip="";
-					data="Hard";
 					value=0;
-					default = 0;
+					default = 1;
 				};
 				class Soft
 				{
 					text="Soft AO";
 					//tooltip="";
-					data="Soft";
 					value=1;
 				};
 			};

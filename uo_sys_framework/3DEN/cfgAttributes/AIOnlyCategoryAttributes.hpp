@@ -15,9 +15,7 @@ class UO_FW_CheckBoxAIOnlyCategory: CheckBox
 				} else {\
 					 _isUnitPlayable = (_unit in playableUnits);\
 				};\
-				diag_log format ['_isUnitPlayable: %1',_isUnitPlayable];\
 				_state = [true,false] select (_isUnitPlayable);\
-				diag_log format ['_state: %1',_state];\
 				_fade = [0.75,0] select _state;\
 				_x ctrlenable _state;\
 				_x ctrlsetfade _fade;\
@@ -53,9 +51,7 @@ class UO_FW_CheckBoxStateAIOnlyCategory: CheckBoxState
 				} else {\
 					 _isUnitPlayable = (_unit in playableUnits);\
 				};\
-				diag_log format ['_isUnitPlayable: %1',_isUnitPlayable];\
 				_state = [true,false] select (_isUnitPlayable);\
-				diag_log format ['_state: %1',_state];\
 				_fade = [0.75,0] select _state;\
 				_x ctrlenable _state;\
 				_x ctrlsetfade _fade;\
@@ -91,9 +87,7 @@ class UO_FW_CheckboxNumberAIOnlyCategory: Edit
 				} else {\
 					 _isUnitPlayable = (_unit in playableUnits);\
 				};\
-				diag_log format ['_isUnitPlayable: %1',_isUnitPlayable];\
 				_state = [true,false] select (_isUnitPlayable);\
-				diag_log format ['_state: %1',_state];\
 				_fade = [0.75,0] select _state;\
 				_x ctrlenable _state;\
 				_x ctrlsetfade _fade;\
@@ -129,9 +123,7 @@ class UO_FW_CheckboxReversedAIOnlyCategory: Edit
 				} else {\
 					 _isUnitPlayable = (_unit in playableUnits);\
 				};\
-				diag_log format ['_isUnitPlayable: %1',_isUnitPlayable];\
 				_state = [true,false] select (_isUnitPlayable);\
-				diag_log format ['_state: %1',_state];\
 				_fade = [0.75,0] select _state;\
 				_x ctrlenable _state;\
 				_x ctrlsetfade _fade;\
@@ -167,9 +159,7 @@ class UO_FW_EditAIOnlyCategory: Edit
 				} else {\
 					 _isUnitPlayable = (_unit in playableUnits);\
 				};\
-				diag_log format ['_isUnitPlayable: %1',_isUnitPlayable];\
 				_state = [true,false] select (_isUnitPlayable);\
-				diag_log format ['_state: %1',_state];\
 				_fade = [0.75,0] select _state;\
 				_x ctrlenable _state;\
 				_x ctrlsetfade _fade;\
@@ -205,9 +195,7 @@ class UO_FW_EditShortAIOnlyCategory: Edit
 				} else {\
 					 _isUnitPlayable = (_unit in playableUnits);\
 				};\
-				diag_log format ['_isUnitPlayable: %1',_isUnitPlayable];\
 				_state = [true,false] select (_isUnitPlayable);\
-				diag_log format ['_state: %1',_state];\
 				_fade = [0.75,0] select _state;\
 				_x ctrlenable _state;\
 				_x ctrlsetfade _fade;\
@@ -243,9 +231,7 @@ class UO_FW_EditArrayAIOnlyCategory: Edit
 				} else {\
 					 _isUnitPlayable = (_unit in playableUnits);\
 				};\
-				diag_log format ['_isUnitPlayable: %1',_isUnitPlayable];\
 				_state = [true,false] select (_isUnitPlayable);\
-				diag_log format ['_state: %1',_state];\
 				_fade = [0.75,0] select _state;\
 				_x ctrlenable _state;\
 				_x ctrlsetfade _fade;\

@@ -16,13 +16,19 @@ class UO_FW_ImportFromProfileAttribute: ComboPreview {
 					lbClear _control;\
 					private _index = _control lbadd 'No Settings Profiles Saved';\
 					_control lbsetdata [_index,'No Settings Profiles Saved'];\
+					_control lbsetValue [_index,99];\
 					_control lbSetCurSel _index;\
 				} else {\
 					lbClear _control;\
+					private _index = _control lbadd 'None';\
+					_control lbsetdata [_index,'None'];\
+					_control lbsetValue [_index,99];\
+					_control lbSetCurSel _index;\
 					{\
 						_x params ['_name'];\
 						private _index = _control lbadd _name;\
 						_control lbsetdata [_index,_name];\
+						_control lbsetValue [_index,_forEachIndex];\
 					} foreach _profileArray;\
 				};\
 			};\
@@ -36,10 +42,11 @@ class UO_FW_ImportFromProfileAttribute: ComboPreview {
 			h="5 * (pixelH * pixelGrid * 	0.50)";
 			text="\a3\3DEN\Data\Attributes\ComboPreview\play_ca.paa";
 			onMouseButtonClick="\
-				params ['_ctrlButton'];\
+				_this params ['_ctrlButton'];\
 				_ctrlGroup = ctrlParentControlsGroup _ctrlButton;\
 				_ctrlCombo = _ctrlGroup controlsgroupctrl 100;\
-				[(_ctrlCombo lbData  lbcursel _ctrlCombo),false] call UO_FW_fnc_ImportSettings;";
+				[(_ctrlCombo lbData lbcursel _ctrlCombo),false] call UO_FW_fnc_ImportSettings;\
+			";
 		};
 	};
 };
