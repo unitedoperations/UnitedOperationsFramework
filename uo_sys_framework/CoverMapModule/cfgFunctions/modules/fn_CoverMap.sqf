@@ -12,7 +12,7 @@ switch _mode do {
 			if !(_isActivated) exitWith {};
 
 				_AOName = _logic getVariable ["UO_FW_CoverMap_AOName","Area0"];
-				_AOZoom = _logic getVariable ["UO_FW_CoverMap_ZoomLevel",0.1];
+				_AOZoom = _logic getVariable ["UO_FW_CoverMap_ZoomLevel",0.4];
 				_loc = getPosATL _logic;
 				_radiusX = _logic getVariable ["UO_FW_CoverMap_RadiusX",100];
 				_radiusY = _logic getVariable ["UO_FW_CoverMap_RadiusY",100];
@@ -21,8 +21,8 @@ switch _mode do {
 				_area = [_loc,_radiusX,_radiusY,_direction,true];
 
 				if (isNil "UO_FW_CoverMap_AO_Array") then {UO_FW_CoverMap_AO_Array = [];};
-				UO_FW_CoverMap_AO_Array pushback [_AOName,_area,_AOZoom];
-				diag_log format ["UO_FW_CoverMap_AO_Array: %1",UO_FW_CoverMap_AO_Array];
+				UO_FW_CoverMap_AO_Array pushback [_AOName,_area,_AOZoom,_logic];
+				publicvariable "UO_FW_CoverMap_AO_Array";
 
 		};
 	};

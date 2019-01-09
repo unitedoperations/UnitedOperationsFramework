@@ -9,15 +9,9 @@
  */
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
 UO_FW_AI_EXEC_CHECK(SERVERHC);
-if (isMultiplayer) then {
-	waituntil {!isNil "UO_FW_var_HC_ID"};
-};
-
 
 params [["_zone",objNull,[objNull]],["_entities",[],[[]]],["_delay",0,[0]],["_code",{},[{}]]];
-	diag_log format ["zone triggered!: %1",_zone];
 	sleep _delay;
-	diag_log format ["zone spawning!: %1",_zone];
 	_entities params [["_grps",[],[[]]],["_emptyvehs",[],[[]]],["_objs",[],[[]]]];
 	{
 		private _veh = _x;

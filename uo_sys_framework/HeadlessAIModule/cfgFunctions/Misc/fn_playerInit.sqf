@@ -37,7 +37,7 @@ UO_FW_AI_EXEC_CHECK(CLIENT);
 
 				};
 				if (UO_FW_AI_MARKERS_ENABLED) then {
-					diag_log str _debugText;
+					LOG(_debugText);
 				};
 				}];
 

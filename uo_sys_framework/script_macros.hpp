@@ -26,13 +26,3 @@ if (!UO_FW_SERVER_FRAMEWORK_ALLOWED) exitWith {}
 
 #define UO_FW_GET_VAR(NAME,DEFAULT)\
 missionNamespace getVariable [#NAME,DEFAULT]
-
-#define UO_FW_ServerTimeVerify(VAR1)\
-if (isMultiplayer) then {\
-	if (abs (UO_FW_ServerStartTime - serverTime) > 100000) then {\
-		_startTime = serverTime;\
-		UO_FW_ServerStartTime = serverTime;\
-		publicVariable "UO_FW_ServerStartTime";\
-		UO_FW_DEBUG("","Detected desynchronized server and client clock, using client's time instead.");\
-	};\
-}

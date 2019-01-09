@@ -3,7 +3,7 @@
  * 		NUMBER	- Occupy Option
  * 		NUMBER	- Count
  * 		ARRAY	- Radius to get buildings from.
- * 		ARRAY	- Occupy Option 
+ * 		ARRAY	- Occupy Option
  * 	Return Value:
  * 		ARRAY 	- POSITION, BUILDING
  *	Author
@@ -11,7 +11,7 @@
  */
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
 UO_FW_AI_EXEC_CHECK(SERVERHC);
-params ["_occupyOption","_i",["_bld",[],[[]]],["_bldPos",[],[[]]],["_pos",[],[[]]],["_return",[],[[]]]];	
+params ["_occupyOption","_i",["_bld",[],[[]]],["_bldPos",[],[[]]],["_pos",[],[[]]],["_return",[],[[]]]];
 	switch (_occupyOption) do {
 		case 2;
 		case 3: {
@@ -23,12 +23,12 @@ params ["_occupyOption","_i",["_bld",[],[[]]],["_bldPos",[],[[]]],["_pos",[],[[]
 		case 6;
 		case 7: {
 			_uBld = _bld select (_i % (count _bld));
-			_bldPos = _uBld buildingPos -1; 
+			_bldPos = _uBld buildingPos -1;
 			_pos = _bldPos select (_i % (count _bldPos));
 		};
 		default {
 			_uBld = _bld select (_i % (count _bld));
-			_bldPos = _uBld buildingPos -1; 
+			_bldPos = _uBld buildingPos -1;
 			_pos = _bldPos select (_i % (count _bldPos));
 		};
 	};

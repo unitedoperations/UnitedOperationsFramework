@@ -1,9 +1,7 @@
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
 UO_FW_AI_EXEC_CHECK(SERVERHC);
 params [["_logic",objNull,[objNull]],["_marker","respawn_west",[""]]];
-diag_log format["RETURN | %1",_this];
 	{
-	diag_log format["RETURN SIDE | %1",_x];
 		_side = _x;
 		switch (_side) do {
 			case WEST: {_marker = "respawn_west";};

@@ -37,10 +37,10 @@ if !(local _group) exitWith {};
 _group = _group call CBA_fnc_getGroup;
 if !(local _group) exitWith {}; // Don't create waypoints on each machine
 
-_otask = _group getvariable ["UO_FW_AI_Mission","NONE"];
+private _otask = _group getvariable ["UO_FW_AI_Mission","NONE"];
 
 [_group,_building,_otask] spawn {
-    params ["_group","_building","_otask"];
+    params ["_group","_building","_otask","_units"];
 		private _leader = leader _group;
 
 			{_x forcespeed -1; _x enableAI "PATH";} foreach units _group;
@@ -61,9 +61,9 @@ _otask = _group getvariable ["UO_FW_AI_Mission","NONE"];
 	    private _positions = ([_building] call BIS_fnc_buildingPositions);
 			while {!(_positions isEqualTo [])} do {
 				if (count (units _group) <= 2) then {
-						private _units = (units _group) - [_leader];
+						_units = (units _group) - [_leader];
 				} else {
-						private _units = (units _group);
+						_units = (units _group);
 				};
 				if (_units isEqualTo []) exitWith {};
 				{

@@ -9,7 +9,9 @@
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
 UO_FW_AI_EXEC_CHECK(SERVERHC);
 params [["_grp",grpNull,[grpNull]]];
-	if(isNull _grp) exitWith {diag_log format["SURRENDER - GROUP NULL | %1",_grp];};
+	if(isNull _grp) exitWith {
+		LOG_1("SURRENDER - GROUP NULL | %1",_grp);
+	};
 	_grp setVariable["UO_FW_AI_GroupCount", (count (units _grp))];
 	_grp setVariable["UO_FW_AI_surrenderCount", ((count (units _grp)) * 0.5)];
 	{

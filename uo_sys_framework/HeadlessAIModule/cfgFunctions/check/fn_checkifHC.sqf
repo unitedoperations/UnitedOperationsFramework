@@ -8,11 +8,12 @@
  *		PiZZADOX
  */
 
-private _hc = false;
+#include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
 
+private _hc = false;
 UO_FW_var_isHC = false;
 
-if (!isMultiplayer) then {
+if ((!isMultiplayer) || {(isMultiplayer) && (isServer) && (hasinterface)}) then {
 	_hc = true;
 	UO_FW_var_isHC = true;
 	UO_FW_var_HC_ID = clientowner;
@@ -27,12 +28,12 @@ if (!hasInterface && !isDedicated) then {
 };
 
 if (isServer) then {
-	diag_log "clientID: SERVER";
+	LOG("clientID: SERVER");
 } else {
-	diag_log format ["clientID: %1",clientowner];
+	LOG_1("clientID: %1",clientowner);
 };
 if (!isNil "UO_FW_var_HC_ID") then {
-	diag_log format ["UO_FW_var_HC_ID: %1",UO_FW_var_HC_ID];
+	LOG_1("UO_FW_var_HC_ID: %1",UO_FW_var_HC_ID);
 };
 
 _hc

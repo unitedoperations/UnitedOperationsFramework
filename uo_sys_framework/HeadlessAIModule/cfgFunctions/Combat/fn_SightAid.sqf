@@ -1,3 +1,6 @@
+#include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
+UO_FW_AI_EXEC_CHECK(SERVERHC);
+
 params ["_unit"];
 
 private _MyNearestEnemySight = _Unit call UO_FW_AI_fnc_ClosestEnemy;
@@ -6,7 +9,7 @@ if (_distance > UO_FW_AI_SIGHTAID_DISTANCE) exitwith {};
 private _knowsabouttarget = _unit knowsabout _MyNearestEnemySight;
 if (_knowsabouttarget < 4) then {
 	private _cansee = [objNull, "VIEW"] checkVisibility [eyePos _Unit, eyePos _MyNearestEnemySight];
-	//diag_log format ["%1 cansee %2 by %3",_unit,_MyNearestEnemySight,_cansee];
+	LOG_3("%1 cansee %2 by %3",_unit,_MyNearestEnemySight,_cansee);
 	if ((_cansee > 0.6) && {(_distance < UO_FW_AI_SightAid_EngageDistance)}) exitwith {
 		_unit reveal [_MyNearestEnemySight,4];
 		if (vehicle _unit isEqualto _unit) then {
@@ -14,14 +17,14 @@ if (_knowsabouttarget < 4) then {
 			_unit fireAtTarget [_MyNearestEnemySight];
 		};
 		if (UO_FW_AI_MARKERS_ENABLED) then {
-			diag_log format ["revealing: %1 to %2, engage!",_MyNearestEnemySight,_unit];
+			LOG_2("revealing: %1 to %2, engage!",_MyNearestEnemySight,_unit);
 		};
 	};
 	if (_cansee > 0.2) then {
 		private _revealValue = linearConversion [100,UO_FW_AI_SIGHTAID_DISTANCE,_distance,4,UO_FW_AI_SightAid_MinIncrease];
 		_unit reveal [_MyNearestEnemySight,_knowsabouttarget + _revealValue];
 		if (UO_FW_AI_MARKERS_ENABLED) then {
-			diag_log format ["revealing: %1 to %2, old knows: %3 new: %4",_MyNearestEnemySight,_unit,_knowsabouttarget,(_unit knowsabout _MyNearestEnemySight)];
+			LOG_4("revealing: %1 to %2, old knows: %3 new: %4",_MyNearestEnemySight,_unit,_knowsabouttarget,(_unit knowsabout _MyNearestEnemySight));
 		};
 	};
 };

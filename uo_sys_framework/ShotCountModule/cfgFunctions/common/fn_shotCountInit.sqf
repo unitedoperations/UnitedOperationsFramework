@@ -11,6 +11,8 @@
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 UO_FW_EXEC_CHECK(ALL);
 
+if !(UO_FW_SERVER_SHOTCOUNTMODULE_ALLOWED) exitwith {};
+
 if (!(missionNamespace getVariable ["UO_FW_ShotCount_Enabled",false])) exitwith {};
 ["Shot Count", "Count shots fired by units", "Beta and TinfoilHate and PiZZADOX and Sacher"] call UO_FW_FNC_RegisterModule;
 if (isServer) then
@@ -22,7 +24,7 @@ if (isServer) then
 	aCount_classNames = [];
 
 	[{ time > 0.1 }, {
-		{ _x call UO_FW_fnc_aCount_addEH; } forEach allMissionObjects "All";
+		{ _x call UO_FW_fnc_aCount_addEH;} forEach allMissionObjects "All";
 	}] call CBA_fnc_waitUntilAndExecute;
 
 	["UO_FW_aCount_event_addEH",UO_FW_fnc_aCount_addEH] call CBA_fnc_addEventHandler;

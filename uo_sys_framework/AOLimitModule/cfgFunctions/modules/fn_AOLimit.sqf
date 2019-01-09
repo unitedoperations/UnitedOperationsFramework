@@ -17,7 +17,7 @@ switch _mode do {
 				if (_selectedSides isEqualTo []) exitwith {UO_FW_DEBUG("","No sides defined for AO limit!");};
 				_entryMode = _logic getVariable ["UO_FW_AOLimit_EntryMode",false];
 				_airsetting = _logic getVariable ["UO_FW_AOLimit_AirUnits",true];
-				_AOMode = _logic getVariable ["UO_FW_AOLimit_AOMode",0];
+				_AOMode = _logic getVariable ["UO_FW_AOLimit_AOMode","HARD"];
 				_softAOtime = _logic getVariable ["UO_FW_AoLimit_SoftTimeOutside",30];
 				_softAOtimeAir = _logic getVariable ["UO_FW_AoLimit_SoftTimeOutsideAir",120];
 				// The amount of time in seconds an air based unit is allowed to stay outside the AO (-1 = Infinity)

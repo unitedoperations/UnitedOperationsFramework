@@ -11,6 +11,8 @@
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 UO_FW_EXEC_CHECK(ALL);
 
+if !(UO_FW_SERVER_SELFACTIONSMODULE_ALLOWED) exitwith {};
+
 if(!hasInterface) exitWith {};
 ["Self Actions", "Allows players to check their own team color, view other's maps and cut grass.", "TinfoilHate and PiZZADOX"] call UO_FW_FNC_RegisterModule;
 [{!isNull player}, {

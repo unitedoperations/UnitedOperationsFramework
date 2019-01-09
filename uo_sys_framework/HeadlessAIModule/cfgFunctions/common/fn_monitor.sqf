@@ -15,7 +15,7 @@ UO_FW_AI_EXEC_CHECK(SERVERHC);
 	while {true} do {
 		{
 			_x params ["_zone","_loc","_radiusX","_isOn","_side","_type","_cond","_delay","_code","_radiusY","_isRectangle","_direction"];
-			diag_log format ["zone checked: %1",_x];
+			LOG_1("zone checked: %1",_x);
 			private _initial = _zone getVariable ["initiallyspawned",false];
 			private _populated = 0;
 			private _area = [_loc,_radiusX,_radiusY,_direction,_isRectangle];

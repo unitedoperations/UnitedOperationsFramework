@@ -3,9 +3,7 @@ UO_FW_AI_EXEC_CHECK(HC);
 
 if (!(getMissionConfigValue ["UO_FW_AI_Enabled",false])) exitWith {};
 
-if (!(getMissionConfigValue ["UO_FW_AI_DEBUG",false])) then {
-	diag_log "running fn_initMain";
-};
+LOG("running fn_initMain");
 
 ["Headless AI", "Custom AI Scripts and spawning modules for AI", "PiZZADOX"] call UO_FW_FNC_RegisterModule;
 

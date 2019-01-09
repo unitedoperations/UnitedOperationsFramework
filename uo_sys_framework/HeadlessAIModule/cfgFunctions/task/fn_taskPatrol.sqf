@@ -40,11 +40,11 @@ params [
 ];
 
 if (_radius < 30) then {
-	diag_log format ["taskPatrol _grp: %1 radius too small! Setting to default 30m",_grp];
+	ERROR_1("taskPatrol _grp: %1 radius too small! Setting to default 30m",_grp);
 	_radius = 30;
 };
 
-diag_log format ["taskPatrol started _this: %1",_this];
+LOG_1("taskPatrol started _this: %1",_this);
 _grp = _grp call CBA_fnc_getGroup;
 if !(local _grp) exitWith {}; // Don't create waypoints on each machine
 {_x forcespeed -1; _x enableAI "PATH";} foreach (units _grp);

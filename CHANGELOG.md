@@ -8,8 +8,6 @@ Version Numbers mainly refer to the UO Modpack addition.
 - [HC] New locality check macro for module (checks for HC, reexecutes function if on wrong locality)
 - MarkerControl module input now accepts 3den layers - adds all markers from named layer
 - Server broadcasts it's debug messages to clients if debug detailed enabled
-- Added serverTime/client time sync check macro: `UO_FW_ServerTimeVerify(CHECK)`
-- Added `UO_FW_ServerStartTime` initial server diag_ticktime publicVariable
 - Added debug option in setDefaults file for checking that new attributes/vars are defined correctly
 - Added CoverMap module
 - Added ACE Arsenal Gear System

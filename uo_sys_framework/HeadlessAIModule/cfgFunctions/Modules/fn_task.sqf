@@ -16,12 +16,8 @@ params [["_mode","",[""]],["_input",[],[[]]]];
 	switch _mode do {
 		case "init": {
 			if !is3DEN then {
-				if (isMultiplayer) then {
-					waituntil {!isNil "UO_FW_var_HC_ID"};
-				};
 				_input params ["_logic",["_isActivated",true,[true]],["_isCuratorPlaced",false,[false]]];
 				if !(_isActivated) exitWith {};
-				sleep 0.25;
 
 				if(count ([_logic ,["UO_FW_AI_ZoneModule","UO_FW_AI_ZoneModule_R"]] call UO_FW_AI_fnc_getSyncedModules) > 0 ) then {
 					_logic setVariable["UO_FW_AI_taskZoneActivated",true];

@@ -11,6 +11,7 @@
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 UO_FW_EXEC_CHECK(ALL);
 
+if !(UO_FW_SERVER_ANTINDMODULE_ALLOWED) exitwith {};
 if !(UO_FW_Anti_ND_Enabled) exitwith {};
 ["Anti ND", "Extra Safety for mission start", "Starfox64 and PiZZADOX and Sacher"] call UO_FW_FNC_RegisterModule;
 
@@ -45,14 +46,12 @@ if (hasinterface) then {
 						hintC format ["Anti-ND protection active!%1%2", _msg1, _msg2];
 						if ((_this select 5) call BIS_fnc_isThrowable) then {
 							player addMagazine (_this select 5);
-						}
-						else {
+						} else {
 							player setAmmo [currentWeapon player, (player ammo currentWeapon player) + 1];
 						};
 					};
 				};
-
-				[{(!isNil "UO_FW_ND_Active") && {!(UO_FW_ND_Active)}},{player removeEventHandler ["Fired", _this];},_UO_FW_FiredEh] call CBA_fnc_waitUntilAndExecute;
 			}];
+			[{(!isNil "UO_FW_ND_Active") && {!(UO_FW_ND_Active)}},{player removeEventHandler ["Fired", _this];},_UO_FW_FiredEh] call CBA_fnc_waitUntilAndExecute;
 		}] call CBA_fnc_waitUntilAndExecute;
 };

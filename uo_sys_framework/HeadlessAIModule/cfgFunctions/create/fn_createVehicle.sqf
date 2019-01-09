@@ -33,18 +33,18 @@ params ["_pos","_veh","_side"];
 	if(count _name > 1) then {
 		missionNamespace setVariable[_name, _v];
 	};
-	if (UO_FW_AI_AutoTrackAssets_Enabled) then {
+	if (UO_FW_AutoTrackAsset_Enabled) then {
 		_team = "";
 		switch (_side) do {
-			case west: {_team = UO_FW_AI_TeamSetting_Blufor_TeamName};
-			case east: {_team = UO_FW_AI_TeamSetting_Opfor_TeamName};
-			case independent: {_team = UO_FW_AI_TeamSetting_Indfor_TeamName};
-			case civilian: {_team = UO_FW_AI_TeamSetting_Civ_TeamName};
+			case west: {_team = UO_FW_TeamSetting_Blufor_TeamName};
+			case east: {_team = UO_FW_TeamSetting_Opfor_TeamName};
+			case independent: {_team = UO_FW_TeamSetting_Indfor_TeamName};
+			case civilian: {_team = UO_FW_TeamSetting_Civ_TeamName};
 		};
-		if (!_team isEqualto "") then {
+		if (!(_team isEqualto "")) then {
 			_vehCfg = (configFile >> "CfgVehicles" >> (typeOf _v));
 			if (isText(_vehCfg >> "displayName")) then {
-				[_v, getText(_vehCfg >> "displayName"), _team] call UO_FW_AI_fnc_TrackAsset;
+				[_v, getText(_vehCfg >> "displayName"), _team] call UO_FW_fnc_TrackAsset;
 			};
 		};
 	};

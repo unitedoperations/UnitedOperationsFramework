@@ -11,13 +11,10 @@
  */
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
 UO_FW_AI_EXEC_CHECK(SERVERHC);
-if (isMultiplayer) then {
-	waituntil {!isNil "UO_FW_var_HC_ID"};
-};
 
 params ["_logic",["_delay",0,[0]],["_code",{},[{}]],["_availableEvents",{},[{}]],["_initial",false]];
 if ((_initial) && (_logic getvariable ["initiallyspawned",false])) exitwith {
-	diag_log format ["_logic: %1 intially spawned so exited: %1",_logic];
+	LOG_1("_logic: %1 intially spawned so exited: %1",_logic);
 };
 if ((tolower(typeOf _logic)) IN ["uo_fw_ai_controlmodule", "uo_fw_ai_controlmodule_r"]) then {
 	[_logic] spawn {
@@ -49,20 +46,26 @@ private _entities = (([_logic,UO_FW_AI_entities] call UO_FW_AI_fnc_getDetails) s
 if (count _entities > 0) then {
 	if (!isMultiplayer) then {
 		if (_initial) then {
-			diag_log "!isMultiplayer, createZoneInit function executed";
+			LOG("!isMultiplayer, createZoneInit function executed");
 			[_logic,_entities,_code] call UO_FW_AI_fnc_createZoneInit;
 			_logic setvariable ["initiallyspawned",true];
 		} else {
-			diag_log "!isMultiplayer, createZone function executed";
+			LOG("!isMultiplayer, createZoneInit function executed");
 			[_logic,_entities,_delay,_code] call UO_FW_AI_fnc_createZone;
 		};
 	} else {
 		if (_initial) then {
-			diag_log format ["sending createZoneInit function to clientid %1",UO_FW_var_HC_ID];
-			[[_logic,_entities,_code], {if (UO_FW_var_isHC) then {_this call UO_FW_AI_fnc_createZoneInit; (_this select 0) setvariable ["initiallyspawned",true,true];};}] remoteExec ["bis_fnc_call", UO_FW_var_HC_ID];
+			[{!isNil "UO_FW_var_HC_ID"},{
+				params ["_logic","_entities","_code"];
+				LOG_1("sending createZoneInit function to clientid %1",UO_FW_var_HC_ID);
+				[[_logic,_entities,_code], {if (UO_FW_var_isHC) then {_this call UO_FW_AI_fnc_createZoneInit; (_this select 0) setvariable ["initiallyspawned",true,true];};}] remoteExec ["bis_fnc_call", UO_FW_var_HC_ID];
+			}, [_logic,_entities,_code]] call CBA_fnc_waitUntilAndExecute;
 		} else {
-			diag_log format ["sending createZone function to clientid %1",UO_FW_var_HC_ID];
-			[[_logic,_entities,_delay,_code], {if (UO_FW_var_isHC) then {_this call UO_FW_AI_fnc_createZone;};}] remoteExec ["bis_fnc_call", UO_FW_var_HC_ID];
+			[{!isNil "UO_FW_var_HC_ID"},{
+				params ["_logic","_entities","_delay","_code"];
+				LOG_1("sending createZone function to clientid %1",UO_FW_var_HC_ID);
+				[[_logic,_entities,_delay,_code], {if (UO_FW_var_isHC) then {_this call UO_FW_AI_fnc_createZone;};}] remoteExec ["bis_fnc_call", UO_FW_var_HC_ID];
+			}, [_logic,_entities,_delay,_code]] call CBA_fnc_waitUntilAndExecute;
 		};
 	};
 };
@@ -87,12 +90,10 @@ for [{_p=0}, {(_p < count _posModules)}, {_p = _p + 1}] do {
 
 {
 	_x  spawn UO_FW_AI_fnc_setRespawn;
-	diag_log format["zone setup | %1",_x];
 } forEach ([_logic,["UO_FW_AI_RespawnModule"]] call UO_FW_AI_fnc_getSyncedModules);
 
 if (UO_FW_AI_DEBUG) then {
 	private _logicType = typeof _logic;
 	_entities params [["_grps",[],[[]]],["_emptyvehs",[],[[]]],["_objs",[],[[]]]];
-	"Zone Activated" call UO_FW_fnc_DebugMessage;
 };
 true

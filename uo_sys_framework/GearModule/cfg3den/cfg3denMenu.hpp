@@ -116,7 +116,7 @@ class ace_arsenal_DummyCategory
 				{
 					property="ace_arsenal_DefaultLoadoutsListAttribute";
 					value=0;
-					expression="MissionNamespace setvariable ['ace_arsenal_defaultLoadoutsList',_value];";
+					expression="MissionNamespace setvariable ['ace_arsenal_defaultLoadoutsList',_value,true];";
 					defaultValue="[]";
 					validate="none";
 					wikiType="[[Array]]";

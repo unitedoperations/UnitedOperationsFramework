@@ -6,6 +6,7 @@
 _argUpper = toUpper(#ARG);\
 if (!UO_FW_SERVER_HCMODULE_ALLOWED) exitWith {};\
 if !(getMissionConfigValue ["UO_FW_AI_Enabled",false]) exitwith {};\
+if (isNil "UO_FW_var_HC_ID") then {_nul = [] call UO_FW_AI_fnc_checkifHC;};\
 UO_FW_EXEC_CHECK(_argUpper)
 
 // Locality Check and Redirect
@@ -13,14 +14,14 @@ UO_FW_EXEC_CHECK(_argUpper)
 _argUpper = toUpper(#ARG1);\
 if (isNil "UO_FW_var_HC_ID") then {_nul = [] call UO_FW_AI_fnc_checkifHC;};\
 if ((_argUpper isEqualto "HCONLY") && (!isMultiplayer)) exitWith {\
-	diag_log format ["script:%1 couldn't run, set to HC ONLY and in Singleplayer!",_fnc_scriptName];\
+	LOG_1("script:%1 couldn't run, set to HC ONLY and in Singleplayer!",_fnc_scriptName);\
 };\
 if ((_argUpper isEqualto "HCONLY") && (hasInterface || isDedicated)) exitwith {\
 	if (!isNil "UO_FW_var_HC_ID") then {\
 		if (!(UO_FW_var_HC_ID isEqualto clientowner)) then {\
 			_this remoteExec [_fnc_scriptName,UO_FW_var_HC_ID];\
 		} else {\
-			diag_log format ["script:%1 couldn't run, set to HC ONLY and no HC detected!",_fnc_scriptName];\
+			LOG_1("script:%1 couldn't run, set to HC ONLY and no HC detected!",_fnc_scriptName);\
 		};\
 	};\
 };\

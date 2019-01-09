@@ -17,7 +17,6 @@ if (!isDedicated) then {
 	_this spawn {
 
 		waitUntil {!isNull player};
-		waitUntil {!isNil "UO_FW_ServerStartTime"};
 
 		//params ["_logic","_area","_selectedSide","_waittime"];
 		params ["","_area","_selectedSide","_waittime"];
@@ -30,8 +29,6 @@ if (!isDedicated) then {
 		if ((round(0 + _waittime - _timecheckStart)) < 1) exitwith {};
 
 		if (!((side player) isEqualto _selectedSide) || !((vehicle player) inArea _area)) exitwith {};
-
-		UO_FW_ServerTimeVerify(CHECK);
 
 		UO_FW_DEBUG("","Starting Setup Timer");
 		private _alreadyInATimer = MissionNameSpace getvariable ["UO_FW_InSetupTimer",false];

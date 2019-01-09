@@ -16,5 +16,5 @@ UO_FW_AI_templateCleanup		= false;
 UO_FW_AI_initialised		= true;
 
 if (getMissionConfigValue["UO_FW_Debug_Detailed_Enabled",false]) then {
-	diag_log "fn_init initialized!";
+	LOG("fn_init initialized!");
 };

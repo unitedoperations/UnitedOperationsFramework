@@ -45,8 +45,9 @@
 					tooltip = "Set the AO as a Soft AO that gives players time to return to the area before killing them, or a hard AO which forces the player inside the AO.";
 					property = "UO_FW_AOLimit_AOMode";
 					control = "UO_FW_AOModeAttribute";
+					typeName = "STRING";
 					expression = "_this setVariable ['%s',_value,true];";
-					defaultValue = "0";
+					defaultValue = "'HARD'";
 				};
 				class UO_FW_AOLimit_Blufor {
 					displayName = "Blufor";

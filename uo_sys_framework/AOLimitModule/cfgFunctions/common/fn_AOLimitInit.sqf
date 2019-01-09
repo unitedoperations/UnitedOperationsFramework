@@ -20,7 +20,7 @@ if (!isDedicated && hasInterface) then {
 		params ["_logic","_area","_selectedSides","_entryMode","_airsetting","_AOMode","_softAOtime","_softAOtimeAir"];
 		private ["_startedInside","_pos","_startTime","_displayed","_run","_arrayname","_enteredZone","_outSide","_allowedOutside"];
 		private _softAOMode = false;
-		if (_AOMode isEqualto 1) then {_softAOMode = true;};
+		if ((toUpper _AOMode) isEqualto "SOFT") then {_softAOMode = true;};
 
 		if !((side player) in _selectedSides) exitwith {};
 
