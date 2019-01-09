@@ -9,9 +9,9 @@ class UO_FW_Gear_Settings
             collapsed = 0;
             class Attributes
             {
-								class UO_FW_Gear_ACEA_System_Enabled
+								class UO_FW_Gear_ACEAR_System_Enabled
                 {
-                    property = "UO_FW_Gear_ACEA_System_Enabled";
+                    property = "UO_FW_Gear_ACEAR_System_Enabled";
                     displayName = "Enable ACE Arsenal System";
                     tooltip = "Should Gear System be enabled";
                     control = "CheckboxState";
@@ -73,6 +73,33 @@ class UO_FW_GearSettings_Blufor
     class AttributeCategories
     {
 			#include "Gear\Blufor.hpp"
+    };
+};
+
+class UO_FW_GearSettings_Opfor
+{
+    displayName = "Opfor Gear Settings";
+    class AttributeCategories
+    {
+			#include "Gear\Opfor.hpp"
+    };
+};
+
+class UO_FW_GearSettings_Indfor
+{
+    displayName = "Indfor Gear Settings";
+    class AttributeCategories
+    {
+			#include "Gear\Indfor.hpp"
+    };
+};
+
+class UO_FW_GearSettings_Civilian
+{
+    displayName = "Civilian Gear Settings";
+    class AttributeCategories
+    {
+			#include "Gear\Civilian.hpp"
     };
 };
 

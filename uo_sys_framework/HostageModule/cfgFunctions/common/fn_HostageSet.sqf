@@ -1,3 +1,4 @@
+#define COMPONENT Hostage
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 if (!UO_FW_SERVER_HOSTAGEMODULE_ALLOWED) exitWith {};
 UO_FW_EXEC_CHECK(ALL);
@@ -9,13 +10,12 @@ params ["_unit"];
 private _marker = _unit getVariable ["UO_FW_Hostage_Rescue_Location","hostage_rescue"];
 
 if (getMarkerColor _marker isEqualto "") exitwith {
-	private _msg = format ["hostage _marker: %1 does not exist!",_marker];
-	UO_FW_DEBUG("",_msg);
+	ERROR_1("hostage _marker: %1 does not exist!",_marker);
 };
 
 _marker setMarkerAlpha 0;
 
-_rescueaction = ["Rescue Hostage", "Rescue Hostage","",{_this call UO_FW_FNC_HostageRescue},{!((_this select 0) getVariable ['UO_FW_Rescued', false]) && (alive (_this select 0))}] call ace_interact_menu_fnc_createAction;
+private _rescueaction = ["Rescue Hostage", "Rescue Hostage","",{_this call UO_FW_FNC_HostageRescue},{!((_this select 0) getVariable ['UO_FW_Rescued', false]) && (alive (_this select 0))}] call ace_interact_menu_fnc_createAction;
 [_unit, 0, ["ACE_MainActions"], _rescueaction] call ace_interact_menu_fnc_addActionToObject;
 
 //if (hasInterface) then {
@@ -44,7 +44,7 @@ _EhAnimDone = _unit addEventHandler ["AnimDone", {
 _unit setVariable ["UO_FW_EhAnimDone", _EhAnimDone];
 
 _break = false;
-_run = true;
+private _run = true;
 
 [_unit,_marker,_run,_break] spawn {
 	params ["_unit","_marker","_run","_break"];

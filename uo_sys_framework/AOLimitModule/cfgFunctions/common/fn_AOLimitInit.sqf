@@ -1,3 +1,4 @@
+#define COMPONENT AOLimit
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
 UO_FW_EXEC_CHECK(ALL);
 
@@ -64,7 +65,7 @@ if (!isDedicated && hasInterface) then {
 			_enteredZone = true;
 		};
 
-		UO_FW_DEBUG("","Starting AO Limit");
+		LOG("Starting AO Limit");
 		private _recheckDead = false;
 
 		while {_run} do {

@@ -1,15 +1,19 @@
+#define COMPONENT StartText
 #include "\x\UO_FW\addons\main\script_macros.hpp"
+UO_FW_EXEC_CHECK(ALL);
 
 waitUntil {time > 0};
-_startTextArray = _this;
-_isValid = _startTextArray call UO_FW_fnc_ValidateStartText;
+private _startTextArray = _this;
+private _isValid = _startTextArray call UO_FW_fnc_ValidateStartText;
 if (!_isValid) exitWith {
-	UO_FW_DEBUG("Start Text Module Failed to validate!","Start Text Module Failed to validate!");
+	ERROR("Start Text Module Failed to validate!");
 };
 
 
+LOG_1("Executing Start Text with %1",_startTextArray);
 
-["","Executing Start Text with " + (str _this)] call UO_FW_fnc_DebugMessageDetailed;
+private ["_month","_hour","_min"];
+
 switch (date select 1) do
 {
 
@@ -28,7 +32,7 @@ switch (date select 1) do
 
 };
 
-_day = format ["%1th", date select 2];
+private _day = format ["%1th", date select 2];
 
 if (((date select 2) mod 10) < 4) then
 {
@@ -55,7 +59,7 @@ if (_h < 10) then {
     _hour = format ["%1", _h];
 
 };
-_m = date select 4;
+private _m = date select 4;
 if (date select 4 == 60) then {_m = 0};
 if (_m < 10) then
 {
@@ -69,11 +73,11 @@ if (_m < 10) then
 
 };
 
-_unparsedText = "<t align='right' size='1.2'>";
+private _unparsedText = "<t align='right' size='1.2'>";
 
 for "_i" from 0 to count _startTextArray -1 do
 {
-    _line = _startTextArray select _i;
+    private _line = _startTextArray select _i;
     switch (_line select 0) do
     {
 
@@ -118,8 +122,6 @@ _unparsedText = _unparsedText + "</t>";
 
 [parsetext _unparsedText, true, nil, 10, 0.7, 0] spawn
 {
-
     sleep 10;
     _this call BIS_fnc_textTiles;
-
 };

@@ -7,6 +7,10 @@
  *		PiZZADOX
  */
 
+#define COMPONENT 3DEN
+#include "\x\UO_FW\addons\main\script_macros.hpp"
+UO_FW_EXEC_CHECK(ALL);
+
 params ["_logic"];
 
 diag_log format ["_logic:%1 class:%2",_logic,typeof _logic];

@@ -2,7 +2,7 @@ if ((missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_FILE",false])) exitw
 	if !(UO_FW_BRIEFING_CIVILIAN_FILE_PATH isEqualto "") then {
 		"" call (compile preprocessFileLineNumbers UO_FW_BRIEFING_CIVILIAN_FILE_PATH);
 	} else {
-		UO_FW_DEBUG("No briefing found for CIVILIAN!","No briefing found for CIVILIAN!");
+		ERROR("No briefing found for CIVILIAN!");
 	};
 };
 
@@ -109,7 +109,7 @@ if ((missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_APPENDIX",false])) t
 	if !(UO_FW_BRIEFING_CIVILIAN_APPENDIX_PATH isEqualto "") then {
 		"" call (compile preprocessFileLineNumbers UO_FW_BRIEFING_CIVILIAN_APPENDIX_PATH);
 	} else {
-		UO_FW_DEBUG("No appendix found for CIVILIAN!","No appendix found for CIVILIAN!");
+		ERROR("No appendix found for CIVILIAN!");
 	};
 };
 if((missionNamespace getVariable ["UO_FW_BRIEFING_MISSIONNOTES_ENABLE",false])) then

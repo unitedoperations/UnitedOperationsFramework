@@ -1,4 +1,4 @@
-/*	Description: Gives players custom self actions
+/*	Description: Gives players Jip actions
  *	Arguments:
  * 		N/A
  *	Return Value:
@@ -7,8 +7,8 @@
  *		Olsen & Starfox64 & PiZZADOX
  */
 
+#define COMPONENT HC
 #include "\x\UO_FW\addons\main\script_macros.hpp"
-
 
 if (isServer) then {
 	if (2 in [UO_FW_JIP_TypeBLUFOR,UO_FW_JIP_TypeOPFOR,UO_FW_JIP_TypeINDFOR,UO_FW_JIP_TypeCIVILIAN]) then {

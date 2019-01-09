@@ -2,7 +2,7 @@ if ((missionNamespace getVariable ["UO_FW_BRIEFING_OPFOR_FILE",false])) exitwith
 	if !(UO_FW_BRIEFING_OPFOR_FILE_PATH isEqualto "") then {
 		"" call (compile preprocessFileLineNumbers UO_FW_BRIEFING_OPFOR_FILE_PATH);
 	} else {
-		UO_FW_DEBUG("No briefing found for OPFOR!","No briefing found for OPFOR!");
+		ERROR("No briefing found for OPFOR!");
 	};
 };
 
@@ -109,7 +109,7 @@ if ((missionNamespace getVariable ["UO_FW_BRIEFING_OPFOR_APPENDIX",false])) then
 	if !(UO_FW_BRIEFING_OPFOR_APPENDIX_PATH isEqualto "") then {
 		"" call (compile preprocessFileLineNumbers UO_FW_BRIEFING_OPFOR_APPENDIX_PATH);
 	} else {
-		UO_FW_DEBUG("No appendix found for OPFOR!","No appendix found for OPFOR!");
+		ERROR("No appendix found for OPFOR!");
 	};
 };
 if((missionNamespace getVariable ["UO_FW_BRIEFING_MISSIONNOTES_ENABLE",false])) then

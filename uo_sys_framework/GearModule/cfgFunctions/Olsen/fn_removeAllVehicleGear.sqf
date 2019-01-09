@@ -11,8 +11,12 @@
  *
  * Public: No
  */
- 
- private _vehicle = _this;
+
+#define COMPONENT Gear
+#include "\x\UO_FW\addons\main\script_macros.hpp"
+UO_FW_EXEC_CHECK(ALL);
+
+params ["_vehicle"];
 
 clearItemCargoGlobal _vehicle;
 clearMagazineCargoGlobal _vehicle;

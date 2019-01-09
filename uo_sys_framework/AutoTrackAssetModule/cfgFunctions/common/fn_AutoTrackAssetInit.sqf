@@ -1,4 +1,7 @@
+#define COMPONENT AutoTrack
 #include "\x\UO_FW\addons\main\script_macros.hpp"
+UO_FW_EXEC_CHECK(ALL);
+
 if !(missionNamespace getVariable ["UO_FW_AutoTrackAsset_Enabled",false]) exitWith {};
 
 ["Auto Track Assets", "Automatically runs UO_FW_FNC_TrackAsset on AI vehicles.", "Starfox64"] call UO_FW_FNC_RegisterModule;

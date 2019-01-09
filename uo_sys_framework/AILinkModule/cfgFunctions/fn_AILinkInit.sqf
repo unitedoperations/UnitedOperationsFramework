@@ -1,3 +1,7 @@
+#define COMPONENT AILink
+#include "\x\UO_FW\addons\main\script_macros.hpp"
+UO_FW_EXEC_CHECK(ALL);
+
 if !(missionNamespace getVariable ["UO_FW_AILink_Enabled",false]) exitWith {};
 ["AI link", "Shares targeting information between AI groups based on radios.", "TinfoilHate and Sacher"] call UO_FW_FNC_RegisterModule;
 tin_aiLink_startDelay 	= (missionNamespace getVariable ["UO_FW_AILink_StartDelay",30]);		//Delay in seconds when starting the mission until the first loop runs.

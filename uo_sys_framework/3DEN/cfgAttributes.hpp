@@ -47,6 +47,15 @@ class Edit: Title
 	};
 };
 
+class EditShort: Edit
+{
+	class Controls
+	{
+		class Title;
+		class Value;
+	};
+};
+
 class EditArray;
 
 class EditStringArray: EditArray

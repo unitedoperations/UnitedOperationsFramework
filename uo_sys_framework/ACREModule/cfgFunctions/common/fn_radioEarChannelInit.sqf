@@ -6,7 +6,7 @@
  * 	Author
  * 		PiZZADOX
  */
-
+#define COMPONENT ACRE
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 
 if !(UO_FW_SERVER_ACREMODULE_ALLOWED) exitwith {};

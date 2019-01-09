@@ -1,16 +1,17 @@
-/*	Description: Gives players custom self actions
+/*	Description: Puts player weapons on safe/lowered at mission start
  *	Arguments:
  * 		N/A
  *	Return Value:
  * 		ARRAY
  *	Author
- *		TinfoilHate & PiZZADOX
+ *		Olsen & Sacher & PiZZADOX
  */
 
+#define COMPONENT SafeStart
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 if(!hasInterface) exitWith {};
-["Safe start", "Extra safety for mission start", "Sacher"] call UO_FW_FNC_RegisterModule;
-[{!isNull player}, {
+["Safe Start", "Extra safety for mission start", "Olsen"] call UO_FW_FNC_RegisterModule;
+[{(!isNull player) && {(UO_FW_GearReady)}}, {
 	if (!UO_FW_SafeStart_Enable) exitwith {};
 
 	if (currentWeapon player != "") then {

@@ -2,7 +2,7 @@ if ((missionNamespace getVariable ["UO_FW_BRIEFING_INDFOR_FILE",false])) exitwit
 	if !(UO_FW_BRIEFING_INDFOR_FILE_PATH isEqualto "") then {
 		"" call (compile preprocessFileLineNumbers UO_FW_BRIEFING_INDFOR_FILE_PATH);
 	} else {
-		UO_FW_DEBUG("No briefing found for INDFOR!","No briefing found for INDFOR!");
+		ERROR("No briefing found for INDFOR!");
 	};
 };
 
@@ -109,7 +109,7 @@ if ((missionNamespace getVariable ["UO_FW_BRIEFING_INDFOR_APPENDIX",false])) the
 	if !(UO_FW_BRIEFING_INDFOR_APPENDIX_PATH isEqualto "") then {
 		"" call (compile preprocessFileLineNumbers UO_FW_BRIEFING_INDFOR_APPENDIX_PATH);
 	} else {
-		UO_FW_DEBUG("No appendix found for INDFOR!","No appendix found for INDFOR!");
+		ERROR("No appendix found for INDFOR!");
 	};
 };
 if((missionNamespace getVariable ["UO_FW_BRIEFING_MISSIONNOTES_ENABLE",false])) then

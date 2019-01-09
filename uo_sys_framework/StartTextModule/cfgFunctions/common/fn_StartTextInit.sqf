@@ -1,18 +1,22 @@
-_isEnabled = missionNamespace getVariable ["UO_FW_StartText_Enabled",false];
+#define COMPONENT StartText
+#include "\x\UO_FW\addons\main\script_macros.hpp"
+UO_FW_EXEC_CHECK(ALL);
+
+private _isEnabled = missionNamespace getVariable ["UO_FW_StartText_Enabled",false];
 if(!_isEnabled) exitWith {};
 ["Start Text", "Displays animated text on mission start.", "Sacher"] call UO_FW_FNC_RegisterModule;
 
 private ["_month", "_hour", "_min", "_startTextArray", "_line", "_unparsedText"];
-_dateTypeArray = [["DATE"],["TIME"],["DATETIME"]];
-_dateType = _dateTypeArray select (missionNamespace getVariable ["UO_FW_StartText_TimeSelect",2]);
+private _dateTypeArray = [["DATE"],["TIME"],["DATETIME"]];
+private _dateType = _dateTypeArray select (missionNamespace getVariable ["UO_FW_StartText_TimeSelect",2]);
 _startTextArray = [];
 _collectInfo =
 {
 
     params["_title","_text","_type"];
-    _ret = [];
-    _titleQuoteVar = missionNamespace getVariable [_title,""];
-    _textVar = missionNamespace getVariable [_text,""];
+    private _ret = [];
+    private _titleQuoteVar = missionNamespace getVariable [_title,""];
+    private _textVar = missionNamespace getVariable [_text,""];
     if(_titleQuoteVar != "" ) then {_ret pushBack ["TITLEQUOTE", _titleQuoteVar];};
     if(_textVar != "" ) then {_ret pushBack ["TEXT", _textVar];};
     _ret

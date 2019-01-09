@@ -1,16 +1,17 @@
+#define COMPONENT Core
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 UO_FW_EXEC_CHECK(ALL);
 
 //Module functions
 if !(getMissionConfigValue["UO_FW_Enabled",false]) exitwith {};
 
+INFO_1("Framework Server setting: %1",UO_FW_SERVER_FRAMEWORK_ALLOWED);
+
 if (!UO_FW_SERVER_FRAMEWORK_ALLOWED) exitWith {
 	//["","Framework is disabled by the Server."] call UO_FW_fnc_DebugMessageDetailed;
-	UO_FW_DEBUG_1("Framework Disabled on Server, exiting init","Framework Server setting: %1",UO_FW_SERVER_FRAMEWORK_ALLOWED);
 };
 
 //["","Initializing Framework"] call UO_FW_fnc_DebugMessageDetailed;
-UO_FW_DEBUG_1("Framework enabled on Server, executing init","Framework Server setting: %1",UO_FW_SERVER_FRAMEWORK_ALLOWED);
 
 [] call UO_FW_FNC_postInit;
 if (UO_FW_SERVER_ACREMODULE_ALLOWED) then {[] call UO_FW_FNC_AcreInit;};
@@ -31,4 +32,4 @@ if (UO_FW_SERVER_ENDCONDITIONMODULE_ALLOWED) then {[] call UO_FW_FNC_EndConditio
 
 //["","Finished Initializing Framework"] call UO_FW_fnc_DebugMessageDetailed;
 UO_FW_Framework_Initialized = true;
-UO_FW_DEBUG_1("Finished framework init","Finished framework init, var value: %1",UO_FW_Framework_Initialized);
+INFO_1("Finished framework init, var value: %1",UO_FW_Framework_Initialized);

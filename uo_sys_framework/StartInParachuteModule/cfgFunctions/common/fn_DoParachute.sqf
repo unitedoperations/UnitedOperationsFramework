@@ -1,5 +1,6 @@
 private ["_target", "_elev", "_rand", "_stear", "_class","_doPara"];
 
+#define COMPONENT StartInParachute
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 
 _target = _this select 0;

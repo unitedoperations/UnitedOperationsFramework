@@ -2,7 +2,7 @@ if ((missionNamespace getVariable ["UO_FW_BRIEFING_BLUFOR_FILE",false])) exitwit
 	if !(UO_FW_BRIEFING_BLUFOR_FILE_PATH isEqualto "") then {
 		"" call (compile preprocessFileLineNumbers UO_FW_BRIEFING_BLUFOR_FILE_PATH);
 	} else {
-		UO_FW_DEBUG("No briefing found for BLUFOR!","No briefing found for BLUFOR!");
+		ERROR("No briefing found for BLUFOR!");
 	};
 };
 
@@ -109,7 +109,7 @@ if ((missionNamespace getVariable ["UO_FW_BRIEFING_BLUFOR_APPENDIX",false])) the
 	if !(UO_FW_BRIEFING_BLUFOR_APPENDIX_PATH isEqualto "") then {
 		"" call (compile preprocessFileLineNumbers UO_FW_BRIEFING_BLUFOR_APPENDIX_PATH);
 	} else {
-		UO_FW_DEBUG("No appendix found for BLUFOR!","No appendix found for BLUFOR!");
+		ERROR("No appendix found for BLUFOR!");
 	};
 };
 if((missionNamespace getVariable ["UO_FW_BRIEFING_MISSIONNOTES_ENABLE",false])) then

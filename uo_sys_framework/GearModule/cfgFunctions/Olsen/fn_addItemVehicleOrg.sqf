@@ -15,6 +15,10 @@
  * Public: No
  */
 
+#define COMPONENT Gear
+#include "\x\UO_FW\addons\main\script_macros.hpp"
+UO_FW_EXEC_CHECK(ALL);
+
 private ["_vehicle", "_loadoutType", "_item", "_amount", "_type"];
 
 _vehicle = _this select 0;

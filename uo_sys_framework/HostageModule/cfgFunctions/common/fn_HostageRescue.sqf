@@ -1,7 +1,8 @@
+#define COMPONENT Hostage
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 UO_FW_EXEC_CHECK(ALL);
 
-params ["_unit", "_caller", "_actionId"];
+params ["_unit", "_caller"];
 
 if (_unit getVariable ["UO_FW_Rescued", false]) exitWith {};
 if (animationState _unit find "acts_aidlpsitmstpssurwnondnon" != -1) then {

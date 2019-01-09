@@ -1,5 +1,6 @@
+#define COMPONENT CaptureZone
 #include "\x\UO_FW\addons\main\script_macros.hpp"
-UO_FW_EXEC_CHECK(SERVER);
+UO_FW_EXEC_CHECK(ALL);
 
 _this spawn {
 private ["_markername","_marker","_oldOwner","_playersInArea","_owner"];

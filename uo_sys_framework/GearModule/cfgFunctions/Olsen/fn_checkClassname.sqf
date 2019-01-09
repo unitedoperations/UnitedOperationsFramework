@@ -12,20 +12,24 @@
  * Public: No
  */
 
+#define COMPONENT Gear
+#include "\x\UO_FW\addons\main\script_macros.hpp"
+UO_FW_EXEC_CHECK(ALL);
+
 params [
 	["_class", "", [""]],
 	["_unit", objNull, [objNull]]
 ];
 
 private _result = (isClass (configfile >> "CfgWeapons" >> _class)
-|| (isClass (configFile >> "CfgMagazines" >> _class))
-|| (isClass (configFile >> "CfgGlasses" >> _class))
-|| (isClass (configFile >> "CfgVehicles" >> _class))
+|| {(isClass (configFile >> "CfgMagazines" >> _class))}
+|| {(isClass (configFile >> "CfgGlasses" >> _class))}
+|| {(isClass (configFile >> "CfgVehicles" >> _class))}
 );
 
 if (!_result) then {
 	if (!isMultiplayer) then {
-		"Invalid classname given! - " + _class call UO_FW_fnc_DebugMessage;
+		ERROR_1("Invalid classname given! %1",_class);
 	};
 	[_class, {
 		params ["_class"];

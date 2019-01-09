@@ -1,13 +1,14 @@
 /*	Description: Removes AI Driver
  * 		OBJECT - vehicle
  *	Return Value:
- * 		ARRAY 	
+ * 		ARRAY
  *	Author
  *		BlackHawk & PiZZADOX
  */
 
+#define COMPONENT AIDrivers
 #include "\x\UO_FW\addons\main\script_macros.hpp"
-
+UO_FW_EXEC_CHECK(ALL);
 
 params ["_target"];
 

@@ -1,18 +1,21 @@
-/*	Description: Gives players custom self actions 
+/*	Description: Gives players custom self actions
  *	Arguments:
  * 		N/A
  *	Return Value:
- * 		ARRAY 	
+ * 		ARRAY
  *	Author
  *		TinfoilHate & PiZZADOX
  */
 
+#define COMPONENT SelfActions
 #include "\x\UO_FW\addons\main\script_macros.hpp"
+UO_FW_EXEC_CHECK(ALL);
+
 if(!hasInterface) exitWith {};
-["Self Actions", "Extra self actions", "Sacher"] call UO_FW_FNC_RegisterModule; 
+["Self Actions", "Allows players to check their own team color, view other's maps and cut grass.", "TinfoilHate and PiZZADOX"] call UO_FW_FNC_RegisterModule;
 [{!isNull player}, {
 	if (!UO_FW_SelfActions_Enable) exitwith {};
-	
+
 	player setVariable ["mis_originalSide",side player,true];
 	//check own color interaction
 	if (UO_FW_SelfActions_CheckColour_Enabled) then {

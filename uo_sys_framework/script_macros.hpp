@@ -1,3 +1,8 @@
+#include "\x\UO_FW\addons\main\script_mod.hpp"
+#ifndef COMPONENT
+#define COMPONENT Main
+#endif
+#define DEBUG_MODE_FULL
 #include "\x\cba\addons\main\script_macros_common.hpp"
 
 //Script control
@@ -18,71 +23,6 @@ if (!UO_FW_SERVER_FRAMEWORK_ALLOWED) exitWith {}
 //Debug functions
 #define UO_FW_DEBUG(basicmsg,detailedmsg)\
 [basicmsg,detailedmsg] call UO_FW_fnc_DebugMessageDetailed
-
-#define UO_FW_DEBUG_1(detailedmsg,arg1)\
-diag_log "called debug macro";\
-private _dmsgstring = detailedmsg;\
-if (((_dmsgstring find "%1") isEqualto -1) && !(#arg1 isEqualto "")) then {\
-	_arg1string = format ["%1",arg1];\
-	_dmsgstring = [_dmsgstring, "%1", _arg1string] call CBA_fnc_replace;\
-};\
-diag_log format ["basicmsg: %1 \n _dmsgstring: %2",basicmsg,_dmsgstring];\
-["",_dmsgstring] call UO_FW_fnc_DebugMessageDetailed;
-
-
-#define UO_FW_DEBUG_2(detailedmsg,arg1,arg2)\
-diag_log "called debug macro";\
-private _dmsgstring = detailedmsg;\
-if (((_dmsgstring find "%1") isEqualto -1) && !(#arg1 isEqualto "")) then {\
-	_arg1string = format ["%1",arg1];\
-	_dmsgstring = [_dmsgstring, "%1", _arg1string] call CBA_fnc_replace;\
-};\
-if (((_dmsgstring find "%2") isEqualto -1) && !(#arg2 isEqualto "")) then {\
-	_arg2string = format ["%1",arg2];\
-	_dmsgstring = [_dmsgstring, "%2", _arg2string] call CBA_fnc_replace;\
-};\
-diag_log format ["basicmsg: %1 \n _dmsgstring: %2",basicmsg,_dmsgstring];\
-["",_dmsgstring] call UO_FW_fnc_DebugMessageDetailed;
-
-#define UO_FW_DEBUG_3(detailedmsg,arg1,arg2,arg3)\
-diag_log "called debug macro";\
-private _dmsgstring = detailedmsg;\
-if (((_dmsgstring find "%1") isEqualto -1) && !(#arg1 isEqualto "")) then {\
-	_arg1string = format ["%1",arg1];\
-	_dmsgstring = [_dmsgstring, "%1", _arg1string] call CBA_fnc_replace;\
-};\
-if (((_dmsgstring find "%2") isEqualto -1) && !(#arg2 isEqualto "")) then {\
-	_arg2string = format ["%1",arg2];\
-	_dmsgstring = [_dmsgstring, "%2", _arg2string] call CBA_fnc_replace;\
-};\
-if (((_dmsgstring find "%3") isEqualto -1) && !(#arg3 isEqualto "")) then {\
-	_arg3string = format ["%1",arg3];\
-	_dmsgstring = [_dmsgstring, "%3", _arg3string] call CBA_fnc_replace;\
-};\
-diag_log format ["basicmsg: %1 \n _dmsgstring: %2",basicmsg,_dmsgstring];\
-["",_dmsgstring] call UO_FW_fnc_DebugMessageDetailed;
-
-#define UO_FW_DEBUG_4(detailedmsg,arg1,arg2,arg3,arg4)\
-diag_log "called debug macro";\
-private _dmsgstring = detailedmsg;\
-if (((_dmsgstring find "%1") isEqualto -1) && !(#arg1 isEqualto "")) then {\
-	_arg1string = format ["%1",arg1];\
-	_dmsgstring = [_dmsgstring, "%1", _arg1string] call CBA_fnc_replace;\
-};\
-if (((_dmsgstring find "%2") isEqualto -1) && !(#arg2 isEqualto "")) then {\
-	_arg2string = format ["%1",arg2];\
-	_dmsgstring = [_dmsgstring, "%2", _arg2string] call CBA_fnc_replace;\
-};\
-if (((_dmsgstring find "%3") isEqualto -1) && !(#arg3 isEqualto "")) then {\
-	_arg3string = format ["%1",arg3];\
-	_dmsgstring = [_dmsgstring, "%3", _arg3string] call CBA_fnc_replace;\
-};\
-if (((_dmsgstring find "%4") isEqualto -1) && !(#arg4 isEqualto "")) then {\
-	_arg4string = format ["%1",arg4];\
-	_dmsgstring = [_dmsgstring, "%4", _arg4string] call CBA_fnc_replace;\
-};\
-diag_log format ["basicmsg: %1 \n _dmsgstring: %2",basicmsg,_dmsgstring];\
-["",_dmsgstring] call UO_FW_fnc_DebugMessageDetailed;
 
 #define UO_FW_GET_VAR(NAME,DEFAULT)\
 missionNamespace getVariable [#NAME,DEFAULT]

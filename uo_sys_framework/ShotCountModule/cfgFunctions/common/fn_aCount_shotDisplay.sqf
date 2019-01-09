@@ -6,7 +6,12 @@
  *	Author
  *		TinfoilHate & PiZZADOX
  */
- private ["_arrayBLU","_arrayOPF","_arrayRES","_arrayCIV"];
+
+#define COMPONENT ShotCount
+#include "\x\UO_FW\addons\main\script_macros.hpp"
+UO_FW_EXEC_CHECK(ALL);
+ 
+private ["_arrayBLU","_arrayOPF","_arrayRES","_arrayCIV"];
 
 waitUntil{count (missionNamespace getVariable ["Blufor_Shotcount_Data",[""]]) != 1};
 waitUntil{count (missionNamespace getVariable ["Opfor_Shotcount_Data",[""]]) != 1};

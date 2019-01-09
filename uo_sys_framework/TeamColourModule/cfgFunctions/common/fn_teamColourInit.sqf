@@ -7,7 +7,9 @@
  *		Olsen & PiZZADOX
  */
 
+#define COMPONENT TeamColour
 #include "\x\UO_FW\addons\main\script_macros.hpp"
+
 if (!UO_FW_SERVER_TEAMCOLOURMODULE_ALLOWED) exitWith {};
 if (!isDedicated) then {
 	[{!isNull player && (time > 1)}, {

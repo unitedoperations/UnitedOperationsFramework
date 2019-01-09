@@ -7,6 +7,9 @@
  *		TinfoilHate
  */
 
+#define COMPONENT ShotCount
+#include "\x\UO_FW\addons\main\script_macros.hpp"
+UO_FW_EXEC_CHECK(ALL);
 
 missionNamespace setVariable ["Blufor_Shotcount_Data",aCount_west_ExpendedAmmunition,true];
 missionNamespace setVariable ["Opfor_Shotcount_Data",aCount_east_ExpendedAmmunition,true];

@@ -1,3 +1,7 @@
+#define COMPONENT AILink
+#include "\x\UO_FW\addons\main\script_macros.hpp"
+UO_FW_EXEC_CHECK(ALL);
+
 private ["_groups","_thisGroup","_thatGroup","_thisLR","_thisSR","_thatLR","_thatSR","_range"];
 
 if (isNil "tin_aiLink_debug") then {tin_aiLink_debug = false};

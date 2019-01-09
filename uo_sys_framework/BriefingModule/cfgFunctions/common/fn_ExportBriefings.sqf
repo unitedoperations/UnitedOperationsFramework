@@ -1,19 +1,22 @@
+#define COMPONENT Briefing
+#include "\x\UO_FW\addons\main\script_macros.hpp"
+UO_FW_EXEC_CHECK(ALL);
 
-_script = "" spawn 
+_script = "" spawn
 {
 	diag_log "Exporting Briefing";
 	_br = toString [13,10];//(carriage return & line feed)
 
-	_export = "_briefing = [];" + _br + 
+	_export = "_briefing = [];" + _br +
 
 	"#define NEWTAB(NAME) _briefing set [count _briefing, [""Diary"",[NAME,""" + _br +
 	"#define ENDTAB ""]]];" + _br +
 
 	"#define DISPLAYBRIEFING() \" + _br +
-	"_size = count _briefing - 1; \" + _br + 
+	"_size = count _briefing - 1; \" + _br +
 	"for '_i' from 0 to _size do \" + _br +
-	"{ \" + _br + 
-	"	player createDiaryRecord (_briefing select _size - _i); \" + _br + 
+	"{ \" + _br +
+	"	player createDiaryRecord (_briefing select _size - _i); \" + _br +
 	"};" + _br + _br +
 
 
@@ -21,9 +24,9 @@ _script = "" spawn
 
 	 "switch(side player) do " + _br +
 	"{" + _br +
-	"case west:" + _br + 
+	"case west:" + _br +
 	"{" + _br;
-	if(missionNamespace getVariable ["UO_FW_BRIEFING_BLUFOR_NATO",false]) then 
+	if(missionNamespace getVariable ["UO_FW_BRIEFING_BLUFOR_NATO",false]) then
 	{
 //Situation
 		_export = _export + "NEWTAB(""I. Situation:"")" + _br +
@@ -88,7 +91,7 @@ _script = "" spawn
 		"<font color='#5BD527'><h1>Passwords:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_BRIEFING_BLUFOR_NATO_CANDS_SIGNALS_PASSWORDS",""]) +  _br +
 		"ENDTAB" +  _br;
 	};
-		
+
 
 		_export = _export + _br +
 		_br +
@@ -96,7 +99,7 @@ _script = "" spawn
 		_br +
 		_br +
 		_br;
-		if(missionNamespace getVariable ["UO_FW_BRIEFING_BLUFOR_WARSAW",false]) then 
+		if(missionNamespace getVariable ["UO_FW_BRIEFING_BLUFOR_WARSAW",false]) then
 		{
 			_export = _export + "NEWTAB(""I. Preliminaries:"")" +  _br +
 			"<font color='#5BD527'><h1>Weather:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_BRIEFING_BLUFOR_WARSAW_PRELIMINARIES_WEATHER",""])  + "<br/><br/>" + _br +
@@ -143,11 +146,11 @@ _script = "" spawn
 
 
 
-	_export = _export + "};" + _br+ 
-	
-	"case east:" + _br + 
+	_export = _export + "};" + _br+
+
+	"case east:" + _br +
 	"{" + _br;
-	if(missionNamespace getVariable ["UO_FW_BRIEFING_OPFOR_NATO",false]) then 
+	if(missionNamespace getVariable ["UO_FW_BRIEFING_OPFOR_NATO",false]) then
 	{
 //Situation
 		_export = _export + "NEWTAB(""I. Situation:"")" + _br +
@@ -212,7 +215,7 @@ _script = "" spawn
 		"<font color='#5BD527'><h1>Passwords:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_BRIEFING_OPFOR_NATO_CANDS_SIGNALS_PASSWORDS",""]) +  _br +
 		"ENDTAB" +  _br;
 	};
-		
+
 
 		_export = _export + _br +
 		_br +
@@ -220,7 +223,7 @@ _script = "" spawn
 		_br +
 		_br +
 		_br;
-		if(missionNamespace getVariable ["UO_FW_BRIEFING_OPFOR_WARSAW",false]) then 
+		if(missionNamespace getVariable ["UO_FW_BRIEFING_OPFOR_WARSAW",false]) then
 		{
 			_export = _export + "NEWTAB(""I. Preliminaries:"")" +  _br +
 			"<font color='#5BD527'><h1>Weather:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_BRIEFING_OPFOR_WARSAW_PRELIMINARIES_WEATHER",""])  + "<br/><br/>" + _br +
@@ -264,7 +267,7 @@ _script = "" spawn
 			"<font color='#5BD527'><h1>Succession of Command:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_BRIEFING_OPFOR_WARSAW_SUCC_DESC",""])  + _br +
 			"ENDTAB" +  _br;
 		};
-	_export = _export + "};" + _br + 
+	_export = _export + "};" + _br +
 
 
 
@@ -283,9 +286,9 @@ _script = "" spawn
 
 
 
-	"case independent:" + _br + 
+	"case independent:" + _br +
 	"{" + _br;
-	if(missionNamespace getVariable ["UO_FW_BRIEFING_INDFOR_NATO",false]) then 
+	if(missionNamespace getVariable ["UO_FW_BRIEFING_INDFOR_NATO",false]) then
 	{
 //Situation
 		_export = _export + "NEWTAB(""I. Situation:"")" + _br +
@@ -350,7 +353,7 @@ _script = "" spawn
 		"<font color='#5BD527'><h1>Passwords:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_BRIEFING_INDFOR_NATO_CANDS_SIGNALS_PASSWORDS",""]) +  _br +
 		"ENDTAB" +  _br;
 	};
-		
+
 
 		_export = _export + _br +
 		_br +
@@ -358,7 +361,7 @@ _script = "" spawn
 		_br +
 		_br +
 		_br;
-		if(missionNamespace getVariable ["UO_FW_BRIEFING_INDFOR_WARSAW",false]) then 
+		if(missionNamespace getVariable ["UO_FW_BRIEFING_INDFOR_WARSAW",false]) then
 		{
 			_export = _export + "NEWTAB(""I. Preliminaries:"")" +  _br +
 			"<font color='#5BD527'><h1>Weather:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_BRIEFING_INDFOR_WARSAW_PRELIMINARIES_WEATHER",""])  + "<br/><br/>" + _br +
@@ -406,7 +409,7 @@ _script = "" spawn
 
 
 
-	_export = _export + "};" + _br+ 
+	_export = _export + "};" + _br+
 
 
 
@@ -447,9 +450,9 @@ _script = "" spawn
 
 
 
-	"case civilian:" + _br + 
+	"case civilian:" + _br +
 	"{" + _br;
-	if(missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_NATO",false]) then 
+	if(missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_NATO",false]) then
 	{
 //Situation
 		_export = _export + "NEWTAB(""I. Situation:"")" + _br +
@@ -514,7 +517,7 @@ _script = "" spawn
 		"<font color='#5BD527'><h1>Passwords:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_NATO_CANDS_SIGNALS_PASSWORDS",""]) +  _br +
 		"ENDTAB" +  _br;
 	};
-		
+
 
 		_export = _export + _br +
 		_br +
@@ -522,7 +525,7 @@ _script = "" spawn
 		_br +
 		_br +
 		_br;
-		if(missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_WARSAW",false]) then 
+		if(missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_WARSAW",false]) then
 		{
 			_export = _export + "NEWTAB(""I. Preliminaries:"")" +  _br +
 			"<font color='#5BD527'><h1>Weather:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_WARSAW_PRELIMINARIES_WEATHER",""])  + "<br/><br/>" + _br +

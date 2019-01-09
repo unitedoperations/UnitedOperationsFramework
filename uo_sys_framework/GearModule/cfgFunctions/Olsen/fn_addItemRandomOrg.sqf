@@ -13,6 +13,10 @@
  * Public: No
  */
 
+#define COMPONENT Gear
+#include "\x\UO_FW\addons\main\script_macros.hpp"
+UO_FW_EXEC_CHECK(ALL);
+
 private ["_unit", "_loadoutType", "_items", "_amount", "_position", "_randomPick"];
 _unit = (_this select 0) select 0;
 _loadoutType = (_this select 0) select 1;

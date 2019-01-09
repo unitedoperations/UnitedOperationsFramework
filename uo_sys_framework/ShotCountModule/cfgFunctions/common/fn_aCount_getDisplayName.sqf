@@ -7,6 +7,10 @@
  *		TinfoilHate
  */
 
+#define COMPONENT ShotCount
+#include "\x\UO_FW\addons\main\script_macros.hpp"
+UO_FW_EXEC_CHECK(ALL);
+
 private["_className","_foundClass","_ret","_cfg"];
 _className = _this;
 _ret = "Error";

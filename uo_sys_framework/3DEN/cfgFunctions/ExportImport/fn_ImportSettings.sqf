@@ -8,6 +8,9 @@
  *		R3vo & PiZZADOX
  */
 
+#define COMPONENT 3DEN
+#include "\x\UO_FW\addons\main\script_macros.hpp"
+
 diag_log format ["ImportSettings params: %1",_this];
 params [["_name",""],["_clipBoardMode",false]];
 

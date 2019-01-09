@@ -1,3 +1,4 @@
+#define COMPONENT StartInParachute
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 
 if !(UO_FW_SERVER_STARTINPARACHUTEMODULE_ALLOWED) exitwith {};
