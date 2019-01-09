@@ -15,7 +15,7 @@ class UO_FW_AI_standardNumberControl : Edit {
  };
 class UO_FW_AI_patrolradiusControl : Edit {
      attributeLoad = "if(typename _value != typename '')then{_value = str _value;};(_this controlsGroupCtrl 102) ctrlSetText _value;";
-     attributeSave = "_value = ctrlText (_this controlsGroupCtrl 102); if(gettext (_config >> 'typeName') == 'NUMBER') then {_value = parsenumber _value;}; [_value] spawn UO_FW_AI_fnc_setRadial;_value";
+     attributeSave = "_value = ctrlText (_this controlsGroupCtrl 102); if(gettext (_config >> 'typeName') == 'NUMBER') then {_value = parsenumber _value;}; [_value] spawn UO_FW_AI_fnc_setRadial; _value";
      class Controls: Controls {
          class Title: Title{};
          class Value: ctrlEdit {
@@ -108,8 +108,8 @@ class UO_FW_AI_combatmodeControl : Title	{
 	};
 };
 class UO_FW_AI_taskControl : Title	{
-	attributeLoad = "missionnamespace setvariable ['UO_FW_AI_task_value',_value]; (_this controlsGroupCtrl 107) lbsetcursel (((_value) min 7) max 0);";
-	attributeSave = "missionnamespace getvariable ['UO_FW_AI_task_value',2];";
+	attributeLoad = "missionnamespace setvariable ['UO_FW_AI_task_value',_value]; (_this controlsGroupCtrl 107) lbsetcursel (_value);";
+	attributeSave = "missionnamespace getvariable ['UO_FW_AI_task_value',4];";
 	h = "20 * (pixelH * pixelGrid * 0.50)";
 	class Controls: Controls {
 		class Title: Title{

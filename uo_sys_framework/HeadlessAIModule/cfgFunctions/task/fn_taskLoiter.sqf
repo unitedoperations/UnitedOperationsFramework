@@ -12,8 +12,6 @@
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
 UO_FW_AI_EXEC_CHECK(SERVERHC);
 
-
-
 params [
 	"_grp",
 	"_pos",
@@ -22,14 +20,12 @@ params [
 	["_behaviour", "UNCHANGED", [""]],
   ["_combat", "NO CHANGE", [""]],
   ["_speed", "UNCHANGED", [""]],
-	["_formation", "NO CHANGE", [""]],
-	["_type","MOVE",[""]],
-	["_oncomplete","this call UO_FW_AI_fnc_taskSearchNearby",[""]],
-	["_compradius",0,[0]],
-	["_wpcount",10,[0]],
-	"_i"
+	["_formation", "NO CHANGE", [""]]
 ];
+
 {_x forcespeed -1; _x enableAI "PATH";} foreach units _grp;
+_grp setvariable ["InitialWPSet",true];
+_grp setVariable ["UO_FW_AI_Mission","LOITERING"];
 
 //We need a list of actions that the AI can do for loitering.
 private _UnitArray = units _grp;
@@ -43,6 +39,4 @@ private _UnitArray = units _grp;
 		[_x,_UnitArray] spawn UO_FW_AI_fnc_LoiterAction;
 	};
 } foreach _UnitArray;
-_grp setvariable ["InitialWPSet",true];
-_grp setVariable ["UO_FW_AI_Mission","LOITERING"];
 true
