@@ -17,7 +17,7 @@
 
 if (!isServer) exitwith {_this remoteExec ["UO_FW_fnc_notTrackUnit",2];};
 
-UO_FW_EXEC_CHECK(SERVER)
+UO_FW_EXEC_CHECK(SERVER);
 
 private _unit = _this;
 

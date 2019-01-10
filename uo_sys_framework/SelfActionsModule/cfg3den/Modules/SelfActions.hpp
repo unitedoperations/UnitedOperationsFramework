@@ -1,4 +1,4 @@
-class SelfActions
+class UO_FW_SelfActions
 {
     displayName = "Self Action Settings";
     collapsed = 1;

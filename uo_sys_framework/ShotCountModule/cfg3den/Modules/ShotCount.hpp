@@ -1,4 +1,4 @@
-class ShotCount
+class UO_FW_ShotCount
 {
     displayName = "Shot Count Settings";
     collapsed = 1;

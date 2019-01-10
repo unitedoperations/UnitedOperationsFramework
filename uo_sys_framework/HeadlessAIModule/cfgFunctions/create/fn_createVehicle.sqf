@@ -8,7 +8,7 @@
  *		suits & PiZZADOX
  */
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_AI_EXEC_CHECK(SERVERHC)
+UO_FW_AI_EXEC_CHECK(SERVERHC);
 
 params ["_pos","_veh","_side"];
 	_veh params ["_uv","_uc","_vpos","_vcd","_vcu","_dmg","_f","_a","_vlc","_vw","_name","_per","_init","_fly","_flyInHeight"];
@@ -33,7 +33,7 @@ params ["_pos","_veh","_side"];
 	if(count _name > 1) then {
 		missionNamespace setVariable[_name, _v];
 	};
-	if (UO_FW_AutoTrackAssets_Enabled) then {
+	if (UO_FW_AutoTrackAsset_Enabled) then {
 		_team = "";
 		switch (_side) do {
 			case west: {_team = UO_FW_TeamSetting_Blufor_TeamName};
@@ -41,7 +41,7 @@ params ["_pos","_veh","_side"];
 			case independent: {_team = UO_FW_TeamSetting_Indfor_TeamName};
 			case civilian: {_team = UO_FW_TeamSetting_Civ_TeamName};
 		};
-		if (!_team isEqualto "") then {
+		if (!(_team isEqualto "")) then {
 			_vehCfg = (configFile >> "CfgVehicles" >> (typeOf _v));
 			if (isText(_vehCfg >> "displayName")) then {
 				[_v, getText(_vehCfg >> "displayName"), _team] call UO_FW_fnc_TrackAsset;

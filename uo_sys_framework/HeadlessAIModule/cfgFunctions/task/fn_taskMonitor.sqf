@@ -7,20 +7,20 @@
  *		suits & PiZZADOX
  */
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_AI_EXEC_CHECK(SERVERHC)
+UO_FW_AI_EXEC_CHECK(SERVERHC);
 	{							
 		_x params ["_grp"];
-		if({alive _x} count (units _grp) > 0 && _grp getVariable["UO_FW_isNotZoneActivated",true]) then {
-			if(isNull (_grp getVariable["UO_FW_CurrentTask",objNull])) then {
+		if({alive _x} count (units _grp) > 0 && _grp getVariable["UO_FW_AI_isNotZoneActivated",true]) then {
+			if(isNull (_grp getVariable["UO_FW_AI_CurrentTask",objNull])) then {
 				private _taskCheck = [_grp,_grp,true] call UO_FW_AI_fnc_taskCheck;
 				_taskCheck params [["_task",objNull,[objNull]]];
 				if(!isNull _task) then {
 					[_grp,_task] call UO_FW_AI_fnc_taskSet;
 				};									
 			} else {
-				private _taskCheck = [_grp,(_grp getVariable["UO_FW_CurrentTask",objNull])] call UO_FW_AI_fnc_taskCheck;
+				private _taskCheck = [_grp,(_grp getVariable["UO_FW_AI_CurrentTask",objNull])] call UO_FW_AI_fnc_taskCheck;
 				_taskCheck params [["_task",objNull,[objNull]]];
-				if(_grp getVariable "UO_FW_CurrentTaskEndTime" < time && !isNull _task) then {						
+				if(_grp getVariable "UO_FW_AI_CurrentTaskEndTime" < time && !isNull _task) then {						
 					[_grp,_task] call UO_FW_AI_fnc_taskSet;
 				};
 			};		

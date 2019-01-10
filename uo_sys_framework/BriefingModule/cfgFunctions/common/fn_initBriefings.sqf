@@ -1,12 +1,13 @@
+#define COMPONENT Briefing
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 #include "\x\UO_FW\addons\main\BriefingModule\module_macros.hpp"
-
+UO_FW_EXEC_CHECK(ALL);
 
 [] spawn {
 	waituntil {!isNull player};
-	_side = (side player);
-	_briefing = [];
-	
+	private _side = (side player);
+	private _briefing = [];
+
 	switch (_side) do {
 		case west: {
 			#include "\x\UO_FW\addons\main\BriefingModule\defines\blufor_briefing.hpp"

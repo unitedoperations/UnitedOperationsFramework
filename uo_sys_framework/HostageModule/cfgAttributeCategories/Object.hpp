@@ -10,8 +10,8 @@ class UO_FW_Hostage_Attributes
             tooltip = "Makes this unit a hostage that starts bound/captive and must be rescued via player action.";
             property = "UO_FW_Hostage_State";
             control = "CheckboxState";
-            expression= "_this setVariable ['%s', _value,true]; if (_value) then {[_this] call UO_FW_FNC_HostageSet;};";
-						condition = "objectBrain";
+            expression= "_this setVariable ['%s', _value,true]; if (_value) then {[{time > 1},{[_this] call UO_FW_FNC_HostageSet;},_this] call CBA_fnc_WaitUntilAndExecute;};";
+						condition = "objectControllable ";
             defaultValue = "false";
         };
         class UO_FW_Hostage_Rescue_Location
@@ -21,7 +21,7 @@ class UO_FW_Hostage_Attributes
             property = "UO_FW_Hostage_Rescue_Location";
             control = "Edit";
             expression="_this setVariable ['%s', _value,true];";
-            condition = "objectBrain";
+            condition = "objectControllable ";
             defaultValue = "'hostage_rescue'";
         };
          class UO_FW_Hostage_Freed_JoinSquad
@@ -31,7 +31,7 @@ class UO_FW_Hostage_Attributes
             property = "UO_FW_Hostage_Freed_JoinSquad";
             control = "Checkbox";
             expression="_this setVariable ['%s', _value,true];";
-            condition = "objectBrain";
+            condition = "objectControllable ";
             defaultValue = "true";
         };
         class UO_FW_Hostage_Freed_Modifier
@@ -41,7 +41,7 @@ class UO_FW_Hostage_Attributes
             property = "UO_FW_Hostage_Freed_Modifier";
             control = "Checkbox";
             expression="_this setVariable ['%s', _value,true];";
-            condition = "objectBrain";
+            condition = "objectControllable ";
             defaultValue = "false";
         };
         class UO_FW_Hostage_Freed_Behavior
@@ -51,7 +51,7 @@ class UO_FW_Hostage_Attributes
             property = "UO_FW_Hostage_Freed_Behavior";
             control = "Edit";
             expression="_this setVariable ['%s', _value,true];";
-            condition = "objectBrain";
+            condition = "objectControllable ";
             defaultValue = "'CARELESS'";
         };
     };

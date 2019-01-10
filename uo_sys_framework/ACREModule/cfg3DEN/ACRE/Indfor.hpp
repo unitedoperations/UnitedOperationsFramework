@@ -1,4 +1,4 @@
-class INDEPENDENT_ACRE_RADIOTYPES_CAT
+class UO_FW_INDEPENDENT_ACRE_RADIOTYPES_CAT
 {
     displayName = "Radio Configuration";
     collapsed = 0;

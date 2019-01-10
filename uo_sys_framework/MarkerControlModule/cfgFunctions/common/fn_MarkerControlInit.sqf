@@ -1,8 +1,10 @@
+#define COMPONENT MarkerControl
 #include "\x\UO_FW\addons\main\script_macros.hpp"
+UO_FW_EXEC_CHECK(ALL);
 
 _isEnabled = missionNamespace getVariable ["UO_FW_MarkerControl_Enabled",false];
 if(!_isEnabled) exitWith {};
-["Marker Control", "Change visibility of markers", "Sacher & PiZZADOX"] call UO_FW_FNC_RegisterModule;
+["Marker Control", "Change visibility of markers", "Olsen and Sacher and PiZZADOX"] call UO_FW_FNC_RegisterModule;
 if (!isDedicated) then
 {
 	_west = missionNamespace getVariable ["UO_FW_MarkerControl_BluforMarkers",[]];
@@ -91,8 +93,7 @@ if (!isDedicated) then
 	} forEach _system;
 
 	if (UO_FW_Debug_Detailed_Enabled) then {
-		private _msg = format ["markerControl module _markers array: %1",_markers];
-		UO_FW_DEBUG("",_msg)
+		LOG_1("markerControl module _markers array: %1",_markers);
 	};
 
 	_markers call UO_FW_fnc_ExecuteMarkerControl;

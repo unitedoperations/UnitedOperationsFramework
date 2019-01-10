@@ -1,9 +1,5 @@
-//Created on ???
-// Modified on : 9/7/14 - 8/4/15  - Added a check building distance stat.
-_Unit = _this select 0;
-_UO_FW_AI_MovedRecentlyCover = _this select 1;
-_UO_FW_AI_ActivelyClearing = _this select 2;
-_UO_FW_AI_StartedInside = _this select 3;
+private ["_Group","_UnitsGroup","_SpecificUnit","_ClosestEnemy","_nBuilding","_IsEnterable","_CheckDist","_bposleft","_pcnt","_LocationArray","_AttackPoint"];
+params ["_Unit","_UO_FW_AI_MovedRecentlyCover","_UO_FW_AI_ActivelyClearing","_UO_FW_AI_StartedInside"];
 
 if (_UO_FW_AI_MovedRecentlyCover || {_UO_FW_AI_ActivelyClearing} || {_UO_FW_AI_StartedInside} || {_Unit getVariable "UO_FW_AI_GARRISONED"}) exitWith {};
 _Group = (group _Unit);

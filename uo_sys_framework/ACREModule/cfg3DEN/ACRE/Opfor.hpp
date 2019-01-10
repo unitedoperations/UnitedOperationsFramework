@@ -1,4 +1,4 @@
-class OPFOR_ACRE_RADIOTYPES_CAT
+class UO_FW_OPFOR_ACRE_RADIOTYPES_CAT
 {
     displayName = "Radio Configuration";
     collapsed = 0;

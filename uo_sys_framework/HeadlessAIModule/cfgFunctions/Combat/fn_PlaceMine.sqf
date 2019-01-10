@@ -24,8 +24,8 @@ if (_NearestEnemy distance _Unit < 200) then
 }
 else
 {
-	_NearRoads = _Unit nearRoads 50;
-	if (count _NearRoads > 0) then 
+	private _NearRoads = _Unit nearRoads 50;
+	if (count _NearRoads > 0) then
 	{
 		private _ClosestRoad = [_NearRoads,_Unit] call UO_FW_AI_fnc_ClosestObject;
 		_Unit doMove (getpos _ClosestRoad);
@@ -42,25 +42,24 @@ else
 	};
 };
 
-_UnitSide = (side _Unit);
-
+private _UnitSide = (side _Unit);
 
 if (_mine isEqualTo "") exitWith {};
 
-[_mine,_UnitSide] spawn 
+[_mine,_UnitSide] spawn
 {
 	params ["_Mine","_UnitSide"];
-	
-	_NotSafe = true;
-	
-	while {alive _mine && _NotSafe} do 
+
+	private _NotSafe = true;
+
+	while {alive _mine && _NotSafe} do
 	{
-		
+
 		private _Array1 = (allUnits select {!(side _x isEqualTo _UnitSide)});
 		private _ClosestEnemy = [0,0,0];
 		_ClosestEnemy = [_Array1,_Mine] call UO_FW_AI_fnc_ClosestObject;
 		if (_ClosestEnemy distance _Mine < 2.5) then {_NotSafe = false;};
-		sleep 0.15;	
+		sleep 0.15;
 	};
 	_Mine setdamage 1;
 };

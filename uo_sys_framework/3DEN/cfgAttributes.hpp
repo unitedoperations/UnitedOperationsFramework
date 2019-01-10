@@ -10,6 +10,25 @@ class Title: Default
 	};
 };
 
+class Combo: Title
+{
+	class Controls
+	{
+		class Title;
+		class Value;
+	};
+};
+
+class ComboPreview: Combo
+{
+	class Controls
+	{
+		class Title;
+		class Value;
+		class Preview;
+	};
+};
+
 class Toolbox: Title
 {
 	class Controls
@@ -20,6 +39,15 @@ class Toolbox: Title
 };
 
 class Edit: Title
+{
+	class Controls
+	{
+		class Title;
+		class Value;
+	};
+};
+
+class EditShort: Edit
 {
 	class Controls
 	{
@@ -51,7 +79,14 @@ class Slider: Title
 	};
 };
 
-class Checkbox;
+class Checkbox: Title
+{
+	class Controls
+	{
+		class Title;
+		class Value;
+	};
+};
 
 class CheckboxState: Checkbox
 {
@@ -127,8 +162,34 @@ class CheckboxStateReversed: CheckboxState
 		class Title: Title {};
 		class Value: Value
 		{
-			onCheckedChanged="					_ctrlCheckbox = _this select 0;					_state = [true,false] select (cbChecked _ctrlCheckbox);					_fade = [0.75,0] select _state;					_ctrlGroup = ctrlParentControlsGroup ctrlParentControlsGroup _ctrlCheckbox;					{						if (ctrlParentControlsGroup _x == _ctrlGroup) then {							_x ctrlenable _state;							_x ctrlsetfade _fade;							_x ctrlcommit 0;						};					} foreach (allcontrols (ctrlparent _ctrlCheckbox) - [ctrlParentControlsGroup _ctrlCheckbox]);			";
-			onLoad="				_this spawn {					disableserialization;					_ctrlCheckbox = _this select 0;					_state = [true,false] select (cbChecked _ctrlCheckbox);					_fade = [0.75,0] select _state;					_ctrlGroup = ctrlParentControlsGroup ctrlParentControlsGroup _ctrlCheckbox;					{						if (ctrlParentControlsGroup _x == _ctrlGroup) then {							_x ctrlenable _state;							_x ctrlsetfade _fade;							_x ctrlcommit 0;						};					} foreach (allcontrols (ctrlparent _ctrlCheckbox) - [ctrlParentControlsGroup _ctrlCheckbox]);				};			";
+			onCheckedChanged="\
+			_ctrlCheckbox = _this select 0;\
+			_state = [true,false] select (cbChecked _ctrlCheckbox);\
+			_fade = [0.75,0] select _state;\
+			_ctrlGroup = ctrlParentControlsGroup ctrlParentControlsGroup _ctrlCheckbox;\
+			{\
+				if (ctrlParentControlsGroup _x == _ctrlGroup) then {\
+					_x ctrlenable _state;\
+					_x ctrlsetfade _fade;\
+					_x ctrlcommit 0;\
+				};\
+			} foreach (allcontrols (ctrlparent _ctrlCheckbox) - [ctrlParentControlsGroup _ctrlCheckbox]);			";
+			onLoad="\
+			_this spawn {\
+				disableserialization;\
+				_ctrlCheckbox = _this select 0;\
+				_state = [true,false] select (cbChecked _ctrlCheckbox);\
+				_fade = [0.75,0] select _state;\
+				_ctrlGroup = ctrlParentControlsGroup ctrlParentControlsGroup _ctrlCheckbox;\
+				{\
+					if (ctrlParentControlsGroup _x == _ctrlGroup) then {\
+						_x ctrlenable _state;\
+						_x ctrlsetfade _fade;\
+						_x ctrlcommit 0;\
+					};\
+				} foreach (allcontrols (ctrlparent _ctrlCheckbox) - [ctrlParentControlsGroup _ctrlCheckbox]);\
+			};\
+			";
 		};
 	};
 };
@@ -185,3 +246,10 @@ class None
     onMouseHolding = "";
     onVideoStopped = "";
 };
+
+#include "CfgAttributes\ExportToClipboardAttribute.hpp"
+#include "CfgAttributes\ImportFromClipboardAttribute.hpp"
+#include "CfgAttributes\ExportToProfileAttribute.hpp"
+#include "CfgAttributes\ImportFromProfileAttribute.hpp"
+#include "CfgAttributes\AIOnlyCategoryAttributes.hpp"
+#include "CfgAttributes\PlayerOnlyCategoryAttributes.hpp"

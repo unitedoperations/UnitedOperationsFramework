@@ -1,10 +1,12 @@
 #include "..\..\Global\defs.hpp"
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 
-if(isServer) then 
+if !(UO_FW_SERVER_FIREMISSIONMODULE_ALLOWED) exitwith {};
+
+if(isServer) then
 {
 
-	{	
+	{
 
 		if((_x getVariable ["UO_FW_ArtilleryFOAIEnabled",false])) then
 		{
@@ -26,8 +28,8 @@ if(isServer) then
 
 			[_x,_guns,_knowledge,_minRange,_viewRange,_dispersion,_salvoCount,_roundsPerSalvo,_salvoWaitTIme,_minSpot,_index] call UO_FW_FNC_RegisterForwardObserver;
 		};
-		
-		
+
+
 	}forEach allUnits;
 	{
 		if((_x getVariable ["UO_FW_ArtilleryEnabled",false])) then
@@ -53,28 +55,31 @@ if(isServer) then
 	_id = ["Event_ArtPlayerJipped", {_this call UO_FW_FNC_ArtMakePlayerObserverServer}] call CBA_fnc_addEventHandler;
 };
 
-
-waitUntil{player == player};
-_id = ["Event_ArtyReceiveHint", {hint _this;}] call CBA_fnc_addEventHandler;
-_id = ["Event_ReceiveFoGuns", {_this call UO_FW_FNC_initPlayerFO;}] call CBA_fnc_addEventHandler;
-if(player getVariable ["UO_FW_ArtilleryFOPlayerEnabled",false]) then
-{
-	private	_guns = [];
-	{
-		_tempUnit = missionNamespace getVariable [_x,objNull];
-		if(isNull _tempUnit) then 
+if (hasInterface) then {
+	[{!isNull player}, {
+		_id = ["Event_ArtyReceiveHint", {hint _this;}] call CBA_fnc_addEventHandler;
+		_id = ["Event_ReceiveFoGuns", {_this call UO_FW_FNC_initPlayerFO;}] call CBA_fnc_addEventHandler;
+		if(player getVariable ["UO_FW_ArtilleryFOPlayerEnabled",false]) then
 		{
-			UO_FW_DEBUG("Firemission Module",format ["Firemission module:<br></br>Warning Unit ""%1"" does not exist.", _x]);
+			private	_guns = [];
+			{
+				_tempUnit = missionNamespace getVariable [_x,objNull];
+				if(isNull _tempUnit) then
+				{
+					private _msg = format ["Firemission module:<br></br>Warning Unit ""%1"" does not exist.", _x];
+					UO_FW_DEBUG("Firemission Module",_msg);
+				};
+				_guns pushBackUnique _tempUnit;
+			}forEach (player getVariable ["UO_FW_ArtilleryFOPlayerGuns",[]]);
+			private	_allowBracket = player getVariable ["UO_FW_ArtilleryFOPlayerAllowBracketFiremission",false];
+			private	_allowDonut = player getVariable ["UO_FW_ArtilleryFOPlayerAllowDonutFiremission",false];
+			private	_allowGridSpotting = player getVariable ["UO_FW_ArtilleryFOPlayerAllowGridspottingFiremission",false];
+			private	_allowLine = player getVariable ["UO_FW_ArtilleryFOPlayerAllowLineFiremission",false];
+			private	_allowMarker = player getVariable ["UO_FW_ArtilleryFOPlayerAllowMarkerFiremission",false];
+			private	_allowPoint = player getVariable ["UO_FW_ArtilleryFOPlayerAllowPointFiremission",false];
+			private	_allowPolar = player getVariable ["UO_FW_ArtilleryFOPlayerAllowPolarFiremission",false];
+			private	_allowPolarspotting = player getVariable ["UO_FW_ArtilleryFOPlayerAllowPolarspottingFiremission",false];
+			[_guns,_allowBracket,_allowDonut,_allowGridSpotting,_allowLine,_allowMarker,_allowPoint,_allowPolar,_allowPolarspotting] call UO_FW_FNC_initPlayerFO;
 		};
-		_guns pushBackUnique _tempUnit;
-	}forEach (player getVariable ["UO_FW_ArtilleryFOPlayerGuns",[]]);
-	private	_allowBracket = player getVariable ["UO_FW_ArtilleryFOPlayerAllowBracketFiremission",false];
-	private	_allowDonut = player getVariable ["UO_FW_ArtilleryFOPlayerAllowDonutFiremission",false];
-	private	_allowGridSpotting = player getVariable ["UO_FW_ArtilleryFOPlayerAllowGridspottingFiremission",false];
-	private	_allowLine = player getVariable ["UO_FW_ArtilleryFOPlayerAllowLineFiremission",false];
-	private	_allowMarker = player getVariable ["UO_FW_ArtilleryFOPlayerAllowMarkerFiremission",false];
-	private	_allowPoint = player getVariable ["UO_FW_ArtilleryFOPlayerAllowPointFiremission",false];
-	private	_allowPolar = player getVariable ["UO_FW_ArtilleryFOPlayerAllowPolarFiremission",false];
-	private	_allowPolarspotting = player getVariable ["UO_FW_ArtilleryFOPlayerAllowPolarspottingFiremission",false];
-	[_guns,_allowBracket,_allowDonut,_allowGridSpotting,_allowLine,_allowMarker,_allowPoint,_allowPolar,_allowPolarspotting] call UO_FW_FNC_initPlayerFO;
+	}] call CBA_fnc_waitUntilAndExecute;
 };

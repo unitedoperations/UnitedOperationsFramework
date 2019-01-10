@@ -9,7 +9,7 @@ class UO_FW_ArtilleryPlayerFO
 			property = "UO_FW_ArtilleryFOPlayerEnabled";
 			displayName = "Artillery Player FO";
 			tooltip = "Enables Artillery Player FO";
-			control = "CheckboxState";
+			control = "UO_FW_CheckBoxStatePlayerOnlyCategory";
 			expression="_this setVariable ['%s', _value,true];";
 			defaultValue = "false";
 			typeName = "BOOL";

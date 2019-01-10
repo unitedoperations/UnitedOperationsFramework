@@ -1,4 +1,4 @@
-#include "script_component.hpp"
+#include "script_macros.hpp"
 
 class CfgPatches
 {
@@ -10,7 +10,7 @@ class CfgPatches
 		url = "https://github.com/unitedoperations/UnitedOperationsFramework";
 		units[] = {};
 		requiredVersion = REQUIRED_VERSION;
-		requiredAddons[] = {"cba_main","3DEN","A3_Modules_F"};
+		requiredAddons[] = {"cba_main","3DEN","ace_main","ace_arsenal","A3_Modules_F"};
 		VERSION_CONFIG;
 	};
 };
@@ -27,7 +27,7 @@ class CfgFactionClasses
 
 	class UO_FrameworkCategory: NO_CATEGORY
 	{
-			displayName = "United Operations Framework";
+			displayName = " United Operations Framework";
 	};
 
 	#include "HeadlessAIModule\cfgFactionClasses.hpp"
@@ -65,6 +65,7 @@ class CfgFunctions
 		#include "MapCompassRemoverModule\cfgFunctions.hpp"
 		#include "FiremissionModule\cfgFunctions.hpp"
 		#include "HostageModule\cfgFunctions.hpp"
+		#include "CoverMapModule\cfgFunctions.hpp"
 	};
 
 	#include "HeadlessAIModule\cfgFunctions.hpp"
@@ -114,6 +115,7 @@ class CfgVehicles
 	#include "SetupTimerModule\cfgVehicles.hpp"
 	#include "CaptureZoneModule\cfgVehicles.hpp"
 	#include "AOLimitModule\cfgVehicles.hpp"
+	#include "CoverMapModule\cfgVehicles.hpp"
 };
 
 class RscTitles
@@ -164,6 +166,9 @@ class Cfg3DEN
 			};
 		};
 
+		//Additional Core cfg3denMenu defines
+		#include "Core\cfg3den\cfg3denMenu.hpp"
+
 		class UO_FW_Module_Settings
 		{
 			displayName = "Module Settings";
@@ -171,15 +176,17 @@ class Cfg3DEN
 			{
 				//add module settings here
 				#include "AIDriversModule\cfg3den\Modules\AIDrivers.hpp"
-				#include "AILinkModule\cfgAttributeCategories\mission\AILink.hpp"
+				#include "AILinkModule\cfg3den\Modules\AILink.hpp"
 				#include "AntiNDModule\cfg3den\Modules\AntiND.hpp"
-				#include "AutoTrackAssetModule\cfgAttributeCategories\mission\AutoTrackAsset.hpp"
-				#include "DisconnectControlModule\cfgAttributeCategories\mission\DisconnectControl.hpp"
-				#include "MarkerControlModule\cfgAttributeCategories\mission\MarkerControl.hpp"
+				#include "AutoTrackAssetModule\cfg3den\Modules\AutoTrackAsset.hpp"
+				#include "MapCompassRemoverModule\cfg3den\Modules\MapAndCompass.hpp"
+				#include "DisconnectControlModule\cfg3den\Modules\DisconnectControl.hpp"
+				#include "MarkerControlModule\cfg3den\Modules\MarkerControl.hpp"
 				#include "SafeStartModule\cfg3den\Modules\SafeStart.hpp"
 				#include "SelfActionsModule\cfg3den\Modules\SelfActions.hpp"
 				#include "ShotCountModule\cfg3den\Modules\ShotCount.hpp"
-				#include "StartTextModule\cfgAttributeCategories\mission\StartText.hpp"
+				#include "StartTextModule\cfg3den\Modules\StartText.hpp"
+				#include "CoverMapModule\cfg3den\Modules\CoverMap.hpp"
 			};
 		};
 		#include "GearModule\cfg3den\cfg3denMenu.hpp"
@@ -188,6 +195,7 @@ class Cfg3DEN
 		#include "BriefingModule\cfg3den\cfg3denMenu.hpp"
 		#include "HeadlessAIModule\cfg3den\cfg3denMenu.hpp"
 		#include "ACREModule\cfg3den\cfg3denMenu.hpp"
+		#include "3DEN\cfg3den\cfg3denMenu.hpp"
 	};
 
 	//add custom base 3den options & categories
@@ -201,17 +209,54 @@ class Cfg3DEN
 		class AttributeCategories {
 			#include "HeadlessAIModule\cfgAttributeCategories\Object.hpp"
 			#include "TeamColourModule\cfgAttributeCategories\Object.hpp"
-			#include "GearModule\cfg3den\UnitGear.hpp"
+			#include "GearModule\cfgAttributeCategories\Object.hpp"
 			#include "ACREModule\cfgAttributeCategories\Object.hpp"
 			#include "AIDriversModule\cfgAttributeCategories\Object.hpp"
 			#include "StartInParachuteModule\cfgAttributeCategories\Object.hpp"
 			#include "MapCompassRemoverModule\cfgAttributeCategories\Object.hpp"
-			#include "FiremissionModule\cfgAttributeCategory.hpp"
+			#include "FiremissionModule\cfgAttributeCategories\Object.hpp"
 			#include "HostageModule\cfgAttributeCategories\Object.hpp"
+			#include "CoverMapModule\cfgAttributeCategories\Object.hpp"
 		};
 	};
 
 	class Logic {
+		class Draw {
+			class 3D {
+				textureBackgroundModule =  "\x\UO_FW\addons\main\3DEN\Resources\UI\textureBackgroundModuleSquareInv_ca.paa";
+				sizeModule="(32 + 14) * pixelW";
+				sizeBackgroundModule="(48 + 14) * pixelW";
+				colorModule[]={0,0,0};
+				colorModuleBackground[]={1,1,1};
+				colorModulePreview[]={1,1,1};
+				colorModulePreviewBackground[]={1,1,1};
+				alphaNormal=1;
+				alphaNormalBackground=0.75;
+				alphaSelected=1;
+				alphaSelectedBackground=1;
+				alphaHover=1;
+				alphaHoverBackground=1;
+				fadeDistance=2500;
+			};
+			class 2D {
+				textureBackgroundModule =  "\x\UO_FW\addons\main\3DEN\Resources\UI\textureBackgroundModuleSquareInv_ca.paa";
+				sizeModule="(32 + 6) * pixelW";
+				sizeBackgroundModule="(48 + 6) * pixelW";
+				presenceBorder=2;
+				areaBorder=1;
+				colorModule[]={0,0,0};
+				colorModuleBackground[]={1,1,1};
+				colorModulePreview[]={0,0,0};
+				colorModulePreviewBackground[]={1,1,1};
+				alphaNormal=1;
+				alphaNormalBackground=0.75;
+				alphaSelected=1;
+				alphaSelectedBackground=1;
+				alphaHover=1;
+				alphaHoverBackground=1;
+			};
+		};
+
 		class AttributeCategories {
 			#include "HeadlessAIModule\cfgAttributeCategories\Logic.hpp"
 		};
@@ -229,6 +274,8 @@ class Cfg3DEN
 		#include "StartInParachuteModule\CfgAttributes.hpp"
 		#include "JipModule\CfgAttributes.hpp"
 		#include "ACREModule\CfgAttributes.hpp"
+		#include "GearModule\CfgAttributes.hpp"
+		#include "AOLimitModule\CfgAttributes.hpp"
 	};
 };
 
@@ -241,7 +288,8 @@ class display3DEN
 			class Items
 			{
 				//UO menus define
-				#include "3DEN\display3DEN\Menu.hpp"
+				#include "Core\display3DEN\Menu.hpp"
+				#include "Core\display3DEN\MenuRespawn.hpp"
 
 				//Add custom UO menus
 				#include "HeadlessAIModule\display3DEN\Menu.hpp"
@@ -249,9 +297,10 @@ class display3DEN
 				#include "EndConditionsModule\display3DEN\Menu.hpp"
 				#include "GearModule\display3DEN\Menu.hpp"
 				#include "ACREModule\display3DEN\Menu.hpp"
+				#include "3DEN\display3DEN\Menu.hpp"
 
 				//tools define
-				#include "3DEN\display3DEN\MenuTools.hpp"
+				#include "Core\display3DEN\MenuTools.hpp"
 
 				//add custom tools menus
 
@@ -261,7 +310,7 @@ class display3DEN
 				};*/
 
 				//documentation define
-				#include "3DEN\display3DEN\MenuDoc.hpp"
+				#include "Core\display3DEN\MenuDoc.hpp"
 
 				//add custom documentation
 
@@ -270,8 +319,8 @@ class display3DEN
 				class UO_FW_Folder
 				{
 					text = "UO Framework";
-					//items[] = {"UO_FW_Settings","UO_FW_Module_Settings","UO_FW_EndConditions_Settings","UO_FW_Briefing_Folder","UO_FW_ACRE_Folder","UO_FW_AI_Settings","UO_FW_Tools_Folder","UO_FW_Documentation"};
-					items[] = {"UO_FW_Settings","UO_FW_Module_Settings","UO_FW_Gear_Settings","UO_FW_EndConditions_Folder","UO_FW_ACRE_Folder","UO_FW_Briefing_Folder","UO_FW_AI_Settings","UO_FW_Documentation"};
+					items[] = {"UO_FW_Settings","UO_FW_Briefing_Folder","UO_FW_Respawn_Settings","UO_FW_Module_Settings","UO_FW_EndConditions_Folder","UO_FW_ACRE_Folder","UO_FW_Gear_Folder","UO_FW_AI_Settings","UO_FW_ExportImport_Folder","UO_FW_Documentation"};
+					//items[] = {"UO_FW_Settings","UO_FW_Module_Settings","UO_FW_Gear_Settings","UO_FW_EndConditions_Folder","UO_FW_ACRE_Folder","UO_FW_Briefing_Folder","UO_FW_Documentation"};
 				};
 				//compile main menu
 				items[] += {"UO_FW_Folder"};

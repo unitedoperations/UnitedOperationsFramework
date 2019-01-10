@@ -1,4 +1,4 @@
-class MAIN_ACRE_SETTINGS_CAT
+class UO_FW_MAIN_ACRE_SETTINGS_CAT
 {
     displayName = "Main ACRE Settings";
     collapsed = 0;

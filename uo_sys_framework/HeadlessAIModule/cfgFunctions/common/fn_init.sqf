@@ -1,6 +1,6 @@
 /*	Setup of Headless AI Variables. */
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_AI_EXEC_CHECK(SERVERHC)
+UO_FW_AI_EXEC_CHECK(SERVERHC);
 
 UO_FW_AI_Zones 					= [];
 UO_FW_AI_entities				= [];
@@ -16,5 +16,5 @@ UO_FW_AI_templateCleanup		= false;
 UO_FW_AI_initialised		= true;
 
 if (getMissionConfigValue["UO_FW_Debug_Detailed_Enabled",false]) then {
-	diag_log "fn_init initialized!";
+	LOG("fn_init initialized!");
 };

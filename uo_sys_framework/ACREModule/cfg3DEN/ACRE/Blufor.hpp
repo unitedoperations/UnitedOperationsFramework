@@ -1,4 +1,4 @@
-class BLUFOR_ACRE_RADIOTYPES_CAT
+class UO_FW_BLUFOR_ACRE_RADIOTYPES_CAT
 {
     displayName = "Radio Configuration";
     collapsed = 0;

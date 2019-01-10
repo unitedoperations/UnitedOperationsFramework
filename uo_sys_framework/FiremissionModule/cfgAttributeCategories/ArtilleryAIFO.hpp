@@ -9,7 +9,7 @@ class UO_FW_ArtilleryAIFO
 			property = "UO_FW_ArtilleryFOAIEnabled";
 			displayName = "Make Unit an Artillery AI FO?";
 			tooltip = "Enables Artillery FO";
-			control = "CheckboxState";
+			control = "UO_FW_CheckBoxStateAIOnlyCategory";
 			expression="_this setVariable ['%s', _value,true];";
 			defaultValue = "false";
 			typeName = "BOOL";

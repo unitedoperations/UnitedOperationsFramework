@@ -1,4 +1,4 @@
-class Main
+class UO_FW_MainSettings
 {
     displayName = "Main Settings";
     collapsed = 0;

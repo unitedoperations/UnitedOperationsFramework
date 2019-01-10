@@ -7,7 +7,7 @@
  *		suits & PiZZADOX
  */
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_AI_EXEC_CHECK(SERVERHC)
+UO_FW_AI_EXEC_CHECK(SERVERHC);
 params ["_logic",["_entities",[[], [], []],[[]]],["_vehLog",[],[[]]],"_t","_j","_g"];
 	private _synced = [_logic] call UO_FW_AI_fnc_getSynced; 
 	private _posModules = [_logic,["UO_FW_AI_PositionModule"]] call UO_FW_AI_fnc_getSyncedModules;
@@ -34,11 +34,11 @@ params ["_logic",["_entities",[[], [], []],[[]]],["_vehLog",[],[[]]],"_t","_j","
 						private _grpPos = _position;
 						private _units = units _grp;
 						private _group = [str _grp,[],[]];					
-						private _gx = _grp getVariable ['UO_FW_multiplier',1];
+						private _gx = _grp getVariable ['UO_FW_AI_multiplier',1];
 						private _grpPosArray = [];
 						private _grpPosNew = _grpPos;
-						private _grpRadius = _grp getVariable ['UO_FW_createRadius',0];
-						private _posRadius = _posModule getVariable ['UO_FW_PositionRadius',0];
+						private _grpRadius = _grp getVariable ['UO_FW_AI_createRadius',0];
+						private _posRadius = _posModule getVariable ['UO_FW_AI_PositionRadius',0];
 						if(_grpRadius > 1 || _posRadius > 1) then {
 							if (_grpRadius > 1) then {
 								_grpPosArray = [_grpPos,0,_grpRadius,(_gx*5)] call UO_FW_AI_fnc_getRandomPositionCircle;
@@ -74,8 +74,8 @@ params ["_logic",["_entities",[[], [], []],[[]]],["_vehLog",[],[[]]],"_t","_j","
 							(_group select 2) pushback _unitDetails;
 						};
 						private _occupy = ((_group select 1) select 15);
-						private _multiOccupy = _grp getVariable ['UO_FW_multiOccupy',0];
-						private _newOccupy = [(_grp getVariable ['UO_FW_multiOccupy',0])] call UO_FW_AI_fnc_setMultiOccupy;					
+						private _multiOccupy = _grp getVariable ['UO_FW_AI_multiOccupy',0];
+						private _newOccupy = [(_grp getVariable ['UO_FW_AI_multiOccupy',0])] call UO_FW_AI_fnc_setMultiOccupy;					
 						private _currentPos = ((_group select 1) select 1);	
 						for [{_g=0},{(_g < _gx)},{_g=_g+1}] do {
 							if(_newOccupy isEqualTo 0 && _gx isEqualTo 1) then {

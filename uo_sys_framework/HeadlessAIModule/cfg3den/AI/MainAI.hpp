@@ -1,4 +1,4 @@
-class MainAI
+class UO_FW_MainAI
 {
     displayName = "AI Settings";
     collapsed = 0;

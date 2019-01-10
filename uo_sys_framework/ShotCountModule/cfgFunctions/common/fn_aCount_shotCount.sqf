@@ -2,19 +2,23 @@
  *	Arguments:
  * 		N/A
  *	Return Value:
- * 		ARRAY 	
+ * 		ARRAY
  *	Author
  *		TinfoilHate
  */
 
+#define COMPONENT ShotCount
+#include "\x\UO_FW\addons\main\script_macros.hpp"
+UO_FW_EXEC_CHECK(ALL);
+
 params ["_arg"];
- 
+
 switch (_arg) do
 {
 	case west:
 	{
 
-		_found = aCount_west_ExpendedAmmunition find (_this select 1);
+		private _found = aCount_west_ExpendedAmmunition find (_this select 1);
 		if(_found < 0) then
 		{
 			aCount_west_ExpendedAmmunition pushBack (_this select 1) ;
@@ -30,7 +34,7 @@ switch (_arg) do
 	case east:
 	{
 
-		_found = aCount_east_ExpendedAmmunition find (_this select 1);
+		private _found = aCount_east_ExpendedAmmunition find (_this select 1);
 		if(_found < 0) then
 		{
 
@@ -45,7 +49,7 @@ switch (_arg) do
 	case resistance:
 	{
 
-		_found = aCount_resistance_ExpendedAmmunition find (_this select 1);
+		private _found = aCount_resistance_ExpendedAmmunition find (_this select 1);
 		if(_found < 0) then
 		{
 
@@ -60,7 +64,7 @@ switch (_arg) do
 	case civilian:
 	{
 
-		_found = aCount_civilian_ExpendedAmmunition find (_this select 1);
+		private _found = aCount_civilian_ExpendedAmmunition find (_this select 1);
 		if(_found < 0) then
 		{
 

@@ -3,13 +3,14 @@
  * 		OBJECT - vehicle
  * 		OBJECT - player
  *	Return Value:
- * 		ARRAY 	
+ * 		ARRAY
  *	Author
  *		BlackHawk & PiZZADOX
  */
 
+#define COMPONENT AIDrivers
 #include "\x\UO_FW\addons\main\script_macros.hpp"
-
+UO_FW_EXEC_CHECK(ALL);
 
 params ["_target", "_caller"];
 
@@ -26,7 +27,7 @@ if (side _caller == INDEPENDENT) then {
     _class = "I_Soldier_F";
 };
 
-_unit = createAgent [_class, [0,0,0], [], 0, "CAN_COLLIDE"];
+private _unit = createAgent [_class, [0,0,0], [], 0, "CAN_COLLIDE"];
 
 removeAllWeapons _unit;
 removeUniform _unit;

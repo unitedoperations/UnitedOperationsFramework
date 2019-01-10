@@ -5,7 +5,7 @@
  * 		GROUP 	- Synchronised Task Modules
  */
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_AI_EXEC_CHECK(SERVERHC)
+UO_FW_AI_EXEC_CHECK(SERVERHC);
 params ["_grp",["_allowedModules",[],[[]]],["_allowedSynced",[],[[]]],["_item",objNull,[objNull]],["_allowed",false,[false]],"_j"];
 	private _grpldr = leader _grp;
 	if(!isNull assignedVehicle _grpldr) then {

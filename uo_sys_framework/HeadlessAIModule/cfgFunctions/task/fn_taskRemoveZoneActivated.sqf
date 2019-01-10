@@ -7,11 +7,11 @@
  *		suits & PiZZADOX
  */
  #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
- UO_FW_AI_EXEC_CHECK(SERVERHC)
+ UO_FW_AI_EXEC_CHECK(SERVERHC);
 	private _tasks = _this;
 	private _zoneTasks = [];
 	{
-		if (_x getVariable["UO_FW_taskZoneActivated",false]) then {
+		if (_x getVariable["UO_FW_AI_taskZoneActivated",false]) then {
 			_zoneTasks pushBack _x;
 		};
 	} forEach _tasks;

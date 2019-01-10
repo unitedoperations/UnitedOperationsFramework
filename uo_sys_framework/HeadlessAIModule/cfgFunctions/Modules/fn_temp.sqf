@@ -9,7 +9,7 @@
  *		suits & PiZZADOX
  */
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_AI_EXEC_CHECK(SERVERHC)
+UO_FW_AI_EXEC_CHECK(SERVERHC);
 
 
 params [["_mode","",[""]],["_input",[],[[]]]];
@@ -22,9 +22,6 @@ switch _mode do {
 			if (UO_FW_AI_DEBUG) then {
 				[_logic] spawn UO_FW_AI_fnc_debugSyncedModules;
 			};
-		} else {
-			_logic = _input param [0,objNull,[objNull]];
-			[_logic] call UO_FW_fnc_checkDuplicates;
 		};
 	};
 	case "attributesChanged3DEN": {};

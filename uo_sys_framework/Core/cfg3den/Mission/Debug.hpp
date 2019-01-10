@@ -1,4 +1,4 @@
-class Debug
+class UO_FW_DebugSettings
 {
     displayName = "Debug Settings";
     collapsed = 1;

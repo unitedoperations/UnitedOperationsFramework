@@ -7,7 +7,11 @@
  *		TinfoilHate
  */
 
-_obj = param [0];
+#define COMPONENT ShotCount
+#include "\x\UO_FW\addons\main\script_macros.hpp"
+UO_FW_EXEC_CHECK(ALL);
+
+params ["_obj"];
 if(_obj getVariable ["aCount_firedEh", false]) exitWith {};
 _obj setVariable ["aCount_originalSide",side _obj,false];
 

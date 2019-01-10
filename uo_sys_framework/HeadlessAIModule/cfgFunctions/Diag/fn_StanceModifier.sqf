@@ -5,7 +5,7 @@ _Counter = 6;
 while {_Counter > 0} do
 {
 
-		_BehindUnit = _this modelToWorld [0,-1,0.5];
+		private _BehindUnit = _this modelToWorld [0,-1,0.5];
 		_Nearobjects = _BehindUnit nearObjects ["Man",2];
 		if (_this in _Nearobjects) then {_Nearobjects = _Nearobjects - [_this]};
 		_NearestUnit = [_Nearobjects,_BehindUnit] call UO_FW_AI_fnc_ClosestObject;

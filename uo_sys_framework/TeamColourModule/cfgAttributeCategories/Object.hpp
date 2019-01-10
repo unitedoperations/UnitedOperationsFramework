@@ -1,5 +1,5 @@
 class UO_FW_TeamColourOptions {
-	displayName = "Team Colour Options"; 
+	displayName = "Team Colour Options";
 	collapsed = 1;
 	class Attributes {
 		class UO_FW_TeamColour {
@@ -7,9 +7,11 @@ class UO_FW_TeamColourOptions {
 			tooltip = "Set Player Colour";
 			property = "UO_FW_TeamColour";
 			control = "UO_FW_TeamColourAttribute";
-			expression = "_teamvalue = ['NONE','MAIN','RED','BLUE','GREEN','YELLOW'] select _value; _this setVariable ['%s',_teamvalue,true];";
-			condition = "objectBrain";
-			defaultValue = "0";
+			typeName = "STRING";
+			expression = "_this setVariable ['%s',_teamvalue,true];";
+			//expression = "_this setVariable ['%s',_value,true];";
+			condition = "objectControllable ";
+			defaultValue = "'None'";
 		};
 	};
 };

@@ -1,11 +1,11 @@
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_AI_EXEC_CHECK(HC)
-
-if (!(getMissionConfigValue ["UO_FW_AI_DEBUG",false])) then {
-	diag_log "running fn_initMain";
-};
+UO_FW_AI_EXEC_CHECK(HC);
 
 if (!(getMissionConfigValue ["UO_FW_AI_Enabled",false])) exitWith {};
+
+LOG("running fn_initMain");
+
+["Headless AI", "Custom AI Scripts and spawning modules for AI", "PiZZADOX"] call UO_FW_FNC_RegisterModule;
 
 UO_FW_AI_MARKERARRAY = [];
 UO_FW_AI_UnitQueue = [];
@@ -98,9 +98,11 @@ UO_FW_AI_FORCETIME_ENABLED = false;
 UO_FW_AI_FORCETIME_TIME = 12;
 
 //Lets gets the queue handler going
+[{time > 3},{
 [] spawn UO_FW_AI_fnc_QueueHandle;
 [] spawn UO_FW_AI_fnc_ActiveHandler;
 [] spawn UO_FW_AI_fnc_GroupHandler;
+}] call CBA_fnc_waitUntilAndExecute;
 
 //leader/group behavior handling loop
 //[] spawn UO_FW_AI_fnc_MainLoop;
@@ -118,7 +120,7 @@ if ((!hasinterface) && (!isDedicated)) then {
 			waituntil {time > 1};
 			while {true} do {
 				sleep 2;
-				skiptime ((missionnamespace getvariable ["UO_FW_AI_FORCETIME_TIME",daytime]) / 3600) - daytime;
+				skiptime ((missionnamespace getvariable ["UO_FW_AI_FORCETIME_TIME",daytime]) / 3600) - (daytime);
 			};
 		};
 	};

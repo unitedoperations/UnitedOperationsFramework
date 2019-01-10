@@ -1,9 +1,7 @@
 #include "\x\UO_FW\addons\main\script_macros.hpp"
-UO_FW_EXEC_CHECK(SERVER)
+UO_FW_EXEC_CHECK(SERVER);
 
-_mode = param [0,"",[""]];
-_input = param [1,[],[[]]];
-
+params [["_mode","",[""]],["_input",[],[[]]]];
 switch _mode do
 {
 	// Default object init
@@ -44,15 +42,13 @@ switch _mode do
 			_silent = _logic getVariable ["UO_FW_CaptureZone_Silent",false];
 			_automessages = _logic getVariable ["UO_FW_CaptureZone_AutoMessages",false];
 			_cond = _logic getVariable ["UO_FW_CaptureZone_Condition","true"];
-
 			[_logic,_zoneName,_area,_interval,_repeatable,_capArray,_timeArray,_messagesArray,_colours,_hidden,_silent,_automessages,_ratioNeeded,_cond] call UO_FW_FNC_CaptureZoneLoop;
-
 		};
 
 	};
 	// When some attributes were changed (including position and rotation)
 	case "attributesChanged3DEN": {
-		_logic = _input param [0,objNull,[objNull]];
+		private _logic = _input param [0,objNull,[objNull]];
 		private _radiusX = _logic getVariable ["UO_FW_CaptureZone_RadiusX",_logic getVariable ["UO_FW_CaptureZone_RadiusX", 100]];
 		private _radiusY = _logic getVariable ["UO_FW_CaptureZone_RadiusY",_logic getVariable ["UO_FW_CaptureZone_RadiusY", 100]];
 		set3DENAttributes [[[_logic],"size2",[_radiusX,_radiusY]]];

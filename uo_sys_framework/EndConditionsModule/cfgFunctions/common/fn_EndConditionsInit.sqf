@@ -7,8 +7,9 @@
  *		PiZZADOX
  */
 
+#define COMPONENT EndConditions
 #include "\x\UO_FW\addons\main\script_macros.hpp"
-UO_FW_EXEC_CHECK(SERVER)
+UO_FW_EXEC_CHECK(ALL);
 
 if (isNil "UO_FW_MissionEnded") then {UO_FW_MissionEnded = false;};
 
@@ -20,8 +21,10 @@ if (isNil "UO_FW_MissionEnded") then {UO_FW_MissionEnded = false;};
 			[] spawn {
 				while {!UO_FW_MissionEnded} do {
 					sleep(missionNamespace getvariable ["UO_FW_ConditionSleep",30]);
-					UO_FW_DEBUG("",format ["checking timelimit: %1",UO_FW_Timelimit])
-					UO_FW_DEBUG("",format ["checking timelimit message: %1",UO_FW_Timelimit_Message])
+					private _msg1 = format ["checking timelimit: %1",UO_FW_Timelimit];
+					UO_FW_DEBUG("",_msg1);
+					private _msg1 = format ["checking timelimit message: %1",UO_FW_Timelimit_Message];
+					UO_FW_DEBUG("",_msg2);
 
 					if ((time / 60) >= UO_FW_Timelimit) exitWith {
 						(missionNamespace getvariable ["UO_FW_Timelimit_Message","Time Limit Reached!"]) call UO_FW_fnc_EndMission;
@@ -29,7 +32,8 @@ if (isNil "UO_FW_MissionEnded") then {UO_FW_MissionEnded = false;};
 				};
 			};
 		} else {
-			UO_FW_DEBUG("",format ["invalid timelimit: %1",UO_FW_Timelimit])
+			private _msg3 = format ["invalid timelimit: %1",UO_FW_Timelimit];
+			UO_FW_DEBUG("",_msg3);
 		};
 	};
 
@@ -44,7 +48,7 @@ if (isNil "UO_FW_MissionEnded") then {UO_FW_MissionEnded = false;};
 				};
 			};
 		} else {
-			UO_FW_DEBUG("No file found for End Conditions!","No file found for End Conditions!")
+			UO_FW_DEBUG("No file found for End Conditions!","No file found for End Conditions!");
 		};
 	};
 

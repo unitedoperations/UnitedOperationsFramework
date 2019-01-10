@@ -7,7 +7,7 @@
  *		suits & PiZZADOX
  */
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_AI_EXEC_CHECK(SERVERHC)
+UO_FW_AI_EXEC_CHECK(SERVERHC);
 
 
 [] spawn {
@@ -15,7 +15,7 @@ UO_FW_AI_EXEC_CHECK(SERVERHC)
 	while {true} do {
 		{
 			_x params ["_zone","_loc","_radiusX","_isOn","_side","_type","_cond","_delay","_code","_radiusY","_isRectangle","_direction"];
-			diag_log format ["zone checked: %1",_x];
+			LOG_1("zone checked: %1",_x);
 			private _initial = _zone getVariable ["initiallyspawned",false];
 			private _populated = 0;
 			private _area = [_loc,_radiusX,_radiusY,_direction,_isRectangle];
@@ -23,13 +23,13 @@ UO_FW_AI_EXEC_CHECK(SERVERHC)
 				[_zone,_delay,_code] spawn UO_FW_AI_fnc_setup;
 				_x set [3, 1];
 			} else {
+				private _aliveplayers = [] call UO_FW_fnc_alivePlayers;
 				_populated = {
-					_player = _x;
-					!(_player isKindOf "HeadlessClient_F") && alive _player
-					&& (({(vehicle _player) isKindOf _x} count _type) > 0)
+					private _player = _x;
+					(({(vehicle _player) isKindOf _x} count _type) > 0)
 					&& (side _player) in _side
 					&& _player inArea _area
-				} count allPlayers;
+				} count _aliveplayers;
 			};
 			private _shouldBeOn = if ( _populated > 0 ) then { 1 } else { 0 };
 			if (!_initial) then {

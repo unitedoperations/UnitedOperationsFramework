@@ -13,7 +13,7 @@
  *		lecks
  */
  #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
- UO_FW_AI_EXEC_CHECK(SERVERHC)
+ UO_FW_AI_EXEC_CHECK(SERVERHC);
  
 	params ["_object", "_addActionParams", ["_distance",3,[1]], ["_pos", [0,0,0], [[]], [2,3]], ["_actionName", "", [""]], ["_actionType",0,[0]], ["_subMenu",[],[[]]]];
 	_addActionParams params [["_actionText", "", [""]], ["_action", "", ["",{}]], ["_params", []],"_none","_none","_none","_none",["_condition", "true", ["",{}]]];

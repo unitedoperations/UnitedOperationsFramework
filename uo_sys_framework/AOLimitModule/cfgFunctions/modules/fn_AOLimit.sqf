@@ -1,5 +1,6 @@
+#define COMPONENT AOLimit
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_EXEC_CHECK(ALL)
+UO_FW_EXEC_CHECK(ALL);
 
 if !(UO_FW_SERVER_AOLIMIT_ALLOWED) exitwith {};
 params [["_mode","",[""]],["_input",[],[[]]]];
@@ -8,15 +9,15 @@ switch _mode do {
 		if !is3DEN then {
 			_input params ["_logic",["_isActivated",true,[true]],["_isCuratorPlaced",false,[false]]];
 			if !(_isActivated) exitWith {};
-				_selectedSides = [];
+				private _selectedSides = [];
 				if (_logic getVariable ["UO_FW_AOLimit_Blufor",true]) then {_selectedSides pushBackUnique west;};
 				if (_logic getVariable ["UO_FW_AOLimit_Opfor",true]) then {_selectedSides pushBackUnique east;};
 				if (_logic getVariable ["UO_FW_AOLimit_Indfor",true]) then {_selectedSides pushBackUnique resistance;};
 				if (_logic getVariable ["UO_FW_AOLimit_Civilian",true]) then {_selectedSides pushBackUnique civilian;};
-				if (_selectedSides isEqualTo []) exitwith {UO_FW_DEBUG("","No sides defined for AO limit!")};
+				if (_selectedSides isEqualTo []) exitwith {UO_FW_DEBUG("","No sides defined for AO limit!");};
 				_entryMode = _logic getVariable ["UO_FW_AOLimit_EntryMode",false];
 				_airsetting = _logic getVariable ["UO_FW_AOLimit_AirUnits",true];
-				_softAOMode = _logic getVariable ["UO_FW_AOLimit_SoftAOMode",false];
+				_AOMode = _logic getVariable ["UO_FW_AOLimit_AOMode","HARD"];
 				_softAOtime = _logic getVariable ["UO_FW_AoLimit_SoftTimeOutside",30];
 				_softAOtimeAir = _logic getVariable ["UO_FW_AoLimit_SoftTimeOutsideAir",120];
 				// The amount of time in seconds an air based unit is allowed to stay outside the AO (-1 = Infinity)
@@ -27,7 +28,7 @@ switch _mode do {
 				_isRectangle = if((typeof _logic) isEqualTo "UO_AOLimitModule_R") then {true} else {false};
 				_area = [_loc,_radiusX,_radiusY,_direction,_isRectangle];
 
-				[_logic,_area,_selectedSides,_entryMode,_airsetting,_softAOMode,_softAOtime,_softAOtimeAir] call UO_FW_fnc_AOLimitInit;
+				[_logic,_area,_selectedSides,_entryMode,_airsetting,_AOMode,_softAOtime,_softAOtimeAir] call UO_FW_fnc_AOLimitInit;
 		};
 	};
 	case "attributesChanged3DEN": {

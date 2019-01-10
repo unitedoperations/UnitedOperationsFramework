@@ -1,9 +1,13 @@
+#define COMPONENT AILink
+#include "\x\UO_FW\addons\main\script_macros.hpp"
+UO_FW_EXEC_CHECK(ALL);
+
 private ["_groups","_thisGroup","_thatGroup","_thisLR","_thisSR","_thatLR","_thatSR","_range"];
 
 if (isNil "tin_aiLink_debug") then {tin_aiLink_debug = false};
 if (tin_aiLink_transDelay > tin_aiLink_shareDelay) then {tin_aiLink_transDelay = tin_aiLink_shareDelay};
 
-_allLinkGroups = [];
+private _allLinkGroups = [];
 {	//Remove player controlled groups
     if !(isPlayer (leader _x)) then {
         _allLinkGroups set [count _allLinkGroups,_x];
@@ -19,8 +23,8 @@ if (tin_aiLink_debug) then {diag_log format["Link Groups: %1",_allLinkGroups];};
         _thatGroup = _x;
         if (side _thisGroup == side _thatGroup) then {
             if (tin_aiLink_needRadio) then {
-                _thisArray = [_thisGroup] call UO_FW_fnc_EvalRadio;
-                _thatArray = [_thatGroup] call UO_FW_fnc_EvalRadio;
+                private _thisArray = [_thisGroup] call UO_FW_fnc_EvalRadio;
+                private _thatArray = [_thatGroup] call UO_FW_fnc_EvalRadio;
 
                 _thisLR = _thisArray select 0;
                 _thisSR = _thisArray select 1;
@@ -42,14 +46,14 @@ if (tin_aiLink_debug) then {diag_log format["Link Groups: %1",_allLinkGroups];};
                 };
             };
 
-            _checkUnits = allUnits;
+            private _checkUnits = allUnits;
             if (isMultiplayer) then {_checkUnits = playableUnits};
             {
                 if (_thisGroup knowsAbout _x > _thatGroup knowsAbout _x && _thisGroup knowsAbout _x > 1 && _thatGroup knowsAbout _x < 1.5 && (leader _thisGroup distance2D _x) <= _range) then {
-                    _waitTime = random(tin_aiLink_transDelay);
+                    private _waitTime = random(tin_aiLink_transDelay);
                     [{
                         params ["_thatGroup","_thisGroup","_targUnit"];
-                        _revAmt = _thisGroup knowsAbout _targUnit;
+                        private _revAmt = _thisGroup knowsAbout _targUnit;
                         if (_revAmt > tin_aiLink_maxKnows) then {_revAmt = tin_aiLink_maxKnows};
                         if (_revAmt > _thatGroup knowsAbout _targUnit) then {_thatGroup reveal [_targUnit,_revAmt];};
 

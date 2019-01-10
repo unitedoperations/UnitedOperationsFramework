@@ -1,4 +1,4 @@
-class SafeStart
+class UO_FW_SafeStart
 {
     displayName = "Safe Start Settings";
     collapsed = 1;

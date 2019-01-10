@@ -259,10 +259,10 @@ class EndConditionCaptureZoneSettings_Category4
     {
         property = "UO_FW_EndCondition_CaptureZoneCaptured_Team_4";
         displayName = "CaptureZone Team";
-        tooltip = "Team that must activate the CaptureZones for the condition to fire. Valid values are 'BLUFOR,OPFOR,INDFOR,CIV' Leave blank to activate condition with any team.";
+        tooltip = "Team that must activate the CaptureZones for the condition to fire.";
 				control = "UO_FW_ENDCONDITIONS_CaptureZoneTEAM";
         expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
-        defaultValue = "''";
+        defaultValue = "1";
     };
 	};
 };

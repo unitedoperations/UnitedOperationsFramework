@@ -7,29 +7,29 @@
  *		PiZZADOX
  */
 
+#define COMPONENT Core
 #include "\x\UO_FW\addons\main\script_macros.hpp"
+UO_FW_EXEC_CHECK(SERVER);
+
 
 //Universal init
 #include "\x\UO_FW\addons\main\Core\defines\mainSettings.hpp"
 
 
-if (isServer) then
-{
+if (isServer) then {
 	//Server init
 	#include "\x\UO_FW\addons\main\Core\defines\serverSettings.hpp"
-
-	//"" call UO_FW_fnc_teamsInit;
-
-	"" call UO_FW_fnc_StartingCount; //DO NOT REMOVE
+	[] call UO_FW_fnc_StartingCount; //DO NOT REMOVE
 };
 
-if (!isDedicated) then
-{
-
-	"" call UO_FW_FNC_BriefingFrameworkEntry;
+if (!isDedicated) then {
+	[] call UO_FW_FNC_BriefingFrameworkEntry;
 	//non server init
 	//Anything done using "player" must be past this line for JIP compatibility
-	//waitUntil {!(isNull player)};
+
+	["CBA_loadingScreenDone", {
+		UO_FW_LoadedIntoMission = true;
+	}] call CBA_fnc_addEventHandler;
 
 	if (!isServer && hasinterface) then {
 		//MP player init
@@ -58,26 +58,24 @@ if (!isDedicated) then
 
 	UO_FW_RespawnTickets = 0; //Initialize respawn tickets to 0
 
-	//switch (side player) do
-	//{ //Checks what team the player is on
- 	//	case west:
-	//	{
- 	//		UO_FW_RespawnTickets = (_logic getVariable ["BluforRespawnTicketsArgument",0]); //If respawn is enabled you must create empty game logics, for respawn points, following the name format UO_FW_side_respawn. Example: UO_FW_west_respawn
- 	//	};
-	//	case east:
-	//	{
- 	//		UO_FW_RespawnTickets = (_logic getVariable ["OpforRespawnTicketsArgument",0]); //If respawn is enabled you must create empty game logics, for respawn points, following the name format UO_FW_side_respawn. Example: UO_FW_west_respawn
- 	//	};
-	//	case resistance:
-	//	{
- 	//		UO_FW_RespawnTickets = (_logic getVariable ["IndforRespawnTicketsArgument",0]); //If respawn is enabled you must create empty game logics, for respawn points, following the name format UO_FW_side_respawn. Example: UO_FW_west_respawn
- 	//	};
-	//	case civilian:
-	//	{
- 	//		UO_FW_RespawnTickets = (_logic getVariable ["CivilianRespawnTicketsArgument",0]); //If respawn is enabled you must create empty game logics, for respawn points, following the name format UO_FW_side_respawn. Example: UO_FW_west_respawn
- 	//	};
- 	//	//add more cases for other factions here
- 	//};
+	switch (side player) do
+	{ //Checks what team the player is on
+ 		case west:
+		{
+ 			UO_FW_RespawnTickets = (missionNamespace getVariable ["UO_FW_TeamSetting_Blufor_RespawnTickets",0]); //If respawn is enabled you must create empty game logics, for respawn points, following the name format UO_FW_side_respawn. Example: UO_FW_west_respawn
+ 		};
+		case east:
+		{
+ 			UO_FW_RespawnTickets = (missionNamespace getVariable ["UO_FW_TeamSetting_Opfor_RespawnTickets",0]); //If respawn is enabled you must create empty game logics, for respawn points, following the name format UO_FW_side_respawn. Example: UO_FW_west_respawn
+ 		};
+		case resistance:
+		{
+ 			UO_FW_RespawnTickets = (missionNamespace getVariable ["UO_FW_TeamSetting_Indfor_RespawnTickets",0]); //If respawn is enabled you must create empty game logics, for respawn points, following the name format UO_FW_side_respawn. Example: UO_FW_west_respawn
+ 		};
+		case civilian:
+		{
+ 			UO_FW_RespawnTickets = (missionNamespace getVariable ["UO_FW_TeamSetting_Civ_RespawnTickets",0]); //If respawn is enabled you must create empty game logics, for respawn points, following the name format UO_FW_side_respawn. Example: UO_FW_west_respawn
+ 		};
+ 		//add more cases for other factions here
+ 	};
 };
-
-UO_FW_Framework_Initialized = true;

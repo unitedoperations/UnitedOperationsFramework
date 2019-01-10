@@ -2,7 +2,7 @@ if ((missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_FILE",false])) exitw
 	if !(UO_FW_BRIEFING_CIVILIAN_FILE_PATH isEqualto "") then {
 		"" call (compile preprocessFileLineNumbers UO_FW_BRIEFING_CIVILIAN_FILE_PATH);
 	} else {
-		UO_FW_DEBUG("No briefing found for CIVILIAN!","No briefing found for CIVILIAN!")
+		ERROR("No briefing found for CIVILIAN!");
 	};
 };
 
@@ -12,7 +12,7 @@ if ((missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_NATO",false])) then 
 	"<font color='#5BD527'><h1>Situation:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_NATO_SIT_MAIN",""]) + "<br/><br/>" +
 	"<font color='#5BD527'><h1>Terrain:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_NATO_SIT_TERRAIN",""])  + "<br/><br/>" +
 	"<font color='#5BD527'><h1>Key Terrain:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_NATO_SIT_KEYTERRAIN",""])  + "<br/><br/>" +
-	"<font color='#5BD527'><h1>Weather:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_NATO_SIT_WEATHER",""]) 
+	"<font color='#5BD527'><h1>Weather:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_NATO_SIT_WEATHER",""])
 	ENDTAB
 	//Enemy
 	NEWTAB("   A. Enemy Forces:")
@@ -21,7 +21,7 @@ if ((missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_NATO",false])) then 
 	"<font color='#5BD527'><h1>Equipment:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_NATO_ENEMY_EQUIPMENT",""])  + "<br/><br/>" +
 	"<font color='#5BD527'><h1>Appearance:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_NATO_ENEMY_APPEARANCE",""])  + "<br/><br/>" +
 	"<font color='#5BD527'><h1>MLCOA:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_NATO_ENEMY_MLCOA",""])  + "<br/><br/>" +
-	"<font color='#5BD527'><h1>MDCOA:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_NATO_ENEMY_MDCOA",""]) 
+	"<font color='#5BD527'><h1>MDCOA:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_NATO_ENEMY_MDCOA",""])
 	ENDTAB
 	//Friendly
 	NEWTAB("   B. Friendly Forces:")
@@ -32,47 +32,47 @@ if ((missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_NATO",false])) then 
 	ENDTAB
 	//Mission
 	NEWTAB("II. Mission:")
-	"<font color='#5BD527'><h1>Mission:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_NATO_MISSION",""]) 
+	"<font color='#5BD527'><h1>Mission:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_NATO_MISSION",""])
 	ENDTAB
 	NEWTAB("III. Execution:")
 	"<font color='#5BD527'><h1>Commanders Intent:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_NATO_EXECUTION_INTENT",""])  + "<br/><br/>" +
 	"<font color='#5BD527'><h1>Maneuver:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_NATO_EXECUTION_MANEUVER",""])  + "<br/><br/>" +
 	"<font color='#5BD527'><h1>Timings:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_NATO_EXECUTION_TIMINGS",""])  + "<br/><br/>" +
-	"<font color='#5BD527'><h1>Tasks:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_NATO_EXECUTION_TASKS",""]) 
+	"<font color='#5BD527'><h1>Tasks:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_NATO_EXECUTION_TASKS",""])
 	ENDTAB
 	NEWTAB("IV. Service Support:")
 	""
 	ENDTAB
 	NEWTAB("   A. Support:")
 	"<font color='#5BD527'><h1>Fires:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_NATO_SANDS_SUPPORT_FIRES",""])  + "<br/><br/>" +
-	"<font color='#5BD527'><h1>Ammo:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_NATO_SANDS_SUPPORT_AMMO",""]) 
+	"<font color='#5BD527'><h1>Ammo:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_NATO_SANDS_SUPPORT_AMMO",""])
 	ENDTAB
 	NEWTAB("   B. Service:")
-	"<font color='#5BD527'><h1>General:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_NATO_SANDS_SERVICE_GENERAL",""]) 
+	"<font color='#5BD527'><h1>General:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_NATO_SANDS_SERVICE_GENERAL",""])
 	ENDTAB
 	NEWTAB("V. Command & Signal:")
 	""
 	ENDTAB
 	NEWTAB("   A. Command:")
-	"<font color='#5BD527'><h1>General:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_NATO_CANDS_COMMAND",""]) 
+	"<font color='#5BD527'><h1>General:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_NATO_CANDS_COMMAND",""])
 	ENDTAB
 	NEWTAB("   B. Signals:")
 	"<font color='#5BD527'><h1>Frequencies:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_NATO_CANDS_SIGNALS_FREQ",""])  + "<br/><br/>" +
 	"<font color='#5BD527'><h1>Codewords:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_NATO_CANDS_SIGNALS_CODEWORDS",""])  + "<br/><br/>" +
 	"<font color='#5BD527'><h1>Special Signals:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_NATO_CANDS_SIGNALS_SPECIAL",""])  + "<br/><br/>" +
 	"<font color='#5BD527'><h1>Callsigns:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_NATO_CANDS_SIGNALS_CALLSIGNS",""])  + "<br/><br/>" +
-	"<font color='#5BD527'><h1>Passwords:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_NATO_CANDS_SIGNALS_PASSWORDS",""]) 
+	"<font color='#5BD527'><h1>Passwords:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_NATO_CANDS_SIGNALS_PASSWORDS",""])
 	ENDTAB
 };
 
 if ((missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_WARSAW",false])) then {
 	NEWTAB("I. Preliminaries:")
 	"<font color='#5BD527'><h1>Weather:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_WARSAW_PRELIMINARIES_WEATHER",""])   + "<br/><br/>" +
-	"<font color='#5BD527'><h1>Terrain:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_WARSAW_PRELIMINARIES_TERRAIN",""])  
+	"<font color='#5BD527'><h1>Terrain:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_WARSAW_PRELIMINARIES_TERRAIN",""])
 	ENDTAB
 	NEWTAB("II. Reference Points:")
 	"<font color='#5BD527'><h1>Deployment Reference Points:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_WARSAW_REFERENCE_DEPLOYMENTPOINTS",""])   + "<br/><br/>" +
-	"<font color='#5BD527'><h1>Subsequent Reference Points:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_WARSAW_REFERENCE_SUBSEQUENTPOINTS",""])  
+	"<font color='#5BD527'><h1>Subsequent Reference Points:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_WARSAW_REFERENCE_SUBSEQUENTPOINTS",""])
 	ENDTAB
 	NEWTAB("III. Enemy:")
 	"<font color='#5BD527'><h1>Enemy Disposition:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_WARSAW_ENEMY_DISP",""])   + "<br/><br/>" +
@@ -80,36 +80,36 @@ if ((missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_WARSAW",false])) the
 	"<font color='#5BD527'><h1>Probable Enemy HQ Location:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_WARSAW_ENEMY_PROB_HQ",""])   + "<br/><br/>" +
 	"<font color='#5BD527'><h1>Probable Enemy Main Element Location:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_WARSAW_ENEMY_PROB_LINE",""])   + "<br/><br/>" +
 	"<font color='#5BD527'><h1>Probable Enemy Direction of Attack:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_WARSAW_ENEMY_PROB_DIR_ATTACK",""])   + "<br/><br/>" +
-	"<font color='#5BD527'><h1>Probable Enemy Artillery Positions & Capability:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_WARSAW_ENEMY_PROB_ARTY",""])  
+	"<font color='#5BD527'><h1>Probable Enemy Artillery Positions & Capability:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_WARSAW_ENEMY_PROB_ARTY",""])
 	ENDTAB
 	NEWTAB("IV. Higher and Adjacent Units:")
 	"<font color='#5BD527'><h1>Description:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_WARSAW_HIGHER_DISP",""])   + "<br/><br/>" +
 	"<font color='#5BD527'><h1>Boundaries:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_WARSAW_HIGHER_BOUNDARY",""])   + "<br/><br/>" +
-	"<font color='#5BD527'><h1>Location and Capability of Artillery:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_WARSAW_HIGHER_ARTY",""])  
+	"<font color='#5BD527'><h1>Location and Capability of Artillery:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_WARSAW_HIGHER_ARTY",""])
 	ENDTAB
 	NEWTAB("V. Mission:")
 	"<font color='#5BD527'><h1>Statement:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_WARSAW_MISSION_DESC",""])   + "<br/><br/>" +
-	"<font color='#5BD527'><h1>End State Direction:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_WARSAW_HIGHER_BOUNDARY",""])  
+	"<font color='#5BD527'><h1>End State Direction:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_WARSAW_HIGHER_BOUNDARY",""])
 	ENDTAB
 	NEWTAB("VI. Order:")
 	"<font color='#5BD527'><h1>Tasks:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_WARSAW_ORDER_TASKS",""])   + "<br/><br/>" +
 	"<font color='#5BD527'><h1>Tasks for Artillery Elements:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_WARSAW_ORDER_TASKS_ARTY",""])   + "<br/><br/>" +
 	"<font color='#5BD527'><h1>Readiness Timings:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_WARSAW_ORDER_TIMINGS",""])   + "<br/><br/>" +
-	"<font color='#5BD527'><h1>Signals:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_WARSAW_ORDER_SIGNALS",""])  
+	"<font color='#5BD527'><h1>Signals:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_WARSAW_ORDER_SIGNALS",""])
 	ENDTAB
 	NEWTAB("VII. Location of the Commander:")
-	"<font color='#5BD527'><h1>Location of the Commander:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_WARSAW_COMM_LOC",""])  
+	"<font color='#5BD527'><h1>Location of the Commander:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_WARSAW_COMM_LOC",""])
 	ENDTAB
 	NEWTAB("VIII. Succession of Command:")
-	"<font color='#5BD527'><h1>Succession of Command:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_WARSAW_SUCC_DESC",""])  
+	"<font color='#5BD527'><h1>Succession of Command:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_WARSAW_SUCC_DESC",""])
 	ENDTAB
 };
-	
+
 if ((missionNamespace getVariable ["UO_FW_BRIEFING_CIVILIAN_APPENDIX",false])) then {
 	if !(UO_FW_BRIEFING_CIVILIAN_APPENDIX_PATH isEqualto "") then {
 		"" call (compile preprocessFileLineNumbers UO_FW_BRIEFING_CIVILIAN_APPENDIX_PATH);
 	} else {
-		UO_FW_DEBUG("No appendix found for CIVILIAN!","No appendix found for CIVILIAN!")
+		ERROR("No appendix found for CIVILIAN!");
 	};
 };
 if((missionNamespace getVariable ["UO_FW_BRIEFING_MISSIONNOTES_ENABLE",false])) then

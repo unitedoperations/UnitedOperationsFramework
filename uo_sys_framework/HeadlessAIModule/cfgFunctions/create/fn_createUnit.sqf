@@ -10,7 +10,7 @@
  *		suits & PiZZADOX
  */
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_AI_EXEC_CHECK(SERVERHC)
+UO_FW_AI_EXEC_CHECK(SERVERHC);
 
 params ["_occupy","_grp","_gpos","_startBld","_i","_u","_taskRadius",["_currentVeh",objNull,[objNull]]];
 	_u params ["_uv","_uc","_pos","_light","_vcd","_vcu","_dmg","_g","_veh","_vr","_veha","_cuf","_wtr","_per","_ust","_rem","_uint","_name","_identity"];
@@ -33,7 +33,7 @@ params ["_occupy","_grp","_gpos","_startBld","_i","_u","_taskRadius",["_currentV
 	if(count _name > 1) then {
 		missionNamespace setVariable[_name, _unit];
 	};
-	_unit setVariable["UO_FW_unitIdentity",_identity,true];
+	_unit setVariable["UO_FW_AI_unitIdentity",_identity,true];
 	[_unit,_per] call UO_FW_AI_fnc_setPersistent;
 	_unit spawn _uint;
 	if(_veha && !isNull _currentVeh) then {
@@ -41,4 +41,18 @@ params ["_occupy","_grp","_gpos","_startBld","_i","_u","_taskRadius",["_currentV
 	};
 	if(!isNil "UO_FW_aCount_event_addEH") then { ["UO_FW_aCount_event_addEH", _unit] call CBA_fnc_serverEvent};
 	_unit call UO_FW_FNC_trackUnit;
+	if (UO_FW_MACR_MAP_ALL) then {
+		_unit unlinkItem "ItemMap";
+	} else {
+		if(_unit getVariable ["UO_FW_RemoveMap",false]) then {
+			_unit unlinkItem "ItemMap";
+		};
+	};
+	if (UO_FW_MACR_COMPASS_ALL) then {
+		_unit unlinkItem "ItemCompass";
+	} else {
+		if(_unit getVariable ["UO_FW_RemoveCompass",false]) then {
+			_unit unlinkItem "ItemCompass";
+		};
+	};
 	_unit

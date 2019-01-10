@@ -7,7 +7,7 @@
  * 		BOOL 	- True
  */
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_AI_EXEC_CHECK(SERVERHC)
+UO_FW_AI_EXEC_CHECK(SERVERHC);
 
 params ["_grpid","_grpSet","_grpMem",["_blds",[],[[]]],["_bldPos",[],[[]]],["_uBld",objNull,[objNull]]];
 	_grpSet params["_side","_gpos","_behave","_combat","_speed","_formation","_grpStance","_grpInit","_createRadius","_taskRadius","_wait","_startBld","_task","_taskTimer","_multi","_occupyOption","_vehAssigned","_waypoints","_onWater","_tasks","_fl"];
@@ -25,7 +25,7 @@ params ["_grpid","_grpSet","_grpMem",["_blds",[],[[]]],["_bldPos",[],[[]]],["_uB
 		if((count (units _ngrp)) isEqualTo 1) then { _gpos = _spos; };
 		_u enableAI "PATH";
 		if(_task isEqualTo 2 || _task isEqualTo 4 || _task isEqualTo 5) then {
-			_u setvariable["UO_FW_Occupy",true];
+			_u setvariable["UO_FW_AI_Occupy",true];
 			[_u,_uBld,_bldPos,_wait,[_behave,_combat,_speed,_formation]] spawn UO_FW_AI_fnc_taskBuildingPatrol;
 		};
 	};
@@ -39,9 +39,12 @@ params ["_grpid","_grpSet","_grpMem",["_blds",[],[[]]],["_bldPos",[],[[]]],["_uB
 		[_ngrp,_tasks] call UO_FW_AI_fnc_taskInit;
 	} else {
 		if(_task isEqualTo 0 || _task isEqualTo 1 || _task isEqualTo 3) then {
-			{_x setvariable["UO_FW_Occupy",true]} forEach (units _ngrp);
-			_ngrp setVariable["UO_FW_CurrentTaskEndTime",(time + _taskTimer)];
-			[_task,_ngrp,_spos,_taskRadius,_wait,_behave,_combat,_speed,_formation] call UO_FW_AI_fnc_taskAssign;
+			{_x setvariable["UO_FW_AI_Occupy",true]} forEach (units _ngrp);
+			_ngrp setVariable["UO_FW_AI_CurrentTaskEndTime",(time + _taskTimer)];
+			_passarray = [_task,_ngrp,_spos,_taskRadius,_wait,_behave,_combat,_speed,_formation];
+			[{!((count waypoints (_this select 1)) isEqualto 0)},{
+				_this call UO_FW_AI_fnc_taskAssign;
+			},_passarray] call CBA_fnc_waitUntilAndExecute;
 		};
 	};
 	if(UO_FW_AI_DEBUG && _blds isEqualTo []) then {

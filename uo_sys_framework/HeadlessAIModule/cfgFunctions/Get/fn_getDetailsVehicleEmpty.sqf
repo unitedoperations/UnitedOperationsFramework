@@ -7,9 +7,9 @@
  *		suits & PiZZADOX
  */
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_AI_EXEC_CHECK(SERVERHC)
+UO_FW_AI_EXEC_CHECK(SERVERHC);
 	params ["_obj",["_pos",[],[[]]]];
-	private _unitInit = _obj getVariable ["UO_FW_unitInit",""];
+	private _unitInit = _obj getVariable ["UO_FW_AI_unitInit",""];
 	if(typename _unitInit isEqualTo "STRING") then {_unitInit = compile _unitInit;};
 	if(_pos isEqualTo [])then{_pos = (getposATL _obj)};
 	private _return = [
@@ -22,8 +22,8 @@ UO_FW_AI_EXEC_CHECK(SERVERHC)
 		magazinesAllTurrets _obj,
 		locked _obj,
 		surfaceIsWater (getposATL _obj),
-		_obj getVariable ["UO_FW_unitName",""],
-		_obj getVariable ['UO_FW_unitPersistent',false],
+		_obj getVariable ["UO_FW_AI_unitName",""],
+		_obj getVariable ['UO_FW_AI_unitPersistent',false],
 		_unitInit
 	];
 	_return

@@ -1,4 +1,4 @@
-class BLUFOR_NATOStyle
+class UO_FW_BLUFOR_NATOStyle
 {
     displayName = "NATO Style Briefing";
     collapsed = 1;
@@ -12,7 +12,7 @@ class BLUFOR_NATOStyle
             control = "CheckboxState";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "false";
-            
+
         };
 		class UO_FW_BRIEFING_BLUFOR_NATO_SITUATION_TITLE
         {
@@ -31,7 +31,7 @@ class BLUFOR_NATOStyle
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_BLUFOR_NATO_SIT_TERRAIN
         {
@@ -42,7 +42,7 @@ class BLUFOR_NATOStyle
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_BLUFOR_NATO_SIT_KEYTERRAIN
         {
@@ -53,7 +53,7 @@ class BLUFOR_NATOStyle
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_BLUFOR_NATO_SIT_WEATHER
         {
@@ -64,7 +64,7 @@ class BLUFOR_NATOStyle
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_BLUFOR_NATO_ENEMY_TITLE
         {
@@ -73,7 +73,7 @@ class BLUFOR_NATOStyle
 			control = "SubTitle";
             expression = "true";
             defaultValue = "";
-            
+
         };
 		class UO_FW_BRIEFING_BLUFOR_NATO_ENEMY_DIS
         {
@@ -84,7 +84,7 @@ class BLUFOR_NATOStyle
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_BLUFOR_NATO_ENEMY_STRENGTH
         {
@@ -125,7 +125,7 @@ class BLUFOR_NATOStyle
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_BLUFOR_NATO_ENEMY_MDCOA
         {
@@ -136,7 +136,7 @@ class BLUFOR_NATOStyle
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_BLUFOR_NATO_FRIENDLY_TITLE
         {
@@ -145,7 +145,7 @@ class BLUFOR_NATOStyle
 			control = "SubTitle";
             expression = "true";
             defaultValue = "";
-            
+
         };
 		class UO_FW_BRIEFING_BLUFOR_NATO_FRIENDLY_DIS
         {
@@ -156,7 +156,7 @@ class BLUFOR_NATOStyle
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_BLUFOR_NATO_FRIENDLY_HIGHER
         {
@@ -167,7 +167,7 @@ class BLUFOR_NATOStyle
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_BLUFOR_NATO_FRIENDLY_STRENGTH
         {
@@ -178,7 +178,7 @@ class BLUFOR_NATOStyle
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
         class UO_FW_BRIEFING_BLUFOR_NATO_FRIENDLY_APPEARANCE
         {
@@ -189,7 +189,7 @@ class BLUFOR_NATOStyle
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_BLUFOR_NATO_MISSION_TITLE
         {
@@ -198,7 +198,7 @@ class BLUFOR_NATOStyle
 			control = "CategoryTitleIndent";
             expression = "true";
             defaultValue = "";
-            
+
         };
         class UO_FW_BRIEFING_BLUFOR_NATO_MISSION
         {
@@ -209,7 +209,7 @@ class BLUFOR_NATOStyle
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_BLUFOR_NATO_EXECUTION_TITLE
         {
@@ -220,7 +220,7 @@ class BLUFOR_NATOStyle
             validate = "STRING";
             expression = "true";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_BLUFOR_NATO_EXECUTION_INTENT
         {
@@ -231,7 +231,7 @@ class BLUFOR_NATOStyle
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_BLUFOR_NATO_EXECUTION_MANEUVER
         {
@@ -242,7 +242,7 @@ class BLUFOR_NATOStyle
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_BLUFOR_NATO_EXECUTION_TIMINGS
         {
@@ -253,7 +253,7 @@ class BLUFOR_NATOStyle
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_BLUFOR_NATO_EXECUTION_TASKS
         {
@@ -264,7 +264,7 @@ class BLUFOR_NATOStyle
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_BLUFOR_NATO_SANDS_TITLE
         {
@@ -274,7 +274,7 @@ class BLUFOR_NATOStyle
 			control = "CategoryTitleIndent";
             expression = "true";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_BLUFOR_NATO_SANDS_SUPPORT_TITLE
         {
@@ -284,7 +284,7 @@ class BLUFOR_NATOStyle
 			control = "SubTitle";
             expression = "true";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_BLUFOR_NATO_SANDS_SUPPORT_FIRES
         {
@@ -295,7 +295,7 @@ class BLUFOR_NATOStyle
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_BLUFOR_NATO_SANDS_SUPPORT_AMMO
         {
@@ -306,7 +306,7 @@ class BLUFOR_NATOStyle
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_BLUFOR_NATO_SANDS_SERVICE_TITLE
         {
@@ -316,7 +316,7 @@ class BLUFOR_NATOStyle
 			control = "SubTitle";
             expression = "true";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_BLUFOR_NATO_SANDS_SERVICE_GENERAL
         {
@@ -327,7 +327,7 @@ class BLUFOR_NATOStyle
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_BLUFOR_NATO_CANDS_TITLE
         {
@@ -337,7 +337,7 @@ class BLUFOR_NATOStyle
 			control = "CategoryTitleIndent";
             expression = "true";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_BLUFOR_NATO_CANDS_COMMAND_TITLE
         {
@@ -347,7 +347,7 @@ class BLUFOR_NATOStyle
 			control = "SubTitle";
             expression = "true";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_BLUFOR_NATO_CANDS_COMMAND
         {
@@ -358,7 +358,7 @@ class BLUFOR_NATOStyle
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_BLUFOR_NATO_CANDS_SIGNALS_TITLE
         {
@@ -368,7 +368,7 @@ class BLUFOR_NATOStyle
 			control = "SubTitle";
             expression = "true";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_BLUFOR_NATO_CANDS_SIGNALS_FREQ
         {
@@ -379,7 +379,7 @@ class BLUFOR_NATOStyle
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_BLUFOR_NATO_CANDS_SIGNALS_CODEWORDS
         {
@@ -390,7 +390,7 @@ class BLUFOR_NATOStyle
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_BLUFOR_NATO_CANDS_SIGNALS_SPECIAL
         {
@@ -401,7 +401,7 @@ class BLUFOR_NATOStyle
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_BLUFOR_NATO_CANDS_SIGNALS_CALLSIGNS
         {
@@ -412,7 +412,7 @@ class BLUFOR_NATOStyle
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 		class UO_FW_BRIEFING_BLUFOR_NATO_CANDS_SIGNALS_PASSWORDS
         {
@@ -761,7 +761,7 @@ class BLUFOR_APPENDIX
             control = "CheckboxState";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "false";
-            
+
         };
 		class UO_FW_BRIEFING_BLUFOR_APPENDIX_PATH
         {
@@ -772,7 +772,7 @@ class BLUFOR_APPENDIX
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
-            
+
         };
 	};
 };

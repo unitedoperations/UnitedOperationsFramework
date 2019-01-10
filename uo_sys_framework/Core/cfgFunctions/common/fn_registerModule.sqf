@@ -17,6 +17,9 @@
 params ["_name", "_description", "_author"];
 if (isNil "ModuleDiaryEntries") then {ModuleDiaryEntries = []};
 if !(_name in ModuleDiaryEntries) then {
-	ModuleDiaryEntries append [_name];
-	player createDiaryRecord ["UO_FW_Menu", [_name,"<font size='16'>" + _name + "</font><br/>Description: " + _description + "<br/>by " + _author]];
+	[_name,_description,_author] spawn {
+		params ["_name", "_description", "_author"];
+		ModuleDiaryEntries append [_name];
+		player createDiaryRecord ["UO_FW_Menu", [_name,"<font size='16'>" + _name + "</font><br/>Description: " + _description + "<br/>by " + _author]];
+	};
 };

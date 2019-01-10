@@ -1,20 +1,26 @@
+#define COMPONENT MapAndCompassRemover
 #include "\x\UO_FW\addons\main\script_macros.hpp"
-"" spawn
-{
-	[{time > 1}, {		
+
+if(!UO_FW_SERVER_REMOVERMODULE_ALLOWED) exitWith {};
+["Map and Compass Remover", "Removes Map and Compass upon spawn", "TinfoilHate, Sacher and PiZZADOX"] call UO_FW_FNC_RegisterModule;
+
+if (!hasinterface || {isServer}) then {
+	[{(time > 1)}, {
 		{
-			_unit = _x;			
-			if (local _unit) then 
-			{
-				if(_unit getVariable ["UO_FW_RemoveMap",false]) then
-				{
-					_unit unlinkItem "ItemMap";
+			if (UO_FW_MACR_MAP_ALL) then {
+				if !(_x getvariable ["UO_FW_KeepMapAI",false]) then {_x unlinkItem "ItemMap";};
+			} else {
+				if(_x getVariable ["UO_FW_RemoveMap",false]) then {
+					_x unlinkItem "ItemMap";
 				};
-				if(_unit getVariable ["UO_FW_RemoveCompass",false]) then
-				{
-					_unit unlinkItem "ItemCompass";
-				};								
 			};
-		} forEach allUnits;
+			if (UO_FW_MACR_COMPASS_ALL) then {
+				if !(_x getvariable ["UO_FW_KeepCompassAI",false]) then {_x unlinkItem "ItemCompass";};
+			} else {
+				if(_x getVariable ["UO_FW_RemoveCompass",false]) then {
+					_x unlinkItem "ItemCompass";
+				};
+			};
+		} foreach (allUnits select {(local _x) && !(isPlayer _x)});
 	}] call CBA_fnc_waitUntilAndExecute;
 };

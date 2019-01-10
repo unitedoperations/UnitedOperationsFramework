@@ -7,9 +7,9 @@
  *		suits & PiZZADOX
  */
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_AI_EXEC_CHECK(SERVERHC)
+UO_FW_AI_EXEC_CHECK(SERVERHC);
 	params ["_u","_pos","_veh"];
-	private _unitInit = _u getVariable ["UO_FW_unitInit","true"];
+	private _unitInit = _u getVariable ["UO_FW_AI_unitInit","true"];
 	if(typename _unitInit isEqualTo "STRING") then {_unitInit = compile _unitInit;};
 	private _vehAssigned = if((assignedVehicleRole _u) isEqualTo [])then{false}else{true};
 	_return = [
@@ -26,11 +26,11 @@ UO_FW_AI_EXEC_CHECK(SERVERHC)
 		_vehAssigned,
 		_u getVariable ["ACE_captives_isHandcuffed",false],
 		(surfaceIsWater (getposATL _u)),
-		_u getVariable ['UO_FW_unitPersistent',false],
-		_u getVariable ['UO_FW_stance','auto'],
-		_u getVariable ['UO_FW_remove',0],
+		_u getVariable ['UO_FW_AI_unitPersistent',false],
+		_u getVariable ['UO_FW_AI_stance','auto'],
+		_u getVariable ['UO_FW_AI_remove',0],
 		_unitInit,
-		_u getVariable ['UO_FW_unitName',""],
-		_u getVariable ['UO_FW_unitIdentity',""]
+		_u getVariable ['UO_FW_AI_unitName',""],
+		_u getVariable ['UO_FW_AI_unitIdentity',""]
 	];
 	_return

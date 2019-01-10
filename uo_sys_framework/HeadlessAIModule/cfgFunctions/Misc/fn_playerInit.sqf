@@ -1,6 +1,6 @@
 
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_AI_EXEC_CHECK(CLIENT)
+UO_FW_AI_EXEC_CHECK(CLIENT);
 
 [] spawn {
 	waituntil {!isNull player};
@@ -37,7 +37,7 @@ UO_FW_AI_EXEC_CHECK(CLIENT)
 
 				};
 				if (UO_FW_AI_MARKERS_ENABLED) then {
-					diag_log str _debugText;
+					LOG(_debugText);
 				};
 				}];
 

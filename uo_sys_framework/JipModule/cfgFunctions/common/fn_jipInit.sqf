@@ -1,4 +1,4 @@
-/*	Description: Gives players custom self actions
+/*	Description: Gives players Jip actions
  *	Arguments:
  * 		N/A
  *	Return Value:
@@ -7,8 +7,8 @@
  *		Olsen & Starfox64 & PiZZADOX
  */
 
+#define COMPONENT HC
 #include "\x\UO_FW\addons\main\script_macros.hpp"
-
 
 if (isServer) then {
 	if (2 in [UO_FW_JIP_TypeBLUFOR,UO_FW_JIP_TypeOPFOR,UO_FW_JIP_TypeINDFOR,UO_FW_JIP_TypeCIVILIAN]) then {
@@ -36,9 +36,9 @@ if (!isDedicated && hasInterface && !(side player isEqualto "LOGIC")) then {
 			player setDamage 1;
 
 			sleep 8;
-			_layer1 = "JipLayer" cutText ["This mission does not support JIP.", "PLAIN DOWN"];
+			private _layer1 = "JipLayer" cutText ["This mission does not support JIP.", "PLAIN DOWN"];
 			sleep 8;
-			_layer1fade = "JipLayer" cutFadeOut 5;
+			private _layer1fade = "JipLayer" cutFadeOut 5;
 		};
 	};
 
@@ -48,16 +48,16 @@ if (!isDedicated && hasInterface && !(side player isEqualto "LOGIC")) then {
 		player setDamage 1;
 
 		sleep 8;
-		_layer2 = "JipLayer2" cutText ["You have spawned in past the mission JiP cutoff timer.", "PLAIN DOWN"];
+		private _layer2 = "JipLayer2" cutText ["You have spawned in past the mission JiP cutoff timer.", "PLAIN DOWN"];
 		sleep 8;
-		_layer2fade = "JipLayer2" cutFadeOut 5;
+		private _layer2fade = "JipLayer2" cutFadeOut 5;
 	};
 
-	_target = leader player;
+	private _target = leader player;
 
 	if (player == _target || !(_target call UO_FW_fnc_Alive)) then {
 
-		_rank = -1;
+		private _rank = -1;
 
 		{
 			if (rankId _x > _rank && (_target call UO_FW_fnc_Alive)) then {
@@ -75,17 +75,19 @@ if (!isDedicated && hasInterface && !(side player isEqualto "LOGIC")) then {
 
 					case 0: {
 
-						_teleportAction = player addAction ["Teleport to Squad", "x\UO_FW\addons\main\JipModule\scripts\teleportAction.sqf", _target];
+						private _teleportAction = player addAction ["Teleport to Squad", "x\UO_FW\addons\main\JipModule\scripts\teleportAction.sqf", _target];
 
 						[_teleportAction] spawn { //Spawns code running in parallel
 
-							_spawnPos = getPosATL player;
+							params ['_teleportAction'];
+
+							private _spawnPos = getPosATL player;
 
 							while {true} do {
 
 								if ((player distance _spawnPos) > UO_FW_JIP_SpawnDistanceBLUFOR) exitWith { //Exitwith ends the loop
 
-									player removeAction (_this select 0);
+									player removeAction _teleportAction;
 									cutText [format ["JIP teleport option lost, you went beyond %1 meters from your spawn location", UO_FW_JIP_SpawnDistanceBLUFOR], 'PLAIN DOWN'];
 
 								};
@@ -99,17 +101,19 @@ if (!isDedicated && hasInterface && !(side player isEqualto "LOGIC")) then {
 
 					case 1: {
 
-						_transportAction = player addAction ["Request Transport", "x\UO_FW\addons\main\JipModule\scripts\transportAction.sqf"];
+						private _transportAction = player addAction ["Request Transport", "x\UO_FW\addons\main\JipModule\scripts\transportAction.sqf"];
 
 						[_transportAction] spawn { //Spawns code running in parallel
 
-							_spawnPos = getPosATL player;
+							params ['_teleportAction'];
+
+							private _spawnPos = getPosATL player;
 
 							while {true} do {
 
 								if ((player distance _spawnPos) > UO_FW_JIP_SpawnDistanceBLUFOR) exitWith { //Exitwith ends the loop
 
-									player removeAction (_this select 0);
+									player removeAction _teleportAction;
 									cutText [format ["JIP transport request option lost, you went beyond %1 meters from your spawn location", UO_FW_JIP_SpawnDistanceBLUFOR], 'PLAIN DOWN'];
 
 								};
@@ -131,17 +135,20 @@ if (!isDedicated && hasInterface && !(side player isEqualto "LOGIC")) then {
 
 					case 0: {
 
-						_teleportAction = player addAction ["Teleport to Squad", "x\UO_FW\addons\main\JipModule\scripts\teleportAction.sqf", _target];
+						private _teleportAction = player addAction ["Teleport to Squad", "x\UO_FW\addons\main\JipModule\scripts\teleportAction.sqf", _target];
 
 						[_teleportAction] spawn { //Spawns code running in parallel
 
-							_spawnPos = getPosATL player;
+							params ['_teleportAction'];
+
+							private _spawnPos = getPosATL player;
 
 							while {true} do {
 
+
 								if ((player distance _spawnPos) > UO_FW_JIP_SpawnDistanceOPFOR) exitWith { //Exitwith ends the loop
 
-									player removeAction (_this select 0);
+									player removeAction _teleportAction;
 									cutText [format ["JIP teleport option lost, you went beyond %1 meters from your spawn location", UO_FW_JIP_SpawnDistanceOPFOR], 'PLAIN DOWN'];
 
 								};
@@ -155,17 +162,19 @@ if (!isDedicated && hasInterface && !(side player isEqualto "LOGIC")) then {
 
 					case 1: {
 
-						_transportAction = player addAction ["Request Transport", "x\UO_FW\addons\main\JipModule\scripts\transportAction.sqf"];
+						private _transportAction = player addAction ["Request Transport", "x\UO_FW\addons\main\JipModule\scripts\transportAction.sqf"];
 
 						[_transportAction] spawn { //Spawns code running in parallel
 
-							_spawnPos = getPosATL player;
+							params ['_teleportAction'];
+
+							private _spawnPos = getPosATL player;
 
 							while {true} do {
 
 								if ((player distance _spawnPos) > UO_FW_JIP_SpawnDistanceOPFOR) exitWith { //Exitwith ends the loop
 
-									player removeAction (_this select 0);
+									player removeAction _teleportAction;
 									cutText [format ["JIP transport request option lost, you went beyond %1 meters from your spawn location", UO_FW_JIP_SpawnDistanceOPFOR], 'PLAIN DOWN'];
 
 								};
@@ -187,17 +196,19 @@ if (!isDedicated && hasInterface && !(side player isEqualto "LOGIC")) then {
 
 					case 0: {
 
-						_teleportAction = player addAction ["Teleport to Squad", "x\UO_FW\addons\main\JipModule\scripts\teleportAction.sqf", _target];
+						private _teleportAction = player addAction ["Teleport to Squad", "x\UO_FW\addons\main\JipModule\scripts\teleportAction.sqf", _target];
 
 						[_teleportAction] spawn { //Spawns code running in parallel
 
-							_spawnPos = getPosATL player;
+							params ['_teleportAction'];
+
+							private _spawnPos = getPosATL player;
 
 							while {true} do {
 
 								if ((player distance _spawnPos) > UO_FW_JIP_SpawnDistanceINDFOR) exitWith { //Exitwith ends the loop
 
-									player removeAction (_this select 0);
+									player removeAction _teleportAction;
 									cutText [format ["JIP teleport option lost, you went beyond %1 meters from your spawn location", UO_FW_JIP_SpawnDistanceINDFOR], 'PLAIN DOWN'];
 
 								};
@@ -211,17 +222,19 @@ if (!isDedicated && hasInterface && !(side player isEqualto "LOGIC")) then {
 
 					case 1: {
 
-						_transportAction = player addAction ["Request Transport", "x\UO_FW\addons\main\JipModule\scripts\transportAction.sqf"];
+						private _transportAction = player addAction ["Request Transport", "x\UO_FW\addons\main\JipModule\scripts\transportAction.sqf"];
 
 						[_transportAction] spawn { //Spawns code running in parallel
 
-							_spawnPos = getPosATL player;
+							params ['_teleportAction'];
+
+							private _spawnPos = getPosATL player;
 
 							while {true} do {
 
 								if ((player distance _spawnPos) > UO_FW_JIP_SpawnDistanceINDFOR) exitWith { //Exitwith ends the loop
 
-									player removeAction (_this select 0);
+									player removeAction _teleportAction;
 									cutText [format ["JIP transport request option lost, you went beyond %1 meters from your spawn location", UO_FW_JIP_SpawnDistanceINDFOR], 'PLAIN DOWN'];
 
 								};
@@ -243,17 +256,19 @@ if (!isDedicated && hasInterface && !(side player isEqualto "LOGIC")) then {
 
 					case 0: {
 
-						_teleportAction = player addAction ["Teleport to Squad", "x\UO_FW\addons\main\JipModule\scripts\teleportAction.sqf", _target];
+						private _teleportAction = player addAction ["Teleport to Squad", "x\UO_FW\addons\main\JipModule\scripts\teleportAction.sqf", _target];
 
 						[_teleportAction] spawn { //Spawns code running in parallel
 
-							_spawnPos = getPosATL player;
+							params ['_teleportAction'];
+
+							private _spawnPos = getPosATL player;
 
 							while {true} do {
 
 								if ((player distance _spawnPos) > UO_FW_JIP_SpawnDistanceCIVILIAN) exitWith { //Exitwith ends the loop
 
-									player removeAction (_this select 0);
+									player removeAction _teleportAction;
 									cutText [format ["JIP teleport option lost, you went beyond %1 meters from your spawn location", UO_FW_JIP_SpawnDistanceCIVILIAN], 'PLAIN DOWN'];
 
 								};
@@ -267,17 +282,19 @@ if (!isDedicated && hasInterface && !(side player isEqualto "LOGIC")) then {
 
 					case 1: {
 
-						_transportAction = player addAction ["Request Transport", "x\UO_FW\addons\main\JipModule\scripts\transportAction.sqf"];
+						private _transportAction = player addAction ["Request Transport", "x\UO_FW\addons\main\JipModule\scripts\transportAction.sqf"];
 
 						[_transportAction] spawn { //Spawns code running in parallel
 
-							_spawnPos = getPosATL player;
+							params ['_teleportAction'];
+
+							private _spawnPos = getPosATL player;
 
 							while {true} do {
 
 								if ((player distance _spawnPos) > UO_FW_JIP_SpawnDistanceCIVILIAN) exitWith { //Exitwith ends the loop
 
-									player removeAction (_this select 0);
+									player removeAction _teleportAction;
 									cutText [format ["JIP transport request option lost, you went beyond %1 meters from your spawn location", UO_FW_JIP_SpawnDistanceCIVILIAN], 'PLAIN DOWN'];
 
 								};

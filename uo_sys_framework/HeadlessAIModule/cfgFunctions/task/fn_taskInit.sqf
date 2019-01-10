@@ -8,7 +8,7 @@
  *		suits & PiZZADOX
  */
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_AI_EXEC_CHECK(SERVERHC)
+UO_FW_AI_EXEC_CHECK(SERVERHC);
 params ["_grp",["_tasks",[],[[]]],["_task",objNull,[objNull]],["_taskOrdered",false,[false]]];	
 	private _activeTasks = [];
 	for [{_i=0},{(_i < count _tasks)},{_i = _i + 1}] do {
@@ -25,7 +25,7 @@ params ["_grp",["_tasks",[],[[]]],["_task",objNull,[objNull]],["_taskOrdered",fa
 		_activeTasks sort true;
 		if(_taskOrdered) then {				
 			_task = (_activeTasks select 0 select 2);
-			_grp setVariable ["UO_FW_groupTaskOrder",[true,_activeTasks]];
+			_grp setVariable ["UO_FW_AI_groupTaskOrder",[true,_activeTasks]];
 		} else {
 			_task = (_activeTasks select 0 select 2);
 		};

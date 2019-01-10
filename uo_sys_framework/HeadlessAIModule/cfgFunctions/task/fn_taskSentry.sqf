@@ -12,7 +12,8 @@
  * 		BOOL 	- True
  */
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_AI_EXEC_CHECK(SERVERHC)
+UO_FW_AI_EXEC_CHECK(SERVERHC);
+
 params [
 	"_grp",
 	"_pos",
@@ -23,17 +24,23 @@ params [
 	["_speed","LIMITED",[""]],
 	["_formation","WEDGE",[""]],
 	["_type","MOVE",[""]],
-	["_oncomplete","",[""]],
+	["_oncomplete","this call UO_FW_AI_fnc_taskSearchNearby",[""]],
 	["_compradius",0,[0]],
-	["_wpcount",10,[0]]
+	["_wpcount",10,[0]],
+	"_i"
 ];
-	_grp call UO_FW_AI_fnc_taskReset;
-	private _wp1pos = (_pos vectorAdd((vectorDir (leader _grp)) vectorMultiply _radius));
-	_this1 =+ _this;
-	_this1 set [1, _wp1pos];
-	_this1 call UO_FW_AI_fnc_createWaypoint;
-	_this call UO_FW_AI_fnc_createWaypoint;
-	_this2 =+ _this;
-	_this2 set [8, "CYCLE"];
-	_this2 call UO_FW_AI_fnc_createWaypoint;
-	true  
+
+{_x forcespeed -1; _x enableAI "PATH";} foreach units _grp;
+_grp call CBA_fnc_clearWaypoints;
+private _wp1pos = (_pos vectorAdd((vectorDir (leader _grp)) vectorMultiply _radius));
+_this1 =+ _this;
+_this1 set [1, _wp1pos];
+_this1 call UO_FW_AI_fnc_createWaypoint;
+_this call UO_FW_AI_fnc_createWaypoint;
+_this2 =+ _this;
+_this2 set [8, "CYCLE"];
+_this2 call UO_FW_AI_fnc_createWaypoint;
+
+_grp setvariable ["InitialWPSet",true];
+_grp setVariable ["UO_FW_AI_Mission","SENTRY"];
+true

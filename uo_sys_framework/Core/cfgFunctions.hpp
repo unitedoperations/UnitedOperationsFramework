@@ -38,20 +38,6 @@ class UO_CoreFunctions
 	class arrayFindAll {};
 };
 
-class UO_GearFunctions
-{
-	file = "x\UO_FW\addons\main\Core\cfgFunctions\gear";
-	class addItemOrg {};
-	class addItemRandomOrg {};
-	class addItemVehicleOrg {};
-	class addItemVehicleRandomOrg {};
-	class canAttachItem {};
-	class canLinkItem {};
-	class checkClassname {};
-	class removeAllGear {};
-	class removeAllVehicleGear {};
-};
-
 class UO_InitFunctions
 {
 	file = "x\UO_FW\addons\main\Core\cfgFunctions\init";

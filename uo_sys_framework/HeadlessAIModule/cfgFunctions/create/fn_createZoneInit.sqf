@@ -8,13 +8,9 @@
  *		suits & PiZZADOX
  */
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_AI_EXEC_CHECK(SERVERHC)
-if (isMultiplayer) then {
-	waituntil {!isNil "UO_FW_var_HC_ID"};
-};
+UO_FW_AI_EXEC_CHECK(SERVERHC);
 
 	params [["_zone",objNull,[objNull]],["_entities",[],[[]]],["_code",{},[{}]]];
-	diag_log format ["zone spawning!: %1",_zone];
 	_entities params [["_grps",[],[[]]],["_emptyvehs",[],[[]]],["_objs",[],[[]]]];
 	{
 		private _veh = _x;
@@ -49,15 +45,10 @@ if (isMultiplayer) then {
 	} forEach _objs;
 	{
 		_x params ["_grpid","_grpSet","_grpMem"];
-		if((_grpSet select 15) > 0 && !(_grpSet select 16) && (_grpSet select 12) < 6) then {
+		if((_grpSet select 15) > 0 && !(_grpSet select 16)) then {
 			_x spawn UO_FW_AI_fnc_createOccupyGroupInit;
-
 		} else {
-			if(_grpset select 23) then {
-				_x spawn UO_FW_AI_fnc_createParaGroupInit;
-			} else {
-				_x spawn UO_FW_AI_fnc_createGroupInit;
-			};
+			_x spawn UO_FW_AI_fnc_createGroupInit;
 		};
 	} forEach _grps;
 	[_zone] spawn _code;
