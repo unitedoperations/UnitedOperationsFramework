@@ -1,7 +1,7 @@
 class UO_FW_TeamRespawnSettings_Blufor
 {
     displayName = "Blufor Respawn Settings";
-    collapsed = 0;
+    collapsed = 0; //_respawnTypeArray = [['1 Life','ONELIFE'],['Unlimited','UNLIMITED'],['Individual Tickets','INDTICKETS'],['Team Tickets','TEAMTICKETS'],['Wave','WAVE'],['Triggered','TRIGGERED']];\
     class Attributes
     {
 			class UO_FW_RespawnSetting_Type_Blufor {
@@ -18,9 +18,10 @@ class UO_FW_TeamRespawnSettings_Blufor
 	        property = "UO_FW_RespawnSetting_IndTickets_Blufor";
 	        displayName = "BLUFOR Individual Respawn Tickets";
 	        tooltip = "Number of individual respawns.";
+					respawnSystems[] = {"INDTICKETS"};
 	        control = "EditShort";
 	        expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
-	        defaultValue = "0";
+	        defaultValue = "2";
 	        validate = "number";
 	    };
 			class UO_FW_RespawnSetting_TeamTickets_Blufor
@@ -28,9 +29,10 @@ class UO_FW_TeamRespawnSettings_Blufor
 	        property = "UO_FW_RespawnSetting_TeamTickets_Blufor";
 	        displayName = "BLUFOR Team Respawn Tickets";
 	        tooltip = "Number of team respawns.";
+					respawnSystems[] = {"TEAMTICKETS"};
 	        control = "EditShort";
 	        expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
-	        defaultValue = "0";
+	        defaultValue = "30";
 	        validate = "number";
 	    };
     };

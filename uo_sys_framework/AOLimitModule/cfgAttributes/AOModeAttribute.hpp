@@ -1,10 +1,12 @@
 class UO_FW_AOModeAttribute: Combo {
 	attributeSave = "\
-	(_this controlsGroupCtrl 100) lbData lbCurSel (_this controlsGroupCtrl 100)\
+	_value = (_this controlsGroupCtrl 100) lbData lbCurSel (_this controlsGroupCtrl 100);\
+	private _logic = ((get3denselected 'logic') select 0);\
+	_logic setvariable ['AOType_value',_value];\
+	_value\
 	";
 	attributeLoad ="\
 		private _logic = ((get3denselected 'logic') select 0);\
-		_logic setvariable ['AOType_value',_AOType];\
 		[_this,_config,_value,_logic] spawn {\
 			disableserialization;\
 			params ['_ctrl','_config','_value','_logic'];\
@@ -19,10 +21,12 @@ class UO_FW_AOModeAttribute: Combo {
 				_ctrlCombo lbsetValue [_index,_forEachIndex];\
 				if (_value isEqualto (_ctrlCombo lbData _index)) then {\
 					_ctrlCombo lbSetCurSel _index;\
+					_logic setvariable ['AOType_value',_string];\
 				};\
 			} foreach _AOSystemTypes;\
 			_logicType = typeOf _logic;\
 			private _cfgAttributes = [configFile >> 'CfgVehicles' >> _logicType >> 'Attributes',0] call BIS_fnc_returnChildren;\
+			private _AOType = _logic getvariable ['AOType_value','HARD'];\
 			{\
 				 if (ctrlParentControlsGroup _x isEqualto _ctrlGroup) then {\
 					private _cfg = _cfgAttributes select _n;\
@@ -30,7 +34,7 @@ class UO_FW_AOModeAttribute: Combo {
 					private _state = true;\
 					if (isArray(_cfg >> 'AOTypes')) then {\
 		 				 	_AOTypes = getarray (_cfg >> 'AOTypes');\
-							if (_AOType in _AOTypes) then {\
+							if !(_AOType in _AOTypes) then {\
 								_state = _state && false;\
 							};\
 		 			};\
@@ -50,11 +54,11 @@ class UO_FW_AOModeAttribute: Combo {
 			onLBSelChanged="\
 				_ctrlCombo = _this select 0;\
 			  _cursel = _this select 1;\
-			  _GearSystem = _ctrlCombo lbData _cursel;\
+			  _AOType = _ctrlCombo lbData _cursel;\
 				private _logic = ((get3denselected 'logic') select 0);\
-			  [_ctrlCombo,_cursel,_GearSystem,_logic] spawn {\
+			  [_ctrlCombo,_cursel,_AOType,_logic] spawn {\
 				 	 disableserialization;\
-					 _this params ['_ctrlCombo','_cursel','_GearSystem','_logic'];\
+					 _this params ['_ctrlCombo','_cursel','_AOType','_logic'];\
 					 _logic setvariable ['AOType_value',_AOType];\
 					 private _n = 0;\
 				 	 private _ctrlGroup = ctrlParentControlsGroup ctrlParentControlsGroup _ctrlCombo;\
@@ -67,7 +71,7 @@ class UO_FW_AOModeAttribute: Combo {
 							private _state = true;\
 				 			if (isArray(_cfg >> 'AOTypes')) then {\
 				 				 	_AOTypes = getarray (_cfg >> 'AOTypes');\
-									if (_AOType in _AOTypes) then {\
+									if !(_AOType in _AOTypes) then {\
 										_state = _state && false;\
 									};\
 				 			};\

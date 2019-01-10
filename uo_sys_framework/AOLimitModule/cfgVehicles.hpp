@@ -126,7 +126,7 @@
 					control = "EditShort";
 					expression = "_this setVariable ['%s',_value,true];";
 					defaultValue = "30";
-					AOTypes[] = {0};
+					AOTypes[] = {"SOFT"};
 					typeName = "number";
 					validate = "number";
 				};
@@ -137,7 +137,7 @@
 					control = "EditShort";
 					expression = "_this setVariable ['%s',_value,true];";
 					defaultValue = "120";
-					AOTypes[] = {0};
+					AOTypes[] = {"SOFT"};
 					typeName = "number";
 					validate = "number";
 				};

@@ -89,7 +89,7 @@ class UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo: Combo
 				_ctrlCombo = _this select 0;\
 			  _cursel = _this select 1;\
 				_value = _control lbData _cursel;\
-				_config = _ctrlCombo getvariable ['UO_FW_parentcontrolcfg',''];\
+				private _config = _ctrlCombo getvariable ['UO_FW_parentcontrolcfg',''];\
 				private _attProperty = getText (_config >> 'property');\
 				MissionNamespace setvariable [_attProperty,_value];\
 			";

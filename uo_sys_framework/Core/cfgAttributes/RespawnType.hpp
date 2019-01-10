@@ -1,12 +1,23 @@
 class UO_FW_RespawnComboAttribute: Combo {
-	attributeSave = "(_this controlsGroupCtrl 100) lbData lbCurSel (_this controlsGroupCtrl 100)";
+	attributeSave = "\
+		_value = (_this controlsGroupCtrl 100) lbData lbCurSel (_this controlsGroupCtrl 100);\
+		_value\
+		";
 	attributeLoad ="\
-		[_this,_value] spawn {\
+		[_this,_config,_value] spawn {\
 		disableserialization;\
-		params ['_config','_value'];\
-		private _ctrlCombo = (_config controlsGroupCtrl 100);\
-		private _n = 0;\
+		params ['_ctrl','_config','_value'];\
+		private _ctrlCombo = (_ctrl controlsGroupCtrl 100);\
+		_ctrlCombo setvariable ['UO_FW_parentcontrolcfg',_config];\
+		diag_log format ['attrload1 _config:%1',_config];\
+		private _configH = configHierarchy _config;\
+		diag_log format ['attrload1 _configH:%1',_configH];\
+		private _configHParent = _configH select ((count _configH) - 2);\
+		diag_log format ['attrload1 _configHParent:%1',_configHParent];\
+		private _cfgAttributes = [_configHParent,1] call BIS_fnc_returnChildren;\
+		diag_log format ['attrload1 _cfgAttributes:%1',_cfgAttributes];\
 		private _ctrlGroup = ctrlParentControlsGroup ctrlParentControlsGroup _ctrlCombo;\
+		private _respawnSystem = _value;\
 		_respawnTypeArray = [['1 Life','ONELIFE'],['Unlimited','UNLIMITED'],['Individual Tickets','INDTICKETS'],['Team Tickets','TEAMTICKETS'],['Wave','WAVE'],['Triggered','TRIGGERED']];\
 		{\
 			_x params ['_name','_string'];\
@@ -17,26 +28,26 @@ class UO_FW_RespawnComboAttribute: Combo {
 				_ctrlCombo lbSetCurSel _index;\
 			};\
 		} foreach _respawnTypeArray;\
-		private _cfgAttributes = [configFile >> 'Cfg3den' >> 'Object' >> 'AttributeCategories' >> 'UO_FW_Gear' >> 'Attributes',0] call BIS_fnc_returnChildren;\
+		private _n = 0;\
 		{\
-			 if (ctrlParentControlsGroup _x isEqualto _ctrlGroup) then {\
-				private _cfg = _cfgAttributes select _n;\
-				_n = _n + 1;\
-				private _state = true;\
-				if (isArray(_cfg >> 'GearSystems')) then {\
-					private _GearSystems = getarray (_cfg >> 'GearSystems');\
-					if !(_value in _GearSystems) then {\
-						_state = _state && false;\
-					};\
-				};\
-				_fade = [0.75,0] select _state;\
-				_x ctrlenable _state;\
-				_x ctrlsetfade _fade;\
-				_x ctrlcommit 0;\
-				ctrlsetfocus _x;\
-				ctrlsetfocus _ctrlCombo;\
-			};\
-		} foreach (allcontrols (ctrlparent _ctrlCombo));\
+			if (ctrlParentControlsGroup _x isEqualto _ctrlGroup) then {\
+			 private _cfg = _cfgAttributes select _n;\
+			 _n = _n + 1;\
+			 private _state = true;\
+			 if (isArray(_cfg >> 'respawnSystems')) then {\
+				 private _respawnSystems = getarray (_cfg >> 'respawnSystems');\
+				 if !(_respawnSystem in _respawnSystems) then {\
+					 _state = _state && false;\
+				 };\
+			 };\
+			 _fade = [0.75,0] select _state;\
+			 _x ctrlenable _state;\
+			 _x ctrlsetfade _fade;\
+			 _x ctrlcommit 0;\
+			 ctrlsetfocus _x;\
+			 ctrlsetfocus _ctrlCombo;\
+		 };\
+	 } foreach (allcontrols (ctrlparent _ctrlCombo));\
 	 };";
 	class Controls: Controls {
 		class Title: Title {};
@@ -50,7 +61,14 @@ class UO_FW_RespawnComboAttribute: Combo {
 				 _this params ['_ctrlCombo','_cursel','_respawnSystem'];\
 				 private _n = 0;\
 			 	 private _ctrlGroup = ctrlParentControlsGroup ctrlParentControlsGroup _ctrlCombo;\
-			 	 private _cfgAttributes = [configFile >> 'Cfg3den' >> 'Mission' >> 'AttributeCategories' >> 'UO_FW_Respawn_Settings' >> 'Attributes',0] call BIS_fnc_returnChildren;\
+				 private _config = _ctrlCombo getvariable ['UO_FW_parentcontrolcfg',''];\
+				 diag_log format ['selchanged _config:%1',_config];\
+				 private _configH = configHierarchy _config;\
+				 diag_log format ['selchanged _configH:%1',_configH];\
+				 private _configHParent = _configH select ((count _configH) - 2);\
+				 diag_log format ['selchanged _configHParent:%1',_configHParent];\
+				 private _cfgAttributes = [_configHParent,1] call BIS_fnc_returnChildren;\
+				 diag_log format ['selchanged _cfgAttributes:%1',_cfgAttributes];\
 				 {\
 			 		 if (ctrlParentControlsGroup _x isEqualto _ctrlGroup) then {\
 			 			private _cfg = _cfgAttributes select _n;\
