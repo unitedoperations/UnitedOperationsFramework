@@ -14,7 +14,7 @@ class UO_FW_EndConditions_Custom_File {
             property = "UO_FW_EndConditions_File_Path";
             displayName = "Path to End Condition File";
             tooltip = "Path to End Condition File";
-			control = "Edit";
+			      control = "Edit";
             validate = "STRING";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
