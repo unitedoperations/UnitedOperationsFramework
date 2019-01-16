@@ -1,6 +1,4 @@
-class UO_FW_ENDCONDITIONS_EXTRACTTEAM: Title {
-	attributeLoad = "missionnamespace setvariable ['UO_FW_ENDCONDITIONS_EXTRACTTEAM_value',_value]; (_this controlsGroupCtrl 913337) lbsetcursel _value;";
-	attributeSave = "missionnamespace getvariable ['UO_FW_ENDCONDITIONS_EXTRACTTEAM_value',0];";
+class UO_FW_EndConditions_ExtractTeam: Toolbox {
 	h = "8 * (pixelH * pixelGrid * 0.50)";
 	class Controls: Controls {
 		class Title: Title {};
@@ -14,7 +12,6 @@ class UO_FW_ENDCONDITIONS_EXTRACTTEAM: Title {
             columns = 4;
 			strings[] = {"BLUFOR","OPFOR","INDFOR","CIV"};
 			values[] = {0,1,2,3};
-			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_ENDCONDITIONS_EXTRACTTEAM_value',(_this select 1)];";
 		};
 	};
 };

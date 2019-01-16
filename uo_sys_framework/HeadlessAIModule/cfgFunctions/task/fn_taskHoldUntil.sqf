@@ -29,7 +29,7 @@ params [
 	["_wpcount",10,[0]],
 	"_i"
 ];
-{_x forcespeed -1; _x enableAI "PATH";} foreach units _grp;
+{_x forcespeed -1; _x enableAI "Path";} foreach units _grp;
 
 _grp call CBA_fnc_clearWaypoints;
 _grp setBehaviour _behave;

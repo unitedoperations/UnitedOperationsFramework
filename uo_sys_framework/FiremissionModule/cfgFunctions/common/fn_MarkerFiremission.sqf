@@ -1,8 +1,6 @@
 #include "..\..\Global\defs.hpp"
-if (isServer) then
-	{
-		_handle = _this spawn
-		{
+if (isServer) then {
+		_handle = _this spawn {
 				private _unit = _this select 0;
 				private	_targetMarker = _this select 1;
 				private	_salvoCount = _this select 2;
@@ -20,8 +18,7 @@ if (isServer) then
 					[_unit,_targetMarker,_roundClassName ] call UO_FW_FNC_InternalSpottingFiremission;
 					//spotting rounds finished
 					sleep( (_unit getVariable [VAR_SART_ARTCALCSPEED,MEANCALCULATIONTIME]) + 1);
-					for "_i" from 0 to _salvoCount do
-					{
+					for "_i" from 0 to _salvoCount do {
 							_randomPos = [[_targetMarker],[]] call BIS_fnc_randomPos;
 							[_unit,_randomPos,0,_salvoSize,_roundClassName] call UO_FW_FNC_InternalFiremission;
 								[_unit, ((_unit getVariable [VAR_SART_ARTROUNDSFIRED,[0,0]]) select 0) + _salvoSize,_salvoCount * _salvoSize] call UO_FW_FNC_SetArtyFiremissionRoundsRequired;

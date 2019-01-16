@@ -6,7 +6,7 @@ params [["_mode","",[""]],["_input",[],[[]]]];
 switch _mode do {
 	case "init": {
 		if !is3DEN then {
-			if (!UO_FW_SERVER_COVERMAPMODULE_ALLOWED) exitWith {};
+			if (!UO_FW_Server_CoverMapModule_Allowed) exitWith {};
 			if (!UO_FW_CoverMap_Enable) exitWith {};
 			_input params ["_logic",["_isActivated",true,[true]],["_isCuratorPlaced",false,[false]]];
 			if !(_isActivated) exitWith {};
@@ -17,7 +17,7 @@ switch _mode do {
 				_radiusX = _logic getVariable ["UO_FW_CoverMap_RadiusX",100];
 				_radiusY = _logic getVariable ["UO_FW_CoverMap_RadiusY",100];
 				_direction = getdir _logic;
-				//_isRectangle = if((typeof _logic) isEqualTo "UO_FW_CoverMapModule_R") then {true} else {false};
+				//_isRectangle = if ((typeof _logic) isEqualTo "UO_FW_CoverMapModule_R") then {true} else {false};
 				_area = [_loc,_radiusX,_radiusY,_direction,true];
 
 				if (isNil "UO_FW_CoverMap_AO_Array") then {UO_FW_CoverMap_AO_Array = [];};

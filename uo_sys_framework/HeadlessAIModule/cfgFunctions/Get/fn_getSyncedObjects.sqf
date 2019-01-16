@@ -17,9 +17,9 @@ params ["_logic",["_entities",[[], [], []],[[]]],["_vehLog",[],[[]]],"_o","_j","
 			if (_obj isKindOf "Thing") then {
 				(_entities select 2) pushback ([_obj] call UO_FW_AI_fnc_getDetailsThing);
 			};
-			if(_obj isKindOf "StaticWeapon" || _obj isKindOf "Static" || _obj isKindOf "Air" || _obj isKindOf "Ship" || _obj isKindOf "LandVehicle") then {
-				private _grp = if(_obj isKindOf "StaticWeapon" || _obj isKindOf "Static") then {group (gunner _obj)} else {group (driver _obj)};
-				if(isNull _grp) then {
+			if (_obj isKindOf "StaticWeapon" || _obj isKindOf "Static" || _obj isKindOf "Air" || _obj isKindOf "Ship" || _obj isKindOf "LandVehicle") then {
+				private _grp = if (_obj isKindOf "StaticWeapon" || _obj isKindOf "Static") then {group (gunner _obj)} else {group (driver _obj)};
+				if (isNull _grp) then {
 					(_entities select 1) pushback ([_obj] call UO_FW_AI_fnc_getDetailsVehicleEmpty);
 				};
 			};
@@ -33,9 +33,9 @@ params ["_logic",["_entities",[[], [], []],[[]]],["_vehLog",[],[[]]],"_o","_j","
 					private _gx = _grp getVariable ['UO_FW_AI_multiplier',1];
 					private _grpPosArray = [];
 					private _grpPosNew = _grpPos;
-					if(_grp getVariable ['UO_FW_AI_createRadius',0] > 1) then {
+					if (_grp getVariable ['UO_FW_AI_createRadius',0] > 1) then {
 						_grpPosArray = [_grpPos,0,(_grp getVariable 'UO_FW_AI_createRadius'),(_gx*5)] call UO_FW_AI_fnc_getRandomPositionCircle;
-						if(!(_grpPosArray isEqualTo [])) then {
+						if (!(_grpPosArray isEqualTo [])) then {
 							_index = (floor random (count _grpPosArray));
 							_grpPosNew = _grpPosArray select _index;
 							_grpPosArray deleteAt _index;
@@ -44,19 +44,19 @@ params ["_logic",["_entities",[[], [], []],[[]]],["_vehLog",[],[[]]],"_o","_j","
 					for [{_j=0}, {(_j < (count _units))}, {_j = _j + 1}] do {
 						private _u = _units select _j;
 						private _unitpos = getPosATL _u;
-						if(!(_grpPosNew isEqualTo _grpPos)) then {
+						if (!(_grpPosNew isEqualTo _grpPos)) then {
 							_unitpos = [_grpPosNew,_grpldr,_u] call UO_FW_AI_fnc_getNewPos;
 						};
 						private _veh = assignedVehicle _u;
 						if (!isNull _veh) then {
 							private _vehPos = getposATL _veh;
-							if(!(_grpPosNew isEqualTo _grpPos)) then {_vehPos = _grpPosNew;};
-							if(!(_veh in _vehLog)) then {
+							if (!(_grpPosNew isEqualTo _grpPos)) then {_vehPos = _grpPosNew;};
+							if (!(_veh in _vehLog)) then {
 								(_group select 2) pushBack ([_veh,_vehPos] call UO_FW_AI_fnc_getDetailsVehicle);
 								_vehLog pushBack _veh;
 							};
 						};
-						if(_grpldr == _u) then {
+						if (_grpldr == _u) then {
 							{
 								(_group select 1) pushback _x;
 							} forEach ([_u,_grpPosNew] call UO_FW_AI_fnc_getDetailsGroup);
@@ -68,17 +68,17 @@ params ["_logic",["_entities",[[], [], []],[[]]],["_vehLog",[],[[]]],"_o","_j","
 					private _newOccupy = [(_grp getVariable ['UO_FW_AI_multiOccupy',0])] call UO_FW_AI_fnc_setMultiOccupy;
 					private _currentPos = ((_group select 1) select 1);
 					for [{_g=0},{(_g < _gx)},{_g=_g+1}] do {
-						if(_newOccupy isEqualTo 0 && _gx isEqualTo 1) then {
+						if (_newOccupy isEqualTo 0 && _gx isEqualTo 1) then {
 							(_entities select 0) pushback _group;
 						} else {
-							if(_gx > 1) then {
-								if(!(_grpPosArray isEqualTo [])) then {
+							if (_gx > 1) then {
+								if (!(_grpPosArray isEqualTo [])) then {
 									_index = (floor random (count _grpPosArray));
 									_currentPos = _grpPosArray select _index;
 									_grpPosArray deleteAt _index;
 								};
 							};
-							if(_g < _newOccupy || _newOccupy isEqualTo 0) then {
+							if (_g < _newOccupy || _newOccupy isEqualTo 0) then {
 								_newgroup = +_group;
 								_newgroup set [0,format["%1_%2",(str _grp),_g]];
 								(_newgroup select 1) set [1, _currentPos];
@@ -119,9 +119,9 @@ params ["_logic",["_entities",[[], [], []],[[]]],["_vehLog",[],[[]]],"_o","_j","
 					if (_obj isKindOf "Thing") then {
 						(_entities select 2) pushback ([_obj,_position] call UO_FW_AI_fnc_getDetailsThing);
 					};
-					if(_obj isKindOf "StaticWeapon" || _obj isKindOf "Static" || _obj isKindOf "Air" || _obj isKindOf "Ship" || _obj isKindOf "LandVehicle") then {
-						private _grp = if(_obj isKindOf "StaticWeapon" || _obj isKindOf "Static") then {group (gunner _obj)} else {group (driver _obj)};
-						if(isNull _grp) then {
+					if (_obj isKindOf "StaticWeapon" || _obj isKindOf "Static" || _obj isKindOf "Air" || _obj isKindOf "Ship" || _obj isKindOf "LandVehicle") then {
+						private _grp = if (_obj isKindOf "StaticWeapon" || _obj isKindOf "Static") then {group (gunner _obj)} else {group (driver _obj)};
+						if (isNull _grp) then {
 							(_entities select 1) pushback ([_obj,_position] call UO_FW_AI_fnc_getDetailsVehicleEmpty);
 						};
 					};
@@ -137,7 +137,7 @@ params ["_logic",["_entities",[[], [], []],[[]]],["_vehLog",[],[[]]],"_o","_j","
 							private _grpPosNew = _grpPos;
 							private _grpRadius = _grp getVariable ['UO_FW_AI_createRadius',0];
 							private _posRadius = _posModule getVariable ['UO_FW_AI_PositionRadius',0];
-							if(_grpRadius > 1 || _posRadius > 1) then {
+							if (_grpRadius > 1 || _posRadius > 1) then {
 								if (_grpRadius > 1) then {
 									_grpPosArray = [_grpPos,0,_grpRadius,(_gx*5)] call UO_FW_AI_fnc_getRandomPositionCircle;
 								} else {
@@ -145,7 +145,7 @@ params ["_logic",["_entities",[[], [], []],[[]]],["_vehLog",[],[[]]],"_o","_j","
 										_grpPosArray = [_grpPos,0,_posRadius,(_gx*5)] call UO_FW_AI_fnc_getRandomPositionCircle;
 									};
 								};
-								if(!(_grpPosArray isEqualTo [])) then {
+								if (!(_grpPosArray isEqualTo [])) then {
 									_index = (floor random (count _grpPosArray));
 									_grpPosNew = _grpPosArray select _index;
 									_grpPosArray deleteAt _index;
@@ -157,13 +157,13 @@ params ["_logic",["_entities",[[], [], []],[[]]],["_vehLog",[],[[]]],"_o","_j","
 								private _veh = assignedVehicle _u;
 								if (!isNull _veh) then {
 									private _vehPos = getposATL _veh;
-									if(!(_grpPosNew isEqualTo _grpPos)) then {_vehPos = _grpPosNew;};
-									if(!(_veh in _vehLog)) then {
+									if (!(_grpPosNew isEqualTo _grpPos)) then {_vehPos = _grpPosNew;};
+									if (!(_veh in _vehLog)) then {
 										(_group select 2) pushBack ([_veh,_vehPos] call UO_FW_AI_fnc_getDetailsVehicle);
 										_vehLog pushBack _veh;
 									};
 								};
-								if(_grpldr == _u) then {
+								if (_grpldr == _u) then {
 									{
 										(_group select 1) pushback _x;
 									} forEach ([_u,_grpPosNew] call UO_FW_AI_fnc_getDetailsGroup);
@@ -175,17 +175,17 @@ params ["_logic",["_entities",[[], [], []],[[]]],["_vehLog",[],[[]]],"_o","_j","
 							private _newOccupy = [(_grp getVariable ['UO_FW_AI_multiOccupy',0])] call UO_FW_AI_fnc_setMultiOccupy;
 							private _currentPos = ((_group select 1) select 1);
 							for [{_g=0},{(_g < _gx)},{_g=_g+1}] do {
-								if(_newOccupy isEqualTo 0 && _gx isEqualTo 1) then {
+								if (_newOccupy isEqualTo 0 && _gx isEqualTo 1) then {
 									(_entities select 0) pushback _group;
 								} else {
-									if(_gx > 1) then {
-										if(!(_grpPosArray isEqualTo [])) then {
+									if (_gx > 1) then {
+										if (!(_grpPosArray isEqualTo [])) then {
 											_index = (floor random (count _grpPosArray));
 											_currentPos = _grpPosArray select _index;
 											_grpPosArray deleteAt _index;
 										};
 									};
-									if(_g < _newOccupy || _newOccupy isEqualTo 0) then {
+									if (_g < _newOccupy || _newOccupy isEqualTo 0) then {
 										_newgroup = +_group;
 										_newgroup set [0,format["%1_%2",(str _grp),_g]];
 										(_newgroup select 1) set [1, _currentPos];

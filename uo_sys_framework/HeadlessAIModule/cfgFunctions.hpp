@@ -1,5 +1,4 @@
-class UO_Framework_AI
-{
+class UO_Framework_AI {
 	tag = "UO_FW_AI";
 	class UO_FW_AI_Common {
 		file = "x\UO_FW\addons\main\HeadlessAIModule\cfgFunctions\common";

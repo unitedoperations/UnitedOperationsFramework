@@ -24,28 +24,23 @@ private _GroupUnits = units _Group;
 _Unit setVariable ["UO_FW_AI_GARRISONED",true];
 _Group setVariable ["UO_FW_AI_GARRISONED",true];
 private _WaypointIs = "HOLD";
-while {_WaypointIs isEqualTo "HOLD"} do
-{
+while {_WaypointIs isEqualTo "HOLD"} do {
 	private _index = currentWaypoint _Group;
 	private _WaypointIs = waypointType [_Group,_index];
 	private _TempA = _BuildingPositions;
-	if (count _TempA > 0) then
-	{
+	if (count _TempA > 0) then {
 		{
 			private _Foot = isNull objectParent _x;
-			if (_Foot) then
-			{
+			if (_Foot) then {
 			private _BuildingLocation = selectRandom _TempA;
-			if !(isNil "_BuildingLocation") then
-			{
+			if !(isNil "_BuildingLocation") then {
 				_x doMove _BuildingLocation;
 				_x setUnitPos "UP";
-				[_x,_BuildingLocation] spawn
-				{
+				[_x,_BuildingLocation] spawn {
 					params ["_unit","_BuildingLocation"];
 					if (isNil "_BuildingLocation") exitWith {};
 					waitUntil {!alive _unit || {_unit distance _BuildingLocation < 1.3}};
-					_unit disableAI "PATH";
+					_unit disableAI "Path";
 				};
 				private _RMV = _TempA findIf {BuildingLocation isEqualTo _x};
 				_TempA deleteAt _RMV;

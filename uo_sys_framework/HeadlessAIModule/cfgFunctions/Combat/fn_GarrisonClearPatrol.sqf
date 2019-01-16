@@ -10,8 +10,7 @@ sleep (random 5);
 			_UnitPosition = getposATL _Enemy;
 			_AcceptableRange = _UnitPosition select 2;
 			{
-				if ((_x select 2) < (_AcceptableRange - 1) || (_x select 2) > (_AcceptableRange + 1)) then
-				{
+				if ((_x select 2) < (_AcceptableRange - 1) || (_x select 2) > (_AcceptableRange + 1)) then {
 					_RefinedBuildingArray = _RefinedBuildingArray - [_x];
 				};
 
@@ -23,8 +22,7 @@ sleep (random 5);
 
 
 if (isNil "_closestpos") exitWith {};
-while {(_Unit distance _ClosestPos) > 3 && alive _Unit} do
-{
+while {(_Unit distance _ClosestPos) > 3 && alive _Unit} do {
 
 			_Unit doMove _ClosestPos;
 			sleep 5;
@@ -36,8 +34,7 @@ while {(_Unit distance _ClosestPos) > 3 && alive _Unit} do
 			_UnitPosition = getposATL _Enemy;
 			_AcceptableRange = _UnitPosition select 2;
 			{
-				if ((_x select 2) < (_AcceptableRange - 1) || (_x select 2) > (_AcceptableRange + 1)) then
-				{
+				if ((_x select 2) < (_AcceptableRange - 1) || (_x select 2) > (_AcceptableRange + 1)) then {
 					_RefinedBuildingArray = _RefinedBuildingArray - [_x];
 				};
 

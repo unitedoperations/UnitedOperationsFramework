@@ -13,22 +13,19 @@ private _Vehicle = (vehicle _Driver);
 
 	private _CargoCount = 0;
 	private _CargoList = [];
-	
+
 	private _VehSeats = fullCrew [_Vehicle,"",false];
 	{
 		//[<NULL-object>,"cargo",2,[],false]
-		if ((_x select 1) isEqualTo "cargo") then  
-		{
+		if ((_x select 1) isEqualTo "cargo") then   {
 			_CargoCount = _CargoCount + 1;
 			_CargoList pushBack (_x select 0);
 		};
-	} foreach _VehSeats;	
-	
-	
-	if (_CargoCount > 0) then 
-	{
-			if ((getPos _Vehicle select 2) < 3 && {(_myNearestEnemy distance _Driver) < 600}) then 
-			{
+	} foreach _VehSeats;
+
+
+	if (_CargoCount > 0) then  {
+			if ((getPos _Vehicle select 2) < 3 && {(_myNearestEnemy distance _Driver) < 600}) then  {
 				_Driver disableAI "AUTOTARGET";
 				_Driver disableAI "TARGET";
 				_Driver disableAI "SUPPRESSION";
@@ -46,30 +43,26 @@ private _Vehicle = (vehicle _Driver);
 					//_x leaveVehicle _Vehicle;
 					unassignVehicle _U;
 					sleep 1;
-					//[_x,false,false,false,false] spawn UO_FW_AI_fnc_MoveToCover;			
-					if (UO_FW_AI_DEBUG) then
-					{
+					//[_x,false,false,false,false] spawn UO_FW_AI_fnc_MoveToCover;
+					if (UO_FW_AI_DEBUG) then {
 						private _debugmsg = format ["%1 was hit! Passengers disembarking!",_Vehicle];
 						UO_FW_DEBUG("",_debugmsg);
-					};	
-					if ((leader _U) isEqualTo _U) then 
-					{
+					};
+					if ((leader _U) isEqualTo _U) then  {
 							_waypoint2 = (group _U) addwaypoint[_myNearestEnemy,15,150];
 							_waypoint2 setwaypointtype "MOVE";
 							_waypoint2 setWaypointSpeed "NORMAL";
 							_waypoint2 setWaypointBehaviour "AWARE";
-					};							
+					};
 					[_U,false,false,false,false] spawn UO_FW_AI_fnc_MoveToCover;
-				} foreach _CargoList;			
+				} foreach _CargoList;
 				_Driver enableAI "AUTOTARGET";
 				_Driver enableAI "TARGET";
 				_Driver enableAI "SUPPRESSION";
 				_Driver enableAI "COVER";
 			}
-			else
-			{
-				if ((_myNearestEnemy distance _Driver) < 700) then
-				{
+			else {
+				if ((_myNearestEnemy distance _Driver) < 700) then {
 					_Driver disableAI "AUTOTARGET";
 					_Driver disableAI "TARGET";
 					_Driver disableAI "SUPPRESSION";
@@ -80,7 +73,7 @@ private _Vehicle = (vehicle _Driver);
 					waitUntil {(speed _Vehicle) < 6;};
 					_Driver forcespeed 0; _Driver spawn {sleep 8;_this forceSpeed -1;};
 					_CargoList allowGetIn false;
-					_CargoList spawn {sleep 120;_this allowGetIn true;};					
+					_CargoList spawn {sleep 120;_this allowGetIn true;};
 					{
 						private _U = _x;
 						moveOut _U;
@@ -89,20 +82,18 @@ private _Vehicle = (vehicle _Driver);
 						unassignVehicle _U;
 						sleep 1;
 						//[_x,false,false,false,false] spawn UO_FW_AI_fnc_MoveToCover;
-						if (UO_FW_AI_DEBUG) then
-						{
+						if (UO_FW_AI_DEBUG) then {
 							private _debugmsg = format ["%1 was hit! Passengers disembarking!",_Vehicle];
 							UO_FW_DEBUG("",_debugmsg);
-						};							
-						if ((leader _U) isEqualTo _U) then 
-						{
+						};
+						if ((leader _U) isEqualTo _U) then  {
 								_waypoint2 = (group _U) addwaypoint[_myNearestEnemy,15,150];
 								_waypoint2 setwaypointtype "MOVE";
 								_waypoint2 setWaypointSpeed "NORMAL";
 								_waypoint2 setWaypointBehaviour "AWARE";
-						};							
+						};
 						[_U,false,false,false,false] spawn UO_FW_AI_fnc_MoveToCover;
-					} foreach _CargoList;						
+					} foreach _CargoList;
 					_Driver enableAI "AUTOTARGET";
 					_Driver enableAI "TARGET";
 					_Driver enableAI "SUPPRESSION";
@@ -113,40 +104,35 @@ private _Vehicle = (vehicle _Driver);
 
 
 
-	
-	
-		if ((count (units _UnitGroup)) > 1) then
-		{
+
+
+		if ((count (units _UnitGroup)) > 1) then {
 				[_Driver,false,false,(_Driver getVariable ["UO_FW_AI_StartedInside",false]),false] spawn UO_FW_AI_fnc_FlankManeuver;
-				
-			
+
+
 			_GroupLeader = leader _Driver;
-			
-			if (_GroupLeader isEqualTo _Driver) then
-			{
-			
+
+			if (_GroupLeader isEqualTo _Driver) then {
+
 				_index = currentWaypoint _UnitGroup;
 				_WPPosition = getWPPos [_UnitGroup,_index];
 				_Driver doMove _WPPosition;
-			
-			
-			
+
+
+
 			}
-			else
-			{
-			
+			else {
+
 				_Driver doFollow _GroupLeader;
-			
-			
+
+
 			};
 		};
-	
-	if ((count (waypoints _UnitGroup)) < 2) then
-	{		
-		
+
+	if ((count (waypoints _UnitGroup)) < 2) then {
+
 				_index = currentWaypoint _UnitGroup;
 				_WPPosition = getWPPos [_UnitGroup,_index];
 				_Driver doMove _WPPosition;
 
 	};
-	

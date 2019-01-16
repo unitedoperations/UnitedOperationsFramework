@@ -8,10 +8,7 @@ class UO_FW_Gear_ComboGearLoad: ComboPreview {
 	";
 	//_this - config, _value - saved value
 	attributeLoad="\
-	[_this,_config,_value] spawn {\
-		disableserialization;\
-		params ['_ctrl','_config','_value'];\
-		private _control = (_ctrl controlsGroupCtrl 100);\
+		private _control = (_this controlsGroupCtrl 100);\
 		_control setvariable ['UO_FW_parentcontrolcfg',_config];\
 		_classArray = [['None','NONE'],['Rifleman','RFL'],['Rifleman AT','RFLAT'],['Automatic Rifleman','AR'],['Grenadier','GRN'],['Team Leader','TL'],['Squad Leader','SQL'],['Anti Tank','AT'],['Assistant Anti Tank','AAT'],['Machinegunner','MGA'],['Assistant Machinegunner','AMG'],['Vehicle Crewman','VCRW'],['Vehicle Commander','VCMD'],['Officer','OFF'],['RATELO','RTO'],['FAC','FAC'],['Custom 1','CUS1'],['Custom 2','CUS2'],['Custom 3','CUS3'],['Custom 4','CUS4'],['Custom 5','CUS5'],['Manual Define','MANUAL']];\
 		{\
@@ -25,7 +22,6 @@ class UO_FW_Gear_ComboGearLoad: ComboPreview {
 				_unit setvariable ['UO_FW_Gear_UnitClass',_value,true];\
 			};\
 		} foreach _classArray;\
-	};\
 	";
 	class Controls: Controls
 	{
@@ -33,7 +29,7 @@ class UO_FW_Gear_ComboGearLoad: ComboPreview {
 		class Value: Value {
 			onLBSelChanged="\
 				_ctrlCombo = _this select 0;\
-			  _cursel = _this select 1;\
+				_cursel = _this select 1;\
 				_value = _control lbData _cursel;\
 				private _unit = ((get3denselected 'object') select 0);\
 				_unit setvariable ['UO_FW_Gear_UnitClass',_value,true];\
@@ -43,16 +39,13 @@ class UO_FW_Gear_ComboGearLoad: ComboPreview {
 		{
 			idc=101;
 			onMouseButtonClick="\
-				_this spawn {\
-					disableserialization;\
-					_ctrlButton = _this select 0;\
-					_ctrlGroup = ctrlParentControlsGroup _ctrlButton;\
-					_ctrlCombo = _ctrlGroup controlsgroupctrl 100;\
-					_unit = ((get3denselected 'object') select 0);\
-					_GearSystem = _unit getvariable ['UO_FW_3DENATTR_GearSystem','NONE'];\
-					if ((_GearSystem isEqualto 'ACEAR') || (_GearSystem isEqualto 'OLSEN')) then {\
-						[(_ctrlCombo lbData lbcursel _ctrlCombo),_unit,_GearSystem] call UO_FW_fnc_GearTypeLoadfromAttribute;\
-					};\
+				_ctrlButton = _this select 0;\
+				_ctrlGroup = ctrlParentControlsGroup _ctrlButton;\
+				_ctrlCombo = _ctrlGroup controlsgroupctrl 100;\
+				_unit = ((get3denselected 'object') select 0);\
+				_GearSystem = _unit getvariable ['UO_FW_3DENATTR_GearSystem','NONE'];\
+				if ((_GearSystem isEqualto 'ACEAR') || (_GearSystem isEqualto 'OLSEN')) then {\
+					[(_ctrlCombo lbData lbcursel _ctrlCombo),_unit,_GearSystem] call UO_FW_fnc_GearTypeLoadfromAttribute;\
 				};\
 			";
 		};

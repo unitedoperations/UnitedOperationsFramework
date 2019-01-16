@@ -11,10 +11,10 @@
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 UO_FW_EXEC_CHECK(ALL);
 
-if !(UO_FW_SERVER_SELFACTIONSMODULE_ALLOWED) exitwith {};
+if !(UO_FW_Server_SelfActionsModule_Allowed) exitwith {};
 
-if(!hasInterface) exitWith {};
-["Self Actions", "Allows players to check their own team color, view other's maps and cut grass.", "TinfoilHate and PiZZADOX"] call UO_FW_FNC_RegisterModule;
+if (!hasInterface) exitWith {};
+["Self Actions", "Allows players to check their own team color, view other's maps and cut grass.", "TinfoilHate and PiZZADOX"] call UO_FW_fnc_RegisterModule;
 [{!isNull player}, {
 	if (!UO_FW_SelfActions_Enable) exitwith {};
 

@@ -30,8 +30,8 @@ params [
 	["_radius",30,[0]],
 	["_wait",3,[0]],
 	["_behaviour", "UNCHANGED", [""]],
-  ["_combat", "NO CHANGE", [""]],
-  ["_speed", "UNCHANGED", [""]],
+  	["_combat", "NO CHANGE", [""]],
+  	["_speed", "UNCHANGED", [""]],
 	["_formation", "NO CHANGE", [""]],
 	["_type","MOVE",[""]],
 	["_oncomplete","this call UO_FW_AI_fnc_taskSearchNearby",[""]],
@@ -47,7 +47,7 @@ if (_radius < 30) then {
 LOG_1("taskPatrol started _this: %1",_this);
 _grp = _grp call CBA_fnc_getGroup;
 if !(local _grp) exitWith {}; // Don't create waypoints on each machine
-{_x forcespeed -1; _x enableAI "PATH";} foreach (units _grp);
+{_x forcespeed -1; _x enableAI "Path";} foreach (units _grp);
 
 //_grp call CBA_fnc_clearWaypoints;
 //CBA backup

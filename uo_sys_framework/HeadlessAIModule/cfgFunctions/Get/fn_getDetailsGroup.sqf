@@ -12,9 +12,9 @@ UO_FW_AI_EXEC_CHECK(SERVERHC);
 	private _grp = (group _u);
 	private _grpInit = _grp getVariable ["UO_FW_AI_groupInit","true"];
 	private _occupy = _grp getVariable ['UO_FW_AI_occupyOption',0];
-	if(_occupy isEqualTo 1) then {_occupy = floor(random [2,5,7])};
-	if(typename _grpInit isEqualTo "STRING") then {_grpInit = compile _grpInit;};
-	private _vehAssigned = if((assignedVehicleRole _u) isEqualTo [])then{false}else{true};
+	if (_occupy isEqualTo 1) then {_occupy = floor(random [2,5,7])};
+	if (typename _grpInit isEqualTo "STRING") then {_grpInit = compile _grpInit;};
+	private _vehAssigned = if ((assignedVehicleRole _u) isEqualTo [])then{false}else{true};
 	_return = [
 		side _u,
 		_pos,

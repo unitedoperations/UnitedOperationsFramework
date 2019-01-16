@@ -64,8 +64,8 @@ if (!isNull(_target)) then {
 		_pos = [getpos _target, 1, 10, 1, 0, 25, 0] call BIS_fnc_findSafePos;
 		if (_pos distance _target <= 10) then {
 			_enemy = false;
-			if (UO_FW_JIP_ENEMYDISTANCE > 0) then {
-				_nearestentitiesArray = _target nearEntities [["Car", "Motorcycle", "Tank", "Man"], UO_FW_JIP_ENEMYDISTANCE];
+			if (UO_FW_JIP_EnemyDISTANCE > 0) then {
+				_nearestentitiesArray = _target nearEntities [["Car", "Motorcycle", "Tank", "Man"], UO_FW_JIP_EnemyDISTANCE];
 				{
 					if ([side _x, side player] call BIS_fnc_sideIsEnemy) exitwith {_enemy = true;};
 				} foreach _nearestentitiesArray;

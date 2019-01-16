@@ -1,8 +1,7 @@
 class UO_FW_ImportFromClipboardAttribute: Title {
 	class Controls: Controls {
 		class Title: Title {};
-		class Value: ctrlButtonPictureKeepAspect
-		{
+		class Value: ctrlButtonPictureKeepAspect {
 			idc=100;
 			x="(48) * (pixelW * pixelGrid * 	0.50)";
 			w="0.99 * 	5 * (pixelW * pixelGrid * 	0.50)";

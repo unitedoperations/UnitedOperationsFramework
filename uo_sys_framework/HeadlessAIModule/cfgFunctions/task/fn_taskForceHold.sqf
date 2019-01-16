@@ -15,7 +15,7 @@ UO_FW_AI_EXEC_CHECK(SERVERHC);
 
 
 params["_grp",["_behave","SAFE",[""]],["_combat","RED",[""]],["_speed","LIMITED",[""]],["_formation","WEDGE",[""]],"_i"];
-{_x forcespeed -1; _x enableAI "PATH";} foreach units _grp;
+{_x forcespeed -1; _x enableAI "Path";} foreach units _grp;
 _grp setBehaviour _behave;
 _grp setCombatMode _combat;
 _grp setSpeedMode _speed;
@@ -24,7 +24,7 @@ private _units = units _grp;
 for [{_i=0},{(_i < count _units)},{_i = _i + 1}] do {
 	private _u = _units select _i;
 	_u doWatch ((getPosATL _u) vectorAdd((vectorDir _u) vectorMultiply 100));
-	_u disableAI "PATH";
+	_u disableAI "Path";
 };
 _grp setvariable ["InitialWPSet",true];
 _grp setVariable ["UO_FW_AI_Mission","FORCE HOLD"];

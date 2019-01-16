@@ -125,9 +125,8 @@ _marker4 setMarkerShapeLocal "rectangle";
 _marker4 setMarkerBrushLocal "border";
 _marker4 setMarkerColorLocal "colorBlack";
 
-[_zoomlevelCalled,_pos] spawn {
+[{(visibleMap)},{
 	params ["_zoomlevel","_p"];
-	waitUntil{visibleMap};
 	MapAnimAdd [0, _zoomlevel, _p];
 	MapAnimCommit;
-};
+},[_zoomlevelCalled,_pos]] call CBA_fnc_waitUntilAndExecute;

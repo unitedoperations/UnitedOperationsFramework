@@ -7,12 +7,14 @@
  *		Olsen & PiZZADOX
  */
 
+
+
 #define COMPONENT TeamColour
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 
-if (!UO_FW_SERVER_TEAMCOLOURMODULE_ALLOWED) exitWith {};
-if (!isDedicated) then {
-	[{!isNull player && (time > 1)}, {
+if (!UO_FW_Server_TeamColourModule_Allowed) exitWith {};
+if (hasinterface) then {
+	[{(!isNull player) && {(CBA_missionTime > 1)}}, {
 		private _colour = player getVariable ["UO_FW_TeamColour", "NONE"];
 
 		if (_colour isEqualto "White") then {_colour = "MAIN";};

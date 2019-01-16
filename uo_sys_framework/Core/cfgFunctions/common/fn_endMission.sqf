@@ -13,17 +13,18 @@
  * Public: Yes
  */
 
-private _scenario = _this;
+ #define COMPONENT Core
+ #include "\x\UO_FW\addons\main\script_macros.hpp"
+ UO_FW_EXEC_CHECK(SERVER);
 
-if (time > ((missionNamespace getvariable ["UO_FW_ConditionDelay",0]) + ((missionNamespace getvariable ["UO_FW_ConditionSleep",30]) *1.5)) ) then {
+params ["_scenario"];
 
+if (CBA_missiontime > ((missionNamespace getvariable ["UO_FW_ConditionDelay",0]) + ((missionNamespace getvariable ["UO_FW_ConditionSleep",30]) * 1.5))) then {
 	UO_FW_MissionEnded = true;
-
-	if ((missionNamespace getVariable ["UO_FW_ShotCount_Enabled",false])) then
-	{
-		["","Sending ShotcountData"] call UO_FW_fnc_DebugMessageDetailed;
-		"" call UO_FW_fnc_aCount_endCount;
-
+	//endmission hooks for modules
+	if ((missionNamespace getVariable ["UO_FW_ShotCount_Enabled",false])) then {
+		LOG("Sending ShotcountData");
+		[] call UO_FW_fnc_aCount_endCount;
 	};
 
 	{
@@ -32,14 +33,7 @@ if (time > ((missionNamespace getvariable ["UO_FW_ConditionDelay",0]) + ((missio
 		[_team, 5, _assets select 0] call UO_FW_fnc_SetTeamVariable;
 		[_team, 6, _assets select 1] call UO_FW_fnc_SetTeamVariable;
 	} forEach UO_FW_Teams;
-
-	["UO_FW_EndMission_Event", [_scenario, UO_FW_TimeLimit, UO_FW_Teams]] call CBA_fnc_globalEvent;
-
+	["UO_FW_EndMission_Event", [_scenario]] call CBA_fnc_globalEvent;
 } else {
-	if (isNil "UO_FW_MissionEndedEarly") then {UO_FW_MissionEndedEarly = false;};
-	if(!UO_FW_MissionEndedEarly) then
-	{
-		"End Conditions have just been triggered. Mission might need to be ended manually!" remoteExec ["systemChat", 0, false];
-	};
-
+	["","End Conditions have just been triggered. Mission might need to be ended manually!"] call UO_FW_fnc_DebugMessageDetailed;
 };

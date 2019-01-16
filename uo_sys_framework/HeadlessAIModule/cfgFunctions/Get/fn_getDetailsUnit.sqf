@@ -10,8 +10,8 @@
 UO_FW_AI_EXEC_CHECK(SERVERHC);
 	params ["_u","_pos","_veh"];
 	private _unitInit = _u getVariable ["UO_FW_AI_unitInit","true"];
-	if(typename _unitInit isEqualTo "STRING") then {_unitInit = compile _unitInit;};
-	private _vehAssigned = if((assignedVehicleRole _u) isEqualTo [])then{false}else{true};
+	if (typename _unitInit isEqualTo "STRING") then {_unitInit = compile _unitInit;};
+	private _vehAssigned = if ((assignedVehicleRole _u) isEqualTo [])then{false}else{true};
 	_return = [
 		true,
 		typeOf _u,

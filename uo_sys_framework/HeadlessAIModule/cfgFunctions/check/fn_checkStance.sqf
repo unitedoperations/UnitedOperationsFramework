@@ -7,11 +7,11 @@
  */
 params [
 	["_unit",objNull,[objNull]],
-	["_allowed",[],[[]]],
+	["_Allowed",[],[[]]],
 	["_return",false,[false]]
 ];
-	if (count _allowed > 0) then {
-		if((stance _unit) in _allowed) then {
+	if (count _Allowed > 0) then {
+		if ((stance _unit) in _Allowed) then {
 			_return	= false;
 		} else {
 			_return	= true;

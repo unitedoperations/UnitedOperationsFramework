@@ -11,8 +11,8 @@
 UO_FW_AI_EXEC_CHECK(SERVERHC);
 params ["_grp","_i"];
 	([_grp] call UO_FW_AI_fnc_getGroupVariables) params ["_pos","_behave","_combat","_speed","_formation","_taskRadius","_wait","_task","_taskTimer","_occupyOption","_waypoints","_tasks","_fl","_surrender","_tracker"];
-	if(_occupyOption > 0 && _task < 6) then {
-		if(_task isEqualTo 2 || _task isEqualTo 4 || _task isEqualTo 5) then {
+	if (_occupyOption > 0 && _task < 6) then {
+		if (_task isEqualTo 2 || _task isEqualTo 4 || _task isEqualTo 5) then {
 			for [{_i=0},{(_i < (count(units _grp)))},{_i = _i + 1}] do {
 				_u = (units _group) select _i;
 				_u setvariable["UO_FW_AI_Occupy",true];
@@ -25,7 +25,7 @@ params ["_grp","_i"];
 			_grp setVariable["UO_FW_AI_CompletedTasks",[]];
 			_grp setVariable["UO_FW_AI_CurrentTaskEndTime",(time + _taskTimer)];
 		};
-		if(_task isEqualTo 0 || _task isEqualTo 1 || _task isEqualTo 3) then {
+		if (_task isEqualTo 0 || _task isEqualTo 1 || _task isEqualTo 3) then {
 			{_x setvariable["UO_FW_AI_Occupy",true]} forEach (units _grp);
 			_grp setVariable["UO_FW_AI_CompletedTasks",[]];
 			_grp setVariable["UO_FW_AI_CurrentTaskEndTime",(time + _taskTimer)];

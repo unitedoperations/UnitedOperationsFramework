@@ -8,8 +8,7 @@ class UO_FW_TeamColourOptions {
 			property = "UO_FW_TeamColour";
 			control = "UO_FW_TeamColourAttribute";
 			typeName = "STRING";
-			expression = "_this setVariable ['%s',_teamvalue,true];";
-			//expression = "_this setVariable ['%s',_value,true];";
+			expression = "if !(is3DEN) then {_propertyName = '%s'; [_this, _propertyName, _value, false] call UO_FW_fnc_setInitVar;};";
 			condition = "objectControllable ";
 			defaultValue = "'None'";
 		};

@@ -1,15 +1,13 @@
 #include "..\..\Global\defs.hpp"
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 
-if !(UO_FW_SERVER_FIREMISSIONMODULE_ALLOWED) exitwith {};
+if !(UO_FW_Server_FireMissionModule_Allowed) exitwith {};
 
-if(isServer) then
-{
+if (isServer) then {
 
 	{
 
-		if((_x getVariable ["UO_FW_ArtilleryFOAIEnabled",false])) then
-		{
+		if ((_x getVariable ["UO_FW_ArtilleryFOAIEnabled",false])) then {
 			_guns = _x getVariable ["UO_FW_ArtilleryFOAIGuns",[]];
 			_accuracy = _x getVariable ["UO_FW_ArtilleryFOAIAccuracy",50];
 			_speed = _x getVariable ["UO_FW_ArtilleryFOAISpeed",50];
@@ -32,8 +30,7 @@ if(isServer) then
 
 	}forEach allUnits;
 	{
-		if((_x getVariable ["UO_FW_ArtilleryEnabled",false])) then
-		{
+		if ((_x getVariable ["UO_FW_ArtilleryEnabled",false])) then {
 			_artilleryFireRate = _x getVariable ["UO_FW_ArtilleryFireRate",1];
 			_artilleryAccuracy = _x getVariable ["UO_FW_ArtilleryAccuracy",50];
 			_artillerySpottingAccuracy = _x getVariable ["UO_FW_ArtillerySpottingAccuracy",50];
@@ -59,13 +56,11 @@ if (hasInterface) then {
 	[{!isNull player}, {
 		_id = ["Event_ArtyReceiveHint", {hint _this;}] call CBA_fnc_addEventHandler;
 		_id = ["Event_ReceiveFoGuns", {_this call UO_FW_FNC_initPlayerFO;}] call CBA_fnc_addEventHandler;
-		if(player getVariable ["UO_FW_ArtilleryFOPlayerEnabled",false]) then
-		{
+		if (player getVariable ["UO_FW_ArtilleryFOPlayerEnabled",false]) then {
 			private	_guns = [];
 			{
 				_tempUnit = missionNamespace getVariable [_x,objNull];
-				if(isNull _tempUnit) then
-				{
+				if (isNull _tempUnit) then {
 					private _msg = format ["Firemission module:<br></br>Warning Unit ""%1"" does not exist.", _x];
 					UO_FW_DEBUG("Firemission Module",_msg);
 				};

@@ -2,8 +2,7 @@
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 
 
-if(!isDedicated) then
-{
+if (!isDedicated) then {
 	waitUntil{player == player};
 
 	private	_guns = _this select 0;
@@ -18,8 +17,7 @@ if(!isDedicated) then
 	private	_allowPolarspotting = _this select 8;
 	
 	
-			if(!(player getVariable [VAR_SART_PLAYERRECEIVEDGUNS,false])) then
-			{
+			if (!(player getVariable [VAR_SART_PLAYERRECEIVEDGUNS,false])) then {
 				
 				_action = ["Artillery_Menu", "Artillery Menu", "", {true}, {(count (player getVariable [VAR_SART_OBSGUNS,[]])) > 0}] call ace_interact_menu_fnc_createAction;
 				[player, 1, ["ACE_SelfActions"], _action] call ace_interact_menu_fnc_addActionToObject;
@@ -28,35 +26,29 @@ if(!isDedicated) then
 				[player, 1, ["ACE_SelfActions","Artillery_Menu"], _action] call ace_interact_menu_fnc_addActionToObject;
 
 
-				if(_allowPoint) then
-				{
+				if (_allowPoint) then {
 					_action = ["PointFiremission", "Point Firemission", "", {[] call UO_FW_FNC_DIA_PointFiremissionOpenDialog;}, {true}] call ace_interact_menu_fnc_createAction;
 					[player, 1, ["ACE_SelfActions","Artillery_Menu","Artillery_Call_Menu"], _action] call ace_interact_menu_fnc_addActionToObject;
 				};
 				
-				if(_allowLine) then
-				{
+				if (_allowLine) then {
 					_action = ["LineFiremission", "Line Firemission", "", {[] call UO_FW_FNC_DIA_LineFiremissionOpenDialog;}, {true}] call ace_interact_menu_fnc_createAction;
 					[player, 1, ["ACE_SelfActions","Artillery_Menu","Artillery_Call_Menu"], _action] call ace_interact_menu_fnc_addActionToObject;
 				};
 
-				if(_allowBracket) then
-				{
+				if (_allowBracket) then {
 					_action = ["BracketFiremission", "Bracket Firemission", "", {[] call UO_FW_FNC_DIA_BracketFiremissionOpenDialog;}, {true}] call ace_interact_menu_fnc_createAction;
 					[player, 1, ["ACE_SelfActions","Artillery_Menu","Artillery_Call_Menu"], _action] call ace_interact_menu_fnc_addActionToObject;
 				};
-				if(_allowDonut) then
-				{
+				if (_allowDonut) then {
 					_action = ["DonutFiremission", "Donut Firemission", "", {[] call UO_FW_FNC_DIA_DonutFiremissionOpenDialog;}, {true}] call ace_interact_menu_fnc_createAction;
 					[player, 1, ["ACE_SelfActions","Artillery_Menu","Artillery_Call_Menu"], _action] call ace_interact_menu_fnc_addActionToObject;
 				};
-				if(_allowMarker) then
-				{
+				if (_allowMarker) then {
 					_action = ["MarkerFiremission", "Marker Firemission", "", {[] call UO_FW_FNC_DIA_MarkerFiremissionOpenDialog;}, {true}] call ace_interact_menu_fnc_createAction;
 					[player, 1, ["ACE_SelfActions","Artillery_Menu","Artillery_Call_Menu"], _action] call ace_interact_menu_fnc_addActionToObject;
 				};
-				if(_allowPolar) then
-				{
+				if (_allowPolar) then {
 					_action = ["PolarFiremission", "Polar Firemission", "", {[] call UO_FW_FNC_DIA_PolarFiremissionOpenDialog;}, {true}] call ace_interact_menu_fnc_createAction;
 					[player, 1, ["ACE_SelfActions","Artillery_Menu","Artillery_Call_Menu"], _action] call ace_interact_menu_fnc_addActionToObject;
 				};
@@ -64,13 +56,11 @@ if(!isDedicated) then
 				_action = ["SpottingFiremission", "Call Spotting Round", "", {true}, {true}] call ace_interact_menu_fnc_createAction;
 				[player, 1, ["ACE_SelfActions","Artillery_Menu"], _action] call ace_interact_menu_fnc_addActionToObject;
 
-				if(_allowPolarspotting) then
-				{
+				if (_allowPolarspotting) then {
 						_action = ["SpottingFiremission", "Polar Spotting Round", "", {[] call UO_FW_FNC_DIA_PolarSpottingFiremissionOpenDialog;}, {true}] call ace_interact_menu_fnc_createAction;
 						[player, 1, ["ACE_SelfActions","Artillery_Menu","SpottingFiremission"], _action] call ace_interact_menu_fnc_addActionToObject;
 				};
-				if(_allowGridSpotting) then
-				{
+				if (_allowGridSpotting) then {
 						_action = ["SpottingFiremission", "Grid Spotting Round", "", {[] call UO_FW_FNC_DIA_GridSpottingFiremissionOpenDialog;}, {true}] call ace_interact_menu_fnc_createAction;
 					[player, 1, ["ACE_SelfActions","Artillery_Menu","SpottingFiremission"], _action] call ace_interact_menu_fnc_addActionToObject;
 				};

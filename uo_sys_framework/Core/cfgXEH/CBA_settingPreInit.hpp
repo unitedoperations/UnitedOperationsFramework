@@ -1,5 +1,5 @@
 [
-    "UO_FW_SERVER_FRAMEWORK_ALLOWED", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "UO_FW_Server_Framework_Allowed", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "CHECKBOX", // setting type
     "Allow UO Framework", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
     "UO Framework Settings", // Pretty name of the category where the setting can be found. Can be stringtable entry.
@@ -8,7 +8,7 @@
 ] call CBA_Settings_fnc_init;
 
 [
-    "UO_FW_SERVER_ACREMODULE_ALLOWED", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "UO_FW_Server_AcreModule_Allowed", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "CHECKBOX", // setting type
     "Allow ACRE Module", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
     "UO Framework Settings", // Pretty name of the category where the setting can be found. Can be stringtable entry.
@@ -17,7 +17,7 @@
 ] call CBA_Settings_fnc_init;
 
 [
-    "UO_FW_SERVER_AIDRIVERSMODULE_ALLOWED", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "UO_FW_Server_AIDRIVERSMODULE_Allowed", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "CHECKBOX", // setting type
     "Allow Ai Drivers Module", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
     "UO Framework Settings", // Pretty name of the category where the setting can be found. Can be stringtable entry.
@@ -26,7 +26,7 @@
 ] call CBA_Settings_fnc_init;
 
 [
-    "UO_FW_SERVER_AILINK_ALLOWED", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "UO_FW_Server_AILink_Allowed", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "CHECKBOX", // setting type
     "Allow Ai Link Module", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
     "UO Framework Settings", // Pretty name of the category where the setting can be found. Can be stringtable entry.
@@ -35,7 +35,7 @@
 ] call CBA_Settings_fnc_init;
 
 [
-    "UO_FW_SERVER_ANTINDMODULE_ALLOWED", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "UO_FW_Server_ANTINDMODULE_Allowed", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "CHECKBOX", // setting type
     "Allow Anti ND Module", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
     "UO Framework Settings", // Pretty name of the category where the setting can be found. Can be stringtable entry.
@@ -44,7 +44,7 @@
 ] call CBA_Settings_fnc_init;
 
 [
-    "UO_FW_SERVER_AOLIMIT_ALLOWED", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "UO_FW_Server_AOLIMIT_Allowed", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "CHECKBOX", // setting type
     "Allow AO Limit Module", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
     "UO Framework Settings", // Pretty name of the category where the setting can be found. Can be stringtable entry.
@@ -53,7 +53,7 @@
 ] call CBA_Settings_fnc_init;
 
 [
-    "UO_FW_SERVER_AUTOTRACKASSETMODULE_ALLOWED", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "UO_FW_Server_AUTOTRACKASSETMODULE_Allowed", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "CHECKBOX", // setting type
     "Allow Auto Track Asset Module", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
     "UO Framework Settings", // Pretty name of the category where the setting can be found. Can be stringtable entry.
@@ -62,7 +62,7 @@
 ] call CBA_Settings_fnc_init;
 
 [
-    "UO_FW_SERVER_BRIEFING_ALLOWED", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "UO_FW_Server_Briefing_Allowed", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "CHECKBOX", // setting type
     "Allow Briefing Module", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
     "UO Framework Settings", // Pretty name of the category where the setting can be found. Can be stringtable entry.
@@ -71,7 +71,7 @@
 ] call CBA_Settings_fnc_init;
 
 [
-    "UO_FW_SERVER_CaptureZoneMODULE_ALLOWED", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "UO_FW_Server_CaptureZoneMODULE_Allowed", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "CHECKBOX", // setting type
     "Allow CaptureZone Module", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
     "UO Framework Settings", // Pretty name of the category where the setting can be found. Can be stringtable entry.
@@ -80,7 +80,7 @@
 ] call CBA_Settings_fnc_init;
 
 [
-    "UO_FW_SERVER_DISCONNECTMODULE_ALLOWED", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "UO_FW_Server_DisconnectModule_Allowed", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "CHECKBOX", // setting type
     "Allow Disconnect Module", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
     "UO Framework Settings", // Pretty name of the category where the setting can be found. Can be stringtable entry.
@@ -89,7 +89,7 @@
 ] call CBA_Settings_fnc_init;
 
 [
-    "UO_FW_SERVER_ENDCONDITIONMODULE_ALLOWED", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "UO_FW_Server_EndConditionModule_Allowed", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "CHECKBOX", // setting type
     "Allow Endcondition Module", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
     "UO Framework Settings", // Pretty name of the category where the setting can be found. Can be stringtable entry.
@@ -98,7 +98,7 @@
 ] call CBA_Settings_fnc_init;
 
 [
-    "UO_FW_SERVER_FIREMISSIONMODULE_ALLOWED", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "UO_FW_Server_FireMissionModule_Allowed", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "CHECKBOX", // setting type
     "Allow Firemission Module", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
     "UO Framework Settings", // Pretty name of the category where the setting can be found. Can be stringtable entry.
@@ -107,7 +107,7 @@
 ] call CBA_Settings_fnc_init;
 
 [
-    "UO_FW_SERVER_GEARMODULE_ALLOWED", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "UO_FW_Server_GearModule_Allowed", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "CHECKBOX", // setting type
     "Allow Gear Module", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
     "UO Framework Settings", // Pretty name of the category where the setting can be found. Can be stringtable entry.
@@ -116,7 +116,7 @@
 ] call CBA_Settings_fnc_init;
 
 [
-    "UO_FW_SERVER_HOSTAGEMODULE_ALLOWED", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "UO_FW_Server_HostageModule_Allowed", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "CHECKBOX", // setting type
     "Allow Hostage Module", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
     "UO Framework Settings", // Pretty name of the category where the setting can be found. Can be stringtable entry.
@@ -125,7 +125,7 @@
 ] call CBA_Settings_fnc_init;
 
 [
-    "UO_FW_SERVER_JIPMODULE_ALLOWED", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "UO_FW_Server_JiPModule_Allowed", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "CHECKBOX", // setting type
     "Allow JIP Module", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
     "UO Framework Settings", // Pretty name of the category where the setting can be found. Can be stringtable entry.
@@ -134,7 +134,7 @@
 ] call CBA_Settings_fnc_init;
 
 [
-    "UO_FW_SERVER_MARKERCONTROLMODULE_ALLOWED", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "UO_FW_Server_MarkerControlModule_Allowed", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "CHECKBOX", // setting type
     "Allow Marker Control Module", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
     "UO Framework Settings", // Pretty name of the category where the setting can be found. Can be stringtable entry.
@@ -143,7 +143,7 @@
 ] call CBA_Settings_fnc_init;
 
 [
-    "UO_FW_SERVER_SAFESTARTMODULE_ALLOWED", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "UO_FW_Server_SafeStartModule_Allowed", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "CHECKBOX", // setting type
     "Allow Safe Start Module", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
     "UO Framework Settings", // Pretty name of the category where the setting can be found. Can be stringtable entry.
@@ -152,7 +152,7 @@
 ] call CBA_Settings_fnc_init;
 
 [
-    "UO_FW_SERVER_SELFACTIONSMODULE_ALLOWED", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "UO_FW_Server_SelfActionsModule_Allowed", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "CHECKBOX", // setting type
     "Allow Self Actions Module", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
     "UO Framework Settings", // Pretty name of the category where the setting can be found. Can be stringtable entry.
@@ -161,7 +161,7 @@
 ] call CBA_Settings_fnc_init;
 
 [
-    "UO_FW_SERVER_SETUPMODULE_ALLOWED", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "UO_FW_Server_SetupModule_Allowed", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "CHECKBOX", // setting type
     "Allow Setup Module", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
     "UO Framework Settings", // Pretty name of the category where the setting can be found. Can be stringtable entry.
@@ -170,7 +170,7 @@
 ] call CBA_Settings_fnc_init;
 
 [
-    "UO_FW_SERVER_SHOTCOUNTMODULE_ALLOWED", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "UO_FW_Server_ShotCountModule_Allowed", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "CHECKBOX", // setting type
     "Allow Shotcount Module", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
     "UO Framework Settings", // Pretty name of the category where the setting can be found. Can be stringtable entry.
@@ -179,7 +179,7 @@
 ] call CBA_Settings_fnc_init;
 
 [
-    "UO_FW_SERVER_STARTINPARACHUTEMODULE_ALLOWED", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "UO_FW_Server_StartInParachuteModule_Allowed", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "CHECKBOX", // setting type
     "Allow Start In Parachute Module", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
     "UO Framework Settings", // Pretty name of the category where the setting can be found. Can be stringtable entry.
@@ -188,7 +188,7 @@
 ] call CBA_Settings_fnc_init;
 
 [
-    "UO_FW_SERVER_STARTTEXTMODULE_ALLOWED", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "UO_FW_Server_StartTextModule_Allowed", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "CHECKBOX", // setting type
     "Allow Start Text Module", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
     "UO Framework Settings", // Pretty name of the category where the setting can be found. Can be stringtable entry.
@@ -197,7 +197,7 @@
 ] call CBA_Settings_fnc_init;
 
 [
-    "UO_FW_SERVER_TEAMCOLOURMODULE_ALLOWED", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "UO_FW_Server_TeamColourModule_Allowed", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "CHECKBOX", // setting type
     "Allow Team Colour Module", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
     "UO Framework Settings", // Pretty name of the category where the setting can be found. Can be stringtable entry.
@@ -206,7 +206,7 @@
 ] call CBA_Settings_fnc_init;
 
 [
-    "UO_FW_SERVER_DEBUG_ALLOWED", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "UO_FW_Server_DEBUG_Allowed", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "CHECKBOX", // setting type
     "Allow Advanced Debug", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
     "UO Framework Settings", // Pretty name of the category where the setting can be found. Can be stringtable entry.
@@ -215,7 +215,7 @@
 ] call CBA_Settings_fnc_init;
 
 [
-    "UO_FW_SERVER_REMOVERMODULE_ALLOWED", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "UO_FW_Server_RemoverModule_Allowed", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "CHECKBOX", // setting type
     "Allow Remove Map Compass Module", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
     "UO Framework Settings", // Pretty name of the category where the setting can be found. Can be stringtable entry.
@@ -224,7 +224,7 @@
 ] call CBA_Settings_fnc_init;
 
 [
-    "UO_FW_SERVER_HCMODULE_ALLOWED", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "UO_FW_Server_HCModule_Allowed", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "CHECKBOX", // setting type
     "Allow Headless Client Module", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
     "UO Framework Settings", // Pretty name of the category where the setting can be found. Can be stringtable entry.
@@ -233,7 +233,7 @@
 ] call CBA_Settings_fnc_init;
 
 [
-    "UO_FW_SERVER_COVERMAPMODULE_ALLOWED", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "UO_FW_Server_CoverMapModule_Allowed", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "CHECKBOX", // setting type
     "Allow Cover Map Module", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
     "UO Framework Settings", // Pretty name of the category where the setting can be found. Can be stringtable entry.

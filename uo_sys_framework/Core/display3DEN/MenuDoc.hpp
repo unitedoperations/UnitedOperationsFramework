@@ -1,5 +1,4 @@
-class UO_FW_Documentation
-{
+class UO_FW_Documentation {
 	text = "Framework Wiki";
 	data = "HelpFeedback";
 	picture = "\a3\3DEN\Data\Controls\ctrlMenu\link_ca.paa";

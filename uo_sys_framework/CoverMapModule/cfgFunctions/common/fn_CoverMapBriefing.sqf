@@ -3,7 +3,7 @@
 UO_FW_EXEC_CHECK(ALL);
 //Covers Map outside marker and centers map on marker center in briefing map
 if (!hasinterface) exitwith {};
-if ((time > 0 || getClientState isEqualTo "BRIEFING READ")) exitwith {};
+if ((time > 0 || getClientState isEqualTo "Briefing READ")) exitwith {};
 //params ["_area",["_centered",true],["_zoomlevel",0.4],"_name",["_AOName",1]];
 params ["_AONameCalled"];
 private ["_areaCalled","_logicCalled","_zoomlevelCalled","_index"];
@@ -121,8 +121,5 @@ _marker4 setMarkerShapeLocal "rectangle";
 _marker4 setMarkerBrushLocal "border";
 _marker4 setMarkerColorLocal "colorBlack";
 
-//[{!(isNull ((uiNamespace getVariable "RscDiary") displayCtrl 51))},{
-//	_this params ["_zoomlevelCalled","_pos"];
-	((uiNamespace getVariable "RscDiary") displayCtrl 51) ctrlMapAnimAdd [0, _zoomlevelCalled, _pos];
-	ctrlMapAnimCommit ((uiNamespace getVariable "RscDiary") displayCtrl 51);
-//},[_zoomlevelCalled,_pos]] call CBA_fnc_waitUntilAndExecute;
+((uiNamespace getVariable "RscDiary") displayCtrl 51) ctrlMapAnimAdd [0, _zoomlevelCalled, _pos];
+ctrlMapAnimCommit ((uiNamespace getVariable "RscDiary") displayCtrl 51);

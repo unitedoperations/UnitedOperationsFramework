@@ -14,7 +14,7 @@
 UO_FW_AI_EXEC_CHECK(SERVERHC);
 
 params[["_s",0,[0]],["_t","OBJECT",[""]],["_a",1,[0]],"_var",["_array",[],[[]]]];
-	if(typename(_array select _s) == _t ) then {
+	if (typename(_array select _s) == _t ) then {
 		_array deleteAt 0;
 	};
 	_array set [_a,_var];

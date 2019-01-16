@@ -1,28 +1,28 @@
 /*	Description: Task a group to patrol a box around their patrol position.
- * 	Arguments:
- * 		GROUP	- Group
- * 	Optional:
- * 		ARRAY	- Task Position
- * 		NUMBER	- Task Radius
- * 		NUMBER	- Wait Time at Waypoints
- * 		STRING	- Behaviour
- * 		STRING	- CombatMode
- * 		STRING	- Speed
- * 		STRING	- Formation
- * 		STRING	- Waypoint Type
- * 		STRING	- On Waypoint Complete Statement
- * 		NUMBER	- Waypoint Complete Radius
- *		NUMBER	- Required Waypoint Amount
- * 	Return Value:
- * 		BOOL 	- True
- *	Author:
- *		Rommel
- *	Modified
- *		suits & PiZZADOX
- */
+* 	Arguments:
+* 		GROUP	- Group
+* 	Optional:
+* 		ARRAY	- Task Position
+* 		NUMBER	- Task Radius
+* 		NUMBER	- Wait Time at Waypoints
+* 		STRING	- Behaviour
+* 		STRING	- CombatMode
+* 		STRING	- Speed
+* 		STRING	- Formation
+* 		STRING	- Waypoint Type
+* 		STRING	- On Waypoint Complete Statement
+* 		NUMBER	- Waypoint Complete Radius
+*		NUMBER	- Required Waypoint Amount
+* 	Return Value:
+* 		BOOL 	- True
+*	Author:
+*		Rommel
+*	Modified
+*		suits & PiZZADOX
+*/
+
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
 UO_FW_AI_EXEC_CHECK(SERVERHC);
-
 
 
 params [
@@ -41,7 +41,7 @@ params [
 	"_i"
 ];
 
-{_x forcespeed -1; _x enableAI "PATH";} foreach units _grp;
+{_x forcespeed -1; _x enableAI "Path";} foreach units _grp;
 _grp call CBA_fnc_clearWaypoints;
 _pos = [_pos,_grp] select (_pos isEqualTo []);
 _pos = _pos call CBA_fnc_getPos;

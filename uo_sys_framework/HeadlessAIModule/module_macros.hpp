@@ -4,7 +4,7 @@
 //Script control
 #define UO_FW_AI_EXEC_CHECK(ARG)\
 _argUpper = toUpper(#ARG);\
-if (!UO_FW_SERVER_HCMODULE_ALLOWED) exitWith {};\
+if (!UO_FW_Server_HCModule_Allowed) exitWith {};\
 if !(getMissionConfigValue ["UO_FW_AI_Enabled",false]) exitwith {};\
 if (isNil "UO_FW_var_HC_ID") then {_nul = [] call UO_FW_AI_fnc_checkifHC;};\
 UO_FW_EXEC_CHECK(_argUpper)

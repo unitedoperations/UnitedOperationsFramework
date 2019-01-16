@@ -107,15 +107,13 @@ for "_x" from 1 to _amount do {
 					_unit addPrimaryWeaponItem _item;
 					_success = true;
 				};
-			}
-			else {
+			} else {
 				if ([handgunWeapon _unit, _item] call UO_FW_FNC_CanAttachItem) then {
 					if (!(_type in handgunItems _unit)) then {
 						_unit addHandgunItem _item;
 						_success = true;
 					};
-				}
-				else {
+				} else {
 					if ([secondaryWeapon _unit, _item] call UO_FW_FNC_CanAttachItem) then {
 						if (!(_type in secondaryWeaponItems _unit)) then {
 							_unit addSecondaryWeaponItem _item;
@@ -132,8 +130,7 @@ for "_x" from 1 to _amount do {
 					if (_unit canAddItemToBackpack _item || UO_FW_Gear_Olsen_OverfillEnabled) then {
 						if (UO_FW_Gear_Olsen_OverfillEnabled) then {
 							(backpackContainer _unit) addItemCargoGlobal [_item, 1];
-						}
-						else {
+						} else {
 							_unit addItemToBackpack _item;
 						};
 						_success = true;
@@ -143,8 +140,7 @@ for "_x" from 1 to _amount do {
 					if (_unit canAddItemToVest _item || UO_FW_Gear_Olsen_OverfillEnabled) then {
 						if (UO_FW_Gear_Olsen_OverfillEnabled) then {
 							(vestContainer _unit) addItemCargoGlobal [_item, 1];
-						}
-						else {
+						} else {
 							_unit addItemToVest _item;
 						};
 						_success = true;
@@ -154,8 +150,7 @@ for "_x" from 1 to _amount do {
 					if (_unit canAddItemToUniform _item || UO_FW_Gear_Olsen_OverfillEnabled) then {
 						if (UO_FW_Gear_Olsen_OverfillEnabled) then {
 							(uniformContainer _unit) addItemCargoGlobal [_item, 1];
-						}
-						else {
+						} else {
 							_unit addItemToUniform _item;
 						};
 						_success = true;

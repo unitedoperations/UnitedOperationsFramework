@@ -4,33 +4,44 @@
  *	Return Value:
  * 		ARRAY
  *	Author
- *		TinfoilHate
+ *		TinfoilHate & PiZZADOX
  */
 
 #define COMPONENT ShotCount
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 UO_FW_EXEC_CHECK(ALL);
 
+if !(UO_FW_Server_ShotCountModule_Allowed) exitwith {};
+if (!(missionNamespace getVariable ["UO_FW_ShotCount_Enabled",false])) exitwith {};
+["Shot Count", "Count shots fired by units", "Beta, TinfoilHate, PiZZADOX and Sacher"] call UO_FW_fnc_RegisterModule;
+
 params ["_obj"];
-if(_obj getVariable ["aCount_firedEh", false]) exitWith {};
-_obj setVariable ["aCount_originalSide",side _obj,false];
 
-if (_obj isKindOf "Man") then
-{
-	_obj addEventHandler ["fired", {[side ( _this select 0),(_this select 5) call UO_FW_fnc_aCount_getDisplayName] call UO_FW_fnc_aCount_shotCount;}];
-	_obj setVariable ["aCount_firedEh", true, false];
-};
+if !((_obj getVariable ["UO_FW_aCount_firedEh", ""]) isEqualto "") exitWith {};
+_obj setVariable ["UO_FW_aCount_originalSide",side _obj];
 
-if (((_obj isKindOf "Land") && !(_obj isKindOf "Man")) || (_obj isKindOf "Air") || (_obj isKindOf "Ship")) then
-{
-	if (count crew _obj > 0) then
+if (_obj isKindOf "Man") then {
+	private _firedEHhandle = _obj addEventHandler ["fired", {
+		if ((isPlayer (_this select 0)) && {MissionNamespace getvariable ["UO_FW_ND_Active",false]}) then {
+			if (((_this select 0) getvariable ["UO_FW_ND_EHid",""]) isEqualto "DISABLED") then {
+				["UO_FW_ShotCount_EH_Event", [side (_this select 0),(_this select 5)]] call CBA_fnc_serverEvent;
+			} else {
+				false;
+			};
+		} else {
+			["UO_FW_ShotCount_EH_Event", [side (_this select 0),(_this select 5)]] call CBA_fnc_serverEvent;
+		};
+	}];
+	_obj setVariable ["UO_FW_aCount_firedEh", _firedEHhandle];
+} else {
+	private _firedEHhandle = _obj addEventHandler ["fired",  {
+		["UO_FW_ShotCount_EH_Event", [side (_this select 0),(_this select 5)]] call CBA_fnc_serverEvent;
+	}];
+	if !(count crew _obj isEqualto 0) then {
 		{
-		{
-			_x setVariable ["aCount_firedEh", true, false];
-			_x setVariable ["aCount_originalSide",side _obj,false];
+			_x setVariable ["UO_FW_aCount_firedEh", _firedEHhandle];
+			_x setVariable ["UO_FW_aCount_originalSide",(side _obj)];
 		} forEach crew _obj;
 	};
-
-	_obj addEventHandler ["fired", {[side ( _this select 0),(_this select 5) call UO_FW_fnc_aCount_getDisplayName] call UO_FW_fnc_aCount_shotCount;}];
-	_obj setVariable ["aCount_firedEh", true, false];
+	_obj setVariable ["UO_FW_aCount_firedEh", _firedEHhandle];
 };

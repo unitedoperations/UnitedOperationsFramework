@@ -5,8 +5,7 @@ private _unit = _this select 0;
 	sleep((_unit call UO_FW_FNC_GetArtyAimTime));
 	private	_dis = 1000;
 	private	_tempAcc = (_unit getVariable [VAR_SART_ARTSPOTACCURACY,MEANSPOTTINGACCURACY]) + 1;
-	while{(_dis >_minSpottedDistance && SPOTTINGROUNDSREQUIRED  )} do
-	{
+	while{(_dis >_minSpottedDistance && SPOTTINGROUNDSREQUIRED  )} do {
 				_randomPos = [[[_target, _tempAcc]],[]] call BIS_fnc_randomPos;
 				_dis = _randomPos distance2D _target;
 					_eta = [_unit,_randomPos, _roundClassName] call UO_FW_FNC_GetArtyEta;

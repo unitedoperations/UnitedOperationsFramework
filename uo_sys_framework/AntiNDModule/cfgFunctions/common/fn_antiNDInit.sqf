@@ -11,9 +11,9 @@
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 UO_FW_EXEC_CHECK(ALL);
 
-if !(UO_FW_SERVER_ANTINDMODULE_ALLOWED) exitwith {};
+if !(UO_FW_Server_ANTINDMODULE_Allowed) exitwith {};
 if !(UO_FW_Anti_ND_Enabled) exitwith {};
-["Anti ND", "Extra Safety for mission start", "Starfox64 and PiZZADOX and Sacher"] call UO_FW_FNC_RegisterModule;
+["Anti ND", "Extra Safety for mission start", "Starfox64, PiZZADOX and Sacher"] call UO_FW_fnc_RegisterModule;
 
 if (isServer) then {
 	missionNamespace setVariable ["UO_FW_ND_Active", true];
@@ -52,6 +52,7 @@ if (hasinterface) then {
 					};
 				};
 			}];
-			[{(!isNil "UO_FW_ND_Active") && {!(UO_FW_ND_Active)}},{player removeEventHandler ["Fired", _this];},_UO_FW_FiredEh] call CBA_fnc_waitUntilAndExecute;
+			player setvariable ["UO_FW_ND_EHid",_UO_FW_FiredEh];
+			[{(!isNil "UO_FW_ND_Active") && {!(UO_FW_ND_Active)}},{player removeEventHandler ["Fired", _this]; player setvariable ["UO_FW_ND_EHid","DISABLED"];},_UO_FW_FiredEh] call CBA_fnc_waitUntilAndExecute;
 		}] call CBA_fnc_waitUntilAndExecute;
 };

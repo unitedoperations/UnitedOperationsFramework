@@ -2,7 +2,7 @@
 // GUI EDITOR OUTPUT START (by Sacher, v1.063, #Dyroxu)
 ////////////////////////////////////////////////////////
 #include "..\..\Global\defs.hpp"
-class UO_FW_DIA_MARKERFIREMISSION
+class UO_FW_DIA_MARKERFIREMission
 {
 	idd = MFM_DIA_IDD_DISPLAY;
 	movingEnable = false;

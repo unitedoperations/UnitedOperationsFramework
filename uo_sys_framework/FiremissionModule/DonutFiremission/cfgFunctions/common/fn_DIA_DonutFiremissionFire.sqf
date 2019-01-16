@@ -2,13 +2,12 @@
 _guns = player getVariable [VAR_SART_OBSGUNS,[]];
 	_usableGuns = [];
 	{
-		if(_x call UO_FW_FNC_IsArtyAviable) then
-		{
+		if (_x call UO_FW_FNC_IsArtyAviable) then {
 			_usableGuns pushBack _x;
 		};
 	}forEach _guns;
 	_selectedUnit = objNull;
-	 if((count _usableGuns) > 0) then { _selectedUnit = (_usableGuns select (lbCurSel DFM_DIA_IDC_GUNSELECT));};
+	 if ((count _usableGuns) > 0) then { _selectedUnit = (_usableGuns select (lbCurSel DFM_DIA_IDC_GUNSELECT));};
 	_selectedAmmo = lbCurSel DFM_DIA_IDC_SHELLSELECT;
 	_grid = 	ctrlText DFM_DIA_IDC_GRID;
 	_innerRadius = ( ctrlText DFM_DIA_IDC_INNERRADIUS) call BIS_fnc_parseNumber;
@@ -25,9 +24,8 @@ _guns = player getVariable [VAR_SART_OBSGUNS,[]];
 	_inputIsCorrect = _inputIsCorrect && [_salvoRounds,"Salvo rounds is not a number"] call UO_FW_FNC_InputIsNumber;
 	_inputIsCorrect = _inputIsCorrect && [_salvoDelay,"Salvo delay is not a number"] call UO_FW_FNC_InputIsNumber;
 	_inputIsCorrect = _inputIsCorrect && [_spotting,"Spotting distance is not a number"] call UO_FW_FNC_InputIsNumber;
-	if(_innerRadius > _outerRadius) then {_inputIsCorrect = false;hint "Inner Radius bigger than outer."};
-	if(_inputIsCorrect ) then
-	{
+	if (_innerRadius > _outerRadius) then {_inputIsCorrect = false;hint "Inner Radius bigger than outer."};
+	if (_inputIsCorrect ) then {
 
 								private _round =  ((_selectedUnit call UO_FW_FNC_GetArtyAmmo) select _selectedAmmo) select 0;
 								hint (([_selectedUnit,_grid call CBA_fnc_mapGridToPos,_innerRadius,_outerRadius,_salvoNumber,_salvoRounds,_salvoDelay,_spotting,_selectedAmmo] call UO_FW_FNC_GetDonutFiremissionText)

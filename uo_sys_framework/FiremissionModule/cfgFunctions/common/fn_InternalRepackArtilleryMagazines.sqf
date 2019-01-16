@@ -6,10 +6,8 @@ private _unit = _this;
 		_count  = _x select 1;
 		_classNam = _x select 0;
 		_maxAmmo = getNumber(configFile >> "CfgMagazines" >> _classNam >> "count");
-		while{_count > 0} do
-		{
-			if(_count >= _maxAmmo) then
-			{
+		while{_count > 0} do {
+			if (_count >= _maxAmmo) then {
 					_unit addMagazine [_classNam,_maxAmmo];
 			}
 			else

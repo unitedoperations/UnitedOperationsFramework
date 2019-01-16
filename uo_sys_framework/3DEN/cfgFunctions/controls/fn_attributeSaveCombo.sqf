@@ -12,4 +12,6 @@
 
 params ["_ctrl","_config"];
 
-_ctrl lbData lbCurSel _ctrl;
+private _value = _ctrl lbData lbCurSel _ctrl;
+
+_value

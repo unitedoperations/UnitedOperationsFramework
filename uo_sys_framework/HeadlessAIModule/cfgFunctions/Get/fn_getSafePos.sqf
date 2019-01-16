@@ -40,9 +40,9 @@
 					};
 				} forEach _returnPos;
 			};
-			if(_roadPos) then {
+			if (_roadPos) then {
 				_nearRoads 		= _randomPos nearRoads 30;
-				if(count _nearRoads > 0) then {
+				if (count _nearRoads > 0) then {
 					_road 		= _nearRoads select (floor random (count _nearRoads));
 					_randomPos 	= getPos _road;
 				} else {

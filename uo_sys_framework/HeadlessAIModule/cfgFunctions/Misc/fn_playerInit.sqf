@@ -8,7 +8,7 @@ UO_FW_AI_EXEC_CHECK(CLIENT);
 	waituntil {UO_FW_AI_InitMainInitialized};
 	_unit = player;
 	if (!local _unit) exitwith {};
-	if !(UO_FW_AI_HEARINGAIDS_ENABLED) exitwith {};
+	if !(UO_FW_AI_HEARINGAIDS_EnableD) exitwith {};
 		if ((_unit getVariable ["UO_FW_AI_unitFiredManHandlerSet",false])) exitwith {};
 
 			_ID = _unit addEventHandler ["FiredMan",{
@@ -36,7 +36,7 @@ UO_FW_AI_EXEC_CHECK(CLIENT);
 					};
 
 				};
-				if (UO_FW_AI_MARKERS_ENABLED) then {
+				if (UO_FW_AI_MARKERS_EnableD) then {
 					LOG(_debugText);
 				};
 				}];

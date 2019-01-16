@@ -1,14 +1,14 @@
 /*	Description: Task a group to hold position until contact with enemy, use animation on stationary units.
- * 	Arguments:
- * 		GROUP	- Group
- * 	Optional:
- * 		STRING	- Behaviour
- * 		STRING	- CombatMode
- * 		STRING	- Speed
- * 		STRING	- Formation
- * 	Return Value:
- * 		BOOL 	- True
- */
+* 	Arguments:
+* 		GROUP	- Group
+* 	Optional:
+* 		STRING	- Behaviour
+* 		STRING	- CombatMode
+* 		STRING	- Speed
+* 		STRING	- Formation
+* 	Return Value:
+* 		BOOL 	- True
+*/
 #include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
 UO_FW_AI_EXEC_CHECK(SERVERHC);
 
@@ -30,7 +30,7 @@ params [
 	"_i"
 ];
 
-{_x forcespeed -1; _x enableAI "PATH";} foreach units _grp;
+{_x forcespeed -1; _x enableAI "Path";} foreach units _grp;
 _grp setBehaviour _behave;
 _grp setCombatMode _combat;
 _grp setSpeedMode _speed;

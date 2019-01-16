@@ -17,24 +17,18 @@ _TypeList = nearestObjects [_MovePosition, [], 30];
 private _Roads = _MovePosition nearRoads 30;
 {
 	_Type = typeOf _x;
-	if !(_type in ["#crater","#crateronvehicle","#soundonvehicle","#particlesource","#lightpoint","#slop","#mark","HoneyBee","Mosquito","HouseFly","FxWindPollen1","ButterFly_random","Snake_random_F","Rabbit_F","FxWindGrass2","FxWindLeaf1","FxWindGrass1","FxWindLeaf3","FxWindLeaf2"]) then
-	{
-		if (!(_x isKindOf "Man") && {!(_x isKindOf "Bird")} && {!(_x isKindOf "BulletCore")} && {!(_x isKindOf "Grenade")} && {!(_x isKindOf "WeaponHolder")} && {(_x distance _Unit > 5)}) then
-		{
+	if !(_type in ["#crater","#crateronvehicle","#soundonvehicle","#particlesource","#lightpoint","#slop","#mark","HoneyBee","Mosquito","HouseFly","FxWindPollen1","ButterFly_random","Snake_random_F","Rabbit_F","FxWindGrass2","FxWindLeaf1","FxWindGrass1","FxWindLeaf3","FxWindLeaf2"]) then {
+		if (!(_x isKindOf "Man") && {!(_x isKindOf "Bird")} && {!(_x isKindOf "BulletCore")} && {!(_x isKindOf "Grenade")} && {!(_x isKindOf "WeaponHolder")} && {(_x distance _Unit > 5)}) then {
 			_BoundingArray = boundingBoxReal _x;
 			_p1 = _BoundingArray select 0;
 			_p2 = _BoundingArray select 1;
 			_maxWidth = abs ((_p2 select 0) - (_p1 select 0));
 			_maxLength = abs ((_p2 select 1) - (_p1 select 1));
 			_maxHeight = abs ((_p2 select 2) - (_p1 select 2));
-			if (_maxWidth > 2 && _maxLength > 2 && _maxHeight > 2) then
-			{
-				if (_type isEqualTo "") then
-				{
+			if (_maxWidth > 2 && _maxLength > 2 && _maxHeight > 2) then {
+				if (_type isEqualTo "") then {
 					_WeakListFinal pushback _x
-				}
-				else
-				{
+				} else {
 					_TypeListFinal pushback _x;
 				};
 			};

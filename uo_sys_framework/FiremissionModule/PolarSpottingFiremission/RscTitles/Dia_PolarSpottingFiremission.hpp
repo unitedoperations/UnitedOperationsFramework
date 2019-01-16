@@ -3,7 +3,7 @@
 ////////////////////////////////////////////////////////
 
 #include "..\..\Global\defs.hpp"
-class UO_FW_DIA_POLARSPOTTINGFIREMISSION
+class UO_FW_DIA_POLARSPOTTINGFIREMission
 {
 	idd = PSFM_DIA_IDD_DISPLAY;
 	movingEnable = false;

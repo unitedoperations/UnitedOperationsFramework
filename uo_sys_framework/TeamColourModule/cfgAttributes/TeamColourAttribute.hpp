@@ -24,10 +24,7 @@ class UO_FW_TeamColourAttribute: Combo {
 	attributeSave = "_value = (_this controlsGroupCtrl 100) lbData lbCurSel (_this controlsGroupCtrl 100); _value";
 	//_this - config, _value - saved value
 	attributeLoad="\
-	[_this,_value] spawn {\
-		disableserialization;\
-		params ['_config','_value'];\
-		private _control = (_config controlsGroupCtrl 100);\
+		private _control = (_this controlsGroupCtrl 100);\
 		_teamcolourarray = [['None',[0, 0, 0, 0]],['White',[1, 1, 1, 1]],['Red',[1, 0, 0, 1]],['Green',[0, 1, 0, 1]],['Blue',[0, 0, 1, 1]],['Yellow',[1, 1, 0, 1]]];\
 		{\
 			_x params ['_name','_colour'];\
@@ -41,15 +38,9 @@ class UO_FW_TeamColourAttribute: Combo {
 				_control lbSetCurSel _index;\
 			};\
 		} foreach _teamcolourarray;\
-	};\
-	";
-	onLoad="\
-	_this spawn {\
-		 disableserialization;\
-		 private ['_isUnitPlayable'];\
-		 private _ctrl = _this select 0;\
-		 private _unit = ((get3denselected 'object') select 0);\
-		 private _ctrlGroup = ctrlParentControlsGroup ctrlParentControlsGroup _ctrl;\
+		private _unit = ((get3denselected 'object') select 0);\
+		private ['_isUnitPlayable'];\
+		private _ctrlGroup = ctrlParentControlsGroup ctrlParentControlsGroup _control;\
 		{\
 			if (ctrlParentControlsGroup _x isEqualto _ctrlGroup) then {\
 				if !(isNull player) then {\
@@ -64,10 +55,9 @@ class UO_FW_TeamColourAttribute: Combo {
 				_x ctrlshow _state;\
 				_x ctrlcommit 0;\
 				ctrlsetfocus _x;\
-				ctrlsetfocus _ctrl;\
+				ctrlsetfocus _control;\
 			};\
-		} foreach (allcontrols (ctrlparent _ctrl));\
-	};\
+		} foreach (allcontrols (ctrlparent _control));\
 	";
 	class Controls: Controls {
 		class Title: Title {};

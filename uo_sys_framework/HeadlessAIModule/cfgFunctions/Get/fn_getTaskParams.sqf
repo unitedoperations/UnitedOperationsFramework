@@ -11,8 +11,8 @@ UO_FW_AI_EXEC_CHECK(SERVERHC);
 params ["_logic",["_params",[],[[]]]];
 	_cond = _logic getVariable ["UO_FW_AI_taskCondition","true"];
 	_onComp = _logic getVariable ["UO_FW_AI_taskOnComplete","true"];
-	if(typename _cond isEqualTo "STRING") then {_cond = compile _cond;};
-	if(typename _onComp isEqualTo "STRING") then {_onComp = compile _onComp;};
+	if (typename _cond isEqualTo "STRING") then {_cond = compile _cond;};
+	if (typename _onComp isEqualTo "STRING") then {_onComp = compile _onComp;};
 	_params = [
 		_logic,
 		_cond,		

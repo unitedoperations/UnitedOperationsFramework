@@ -23,8 +23,7 @@ while {((behaviour _unit ) != "COMBAT") && ((behaviour _unit ) != "STEALTH") && 
 	if (((behaviour _unit) == "COMBAT") || ((behaviour _unit) == "AWARE") || ((behaviour _unit) == "STEALTH")) then {  breakOut "SAFE_Loop1";};
 	_RandomAction = selectRandom ([1,3,4] - [_CurrentAction]);
 	switch (_RandomAction) do {
-		case 1:
-		{
+		case 1: {
 			//Wander around and play random animation
 			//Get random position
 			_unit  setVariable ["UO_FW_AI_LOITERINGACT", 1];
@@ -51,8 +50,7 @@ while {((behaviour _unit ) != "COMBAT") && ((behaviour _unit ) != "STEALTH") && 
 			[_unit ,_RandomAnimationList] remoteExec ["playMoveEverywhere",0];
 		};
 
-		case 3:
-		{
+		case 3: {
 			if (!(alive _unit ))exitWith {};
 			_unit  setVariable ["UO_FW_AI_LOITERINGACT",3];
 			_ClosestUnit = [(_UnitGroup - [_unit ]),_unit ] call UO_FW_AI_fnc_ClosestObject;
@@ -86,12 +84,10 @@ while {((behaviour _unit ) != "COMBAT") && ((behaviour _unit ) != "STEALTH") && 
 			if ((behaviour _unit )  == "COMBAT") then {  breakOut "SAFE_Loop1";};
 			sleep 10;
 
-			_ClosestUnit spawn
-			{
+			_ClosestUnit spawn {
 				params ["_unit"];
 				private _Counter = 0;
-				While {(_Counter < 11) && (alive _unit)} do
-				{
+				While {(_Counter < 11) && (alive _unit)} do {
 					sleep (random 2);
 					private _RandomAnimationList = selectRandom ["AmovPercMstpSnonWnonDnon_exercisePushup","Acts_AidlPercMstpSlowWrflDnon_pissing","Acts_ShieldFromSun_loop","Acts_CivilIdle_1"];
 					[_unit,_RandomAnimationList] remoteExec ["playMoveEverywhere",0];
@@ -100,12 +96,10 @@ while {((behaviour _unit ) != "COMBAT") && ((behaviour _unit ) != "STEALTH") && 
 				};
 			};
 			if (!(alive _unit ))exitWith {};
-			_unit spawn
-			{
+			_unit spawn {
 				params ["_unit"];
 				private _Counter = 0;
-				While { ((_Counter < 11) && (alive _unit)) } do
-				{
+				While { ((_Counter < 11) && (alive _unit)) } do {
 					sleep (random 2);
 					private _RandomAnimationList = selectRandom ["AmovPercMstpSnonWnonDnon_exercisePushup","Acts_AidlPercMstpSlowWrflDnon_pissing","Acts_ShieldFromSun_loop","Acts_CivilIdle_1"];
 					[_unit,_RandomAnimationList] remoteExec ["playMoveEverywhere",0];
@@ -115,8 +109,7 @@ while {((behaviour _unit ) != "COMBAT") && ((behaviour _unit ) != "STEALTH") && 
 			};
 		};
 
-		case 4:
-		{
+		case 4: {
 			//Wander around and sitdown
 			//Get random position
 			_unit  setVariable ["UO_FW_AI_LOITERINGACT",4];

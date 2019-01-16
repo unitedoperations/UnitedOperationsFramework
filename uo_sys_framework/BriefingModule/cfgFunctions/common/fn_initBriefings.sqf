@@ -3,8 +3,7 @@
 #include "\x\UO_FW\addons\main\BriefingModule\module_macros.hpp"
 UO_FW_EXEC_CHECK(ALL);
 
-[] spawn {
-	waituntil {!isNull player};
+[{!isNull player}, {
 	private _side = (side player);
 	private _briefing = [];
 
@@ -21,6 +20,5 @@ UO_FW_EXEC_CHECK(ALL);
 		case civilian: {
 			#include "\x\UO_FW\addons\main\BriefingModule\defines\civilian_briefing.hpp"
 		};
-		default {};
 	};
-};
+}] call CBA_fnc_waitUntilAndExecute;

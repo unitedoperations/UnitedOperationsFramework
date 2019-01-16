@@ -14,8 +14,7 @@ if ((vehicle _Unit) != _Unit) exitWith {};
 //Lay down
 _Unit setUnitPos "DOWN";_Unit spawn {sleep 30; _this setUnitPos "MIDDLE";sleep 30;_this setUnitPos "AUTO";};
 
-if ((random 100) < 5) then
-{
+if ((random 100) < 5) then {
 	_unit setUnconscious true;
 	_unit spawn {sleep 15;_this setUnconscious false;};
 };

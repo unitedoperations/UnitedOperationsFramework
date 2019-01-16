@@ -12,6 +12,7 @@
 UO_FW_EXEC_CHECK(ALL);
 
 params ["_veh","_enableNV","_enableFlip"];
+if (isNil "UO_FW_AiDriverVehicle") then {UO_FW_AiDriverVehicle = objNull;};
 
 if (_veh getvariable ["UO_FW_hasAIDriverActions",false]) exitwith {};
 
@@ -19,8 +20,7 @@ if (_veh getvariable ["UO_FW_hasAIDriverActions",false]) exitwith {};
     private _action = ["ai_driver","Add/Remove AI driver","",{
 
         [_target, _player] call UO_FW_FNC_aiDriversToggle;
-    },
-    {
+    },{
         vehicle _player == _target && ((assignedVehicleRole _player) select 0) == "Turret" && UO_FW_AiDriverVehicle in [objNull, vehicle _player]
     }] call ace_interact_menu_fnc_createAction;
 

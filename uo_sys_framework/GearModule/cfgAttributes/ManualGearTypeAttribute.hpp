@@ -8,7 +8,7 @@ class UO_FW_Gear_ManualGearEditShort: EditShort {
 	";
 	//_this - config, _value - saved value
 	attributeLoad="\
-		if (typename _value != typename '') then {\
+		if !(typename _value isEqualTo typename '') then {\
 			_value = str _value;\
 		};\
 		private _unit = ((get3denselected 'object') select 0);\

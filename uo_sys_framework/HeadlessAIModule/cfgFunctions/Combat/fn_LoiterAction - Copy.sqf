@@ -2,15 +2,12 @@
 private ["_Unit", "_UnitGroup", "_CurrentAction", "_RandomAction", "_rnd", "_dist", "_dir", "_UnitPosition", "_positions", "_RandomAnimationList", "_ClosestUnit", "_positions2", "_Fire"];
 params ["_Unit","_UnitGroup"];
 
-While {_Unit getVariable ["UO_FW_AI_LOITERING",true] && alive _Unit} do
-{
+While {_Unit getVariable ["UO_FW_AI_LOITERING",true] && alive _Unit} do {
 	_CurrentAction = _Unit getVariable ["UO_FW_AI_LOITERINGACT",0];
 
 	_RandomAction = ([1,2,3,4] - [_CurrentAction]) call BIS_fnc_selectrandom;
-	switch (_RandomAction) do
-	{
-			case 1:
-			{
+	switch (_RandomAction) do {
+			case 1: {
 				//Wander around and play random animation
 				//Get random position
 				_Unit setVariable ["UO_FW_AI_LOITERINGACT",1];
@@ -24,8 +21,7 @@ While {_Unit getVariable ["UO_FW_AI_LOITERING",true] && alive _Unit} do
 				_RandomAnimationList = ["AmovPercMstpSnonWnonDnon_exercisePushup","Acts_AidlPercMstpSloWWrflDnon_warmup_6_loop","Acts_Kore_Introducing"] call BIS_fnc_selectrandom;
 				[_Unit,_RandomAnimationList] remoteExec ["playMoveEverywhere",0];
 			};
-			case 2:
-			{
+			case 2: {
 				_Unit setVariable ["UO_FW_AI_LOITERINGACT",2];
 				_ClosestUnit = [(_UnitGroup - [_Unit]),_Unit] call UO_FW_AI_fnc_ClosestObject;
 				_ClosestUnit setVariable ["UO_FW_AI_LOITERINGACT",2];
@@ -59,8 +55,7 @@ While {_Unit getVariable ["UO_FW_AI_LOITERING",true] && alive _Unit} do
 
 
 			};
-			case 3:
-			{
+			case 3: {
 				_Unit setVariable ["UO_FW_AI_LOITERINGACT",3];
 				_ClosestUnit = [(_UnitGroup - [_Unit]),_Unit] call UO_FW_AI_fnc_ClosestObject;
 				_ClosestUnit setVariable ["UO_FW_AI_LOITERINGACT",3];
@@ -96,11 +91,9 @@ While {_Unit getVariable ["UO_FW_AI_LOITERING",true] && alive _Unit} do
 				_ClosestUnit lookAt _Fire;
 				_Unit lookAt _Fire;
 
-				_ClosestUnit spawn
-				{
+				_ClosestUnit spawn {
 					private _Counter = 0;
-					While {_Counter < 11} do
-					{
+					While {_Counter < 11} do {
 						params ["_unit"];
 						sleep (random 2);
 						private _RandomAnimationList = ["AmovPercMstpSnonWnonDnon_exercisePushup","SitDown","AmovPercMstpSnonWnonDnon_SaluteIn"] call BIS_fnc_selectrandom;
@@ -110,11 +103,9 @@ While {_Unit getVariable ["UO_FW_AI_LOITERING",true] && alive _Unit} do
 					};
 				};
 
-				_Unit spawn
-				{
+				_Unit spawn {
 					private _Counter = 0;
-					While {_Counter < 11} do
-					{
+					While {_Counter < 11} do {
 						params ["_unit"];
 						sleep (random 2);
 						private _RandomAnimationList = ["AmovPercMstpSnonWnonDnon_exercisePushup","SitDown","AmovPercMstpSnonWnonDnon_SaluteIn"] call BIS_fnc_selectrandom;
@@ -129,8 +120,7 @@ While {_Unit getVariable ["UO_FW_AI_LOITERING",true] && alive _Unit} do
 
 
 			};
-			case 4:
-			{
+			case 4: {
 				//Wander around and sitdown
 				//Get random position
 				_Unit setVariable ["UO_FW_AI_LOITERINGACT",4];

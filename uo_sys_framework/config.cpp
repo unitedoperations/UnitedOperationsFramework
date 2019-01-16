@@ -1,9 +1,7 @@
 #include "script_macros.hpp"
 
-class CfgPatches
-{
-	class ADDON
-	{
+class CfgPatches {
+	class ADDON {
 		name = "United Operations Framework";
 		author = "United Operations";
 		authors[] = {"Sacher","Blackhawk","Olsen","PiZZADOX","TrainDoctor"};
@@ -21,22 +19,16 @@ class CfgPatches
 #include "\a3\3DEN\UI\resincl.inc"
 #include "3den\MainExternal.hpp"
 
-class CfgFactionClasses
-{
+class CfgFactionClasses {
 	class NO_CATEGORY;
-
-	class UO_FrameworkCategory: NO_CATEGORY
-	{
-			displayName = " United Operations Framework";
+	class UO_FrameworkCategory: NO_CATEGORY {
+		displayName = " United Operations Framework";
 	};
-
 	#include "HeadlessAIModule\cfgFactionClasses.hpp"
 };
 
-class CfgFunctions
-{
-	class UO_Framework
-	{
+class CfgFunctions {
+	class UO_Framework {
 		tag = "UO_FW";
 		//add custom functions
 		#include "3DEN\cfgFunctions.hpp"
@@ -67,27 +59,12 @@ class CfgFunctions
 		#include "HostageModule\cfgFunctions.hpp"
 		#include "CoverMapModule\cfgFunctions.hpp"
 	};
-
 	#include "HeadlessAIModule\cfgFunctions.hpp"
 };
 
-class CfgEditorCategories {
-	class UO_FW_Category {
-		displayName = "UO_FW"
-	};
-};
-
-class CfgEditorSubcategories {
-	class UO_FW_SubCategory {
-		displayName = "UO_FW"
-	};
-};
-
-class CfgVehicles
-{
+class CfgVehicles {
 	class Logic;
-	class Module_F: Logic
-	{
+	class Module_F: Logic {
 		class EventHandlers;
 		class ArgumentsBaseUnits {
 			class Units;
@@ -96,8 +73,7 @@ class CfgVehicles
 			class AnyBrain;
 		};
 	};
-    class OlsenModule: Module_F
-	{
+    class OlsenModule: Module_F {
 		category = "UO_FrameworkCategory";
 		isGlobal = 2;
 		isTriggerActivated = 0;
@@ -109,8 +85,6 @@ class CfgVehicles
 		editorSubCategory = "UO_FW_SubCategory";
 	};
 	//add custom cfgVehicles
-	//#include "Core\cfgVehicles.hpp"
-
 	#include "HeadlessAIModule\cfgVehicles.hpp"
 	#include "SetupTimerModule\cfgVehicles.hpp"
 	#include "CaptureZoneModule\cfgVehicles.hpp"
@@ -118,45 +92,35 @@ class CfgVehicles
 	#include "CoverMapModule\cfgVehicles.hpp"
 };
 
-class RscTitles
-{
+class RscTitles {
 	#include "Core\RscTitles.hpp"
 	#include "AOLimitModule\RscTitles.hpp"
 	#include "SetupTimerModule\RscSetupTimer.hpp"
 };
 #include "FiremissionModule\RscTitles.hpp"
 
-class CfgNotifications
-{
+class CfgNotifications {
 	#include "AOLimitModule\cfgNotifications.hpp"
 	#include "SetupTimerModule\CfgNotifications.hpp"
 };
 
-class CfgDebriefingSections
-{
+class CfgDebriefingSections {
 	#include "Core\cfgDebriefingSections.hpp"
 };
 
-class CfgSounds
-{
+class CfgSounds {
 
 };
 
-class CfgUnitInsignia
-{
+class CfgUnitInsignia {
 
 };
 
-class Cfg3DEN
-{
-	class Mission
-	{
-
-		class UO_FW_Settings
-		{
+class Cfg3DEN {
+	class Mission {
+		class UO_FW_Settings {
 			displayName = "Mission Settings";
-			class AttributeCategories
-			{
+			class AttributeCategories {
 				//add main mission settings here
 				#include "Core\cfg3den\Mission\Main.hpp"
 				#include "Core\cfg3den\Mission\Teams.hpp"
@@ -169,11 +133,9 @@ class Cfg3DEN
 		//Additional Core cfg3denMenu defines
 		#include "Core\cfg3den\cfg3denMenu.hpp"
 
-		class UO_FW_Module_Settings
-		{
+		class UO_FW_Module_Settings {
 			displayName = "Module Settings";
-			class AttributeCategories
-			{
+			class AttributeCategories {
 				//add module settings here
 				#include "AIDriversModule\cfg3den\Modules\AIDrivers.hpp"
 				#include "AILinkModule\cfg3den\Modules\AILink.hpp"
@@ -263,8 +225,7 @@ class Cfg3DEN
 	};
 
 	//Add custom configs & controls for 3den and modules
-	class Attributes
-	{
+	class Attributes {
 		#include "3DEN\CfgAttributes.hpp"
 		#include "Core\CfgAttributes.hpp"
 		#include "EndConditionsModule\CfgAttributes.hpp"
@@ -279,18 +240,13 @@ class Cfg3DEN
 	};
 };
 
-class display3DEN
-{
-	class Controls
-	{
-		class MenuStrip: ctrlMenuStrip
-		{
-			class Items
-			{
+class display3DEN {
+	class Controls {
+		class MenuStrip: ctrlMenuStrip {
+			class Items {
 				//UO menus define
 				#include "Core\display3DEN\Menu.hpp"
 				#include "Core\display3DEN\MenuRespawn.hpp"
-
 				//Add custom UO menus
 				#include "HeadlessAIModule\display3DEN\Menu.hpp"
 				#include "BriefingModule\display3DEN\Menu.hpp"
@@ -298,28 +254,20 @@ class display3DEN
 				#include "GearModule\display3DEN\Menu.hpp"
 				#include "ACREModule\display3DEN\Menu.hpp"
 				#include "3DEN\display3DEN\Menu.hpp"
-
 				//tools define
 				#include "Core\display3DEN\MenuTools.hpp"
-
 				//add custom tools menus
-
 				/*class UO_FW_Tools_Folder {
 					text = "Tools";
 					items[] = {"UO_FW_Test_Mission","UO_FW_Test_Loadouts"};
 				};*/
-
 				//documentation define
 				#include "Core\display3DEN\MenuDoc.hpp"
-
-				//add custom documentation
-
 				//compile UO menu folder
 				//add custom items with an additional entry in items[]
-				class UO_FW_Folder
-				{
+				class UO_FW_Folder {
 					text = "UO Framework";
-					items[] = {"UO_FW_Settings","UO_FW_Briefing_Folder","UO_FW_Respawn_Settings","UO_FW_Module_Settings","UO_FW_EndConditions_Folder","UO_FW_ACRE_Folder","UO_FW_Gear_Folder","UO_FW_AI_Settings","UO_FW_ExportImport_Folder","UO_FW_Documentation"};
+					items[] = {"UO_FW_Settings","UO_FW_Briefing_Folder","UO_FW_Respawn_Folder","UO_FW_Module_Settings","UO_FW_EndConditions_Folder","UO_FW_ACRE_Folder","UO_FW_Gear_Folder","UO_FW_AI_Settings","UO_FW_ExportImport_Folder","UO_FW_Documentation"};
 					//items[] = {"UO_FW_Settings","UO_FW_Module_Settings","UO_FW_Gear_Settings","UO_FW_EndConditions_Folder","UO_FW_ACRE_Folder","UO_FW_Briefing_Folder","UO_FW_Documentation"};
 				};
 				//compile main menu
@@ -335,25 +283,42 @@ class CfgRemoteExec {
         jip = 0;
         class bis_fnc_call {
         	allowedTargets = 0;
-					jip = 0;
+			jip = 0;
         };
-				class call {
+		class call {
         	allowedTargets = 0;
-					jip = 0;
+			jip = 0;
         };
     };
 };
 
-class Params
-{
+#include "Core\CfgUO\RespawnTemplates.hpp"
+
+class Params {
 	#define DAYTIMEHOUR_DEFAULT 12
 	#include "\a3\functions_f\Params\paramDaytimeHour.hpp"
 };
 
-class Extended_PreInit_EventHandlers
-{
-	class UO_Framework_PreInit
-	{
-		init="call compile preProcessFileLineNumbers 'x\UO_FW\addons\main\XEH_preInit.sqf'";
+class Extended_PreInit_EventHandlers {
+	#include "Core\cfgXEH\PreInit.hpp"
+};
+
+class Extended_PostInit_Eventhandlers {
+	#include "AutoTrackAssetModule\cfgXEH\PostInit.hpp"
+	#include "ShotCountModule\cfgXEH\PostInit.hpp"
+};
+
+class Extended_InitPost_Eventhandlers {
+    class CAManBase {
+		#include "ShotCountModule\cfgXEH\InitPost_CAManBase.hpp"
+    };
+	class Land {
+		#include "ShotCountModule\cfgXEH\InitPost_CAManBase.hpp"
+	};
+	class Air {
+		#include "ShotCountModule\cfgXEH\InitPost_CAManBase.hpp"
+	};
+	class Ship {
+		#include "ShotCountModule\cfgXEH\InitPost_CAManBase.hpp"
 	};
 };

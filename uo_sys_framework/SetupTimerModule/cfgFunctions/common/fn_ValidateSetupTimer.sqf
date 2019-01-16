@@ -26,7 +26,7 @@ if (_waittime < 10) then {
 	UO_FW_DEBUG("","Setup timer module:<br></br>Too short of a Setup Timer wait time!");
 };
 
-if (!UO_FW_SERVER_SETUPMODULE_ALLOWED) then {
+if (!UO_FW_Server_SetupModule_Allowed) then {
 	_isValid = false;
 	private _msg = format ["Setup timer has been disabled by the Server"];
   UO_FW_DEBUG("",_msg);

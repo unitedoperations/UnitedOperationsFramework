@@ -17,7 +17,7 @@ params [
 	"_i"
 ];
 	for[{_i = 0}, {(_i < (count _array)) && (_value == -1)}, {_i = _i + 1}] do {
-		if((_array select _i select _keycolumn) == _classname) then {
+		if ((_array select _i select _keycolumn) == _classname) then {
 			_value = _i;
 		};
 	};

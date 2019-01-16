@@ -12,78 +12,10 @@
  * Public: No
  */
 
-/*if (UO_FW_RespawnTickets > 0) then {
-
-	private _respawnName = toLower(format ["UO_fw_%1_respawn", side player]);
-	private _respawnPoint = missionNamespace getVariable [_respawnName, objNull];
-
-	private _loadout = (player getVariable ["UO_FW_Loadout", ""]);
-
-	if (_loadout != "") then {
-
-		[player, _loadout] call UO_FW_fnc_GearScript;
-
-	};
-
-	if (!isNull(_respawnPoint)) then {
-
-		player setPos getPosATL _respawnPoint;
-
-	};
-
-	UO_FW_RespawnTickets = UO_FW_RespawnTickets - 1;
-
-	private _text = "respawns left";
-
-	if (UO_FW_RespawnTickets == 1) then {
-
-		_text = "respawn left";
-
-	};
-
-	call BIS_fnc_VRFadeIn;
-
-	cutText [format ['%1 %2', UO_FW_RespawnTickets, _text], 'PLAIN DOWN'];
-
-	player setVariable ["UO_FW_Body", player, true];
-
-} else {
-
-	player setVariable ["UO_FW_Dead", true, true]; //Tells the framework the player is dead
-
-	player setCaptive true;
-	player allowdamage false;
-
-	player call UO_FW_fnc_RemoveAllGear;
-
-	player addWeapon "itemMap";
-
-	player setPos [0, 0, 0];
-	[player] join grpNull;
-
-	hideObjectGlobal player;
-
-	if (!(player getVariable ["UO_FW_Spectating", false])) then {
-
-		player setVariable ["UO_FW_Spectating", true, true];
-
-		[true] call acre_api_fnc_setSpectator;
-		"" call UO_FW_FNC_Spectate;
-
-
-	} else {
-
-		call BIS_fnc_VRFadeIn;
-
-	};
-};*/
-
 #define DEBUG_MSG(MSG)
 //systemchat MSG;\
 
-if (!isDedicated) then
-{
-
+if (!isDedicated) then {
 	//function ran from keyHandler
 	killcam_toggleFnc = {
 		//37 is DIK code for K
@@ -91,8 +23,7 @@ if (!isDedicated) then
 			if (killcam_toggle) then {
 				killcam_toggle = false;
 				cutText ["", "PLAIN DOWN"];
-			}
-			else {
+			} else {
 				killcam_toggle = true;
 				cutText ["Line shows LINE OF SIGHT from postion of enemy to player's position during the time of death.\nPress K to toggle hud markers off.\n\nTHIS FRAMEWORK FEATURE IS WIP. It may contain bugs and may be updated or changed at any point.", "PLAIN DOWN"];
 			};
@@ -218,16 +149,14 @@ if (!isDedicated) then
 						killcam_unit_pos = _unitPos;
 						killcam_killer = _data select 1;
 						killcam_killer_pos = _killerPos;
-					}
-					else {
+					} else {
 						DEBUG_MSG("HIT data not valid")
 						//everything failed, we set value we will detect later
 						killcam_killer_pos = [0,0,0];
 						killcam_unit_pos = ASLtoAGL eyePos _unit;
 						killcam_killer = objNull;
 					};
-				}
-				else {
+				} else {
 					DEBUG_MSG("HIT and KILLED EHs not valid")
 					killcam_killer_pos = [0,0,0];
 					killcam_unit_pos = ASLtoAGL eyePos _unit;
@@ -301,8 +230,7 @@ if (!isDedicated) then
 
 			cutText [format ['%1 %2', UO_FW_RespawnTickets, _text], 'PLAIN DOWN'];
 			player setVariable ["UO_FW_Body", player, true];
-		}
-		else {
+		} else {
 
 			player setVariable ["UO_FW_Dead", true, true]; //Tells the framework the player is dead
 
@@ -389,8 +317,7 @@ if (!isDedicated) then
 						_pos = ([_pos, -2, _dir] call BIS_fnc_relPos);
 						_cam setposATL _pos;
 						_cam setDir _dir;
-					}
-					else {
+					} else {
 						missionNamespace setVariable ["killcam_toggle", false];
 
 						//this cool piece of code adds key handler to spectator display
@@ -413,8 +340,7 @@ if (!isDedicated) then
 							//we check if camera is not pointing up, just in case
 							if (abs(_temp select 2) > 89) then {_temp set [2, 0]};
 							[_cam, [_temp select 1, _temp select 2]] call BIS_fnc_setObjectRotation;
-						}
-						else {
+						} else {
 							DEBUG_MSG("no valid killer")
 							_cam setposATL _pos;
 							_cam setDir _dir;
@@ -440,8 +366,7 @@ if (!isDedicated) then
 									if (!isNull killcam_killer) then {
 										drawIcon3D [killcam_texture, [1,0,0,1], [eyePos killcam_killer select 0, eyePos killcam_killer select 1, (ASLtoAGL eyePos killcam_killer select 2) + 0.4], 0.7, 0.7, 0, (name killcam_killer) + ", " + (str round killcam_distance) + "m", 1, 0.04, "PuristaMedium"];
 									};
-								}
-								else {
+								} else {
 									cutText ["killer info unavailable", "PLAIN DOWN"];
 									missionNamespace setVariable ["killcam_toggle", false];
 								};

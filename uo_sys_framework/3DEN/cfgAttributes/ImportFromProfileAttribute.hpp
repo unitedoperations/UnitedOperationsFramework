@@ -1,14 +1,12 @@
 class UO_FW_ImportFromProfileAttribute: ComboPreview {
 	class Controls: Controls {
 		class Title: Title {};
-		class Value: Value
-		{
+		class Value: Value {
 			idc=100;
 			x="48 * (pixelW * pixelGrid * 	0.50)";
 			w="(	82 - 	5) * (pixelW * pixelGrid * 	0.50)";
 			h="5 * (pixelH * pixelGrid * 	0.50)";
 			onLoad="\
-			_this spawn {\
 				disableserialization;\
 				params ['_control','_config'];\
 				private _profileArray = profileNamespace getvariable ['UO_FW_ProfileSettingsArray',[]];\
@@ -31,11 +29,9 @@ class UO_FW_ImportFromProfileAttribute: ComboPreview {
 						_control lbsetValue [_index,_forEachIndex];\
 					} foreach _profileArray;\
 				};\
-			};\
 			 ";
 		};
-		class Preview: Preview
-		{
+		class Preview: Preview {
 			idc=101;
 			x="(	48 + 	82 - 	5) * (pixelW * pixelGrid * 	0.50)";
 			w="0.99 * 	5 * (pixelW * pixelGrid * 	0.50)";

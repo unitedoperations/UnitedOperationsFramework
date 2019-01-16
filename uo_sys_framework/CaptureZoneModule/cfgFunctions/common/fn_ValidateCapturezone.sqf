@@ -12,30 +12,25 @@ if (isNil "CaptureZone_Array") then {
 
 if (_zoneName in CaptureZone_Array) then {
 	_isValid = false;
-	private _msg = format ["Duplicate name for CaptureZone %1. CaptureZone must have unique name!", _zoneName];
-	UO_FW_DEBUG("",_msg);
+	ERROR_1("Duplicate name for CaptureZone %1. CaptureZone must have unique name!", _zoneName);
 };
 
 if ((count _area) < 4) then {
 	_isValid = false;
-	private _msg = format ["Invalid area generated for CaptureZone %1", _zoneName];
-	UO_FW_DEBUG("",_msg);
+	ERROR_1("Invalid area generated for CaptureZone %1", _zoneName);
 };
 
 if ((count _colours) < 6) then {
 	_isValid = false;
-	private _msg = format ["No sides defined for capture for CaptureZone %1", _zoneName];
-	UO_FW_DEBUG("",_msg);
+	ERROR_1("No sides defined for capture for CaptureZone %1", _zoneName);
 };
 
 if (({!(_x isEqualto 2)} count _capArray) isEqualTo 0) exitwith {
-	private _msg = format ["CaptureZone %1 has no teams that can be counted!", _zoneName];
-	UO_FW_DEBUG("",_msg);
+	ERROR_1("CaptureZone %1 has no teams that can be counted!", _zoneName);
 };
 
 if (({_x isEqualto 0} count _capArray) isEqualto 0) exitwith {
-	private _msg = format ["CaptureZone %1 has no teams that can capture!", _zoneName];
-	UO_FW_DEBUG("",_msg);
+	ERROR_1("CaptureZone %1 has no teams that can capture!", _zoneName);
 };
 
 _isValid

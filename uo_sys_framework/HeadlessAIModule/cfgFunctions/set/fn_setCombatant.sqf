@@ -6,7 +6,7 @@
  *	Author:
  *		suits & PiZZADOX
  */
-if(!hasInterface) exitWith {};
+if (!hasInterface) exitWith {};
 	params [["_c",false,[false]]];
 	[_c, {player setCaptive _this;}] remoteExec ["bis_fnc_call", 0];
 	true

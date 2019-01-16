@@ -13,14 +13,11 @@ _Array = lineIntersectsObjs [_Position,[_Position select 0,_Position select 1,(_
 	if (_x isKindof "Building") then {_dgn_returnvariable = true;};
 } foreach _Array;
 
-if (_dgn_returnvariable) then 
-{
+if (_dgn_returnvariable) then  {
 	_UO_FW_AI_StartedInside = true;
 	_this setVariable ["UO_FW_AI_StartedInside",true];
-}
-else
-{
-	_UO_FW_AI_StartedInside = false;	
+} else {
+	_UO_FW_AI_StartedInside = false;
 };
 
 
