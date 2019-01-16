@@ -6,5 +6,5 @@ _unit = _this select 0;
 		skills pushBack (_unit getVariable [VAR_SART_ARTSPOTACCURACY,MEANSPOTTINGACCURACY]);
 		skills pushBack (_unit getVariable [VAR_SART_ARTAIMSPEED,MEANAIMTIME]);
 		skills pushBack (_unit getVariable [VAR_SART_ARTCALCSPEED,MEANCALCULATIONTIME]);
-		skills pushBack (_unit getVariable [VAR_SART_ARTCUSTOMNAME,""]);
+		skills pushBack (_unit getVariable [VAR_SART_ARTCustomNAME,""]);
 		skills

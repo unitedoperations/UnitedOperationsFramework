@@ -11,15 +11,13 @@ private _unit =_this;
 		_check = _x;
 		_found = false;
 		{
-			if(_x select 0 == _check select 0) then
-			{
+			if (_x select 0 == _check select 0) then {
 				_found = true;
 				_num = (_check select 1) + (_x select 1);
 				_x set [1,_num];
 			}
 		}forEach _ret;
-		if(!_found) then
-		{
+		if (!_found) then {
 			hint "GetArtyAmmo Error";
 		};
 

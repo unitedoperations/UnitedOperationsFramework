@@ -24,7 +24,7 @@ UO_FW_AI_EXEC_CHECK(SERVERHC);
 			_v setMagazineTurretAmmo [_class,_ammo,_path];
 		} forEach (_veh select 6);
 		_v lock (_veh select 7);
-		if((count (_veh select 9)) > 1) then {
+		if ((count (_veh select 9)) > 1) then {
 			missionNamespace setVariable[(_veh select 9), _v];
 		};
 		[_v,(_veh select 10)] call UO_FW_AI_fnc_setPersistent;
@@ -37,7 +37,7 @@ UO_FW_AI_EXEC_CHECK(SERVERHC);
 		_o setPosATL (_obj select 1);
 		_o setVariable["persistent",true,true];
 		_o setDamage (_obj select 4);
-		if((count (_obj select 6)) > 1) then {
+		if ((count (_obj select 6)) > 1) then {
 			missionNamespace setVariable[(_obj select 6), _o];
 		};
 		[_o,(_obj select 7)] call UO_FW_AI_fnc_setPersistent;
@@ -45,7 +45,7 @@ UO_FW_AI_EXEC_CHECK(SERVERHC);
 	} forEach _objs;
 	{
 		_x params ["_grpid","_grpSet","_grpMem"];
-		if((_grpSet select 15) > 0 && !(_grpSet select 16)) then {
+		if ((_grpSet select 15) > 0 && !(_grpSet select 16)) then {
 			_x spawn UO_FW_AI_fnc_createOccupyGroupInit;
 		} else {
 			_x spawn UO_FW_AI_fnc_createGroupInit;

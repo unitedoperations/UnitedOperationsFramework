@@ -3,7 +3,7 @@
 ////////////////////////////////////////////////////////
 
 #include "..\..\Global\defs.hpp"
-class UO_FW_DIA_GRIDSPOTTINGFIREMISSION
+class UO_FW_DIA_GRIDSPOTTINGFIREMission
 {
 	idd = GSFM_DIA_IDD_DISPLAY;
 	movingEnable = false;

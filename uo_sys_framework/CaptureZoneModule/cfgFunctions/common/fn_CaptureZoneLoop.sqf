@@ -1,86 +1,85 @@
 #define COMPONENT CaptureZone
 #include "\x\UO_FW\addons\main\script_macros.hpp"
-UO_FW_EXEC_CHECK(ALL);
-
-_this spawn {
-private ["_markername","_marker","_oldOwner","_playersInArea","_owner"];
+UO_FW_EXEC_CHECK(SERVER);
 
 //[_logic,_zoneName,_area,_interval,_repeatable,_capArray,_timeArray,_messagesArray,_colours,_hidden,_silent,_automessages,_ratioNeeded,_cond] passed array
-params ["_logic","_zoneName","_area","_interval","_repeatable","_capArray","_timeArray","_messagesArray","_colours","_hidden","_silent","_automessages","_ratioNeeded","_cond"];
-_area params ["_loc","_radiusX","_radiusY","_direction","_isRectangle"];
-_colours params ["_bluforcolour","_opforcolour","_indforcolour","_civiliancolour","_uncontestedcolour","_contestedcolour"];
-_messagesArray params ["_bluformessageArray","_opformessageArray","_indformessageArray","_civilianmessageArray","_uncontestedmessage","_contestedmessage"];
-_capArray params ["_bluforCapMode","_opforCapMode","_indforCapMode","_civCapMode"];
+params ["","_zoneName","","_interval","","","","","","","","","",["_cond","true",[""]]];
 
-["Capture Zone", "Creates Capture Zones", "Sacher and PiZZADOX"] call UO_FW_FNC_RegisterModule;
+["Capture Zone", "Creates Capture Zone objectives for variable declares and end condition requirements", "Sacher and PiZZADOX"] call UO_FW_fnc_RegisterModule;
 
-if(!(_this call UO_FW_fnc_ValidateCaptureZone)) exitWith {
-	private _msg = format ["CaptureZone %1 failed to Validate",_zoneName];
-	UO_FW_DEBUG("",_msg);
+if (!(_this call UO_FW_fnc_ValidateCaptureZone)) exitWith {
+	ERROR_1("CaptureZone %1 failed to Validate",_zoneName);
 };
 
 if (_interval < 5) then {
-	private _msginterval = format ["CaptureZone %1 has too low an interval check! Setting to 5 seconds", _zoneName];
-	UO_FW_DEBUG("",_msginterval);;
+	ERROR_1("CaptureZone %1 has too low an interval check! Setting to 5 seconds", _zoneName);
 	_interval = 5;
 };
 
-if !(_hidden) then {
-	private _msghidden = format ["Creating CaptureZone %1 Marker",_zoneName];
-	UO_FW_DEBUG("",_msghidden);
-	_markername = format ["%1_ZoneMarker",_zoneName];
-	_marker = createmarker [_markername,_loc];
-	if (_isRectangle) then {
-		_marker setMarkerShape "RECTANGLE";
-	} else {
-		_marker setMarkerShape "ELLIPSE";
-	};
-	_marker setMarkerSize [_radiusX, _radiusY];
-	_marker setMarkerAlpha 0.25;
-	_marker setMarkerBrush "SolidBorder";
-	_marker setMarkerDir _direction;
-	_marker setMarkerColor _uncontestedcolour;
-};
-
-//define var for use in endconditions
-private _varName = format ["%1_var",_zoneName];
-private  _teamControllingvarName = format ["%1_teamControlling",_zoneName];
-MissionNamespace setVariable [_varName,false,true];
-MissionNamespace setVariable [_teamControllingvarName,"UNCONTESTED",true];
-
-private _run = true;
-private _oldOwner = "UNCONTESTED";
-private _owner = "UNCONTESTED";
-private _ownerControlCount = 0;
-private _bluforIndex = 0;
-private _opforIndex = 1;
-private _indforIndex = 2;
-private _civIndex = 3;
-if (isNil "CaptureZone_Array") then {CaptureZone_Array = [];};
-CaptureZone_Array pushBack _logic;
-
-	private _msgloop = format ["Starting CaptureZone %1 Loop",_zoneName];
-	UO_FW_DEBUG("",_msgloop);
-
-	while {_run} do {
+[{(call compile (_this select 1))}, {
+	(_this select 0) params ["_logic","_zoneName"];
+	LOG_1("Activating CaptureZone %1 PFH",_zoneName);
+	//define var for use in endconditions_varName = format ["%1_var",_zoneName];
+	private _varName = format ["%1_var",_zoneName];
+	private _teamControllingvarName = format ["%1_teamControlling",_zoneName];
+	if (isNil "CaptureZone_Array") then {CaptureZone_Array = [];};
+	CaptureZone_Array pushBack _logic;
+	private _CaptureZonePFHhandle = [{
 		//var redeclares
+		params ["_argNested", "_idPFH"];
+		_argNested params ["_args","_lastCheckedTime",["_initialized",false,[false]],"_varName","_teamControllingvarName",["_oldOwner","UNCONTESTED",[""]],["_ownerControlCount",0,[0]],"_marker"];
+		_args params ["_logic","_zoneName","_area","_interval","_repeatable","_capArray","_timeArray","_messagesArray","_colours","_hidden","_silent","_automessages","_ratioNeeded","_cond"];
+		_area params ["_loc","_radiusX","_radiusY","_direction","_isRectangle"];
+		_colours params ["_bluforcolour","_opforcolour","_indforcolour","_civiliancolour","_uncontestedcolour","_contestedcolour"];
+		_messagesArray params ["_bluformessageArray","_opformessageArray","_indformessageArray","_civilianmessageArray","_contestedmessage","_uncontestedmessage"];
+		_capArray params ["_bluforCapMode","_opforCapMode","_indforCapMode","_civCapMode"];
+		private ["_owner","_markername"];
+
+		private _timeDifference = (CBA_missionTime - _lastCheckedTime);
+		if (_timeDifference < 1) exitwith {};
+		_argNested set [1,(CBA_missionTime)];
+
+		if !(_initialized) then {
+			_argNested set [2,true];
+			_oldOwner = "UNCONTESTED";
+			_owner = "UNCONTESTED";
+			_argNested set [6,0];
+
+			if !(_hidden) then {
+				_markername = format ["%1_ZoneMarker",_zoneName];
+				_marker = createmarker [_markername,_loc];
+				_argNested set [7,_marker];
+				if (_isRectangle) then {
+					_marker setMarkerShape "RECTANGLE";
+				} else {
+					_marker setMarkerShape "ELLIPSE";
+				};
+				_marker setMarkerSize [_radiusX, _radiusY];
+				_marker setMarkerAlpha 0.25;
+				_marker setMarkerBrush "SolidBorder";
+				_marker setMarkerDir _direction;
+				_marker setMarkerColor _uncontestedcolour;
+			};
+
+			MissionNamespace setVariable [_varName,false,true];
+			MissionNamespace setVariable [_teamControllingvarName,"UNCONTESTED",true];
+		};
 
 		private _bluCount = 0;
 		private _opCount = 0;
 		private _indCount = 0;
 		private _civCount = 0;
 
-		private _condvalue = missionNamespace getVariable [_cond,true];
-		waituntil {_condvalue};
+		private _playersInArea = ([] call UO_FW_fnc_alivePlayers) select {(_x inArea _area) && {(!captive _x)}};
 
-		_playersInArea = ([] call UO_FW_fnc_alivePlayers) select {(_x inArea _area) && (!captive _x)};
-
-		if (_playersInArea isEqualTo []) then {
+		if (_playersInArea isEqualTo []) exitwith {
 			_owner = "UNCONTESTED";
-			_ownerControlCount = 0;
 			if !(_owner isEqualto _oldOwner) then {
+				_argNested set [5,_owner];
+				_argNested set [6,0];
 				if !(_hidden) then {
 					_marker setMarkerColor _uncontestedcolour;
+					_marker setMarkerAlpha 0.25;
 				};
 				if !(_silent) then {
 					if (_automessages) then {
@@ -93,7 +92,6 @@ CaptureZone_Array pushBack _logic;
 				MissionNamespace setVariable [_varName,false,true];
 				MissionNamespace setVariable [_teamControllingvarName,"UNCONTESTED",true];
 			};
-			waituntil {sleep _interval; !((([] call UO_FW_fnc_alivePlayers) select {(_x inArea _area) && (!captive _x)}) isEqualTo [])};
 		};
 
 		{
@@ -122,14 +120,15 @@ CaptureZone_Array pushBack _logic;
 			};
 		} foreach _playersInArea;
 
-
 		if (({(selectMax [_bluCount, _opCount, _indCount, _civCount] isEqualTo _x) && !(_x isEqualto 0)} count [_bluCount, _opCount, _indCount, _civCount]) > 1) then {
 			//it's a tie between 2 or more teams
 			_owner = "CONTESTED";
-			private _ownerControlCount = 0;
+			_argNested set [6,0];
 			if !(_owner isEqualto _oldOwner) then {
+				_argNested set [5,_owner];
 				if !(_hidden) then {
 					_marker setMarkerColor _contestedcolour;
+					_marker setMarkerAlpha 0.25;
 				};
 				if !(_silent) then {
 					if (_automessages) then {
@@ -143,13 +142,14 @@ CaptureZone_Array pushBack _logic;
 		} else {
 			//a team has a number advantage
 			private _ratio = 10;
-			private _findMax = ([_bluCount,_opCount,_indCount,_civCount] call CBA_fnc_findMax);
+			private _liveCountArray = [_bluCount,_opCount,_indCount,_civCount];
+			private _findMax = (_liveCountArray call CBA_fnc_findMax);
 			private _max = _findMax select 0;
 			private _maxindex = _findMax select 1;
 			private _2ndplace = 0;
-			private _ratioNeeded = 0;
 			if !(_ratioNeeded isEqualto 0) then {
-				_2ndplace = (selectMax ([_bluCount,_opCount,_indCount,_civCount] - [_max]));
+				_liveCountArray deleteAt _maxindex;
+				_2ndplace = selectMax _liveCountArray;
 				if !(_2ndplace isEqualTo 0) then {
 					_ratio = (_2ndplace / _max);
 				} else {
@@ -167,11 +167,12 @@ CaptureZone_Array pushBack _logic;
 					case "BLUFOR": {
 						if (_owner isEqualto _oldOwner) then {
 							if (_bluforCapMode isEqualTo 0) then {
-								private _ownerControlCount = _ownerControlCount + 1;
-								if (_ownerControlCount > (_timeArray select _bluforIndex)) then {
+								_argNested set [6,(_ownerControlCount + 1)];
+								if ((_argNested select 6) > (_timeArray select 0)) then {
 									//message is blufor has captured
 									if !(_hidden) then {
 										_marker setMarkerColor _bluforcolour;
+										_marker setMarkerAlpha 0.5;
 									};
 									if !(_silent) then {
 										if (_automessages) then {
@@ -183,15 +184,22 @@ CaptureZone_Array pushBack _logic;
 									};
 									MissionNamespace setVariable [_varName,true,true];
 									MissionNamespace setVariable [_teamControllingvarName,"BLUFOR",true];
-									if !(_repeatable) then {
-										_run = false;
+									if !(_repeatable) exitWith {
+										if !(_hidden) then {
+											_marker setMarkerAlpha 0.5;
+											_marker setMarkerBrush "Border";
+										};
+										[_idPFH] call CBA_fnc_removePerFrameHandler;
 									};
 								};
 							};
 						} else {
+							_argNested set [5,_owner];
+							_argNested set [6,0];
 							//message if blufor is capturing
 							if !(_hidden) then {
 								_marker setMarkerColor _bluforcolour;
+								_marker setMarkerAlpha 0.25;
 							};
 							if !(_silent) then {
 								if (_automessages) then {
@@ -206,11 +214,12 @@ CaptureZone_Array pushBack _logic;
 					case "OPFOR": {
 						if (_owner isEqualto _oldOwner) then {
 							if (_opforCapMode isEqualTo 0) then {
-								private _ownerControlCount = _ownerControlCount + 1;
-								if (_ownerControlCount > (_timeArray select _opforIndex)) then {
+								_argNested set [6,(_ownerControlCount + 1)];
+								if ((_argNested select 6) > (_timeArray select 1)) then {
 									//message is blufor has captured
 									if !(_hidden) then {
 										_marker setMarkerColor _opforcolour;
+										_marker setMarkerAlpha 0.5;
 									};
 									if !(_silent) then {
 										if (_automessages) then {
@@ -222,15 +231,22 @@ CaptureZone_Array pushBack _logic;
 									};
 									MissionNamespace setVariable [_varName,true,true];
 									MissionNamespace setVariable [_teamControllingvarName,"OPFOR",true];
-									if !(_repeatable) then {
-										_run = false;
+									if !(_repeatable) exitWith {
+										if !(_hidden) then {
+											_marker setMarkerAlpha 0.5;
+											_marker setMarkerBrush "Border";
+										};
+										[_idPFH] call CBA_fnc_removePerFrameHandler;
 									};
 								};
 							};
 						} else {
 							//message if blufor is capturing
+							_argNested set [5,_owner];
+							_argNested set [6,0];
 							if !(_hidden) then {
 								_marker setMarkerColor _opforcolour;
+								_marker setMarkerAlpha 0.25;
 							};
 							if !(_silent) then {
 								if (_automessages) then {
@@ -245,11 +261,12 @@ CaptureZone_Array pushBack _logic;
 					case "INDFOR": {
 						if (_owner isEqualto _oldOwner) then {
 							if (_indforCapMode isEqualTo 0) then {
-								private _ownerControlCount = _ownerControlCount + 1;
-								if (_ownerControlCount > (_timeArray select _indforIndex)) then {
+								_argNested set [6,(_ownerControlCount + 1)];
+								if ((_argNested select 6) > (_timeArray select 2)) then {
 									//message is blufor has captured
 									if !(_hidden) then {
 										_marker setMarkerColor _indforcolour;
+										_marker setMarkerAlpha 0.5;
 									};
 									if !(_silent) then {
 										if (_automessages) then {
@@ -261,15 +278,22 @@ CaptureZone_Array pushBack _logic;
 									};
 									MissionNamespace setVariable [_varName,true,true];
 									MissionNamespace setVariable [_teamControllingvarName,"INDFOR",true];
-									if !(_repeatable) then {
-										_run = false;
+									if !(_repeatable) exitWith {
+										if !(_hidden) then {
+											_marker setMarkerAlpha 0.5;
+											_marker setMarkerBrush "Border";
+										};
+										[_idPFH] call CBA_fnc_removePerFrameHandler;
 									};
 								};
 							};
 						} else {
 							//message if blufor is capturing
+							_argNested set [5,_owner];
+							_argNested set [6,0];
 							if !(_hidden) then {
 								_marker setMarkerColor _indforcolour;
+								_marker setMarkerAlpha 0.25;
 							};
 							if !(_silent) then {
 								if (_automessages) then {
@@ -284,11 +308,12 @@ CaptureZone_Array pushBack _logic;
 					case "CIV": {
 						if (_owner isEqualto _oldOwner) then {
 							if (_civCapMode isEqualTo 0) then {
-								private _ownerControlCount = _ownerControlCount + 1;
-								if (_ownerControlCount > (_timeArray select _civIndex)) then {
+								_argNested set [6,(_ownerControlCount + 1)];
+								if ((_argNested select 6) > (_timeArray select 3)) then {
 									//message is blufor has captured
 									if !(_hidden) then {
 										_marker setMarkerColor _civiliancolour;
+										_marker setMarkerAlpha 0.5;
 									};
 									if !(_silent) then {
 										if (_automessages) then {
@@ -300,14 +325,21 @@ CaptureZone_Array pushBack _logic;
 									};
 									MissionNamespace setVariable [_varName,true,true];
 									MissionNamespace setVariable [_teamControllingvarName,"CIV",true];
-									if !(_repeatable) then {
-										_run = false;
+									if !(_repeatable) exitWith {
+										if !(_hidden) then {
+											_marker setMarkerAlpha 0.5;
+											_marker setMarkerBrush "Border";
+										};
+										[_idPFH] call CBA_fnc_removePerFrameHandler;
 									};
 								};
 							};
 						} else {
+							_argNested set [5,_owner];
+							_argNested set [6,0];
 							if !(_hidden) then {
 								_marker setMarkerColor _civiliancolour;
+								_marker setMarkerAlpha 0.25;
 							};
 							if !(_silent) then {
 								if (_automessages) then {
@@ -321,15 +353,20 @@ CaptureZone_Array pushBack _logic;
 					};
 					default {
 						_owner = "UNCONTESTED";
-						if !(_hidden) then {
-							_marker setMarkerColor _uncontestedcolour;
-						};
-						if !(_silent) then {
-							if (_automessages) then {
-								private _msg = format ["%1 is uncontested!",_zoneName];
-								_msg remoteExec ["hint"];
-							} else {
-								_uncontestedmessage remoteExec ["hint"];
+						if !(_owner isEqualto _oldOwner) then {
+							_argNested set [5,_owner];
+							_argNested set [6,0];
+							if !(_hidden) then {
+								_marker setMarkerColor _uncontestedcolour;
+								_marker setMarkerAlpha 0.25;
+							};
+							if !(_silent) then {
+								if (_automessages) then {
+									private _msg = format ["%1 is uncontested!",_zoneName];
+									_msg remoteExec ["hint"];
+								} else {
+									_uncontestedmessage remoteExec ["hint"];
+								};
 							};
 						};
 					};
@@ -337,10 +374,12 @@ CaptureZone_Array pushBack _logic;
 			} else {
 				//not enough of a ratio to gain control!
 				_owner = "CONTESTED";
-				private _ownerControlCount = 0;
 				if !(_owner isEqualto _oldOwner) then {
+					_argNested set [6,0];
+					_argNested set [5,_owner];
 					if !(_hidden) then {
 						_marker setMarkerColor _contestedcolour;
+						_marker setMarkerAlpha 0.25;
 					};
 					if !(_silent) then {
 						if (_automessages) then {
@@ -354,15 +393,6 @@ CaptureZone_Array pushBack _logic;
 			};
 		};
 
-		_oldOwner = _owner;
-		sleep 1;
-		//bases counts off of 1 second loop
-	};
 
-	if (!_repeatable) then {
-		if !(_hidden) then {
-			_marker setMarkerAlpha 0.5;
-			_marker setMarkerBrush "Border";
-		};
-	};
-};
+	}, 0, [(_this select 0),CBA_missionTime,false,_varName,_teamControllingvarName]] call CBA_fnc_addPerFrameHandler;
+}, [_this, _cond]] call CBA_fnc_waitUntilAndExecute;

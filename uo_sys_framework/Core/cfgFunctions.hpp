@@ -1,5 +1,4 @@
-class UO_CoreFunctions
-{
+class UO_CoreFunctions {
 	file = "x\UO_FW\addons\main\Core\cfgFunctions\common";
 	class addTeam {};
 	class alive {};
@@ -38,8 +37,7 @@ class UO_CoreFunctions
 	class arrayFindAll {};
 };
 
-class UO_InitFunctions
-{
+class UO_InitFunctions {
 	file = "x\UO_FW\addons\main\Core\cfgFunctions\init";
 	class postInit {};
 	class briefingFrameworkEntry {};
@@ -48,8 +46,7 @@ class UO_InitFunctions
 	class teamsInit {};
 };
 
-class UO_DebugFunctions
-{
+class UO_DebugFunctions {
 	file = "x\UO_FW\addons\main\Core\cfgFunctions\debug";
 	class debugMessage {};
 	class debugMessageDetailed {};
@@ -57,8 +54,7 @@ class UO_DebugFunctions
 	//class debugInit {};
 };
 
-class UO_EndscreenFunctions
-{
+class UO_EndscreenFunctions {
 	file = "x\UO_FW\addons\main\Core\cfgFunctions\endscreen";
 	class dia_endscreen {};
 };

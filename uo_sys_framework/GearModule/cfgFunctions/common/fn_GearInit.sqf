@@ -3,7 +3,7 @@
 UO_FW_EXEC_CHECK(ALL);
 
 if (!hasinterface || {isServer}) then {
-	if !(UO_FW_SERVER_GEARMODULE_ALLOWED) exitwith {};
+	if !(UO_FW_Server_GearModule_Allowed) exitwith {};
 	if (!(UO_FW_Gear_ACEAR_System_Enabled) && {!(UO_FW_Gear_Olsen_Enabled)}) exitwith {};
 
 	{
@@ -13,6 +13,8 @@ if (!hasinterface || {isServer}) then {
 			private _GearSystem = _unit getvariable ["UO_FW_Gear_UnitSystemType","NONE"];
 			private _UnitClass = _unit getvariable ["UO_FW_Gear_UnitGearType","NONE"];
 			_unit setvariable ["UO_FW_Gear_UnitClass",_UnitClass,true];
+
+			if (_GearSystem isEqualto "NONE") exitwith {};
 
 			if (_UnitClass isEqualto "NONE") exitwith {
 				ERROR_1("No loadout found for unit: %1",_unit);
@@ -72,9 +74,7 @@ if (!hasinterface || {isServer}) then {
 					};
 				};
 
-				LOG_2("_loadoutvarname: %1 for unit %2",_loadoutvarname,_unit);
 				_loadoutName = MissionNamespace getvariable [_loadoutvarname,"NONE"];
-				LOG_2("_loadoutName: %1 for unit %2",_loadoutName,_unit);
 
 				if (_loadoutName isEqualto "NONE") exitwith {
 					ERROR_2("No loadout found for unit: %1 and var %2",_unit,_loadoutvarname);
@@ -146,13 +146,18 @@ if (!hasinterface || {isServer}) then {
 };
 
 if (hasinterface) then {
-	if !(UO_FW_SERVER_GEARMODULE_ALLOWED) exitwith {UO_FW_GearReady = true;};
+	if !(UO_FW_Server_GearModule_Allowed) exitwith {UO_FW_GearReady = true;};
 	if (!(UO_FW_Gear_ACEAR_System_Enabled) && {!(UO_FW_Gear_Olsen_Enabled)}) exitwith {UO_FW_GearReady = true;};
 	[{((!isNull player) && {local player} && {MissionNamespace getvariable ["UO_FW_Gear_ServerInit",false]})}, {
 		private ["_loadoutName"];
 		private _GearSystem = player getvariable ["UO_FW_Gear_UnitSystemType","NONE"];
 		private _UnitClass = player getvariable ["UO_FW_Gear_UnitGearType","NONE"];
 		player setvariable ["UO_FW_Gear_UnitClass",_UnitClass,true];
+
+		if (_GearSystem isEqualto "NONE") exitwith {
+			LOG_1("No gear system set for unit: %1",player);
+			UO_FW_GearReady = true;
+		};
 
 		if (_UnitClass isEqualto "NONE") exitwith {
 			ERROR_1("No loadout found for unit: %1",player);
@@ -221,9 +226,7 @@ if (hasinterface) then {
 				};
 			};
 
-			LOG_2("_loadoutvarname: %1 for unit %2",_loadoutvarname,player);
 			_loadoutName = MissionNamespace getvariable [_loadoutvarname,"NONE"];
-			LOG_2("_loadoutName: %1 for unit %2",_loadoutvarname,player);
 
 			if (_loadoutName isEqualto "NONE") exitwith {
 				ERROR_2("No loadout found for unit: %1 and var %2",player,_loadoutvarname);

@@ -12,7 +12,7 @@ The technology stack being used for the project is `SQF` for development,
 
 ## Checklist for Contribution
 
-- [ ] CHANGELOG.md is updated for the upcoming major or minor version release with details about your contribution
+- [ ] Changelog.md is updated for the upcoming major or minor version release with details about your contribution
 - [ ] If your contribution resolves a feature request or issue, tag your commit hash in the issue thread and handle the respective card in the repository project board
 - [ ] Submit your pull request and wait for it to be merged into staging or master or the next deployment
 

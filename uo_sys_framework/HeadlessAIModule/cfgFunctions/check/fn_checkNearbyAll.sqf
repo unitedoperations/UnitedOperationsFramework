@@ -19,10 +19,10 @@ params [
 	["_types",["CAManBase","LandVehicle","Ship","Helicopter","Plane"],[[]]],
 	["_enabledEntities",[],[[]]]
 ];
-	if(typeName _side != typeName [] ) then { _side = [_side] };
-	if(typeName _types != typeName [] ) then { _types = [_types] };
+	if (typeName _side != typeName [] ) then { _side = [_side] };
+	if (typeName _types != typeName [] ) then { _types = [_types] };
 	private _nearEntities = _pos nearEntities [_types,_radius];
 	{
-		if( (side _x) IN _side && (alive _x) ) then { _enabledEntities set [ count _enabledEntities, _x] };
+		if ( (side _x) IN _side && (alive _x) ) then { _enabledEntities set [ count _enabledEntities, _x] };
 	}forEach _nearEntities;
 	_enabledEntities

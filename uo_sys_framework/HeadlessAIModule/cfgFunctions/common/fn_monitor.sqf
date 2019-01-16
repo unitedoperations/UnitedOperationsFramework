@@ -19,7 +19,7 @@ UO_FW_AI_EXEC_CHECK(SERVERHC);
 			private _initial = _zone getVariable ["initiallyspawned",false];
 			private _populated = 0;
 			private _area = [_loc,_radiusX,_radiusY,_direction,_isRectangle];
-			if((call _cond) && (_isOn isEqualTo 0) && (!_initial)) then {
+			if ((call _cond) && (_isOn isEqualTo 0) && (!_initial)) then {
 				[_zone,_delay,_code] spawn UO_FW_AI_fnc_setup;
 				_x set [3, 1];
 			} else {
@@ -33,8 +33,8 @@ UO_FW_AI_EXEC_CHECK(SERVERHC);
 			};
 			private _shouldBeOn = if ( _populated > 0 ) then { 1 } else { 0 };
 			if (!_initial) then {
-				if(_isOn != _shouldBeOn) then {
-					if(_shouldBeOn > 0) then {
+				if (_isOn != _shouldBeOn) then {
+					if (_shouldBeOn > 0) then {
 						[_zone,_delay,_code] spawn UO_FW_AI_fnc_setup;
 						_x set [3, 1];
 						_isOn = 1;

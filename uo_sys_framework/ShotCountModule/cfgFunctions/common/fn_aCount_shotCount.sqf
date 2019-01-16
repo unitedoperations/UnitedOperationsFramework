@@ -9,71 +9,34 @@
 
 #define COMPONENT ShotCount
 #include "\x\UO_FW\addons\main\script_macros.hpp"
-UO_FW_EXEC_CHECK(ALL);
+UO_FW_EXEC_CHECK(SERVER);
 
-params ["_arg"];
+params ["_side","_class"];
+private ["_teamvar"];
 
-switch (_arg) do
-{
-	case west:
-	{
-
-		private _found = aCount_west_ExpendedAmmunition find (_this select 1);
-		if(_found < 0) then
-		{
-			aCount_west_ExpendedAmmunition pushBack (_this select 1) ;
-			aCount_west_ExpendedAmmunition pushBack 1;
-		}
-		else
-		{
-			aCount_west_ExpendedAmmunition set [_found + 1,(aCount_west_ExpendedAmmunition select _found + 1) + 1 ];
-		}
-
+switch (_side) do {
+	case west: {
+		if (isNil "UO_FW_aCount_west_ExpendedAmmunition") then {UO_FW_aCount_west_ExpendedAmmunition = [];};
+		_teamvar = UO_FW_aCount_west_ExpendedAmmunition;
 	};
-
-	case east:
-	{
-
-		private _found = aCount_east_ExpendedAmmunition find (_this select 1);
-		if(_found < 0) then
-		{
-
-			aCount_east_ExpendedAmmunition pushBack  (_this select 1);
-			aCount_east_ExpendedAmmunition pushBack 1;
-		}
-		else
-		{
-			aCount_east_ExpendedAmmunition set [_found + 1,(aCount_east_ExpendedAmmunition select _found + 1) + 1 ];
-		}
+	case east: {
+		if (isNil "UO_FW_aCount_east_ExpendedAmmunition") then {UO_FW_aCount_east_ExpendedAmmunition = [];};
+		_teamvar = UO_FW_aCount_east_ExpendedAmmunition;
 	};
-	case resistance:
-	{
-
-		private _found = aCount_resistance_ExpendedAmmunition find (_this select 1);
-		if(_found < 0) then
-		{
-
-			aCount_resistance_ExpendedAmmunition pushBack  (_this select 1);
-			aCount_resistance_ExpendedAmmunition pushBack 1;
-		}
-		else
-		{
-			aCount_resistance_ExpendedAmmunition set [_found + 1,(aCount_resistance_ExpendedAmmunition select _found + 1) + 1 ];
-		}
+	case resistance: {
+		if (isNil "UO_FW_aCount_independent_ExpendedAmmunition") then {UO_FW_aCount_independent_ExpendedAmmunition = [];};
+		_teamvar = UO_FW_aCount_independent_ExpendedAmmunition;
 	};
-	case civilian:
-	{
-
-		private _found = aCount_civilian_ExpendedAmmunition find (_this select 1);
-		if(_found < 0) then
-		{
-
-			aCount_civilian_ExpendedAmmunition pushBack  (_this select 1);
-			aCount_civilian_ExpendedAmmunition pushBack 1;
-		}
-		else
-		{
-			aCount_civilian_ExpendedAmmunition set [_found + 1,(aCount_civilian_ExpendedAmmunition select _found + 1) + 1 ];
-		}
+	case civilian: {
+		if (isNil "UO_FW_aCount_civilian_ExpendedAmmunition") then {UO_FW_aCount_civilian_ExpendedAmmunition = [];};
+		_teamvar = UO_FW_aCount_civilian_ExpendedAmmunition;
 	};
+};
+
+private _foundClass = _teamvar findIf {(_x select 0) isEqualto _class};
+if (_foundClass isEqualto -1) then {
+	_teamvar pushBack [_class,1];
+} else {
+	private _index = (_teamvar select _foundClass);
+	_index set [1,(_index select 1) + 1];
 };

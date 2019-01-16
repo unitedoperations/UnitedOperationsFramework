@@ -7,17 +7,14 @@ private _SatchelMag = _SatchelArray select 1;
 private _Point = _Unit call UO_FW_AI_fnc_ClosestEnemy;
 if (_Point isEqualTo [] || {isNil "_Point"}) exitWith {};
 
-if ((_Unit distance _Point) < 200) then
-{
+if ((_Unit distance _Point) < 200) then {
 
 	private _vehicle = vehicle _Point;
 
-	if (_Point isEqualTo _vehicle) then
-	{
+	if (_Point isEqualTo _vehicle) then {
 		private _nBuilding = nearestBuilding _Point;
 		if ((_nBuilding distance _Point) > 40) exitWith {};
-		[_Unit,_nBuilding,(group _Unit),_SatchelObj,_SatchelMag] spawn
-		{
+		[_Unit,_nBuilding,(group _Unit),_SatchelObj,_SatchelMag] spawn {
 			params ["_Unit","_nBuilding","_Group","_SatchelObj","_SatchelMag"];
 			_Unit disableAI "TARGET";
 			_Unit disableAI "AUTOTARGET";
@@ -28,8 +25,7 @@ if ((_Unit distance _Point) < 200) then
 			doStop _Unit; _Unit doMove (getPos _nBuilding);
 
 			private _Truth = true;
-			while {_Truth} do
-			{
+			while {_Truth} do {
 				if ((_Unit distance _nBuilding) <= 9) then {_Truth = false;};
 				sleep 0.25;
 			};
@@ -49,8 +45,7 @@ if ((_Unit distance _Point) < 200) then
 			_Unit enableAI "COVER";
 			_Unit enableAI "AUTOCOMBAT";
 
-			while {_NotSafe} do
-			{
+			while {_NotSafe} do {
 				private _Array1 = [];
 				{
 					_Array1 pushback _x;
@@ -62,8 +57,7 @@ if ((_Unit distance _Point) < 200) then
 			_mine setdamage 1;
 			sleep 3;
 			private _list = _PlantPosition nearObjects ["#crater",5];
-			if (_list isEqualTo []) then
-			{
+			if (_list isEqualTo []) then {
 				deleteVehicle _mine;
 				private _mine2 = "SatchelCharge_Remote_Ammo" createVehicle _PlantPosition;
 				_mine2 setdamage 1;

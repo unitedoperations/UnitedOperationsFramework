@@ -14,7 +14,7 @@ params ["_grp"];
 		private _items = _u weaponAccessories primaryWeapon _u;
 		_u removePrimaryWeaponItem (_items select 1);
 		private _nvg = hmd _u;
-		if(count _nvg > 2) then {
+		if (count _nvg > 2) then {
 			_u unassignItem "NVGoggles";
 			_u removeItem "NVGoggles";
 		};

@@ -9,11 +9,10 @@ _Vehicle = (vehicle _Unit);
 
 _ActualDriver = driver _Vehicle;
 
-if (_Unit isEqualTo _ActualDriver) then 
-{
-  
+if (_Unit isEqualTo _ActualDriver) then  {
+
   _NotDriver = true;
-  
+
 };
 
 _NotDriver

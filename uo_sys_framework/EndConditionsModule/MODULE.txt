@@ -3,7 +3,7 @@
 	Module: End Conditions
 	Author: PIZZADOX & Sacher
 	Date Created: 11/6/2018
-	Date Last Updated: 20/12/2018
+	Date Last Updated: 13/1/2019
 
 	Description: Evaluates sets of end conditions on the server to trigger
 	mission end. Includes timelimit, casualty counts, dead checks on specific

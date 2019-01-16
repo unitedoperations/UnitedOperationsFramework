@@ -1,11 +1,8 @@
-class EndConditionSleepMenu
-{
+class UO_FW_EndConditions_SleepMenu {
     displayName = "End Condition Loop Settings";
     collapsed = 0;
-    class Attributes
-    {
-    class UO_FW_ConditionDelay
-        {
+    class Attributes {
+    	class UO_FW_ConditionDelay {
             property = "UO_FW_ConditionDelay";
             displayName = "End Condition Starting Delay";
             tooltip = "Time before any automatic end conditions are run!";
@@ -14,8 +11,7 @@ class EndConditionSleepMenu
 			validate = "number";
             defaultValue = "0";
         };
-		class UO_FW_ConditionSleep
-        {
+		class UO_FW_ConditionSleep {
             property = "UO_FW_ConditionSleep";
             displayName = "End Condition Sleep";
             tooltip = "Time between end condition checks. Low values can cause server lag!";

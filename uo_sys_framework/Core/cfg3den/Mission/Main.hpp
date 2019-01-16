@@ -1,11 +1,8 @@
-class UO_FW_MainSettings
-{
+class UO_FW_MainSettings {
     displayName = "Main Settings";
     collapsed = 0;
-    class Attributes
-    {
-		class UO_FW_Enabled
-        {
+    class Attributes {
+		class UO_FW_Enabled {
             property = "UO_FW_Enabled";
             displayName = "Enable UO Framework";
             tooltip = "Enable UO Framework";
@@ -14,8 +11,7 @@ class UO_FW_MainSettings
             defaultValue = "false";
 
         };
-        class UO_FW_Type
-        {
+        class UO_FW_Type {
             property = "UO_FW_Type";
             displayName = "Mission Type";
             tooltip = "Determines Mission Type";

@@ -5,7 +5,7 @@ if (!(getMissionConfigValue ["UO_FW_AI_Enabled",false])) exitWith {};
 
 LOG("running fn_initMain");
 
-["Headless AI", "Custom AI Scripts and spawning modules for AI", "PiZZADOX"] call UO_FW_FNC_RegisterModule;
+["Headless AI", "Custom AI Scripts and spawning modules for AI", "PiZZADOX"] call UO_FW_fnc_RegisterModule;
 
 UO_FW_AI_MARKERARRAY = [];
 UO_FW_AI_UnitQueue = [];
@@ -64,14 +64,14 @@ UO_FW_AI_WaypointDistance = 300;
 //The distance a unit needs to be away for PZAI scripts to temporary disable itself upon the unit? The AI unit will also need to be out of combat.
 UO_FW_AI_DisableDistance = 3000;
 //Aid to the AI spotting distance and time
-UO_FW_AI_SIGHTAID_ENABLED = true;
+UO_FW_AI_SIGHTAID_EnableD = true;
 //Distance at which the AI will start seeings enemies in LOS of them
 UO_FW_AI_SightAid_Distance = 800;
 //Minimum reveal value per increase +n reveal value per check every 5 seconds of targets in LOS of enemies.
 UO_FW_AI_SightAid_MinIncrease = 2;
 //Distance at which the AI will force engage the enemies
 UO_FW_AI_SightAid_EngageDistance = 400;
-UO_FW_AI_HEARINGAIDS_ENABLED = true;
+UO_FW_AI_HEARINGAIDS_EnableD = true;
 //How far can the AI hear gunshots from?
 UO_FW_AI_HearingDistance = 1400;
 //How revealed an enemy is from a gunshot report
@@ -94,7 +94,7 @@ UO_FW_AI_Radio_NeedRadio = false;
 UO_FW_AI_PatrolDistance = 200;
 //Whether the AI will patrol between garrison positions. Pretty buggy, but nice for 'mersion
 UO_FW_AI_GarrisonPatrol = true;
-UO_FW_AI_FORCETIME_ENABLED = false;
+UO_FW_AI_FORCETIME_EnableD = false;
 UO_FW_AI_FORCETIME_TIME = 12;
 
 //Lets gets the queue handler going
@@ -108,14 +108,14 @@ UO_FW_AI_FORCETIME_TIME = 12;
 //[] spawn UO_FW_AI_fnc_MainLoop;
 
 //marker function
-if (UO_FW_AI_MARKERS_ENABLED) then {
+if (UO_FW_AI_MARKERS_EnableD) then {
 	[] spawn UO_FW_AI_fnc_MapMarkers;
 };
 
 if ((!hasinterface) && (!isDedicated)) then {
 	setViewDistance (missionNamespace getvariable ["UO_FW_AI_ViewDistance",2500]);
 
-	if (UO_FW_AI_FORCETIME_ENABLED) then {
+	if (UO_FW_AI_FORCETIME_EnableD) then {
 		[] spawn {
 			waituntil {time > 1};
 			while {true} do {

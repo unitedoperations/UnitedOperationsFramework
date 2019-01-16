@@ -5,7 +5,7 @@
  * 		GROUP 	- Synchronised Groups
  */
 params [["_logic",objNull,[objNull]],["_grp",[],[[]]],["_syncedUnits",[],[[]]],["_syncedGroups",[],[[]]],"_t"];
-	if(!isNull _logic) then {
+	if (!isNull _logic) then {
 		private  _synced	= synchronizedObjects _logic;
 		for [{_t=0}, {(_t < count _synced)}, {_t = _t + 1}] do {
 			private  _unit =  _synced select _t;

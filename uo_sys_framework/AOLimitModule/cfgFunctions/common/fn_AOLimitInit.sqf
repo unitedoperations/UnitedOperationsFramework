@@ -1,109 +1,115 @@
 #define COMPONENT AOLimit
-#include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
-UO_FW_EXEC_CHECK(ALL);
+#include "\x\UO_FW\addons\main\script_macros.hpp"
+UO_FW_EXEC_CHECK(CLIENT);
 
-["AO Limit", "Allows the mission maker to set AO limits to specific sides.", "Olsen, Sacher and PiZZADOX"] call UO_FW_FNC_RegisterModule;
-
+["AO Limit", "Allows the mission maker to set AO limits to specific sides.", "Olsen, Sacher and PiZZADOX"] call UO_FW_fnc_RegisterModule;
 //[_logic,_area,_selectedSides,_entryMode,_airsetting,_AOMode,_softAOtime,_softAOtimeAir] passed array
-params ["_logic","_area","_selectedSides","_entryMode","_airsetting","_AOMode","_softAOtime","_softAOtimeAir"];
 
-if (!isDedicated && hasInterface) then {
+[{(!(isNull player)) && {(CBA_missionTime > 1)}}, {
+	params ["_args", "_unit"];
+	_args params ["_logic","_area","_selectedSides","_entryMode","","_AOMode","",""];
+	private ["_startedInside","_run","_arrayname","_enteredZone","_outSide","_softAOMode"];
+	if ((toUpper _AOMode) isEqualto "SOFT") then {_softAOMode = true} else {_softAOMode = false;};
 
-	_this spawn {
+	if !((side _unit) in _selectedSides) exitwith {};
 
-		scopename "AOLimitMainSpawn";
+	scopename "AOLimitMainSpawn";
 
-		waitUntil {!isNull player};
-		waitUntil {time > 1};
+	_run = false;
 
-		//[_logic,_area,_selectedSides,_entryMode,_airsetting,_AOMode,_softAOtime,_softAOtimeAir] passed array
-		params ["_logic","_area","_selectedSides","_entryMode","_airsetting","_AOMode","_softAOtime","_softAOtimeAir"];
-		private ["_startedInside","_pos","_startTime","_displayed","_run","_arrayname","_enteredZone","_outSide","_allowedOutside"];
-		private _softAOMode = false;
-		if ((toUpper _AOMode) isEqualto "SOFT") then {_softAOMode = true;};
+	if (isNil "UO_FW_AOLimit_Array_1") then {
+		UO_FW_AOLimit_Array_1 = [_area];
+		UO_FW_AOLimit_Arrays = [UO_FW_AOLimit_Array_1];
+		_arrayname = "UO_FW_AOLimit_Array_1";
+		_run = true;
+	} else {
+		{
+			private _AOLimitArray = _x;
+			if (({_logic inArea _x} count _AOLimitArray) > 0) exitwith {
+				_AOLimitArray pushBackUnique _area;
+				_run = false;
+				//diag_log "exiting AO limit fnc, already one running!";
+				breakOut "AOLimitMainSpawn";
+			};
+		} foreach UO_FW_AOLimit_Arrays;
+		private _count = (count UO_FW_AOLimit_Arrays);
+		_arrayname = format ["UO_FW_AOLimit_Array_%1",_count];
+		missionNamespace setvariable [_arrayname,[_area]];
+		_run = true;
+	};
 
-		if !((side player) in _selectedSides) exitwith {};
-
-		//if adding new area to existing loop, add area to UO_FW_AOLimit_Array and exit
-		//if (!isNil "UO_FW_AOLimit_Array") exitwith {UO_FW_AOLimit_Array pushBackUnique _area;};
-		//UO_FW_AOLimit_Array = [_area];
-		_run = false;
-		_displayed = false;
-
-		if (isNil "UO_FW_AOLimit_Array_1") then {
-			UO_FW_AOLimit_Array_1 = [_area];
-			UO_FW_AOLimit_Arrays = [];
-			UO_FW_AOLimit_Arrays pushback UO_FW_AOLimit_Array_1;
-			_arrayname = "UO_FW_AOLimit_Array_1";
-			_run = true;
-		} else {
-			{
-				private _AOLimitArray = _x;
-				if (({_logic inArea _x} count _AOLimitArray) > 0) exitwith {
-						_AOLimitArray pushBackUnique _area;
-						_run = false;
-						//diag_log "exiting AO limit fnc, already one running!";
-						breakOut "AOLimitMainSpawn";
-				};
-			} foreach UO_FW_AOLimit_Arrays;
-			private _count = (count UO_FW_AOLimit_Arrays);
-			private _arrayname = format ["UO_FW_AOLimit_Array_%1",_count];
-			missionNamespace setvariable [_arrayname,[_area]];
-			_run = true;
-		};
-
-		//diag_log format ["arrayname: %1",(missionNamespace getvariable _arrayname)];
-
-		if (({(vehicle player) inArea _x} count (missionNamespace getvariable _arrayname)) isEqualto 0) then {
-			if !(_entryMode) exitwith {};
-			_startedInside = false;
-			_outSide = true;
-			_enteredZone = false;
-		} else {
+	if ((count ((missionNamespace getvariable _arrayname))) isEqualto 1) then {
+		if ((vehicle _unit) inArea _area) then {
 			_startedInside = true;
 			_outSide = false;
 			_enteredZone = true;
-		};
-
-		LOG("Starting AO Limit");
-		private _recheckDead = false;
-
-		while {_run} do {
-
-			private _air = (vehicle player) isKindOf "Air";
-
-			if ((_airsetting) && (_air)) then {
-				waituntil {sleep 30; !(_air)};
+		} else {
+			if !(_entryMode) exitwith {
+				_run = false;
+				//diag_log "exiting AO limit fnc, already one running!";
+				breakOut "AOLimitMainSpawn";
 			};
+			_startedInside = false;
+			_outSide = true;
+			_enteredZone = false;
+		};
+	} else {
+		if (({(vehicle _unit) inArea _x} count ((missionNamespace getvariable _arrayname))) > 0) then {
+			_startedInside = true;
+			_outSide = false;
+			_enteredZone = true;
+		} else {
+			if !(_entryMode) exitwith {
+				_run = false;
+				//diag_log "exiting AO limit fnc, already one running!";
+				breakOut "AOLimitMainSpawn";
+			};
+			_startedInside = false;
+			_outSide = true;
+			_enteredZone = false;
+		};
+	};
 
-			_allowedOutside = (((_softAOtime < 0) && !_air) || ((_softAOtimeAir < 0) && _air));
+	LOG_3("unit starting _outSide: %1 _startedInside: %2 _enteredZone: %3",_outSide,_startedInside,_enteredZone);
+	LOG("Starting AO Limit");
 
-			if ((count (missionNamespace getvariable _arrayname)) isEqualto 1) then {
-				if ((vehicle player) inArea _area) then {
+	if (_run) then {
+		private _AOLimitPFHhandle = [{
+			params ["_argNested", "_idPFH"];
+			_argNested params ["_unit","_args","_startedInside","_outSide","_enteredZone","_arrayname","_softAOMode","_recheckDead","_pos"];
+			_args params ["_logic","_area","_selectedSides","_entryMode","_airsetting","_AOMode","_softAOtime","_softAOtimeAir"];
+
+			LOG_1("_argNested: %1",_argNested);
+			LOG_1("_area: %1",_area);
+			LOG_1("(vehicle _unit): %1",(vehicle _unit));
+			private _air = ((vehicle _unit) isKindOf "Air");
+			if ((_airsetting) && {_air}) exitwith {};
+
+			if ((count ((missionNamespace getvariable _arrayname))) isEqualto 1) then {
+				if ((vehicle _unit) inArea _area) then {
+					LOG("unit in area");
 					_outSide = false;
+					_argNested set [3,_outSide];
 					_enteredZone = true;
+					_argNested set [4,_enteredZone];
 					if !(_softAOMode) then {
-						//diag_log "in area ";
-						_pos = getPosATL (vehicle player);
+						_pos = getPosATL (vehicle _unit);
+						_argNested set [8,_pos];
 					} else {
-						//diag_log "in soft area 1";
 						missionNamespace setVariable ["UO_FW_AOL_Display", _outSide];
 					};
 				} else {
-					if ((!(_startedInside) && (_enteredZone)) || (_startedInside)) then {
+					LOG("unit outside area");
+					if ((!(_startedInside) && {(_enteredZone)}) || {(_startedInside)}) then {
+						LOG("unit outside area 2");
+						_outSide = true;
+						_argNested set [3,_outSide];
 						if !(_softAOMode) then {
-						//private _reldir = (vehicle player) getdir _logic;
-						//diag_log "going out of area 1";
-						(vehicle player) setVelocity [0,0,0];
-						(vehicle player) setPos _pos;
-						//_backpos = _pos getPos [2,_reldir];
-						//(vehicle player) setPos _backpos;
+							(vehicle _unit) setVelocity [0,0,0];
+							(vehicle _unit) setPos _pos;
 						} else {
-							//diag_log "going out of soft area 1";
-							_outSide = true;
 							if !(missionNamespace getVariable ["UO_FW_AOL_DisplayOpen", false]) then {
 								private _timeLeft = if (_air) then {_softAOtimeAir} else {_softAOtime};
-								//diag_log "created display";
 								missionNamespace setVariable ["UO_FW_AOL_Display", _outSide];
 								missionNamespace setVariable ["UO_FW_AOL_TimeLeft", _timeLeft];
 								("UO_FW_AOLimit_Layer" call BIS_fnc_rscLayer) cutRsc ["RscAOLimit", "PLAIN", 0.5, false];
@@ -112,31 +118,30 @@ if (!isDedicated && hasInterface) then {
 					};
 				};
 			} else {
-				if (({(vehicle player) inArea _x} count (missionNamespace getvariable _arrayname)) > 0) then {
+				if (({(vehicle _unit) inArea _x} count ((missionNamespace getvariable _arrayname))) > 0) then {
+					LOG("unit in area b");
 					_enteredZone = true;
+					_argNested set [4,_enteredZone];
 					_outSide = false;
+					_argNested set [3,_outSide];
 					if !(_softAOMode) then {
-						//diag_log "in area 2";
-						_pos = getPosATL (vehicle player);
+						_pos = getPosATL (vehicle _unit);
+						_argNested set [8,_pos];
 					} else {
-						//diag_log "in soft area 2";
 						missionNamespace setVariable ["UO_FW_AOL_Display", _outSide];
 					};
 				} else {
-					if ((!(_startedInside) && (_enteredZone)) || (_startedInside)) then {
+					LOG("unit outside area b");
+					if ((!(_startedInside) && {(_enteredZone)}) || {(_startedInside)}) then {
+						LOG("unit outside area b 2");
+						_outSide = true;
+						_argNested set [3,_outSide];
 						if !(_softAOMode) then {
-							//private _reldir = (vehicle player) getdir _logic;
-							//diag_log "going out of area 2";
-							(vehicle player) setVelocity [0,0,0];
-							(vehicle player) setPos _pos;
-							//_backpos = _pos getPos [2,_reldir];
-							//(vehicle player) setPos _backpos;
+							(vehicle _unit) setVelocity [0,0,0];
+							(vehicle _unit) setPos _pos;
 						} else {
-							//diag_log "going out of soft area 2";
-							_outSide = true;
 							if !(missionNamespace getVariable ["UO_FW_AOL_DisplayOpen", false]) then {
 								private _timeLeft = if (_air) then {_softAOtimeAir} else {_softAOtime};
-								//diag_log "created display";
 								missionNamespace setVariable ["UO_FW_AOL_Display", _outSide];
 								missionNamespace setVariable ["UO_FW_AOL_TimeLeft", _timeLeft];
 								("UO_FW_AOLimit_Layer" call BIS_fnc_rscLayer) cutRsc ["RscAOLimit", "PLAIN", 0.5, false];
@@ -147,31 +152,31 @@ if (!isDedicated && hasInterface) then {
 			};
 
 			missionNamespace setVariable ["UO_FW_AOL_Display", _outSide];
+			LOG_1("_outSide: %1",_outSide);
 
-			//diag_log "checking AO Limit Loop";
-			if ((count (missionNamespace getvariable _arrayname)) isEqualto 1) then {
-				if ((!(_startedInside) && !_softAOMode && (_entryMode) && !((vehicle player) inArea _area)) || (_recheckDead && !_softAOMode)) then {
-					//diag_log "not inside or dead, waituntil loop";
-					waituntil {sleep 10; (vehicle player) inArea _area};
+			if ((count ((missionNamespace getvariable _arrayname))) isEqualto 1) then {
+				if ((!(_startedInside) && {!_softAOMode} && {(_entryMode)} && {!((vehicle _unit) inArea _area)}) || {(_recheckDead && !_softAOMode)}) then {
 					_recheckDead = false;
+					_argNested set [7,_recheckDead];
 					_enteredZone = true;
+					_argNested set [4,_enteredZone];
 				};
 			} else {
-				if ((({(vehicle player) inArea _x} count (missionNamespace getvariable _arrayname) < 1) && !(_startedInside) && !_softAOMode && (_entryMode)) || (_recheckDead && !_softAOMode)) then {
-					//diag_log "not inside or dead, waituntil loop";
-					waituntil {sleep 10; (({(vehicle player) inArea _x} count (missionNamespace getvariable _arrayname)) > 0)};
+				if ((({(vehicle _unit) inArea _x} count ((missionNamespace getvariable _arrayname)) < 1) && {!(_startedInside)} && {!_softAOMode} && {(_entryMode)}) || {(_recheckDead && !_softAOMode)}) then {
 					_recheckDead = false;
+					_argNested set [7,_recheckDead];
 					_enteredZone = true;
+					_argNested set [4,_enteredZone];
 				};
 			};
 
-			if (!((vehicle player) call UO_FW_fnc_alive) && !(_recheckDead)) then {
-				//diag_log "dead check var";
+			if (!((vehicle _unit) call UO_FW_fnc_alive) && {!(_recheckDead)}) then {
 				_recheckDead = true;
+				_argNested set [7,_recheckDead];
 				_enteredZone = false;
+				_argNested set [4,_enteredZone];
 			};
 
-		sleep(0.1);
-		};
+		}, 0, [_unit,_args,_startedInside,_outSide,_enteredZone,_arrayname,_softAOMode,false]] call CBA_fnc_addPerFrameHandler;
 	};
-};
+}, [_this,player]] call CBA_fnc_waitUntilAndExecute;

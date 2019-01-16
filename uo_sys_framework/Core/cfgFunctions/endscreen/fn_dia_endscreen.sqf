@@ -1,145 +1,92 @@
-90001 cutRsc ["UO_FW_DIA_ENDSCREEN", "PLAIN"];
-_bg = 3000;
-_endTitle = 3001;
-_left = 3002;
-_right = 3003;
-_bottomLeft = 3004;
-_bottomMiddleLeft = 3005;
-_bottomMiddleRight = 3006;
-_bottomRight = 3007;
+"EndScreenLayer" cutRsc ["UO_FW_DIA_ENDSCREEN", "PLAIN"];
 
-params ["_scenario", "_timeLimit", "_teams"];
+params ["_scenario"];
 
-{
-
-	_x enableSimulation false;
-
-} forEach vehicles;
-
-[] spawn {
-
-	sleep 1;
+if (hasInterface) then {
+	player enableSimulation false;
+	removeAllWeapons player;
+} else {
 	{
-
-		_x enableSimulation false;
-		removeAllWeapons _x;
-
-	} forEach allPlayers;
+		if (local _x) then {
+			_x enableSimulation false;
+			removeAllWeapons _x;
+		};
+	} foreach vehicles;
+	{
+		if (local _x) then {
+			_x enableSimulation false;
+			removeAllWeapons _x;
+		};
+	} foreach allUnits;
 };
 
-_leftText = "";
-_rightText = "";
-_bottomTextLeft = "";
-_bottomTextMiddleLeft = "";
-_bottomTextMiddleRight = "";
-_bottomTextRight = "";
-_textSide = 0;
+private _bg = 3000;
+private _endTitle = 3001;
+private _left = 3002;
+private _right = 3003;
+private _bottomLeft = 3004;
+private _bottomMiddleLeft = 3005;
+private _bottomMiddleRight = 3006;
+private _bottomRight = 3007;
+private _leftText = "";
+private _rightText = "";
+private _bottomTextLeft = "";
+private _bottomTextMiddleLeft = "";
+private _bottomTextMiddleRight = "";
+private _bottomTextRight = "";
+private _textSide = 0;
+
 {
-
 	_x params ["_name", "_side", "_type", "_start", "_current", "_disabled", "_destroyed"];
-
 	if (_start > 0) then {
-
-		_temp = format ["%1<br />Casualties: %2 out of %3<br />", _name, (_start - _current), _start];
-
-		if (count _disabled != 0) then {
-
+		private _temp = format ["%1<br />Casualties: %2 out of %3<br />", _name, (_start - _current), _start];
+		if !(count _disabled isEqualto 0) then {
 			_temp = _temp + "<br />Disabled assets:<br />";
-
 			{
-
 				_temp = _temp + format ["%1<br />", _x];
-
 			} forEach _disabled;
-
 		};
-
-		if (count _destroyed != 0) then {
-
+		if !(count _destroyed isEqualto 0) then {
 			_temp = _temp + "<br />Destroyed assets:<br />";
-
 			{
-
 				_temp = _temp + format ["%1<br />", _x];
-
 			} forEach _destroyed;
 		};
-
 		_temp = _temp + "<br />";
-
-		if (_textSide == 0) then {
-
+		if (_textSide isEqualto 0) then {
 			_textSide = 1;
 			_leftText = _leftText + _temp;
-
 		} else {
-
 			_textSide = 0;
 			_rightText = _rightText + _temp;
-
 		};
-
 	};
-
-} forEach _teams;
-
-_endTitleText = _scenario;
-
-if (_timeLimit != 0) then {
-
-	_time = ceil(time / 60);
-
-	if (_time >= _timeLimit) then {
-
-		_time = _timeLimit;
-
+} forEach UO_FW_Teams;
+private _endTitleText = _scenario;
+if !(UO_FW_TimeLimit isEqualto 0) then {
+	private _time = ceil(CBA_missiontime / 60);
+	if (_time >= UO_FW_TimeLimit) then {
+		_time = UO_FW_TimeLimit;
 	};
-
-	_timeLimitText = format ["Mission duration: %1 out of %2 minutes", _time, _timeLimit];
-
+	private _timeLimitText = format ["Mission duration: %1 out of %2 minutes", _time, UO_FW_TimeLimit];
 	_endTitleText = format ["%1<br />%2", _scenario, _timeLimitText];
-
 };
 
-
-disableSerialization;
-_dia = uiNamespace getVariable "UO_FW_EndScreen";
+private _dia = uiNamespace getVariable "UO_FW_EndScreen";
 
 (_dia displayCtrl _endTitle) ctrlSetStructuredText parseText _endTitleText;
 (_dia displayCtrl _left) ctrlSetStructuredText parseText _leftText;
 (_dia displayCtrl _right) ctrlSetStructuredText parseText _rightText;
 
-
-[_dia,_bg] spawn {
-	for "_x" from 1 to 120 do {
-		((uiNamespace getVariable "UO_FW_EndScreen") displayCtrl 3000) ctrlSetBackgroundColor [0, 0, 0, (_x * (1/120))];
-		sleep(0.01);
+private _FadePFHhandle = [{
+	params ["_args", "_idPFH"];
+	_args params ["_dia","_bg","_startTime"];
+	private _timeDifference = (CBA_missiontime - _startTime);
+	if ((_timeDifference > 0) && {(_timeDifference <= 5)}) then {
+		disableSerialization;
+		(_dia displayCtrl _bg) ctrlSetBackgroundColor [0, 0, 0, (0 + (_timeDifference / 5))];
 	};
-	_this spawn
-	{
-		"" call UO_FW_FNC_aCount_ShotDisplay;
-		waituntil{!isNil "aCount_textBLU"};
-		waituntil{!isNil "aCount_textOPF"};
-		waituntil{!isNil "aCount_textRES"};
-		waituntil{!isNil "aCount_textCIV"};
-
-		_bottomLeft = 3004;
-		_bottomMiddleLeft = 3005;
-		_bottomMiddleRight = 3006;
-		_bottomRight = 3007;
-
-		_bottomTextLeft = format["%1",aCount_textBLU];
-		_bottomTextMiddleLeft = format["%1",aCount_textOPF];
-		_bottomTextMiddleRight = format["%1",aCount_textRES];
-		_bottomTextRight = format["%1",aCount_textCIV];
-		((_this select 0) displayCtrl _bottomLeft) ctrlSetStructuredText parseText _bottomTextLeft;
-		((_this select 0) displayCtrl _bottomMiddleLeft) ctrlSetStructuredText parseText _bottomTextMiddleLeft;
-		((_this select 0) displayCtrl _bottomMiddleRight) ctrlSetStructuredText parseText _bottomTextMiddleRight;
-		((_this select 0) displayCtrl _bottomRight) ctrlSetStructuredText parseText _bottomTextRight;
-
-	};
-
-
-	sleep (15);
+	if (_timeDifference < 25) exitwith {};
+	[_idPFH] call CBA_fnc_removePerFrameHandler;
 	endMission "END1";
-};
+}, 0, [_dia, _bg, CBA_missionTime]] call CBA_fnc_addPerFrameHandler;

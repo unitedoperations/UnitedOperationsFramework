@@ -1,11 +1,8 @@
-class UO_FW_MainAI
-{
+class UO_FW_MainAI {
     displayName = "AI Settings";
     collapsed = 0;
-    class Attributes
-    {
-		class UO_FW_AI_Enabled
-        {
+    class Attributes {
+		class UO_FW_AI_Enabled {
             property = "UO_FW_AI_Enabled";
             displayName = "Enable AI System";
             tooltip = "Enable AI System";
@@ -14,8 +11,7 @@ class UO_FW_MainAI
             defaultValue = "false";
 
         };
-        class UO_FW_AI_DEBUG
-        {
+        class UO_FW_AI_DEBUG {
             property = "UO_FW_AI_DEBUG";
             displayName = "Debug Mode";
             tooltip = "Enables Debug Mode";
@@ -24,9 +20,8 @@ class UO_FW_MainAI
             defaultValue = "false";
 
         };
-        class UO_FW_AI_MARKERS_ENABLED
-        {
-            property = "UO_FW_AI_MARKERS_ENABLED";
+        class UO_FW_AI_MARKERS_EnableD {
+            property = "UO_FW_AI_MARKERS_EnableD";
             displayName = "Debug Markers";
             tooltip = "Enables Debug Markers for AI";
             control = "Checkbox";

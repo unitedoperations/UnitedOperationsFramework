@@ -1,4 +1,3 @@
-
 class UO_FW_AI_UnitOptions {
 	displayName = "AI Unit Options";
 	collapsed = 1;
@@ -76,7 +75,7 @@ class UO_FW_AI_UnitOptions {
 		};
 	};
 };
-//class Init : Init {collapsed = 1;};
-//class Transformation : Transformation {collapsed = 1;};
-//class Control : Control {collapsed = 1;};
-//class State : State {collapsed = 1;};
+class Init : Init {collapsed = 1;};
+class Transformation : Transformation {collapsed = 1;};
+class Control : Control {collapsed = 1;};
+class State : State {collapsed = 1;};

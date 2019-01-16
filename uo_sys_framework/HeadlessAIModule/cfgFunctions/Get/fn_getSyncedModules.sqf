@@ -6,19 +6,19 @@
  * 	Return Value:
  * 		ARRAY	- ALL or Allowed Synchronised Modules
  */
-params ["_logic",["_allowedModules",[],[[]]],["_allowedSynced",[],[[]]],["_allowed",false,[false]],"_j"];
+params ["_logic",["_AllowedModules",[],[[]]],["_AllowedSynced",[],[[]]],["_Allowed",false,[false]],"_j"];
 	private _synced = synchronizedObjects _logic;	
 	for [{_j=0}, {(_j < count _synced)}, {_j = _j + 1}] do { 	
 		private _syncModule	= _synced select _j;
 		if (_syncModule isKindOf "Logic") then {
-			if (count _allowedModules >= 1) then {
-				_allowed = (typeof _syncModule) in _allowedModules;
+			if (count _AllowedModules >= 1) then {
+				_Allowed = (typeof _syncModule) in _AllowedModules;
 			} else {
-				_allowed = true;
+				_Allowed = true;
 			};
-			if (_allowed) then {
-				_allowedSynced pushBack _syncModule;
+			if (_Allowed) then {
+				_AllowedSynced pushBack _syncModule;
 			};
 		};
 	};
-	_allowedSynced
+	_AllowedSynced

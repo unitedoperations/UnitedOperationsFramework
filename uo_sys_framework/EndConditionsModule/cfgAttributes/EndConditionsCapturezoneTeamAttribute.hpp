@@ -1,23 +1,17 @@
-class UO_FW_ENDCONDITIONS_CaptureZoneTEAM: Title
-{
-	attributeLoad = "missionnamespace setvariable ['UO_FW_ENDCONDITIONS_CaptureZoneTEAM_value',_value]; (_this controlsGroupCtrl 91888) lbsetcursel _value;";
-	attributeSave = "missionnamespace getvariable ['UO_FW_ENDCONDITIONS_CaptureZoneTEAM_value',0];";
+class UO_FW_EndConditions_CaptureZoneTeam: Toolbox {
 	h = "8 * (pixelH * pixelGrid * 0.50)";
-	class Controls: Controls
-	{
+	class Controls: Controls {
 		class Title: Title {};
-		class Value: ctrlToolbox
-		{
+		class Value: ctrlToolbox {
 			idc = 91888;
 			style = "0x02";
 			x = "48 * (pixelW * pixelGrid * 0.50)";
-      w = "82 * (pixelW * pixelGrid * 0.50)";
-      h = "8 * (pixelH * pixelGrid * 0.50)";
+			w = "82 * (pixelW * pixelGrid * 0.50)";
+			h = "8 * (pixelH * pixelGrid * 0.50)";
 			rows = 1;
-      columns = 5;
+			columns = 5;
 			values[] = {0,1,2,3,4};
 			strings[] = {"Uncaptured","BLUFOR","OPFOR","INDFOR","CIV"};
-			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_ENDCONDITIONS_CaptureZoneTEAM_value',(_this select 1)];";
 		};
 	};
 };

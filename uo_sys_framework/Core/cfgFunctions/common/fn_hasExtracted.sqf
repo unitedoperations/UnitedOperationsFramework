@@ -29,8 +29,7 @@ if (_count >= _ratio * ([_team, 4] call UO_FW_fnc_getTeamVariable)) then {
 	if (!isNil "UO_FW_hasDeparted" && {UO_FW_hasDeparted}) then {
 		_result = true;
 	};
-}
-else {
+} else {
 	UO_FW_hasDeparted = true;
 };
 _result

@@ -21,20 +21,17 @@ if (_NoFlanking) exitWith {};
 //_myNearestEnemy = _Unit call UO_FW_AI_fnc_ClosestEnemy;
 _myNearestEnemy = _Unit findNearestEnemy _Unit;
 
-if (isNull _myNearestEnemy) exitWith
-{
+if (isNull _myNearestEnemy) exitWith {
 	//systemchat format ["%1 RAWR A",side _unit];
 
-	if ((count (waypoints (group _Unit))) < 2) then
-	{
+	if ((count (waypoints (group _Unit))) < 2) then {
 
 		_wPos = waypointPosition [_group, 1];
 		private _WType = waypointType [_group,1];
 		private _speed = waypointSpeed [_group,1];
 		private _Beh = waypointBehaviour [_group,1];
 		if (_wPos isEqualTo [0,0,0]) exitWith {};
-			while {(count (waypoints _group)) > 0} do
-			{
+			while {(count (waypoints _group)) > 0} do {
 				deleteWaypoint ((waypoints _group) select 0);
 				sleep 0.25;
 			};
@@ -70,19 +67,15 @@ if (_WType isEqualTo "DESTROY") exitWith {};
 private _EnemyGroup = count (units (group _myNearestEnemy));
 _GroupCount = count units _group;
 _myEnemyPos = (getposATL _myNearestEnemy);
-if (_myEnemyPos isEqualTo [0,0,0]) exitWith
-{
+if (_myEnemyPos isEqualTo [0,0,0]) exitWith {
 	sleep 30;
 	[_Unit,_UO_FW_AI_Flanking] spawn UO_FW_AI_fnc_FlankManeuver;
 };
 
 private _RandomChance = random 100;
-if (_RandomChance < 25) then
-{
-	if ((_EnemyGroup/_GroupCount) <= 0.5) exitWith
-	{
-		while {(count (waypoints _group)) > 0} do
-		{
+if (_RandomChance < 25) then {
+	if ((_EnemyGroup/_GroupCount) <= 0.5) exitWith {
+		while {(count (waypoints _group)) > 0} do {
 		deleteWaypoint ((waypoints _group) select 0);
 		sleep 0.25;
 		};
@@ -93,8 +86,7 @@ if (_RandomChance < 25) then
 		_waypoint2 setWaypointSpeed "NORMAL";
 		_waypoint2 setWaypointBehaviour "COMBAT";
 
-	if (UO_FW_AI_DEBUG) then
-	{
+	if (UO_FW_AI_DEBUG) then {
 		private _debugmsg = format ["%1 set a flank waypoint",_Unit];
 		UO_FW_DEBUG("",_debugmsg);
 	};
@@ -108,8 +100,7 @@ if (_RandomChance < 25) then
 sleep 0.25;
 if (_myEnemyPos isEqualTo [0,0,0]) exitWith {_UO_FW_AI_Flanking = false;[_Unit,_UO_FW_AI_Flanking] spawn UO_FW_AI_fnc_FlankManeuver;_UO_FW_AI_Flanking = true;};
 
-while {(count (waypoints _group)) > 0} do
-{
+while {(count (waypoints _group)) > 0} do {
  deleteWaypoint ((waypoints _group) select 0);
  sleep 0.25;
 };
@@ -148,8 +139,7 @@ _waypoint2 setwaypointtype "MOVE";
 _waypoint2 setWaypointSpeed "NORMAL";
 _waypoint2 setWaypointBehaviour "COMBAT";
 
-if (UO_FW_AI_DEBUG) then
-{
+if (UO_FW_AI_DEBUG) then {
 	private _debugmsg = format ["%1 set a flank waypoint",_Unit];
 	UO_FW_DEBUG("",_debugmsg);
 };

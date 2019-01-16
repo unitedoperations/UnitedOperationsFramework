@@ -7,16 +7,17 @@
  *		PiZZADOX
  */
 
-if !(isServer) exitwith {};
-private ["_configCategories","_configCategories2","_configAttributes"];
+if (!(getMissionConfigValue ["UO_FW_Enabled",false])) exitWith {};
+if (!UO_FW_Server_Framework_Allowed) exitWith {};
+
 UO_FW_SETDEFAULTSDEBUGMODE = false;
-_configCategories = [];
-_configCategories2 = [];
-_configAttributes = [];
+private _configCategories = [];
+private _configCategories2 = [];
+private _configAttributes = [];
 
 _configCategories = "(((str(configname _x)) find 'UO_FW') >= 0)" configClasses (Configfile >> "Cfg3DEN" >> "Mission");
 	if (UO_FW_SETDEFAULTSDEBUGMODE) then {
-	diag_log format ["_configCategories: %1",_configCategories];
+		diag_log format ["_configCategories: %1",_configCategories];
 	};
 {
 	//_configAttributesTemp = "(((str(configname _x)) find 'UO_FW') > 0)" configClasses (configfile >> "Cfg3DEN" >> "Mission" >> );
@@ -46,7 +47,7 @@ _configCategories = "(((str(configname _x)) find 'UO_FW') >= 0)" configClasses (
 			diag_log format ["Foreach2 _x: %1",_x];
 	};
 	if (UO_FW_SETDEFAULTSDEBUGMODE) then {
-			diag_log format ["Foreach2 CfgData _x: %1",(_x >> "property") call BIS_fnc_getCfgData];
+		diag_log format ["Foreach2 CfgData _x: %1",(_x >> "property") call BIS_fnc_getCfgData];
 	};
 		if (isText(_x >> "property")) then {
 			_configAttributes pushback _x;
@@ -66,26 +67,26 @@ _configCategories = "(((str(configname _x)) find 'UO_FW') >= 0)" configClasses (
 			if (!(_valuetext isEqualto "")) then {
 				missionNamespace setvariable [_propertyname, (call compile _valuetext), true];
 	if (UO_FW_SETDEFAULTSDEBUGMODE) then {
-					diag_log format ["_propertyname: %1 set with value: %2",_propertyname,(missionNamespace getvariable [_propertyname,""])];
+		diag_log format ["_propertyname: %1 set with value: %2",_propertyname,(missionNamespace getvariable [_propertyname,""])];
 	};
 			} else {
 	if (UO_FW_SETDEFAULTSDEBUGMODE) then {
-					diag_log format ["_propertyname: %1 null default value! not set!",_propertyname];
+		diag_log format ["_propertyname: %1 null default value! not set!",_propertyname];
 	};
 			};
 		} else {
 	if (UO_FW_SETDEFAULTSDEBUGMODE) then {
-				diag_log format ["_propertyname: %1 already defined with value of %2! not set!",_propertyname,(missionNamespace getvariable [_propertyname,""])];
+		diag_log format ["_propertyname: %1 already defined with value of %2! not set!",_propertyname,(missionNamespace getvariable [_propertyname,""])];
 	};
 		};
 	} else {
-	if (UO_FW_SETDEFAULTSDEBUGMODE) then {
+		if (UO_FW_SETDEFAULTSDEBUGMODE) then {
 			diag_log format ["_propertyname: %1 has mission value!",_propertyname];
-	};
-		missionNamespace setvariable [_propertyname, _missionvalue, true];
-	if (UO_FW_SETDEFAULTSDEBUGMODE) then {
+		};
+			missionNamespace setvariable [_propertyname, _missionvalue, true];
+		if (UO_FW_SETDEFAULTSDEBUGMODE) then {
 			diag_log format ["_propertyname: %1 set with value: %2",_propertyname,(missionNamespace getvariable [_propertyname,""])];
-	};
+		};
 	};
 } foreach _configAttributes;
 

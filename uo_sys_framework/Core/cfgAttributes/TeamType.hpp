@@ -1,13 +1,10 @@
-class TeamTypeWest: Title
-{
+class TeamTypeWest: Title {
 	attributeLoad="missionnamespace setvariable ['teamtype_BLUFOR',_value]; (_this controlsGroupCtrl 103) lbsetcursel _value;";
 	attributeSave="missionnamespace getvariable ['teamtype_BLUFOR',0]";
 
-	class Controls : Controls
-	{
+	class Controls : Controls {
 		class Title: Title {};
-		class Value: ctrlToolbox
-		{
+		class Value: ctrlToolbox {
 			idc = 103;
 			style = "0x02";
             x = "48 * (pixelW * pixelGrid * 0.50)";
@@ -22,16 +19,13 @@ class TeamTypeWest: Title
 	};
 };
 
-class TeamTypeEast: TeamTypeWest
-{
+class TeamTypeEast: TeamTypeWest {
 	attributeLoad="missionnamespace setvariable ['teamtype_OPFOR',_value]; (_this controlsGroupCtrl 104) lbsetcursel _value;";
 	attributeSave="missionnamespace getvariable ['teamtype_OPFOR',0]";
 
-	class Controls : Controls
-	{
+	class Controls : Controls {
 		class Title: Title {};
-		class Value: ctrlToolbox
-		{
+		class Value: ctrlToolbox {
 			idc = 104;
 			style = "0x02";
             x = "48 * (pixelW * pixelGrid * 0.50)";
@@ -46,16 +40,13 @@ class TeamTypeEast: TeamTypeWest
 	};
 };
 
-class TeamTypeIndfor: TeamTypeWest
-{
+class TeamTypeIndfor: TeamTypeWest {
 	attributeLoad="missionnamespace setvariable ['teamtype_INDFOR',_value]; (_this controlsGroupCtrl 105) lbsetcursel _value;";
 	attributeSave="missionnamespace getvariable ['teamtype_INDFOR',0]";
 
-	class Controls : Controls
-	{
+	class Controls : Controls {
 		class Title: Title {};
-		class Value: ctrlToolbox
-		{
+		class Value: ctrlToolbox {
 			idc = 105;
 			style = "0x02";
             x = "48 * (pixelW * pixelGrid * 0.50)";
@@ -70,16 +61,13 @@ class TeamTypeIndfor: TeamTypeWest
 	};
 };
 
-class TeamTypeCiv: TeamTypeWest
-{
+class TeamTypeCiv: TeamTypeWest {
 	attributeLoad="missionnamespace setvariable ['teamtype_CIV',_value]; (_this controlsGroupCtrl 106) lbsetcursel _value;";
 	attributeSave="missionnamespace getvariable ['teamtype_CIV',0]";
 
-	class Controls : Controls
-	{
+	class Controls : Controls {
 		class Title: Title {};
-		class Value: ctrlToolbox
-		{
+		class Value: ctrlToolbox {
 			idc = 106;
 			style = "0x02";
             x = "48 * (pixelW * pixelGrid * 0.50)";

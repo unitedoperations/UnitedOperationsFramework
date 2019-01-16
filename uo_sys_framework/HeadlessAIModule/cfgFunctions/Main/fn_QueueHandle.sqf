@@ -6,8 +6,7 @@ if (!(UO_FW_AI_Enabled)) exitWith {};
 while {true} do {
 	sleep 0.25;
 	//systemchat format ["UO_FW_AI_UnitQueue: %1",UO_FW_AI_UnitQueue];
-	if !(UO_FW_AI_UnitQueue isEqualTo []) then
-	{
+	if !(UO_FW_AI_UnitQueue isEqualTo []) then {
 		private _ConsideringUnit = UO_FW_AI_UnitQueue select 0;
 		private _Disabled = _ConsideringUnit getVariable ["UO_FW_AI_NOAI",false];
 		if ((vehicle _ConsideringUnit) isKindOf "Plane") then {_Disabled = true;_ConsideringUnit setVariable ["UO_FW_AI_NOAI",true];};

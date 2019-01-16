@@ -11,6 +11,8 @@ class ctrlCheckbox;
 class ctrlCombo;
 class ctrlEdit;
 class ctrlStatic;
+class ctrlTree;
+class ctrlListbox;
 class ControlsBackground;
 class ctrlStaticBackground;
 class ctrlStaticFooter;
@@ -26,12 +28,9 @@ class Transformation;
 class Control;
 class Presence;
 class Size;
-class ctrlTree;
 //custom attributes menu
-class Display3DENEditAttributesPreview
-{
-	class ControlsBackground
-	{
+class Display3DENEditAttributesPreview {
+	class ControlsBackground {
 		class Background;
 		class BackgroundButtons;
 		class Title;
@@ -70,8 +69,7 @@ class Display3DENEditAttributesPreviewHalfSized: Display3DENEditAttributesPrevie
 		y="2 * pixelH";
 		w="(	120 - 1) * (pixelW * pixelGrid * 	0.50)";
 		class Controls {
-			class Minimize: ctrlCheckbox
-			{
+			class Minimize: ctrlCheckbox {
 				x="0 * (pixelW * pixelGrid * 	0.50)";
 				y=0;
 				w="5 * (pixelW * pixelGrid * 	0.50)";
@@ -105,8 +103,7 @@ class Display3DENEditAttributesPreviewHalfSized: Display3DENEditAttributesPrevie
 				onMouseHolding="";
 				onCheckBoxesSelChanged="";
 			};
-			class Title: ctrlButton
-			{
+			class Title: ctrlButton {
 				x="5 * (pixelW * pixelGrid * 	0.50)";
 				y="pixelH";
 				w="(	140 - 	5 - 3) * (pixelW * pixelGrid * 	0.50)";
@@ -144,8 +141,7 @@ class Display3DENEditAttributesPreviewHalfSized: Display3DENEditAttributesPrevie
 				onMouseHolding="";
 				onCheckBoxesSelChanged="";
 			};
-			class Attributes: ctrlControlsGroupNoScrollbars
-			{
+			class Attributes: ctrlControlsGroupNoScrollbars {
 				y="4 * (pixelH * pixelGrid * 	0.50) + 8 * pixelH";
 				w="(	120 - 5) * (pixelW * pixelGrid * 	0.50)";
 				class Controls {};
@@ -154,13 +150,11 @@ class Display3DENEditAttributesPreviewHalfSized: Display3DENEditAttributesPrevie
 		class AttributeOverlay: ctrlControlsGroupNoScrollbars {
 			y="4 * pixelH";
 			class Controls {
-				class AttributeOverlay: ctrlStatic
-				{
+				class AttributeOverlay: ctrlStatic {
 					style=2;
 					colorBackground[]={0.2,0.2,0.2,0.89999998};
 				};
-				class AttributeEnable: ctrlCheckbox
-				{
+				class AttributeEnable: ctrlCheckbox {
 					w="5 * (pixelW * pixelGrid * 	0.50)";
 					h="5 * (pixelH * pixelGrid * 	0.50)";
 					tooltip="$STR_3DEN_Display3DENEditAttributes_AttributeEnable_tooltip";

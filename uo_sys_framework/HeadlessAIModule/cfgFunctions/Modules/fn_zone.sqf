@@ -16,7 +16,7 @@ params [["_mode","",[""]],["_input",[],[[]]]];
 switch _mode do {
 	case "init": {
 		if !is3DEN then {
-			if(isNil "UO_FW_AI_initialised") then {[] call UO_FW_AI_fnc_init;};
+			if (isNil "UO_FW_AI_initialised") then {[] call UO_FW_AI_fnc_init;};
 			_input params ["_logic",["_isActivated",true,[true]],["_isCuratorPlaced",false,[false]]];
 			if !(_isActivated) exitWith {};
 			{
@@ -25,10 +25,10 @@ switch _mode do {
 
 			private _initial = _logic getVariable ["UO_FW_AI_zoneInitial",false];
 			private _code = _logic getVariable ["UO_FW_AI_zoneCode","true"];
-			if(typename _code isEqualTo "STRING") then {_code = compile _code;};
+			if (typename _code isEqualTo "STRING") then {_code = compile _code;};
 			private _cond = _logic getVariable ["UO_FW_AI_zoneCondition","false"];
-			if(typename _cond isEqualTo "STRING") then {_cond = compile _cond;};
-			private _isRectangle = if((typeof _logic) isEqualTo "UO_FW_AI_ZoneModule_R") then {true} else {false};
+			if (typename _cond isEqualTo "STRING") then {_cond = compile _cond;};
+			private _isRectangle = if ((typeof _logic) isEqualTo "UO_FW_AI_ZoneModule_R") then {true} else {false};
 
 			UO_FW_AI_Zones pushBack [
 				_logic,
@@ -51,7 +51,7 @@ switch _mode do {
 			LOG_2("_zone: %1 entities: %2",_logic,_entities);
 			UO_FW_AI_entities pushBack [_logic,_entities];
 			UO_FW_AI_zoneInit pushBack _logic;
-			if((count UO_FW_AI_zoneInit) >= (count (entities [["UO_FW_AI_ZoneModule_R","UO_FW_AI_ZoneModule"],[]])) && !UO_FW_AI_templateCleanup) then {
+			if ((count UO_FW_AI_zoneInit) >= (count (entities [["UO_FW_AI_ZoneModule_R","UO_FW_AI_ZoneModule"],[]])) && !UO_FW_AI_templateCleanup) then {
 				UO_FW_AI_templatesyncedObjects = UO_FW_AI_templatesyncedObjects arrayIntersect UO_FW_AI_templatesyncedObjects;
 				[UO_FW_AI_templatesyncedObjects] call UO_FW_AI_fnc_deleteVehicles;
 				UO_FW_AI_templateCleanup = true;

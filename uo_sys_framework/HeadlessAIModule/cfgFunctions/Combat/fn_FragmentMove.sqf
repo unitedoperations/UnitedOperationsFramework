@@ -9,12 +9,9 @@ _UnitPos = getpos (leader _Unit);
 
 _direction = [_UnitPos,_WayPointPosition] call BIS_fnc_dirTo;
 
-if (_Unit distance _NearestEnemy < 150) then
-{
+if (_Unit distance _NearestEnemy < 150) then {
 	_MovementDistance = 25;
-}
-else
-{
+} else {
 	_MovementDistance = 75;
 };
 

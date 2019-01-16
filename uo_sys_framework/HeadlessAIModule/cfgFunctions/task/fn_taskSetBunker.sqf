@@ -27,7 +27,7 @@ params [
 	"_i"
 ];
 
-{_x forcespeed -1; _x enableAI "PATH";} foreach units _grp;
+{_x forcespeed -1; _x enableAI "Path";} foreach units _grp;
 {
 	_x setvariable ["UO_FW_AI_BUNKER",true];
 } foreach (units _grp);

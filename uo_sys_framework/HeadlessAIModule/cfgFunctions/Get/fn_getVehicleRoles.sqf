@@ -24,7 +24,7 @@ params["_veh",["_role","",[""]],"_i"];
 		case "turret";
 		case "turrets": { 
 			private _turrets = ["turret",(allTurrets [_this select 0, true])];
-			if((count(_turrets select 1)) > 0) then {
+			if ((count(_turrets select 1)) > 0) then {
 				_roles = _turrets; 	 
 			};
 		};
@@ -42,12 +42,12 @@ params["_veh",["_role","",[""]],"_i"];
 		};
 		default {
 			private _turrets = ["turret",(allTurrets [_this select 0, true])];
-			if((count(_turrets select 1)) > 0) then {
+			if ((count(_turrets select 1)) > 0) then {
 				_roles pushBack _turrets; 	 
 			};
 			_driverIsCommander = getNumber(_vehConfig >> "driverIsCommander");
 			if (getNumber(_vehConfig >> "hasDriver") > 0) then {		
-				if(_driverIsCommander > 0) then {
+				if (_driverIsCommander > 0) then {
 					_roles set[(_roles find "commander"),"driver"];
 				} else {
 					_roles pushBack "driver"

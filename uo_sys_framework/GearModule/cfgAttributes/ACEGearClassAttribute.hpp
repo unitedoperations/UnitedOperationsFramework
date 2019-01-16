@@ -9,10 +9,7 @@ class UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo: Combo
 	";
 	//_this - config, _value - saved value
 	attributeLoad="\
-	[_this,_config,_value] spawn {\
-		disableserialization;\
-		params ['_ctrl','_config','_value'];\
-		private _control = (_ctrl controlsGroupCtrl 100);\
+		private _control = (_this controlsGroupCtrl 100);\
 		_control setvariable ['UO_FW_parentcontrolcfg',_config];\
 		private _attProperty = getText (_config >> 'property');\
 		private _defaultloadoutsArray = MissionNamespace getvariable ['ace_arsenal_defaultLoadoutsList',[]];\
@@ -77,7 +74,6 @@ class UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo: Combo
 				};\
 			} foreach _defaultloadoutsArray;\
 		};\
-	};\
 	";
 	class Controls: Controls
 	{
@@ -87,7 +83,7 @@ class UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo: Combo
 			idc=100;
 			onLBSelChanged="\
 				_ctrlCombo = _this select 0;\
-			  _cursel = _this select 1;\
+				_cursel = _this select 1;\
 				_value = _control lbData _cursel;\
 				private _config = _ctrlCombo getvariable ['UO_FW_parentcontrolcfg',''];\
 				private _attProperty = getText (_config >> 'property');\

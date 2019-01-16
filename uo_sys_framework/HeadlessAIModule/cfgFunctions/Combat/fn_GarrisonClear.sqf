@@ -19,8 +19,7 @@ _Locations = [_nBuilding] call BIS_fnc_buildingPositions;
 {
 	//Set variable to true to prevent AI clearing buildings to often
 	//_x spawn UO_FW_AI_fnc_StanceModifier;
-	if (_Enemy distance _x < 200) then
-	{
+	if (_Enemy distance _x < 200) then {
 		[_Locations,_x,_UO_FW_AI_InCover,_UO_FW_AI_ActivelyClearing,_Enemy] spawn UO_FW_AI_fnc_GarrisonClearPatrol;
 	};
 } foreach units (group _Unit);

@@ -43,8 +43,8 @@ Version Numbers mainly refer to the UO Modpack addition.
 
 ### Fixed
 - Endconditions script not running properly
-- Parachute jip error
-- Acre APi
+- Parachute JiP error
+- Acre API
 - Acre Channel Names
 - Setuptimer client race condition error
 ### Removed

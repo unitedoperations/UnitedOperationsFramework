@@ -2,8 +2,7 @@
 private ["_Counter","_NearestUnit","_Nearobjects","_StanceCompare"];
 
 _Counter = 6;
-while {_Counter > 0} do
-{
+while {_Counter > 0} do {
 
 		private _BehindUnit = _this modelToWorld [0,-1,0.5];
 		_Nearobjects = _BehindUnit nearObjects ["Man",2];

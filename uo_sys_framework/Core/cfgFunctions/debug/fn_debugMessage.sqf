@@ -14,7 +14,7 @@
 
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 
-if(!UO_FW_SERVER_FRAMEWORK_ALLOWED || !UO_FW_SERVER_DEBUG_ALLOWED) exitWith {};
+if (!UO_FW_Server_Framework_Allowed || !UO_FW_Server_DEBUG_Allowed) exitWith {};
 private _message = _this;
 
 if (isNil "UO_FW_DebugMessages") then {UO_FW_DebugMessages = [];};

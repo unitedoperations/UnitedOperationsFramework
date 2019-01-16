@@ -1,14 +1,10 @@
-class UO_FW_ACRE_ChannelSelect: Title
-		{
+class UO_FW_ACRE_ChannelSelect: Title {
 			attributeLoad="		(_this controlsGroupCtrl 100) ctrlSetText str _value;	";
 			attributeSave="		parsenumber ctrlText (_this controlsGroupCtrl 100),	";
-			class Controls: Controls
-			{
-				class Title: Title
-				{
+			class Controls: Controls {
+				class Title: Title {
 				};
-				class TitleZ: ctrlStatic
-				{
+				class TitleZ: ctrlStatic {
 					text="Channel";
 					style=2;
 					shadow=0;
@@ -18,8 +14,7 @@ class UO_FW_ACRE_ChannelSelect: Title
 					colorText[]={1,1,1,1};
 					colorBackground[]={0.25999999,0.51999998,0.92000002,1};
 				};
-				class ValueZ: ctrlEdit
-				{
+				class ValueZ: ctrlEdit {
 					idc=100;
 					text="0";
 					x="(	48 + 	(	14)) * (pixelW * pixelGrid * 	0.50)";

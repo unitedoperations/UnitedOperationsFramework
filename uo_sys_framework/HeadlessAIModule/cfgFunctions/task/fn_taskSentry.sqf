@@ -30,7 +30,7 @@ params [
 	"_i"
 ];
 
-{_x forcespeed -1; _x enableAI "PATH";} foreach units _grp;
+{_x forcespeed -1; _x enableAI "Path";} foreach units _grp;
 _grp call CBA_fnc_clearWaypoints;
 private _wp1pos = (_pos vectorAdd((vectorDir (leader _grp)) vectorMultiply _radius));
 _this1 =+ _this;

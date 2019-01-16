@@ -8,12 +8,10 @@
  *		R3vo & PiZZADOX
  */
 
-if (!UO_FW_SERVER_FRAMEWORK_ALLOWED) exitWith {};
 #define COMPONENT 3DEN
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 UO_FW_EXEC_CHECK(ALL);
 
-diag_log format ["ExportSettings params: %1",_this];
 params [["_name",""],["_clipBoardMode",false]];
 
 private ["_attributeValues","_sections"];
@@ -33,19 +31,20 @@ _sections = "!(((str(configname _x)) find 'UO_FW') isEqualto -1)" configClasses 
 	{
 		private _attributeName = "";
 		_attributeName = getText (_x >> "data");
-		private _attributeValue = _section get3DENMissionAttribute _attributeName;//By default get value by data config entry
-		if (isNil "_attributeValue") then
-		{
+		//By default get value by data config entry
+		private _attributeValue = _section get3DENMissionAttribute _attributeName;
+		//If value is nil, try to get it by the attribute name
+		if (isNil "_attributeValue") then {
 			_attributeName = configName _x;
-			_attributeValue = _section get3DENMissionAttribute _attributeName;//If value is nil, try to get it by the attribute name
-			if (isNil "_attributeValue") then
-			{
+			_attributeValue = _section get3DENMissionAttribute _attributeName;
+			//If data is still nil, use property config entry
+			if (isNil "_attributeValue") then {
 				_attributeName = getText (_x >> "property");
-				_attributeValue = _section get3DENMissionAttribute _attributeName;//If data is still nil, use property config entry
+				_attributeValue = _section get3DENMissionAttribute _attributeName;
 			};
 		};
-		if !(isNil "_attributeValue") then//If there are still values which are nil, they are either categories, internal oder never fully implemented attributes by BIS
-		{
+		//If there are still values which are nil, they are either categories, internal oder never fully implemented attributes by BIS
+		if !(isNil "_attributeValue") then {
 			_attributeValues pushBack [_section,_attributeName,_attributeValue];
 		};
 	} foreach _children;

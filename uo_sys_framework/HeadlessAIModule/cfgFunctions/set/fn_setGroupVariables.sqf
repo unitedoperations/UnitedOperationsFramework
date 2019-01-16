@@ -76,9 +76,9 @@ _grpSet params [
 	[_grp,_behave,_combat,_speed,_formation] call UO_FW_AI_fnc_setGroupBehaviour;
 	{
 		_x setUnitPos _grpStance;
-		if(!isNull(assignedVehicle _x)) then {[_x] orderGetIn true;};
+		if (!isNull(assignedVehicle _x)) then {[_x] orderGetIn true;};
 	} forEach (units _grp);
-	if(_fl) then {[_grp] call UO_FW_AI_fnc_setFlashlights;};
-	if(_surrender) then {[_grp] call UO_FW_AI_fnc_setSurrender;};
+	if (_fl) then {[_grp] call UO_FW_AI_fnc_setFlashlights;};
+	if (_surrender) then {[_grp] call UO_FW_AI_fnc_setSurrender;};
 	_grp spawn _grpinit;
 	true

@@ -2,24 +2,24 @@
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 UO_FW_EXEC_CHECK(ALL);
 
-_isEnabled = missionNamespace getVariable ["UO_FW_MarkerControl_Enabled",false];
-if(!_isEnabled) exitWith {};
-["Marker Control", "Change visibility of markers", "Olsen and Sacher and PiZZADOX"] call UO_FW_FNC_RegisterModule;
-if (!isDedicated) then
-{
-	_west = missionNamespace getVariable ["UO_FW_MarkerControl_BluforMarkers",[]];
-	_westBriefing = missionNamespace getVariable ["UO_FW_MarkerControl_BluforBriefingMarkers",[]];
+if !(UO_FW_Server_MarkerControlModule_Allowed) exitWith {};
+if !(missionNamespace getVariable ["UO_FW_MarkerControl_Enabled",false]) exitWith {};
 
-	_east = missionNamespace getVariable ["UO_FW_MarkerControl_OpforMarkers",[]];
-	_eastBriefing = missionNamespace getVariable ["UO_FW_MarkerControl_OpforBriefingMarkers",[]];
+["Marker Control", "Allows the mission maker to create markers visible to a single side and per briefing.", "Olsen, Sacher and PiZZADOX"] call UO_FW_fnc_RegisterModule;
+if (!isDedicated) then {
+	private _west = missionNamespace getVariable ["UO_FW_MarkerControl_BluforMarkers",[]];
+	private _westBriefing = missionNamespace getVariable ["UO_FW_MarkerControl_BluforBriefingMarkers",[]];
 
-	_indfor = missionNamespace getVariable ["UO_FW_MarkerControl_IndependentMarkers",[]];
-	_indforBriefing = missionNamespace getVariable ["UO_FW_MarkerControl_IndependentBriefingMarkers",[]];
+	private _east = missionNamespace getVariable ["UO_FW_MarkerControl_OpforMarkers",[]];
+	private _eastBriefing = missionNamespace getVariable ["UO_FW_MarkerControl_OpforBriefingMarkers",[]];
 
-	_civilian = missionNamespace getVariable ["UO_FW_MarkerControl_CivilianMarkers",[]];
-	_civilianBriefing = missionNamespace getVariable ["UO_FW_MarkerControl_CivilianBriefingMarkers",[]];
+	private _indfor = missionNamespace getVariable ["UO_FW_MarkerControl_IndependentMarkers",[]];
+	private _indforBriefing = missionNamespace getVariable ["UO_FW_MarkerControl_IndependentBriefingMarkers",[]];
 
-	_system = missionNamespace getVariable ["UO_FW_MarkerControl_SystemMarkers",[]];
+	private _civilian = missionNamespace getVariable ["UO_FW_MarkerControl_CivilianMarkers",[]];
+	private _civilianBriefing = missionNamespace getVariable ["UO_FW_MarkerControl_CivilianBriefingMarkers",[]];
+
+	private _system = missionNamespace getVariable ["UO_FW_MarkerControl_SystemMarkers",[]];
 	private ["_markers"];
 
 	_markers = [];

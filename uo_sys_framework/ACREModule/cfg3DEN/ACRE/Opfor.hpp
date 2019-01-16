@@ -40,9 +40,9 @@ class OPFOR_ACRE_SETTINGS_RADIONET_CAT
     collapsed = 0;
     class Attributes
     {
-		class UO_FW_ACRE_OPFOR_RADIONET_ENABLED
+		class UO_FW_ACRE_OPFOR_RADIONET_EnableD
         {
-            property = "UO_FW_ACRE_OPFOR_RADIONET_ENABLED";
+            property = "UO_FW_ACRE_OPFOR_RADIONET_EnableD";
             displayName = "Enable Radio Net Channel Names";
 			control = "CheckBoxState";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
@@ -120,9 +120,9 @@ class OPFOR_ACRE_SETTINGS_BABEL_CAT
     collapsed = 1;
     class Attributes
     {
-        class UO_FW_ACRE_OPFOR_BABEL_ENABLED
+        class UO_FW_ACRE_OPFOR_BABEL_EnableD
         {
-            property = "UO_FW_ACRE_OPFOR_BABEL_ENABLED";
+            property = "UO_FW_ACRE_OPFOR_BABEL_EnableD";
             displayName = "Enable Babel Languages";
 			control = "CheckBoxState";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
@@ -173,18 +173,18 @@ class OPFOR_ACRE_SETTINGS_BABEL_CAT
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "false";
         };
-		class UO_FW_ACRE_OPFOR_BABEL_CUSTOM
+		class UO_FW_ACRE_OPFOR_BABEL_Custom
         {
-            property = "UO_FW_ACRE_OPFOR_BABEL_CUSTOM";
+            property = "UO_FW_ACRE_OPFOR_BABEL_Custom";
             displayName = "Custom Language";
             tooltip = "Define a custom language for this side";
             control = "EditShort";
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
-		class UO_FW_ACRE_OPFOR_BABEL_CUSTOM2
+		class UO_FW_ACRE_OPFOR_BABEL_Custom2
         {
-            property = "UO_FW_ACRE_OPFOR_BABEL_CUSTOM2";
+            property = "UO_FW_ACRE_OPFOR_BABEL_Custom2";
             displayName = "Custom Language 2";
             tooltip = "Define a custom language for this side";
             control = "EditShort";

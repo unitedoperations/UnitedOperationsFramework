@@ -1,14 +1,12 @@
 #include "cfgFSM.hpp"
 
-class UO_FW_AI_Module : OlsenModule
-{
+class UO_FW_AI_Module : OlsenModule {
 	scope = 1;
 	category = "UO_FrameworkCategory_AI";
 	icon = "\a3\3DEN\Data\CfgWaypoints\scripted_ca.paa";
 };
 
-class UO_FW_AI_ZoneModule : UO_FW_AI_Module
-{
+class UO_FW_AI_ZoneModule : UO_FW_AI_Module {
 	scope = 2;
 	displayName = "Zone (Circle)";
 	//icon = "\UO_FW\Resources\Icons\zonemodule_ca.paa";
@@ -24,9 +22,9 @@ class UO_FW_AI_ZoneModule : UO_FW_AI_Module
 	canSetAreaShape = 0;
 	icon = "\x\UO_FW\addons\main\HeadlessAIModule\resources\aizonemodule_ca.paa";
 
-		class AttributeValues {
+	class AttributeValues {
         size2[] = {100,100};
-				IsRectangle = 0;
+		IsRectangle = 0;
     };
 
     class Attributes {

@@ -1,6 +1,5 @@
 #include "..\..\Global\defs.hpp"
-_handle = _this spawn
-	{
+_handle = _this spawn {
 		private _unit = _this select 0;
 		private _target = _this select 1;
 		private	_roundType = _this select 2;

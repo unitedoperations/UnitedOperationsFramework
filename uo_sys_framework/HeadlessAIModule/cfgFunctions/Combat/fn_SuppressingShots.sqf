@@ -11,12 +11,10 @@ if (_FrameRateCheck <= UO_FW_AI_FPSFreeze) exitWith {};
 
 _unit = (_this select 0) select 0;
 
-if (UO_FW_AI_CurrentlySuppressing < UO_FW_AI_CurrentlySuppressingLimit) then
-{
+if (UO_FW_AI_CurrentlySuppressing < UO_FW_AI_CurrentlySuppressingLimit) then {
 	UO_FW_AI_CurrentlySuppressing = UO_FW_AI_CurrentlySuppressing + 1;
 	_TimeShot = _unit getVariable "UO_FW_AI_FiredTime";
-	if ((diag_tickTime - _TimeShot) > 25) then
-	{
+	if ((diag_tickTime - _TimeShot) > 25) then {
 		_unit setVariable ["UO_FW_AI_FiredTime",diag_tickTime,true];
 		private _pos = cursorTarget;
 		if (isNull _pos) then {

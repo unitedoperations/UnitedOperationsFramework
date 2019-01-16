@@ -2,11 +2,11 @@
 #include "\x\UO_FW\addons\main\script_macros.hpp"
 UO_FW_EXEC_CHECK(SERVER);
 
-if !(UO_FW_SERVER_AUTOTRACKASSETMODULE_ALLOWED) exitwith {};
+if !(UO_FW_Server_AUTOTRACKASSETMODULE_Allowed) exitwith {};
 if !(missionNamespace getVariable ["UO_FW_AutoTrackAsset_Enabled",false]) exitWith {};
 
-["Auto Track Assets", "Automatically runs UO_FW_FNC_TrackAsset on AI vehicles.", "Starfox64"] call UO_FW_FNC_RegisterModule;
-[{time > 1},{
+["Auto Track Assets", "Automatically runs UO_FW_FNC_TrackAsset on AI vehicles.", "Starfox64 and Sacher"] call UO_FW_fnc_RegisterModule;
+[{CBA_missionTime > 1},{
 	{
 		private _vehicle = _x;
 		if ((!isPlayer _vehicle) && {!(side _vehicle isEqualto civilian)}) then {

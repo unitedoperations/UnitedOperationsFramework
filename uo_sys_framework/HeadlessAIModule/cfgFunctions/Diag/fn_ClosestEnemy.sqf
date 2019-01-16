@@ -13,5 +13,5 @@ _Array1 = [];
 _ReturnedEnemy = [_Array1,_Unit] call UO_FW_AI_fnc_ClosestObject;
 if (isNil "_ReturnedEnemy") then {_ReturnedEnemy = [0,0,0]};
 
-(group _Unit) setVariable ["UO_FW_AI_CLOSESTENEMY",_ReturnedEnemy];
+(group _Unit) setVariable ["UO_FW_AI_CLOSESTEnemy",_ReturnedEnemy];
 _ReturnedEnemy
