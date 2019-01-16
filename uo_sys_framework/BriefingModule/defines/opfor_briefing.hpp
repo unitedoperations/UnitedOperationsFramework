@@ -83,7 +83,7 @@ if ((missionNamespace getVariable ["UO_FW_Briefing_OPFOR_Warsaw",false])) then {
 	"<font color='#5BD527'><h1>Probable Enemy Artillery Positions & Capability:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_Briefing_OPFOR_Warsaw_Enemy_PROB_Arty",""])
 	ENDTAB
 	NEWTAB("IV. Higher and Adjacent Units:")
-	"<font color='#5BD527'><h1>Description:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_Briefing_OPFOR_Warsaw_Higher_Disp,""])   + "<br/><br/>" +
+	"<font color='#5BD527'><h1>Description:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_Briefing_OPFOR_Warsaw_Higher_Disp",""])   + "<br/><br/>" +
 	"<font color='#5BD527'><h1>Boundaries:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_Briefing_OPFOR_Warsaw_Higher_Boundary",""])   + "<br/><br/>" +
 	"<font color='#5BD527'><h1>Location and Capability of Artillery:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_Briefing_OPFOR_Warsaw_Higher_Arty",""])
 	ENDTAB

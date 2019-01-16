@@ -103,15 +103,15 @@ if (missionNamespace getVariable ["UO_FW_Briefing_BLUFOR_Warsaw",false]) then {
 	"<font color='#5BD527'><h1>Subsequent Reference Points:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_BLUFOR_Warsaw_Reference_SubsequentPoints",""])  +  _br +
 	"ENDTAB" +  _br +
 	"NEWTAB(""III. Enemy:"")" + _br +
-	"<font color='#5BD527'><h1>Enemy Disposition:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_BLUFOR_Warsaw_Enemy_Disp,""])  + "<br/><br/>" + _br +
-	"<font color='#5BD527'><h1>Enemy Equipment:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_BLUFOR_Warsaw_Enemy_Equip,""])  + "<br/><br/>" + _br +
+	"<font color='#5BD527'><h1>Enemy Disposition:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_BLUFOR_Warsaw_Enemy_Disp",""])  + "<br/><br/>" + _br +
+	"<font color='#5BD527'><h1>Enemy Equipment:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_BLUFOR_Warsaw_Enemy_Equip",""])  + "<br/><br/>" + _br +
 	"<font color='#5BD527'><h1>Probable Enemy HQ Location:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_BLUFOR_Warsaw_Enemy_Prob_HQ",""])  + "<br/><br/>" + _br +
 	"<font color='#5BD527'><h1>Probable Enemy Main Element Location:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_BLUFOR_Warsaw_Enemy_Prob_Line",""])  + "<br/><br/>" + _br +
 	"<font color='#5BD527'><h1>Probable Enemy Direction of Attack:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_BLUFOR_Warsaw_Enemy_Prob_Dir_Attack",""])  + "<br/><br/>" + _br +
 	"<font color='#5BD527'><h1>Probable Enemy Artillery Positions & Capability:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_BLUFOR_Warsaw_Enemy_Prob_Arty",""])  + _br +
 	"ENDTAB" +  _br +
 	"NEWTAB(""IV. Higher and Adjacent Units:"")" + _br +
-	"<font color='#5BD527'><h1>Description:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_BLUFOR_Warsaw_Higher_Disp,""])  + "<br/><br/>" + _br +
+	"<font color='#5BD527'><h1>Description:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_BLUFOR_Warsaw_Higher_Disp",""])  + "<br/><br/>" + _br +
 	"<font color='#5BD527'><h1>Boundaries:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_BLUFOR_Warsaw_Higher_Boundary",""])  + "<br/><br/>" + _br +
 	"<font color='#5BD527'><h1>Location and Capability of Artillery:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_BLUFOR_Warsaw_Higher_Arty",""])  + _br +
 	"ENDTAB" +  _br +
@@ -223,15 +223,15 @@ if (missionNamespace getVariable ["UO_FW_Briefing_OPFOR_Warsaw",false]) then {
 	"<font color='#5BD527'><h1>Subsequent Reference Points:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_OPFOR_Warsaw_Reference_SubsequentPoints",""])  +  _br +
 	"ENDTAB" +  _br +
 	"NEWTAB(""III. Enemy:"")" + _br +
-	"<font color='#5BD527'><h1>Enemy Disposition:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_OPFOR_Warsaw_Enemy_Disp,""])  + "<br/><br/>" + _br +
-	"<font color='#5BD527'><h1>Enemy Equipment:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_OPFOR_Warsaw_Enemy_Equip,""])  + "<br/><br/>" + _br +
+	"<font color='#5BD527'><h1>Enemy Disposition:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_OPFOR_Warsaw_Enemy_Disp",""])  + "<br/><br/>" + _br +
+	"<font color='#5BD527'><h1>Enemy Equipment:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_OPFOR_Warsaw_Enemy_Equip",""])  + "<br/><br/>" + _br +
 	"<font color='#5BD527'><h1>Probable Enemy HQ Location:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_OPFOR_Warsaw_Enemy_Prob_HQ",""])  + "<br/><br/>" + _br +
 	"<font color='#5BD527'><h1>Probable Enemy Main Element Location:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_OPFOR_Warsaw_Enemy_Prob_Line",""])  + "<br/><br/>" + _br +
 	"<font color='#5BD527'><h1>Probable Enemy Direction of Attack:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_OPFOR_Warsaw_Enemy_Prob_Dir_Attack",""])  + "<br/><br/>" + _br +
 	"<font color='#5BD527'><h1>Probable Enemy Artillery Positions & Capability:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_OPFOR_Warsaw_Enemy_Prob_Arty",""])  + _br +
 	"ENDTAB" +  _br +
 	"NEWTAB(""IV. Higher and Adjacent Units:"")" + _br +
-	"<font color='#5BD527'><h1>Description:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_OPFOR_Warsaw_Higher_Disp,""])  + "<br/><br/>" + _br +
+	"<font color='#5BD527'><h1>Description:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_OPFOR_Warsaw_Higher_Disp",""])  + "<br/><br/>" + _br +
 	"<font color='#5BD527'><h1>Boundaries:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_OPFOR_Warsaw_Higher_Boundary",""])  + "<br/><br/>" + _br +
 	"<font color='#5BD527'><h1>Location and Capability of Artillery:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_OPFOR_Warsaw_Higher_Arty",""])  + _br +
 	"ENDTAB" +  _br +
@@ -343,15 +343,15 @@ if (missionNamespace getVariable ["UO_FW_Briefing_INDFOR_Warsaw",false]) then {
 	"<font color='#5BD527'><h1>Subsequent Reference Points:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_INDFOR_Warsaw_Reference_SubsequentPoints",""])  +  _br +
 	"ENDTAB" +  _br +
 	"NEWTAB(""III. Enemy:"")" + _br +
-	"<font color='#5BD527'><h1>Enemy Disposition:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_INDFOR_Warsaw_Enemy_Disp,""])  + "<br/><br/>" + _br +
-	"<font color='#5BD527'><h1>Enemy Equipment:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_INDFOR_Warsaw_Enemy_Equip,""])  + "<br/><br/>" + _br +
+	"<font color='#5BD527'><h1>Enemy Disposition:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_INDFOR_Warsaw_Enemy_Disp",""])  + "<br/><br/>" + _br +
+	"<font color='#5BD527'><h1>Enemy Equipment:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_INDFOR_Warsaw_Enemy_Equip",""])  + "<br/><br/>" + _br +
 	"<font color='#5BD527'><h1>Probable Enemy HQ Location:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_INDFOR_Warsaw_Enemy_Prob_HQ",""])  + "<br/><br/>" + _br +
 	"<font color='#5BD527'><h1>Probable Enemy Main Element Location:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_INDFOR_Warsaw_Enemy_Prob_Line",""])  + "<br/><br/>" + _br +
 	"<font color='#5BD527'><h1>Probable Enemy Direction of Attack:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_INDFOR_Warsaw_Enemy_Prob_Dir_Attack",""])  + "<br/><br/>" + _br +
 	"<font color='#5BD527'><h1>Probable Enemy Artillery Positions & Capability:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_INDFOR_Warsaw_Enemy_Prob_Arty",""])  + _br +
 	"ENDTAB" +  _br +
 	"NEWTAB(""IV. Higher and Adjacent Units:"")" + _br +
-	"<font color='#5BD527'><h1>Description:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_INDFOR_Warsaw_Higher_Disp,""])  + "<br/><br/>" + _br +
+	"<font color='#5BD527'><h1>Description:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_INDFOR_Warsaw_Higher_Disp",""])  + "<br/><br/>" + _br +
 	"<font color='#5BD527'><h1>Boundaries:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_INDFOR_Warsaw_Higher_Boundary",""])  + "<br/><br/>" + _br +
 	"<font color='#5BD527'><h1>Location and Capability of Artillery:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_INDFOR_Warsaw_Higher_Arty",""])  + _br +
 	"ENDTAB" +  _br +
@@ -464,15 +464,15 @@ if (missionNamespace getVariable ["UO_FW_Briefing_CIVILIAN_Warsaw",false]) then 
 	"<font color='#5BD527'><h1>Subsequent Reference Points:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_CIVILIAN_Warsaw_Reference_SubsequentPoints",""])  +  _br +
 	"ENDTAB" +  _br +
 	"NEWTAB(""III. Enemy:"")" + _br +
-	"<font color='#5BD527'><h1>Enemy Disposition:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_CIVILIAN_Warsaw_Enemy_Disp,""])  + "<br/><br/>" + _br +
-	"<font color='#5BD527'><h1>Enemy Equipment:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_CIVILIAN_Warsaw_Enemy_Equip,""])  + "<br/><br/>" + _br +
+	"<font color='#5BD527'><h1>Enemy Disposition:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_CIVILIAN_Warsaw_Enemy_Disp",""])  + "<br/><br/>" + _br +
+	"<font color='#5BD527'><h1>Enemy Equipment:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_CIVILIAN_Warsaw_Enemy_Equip",""])  + "<br/><br/>" + _br +
 	"<font color='#5BD527'><h1>Probable Enemy HQ Location:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_CIVILIAN_Warsaw_Enemy_Prob_HQ",""])  + "<br/><br/>" + _br +
 	"<font color='#5BD527'><h1>Probable Enemy Main Element Location:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_CIVILIAN_Warsaw_Enemy_Prob_Line",""])  + "<br/><br/>" + _br +
 	"<font color='#5BD527'><h1>Probable Enemy Direction of Attack:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_CIVILIAN_Warsaw_Enemy_Prob_Dir_Attack",""])  + "<br/><br/>" + _br +
 	"<font color='#5BD527'><h1>Probable Enemy Artillery Positions & Capability:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_CIVILIAN_Warsaw_Enemy_Prob_Arty",""])  + _br +
 	"ENDTAB" +  _br +
 	"NEWTAB(""IV. Higher and Adjacent Units:"")" + _br +
-	"<font color='#5BD527'><h1>Description:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_CIVILIAN_Warsaw_Higher_Disp,""])  + "<br/><br/>" + _br +
+	"<font color='#5BD527'><h1>Description:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_CIVILIAN_Warsaw_Higher_Disp",""])  + "<br/><br/>" + _br +
 	"<font color='#5BD527'><h1>Boundaries:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_CIVILIAN_Warsaw_Higher_Boundary",""])  + "<br/><br/>" + _br +
 	"<font color='#5BD527'><h1>Location and Capability of Artillery:</h1></font color><br/>" +  _br + (missionNamespace getVariable ["UO_FW_Briefing_CIVILIAN_Warsaw_Higher_Arty",""])  + _br +
 	"ENDTAB" +  _br +

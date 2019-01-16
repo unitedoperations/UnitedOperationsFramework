@@ -75,15 +75,15 @@ if ((missionNamespace getVariable ["UO_FW_Briefing_CIVILIAN_Warsaw",false])) the
 	"<font color='#5BD527'><h1>Subsequent Reference Points:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_Briefing_CIVILIAN_Warsaw_Reference_SubsequentPoints",""])
 	ENDTAB
 	NEWTAB("III. Enemy:")
-	"<font color='#5BD527'><h1>Enemy Disposition:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_Briefing_CIVILIAN_Warsaw_Enemy_Disp,""])   + "<br/><br/>" +
-	"<font color='#5BD527'><h1>Enemy Equipment:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_Briefing_CIVILIAN_Warsaw_Enemy_Equip,""])   + "<br/><br/>" +
+	"<font color='#5BD527'><h1>Enemy Disposition:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_Briefing_CIVILIAN_Warsaw_Enemy_Disp",""])   + "<br/><br/>" +
+	"<font color='#5BD527'><h1>Enemy Equipment:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_Briefing_CIVILIAN_Warsaw_Enemy_Equip",""])   + "<br/><br/>" +
 	"<font color='#5BD527'><h1>Probable Enemy HQ Location:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_Briefing_CIVILIAN_Warsaw_Enemy_Prob_HQ",""])   + "<br/><br/>" +
 	"<font color='#5BD527'><h1>Probable Enemy Main Element Location:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_Briefing_CIVILIAN_Warsaw_Enemy_Prob_Line",""])   + "<br/><br/>" +
 	"<font color='#5BD527'><h1>Probable Enemy Direction of Attack:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_Briefing_CIVILIAN_Warsaw_Enemy_Prob_Dir_Attack",""])   + "<br/><br/>" +
 	"<font color='#5BD527'><h1>Probable Enemy Artillery Positions & Capability:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_Briefing_CIVILIAN_Warsaw_Enemy_Prob_Arty",""])
 	ENDTAB
 	NEWTAB("IV. Higher and Adjacent Units:")
-	"<font color='#5BD527'><h1>Description:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_Briefing_CIVILIAN_Warsaw_Higher_Disp,""])   + "<br/><br/>" +
+	"<font color='#5BD527'><h1>Description:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_Briefing_CIVILIAN_Warsaw_Higher_Disp",""])   + "<br/><br/>" +
 	"<font color='#5BD527'><h1>Boundaries:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_Briefing_CIVILIAN_Warsaw_Higher_Boundary",""])   + "<br/><br/>" +
 	"<font color='#5BD527'><h1>Location and Capability of Artillery:</h1></font color><br/>" + (missionNamespace getVariable ["UO_FW_Briefing_CIVILIAN_Warsaw_Higher_Arty",""])
 	ENDTAB

@@ -22,7 +22,7 @@ class UO_FW_TeamRespawnSettings_Blufor {
 	        property = "UO_FW_RespawnSetting_IndTickets_Blufor";
 	        displayName = "Individual Respawn Tickets";
 	        tooltip = "Number of individual respawns.";
-			respawnTypes[] = {1};
+			respawnTypes[] = {2};
 	        control = "EditShort";
 	        expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
 	        defaultValue = "2";
@@ -32,7 +32,7 @@ class UO_FW_TeamRespawnSettings_Blufor {
 	        property = "UO_FW_RespawnSetting_TeamTickets_Blufor";
 	        displayName = "Team Respawn Tickets";
 	        tooltip = "Number of team respawns.";
-			respawnTypes[] = {2};
+			respawnTypes[] = {3};
 	        control = "EditShort";
 	        expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
 	        defaultValue = "30";
@@ -40,9 +40,9 @@ class UO_FW_TeamRespawnSettings_Blufor {
 	    };
 		class UO_FW_RespawnSetting_WaveSize_Blufor {
 	        property = "UO_FW_RespawnSetting_WaveSize_Blufor";
-	        displayName = "BLUFOR Triggered Condition";
+	        displayName = "Wave Condition";
 	        tooltip = "Number of team respawns.";
-			respawnTypes[] = {3};
+			respawnTypes[] = {4};
 	        control = "EditCode";
 	        expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
 	        defaultValue = "''";
@@ -50,9 +50,9 @@ class UO_FW_TeamRespawnSettings_Blufor {
 	    };
 		class UO_FW_RespawnSetting_TriggeredCond_Blufor {
 	        property = "UO_FW_RespawnSetting_TriggeredCond_Blufor";
-	        displayName = "BLUFOR Triggered Condition";
+	        displayName = "Triggered Condition";
 	        tooltip = "Number of team respawns.";
-			respawnTypes[] = {4};
+			respawnTypes[] = {5};
 	        control = "EditCode";
 	        expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
 	        defaultValue = "''";

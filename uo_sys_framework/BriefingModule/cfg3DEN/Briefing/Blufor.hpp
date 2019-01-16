@@ -454,8 +454,8 @@ class BLUFOR_WPStyle {
             expression = "true";
             defaultValue = "";
         };
-		class UO_FW_Briefing_BLUFOR_Warsaw_Enemy_Disp{
-            property = "UO_FW_Briefing_BLUFOR_Warsaw_Enemy_Disp;
+		class UO_FW_Briefing_BLUFOR_Warsaw_Enemy_Disp {
+            property = "UO_FW_Briefing_BLUFOR_Warsaw_Enemy_Disp";
             displayName = "Enemy Disposition";
             tooltip = "Enemy Disposition";
 			control = "EditMulti5";
@@ -463,8 +463,8 @@ class BLUFOR_WPStyle {
             expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
             defaultValue = "''";
         };
-		class UO_FW_Briefing_BLUFOR_Warsaw_Enemy_Equip{
-            property = "UO_FW_Briefing_BLUFOR_Warsaw_Enemy_Equip;
+		class UO_FW_Briefing_BLUFOR_Warsaw_Enemy_Equip {
+            property = "UO_FW_Briefing_BLUFOR_Warsaw_Enemy_Equip";
             displayName = "Enemy Equipment";
             tooltip = "Enemy Equipment";
 			control = "EditMulti5";
@@ -515,8 +515,8 @@ class BLUFOR_WPStyle {
             expression = "true";
             defaultValue = "";
         };
-		class UO_FW_Briefing_BLUFOR_Warsaw_Higher_Disp{
-            property = "UO_FW_Briefing_BLUFOR_Warsaw_Higher_Disp;
+		class UO_FW_Briefing_BLUFOR_Warsaw_Higher_Disp {
+            property = "UO_FW_Briefing_BLUFOR_Warsaw_Higher_Disp";
             displayName = "Description";
             tooltip = "Description";
 			control = "EditMulti5";

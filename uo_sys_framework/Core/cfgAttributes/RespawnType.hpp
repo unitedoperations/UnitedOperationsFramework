@@ -91,8 +91,11 @@ class UO_FW_RespawnTemplates: Title {
 		_pictureUnchecked = gettext (configfile >> 'ctrlCheckbox' >> 'textureUnchecked');\
 		_defaultTemplates = [\
 			getarray (configfile >> 'UO_FW_RespawnTemplates' >> 'respawnTemplatesNone'),\
+			getarray (configfile >> 'UO_FW_RespawnTemplates' >> 'respawnTemplatesUnlimited'),\
 			getarray (configfile >> 'UO_FW_RespawnTemplates' >> 'respawnTemplatesIndTick'),\
-			getarray (configfile >> 'UO_FW_RespawnTemplates' >> 'respawnTemplatesTeamTick')\
+			getarray (configfile >> 'UO_FW_RespawnTemplates' >> 'respawnTemplatesTeamTick'),\
+			getarray (configfile >> 'UO_FW_RespawnTemplates' >> 'respawnTemplatesWave'),\
+			getarray (configfile >> 'UO_FW_RespawnTemplates' >> 'respawnTemplatesTriggered')\
 		];\
 		_isDefault = _value isequalto [''];\
 		{\
@@ -183,6 +186,12 @@ class UO_FW_RespawnTemplates: Title {
 		};
 		class Value5: Value0 {
 			idc=105;
+		};
+		class Value6: Value0 {
+			idc=106;
+		};
+		class Value7: Value0 {
+			idc=107;
 		};
 	};
 };
