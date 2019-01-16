@@ -1,6 +1,3 @@
-UO_FW_Teams = []; //DO NOT REMOVE
-UO_FW_MissionEnded = false; //Mission has not ended
-
 //Create respawn markers
 {_x call UO_FW_fnc_CreateRespawnMarker;} foreach ["west","east","guer","civ"];
 
@@ -11,3 +8,8 @@ UO_FW_EventDisconnectHandle = addMissionEventHandler ["HandleDisconnect", {_this
 
 _AIViewDistance = missionNamespace getvariable ["UO_FW_AI_ViewDistance",2000];
 setViewDistance _AIViewDistance;
+
+//Module Hooks
+if (missionNamespace getVariable ["UO_FW_DisconnectControl_Enabled",false]) then {
+	ace_respawn_RemoveDeadBodiesDisconnected = false;
+};

@@ -1,8 +1,6 @@
 #include "..\..\Global\defs.hpp"
-if (isServer) then
-{
-_handle = _this spawn
-{
+if (isServer) then {
+_handle = _this spawn {
 		private _unit = _this select 0;
 		{
 			_tempArray = _this;
@@ -48,8 +46,7 @@ _handle = _this spawn
 
 
 		sleep( (_unit getVariable [VAR_SART_ARTCALCSPEED,MEANCALCULATIONTIME]) + 1);
-		for "_i" from 0 to _salvoCount do
-		{
+		for "_i" from 0 to _salvoCount do {
 				_row = 0;
 				{
 						[_unit,(_startingSpots select _row) vectorAdd (_dir vectorMultiply _i),0,_salvoSize,_roundClassName] call UO_FW_FNC_InternalFiremission;

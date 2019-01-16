@@ -1,13 +1,11 @@
 #include "..\..\Global\defs.hpp"
 private _id = _this select 0;
 private _gun = _this select 1;
-if(_gun >= 0) then
-{
+if (_gun >= 0) then {
 	_guns = player getVariable [VAR_SART_OBSGUNS,[]];
 	_usableGuns = [];
 	{
-		if(_x call UO_FW_FNC_IsArtyAviable) then
-		{
+		if (_x call UO_FW_FNC_IsArtyAviable) then {
 			_usableGuns pushBack _x;
 		};
 	}forEach _guns;

@@ -2,71 +2,76 @@
  *	Arguments:
  * 		N/A
  *	Return Value:
- * 		N/A 	
+ * 		N/A
  *	Author
  *		PiZZADOX
  */
 
+#define COMPONENT Core
 #include "\x\UO_FW\addons\main\script_macros.hpp"
-#include "\x\UO_FW\addons\main\Core\module_macros.hpp"
-UO_FW_EXEC_CHECK(SERVER)
+UO_FW_EXEC_CHECK(SERVER);
+
+private _bluforname = (getMissionConfigValue  ["UO_FW_TeamSetting_Blufor_TeamName","BLUFOR"]);
+private _opforname = (getMissionConfigValue  ["UO_FW_TeamSetting_Opfor_TeamName","OPFOR"]);
+private _indforname = (getMissionConfigValue  ["UO_FW_TeamSetting_Indfor_TeamName","INDFOR"]);
+private _civname = (getMissionConfigValue  ["UO_FW_TeamSetting_Civ_TeamName","CIVILIAN"]);
 
 switch (UO_FW_TeamSetting_Blufor_TeamType) do {
 	case 0: {
-		UO_FW_ADDTEAM(west,UO_FW_TeamSetting_Blufor_TeamName,"player")
+		[west,_bluforname,"player"] call UO_FW_fnc_AddTeam;
 	};
 	case 1: {
-		UO_FW_ADDTEAM(west,UO_FW_TeamSetting_Blufor_TeamName,"ai")
+		[west,_bluforname,"ai"] call UO_FW_fnc_AddTeam;
 	};
 	case 2: {
-		UO_FW_ADDTEAM(west,UO_FW_TeamSetting_Blufor_TeamName,"both")
+		[west,_bluforname,"both"] call UO_FW_fnc_AddTeam;
 	};
 	default {
-		UO_FW_ADDTEAM(west,UO_FW_TeamSetting_Blufor_TeamName,"both")
+		[west,_bluforname,"both"] call UO_FW_fnc_AddTeam;
 	};
 };
 
 switch (UO_FW_TeamSetting_Opfor_TeamType) do {
 	case 0: {
-		UO_FW_ADDTEAM(east,UO_FW_TeamSetting_Opfor_TeamName,"player")
+		[east,_opforname,"player"] call UO_FW_fnc_AddTeam;
 	};
 	case 1: {
-		UO_FW_ADDTEAM(east,UO_FW_TeamSetting_Opfor_TeamName,"ai")
+		[east,_opforname,"ai"] call UO_FW_fnc_AddTeam;
 	};
 	case 2: {
-		UO_FW_ADDTEAM(east,UO_FW_TeamSetting_Opfor_TeamName,"both")
+		[east,_opforname,"both"] call UO_FW_fnc_AddTeam;
 	};
 	default {
-		UO_FW_ADDTEAM(east,UO_FW_TeamSetting_Opfor_TeamName,"both")
+		[east,_opforname,"both"] call UO_FW_fnc_AddTeam;
 	};
 };
 
 switch (UO_FW_TeamSetting_Indfor_TeamType) do {
 	case 0: {
-		UO_FW_ADDTEAM(resistance,UO_FW_TeamSetting_Indfor_TeamName,"player")
-	};                      
-	case 1: {               
-		UO_FW_ADDTEAM(resistance,UO_FW_TeamSetting_Indfor_TeamName,"ai")
-	};                      
-	case 2: {               
-		UO_FW_ADDTEAM(resistance,UO_FW_TeamSetting_Indfor_TeamName,"both")
-	};                      
-	default {               
-		UO_FW_ADDTEAM(resistance,UO_FW_TeamSetting_Indfor_TeamName,"both")
+		[resistance,_indforname,"player"] call UO_FW_fnc_AddTeam;
+	};
+	case 1: {
+		[resistance,_indforname,"ai"] call UO_FW_fnc_AddTeam;
+	};
+	case 2: {
+		[resistance,_indforname,"both"] call UO_FW_fnc_AddTeam;
+	};
+	default {
+		[resistance,_indforname,"both"] call UO_FW_fnc_AddTeam;
 	};
 };
 
 switch (UO_FW_TeamSetting_Civ_TeamType) do {
 	case 0: {
-		UO_FW_ADDTEAM(civilian,UO_FW_TeamSetting_Civ_TeamName,"player")
+		[civilian,_civname,"player"] call UO_FW_fnc_AddTeam;
 	};
 	case 1: {
-		UO_FW_ADDTEAM(civilian,UO_FW_TeamSetting_Civ_TeamName,"ai")
+		[civilian,_civname,"ai"] call UO_FW_fnc_AddTeam;
 	};
 	case 2: {
-		UO_FW_ADDTEAM(civilian,UO_FW_TeamSetting_Civ_TeamName,"both")
+		[civilian,_civname,"both"] call UO_FW_fnc_AddTeam;
 	};
 	default {
-		UO_FW_ADDTEAM(civilian,UO_FW_TeamSetting_Civ_TeamName,"both")
+		[civilian,_civname,"both"] call UO_FW_fnc_AddTeam;
 	};
 };

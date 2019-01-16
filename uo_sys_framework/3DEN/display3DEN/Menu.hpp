@@ -1,13 +1,15 @@
-class UO_FW_Settings
-{
-	text = "Framework Settings";
-	action = "edit3DENMissionAttributes 'UO_FW_Settings';";
-	picture = "\a3\3DEN\Data\Cfg3DEN\History\changeAttributes_ca.paa";
+class UO_FW_ExportImport_Folder {
+	text = "Import/Export Framework Settings";
+	items[] = {"UO_FW_Export_Configure","UO_FW_Import_Configure"};
+	picture = "";
 };
 
-class UO_FW_Module_Settings
-{
-	text = "Module Settings";
-	action = "edit3DENMissionAttributes 'UO_FW_Module_Settings';";
-	picture = "\a3\3DEN\Data\Cfg3DEN\History\makeNewLayer_ca.paa";
+class UO_FW_Export_Configure {
+	text = "Export Mission Settings";
+	action = "edit3DENMissionAttributes 'UO_FW_Export_Menu';";
+};
+
+class UO_FW_Import_Configure {
+	text = "Import Mission Settings";
+	action = "edit3DENMissionAttributes 'UO_FW_Import_Menu';";
 };

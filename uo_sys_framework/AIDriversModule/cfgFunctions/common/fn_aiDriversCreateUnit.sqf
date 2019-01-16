@@ -3,13 +3,14 @@
  * 		OBJECT - vehicle
  * 		OBJECT - player
  *	Return Value:
- * 		ARRAY 	
+ * 		ARRAY
  *	Author
  *		BlackHawk & PiZZADOX
  */
 
+#define COMPONENT AIDrivers
 #include "\x\UO_FW\addons\main\script_macros.hpp"
-
+UO_FW_EXEC_CHECK(ALL);
 
 params ["_target", "_caller"];
 
@@ -26,7 +27,7 @@ if (side _caller == INDEPENDENT) then {
     _class = "I_Soldier_F";
 };
 
-_unit = createAgent [_class, [0,0,0], [], 0, "CAN_COLLIDE"];
+private _unit = createAgent [_class, [0,0,0], [], 0, "CAN_COLLIDE"];
 
 removeAllWeapons _unit;
 removeUniform _unit;
@@ -47,17 +48,17 @@ doStop _unit;
 
 UO_FW_AidriverLastTimeIn = time;
 
-[{vehicle (_this select 0) != _this select 0}, { //waiting for spawned unit to get into vehicle
+[{!(vehicle (_this select 0) isEqualto _this select 0)}, { //waiting for spawned unit to get into vehicle
     private _pfhID = [{
         (_this select 0) params ["_unit", "_target", "_caller"];
 
         private _handle = _this select 1;
         if (vehicle _caller != _target) then {
             [false] call UO_FW_fnc_toggleDriverCam;
-            _unit disableAI "PATH";
+            _unit disableAI "Path";
             doStop _unit;
         } else {
-            _unit enableAI "PATH";
+            _unit enableAI "Path";
             UO_FW_AidriverLastTimeIn = time;
         };
         if (time > 120 + UO_FW_AidriverLastTimeIn || !alive _target || !alive _caller || !alive _unit || (vehicle _unit) != _target || (driver _target) != _unit) then {

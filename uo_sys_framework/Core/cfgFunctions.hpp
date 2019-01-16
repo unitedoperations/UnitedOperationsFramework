@@ -1,5 +1,4 @@
-class UO_CoreFunctions
-{
+class UO_CoreFunctions {
 	file = "x\UO_FW\addons\main\Core\cfgFunctions\common";
 	class addTeam {};
 	class alive {};
@@ -20,7 +19,6 @@ class UO_CoreFunctions
 	class getTeamVariable {};
 	class hasEmptyPositions {};
 	class hasExtracted {};
-	class inArea {};
 	class inVehicle {};
 	class makeUnitsList {};
 	class notTrackUnit {};
@@ -39,34 +37,16 @@ class UO_CoreFunctions
 	class arrayFindAll {};
 };
 
-class UO_GearFunctions
-{
-	file = "x\UO_FW\addons\main\Core\cfgFunctions\gear";
-	class addItemOrg {};
-	class addItemRandomOrg {};
-	class addItemVehicleOrg {};
-	class addItemVehicleRandomOrg {};
-	class canAttachItem {};
-	class canLinkItem {};
-	class checkClassname {};
-	class removeAllGear {};
-	class removeAllVehicleGear {};
-};
-
-class UO_InitFunctions
-{
+class UO_InitFunctions {
 	file = "x\UO_FW\addons\main\Core\cfgFunctions\init";
-	class init {};
+	class postInit {};
 	class briefingFrameworkEntry {};
 	class postChecks {};
 	class spectate {};
 	class teamsInit {};
-	class BasicSettings3Den {};
-
 };
 
-class UO_DebugFunctions
-{
+class UO_DebugFunctions {
 	file = "x\UO_FW\addons\main\Core\cfgFunctions\debug";
 	class debugMessage {};
 	class debugMessageDetailed {};
@@ -74,8 +54,7 @@ class UO_DebugFunctions
 	//class debugInit {};
 };
 
-class UO_EndscreenFunctions
-{
+class UO_EndscreenFunctions {
 	file = "x\UO_FW\addons\main\Core\cfgFunctions\endscreen";
 	class dia_endscreen {};
 };

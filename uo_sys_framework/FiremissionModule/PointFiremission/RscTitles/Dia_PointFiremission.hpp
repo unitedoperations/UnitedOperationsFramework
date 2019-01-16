@@ -3,7 +3,7 @@
 ////////////////////////////////////////////////////////
 
 #include "..\..\Global\defs.hpp"
-class UO_FW_DIA_POINTFIREMISSION
+class UO_FW_DIA_POINTFIREMission
 {
 	idd = PFM_DIA_IDD_DISPLAY;
 	movingEnable = false;

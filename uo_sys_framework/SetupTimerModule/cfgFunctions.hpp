@@ -1,9 +1,10 @@
-class UO_FW_SetupTimerFunctions
-{
+class UO_FW_SetupTimerFunctions {
 	file = "\x\UO_FW\addons\main\SetupTimerModule\cfgFunctions\common";
-	class LoadSetupTimer{};
-	class ExecuteSetupTimer{};
-	class ValidateSetupTimer{};
-	class SetupTimerInit{};
-	class EdenSetupTimer{};
+	class ExecuteSetupTimer {};
+	class ValidateSetupTimer {};
+	class SetupTimerInit {};
+};
+class UO_FW_SetupTimerModuleFunctions {
+	file = "\x\UO_FW\addons\main\SetupTimerModule\cfgFunctions\modules";
+	class SetupTimer {};
 };

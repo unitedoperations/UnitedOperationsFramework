@@ -1,8 +1,6 @@
 #include "..\..\Global\defs.hpp"
-if (isServer) then
-	{
-		_handle = _this spawn
-		{
+if (isServer) then {
+		_handle = _this spawn {
 			private _unit = _this select 0;
 			private	_target = _this select 1;
 			private	_innerRadius = _this select 2;
@@ -21,8 +19,7 @@ if (isServer) then
 			[_unit,_target,_roundClassName ] call UO_FW_FNC_InternalSpottingFiremission;
 				//spotting rounds finished
 				sleep( (_unit getVariable [VAR_SART_ARTCALCSPEED,MEANCALCULATIONTIME]) + 1);
-				for "_i" from 0 to _salvoCount do
-				{
+				for "_i" from 0 to _salvoCount do {
 
 
 						_randomPos = [[[_target, _outerRadius]],[[_target, _innerRadius]]] call BIS_fnc_randomPos;

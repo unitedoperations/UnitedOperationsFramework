@@ -2,11 +2,15 @@
  *	Arguments:
  * 		N/A
  *	Return Value:
- * 		ARRAY 	
+ * 		ARRAY
  *	Author
  *		PiZZADOX
  */
- 
+
+#define COMPONENT 3DEN
+#include "\x\UO_FW\addons\main\script_macros.hpp"
+UO_FW_EXEC_CHECK(ALL);
+
 params ["_logic"];
 
 diag_log format ["_logic:%1 class:%2",_logic,typeof _logic];
@@ -15,7 +19,7 @@ diag_log format ["_logic:%1 class:%2",_logic,typeof _logic];
 	if (!(_logic isEqualto _x)) then {
 		if ((typeof _x) isEqualto (typeof _logic)) exitwith {
 			diag_log format ["MATCH DUPLICATE! _object class:%1 _logic class:%2",typeof _x,typeof _logic];
-			_printname = getText (configFile >> "cfgVehicles" >> typeof _logic >> "displayName");
+			private _printname = getText (configFile >> "cfgVehicles" >> typeof _logic >> "displayName");
 			["You can only have one %1 module. Duplicate module deleted.",_printname] call BIS_fnc_error;
 			delete3DENEntities [_logic];
 		};

@@ -11,7 +11,7 @@ Set user_inputBuild=NothingChosen
 Set user_inputMove=NothingChosen
 Set armaDirFound=false
 set dest_directory=%CD%
-cd uo_sys_framework
+cd uo_sys_Framework
 REG QUERY "HKLM\SOFTWARE\WOW6432Node\bohemia interactive\arma 3" /v main> nul
 if %errorlevel%==0 set armaDirFound=true
 if %errorlevel%==1 goto ArmADirNotFound
@@ -36,7 +36,7 @@ goto :build_choice
 :build_choice
 @echo %SideBar%%MiddleBar%%SideBar%
 set /P user_inputBuild=[Build UOFW pbo? (y/n)]
-if "%user_inputBuild%"=="NothingChosen" goto :sub_error
+if "%user_inputBuild%"=="NothingChosen" goto :sub_errorBuild
 if /I "%user_inputBuild%"=="y" goto :build_pbo
 if /I "%user_inputBuild%"=="n" goto :move_choice
 goto :sub_errorBuild
@@ -45,6 +45,7 @@ goto :sub_errorBuild
 @echo %SideBar%%MiddleBar%%SideBar%
 if /I "%armaDirFound%"=="false" goto :exit_choice
 set /P user_inputMove=[Move to @UOF\addons? (y/n)]
+if "%user_inputMove%"=="NothingChosen" goto :sub_errorMove
 if /I "%user_inputMove%"=="y" goto :move_pbo
 if /I "%user_inputMove%"=="n" goto :exit_choice
 goto :sub_errorMove
@@ -64,11 +65,12 @@ goto :move_choice
 
 :build_pbo
 set build_directory=%CD%
-"C:\Program Files\PBO Manager v.1.4 beta\PBOConsole.exe" -pack "%build_directory%" "%dest_directory%\uo_sys_framework.pbo"
+>nul "C:\Program Files\PBO Manager v.1.4 beta\PBOConsole.exe" -pack "%build_directory%" "%dest_directory%\uo_sys_Framework.pbo"
+if %errorlevel% equ 0 @echo PBO built successfully!
 goto :move_choice
 
 :move_pbo
->nul xcopy "%dest_directory%\uo_sys_framework.pbo" "%arma_main_directory%\@UOF\addons\" /Y
+>nul xcopy "%dest_directory%\uo_sys_Framework.pbo" "%arma_main_directory%\@UOF\addons\" /Y
 if not %errorlevel% equ 0 goto :exit_choice
 @echo "PBO moved into @UOF\addons folder"
 @echo "Press any key to exit..."

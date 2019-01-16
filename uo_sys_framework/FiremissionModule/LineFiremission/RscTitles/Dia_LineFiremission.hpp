@@ -3,7 +3,7 @@
 ////////////////////////////////////////////////////////
 
 #include "..\..\Global\defs.hpp"
-class UO_FW_DIA_LINEFIREMISSION
+class UO_FW_DIA_LINEFIREMission
 {
 	idd = LFM_DIA_IDD_DISPLAY;
 	movingEnable = false;

@@ -1,5 +1,5 @@
 /*
- * Author: Sacher
+ * Author: Sacher & PiZZADOX
  *
  * Spawns a AI Unit
  *
@@ -13,7 +13,12 @@
  * Public: Yes
  */
 
-private _unit = (_this select 0) createUnit [(_this select 1),(_this select 2), [], 0, "NONE"];
-if(!isNil "aCount_addEH") then { ["aCount_event_addEH", _unit] call CBA_fnc_serverEvent};
-_unit call UO_FW_fnc_trackUnit;
+params ["_group","_class","_pos"];
+
+private _unit = _group createUnit [_class,[0,0,0], [], 0, "NONE"];
+_unit setPos _pos;
+if !(isNil "UO_FW_aCount_event_addEH") then {
+	["UO_FW_aCount_event_addEH", _unit] call CBA_fnc_serverEvent;
+};
+_unit call UO_FW_FNC_trackUnit;
 _unit

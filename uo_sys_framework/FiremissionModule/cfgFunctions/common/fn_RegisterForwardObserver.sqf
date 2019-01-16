@@ -1,8 +1,6 @@
 #include "..\..\Global\defs.hpp"
-if (isServer) then
-{
-	_handle = _this spawn
-	{
+if (isServer) then {
+	_handle = _this spawn {
 		private _observer = _this select 0;
 		private _batteries = _this select 1;
 		private _minimumKnowledge = _this select 2;
@@ -17,36 +15,30 @@ if (isServer) then
 		private _obsSide = side _observer;
 
 		_currentShotTargets = [];
-		while{alive _observer} do
-		{
+		while{alive _observer} do {
 				_possibleTargets = _observer nearTargets _range;
 				{
-					if([_obsSide, _x select 2] call BIS_fnc_sideIsEnemy) then
-					{
+					if ([_obsSide, _x select 2] call BIS_fnc_sideIsEnemy) then {
 
 							//found an enemy
 							_target = _x select 4;
 							_distance2DToClosestFiremission = 1000;
 							{
-								if( _distance2DToClosestFiremission > _target distance2D (_x select 1)) then
-								{
+								if ( _distance2DToClosestFiremission > _target distance2D (_x select 1)) then {
 										_distance2DToClosestFiremission = _target distance2D (_x select 1);
 								};
 							}forEach _currentShotTargets;
 
-							if((_observer knowsAbout  _target >= _minimumKnowledge) && (_distance2DToClosestFiremission > _minRange) && (((getPosATL _target) select 2) < 10 ) ) then
-							{
+							if ((_observer knowsAbout  _target >= _minimumKnowledge) && (_distance2DToClosestFiremission > _minRange) && (((getPosATL _target) select 2) < 10 ) ) then {
 									//we know enough about it
 									//calculate position
 									_pos = [[[_target,(_observer getVariable [VAR_SART_OBSACCURACY,OBSACCURACY]) * (_target distance2D _observer) /  _range ]],[]] call BIS_fnc_randomPos;
 									sleep(_observer getVariable [VAR_SART_OBSSPEED,OBSSPEED]);
-									if(alive _observer) then
-									{
+									if (alive _observer) then {
 										_hasFired = false;
 										//fire a firemission
 										{
-												if((!(_x getVariable [VAR_SART_ARTINFIREMISSION,false])) && !(_hasFired) ) then
-												{
+												if ((!(_x getVariable [VAR_SART_ARTINFIREMission,false])) && !(_hasFired) ) then {
 														_currentShotTargets pushBack [_x,_pos];
 														[_x,_pos,_standardDispersion,_standardRoundCount,_standardRoundSalvo,_standardRoundSalvoWait,_minSpottedDistance,_standardRound] call UO_FW_FNC_PointFiremission;
 														_hasFired = true;
@@ -64,8 +56,7 @@ if (isServer) then
 			sleep(5);
 			_tempAdd = [];
 			{
-					if((_x select 0) getVariable [VAR_SART_ARTINFIREMISSION,false]) then
-					{
+					if ((_x select 0) getVariable [VAR_SART_ARTINFIREMission,false]) then {
 							_tempAdd pushBack (_x);
 					};
 			}forEach _currentShotTargets;

@@ -1,6 +1,5 @@
 #include "..\..\Global\defs.hpp"
-_handle = _this spawn
-	{
+_handle = _this spawn {
 		private _unit = _this select 0;
 
 		private _startPoint = _this select 1;
@@ -21,8 +20,7 @@ _handle = _this spawn
 		sleep( _unit call UO_FW_FNC_GetArtyCalcTime);
 	  	private	_dir = _endPoint vectorDiff  _startPoint;
 		_dir = _dir vectorMultiply (1 /_salvoCount);
-		for "_i" from 0 to _salvoCount do
-		{
+		for "_i" from 0 to _salvoCount do {
 
 			[_unit,_startPoint vectorAdd (_dir vectorMultiply _i),0,_salvoSize,_roundClassName] call UO_FW_FNC_InternalFiremission;
 			[_unit, ((_unit getVariable [VAR_SART_ARTROUNDSFIRED,[0,0]]) select 0) + _salvoSize,_salvoCount * _salvoSize] call UO_FW_FNC_SetArtyFiremissionRoundsRequired;

@@ -2,62 +2,46 @@
  *	Arguments:
  * 		N/A
  *	Return Value:
- * 		ARRAY 	
+ * 		ARRAY
  *	Author
  *		PiZZADOX
  */
-
+#define COMPONENT ACRE
 #include "\x\UO_FW\addons\main\script_macros.hpp"
+if (!UO_FW_ACRE_SETTINGS_EnableD) exitwith {};
 
-if (!UO_FW_ACRE_SETTINGS_ENABLED) exitwith {};
+if (!isDedicated && hasinterface) then {
+	[{(!isNull player) && (isNull acre_player) && ([] call acre_api_fnc_isInitialized)}, {
+		if (player getVariable ["UO_FW_ACRE_UNITSETTINGS_Enable",false]) then {
+			private ["_SRType","_LRType","_PKType"];
 
-if(!isDedicated) then 
-{
-	[] spawn 
-	{
-		waitUntil { !isNull acre_player };
-		waitUntil { !isNull acre_player };
-		waitUntil {[] call acre_api_fnc_isInitialized};  
-		private _side = side player;
-		_side_i = 3;
-		switch (_side) do 
-		{ 
-			case west: 
-			{ 
-				_side_i = 0;
+			switch (side player) do {
+				case west: {
+					_SRType = ["NONE","ACRE_PRC343","ACRE_SEM52SL"] select UO_FW_ACRE_BLUFOR_SR_TYPE;
+					_LRType = ["NONE","ACRE_PRC148","ACRE_PRC152"] select UO_FW_ACRE_BLUFOR_LR_TYPE;
+					_PKType = ["NONE","ACRE_PRC117F","ACRE_PRC77","ACRE_SEM70"] select UO_FW_ACRE_BLUFOR_PK_TYPE;
+				};
+				case east: {
+					_SRType = ["NONE","ACRE_PRC343","ACRE_SEM52SL"] select UO_FW_ACRE_OPFOR_SR_TYPE;
+					_LRType = ["NONE","ACRE_PRC148","ACRE_PRC152"] select UO_FW_ACRE_OPFOR_LR_TYPE;
+					_PKType = ["NONE","ACRE_PRC117F","ACRE_PRC77","ACRE_SEM70"] select UO_FW_ACRE_OPFOR_PK_TYPE;
+				};
+				case independent: {
+					_SRType = ["NONE","ACRE_PRC343","ACRE_SEM52SL"] select UO_FW_ACRE_INDFOR_SR_TYPE;
+					_LRType = ["NONE","ACRE_PRC148","ACRE_PRC152"] select UO_FW_ACRE_INDFOR_LR_TYPE;
+					_PKType = ["NONE","ACRE_PRC117F","ACRE_PRC77","ACRE_SEM70"] select UO_FW_ACRE_INDFOR_PK_TYPE;
+				};
+				case civilian: {
+					_SRType = ["NONE","ACRE_PRC343","ACRE_SEM52SL"] select UO_FW_ACRE_CIVILIAN_SR_TYPE;
+					_LRType = ["NONE","ACRE_PRC148","ACRE_PRC152"] select UO_FW_ACRE_CIVILIAN_LR_TYPE;
+					_PKType = ["NONE","ACRE_PRC117F","ACRE_PRC77","ACRE_SEM70"] select UO_FW_ACRE_CIVILIAN_PK_TYPE;
+				};
+				default {};
 			};
-			case east:
-			 { 
-				_side_i = 1;
-			};
-			case independent: 
-			{ 
-				_side_i = 2;
-			};
-			default { 
-				_side_i = 3;
-			};
+
+			if (player getVariable ["UO_FW_ACRE_SR_RADIO_EnableD",false]) then {player addItem _SRType;};
+			if (player getVariable ["UO_FW_ACRE_LR_RADIO_EnableD",false]) then {player addItem _LRType;};
+			if (player getVariable ["UO_FW_ACRE_PK_RADIO_EnableD",false]) then {player addItem _PKType;};
 		};
-		if(player getVariable ["UO_FW_ACRE_UNITSETTINGS_ENABLE",false]) then
-		{
-			_radioTemp = [["UO_FW_ACRE_BLUFOR_SR_TYPE","UO_FW_ACRE_BLUFOR_LR_TYPE","UO_FW_ACRE_BLUFOR_PK_TYPE"],
-			["UO_FW_ACRE_OPFOR_SR_TYPE","UO_FW_ACRE_OPFOR_LR_TYPE","UO_FW_ACRE_OPFOR_PK_TYPE"],
-			["UO_FW_ACRE_INDEPENDENT_SR_TYPE","UO_FW_ACRE_INDEPENDENT_LR_TYPE","UO_FW_ACRE_INDEPENDENT_PK_TYPE"],
-			["UO_FW_ACRE_CIVILIAN_SR_TYPE","UO_FW_ACRE_CIVILIAN_LR_TYPE","UO_FW_ACRE_CIVILIAN_PK_TYPE"]];
-
-			["","Setting Personal Settings"] call UO_FW_fnc_DebugMessageDetailed;
-			_radioTempI = _radioTemp select _side_i;	
-
-			_radioType = ["NONE","ACRE_PRC343","ACRE_SEM52SL"] select (missionNamespace getVariable [_radioTempI select 0,0]);
-			if((player getVariable ["UO_FW_ACRE_SR_RADIO_ENABLED",false])) then {player addItem _radioType;};
-
-			_radioType = ["NONE","ACRE_PRC148","ACRE_PRC152"] select (missionNamespace getVariable [_radioTempI select 1,0]);
-			if((player getVariable ["UO_FW_ACRE_LR_RADIO_ENABLED",false])) then {player addItem _radioType;}; 
-			
-			_radioType = ["NONE","ACRE_PRC117F","ACRE_PRC77","ACRE_SEM70"] select (missionNamespace getVariable [_radioTempI select 2,0]);
-			if((player getVariable ["UO_FW_ACRE_PK_RADIO_ENABLED",false])) then {player addItem _radioType;}; 
-		
-		};		
-	};
+	}] call CBA_fnc_waitUntilAndExecute;
 };
-

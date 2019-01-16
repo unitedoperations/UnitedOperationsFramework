@@ -1,38 +1,28 @@
+#include "\x\UO_FW\addons\main\script_mod.hpp"
+#ifndef COMPONENT
+#define COMPONENT Main
+#endif
+#define DEBUG_MODE_FULL
 #include "\x\cba\addons\main\script_macros_common.hpp"
 
-//Expanding on CBA macros
-#define PATHTO_FOLDER(var1) PATHTO_FOLDER_SYS(PREFIX,COMPONENT,var1)
-#define QPATHTO_FOLDER(var1) QUOTE(PATHTO_FOLDER_SYS(PREFIX,COMPONENT,var1))
-
 //Script control
-
 #define UO_FW_EXEC_CHECK(ARG)\
 _argUpper = toUpper(#ARG);\
 if (isNil "UO_FW_Enabled") then {\
-	UO_FW_Enabled = (getMissionConfigValue  ["UO_FW_Enabled",false]);\
+	UO_FW_Enabled = (getMissionConfigValue ["UO_FW_Enabled",false]);\
 };\
-if(_argUpper == "SERVER" && (((!isServer) && isMultiplayer) || (!UO_FW_Enabled))) exitWith {}; \
-if(_argUpper == "CLIENT" && ((!hasinterface) || (!UO_FW_Enabled))) exitWith {};\
-if(_argUpper == "HC" && (((hasinterface || isServer) && isMultiplayer) || (!UO_FW_Enabled))) exitWith {};\
-if(_argUpper == "CLIENTHC" && (((isDedicated) && isMultiplayer) || (!UO_FW_Enabled))) exitWith {};\
-if(_argUpper == "SERVERHC" && (((hasinterface) && isMultiplayer) || (!UO_FW_Enabled))) exitWith {};\
-if(_argUpper == "ALL" && (!UO_FW_Enabled)) exitWith {};\
-if (!UO_FW_Enabled) exitWith {};
+if ((_argUpper == "SERVER") && {(((!isServer) && isMultiplayer) || (!UO_FW_Enabled))}) exitWith {}; \
+if ((_argUpper == "CLIENT") && {((!hasinterface) || (!UO_FW_Enabled))}) exitWith {};\
+if ((_argUpper == "HC") && {(((hasinterface || isServer) && isMultiplayer) || (!UO_FW_Enabled))}) exitWith {};\
+if ((_argUpper == "CLIENTHC") && {(((isDedicated) && isMultiplayer) || (!UO_FW_Enabled))}) exitWith {};\
+if ((_argUpper == "SERVERHC") && {(((hasinterface) && isMultiplayer) || (!UO_FW_Enabled))}) exitWith {};\
+if ((_argUpper == "ALL") && {(!UO_FW_Enabled)}) exitWith {};\
+if (!UO_FW_Enabled) exitWith {};\
+if (!UO_FW_Server_Framework_Allowed) exitWith {}
 
-
-//Debug function call
-
+//Debug functions
 #define UO_FW_DEBUG(basicmsg,detailedmsg)\
-[basicmsg,detailedmsg] call UO_FW_fnc_DebugMessageDetailed;
+[basicmsg,detailedmsg] call UO_FW_fnc_DebugMessageDetailed
 
-//Gear/Groups
-
-#define SET_GROUP(groupName) _temp = #groupName + package;\
-call compile format ['%1 = {
-
-#define END_GROUP };', _temp]
-
-#define ADD_GROUP(groupName) call call compile format ["%1", #groupName + package]
-
-#define UO_FW_VAR(name,default)\
-missionNamespace getVariable [#name,default];
+#define UO_FW_GET_VAR(NAME,DEFAULT)\
+missionNamespace getVariable [#NAME,DEFAULT]

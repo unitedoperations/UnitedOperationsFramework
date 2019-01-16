@@ -3,7 +3,7 @@
 ////////////////////////////////////////////////////////
 
 #include "..\..\Global\defs.hpp"
-class UO_FW_DIA_BRACKETFIREMISSION
+class UO_FW_DIA_BRACKETFIREMission
 {
 	idd = BFM_DIA_IDD_DISPLAY;
 	movingEnable = false;

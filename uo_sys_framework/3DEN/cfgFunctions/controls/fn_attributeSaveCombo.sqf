@@ -10,7 +10,8 @@
 	_value
 */
 
-private _ctrl = param [0,controlNull,[controlNull]];
-private _config = param [1,configNull,[configNull]];
+params ["_ctrl","_config"];
 
-_ctrl lbData lbCurSel _ctrl;
+private _value = _ctrl lbData lbCurSel _ctrl;
+
+_value

@@ -1,19 +1,6 @@
-class UO_FW_MarkerControlFunctions
-{
+class UO_FW_MarkerControlFunctions {
 	file = "\x\UO_FW\addons\main\MarkerControlModule\cfgFunctions\common";
-	class ExecuteMarkerControl
-	{ 
-		
-	};
-	class ValidateMarkerControl
-	{
-		
-	};
-	class MarkerControlInit
-	{
-		
-	
-		
-	};
-
+	class ExecuteMarkerControl	{};
+	class ValidateMarkerControl {};
+	class MarkerControlInit {};
 };

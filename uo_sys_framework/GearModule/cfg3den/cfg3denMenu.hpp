@@ -1,142 +1,103 @@
-class UO_FW_Gear_Settings
-{
+class UO_FW_Gear_Settings {
     displayName = "Gear Settings";
-    class AttributeCategories
-    {
-        class UO_FW_Gear
-        {
-            displayName = "Gear Settings";
+    class AttributeCategories {
+        class UO_FW_Gear_Ace_Arsenal {
+            displayName = "Ace Arsenal Gear Settings";
             collapsed = 0;
-            class Attributes
-            {
-                 class UO_FW_Gear_Enabled
-                {
-                    property = "UO_FW_Gear_Enabled";
-                    displayName = "Enable Gear";
-                    tooltip = "Should Gear be enabled";
+            class Attributes {
+				class UO_FW_Gear_ACEAR_System_Enabled {
+                    property = "UO_FW_Gear_ACEAR_System_Enabled";
+                    displayName = "Enable ACE Arsenal System";
+                    tooltip = "Should Gear System be enabled";
                     control = "CheckboxState";
-                    expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+                    expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
                     defaultValue = "false";
                 };
-                class UO_FW_GearOverfillEnabled
-                {
-                    property = "UO_FW_GearOverfillEnabled";
+			};
+		};
+		class UO_FW_Gear_Olsen {
+            displayName = "Olsen Gear Settings";
+            collapsed = 0;
+            class Attributes {
+                class UO_FW_Gear_Olsen_Enabled {
+                    property = "UO_FW_Gear_Olsen_Enabled";
+                    displayName = "Enable Olsen System";
+                    tooltip = "Should Olsen Gear be enabled";
+                    control = "CheckboxState";
+                    expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
+                    defaultValue = "false";
+                };
+                class UO_FW_Gear_Olsen_OverfillEnabled {
+                    property = "UO_FW_Gear_Olsen_OverfillEnabled";
                     displayName = "Enable Gear overfill";
                     tooltip = "Forces adding an item to inventory. Works only if container is specified!";
                     control = "Checkbox";
-                    expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+                    expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
                     defaultValue = "false";
                 };
-                class UO_FW_GearFaceRemovalEnabled
-                {
-                    property = "UO_FW_GearFaceRemovalEnabled";
+                class UO_FW_Gear_Olsen_FaceRemovalEnabled {
+                    property = "UO_FW_Gear_Olsen_FaceRemovalEnabled";
                     displayName = "Force remove facewear";
                     tooltip = "When set to false, facewear types that are whitelisted will not be removed";
                     control = "Checkbox";
-                    expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+                    expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
                     defaultValue = "false";
                 };
-                class UO_FW_Gear_PathToGear
-                {
-                    property = "UO_FW_Gear_PathToGear";
+                class UO_FW_Gear_Olsen_PathToGear {
+                    property = "UO_FW_Gear_Olsen_PathToGear";
                     displayName = "Path to Gearscript";
                     tooltip = "Path to the gearscript file in your mission folder";
                     control = "EditShort";
-                    expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+                    expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
                     defaultValue = "'GearScript.sqf'";
                 };
-                /*class UO_FW_GearPath_1
-                {
-                    property = "UO_FW_GearPath_1";
-                    displayName = "Gear 1";
-                    tooltip = "Path to Orbat file of Gear 1";
-                    control = "EditShort";
-                    expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
-                    defaultValue = "''";
-                };
-                class UO_FW_GearPath_2
-                {
-                    property = "UO_FW_GearPath_2";
-                    displayName = "Gear 2";
-                    tooltip = "Path to Orbat file of Gear 2";
-                    control = "EditShort";
-                    expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
-                    defaultValue = "''";
-                };
-                class UO_FW_GearPath_3
-                {
-                    property = "UO_FW_GearPath_3";
-                    displayName = "Gear 3";
-                    tooltip = "Path to Orbat file of Gear 3";
-                    control = "EditShort";
-                    expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
-                    defaultValue = "''";
-                };
-                class UO_FW_GearPath_4
-                {
-                    property = "UO_FW_GearPath_4";
-                    displayName = "Gear 4";
-                    tooltip = "Path to Orbat file of Gear 4";
-                    control = "EditShort";
-                    expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
-                    defaultValue = "''";
-                };
-                class UO_FW_GearPath_5
-                {
-                    property = "UO_FW_GearPath_5";
-                    displayName = "Gear 5";
-                    tooltip = "Path to Orbat file of Gear 5";
-                    control = "EditShort";
-                    expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
-                    defaultValue = "''";
-                };
-                class UO_FW_GearPath_6
-                {
-                    property = "UO_FW_GearPath_6";
-                    displayName = "Gear 6";
-                    tooltip = "Path to Orbat file of Gear 6";
-                    control = "EditShort";
-                    expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
-                    defaultValue = "''";
-                };
-                class UO_FW_GearPath_7
-                {
-                    property = "UO_FW_GearPath_7";
-                    displayName = "Gear 7";
-                    tooltip = "Path to Orbat file of Gear 7";
-                    control = "EditShort";
-                    expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
-                    defaultValue = "''";
-                };
-                class UO_FW_GearPath_8
-                {
-                    property = "UO_FW_GearPath_8";
-                    displayName = "Gear 8";
-                    tooltip = "Path to Orbat file of Gear 8";
-                    control = "EditShort";
-                    expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
-                    defaultValue = "''";
-                };
-                class UO_FW_GearPath_9
-                {
-                    property = "UO_FW_GearPath_9";
-                    displayName = "Gear 9";
-                    tooltip = "Path to Orbat file of Gear 9";
-                    control = "EditShort";
-                    expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
-                    defaultValue = "''";
-                };
-                class UO_FW_GearPath_10
-                {
-                    property = "UO_FW_GearPath_10";
-                    displayName = "Gear 10";
-                    tooltip = "Path to Orbat file of Gear 10";
-                    control = "EditShort";
-                    expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
-                    defaultValue = "''";
-                };*/
             };
         };
-         
     };
+};
+
+class UO_FW_GearSettings_Blufor {
+    displayName = "Blufor Gear Settings";
+    class AttributeCategories {
+		#include "Gear\Blufor.hpp"
+    };
+};
+
+class UO_FW_GearSettings_Opfor {
+    displayName = "Opfor Gear Settings";
+    class AttributeCategories {
+		#include "Gear\Opfor.hpp"
+    };
+};
+
+class UO_FW_GearSettings_Indfor {
+    displayName = "Indfor Gear Settings";
+    class AttributeCategories {
+		#include "Gear\Indfor.hpp"
+    };
+};
+
+class UO_FW_GearSettings_Civilian {
+    displayName = "Civilian Gear Settings";
+    class AttributeCategories {
+		#include "Gear\Civilian.hpp"
+    };
+};
+
+class ace_arsenal_DummyCategory {
+	displayName="Dummy attribute, should never show up";
+	class AttributeCategories {
+		class ACE3_Arsenal {
+			class Attributes {
+				class ace_arsenal_DefaultLoadoutsListAttribute {
+					property="ace_arsenal_DefaultLoadoutsListAttribute";
+					value=0;
+					expression="MissionNamespace setvariable ['ace_arsenal_defaultLoadoutsList',_value];";
+					defaultValue="[]";
+					validate="none";
+					wikiType="[[Array]]";
+				};
+			};
+		};
+	};
 };
