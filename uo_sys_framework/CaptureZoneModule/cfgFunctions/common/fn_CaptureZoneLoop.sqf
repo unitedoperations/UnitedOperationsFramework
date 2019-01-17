@@ -1,5 +1,5 @@
 #define COMPONENT CaptureZone
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
 UO_FW_EXEC_CHECK(SERVER);
 
 //[_logic,_zoneName,_area,_interval,_repeatable,_capArray,_timeArray,_messagesArray,_colours,_hidden,_silent,_automessages,_ratioNeeded,_cond] passed array
@@ -61,8 +61,8 @@ if (_interval < 5) then {
 				_marker setMarkerColor _uncontestedcolour;
 			};
 
-			MissionNamespace setVariable [_varName,false,true];
-			MissionNamespace setVariable [_teamControllingvarName,"UNCONTESTED",true];
+			missionNamespace setVariable [_varName,false,true];
+			missionNamespace setVariable [_teamControllingvarName,"UNCONTESTED",true];
 		};
 
 		private _bluCount = 0;
@@ -89,8 +89,8 @@ if (_interval < 5) then {
 						_uncontestedmessage remoteExec ["hint"];
 					};
 				};
-				MissionNamespace setVariable [_varName,false,true];
-				MissionNamespace setVariable [_teamControllingvarName,"UNCONTESTED",true];
+				missionNamespace setVariable [_varName,false,true];
+				missionNamespace setVariable [_teamControllingvarName,"UNCONTESTED",true];
 			};
 		};
 
@@ -182,8 +182,8 @@ if (_interval < 5) then {
 											(_bluformessageArray select 1) remoteExec ["hint"];
 										};
 									};
-									MissionNamespace setVariable [_varName,true,true];
-									MissionNamespace setVariable [_teamControllingvarName,"BLUFOR",true];
+									missionNamespace setVariable [_varName,true,true];
+									missionNamespace setVariable [_teamControllingvarName,"BLUFOR",true];
 									if !(_repeatable) exitWith {
 										if !(_hidden) then {
 											_marker setMarkerAlpha 0.5;
@@ -229,8 +229,8 @@ if (_interval < 5) then {
 											(_opformessageArray select 1) remoteExec ["hint"];
 										};
 									};
-									MissionNamespace setVariable [_varName,true,true];
-									MissionNamespace setVariable [_teamControllingvarName,"OPFOR",true];
+									missionNamespace setVariable [_varName,true,true];
+									missionNamespace setVariable [_teamControllingvarName,"OPFOR",true];
 									if !(_repeatable) exitWith {
 										if !(_hidden) then {
 											_marker setMarkerAlpha 0.5;
@@ -276,8 +276,8 @@ if (_interval < 5) then {
 											(_indformessageArray select 1) remoteExec ["hint"];
 										};
 									};
-									MissionNamespace setVariable [_varName,true,true];
-									MissionNamespace setVariable [_teamControllingvarName,"INDFOR",true];
+									missionNamespace setVariable [_varName,true,true];
+									missionNamespace setVariable [_teamControllingvarName,"INDFOR",true];
 									if !(_repeatable) exitWith {
 										if !(_hidden) then {
 											_marker setMarkerAlpha 0.5;
@@ -323,8 +323,8 @@ if (_interval < 5) then {
 											(_civilianmessageArray select 1) remoteExec ["hint"];
 										};
 									};
-									MissionNamespace setVariable [_varName,true,true];
-									MissionNamespace setVariable [_teamControllingvarName,"CIV",true];
+									missionNamespace setVariable [_varName,true,true];
+									missionNamespace setVariable [_teamControllingvarName,"CIV",true];
 									if !(_repeatable) exitWith {
 										if !(_hidden) then {
 											_marker setMarkerAlpha 0.5;

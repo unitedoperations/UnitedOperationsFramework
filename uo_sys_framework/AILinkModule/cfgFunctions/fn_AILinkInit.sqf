@@ -1,5 +1,5 @@
 #define COMPONENT AILink
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
 UO_FW_EXEC_CHECK(ALL);
 
 if !(missionNamespace getVariable ["UO_FW_AILink_Enabled",false]) exitWith {};

@@ -1,20 +1,16 @@
 class UO_FW_AOModeAttribute: Combo {
-	attributeSave = "\
-		_value = (_this controlsGroupCtrl 100) lbData lbCurSel (_this controlsGroupCtrl 100);\
-		_value\
-	";
 	attributeLoad ="\
-		disableSerialization;\
 		private _logic = ((get3denselected 'logic') select 0);\
+		private _cfgname = gettext (_config >> 'property');\
+		_logic setvariable [_cfgname,_value];\
 		private _ctrlCombo = (_this controlsGroupCtrl 100);\
 		_ctrlCombo setvariable ['UO_FW_parentcontrolcfg',_config];\
-		private _ctrlGroup = ctrlParentControlsGroup ctrlParentControlsGroup _ctrlCombo;\
+		private _ctrlGroup = ctrlParentControlsGroup _ctrlCombo;\
 		private _AOSystemTypes = [['Hard','HARD'],['Soft','SOFT']];\
 		{\
 			_x params ['_name','_string'];\
 			private _index = _ctrlCombo lbadd _name;\
 			_ctrlCombo lbsetdata [_index,_string];\
-			_ctrlCombo lbsetValue [_index,_forEachIndex];\
 			if (_value isEqualto (_ctrlCombo lbData _index)) then {\
 				_ctrlCombo lbSetCurSel _index;\
 				diag_log format ['_ctrlCombo lbSetCurSel: %1',_index];\
@@ -52,6 +48,13 @@ class UO_FW_AOModeAttribute: Combo {
 				} foreach (allcontrols (ctrlparent _ctrlCombo));\
 			};\
 		} foreach _AOSystemTypes;\
+	";
+	attributeSave = "\
+		private _value = ((_this controlsGroupCtrl 100) lbData lbCurSel (_this controlsGroupCtrl 100));\
+		private _cfgname = gettext (_config >> 'property');\
+		private _logic = ((get3denselected 'logic') select 0);\
+		_logic setvariable [_cfgname,_value];\
+		_value\
 	";
 	class Controls: Controls {
 		class Title: Title {};

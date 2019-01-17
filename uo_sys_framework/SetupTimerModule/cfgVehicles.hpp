@@ -12,7 +12,7 @@
 		canSetArea = 1;
 		canSetAreaHeight = 0;
 		canSetAreaShape = 0;
-		icon = "\x\UO_FW\addons\main\SetupTimerModule\resources\setuptimermodule_ca.paa";
+		icon = "\x\UO_FW\addons\Main\SetupTimerModule\resources\setuptimermodule_ca.paa";
 
 		class AttributeValues {
 	    size2[] = {100,100};

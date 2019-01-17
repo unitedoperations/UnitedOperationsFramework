@@ -1,6 +1,6 @@
 class UO_FW_BracketFiremission
 {
-	file = "x\UO_FW\addons\main\FiremissionModule\BracketFiremission\cfgFunctions\common";
+	file = "x\UO_FW\addons\Main\FiremissionModule\BracketFiremission\cfgFunctions\common";
 	class DIA_BracketFiremission {};
 	class DIA_BracketFiremissionCloseDialog {};
 	class DIA_BracketFiremissionFire {};

@@ -1,5 +1,5 @@
 #define COMPONENT SetupTimer
-#include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
+#include "\x\UO_FW\addons\Main\HeadlessAIModule\module_macros.hpp"
 UO_FW_EXEC_CHECK(CLIENT);
 
 //[_logic,_area,_selectedSide,_time] passed array
@@ -19,13 +19,13 @@ if (!(_this call UO_FW_fnc_ValidateSetupTimer)) exitWith {
 
 	if (!((side player) isEqualto _selectedSide) || !((vehicle player) inArea _area)) exitwith {};
 
-	private _alreadyInATimer = MissionNameSpace getvariable ["UO_FW_SetupTimer_InSetupTimer",false];
+	private _alreadyInATimer = missionNamespace getvariable ["UO_FW_SetupTimer_InSetupTimer",false];
 	if (_alreadyInATimer) exitwith {};
 	if !(_alreadyInATimer) then {
-		MissionNameSpace setvariable ["UO_FW_SetupTimer_InSetupTimer",true];
+		missionNamespace setvariable ["UO_FW_SetupTimer_InSetupTimer",true];
 	};
 
-	("UO_FW_SetupTimer_Layer" call BIS_fnc_rscLayer) cutRsc ["UO_FW_RscSetupTimer", "PLAIN", 0.5, false];
+	"UO_FW_SetupTimer_Layer" cutRsc ["UO_FW_RscSetupTimer", "PLAIN", 0.5, false];
 	missionNamespace setVariable ["UO_FW_SetupTimer_WaitTime", _waittime];
 
 	LOG("Starting Setup Timer");

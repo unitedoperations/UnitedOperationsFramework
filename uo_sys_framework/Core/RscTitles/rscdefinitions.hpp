@@ -58,7 +58,7 @@
 #define UO_FW_CT_LINEBREAK        	98
 #define UO_FW_CT_USER             	99
 #define UO_FW_CT_MAP              	100
-#define UO_FW_CT_MAP_MAIN         	101
+#define UO_FW_CT_MAP_Main         	101
 #define UO_FW_CT_LISTNBOX         	102
 
 
@@ -78,10 +78,10 @@
 #define UO_FW_ST_UP             		0x08
 #define UO_FW_ST_VCENTER        		0x0C
 
-#define UO_FW_ST_TYPE           		0xF0
+#define UO_FW_ST_Type           		0xF0
 #define UO_FW_ST_SINGLE         		0x00	//single line textbox
 #define UO_FW_ST_MULTI          		0x10	//multi-line textbox (text will wrap, and newline character can be used). There is no scrollbar, but mouse wheel/arrows can scroll it. Control will be outlined with a line (color = text color).
-#define UO_FW_ST_TITLE_BAR      		0x20
+#define UO_FW_ST_Title_BAR      		0x20
 #define UO_FW_ST_PICTURE        		0x30  	//turns a static control into a picture control. 'Text' will be used as picture path. Picture will be stretched to fit the control.
 #define UO_FW_ST_FRAME          		0x40	//control becomes a frame. Background is clear and text is placed along the top edge of the control. Control is outlined with text color (as in UO_FW_ST_MULTI)
 #define UO_FW_ST_BACKGROUND     		0x50
@@ -96,7 +96,7 @@
 #define UO_FW_ST_NO_RECT        		0x200	//when combined with UO_FW_ST_MULTI, it eliminates the outline around the control. Might combine with other styles for similar effect.
 #define UO_FW_ST_KEEP_ASPECT_RATIO  	0x800	//used for pictures, it makes the displayed picture keep its aspect ratio.
 
-#define UO_FW_ST_TITLE          		UO_FW_ST_TITLE_BAR + UO_FW_ST_CENTER
+#define UO_FW_ST_Title          		UO_FW_ST_Title_BAR + UO_FW_ST_CENTER
 
 // Slider styles
 #define UO_FW_SL_DIR            		0x400
@@ -105,7 +105,7 @@
 
 #define UO_FW_SL_TEXTURES       		0x10
 
-// progress bar 
+// progress bar
 #define UO_FW_ST_VERTICAL       		0x01
 #define UO_FW_ST_HORIZONTAL     		0
 
@@ -727,7 +727,7 @@ class UO_FW_RscBackground
 		right = 0.005;
 		bottom = 0;
 	};
-	shortcuts[] = 
+	shortcuts[] =
 	{
 	};
 	textureNoShortcut = "#(argb,8,8,3)color(0,0,0,0)";
@@ -735,14 +735,14 @@ class UO_FW_RscBackground
 	colorFocused[] = {1,1,1,1};
 	color2[] = {0.95,0.95,0.95,1};
 	colorDisabled[] = {1,1,1,0.25};
-	colorBackground[] = 
+	colorBackground[] =
 	{
 		"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.77])",
 		"(profilenamespace getvariable ['GUI_BCG_RGB_G',0.51])",
 		"(profilenamespace getvariable ['GUI_BCG_RGB_B',0.08])",
 		1
 	};
-	colorBackgroundFocused[] = 
+	colorBackgroundFocused[] =
 	{
 		"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.77])",
 		"(profilenamespace getvariable ['GUI_BCG_RGB_G',0.51])",
@@ -891,7 +891,7 @@ class UO_FW_IGUIBack
 	y = 0.1;
 	w = 0.1;
 	h = 0.1;
-	colorbackground[] = 
+	colorbackground[] =
 	{
 		"(profilenamespace getvariable ['IGUI_BCG_RGB_R',0])",
 		"(profilenamespace getvariable ['IGUI_BCG_RGB_G',1])",
@@ -952,7 +952,7 @@ class UO_FW_RscTextCheckBox
 	color[] ={0,0,0,0};
 	colorBackground[] = {0,0,0,0};
 	colorTextSelect[] = {0,0.8,0,1};
-	colorSelectedBg[] = 
+	colorSelectedBg[] =
 	{
 		"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.77])",
 		"(profilenamespace getvariable ['GUI_BCG_RGB_G',0.51])",
@@ -969,11 +969,11 @@ class UO_FW_RscTextCheckBox
 	sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
 	rows = 1;
 	columns = 1;
-	strings[] = 
+	strings[] =
 	{
 		"UNCHECKED"
 	};
-	checked_strings[] = 
+	checked_strings[] =
 	{
 		"CHECKED"
 	};
@@ -1049,7 +1049,7 @@ class UO_FW_RscButtonMenu
 class UO_FW_RscButtonMenuOK
 {
 	idc = 1;
-	shortcuts[] = 
+	shortcuts[] =
 	{
 		"0x00050000 + 0",
 		28,
@@ -1064,7 +1064,7 @@ class UO_FW_RscButtonMenuOK
 class UO_FW_RscButtonMenuCancel
 {
 	idc = 2;
-	shortcuts[] = 
+	shortcuts[] =
 	{
 		"0x00050000 + 1"
 	};

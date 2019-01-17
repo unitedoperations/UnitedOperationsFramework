@@ -12,17 +12,11 @@
  * Public: No
  */
 
-#include "\x\UO_FW\addons\main\script_macros.hpp"
-
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
+UO_FW_EXEC_CHECK(ALL);
 
 params ["_basicmsg","_detailedmsg"];
 
-if (isNil "UO_FW_Debug_Enabled") then {
-	UO_FW_Debug_Enabled = (getMissionConfigValue["UO_FW_Debug_Enabled",false])
-};
-if (isNil "UO_FW_Debug_Detailed_Enabled") then {
-	UO_FW_Debug_Detailed_Enabled = (getMissionConfigValue["UO_FW_Debug_Detailed_Enabled",false])
-};
 if ((UO_FW_Debug_Enabled) && !(UO_FW_Debug_Detailed_Enabled)) then {
 	if (_basicmsg isEqualto "") exitwith {};
 	if !((typename _basicmsg) isEqualto "STRING") then {

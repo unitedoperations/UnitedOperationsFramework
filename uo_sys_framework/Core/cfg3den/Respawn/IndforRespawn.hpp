@@ -4,9 +4,9 @@ class UO_FW_TeamRespawnSettings_Indfor {
     class Attributes {
 		class UO_FW_RespawnSetting_Type_Indfor {
 			displayName = "Respawn System";
-			tooltip = "Type of respawn system for INDFOR. Place down Gamelogic with name uo_fw_west_respawn to define respawn location.";
-			control = "UO_FW_Respawn_Combo";
-			value=0;
+			tooltip = "Type of respawn system for INDFOR. Place down Gamelogic with name uo_fw_independent_respawn to define respawn location.";
+			control = "UO_FW_Respawn_Combo_Indfor";
+			defaultValue = "0";
 			property = "UO_FW_RespawnSetting_Type_Indfor";
 			expression = "missionNamespace setVariable ['%s', _value]; %s = _value;";
 		};
@@ -14,9 +14,9 @@ class UO_FW_TeamRespawnSettings_Indfor {
 	        property = "UO_FW_RespawnSetting_Templates_Indfor";
 	        displayName = "Respawn System Settings";
 	        tooltip = "";
-	        control = "UO_FW_RespawnTemplates";
-	        expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
-			defaultValue="['']";
+	        control = "UO_FW_RespawnTemplates_Indfor";
+	        expression = "missionNamespace setVariable ['%s', _value]; %s = _value;";
+			defaultValue = "['']";
 	    };
 	    class UO_FW_RespawnSetting_IndTickets_Indfor {
 	        property = "UO_FW_RespawnSetting_IndTickets_Indfor";
@@ -24,7 +24,7 @@ class UO_FW_TeamRespawnSettings_Indfor {
 	        tooltip = "Number of individual respawns.";
 			respawnTypes[] = {2};
 	        control = "EditShort";
-	        expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+	        expression = "missionNamespace setVariable ['%s', _value]; %s = _value;";
 	        defaultValue = "2";
 	        validate = "number";
 	    };
@@ -34,7 +34,7 @@ class UO_FW_TeamRespawnSettings_Indfor {
 	        tooltip = "Number of team respawns.";
 			respawnTypes[] = {3};
 	        control = "EditShort";
-	        expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+	        expression = "missionNamespace setVariable ['%s', _value]; %s = _value;";
 	        defaultValue = "30";
 	        validate = "number";
 	    };
@@ -44,7 +44,7 @@ class UO_FW_TeamRespawnSettings_Indfor {
 	        tooltip = "Number of team respawns.";
 			respawnTypes[] = {4};
 	        control = "EditCode";
-	        expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+	        expression = "missionNamespace setVariable ['%s', _value]; %s = _value;";
 	        defaultValue = "''";
 	        validate = "expression";
 	    };
@@ -54,7 +54,7 @@ class UO_FW_TeamRespawnSettings_Indfor {
 	        tooltip = "Number of team respawns.";
 			respawnTypes[] = {5};
 	        control = "EditCode";
-	        expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+	        expression = "missionNamespace setVariable ['%s', _value]; %s = _value;";
 	        defaultValue = "''";
 	        validate = "expression";
 	    };

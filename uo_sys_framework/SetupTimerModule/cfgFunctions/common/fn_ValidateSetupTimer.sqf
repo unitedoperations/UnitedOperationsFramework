@@ -1,5 +1,5 @@
 #define COMPONENT SetupTimer
-#include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
+#include "\x\UO_FW\addons\Main\HeadlessAIModule\module_macros.hpp"
 UO_FW_EXEC_CHECK(SERVERHC);
 
 //[_logic,_area,_selectedSide,_time] passed array

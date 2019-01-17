@@ -8,7 +8,7 @@
  */
 
 #define COMPONENT ShotCount
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
 UO_FW_EXEC_CHECK(ALL);
 
 if !(UO_FW_Server_ShotCountModule_Allowed) exitwith {};
@@ -22,7 +22,7 @@ _obj setVariable ["UO_FW_aCount_originalSide",side _obj];
 
 if (_obj isKindOf "Man") then {
 	private _firedEHhandle = _obj addEventHandler ["fired", {
-		if ((isPlayer (_this select 0)) && {MissionNamespace getvariable ["UO_FW_ND_Active",false]}) then {
+		if ((isPlayer (_this select 0)) && {missionNamespace getvariable ["UO_FW_ND_Active",false]}) then {
 			if (((_this select 0) getvariable ["UO_FW_ND_EHid",""]) isEqualto "DISABLED") then {
 				["UO_FW_ShotCount_EH_Event", [side (_this select 0),(_this select 5)]] call CBA_fnc_serverEvent;
 			} else {

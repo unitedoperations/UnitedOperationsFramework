@@ -16,16 +16,16 @@
  */
 
 #define COMPONENT Gear
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
 UO_FW_EXEC_CHECK(ALL);
 
-private ["_vehicle", "_loadoutType", "_item", "_amount", "_type"];
+private ["_vehicle", "_loadoutType", "_item", "_amount", "_Type"];
 
 _vehicle = _this select 0;
 _loadoutType = _this select 1;
 _item = _this select 2;
 _amount = 1;
-_type = (_item call BIS_fnc_itemType) select 1;
+_Type = (_item call BIS_fnc_itemType) select 1;
 
 if !([_item] call UO_FW_fnc_checkClassname) exitWith {};
 
@@ -39,7 +39,7 @@ for "_x" from 1 to _amount do {
 
 	if (_vehicle canAdd _item) then {
 
-		if (_type == "backpack") then {
+		if (_Type == "backpack") then {
 
 			_vehicle addBackpackCargoGlobal [_item, 1];
 

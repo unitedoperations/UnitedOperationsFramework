@@ -2,8 +2,11 @@ class UO_FW_AI_standardNumberControl : Edit {
      attributeLoad = "if (typename _value != typename '')then{_value = str _value;};(_this controlsGroupCtrl 101) ctrlSetText _value;";
      attributeSave = "_value = ctrlText (_this controlsGroupCtrl 101);if (gettext (_config >> 'typeName') == 'NUMBER')then{_value = parsenumber _value;};_value";
      class Controls: Controls {
-         class Title: Title{};
+         class Title: Title {
+
+		 };
          class Value: ctrlEdit {
+
              idc = 101;
              style = ST_LEFT;
              x = "48 * (pixelW * pixelGrid * 0.50)";
@@ -16,8 +19,11 @@ class UO_FW_AI_patrolradiusControl : Edit {
      attributeLoad = "if (typename _value != typename '')then{_value = str _value;};(_this controlsGroupCtrl 102) ctrlSetText _value;";
      attributeSave = "_value = ctrlText (_this controlsGroupCtrl 102); if (gettext (_config >> 'typeName') == 'NUMBER') then {_value = parsenumber _value;}; [_value] spawn UO_FW_AI_fnc_setRadial; _value";
      class Controls: Controls {
-         class Title: Title{};
+		 class Title: Title {
+
+		 };
          class Value: ctrlEdit {
+
              idc = 102;
              style = ST_LEFT;
              x = "48 * (pixelW * pixelGrid * 0.50)";
@@ -27,11 +33,14 @@ class UO_FW_AI_patrolradiusControl : Edit {
      };
  };
 class UO_FW_AI_behaviourControl : Title	{
-	attributeLoad = "_index = ['careless','safe','aware','combat','stealth'] find _value; missionnamespace setvariable ['UO_FW_AI_behaviour_value',_index]; (_this controlsGroupCtrl 103) lbsetcursel _index;";
-	attributeSave = "['careless','safe','aware','combat','stealth'] select (missionnamespace getvariable ['UO_FW_AI_behaviour_value',1]);";
+	attributeLoad = "_index = ['careless','safe','aware','combat','stealth'] find _value; missionNamespace setvariable ['UO_FW_AI_behaviour_value',_index]; (_this controlsGroupCtrl 103) lbsetcursel _index;";
+	attributeSave = "['careless','safe','aware','combat','stealth'] select (missionNamespace getvariable ['UO_FW_AI_behaviour_value',1]);";
 	class Controls: Controls {
-		class Title: Title {};
+		class Title: Title {
+
+		};
 		class Value: ctrlToolbox {
+
 			idc = 103;
 			style = "0x02";
 			x = "48 * (pixelW * pixelGrid * 0.50)";
@@ -41,7 +50,7 @@ class UO_FW_AI_behaviourControl : Title	{
 			columns = 5;
 			values[] = {0,1,2,3,4};
 			strings[] = {"Careless","Safe","Aware","Combat","Stealth"};
-			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_behaviour_value',_this select 1];";
+			onToolboxSelChanged = "missionNamespace setvariable ['UO_FW_AI_behaviour_value',_this select 1];";
 		};
 	};
 };
@@ -51,9 +60,11 @@ class UO_FW_AI_codeControl : Edit {
 	h = 3 * SIZE_M * GRID_H;
 	class Controls: Controls {
 		class Title: Title {
+
 			h = 3 * SIZE_M * GRID_H;
 		};
 		class Value: Value {
+
 			idc = 104;
 			style = ST_MULTI;
 			h = 3 * SIZE_M * GRID_H;
@@ -65,8 +76,11 @@ class UO_FW_AI_waypointwaitControl : Edit {
      attributeLoad = "if (typename _value != typename '')then{_value = str _value;};(_this controlsGroupCtrl 105) ctrlSetText _value;";
      attributeSave = "_value = ctrlText (_this controlsGroupCtrl 105);if (gettext (_config >> 'typeName') == 'NUMBER')then{_value = parsenumber _value;};_value";
      class Controls: Controls {
-         class Title: Title{};
+         class Title: Title {
+
+		 };
          class Value: ctrlEdit {
+
              idc = 105;
              style = ST_LEFT;
              x = "48 * (pixelW * pixelGrid * 0.50)";
@@ -76,14 +90,16 @@ class UO_FW_AI_waypointwaitControl : Edit {
      };
  };
 class UO_FW_AI_combatmodeControl : Title	{
-	attributeLoad = "_index = (['blue','green','white','yellow','red'] find _value); missionnamespace setvariable ['UO_FW_AI_combatmode_value',_index]; (_this controlsGroupCtrl 106) lbsetcursel _index;";
-	attributeSave = "['blue','green','white','yellow','red'] select (missionnamespace getvariable ['UO_FW_AI_combatmode_value',4]);";
+	attributeLoad = "_index = (['blue','green','white','yellow','red'] find _value); missionNamespace setvariable ['UO_FW_AI_combatmode_value',_index]; (_this controlsGroupCtrl 106) lbsetcursel _index;";
+	attributeSave = "['blue','green','white','yellow','red'] select (missionNamespace getvariable ['UO_FW_AI_combatmode_value',4]);";
 	h = "25 * (pixelH * pixelGrid * 0.50)";
 	class Controls: Controls {
-		class Title: Title{
+		class Title: Title {
+
 			h = "25 * (pixelH * pixelGrid * 0.50)";
 		};
 		class Value: ctrlToolbox {
+
 			idc = 106;
 			style = "0x02";
 			x = "48 * (pixelW * pixelGrid * 0.50)";
@@ -100,19 +116,21 @@ class UO_FW_AI_combatmodeControl : Title	{
 				"$STR_3DEN_Attributes_CombatMode_Yellow_tooltip",
 				"$STR_3DEN_Attributes_CombatMode_Red_tooltip"
 			};
-			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_combatmode_value',_this select 1];";
+			onToolboxSelChanged = "missionNamespace setvariable ['UO_FW_AI_combatmode_value',_this select 1];";
 		};
 	};
 };
 class UO_FW_AI_taskControl : Title	{
-	attributeLoad = "missionnamespace setvariable ['UO_FW_AI_task_value',_value]; (_this controlsGroupCtrl 107) lbsetcursel (_value);";
-	attributeSave = "missionnamespace getvariable ['UO_FW_AI_task_value',4];";
+	attributeLoad = "missionNamespace setvariable ['UO_FW_AI_task_value',_value]; (_this controlsGroupCtrl 107) lbsetcursel (_value);";
+	attributeSave = "missionNamespace getvariable ['UO_FW_AI_task_value',4];";
 	h = "20 * (pixelH * pixelGrid * 0.50)";
 	class Controls: Controls {
-		class Title: Title{
+		class Title: Title {
+
 			h = "20 * (pixelH * pixelGrid * 0.50)";
 		};
 		class Value: ctrlToolbox {
+
 			idc = 107;
 			style = "0x02";
 			x = "48 * (pixelW * pixelGrid * 0.50)";
@@ -147,19 +165,21 @@ class UO_FW_AI_taskControl : Title	{
 				"Squad which holds until called by friendlies to reinforce",
 				"None"
 			};
-			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_task_value',_this select 1];";
+			onToolboxSelChanged = "missionNamespace setvariable ['UO_FW_AI_task_value',_this select 1];";
 		};
 	};
 };
 class UO_FW_AI_formationControl : Toolbox {
-	attributeLoad = "_index = ['wedge','vee','line','column','file','stag_column','ech_left','ech_right','diamond'] find _value; missionnamespace setvariable ['UO_FW_AI_formation_value',_index]; (_this controlsGroupCtrl 108) lbsetcursel _index;";
-	attributeSave = "['wedge','vee','line','column','file','stag_column','ech_left','ech_right','diamond'] select (missionnamespace getvariable ['UO_FW_AI_formation_value',0]);";
+	attributeLoad = "_index = ['wedge','vee','line','column','file','stag_column','ech_left','ech_right','diamond'] find _value; missionNamespace setvariable ['UO_FW_AI_formation_value',_index]; (_this controlsGroupCtrl 108) lbsetcursel _index;";
+	attributeSave = "['wedge','vee','line','column','file','stag_column','ech_left','ech_right','diamond'] select (missionNamespace getvariable ['UO_FW_AI_formation_value',0]);";
 	h = 2 * SIZE_M * GRID_H;
 	class Controls: Controls {
 		class Title: Title {
+
 			h = 2 * SIZE_M * GRID_H;
 		};
 		class Value: Value {
+
 			idc = 108;
 			style = ST_CENTER + ST_PICTURE + ST_KEEP_ASPECT_RATIO;
 			h = 2 * SIZE_M * GRID_H;
@@ -188,19 +208,21 @@ class UO_FW_AI_formationControl : Toolbox {
 				$STR_ECHR,
 				$STR_DIAMOND
 			};
-			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_formation_value',_this select 1];";
+			onToolboxSelChanged = "missionNamespace setvariable ['UO_FW_AI_formation_value',_this select 1];";
 		};
 	};
 };
 class UO_FW_AI_speedControl : Toolbox {
-	attributeLoad = "_index = ['limited','normal','full'] find _value; missionnamespace setvariable ['UO_FW_AI_speed_value',_index]; (_this controlsGroupCtrl 109) lbsetcursel _index;";
-	attributeSave = "['limited','normal','full'] select (missionnamespace getvariable ['UO_FW_AI_speed_value',0]);";
+	attributeLoad = "_index = ['limited','normal','full'] find _value; missionNamespace setvariable ['UO_FW_AI_speed_value',_index]; (_this controlsGroupCtrl 109) lbsetcursel _index;";
+	attributeSave = "['limited','normal','full'] select (missionNamespace getvariable ['UO_FW_AI_speed_value',0]);";
 	h = 2 * SIZE_M * GRID_H;
 	class Controls: Controls {
 		class Title: Title {
+
 			h = 2 * SIZE_M * GRID_H;
 		};
 		class Value: Value {
+
 			idc = 109;
 			style = ST_CENTER + ST_PICTURE + ST_KEEP_ASPECT_RATIO;
 			h = 2 * SIZE_M * GRID_H;
@@ -217,19 +239,21 @@ class UO_FW_AI_speedControl : Toolbox {
 				$STR_3den_attributes_speedmode_normal,
 				$STR_3den_attributes_speedmode_full
 			};
-			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_speed_value',_this select 1];";
+			onToolboxSelChanged = "missionNamespace setvariable ['UO_FW_AI_speed_value',_this select 1];";
 		};
 	};
 };
 class UO_FW_AI_stanceControl: Toolbox {
-	attributeLoad = "_index = ['auto','down','middle','up'] find _value; missionnamespace setvariable ['UO_FW_AI_stance_value',_index]; (_this controlsGroupCtrl 110) lbsetcursel _index;";
-	attributeSave = "['auto','down','middle','up'] select (missionnamespace getvariable ['UO_FW_AI_stance_value',0]);";
+	attributeLoad = "_index = ['auto','down','middle','up'] find _value; missionNamespace setvariable ['UO_FW_AI_stance_value',_index]; (_this controlsGroupCtrl 110) lbsetcursel _index;";
+	attributeSave = "['auto','down','middle','up'] select (missionNamespace getvariable ['UO_FW_AI_stance_value',0]);";
 	h = 8 * GRID_H;
 	class Controls: Controls {
 		class Title: Title {
+
 			h = 8 * GRID_H;
 		};
 		class Value: Value {
+
 			idc = 110;
 			style = ST_CENTER + ST_PICTURE + ST_KEEP_ASPECT_RATIO;
 			h = 8 * GRID_H;
@@ -248,16 +272,19 @@ class UO_FW_AI_stanceControl: Toolbox {
 				$STR_3den_attributes_stance_up
 			};
 			values[] = {-1,0,1,2};
-			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_stance_value',_this select 1];";
+			onToolboxSelChanged = "missionNamespace setvariable ['UO_FW_AI_stance_value',_this select 1];";
 		};
 	};
 };
 class UO_FW_AI_startbuildingControl : Title	{
-	attributeLoad = "_index = (if (_value isequaltype 0) then {_value} else {[false,true] find _value}); missionnamespace setvariable ['UO_FW_AI_startbuilding_value',_index]; (_this controlsGroupCtrl 119) lbsetcursel _index;";
-	attributeSave = "[false,true] select (missionnamespace getvariable ['UO_FW_AI_startbuilding_value',0]);";
+	attributeLoad = "_index = (if (_value isequaltype 0) then {_value} else {[false,true] find _value}); missionNamespace setvariable ['UO_FW_AI_startbuilding_value',_index]; (_this controlsGroupCtrl 119) lbsetcursel _index;";
+	attributeSave = "[false,true] select (missionNamespace getvariable ['UO_FW_AI_startbuilding_value',0]);";
 	class Controls: Controls {
-		class Title: Title{};
+		class Title: Title {
+
+		};
 		class Value: ctrlToolbox {
+
 			idc = 119;
 			style = "0x02";
 			x = "48 * (pixelW * pixelGrid * 0.50)";
@@ -267,7 +294,7 @@ class UO_FW_AI_startbuildingControl : Title	{
 			columns = 2;
 			values[] = {0,1};
 			strings[] = {"OFF","ON"};
-			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_startbuilding_value',_this select 1];";
+			onToolboxSelChanged = "missionNamespace setvariable ['UO_FW_AI_startbuilding_value',_this select 1];";
 		};
 	};
 };
@@ -275,8 +302,11 @@ class UO_FW_AI_multiplierControl : Edit {
      attributeLoad = "if (typename _value != typename '')then{_value = str _value;};(_this controlsGroupCtrl 120) ctrlSetText _value;";
      attributeSave = "_value = ctrlText (_this controlsGroupCtrl 120);if (gettext (_config >> 'typeName') == 'NUMBER')then{_value = parsenumber _value;};_value";
      class Controls: Controls {
-         class Title: Title{};
+         class Title: Title {
+
+		 };
          class Value: ctrlEdit {
+
              idc = 120;
              style = ST_LEFT;
              x = "48 * (pixelW * pixelGrid * 0.50)";
@@ -286,14 +316,16 @@ class UO_FW_AI_multiplierControl : Edit {
      };
  };
 class UO_FW_AI_occupyoptionControl : Title {
-	attributeLoad = "missionnamespace setvariable ['UO_FW_AI_occupyoption_value',_value]; (_this controlsGroupCtrl 121) lbsetcursel (((_value) min 7) max 0);";
-	attributeSave = "missionnamespace getvariable ['UO_FW_AI_occupyoption_value',0];";
+	attributeLoad = "missionNamespace setvariable ['UO_FW_AI_occupyoption_value',_value]; (_this controlsGroupCtrl 121) lbsetcursel (((_value) min 7) max 0);";
+	attributeSave = "missionNamespace getvariable ['UO_FW_AI_occupyoption_value',0];";
 	h = "20 * (pixelH * pixelGrid * 0.50)";
 	class Controls: Controls {
 		class Title: Title {
+
 			h = "20 * (pixelH * pixelGrid * 0.50)";
 		};
 		class Value: ctrlToolbox {
+
 			idc = 121;
 			style = "0x02";
 			x = "48 * (pixelW * pixelGrid * 0.50)";
@@ -314,19 +346,21 @@ class UO_FW_AI_occupyoptionControl : Title {
 				"Occupy nearest group of buildings with in task radius.","Occupy random group of buildings with in task radius.",
 				"Occupy nearest multiple buildings with in task radius.","Occupy random multiple buildings with in task radius."
 			};
-			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_occupyoption_value',_this select 1];";
+			onToolboxSelChanged = "missionNamespace setvariable ['UO_FW_AI_occupyoption_value',_this select 1];";
 		};
 	};
 };
 class UO_FW_AI_removeControl : Title {
-	attributeLoad = "missionnamespace setvariable ['UO_FW_AI_remove_value',_value]; (_this controlsGroupCtrl 122) lbsetcursel (((_value) min 11) max 0);";
-	attributeSave = "missionnamespace getvariable ['UO_FW_AI_remove_value',0];";
+	attributeLoad = "missionNamespace setvariable ['UO_FW_AI_remove_value',_value]; (_this controlsGroupCtrl 122) lbsetcursel (((_value) min 11) max 0);";
+	attributeSave = "missionNamespace getvariable ['UO_FW_AI_remove_value',0];";
 	h = "20 * (pixelH * pixelGrid * 0.50)";
 	class Controls: Controls {
 		class Title: Title {
+
 			h = "20 * (pixelH * pixelGrid * 0.50)";
 		};
 		class Value: ctrlToolbox {
+
 			idc = 122;
 			style = "0x02";
 			x = "48 * (pixelW * pixelGrid * 0.50)";
@@ -347,7 +381,7 @@ class UO_FW_AI_removeControl : Title {
 				"Remove all magazines from unit.","Remove vest from unit.","Remove uniform from unit.",
 				"Remove backpack from unit.","Remove headgear from unit.","Remove goggles from unit."
 			};
-			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_remove_value',_this select 1];";
+			onToolboxSelChanged = "missionNamespace setvariable ['UO_FW_AI_remove_value',_this select 1];";
 		};
 	};
 };
@@ -357,9 +391,11 @@ class UO_FW_AI_codeunitControl : Edit {
 	h = 3 * SIZE_M * GRID_H;
 	class Controls: Controls {
 		class Title: Title {
+
 			h = 3 * SIZE_M * GRID_H;
 		};
 		class Value: Value {
+
 			idc = 123;
 			style = ST_MULTI;
 			h = 3 * SIZE_M * GRID_H;
@@ -368,21 +404,24 @@ class UO_FW_AI_codeunitControl : Edit {
 	};
 };
 class UO_FW_AI_persistentControl : Title {
-	attributeLoad = "_index = (if (_value isequaltype 0) then {_value} else {[false,true] find _value}); missionnamespace setvariable ['UO_FW_AI_persistent_value',_index]; (_this controlsGroupCtrl 124) lbsetcursel _index;";
-	attributeSave = "[false,true] select (missionnamespace getvariable ['UO_FW_AI_persistent_value',0]);";
+	attributeLoad = "_index = (if (_value isequaltype 0) then {_value} else {[false,true] find _value}); missionNamespace setvariable ['UO_FW_AI_persistent_value',_index]; (_this controlsGroupCtrl 124) lbsetcursel _index;";
+	attributeSave = "[false,true] select (missionNamespace getvariable ['UO_FW_AI_persistent_value',0]);";
 	class Controls: Controls {
-		class Title: Title{};
+		class Title: Title {
+
+		};
 		class Value: ctrlToolbox {
+
 			idc = 124;
-      style = "0x02";
-      x = "48 * (pixelW * pixelGrid * 0.50)";
-      w = "82 * (pixelW * pixelGrid * 0.50)";
-      h = "5 * (pixelH * pixelGrid * 0.50)";
-      rows = 1;
-      columns = 2;
+      		style = "0x02";
+      		x = "48 * (pixelW * pixelGrid * 0.50)";
+      		w = "82 * (pixelW * pixelGrid * 0.50)";
+      		h = "5 * (pixelH * pixelGrid * 0.50)";
+      		rows = 1;
+      		columns = 2;
 			values[] = {0,1};
-      strings[] = {"Not Persistent","Persistent"};
-			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_persistent_value',_this select 1];";
+      		strings[] = {"Not Persistent","Persistent"};
+			onToolboxSelChanged = "missionNamespace setvariable ['UO_FW_AI_persistent_value',_this select 1];";
 		};
 	};
 };
@@ -413,26 +452,31 @@ class UO_FW_AI_unitnameControl : Edit {
      attributeLoad = "if (typename _value != typename '')then{_value = str _value;};(_this controlsGroupCtrl 125) ctrlSetText _value;";
      attributeSave = "_value = ctrlText (_this controlsGroupCtrl 125);if (gettext (_config >> 'typeName') == 'NUMBER')then{_value = parsenumber _value;};_value";
      class Controls: Controls {
-         class Title: Title{};
+         class Title: Title {
+
+		 };
          class Value: ctrlEdit {
+
              idc = 125;
              style = ST_LEFT;
              x = "48 * (pixelW * pixelGrid * 0.50)";
              w = "82 * (pixelW * pixelGrid * 0.50)";
              h = "5 * (pixelH * pixelGrid * 0.50)";
-						 canModify = 1;
+			canModify = 1;
          };
      };
  };
 class UO_FW_AI_multioccupyControl : Title {
-	attributeLoad = "missionnamespace setvariable ['UO_FW_AI_multioccupy_value',_value]; (_this controlsGroupCtrl 126) lbsetcursel (((_value) min 9) max 0);";
-	attributeSave = "missionnamespace getvariable ['UO_FW_AI_multioccupy_value',1];";
+	attributeLoad = "missionNamespace setvariable ['UO_FW_AI_multioccupy_value',_value]; (_this controlsGroupCtrl 126) lbsetcursel (((_value) min 9) max 0);";
+	attributeSave = "missionNamespace getvariable ['UO_FW_AI_multioccupy_value',1];";
 	h = "10 * (pixelH * pixelGrid * 0.50)";
 	class Controls: Controls {
-		class Title: Title{
+		class Title: Title {
+
 			h = "10 * (pixelH * pixelGrid * 0.50)";
 		};
 		class Value: ctrlToolbox {
+
 			idc = 126;
 			style = "0x02";
 			x = "48 * (pixelW * pixelGrid * 0.50)";
@@ -457,7 +501,7 @@ class UO_FW_AI_multioccupyControl : Title {
 				"Four generated groups will use the occupy options.",
 				"Five generated groups will use the occupy options."
 			};
-			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_multioccupy_value',_this select 1];";
+			onToolboxSelChanged = "missionNamespace setvariable ['UO_FW_AI_multioccupy_value',_this select 1];";
 		};
 	};
 };
@@ -465,8 +509,11 @@ class UO_FW_AI_moduleradiusControl : Edit {
      attributeLoad = "if (typename _value != typename '')then{_value = str _value;};(_this controlsGroupCtrl 127) ctrlSetText _value;";
      attributeSave = "_value = ctrlText (_this controlsGroupCtrl 127);if (gettext (_config >> 'typeName') == 'NUMBER')then{_value = parsenumber _value;};_value";
      class Controls: Controls {
-         class Title: Title{};
+         class Title: Title {
+
+		};
          class Value: ctrlEdit {
+
              idc = 127;
              style = ST_LEFT;
              x = "48 * (pixelW * pixelGrid * 0.50)";
@@ -479,13 +526,16 @@ class UO_FW_AI_moduleradiusControl2 : Edit {
      attributeLoad = "if (typename _value != typename '')then{_value = str _value;};(_this controlsGroupCtrl 227) ctrlSetText _value;";
      attributeSave = "_value = ctrlText (_this controlsGroupCtrl 227);if (gettext (_config >> 'typeName') == 'NUMBER')then{_value = parsenumber _value;};_value";
      class Controls: Controls {
-         class Title: Title{};
+         class Title: Title {
+
+		};
          class Value: ctrlEdit {
-             idc = 227;
-             style = ST_LEFT;
-             x = "48 * (pixelW * pixelGrid * 0.50)";
-             w = "82 * (pixelW * pixelGrid * 0.50)";
-             h = "5 * (pixelH * pixelGrid * 0.50)";
+
+			idc = 227;
+			style = ST_LEFT;
+			x = "48 * (pixelW * pixelGrid * 0.50)";
+			w = "82 * (pixelW * pixelGrid * 0.50)";
+			h = "5 * (pixelH * pixelGrid * 0.50)";
          };
      };
  };
@@ -493,22 +543,28 @@ class UO_FW_AI_zoneDelayControl : Edit {
      attributeLoad = "if (typename _value != typename '')then{_value = str _value;};(_this controlsGroupCtrl 128) ctrlSetText _value;";
      attributeSave = "_value = ctrlText (_this controlsGroupCtrl 128);if (gettext (_config >> 'typeName') == 'NUMBER')then{_value = parsenumber _value;};_value";
      class Controls: Controls {
-         class Title: Title{};
+         class Title: Title {
+
+		 };
          class Value: ctrlEdit {
-             idc = 128;
-             style = ST_LEFT;
-             x = "48 * (pixelW * pixelGrid * 0.50)";
-             w = "82 * (pixelW * pixelGrid * 0.50)";
-             h = "5 * (pixelH * pixelGrid * 0.50)";
+
+			idc = 128;
+			style = ST_LEFT;
+			x = "48 * (pixelW * pixelGrid * 0.50)";
+			w = "82 * (pixelW * pixelGrid * 0.50)";
+			h = "5 * (pixelH * pixelGrid * 0.50)";
          };
      };
  };
  class UO_FW_AI_zoneInitialSpawn : Title {
-	attributeLoad = "missionnamespace setvariable ['UO_FW_AI_intial_value',_value]; (_this controlsGroupCtrl 129) lbsetcursel _value;";
-	attributeSave = "missionnamespace getvariable ['UO_FW_AI_intial_value',0];";
+	attributeLoad = "missionNamespace setvariable ['UO_FW_AI_intial_value',_value]; (_this controlsGroupCtrl 129) lbsetcursel _value;";
+	attributeSave = "missionNamespace getvariable ['UO_FW_AI_intial_value',0];";
 	class Controls: Controls {
-		class Title: Title{};
+		class Title: Title {
+
+		};
 		class Value: ctrlToolbox {
+
 			idc = 129;
 			style = "0x02";
 			x = "48 * (pixelW * pixelGrid * 0.50)";
@@ -518,16 +574,19 @@ class UO_FW_AI_zoneDelayControl : Edit {
 			columns = 2;
 			values[] = {0,1};
 			strings[] = {"Yes","No"};
-			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_intial_value',_this select 1];";
+			onToolboxSelChanged = "missionNamespace setvariable ['UO_FW_AI_intial_value',_this select 1];";
 		};
 	};
 };
 class UO_FW_AI_zoneOnControl : Title {
-	attributeLoad = "missionnamespace setvariable ['UO_FW_AI_zoneOn_value',_value]; (_this controlsGroupCtrl 129) lbsetcursel _value;";
-	attributeSave = "missionnamespace getvariable ['UO_FW_AI_zoneOn_value',0];";
+	attributeLoad = "missionNamespace setvariable ['UO_FW_AI_zoneOn_value',_value]; (_this controlsGroupCtrl 129) lbsetcursel _value;";
+	attributeSave = "missionNamespace getvariable ['UO_FW_AI_zoneOn_value',0];";
 	class Controls: Controls {
-		class Title: Title{};
+		class Title: Title {
+
+		};
 		class Value: ctrlToolbox {
+
 			idc = 129;
 			style = "0x02";
 			x = "48 * (pixelW * pixelGrid * 0.50)";
@@ -537,7 +596,7 @@ class UO_FW_AI_zoneOnControl : Title {
 			columns = 2;
 			values[] = {0,1};
 			strings[] = {"EnableD","SUSPENDED"};
-			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_zoneOn_value',_this select 1];";
+			onToolboxSelChanged = "missionNamespace setvariable ['UO_FW_AI_zoneOn_value',_this select 1];";
 		};
 	};
 };
@@ -547,9 +606,11 @@ class UO_FW_AI_moduleconditionControl : Edit {
 	h = 3 * SIZE_M * GRID_H;
 	class Controls: Controls {
 		class Title: Title {
+
 			h = 3 * SIZE_M * GRID_H;
 		};
 		class Value: Value {
+
 			idc = 130;
 			style = ST_MULTI;
 			h = 3 * SIZE_M * GRID_H;
@@ -558,14 +619,16 @@ class UO_FW_AI_moduleconditionControl : Edit {
 	};
 };
 class UO_FW_AI_zoneTypeControl : Title	{
-	attributeLoad = "missionnamespace setvariable ['UO_FW_AI_zoneType_value',_value]; (_this controlsGroupCtrl 131) lbsetcursel (((_value) min 11) max 0);";
-	attributeSave = "missionnamespace getvariable ['UO_FW_AI_zoneType_value',1];";
+	attributeLoad = "missionNamespace setvariable ['UO_FW_AI_zoneType_value',_value]; (_this controlsGroupCtrl 131) lbsetcursel (((_value) min 11) max 0);";
+	attributeSave = "missionNamespace getvariable ['UO_FW_AI_zoneType_value',1];";
 	h = "25 * (pixelH * pixelGrid * 0.50)";
 	class Controls: Controls {
-		class Title: Title{
+		class Title: Title {
+
 			h = "25 * (pixelH * pixelGrid * 0.50)";
 		};
 		class Value: ctrlToolbox {
+
 			idc = 131;
 			style = "0x02";
 			x = "48 * (pixelW * pixelGrid * 0.50)";
@@ -590,19 +653,21 @@ class UO_FW_AI_zoneTypeControl : Title	{
 				"Activate zone on Ground Vehicle Only type of units present in zone.","Activate zone on Water Vehicle Only type of units present in zone.",
 				"Activate zone on Helicopter Unit Only type of units present in zone.","Activate zone on Plane Unit Only type of units present in zone."
 			};
-			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_zoneType_value',_this select 1];";
+			onToolboxSelChanged = "missionNamespace setvariable ['UO_FW_AI_zoneType_value',_this select 1];";
 		};
 	};
 };
 class UO_FW_AI_ZonesideControl : Title	{
-	attributeLoad = "missionnamespace setvariable ['UO_FW_AI_Zoneside_value',_value]; (_this controlsGroupCtrl 132) lbsetcursel (((_value) min 12) max 0);";
-	attributeSave = "missionnamespace getvariable ['UO_FW_AI_Zoneside_value',1];";
+	attributeLoad = "missionNamespace setvariable ['UO_FW_AI_Zoneside_value',_value]; (_this controlsGroupCtrl 132) lbsetcursel (((_value) min 12) max 0);";
+	attributeSave = "missionNamespace getvariable ['UO_FW_AI_Zoneside_value',1];";
 	h = "35 * (pixelH * pixelGrid * 0.50)";
 	class Controls: Controls {
-		class Title: Title{
+		class Title: Title {
+
 			h = "35 * (pixelH * pixelGrid * 0.50)";
 		};
 		class Value: ctrlToolbox {
+
 			idc = 132;
 			style = "0x02";
 			x = "48 * (pixelW * pixelGrid * 0.50)";
@@ -629,16 +694,19 @@ class UO_FW_AI_ZonesideControl : Title	{
 				"The side of the unit needs to be EAST or CIVILIAN to activate the zone.","The side of the unit needs to be EAST or INDEPENDENT or CIVILIAN to activate the zone.",
 				"The side of the unit needs to be INDEPENDENT or CIVILIAN to activate the zone."
 			};
-			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_Zoneside_value',_this select 1];";
+			onToolboxSelChanged = "missionNamespace setvariable ['UO_FW_AI_Zoneside_value',_this select 1];";
 		};
 	};
 };
 class UO_FW_AI_behaviourchangeControl : Title	{
-	attributeLoad = "_index = ['unchanged','careless','safe','aware','combat','stealth'] find _value; missionnamespace setvariable ['UO_FW_AI_behaviour_value',_index]; (_this controlsGroupCtrl 134) lbsetcursel _index;";
-	attributeSave = "['unchanged','careless','safe','aware','combat','stealth'] select (missionnamespace getvariable ['UO_FW_AI_behaviourchange_value',0]);";
+	attributeLoad = "_index = ['unchanged','careless','safe','aware','combat','stealth'] find _value; missionNamespace setvariable ['UO_FW_AI_behaviour_value',_index]; (_this controlsGroupCtrl 134) lbsetcursel _index;";
+	attributeSave = "['unchanged','careless','safe','aware','combat','stealth'] select (missionNamespace getvariable ['UO_FW_AI_behaviourchange_value',0]);";
 	class Controls: Controls {
-		class Title: Title{};
+		class Title: Title {
+
+		};
 		class Value: ctrlToolbox {
+
 			idc = 134;
 			style = "0x02";
 			x = "48 * (pixelW * pixelGrid * 0.50)";
@@ -648,19 +716,21 @@ class UO_FW_AI_behaviourchangeControl : Title	{
 			columns = 6;
 			values[] = {0,1,2,3,4,5};
 			strings[] = {"No Change","Careless","Safe","Aware","Combat","Stealth"};
-			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_behaviourchange_value',_this select 1];";
+			onToolboxSelChanged = "missionNamespace setvariable ['UO_FW_AI_behaviourchange_value',_this select 1];";
 		};
 	};
 };
 class UO_FW_AI_combatmodechangeControl : Title	{
-	attributeLoad = "_index = (['unchanged','blue','green','white','yellow','red'] find _value); missionnamespace setvariable ['UO_FW_AI_combatmodechange_value',_index]; (_this controlsGroupCtrl 135) lbsetcursel _index;";
-	attributeSave = "['unchanged','blue','green','white','yellow','red'] select (missionnamespace getvariable ['UO_FW_AI_combatmodechange_value',0]);";
+	attributeLoad = "_index = (['unchanged','blue','green','white','yellow','red'] find _value); missionNamespace setvariable ['UO_FW_AI_combatmodechange_value',_index]; (_this controlsGroupCtrl 135) lbsetcursel _index;";
+	attributeSave = "['unchanged','blue','green','white','yellow','red'] select (missionNamespace getvariable ['UO_FW_AI_combatmodechange_value',0]);";
 	h = "25 * (pixelH * pixelGrid * 0.50)";
 	class Controls: Controls {
-		class Title: Title{
+		class Title: Title {
+
 			h = "25 * (pixelH * pixelGrid * 0.50)";
 		};
 		class Value: ctrlToolbox {
+
 			idc = 135;
 			style = "0x02";
 			x = "48 * (pixelW * pixelGrid * 0.50)";
@@ -678,19 +748,21 @@ class UO_FW_AI_combatmodechangeControl : Title	{
 				"$STR_3DEN_Attributes_CombatMode_Yellow_tooltip",
 				"$STR_3DEN_Attributes_CombatMode_Red_tooltip"
 			};
-			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_combatmodechange_value',_this select 1];";
+			onToolboxSelChanged = "missionNamespace setvariable ['UO_FW_AI_combatmodechange_value',_this select 1];";
 		};
 	};
 };
 class UO_FW_AI_speedchangeControl : Toolbox {
-	attributeLoad = "_index = ['unchanged','limited','normal','full'] find _value; missionnamespace setvariable ['UO_FW_AI_speedchange_value',_index]; (_this controlsGroupCtrl 136) lbsetcursel _index;";
-	attributeSave = "['unchanged','limited','normal','full'] select (missionnamespace getvariable ['UO_FW_AI_speedchange_value',0]);";
+	attributeLoad = "_index = ['unchanged','limited','normal','full'] find _value; missionNamespace setvariable ['UO_FW_AI_speedchange_value',_index]; (_this controlsGroupCtrl 136) lbsetcursel _index;";
+	attributeSave = "['unchanged','limited','normal','full'] select (missionNamespace getvariable ['UO_FW_AI_speedchange_value',0]);";
 	h = 2 * SIZE_M * GRID_H;
 	class Controls: Controls {
 		class Title: Title {
+
 			h = 2 * SIZE_M * GRID_H;
 		};
 		class Value: Value {
+
 			idc = 136;
 			style = ST_CENTER + ST_PICTURE + ST_KEEP_ASPECT_RATIO;
 			h = 2 * SIZE_M * GRID_H;
@@ -709,19 +781,21 @@ class UO_FW_AI_speedchangeControl : Toolbox {
 				$STR_3den_attributes_speedmode_normal,
 				$STR_3den_attributes_speedmode_full
 			};
-			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_speedchange_value',_this select 1];";
+			onToolboxSelChanged = "missionNamespace setvariable ['UO_FW_AI_speedchange_value',_this select 1];";
 		};
 	};
 };
 class UO_FW_AI_formationchangeControl : Toolbox {
-	attributeLoad = "_index = ['unchanged','wedge','vee','line','column','file','stag_column','ech_left','ech_right','diamond'] find _value; missionnamespace setvariable ['UO_FW_AI_formationchange_value',_index]; (_this controlsGroupCtrl 137) lbsetcursel _index;";
-	attributeSave = "['unchanged','wedge','vee','line','column','file','stag_column','ech_left','ech_right','diamond'] select (missionnamespace getvariable ['UO_FW_AI_formationchange_value',0]);";
+	attributeLoad = "_index = ['unchanged','wedge','vee','line','column','file','stag_column','ech_left','ech_right','diamond'] find _value; missionNamespace setvariable ['UO_FW_AI_formationchange_value',_index]; (_this controlsGroupCtrl 137) lbsetcursel _index;";
+	attributeSave = "['unchanged','wedge','vee','line','column','file','stag_column','ech_left','ech_right','diamond'] select (missionNamespace getvariable ['UO_FW_AI_formationchange_value',0]);";
 	h = 2 * SIZE_M * GRID_H;
 	class Controls: Controls {
 		class Title: Title {
+
 			h = 2 * SIZE_M * GRID_H;
 		};
 		class Value: Value {
+
 			idc = 137;
 			style = ST_CENTER + ST_PICTURE + ST_KEEP_ASPECT_RATIO;
 			h = 2 * SIZE_M * GRID_H;
@@ -752,19 +826,21 @@ class UO_FW_AI_formationchangeControl : Toolbox {
 				$STR_ECHR,
 				$STR_DIAMOND
 			};
-			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_formationchange_value',_this select 1];";
+			onToolboxSelChanged = "missionNamespace setvariable ['UO_FW_AI_formationchange_value',_this select 1];";
 		};
 	};
 };
 class UO_FW_AI_stancechangeControl: Toolbox {
-	attributeLoad = "_index = ['unchanged','auto','down','middle','up'] find _value; missionnamespace setvariable ['UO_FW_AI_stancechange_value',_index]; (_this controlsGroupCtrl 138) lbsetcursel _index;";
-	attributeSave = "['unchanged','auto','down','middle','up'] select (missionnamespace getvariable ['UO_FW_AI_stancechange_value',0]);";
+	attributeLoad = "_index = ['unchanged','auto','down','middle','up'] find _value; missionNamespace setvariable ['UO_FW_AI_stancechange_value',_index]; (_this controlsGroupCtrl 138) lbsetcursel _index;";
+	attributeSave = "['unchanged','auto','down','middle','up'] select (missionNamespace getvariable ['UO_FW_AI_stancechange_value',0]);";
 	h = 8 * GRID_H;
 	class Controls: Controls {
 		class Title: Title {
+
 			h = 8 * GRID_H;
 		};
 		class Value: Value {
+
 			idc = 138;
 			style = ST_CENTER + ST_PICTURE + ST_KEEP_ASPECT_RATIO;
 			h = 8 * GRID_H;
@@ -785,19 +861,21 @@ class UO_FW_AI_stancechangeControl: Toolbox {
 				$STR_3den_attributes_stance_up
 			};
 			values[] = {0,1,2,3,4};
-			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_stancechange_value',_this select 1];";
+			onToolboxSelChanged = "missionNamespace setvariable ['UO_FW_AI_stancechange_value',_this select 1];";
 		};
 	};
 };
 class UO_FW_AI_taskpriorityControl : Title {
-	attributeLoad = "missionnamespace setvariable ['UO_FW_AI_taskpriority_value',_value]; (_this controlsGroupCtrl 139) lbsetcursel (((_value) min 2) max 0);";
-	attributeSave = "missionnamespace getvariable ['UO_FW_AI_taskpriority_value',1];";
+	attributeLoad = "missionNamespace setvariable ['UO_FW_AI_taskpriority_value',_value]; (_this controlsGroupCtrl 139) lbsetcursel (((_value) min 2) max 0);";
+	attributeSave = "missionNamespace getvariable ['UO_FW_AI_taskpriority_value',1];";
 	h = "5 * (pixelH * pixelGrid * 0.50)";
 	class Controls: Controls {
 		class Title: Title {
+
 			h = "5 * (pixelH * pixelGrid * 0.50)";
 		};
 		class Value: ctrlToolbox {
+
 			idc = 139;
 			style = "0x02";
 			x = "48 * (pixelW * pixelGrid * 0.50)";
@@ -812,7 +890,7 @@ class UO_FW_AI_taskpriorityControl : Title {
 			tooltips[] = {
 				"High Priority","Medium Priority","Low Priority"
 			};
-			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_taskpriority_value',_this select 1];";
+			onToolboxSelChanged = "missionNamespace setvariable ['UO_FW_AI_taskpriority_value',_this select 1];";
 		};
 	};
 };
@@ -820,23 +898,29 @@ class UO_FW_AI_standardNumberAltControl : Edit {
      attributeLoad = "if (typename _value != typename '')then{_value = str _value;};(_this controlsGroupCtrl 140) ctrlSetText _value;";
      attributeSave = "_value = ctrlText (_this controlsGroupCtrl 140);if (gettext (_config >> 'typeName') == 'NUMBER')then{_value = parsenumber _value;};_value";
      class Controls: Controls {
-         class Title: Title{};
+         class Title: Title {
+
+		};
          class Value: ctrlEdit {
+
              idc = 140;
              style = ST_LEFT;
              x = "48 * (pixelW * pixelGrid * 0.50)";
              w = "82 * (pixelW * pixelGrid * 0.50)";
              h = "5 * (pixelH * pixelGrid * 0.50)";
-					   canModify = 1;
+			 canModify = 1;
          };
      };
  };
 class UO_FW_AI_forcelightsControl : Title {
-	attributeLoad = "_index = (if (_value isequaltype 0) then {_value} else {[false,true] find _value}); missionnamespace setvariable ['UO_FW_AI_persistent_value',_index]; (_this controlsGroupCtrl 142) lbsetcursel _index;";
-	attributeSave = "[false,true] select (missionnamespace getvariable ['UO_FW_AI_persistent_value',0]);";
+	attributeLoad = "_index = (if (_value isequaltype 0) then {_value} else {[false,true] find _value}); missionNamespace setvariable ['UO_FW_AI_persistent_value',_index]; (_this controlsGroupCtrl 142) lbsetcursel _index;";
+	attributeSave = "[false,true] select (missionNamespace getvariable ['UO_FW_AI_persistent_value',0]);";
 	class Controls: Controls {
-		class Title: Title{};
+		class Title: Title {
+
+		};
 		class Value: ctrlToolbox {
+
 			idc = 142;
 			style = "0x02";
 			x = "48 * (pixelW * pixelGrid * 0.50)";
@@ -846,16 +930,19 @@ class UO_FW_AI_forcelightsControl : Title {
 			columns = 2;
 			values[] = {0,1};
 			strings[] = {"Off","Force Flashlights"};
-			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_persistent_value',_this select 1];";
+			onToolboxSelChanged = "missionNamespace setvariable ['UO_FW_AI_persistent_value',_this select 1];";
 		};
 	};
 };
-class UO_FW_AI_mainControl : Title	{
-	attributeLoad = "missionnamespace setvariable ['UO_FW_AI_main_value',_value]; (_this controlsGroupCtrl 143) lbsetcursel _value;";
-	attributeSave = "missionnamespace getvariable ['UO_FW_AI_main_value',0];";
+class UO_FW_AI_MainControl : Title	{
+	attributeLoad = "missionNamespace setvariable ['UO_FW_AI_Main_value',_value]; (_this controlsGroupCtrl 143) lbsetcursel _value;";
+	attributeSave = "missionNamespace getvariable ['UO_FW_AI_Main_value',0];";
 	class Controls: Controls {
-		class Title: Title{};
+		class Title: Title {
+
+		};
 		class Value: ctrlToolbox {
+
 			idc = 143;
 			style = "0x02";
 			x = "48 * (pixelW * pixelGrid * 0.50)";
@@ -865,16 +952,19 @@ class UO_FW_AI_mainControl : Title	{
 			columns = 2;
 			values[] = {0,1};
 			strings[] = {"EnableD","DISABLED"};
-			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_main_value',_this select 1];";
+			onToolboxSelChanged = "missionNamespace setvariable ['UO_FW_AI_Main_value',_this select 1];";
 		};
 	};
 };
-class UO_FW_AI_mainconsoleControl : Title	{
-	attributeLoad = "missionnamespace setvariable ['UO_FW_AI_mainconsole_value',_value]; (_this controlsGroupCtrl 144) lbsetcursel _value;";
-	attributeSave = "missionnamespace getvariable ['UO_FW_AI_mainconsole_value',1];";
+class UO_FW_AI_MainconsoleControl : Title	{
+	attributeLoad = "missionNamespace setvariable ['UO_FW_AI_Mainconsole_value',_value]; (_this controlsGroupCtrl 144) lbsetcursel _value;";
+	attributeSave = "missionNamespace getvariable ['UO_FW_AI_Mainconsole_value',1];";
 	class Controls: Controls {
-		class Title: Title{};
+		class Title: Title {
+
+		};
 		class Value: ctrlToolbox {
+
 			idc = 144;
 			style = "0x02";
 			x = "48 * (pixelW * pixelGrid * 0.50)";
@@ -884,16 +974,19 @@ class UO_FW_AI_mainconsoleControl : Title	{
 			columns = 2;
 			values[] = {0,1};
 			strings[] = {"ON","OFF"};
-			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_mainconsole_value',_this select 1];";
+			onToolboxSelChanged = "missionNamespace setvariable ['UO_FW_AI_Mainconsole_value',_this select 1];";
 		};
 	};
 };
-class UO_FW_AI_maindebugControl : Title	{
-	attributeLoad = "missionnamespace setvariable ['UO_FW_AI_maindebug_value',_value]; (_this controlsGroupCtrl 145) lbsetcursel _value;";
-	attributeSave = "missionnamespace getvariable ['UO_FW_AI_maindebug_value',0];";
+class UO_FW_AI_MaindebugControl : Title	{
+	attributeLoad = "missionNamespace setvariable ['UO_FW_AI_Maindebug_value',_value]; (_this controlsGroupCtrl 145) lbsetcursel _value;";
+	attributeSave = "missionNamespace getvariable ['UO_FW_AI_Maindebug_value',0];";
 	class Controls: Controls {
-		class Title: Title{};
+		class Title: Title {
+
+		};
 		class Value: ctrlToolbox {
+
 			idc = 145;
 			style = "0x02";
 			x = "48 * (pixelW * pixelGrid * 0.50)";
@@ -903,7 +996,7 @@ class UO_FW_AI_maindebugControl : Title	{
 			columns = 2;
 			values[] = {0,1};
 			strings[] = {"ON","OFF"};
-			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_maindebug_value',_this select 1];";
+			onToolboxSelChanged = "missionNamespace setvariable ['UO_FW_AI_Maindebug_value',_this select 1];";
 		};
 	};
 };
@@ -911,13 +1004,16 @@ class UO_FW_AI_standardStringOneControl : Edit {
      attributeLoad = "if (typename _value != typename '')then{_value = str _value;};(_this controlsGroupCtrl 146) ctrlSetText _value;";
      attributeSave = "_value = ctrlText (_this controlsGroupCtrl 146);if (gettext (_config >> 'typeName') == 'NUMBER')then{_value = parsenumber _value;};_value";
      class Controls: Controls {
-         class Title: Title{};
+		 class Title: Title {
+
+ 		};
          class Value: ctrlEdit {
-             idc = 146;
-             style = ST_LEFT;
-             x = "48 * (pixelW * pixelGrid * 0.50)";
-             w = "82 * (pixelW * pixelGrid * 0.50)";
-             h = "5 * (pixelH * pixelGrid * 0.50)";
+
+            idc = 146;
+            style = ST_LEFT;
+            x = "48 * (pixelW * pixelGrid * 0.50)";
+            w = "82 * (pixelW * pixelGrid * 0.50)";
+            h = "5 * (pixelH * pixelGrid * 0.50)";
          };
      };
  };
@@ -925,8 +1021,11 @@ class UO_FW_AI_standardStringTwoControl : Edit {
      attributeLoad = "if (typename _value != typename '')then{_value = str _value;};(_this controlsGroupCtrl 147) ctrlSetText _value;";
      attributeSave = "_value = ctrlText (_this controlsGroupCtrl 147);if (gettext (_config >> 'typeName') == 'NUMBER')then{_value = parsenumber _value;};_value";
      class Controls: Controls {
-         class Title: Title{};
+		 class Title: Title {
+
+ 		};
          class Value: ctrlEdit {
+
              idc = 147;
              style = ST_LEFT;
              x = "48 * (pixelW * pixelGrid * 0.50)";
@@ -939,8 +1038,11 @@ class UO_FW_AI_standardStringThreeControl : Edit {
      attributeLoad = "if (typename _value != typename '')then{_value = str _value;};(_this controlsGroupCtrl 148) ctrlSetText _value;";
      attributeSave = "_value = ctrlText (_this controlsGroupCtrl 148);if (gettext (_config >> 'typeName') == 'NUMBER')then{_value = parsenumber _value;};_value";
      class Controls: Controls {
-         class Title: Title{};
+		 class Title: Title {
+
+ 		};
          class Value: ctrlEdit {
+
              idc = 148;
              style = ST_LEFT;
              x = "48 * (pixelW * pixelGrid * 0.50)";
@@ -950,11 +1052,14 @@ class UO_FW_AI_standardStringThreeControl : Edit {
      };
  };
 class UO_FW_AI_positiontypeControl : Title	{
-	attributeLoad = "missionnamespace setvariable ['UO_FW_AI_postiontype_value',_value]; (_this controlsGroupCtrl 149) lbsetcursel _value;";
-	attributeSave = "missionnamespace getvariable ['UO_FW_AI_postiontype_value',0];";
+	attributeLoad = "missionNamespace setvariable ['UO_FW_AI_postiontype_value',_value]; (_this controlsGroupCtrl 149) lbsetcursel _value;";
+	attributeSave = "missionNamespace getvariable ['UO_FW_AI_postiontype_value',0];";
 	class Controls: Controls {
-		class Title: Title{};
+		class Title: Title {
+
+		};
 		class Value: ctrlToolbox {
+
 			idc = 149;
 			style = "0x02";
 			x = "48 * (pixelW * pixelGrid * 0.50)";
@@ -964,16 +1069,19 @@ class UO_FW_AI_positiontypeControl : Title	{
 			columns = 2;
 			values[] = {0,1};
 			strings[] = {"STANDARD","START"};
-			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_postiontype_value',_this select 1];";
+			onToolboxSelChanged = "missionNamespace setvariable ['UO_FW_AI_postiontype_value',_this select 1];";
 		};
 	};
 };
 class UO_FW_AI_flyingControl : Title	{
-	attributeLoad = "_index = (if (_value isequaltype 0) then {_value} else {[false,true] find _value}); missionnamespace setvariable ['UO_FW_AI_flying_value',_index]; (_this controlsGroupCtrl 150) lbsetcursel _index;";
-	attributeSave = "[false,true] select (missionnamespace getvariable ['UO_FW_AI_flying_value',0]);";
+	attributeLoad = "_index = (if (_value isequaltype 0) then {_value} else {[false,true] find _value}); missionNamespace setvariable ['UO_FW_AI_flying_value',_index]; (_this controlsGroupCtrl 150) lbsetcursel _index;";
+	attributeSave = "[false,true] select (missionNamespace getvariable ['UO_FW_AI_flying_value',0]);";
 	class Controls: Controls {
-		class Title: Title{};
+		class Title: Title {
+
+		};
 		class Value: ctrlToolbox {
+
 			idc = 150;
 			style = "0x02";
 			x = "48 * (pixelW * pixelGrid * 0.50)";
@@ -983,16 +1091,19 @@ class UO_FW_AI_flyingControl : Title	{
 			columns = 2;
 			values[] = {0,1};
 			strings[] = {"NOT FLYING","FLYING"};
-			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_flying_value',_this select 1];";
+			onToolboxSelChanged = "missionNamespace setvariable ['UO_FW_AI_flying_value',_this select 1];";
 		};
 	};
 };
 class UO_FW_AI_heliControl : Title	{
-	attributeLoad = "missionnamespace setvariable ['UO_FW_AI_helitype_value',_value]; (_this controlsGroupCtrl 151) lbsetcursel _value;";
-	attributeSave = "missionnamespace getvariable ['UO_FW_AI_helitype_value',0];";
+	attributeLoad = "missionNamespace setvariable ['UO_FW_AI_helitype_value',_value]; (_this controlsGroupCtrl 151) lbsetcursel _value;";
+	attributeSave = "missionNamespace getvariable ['UO_FW_AI_helitype_value',0];";
 	class Controls: Controls {
-		class Title: Title{};
+		class Title: Title {
+
+		};
 		class Value: ctrlToolbox {
+
 			idc = 151;
 			style = "0x02";
 			x = "48 * (pixelW * pixelGrid * 0.50)";
@@ -1002,19 +1113,21 @@ class UO_FW_AI_heliControl : Title	{
 			columns = 2;
 			values[] = {0,1};
 			strings[] = {"RAPPEL","LAND"};
-			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_helitype_value',_this select 1];";
+			onToolboxSelChanged = "missionNamespace setvariable ['UO_FW_AI_helitype_value',_this select 1];";
 		};
 	};
 };
 class UO_FW_AI_initActionControl : Title {
-	attributeLoad = "missionnamespace setvariable ['UO_FW_AI_initAction_value',_value]; (_this controlsGroupCtrl 152) lbsetcursel (((_value) min 2) max 0);";
-	attributeSave = "missionnamespace getvariable ['UO_FW_AI_initAction_value',1];";
+	attributeLoad = "missionNamespace setvariable ['UO_FW_AI_initAction_value',_value]; (_this controlsGroupCtrl 152) lbsetcursel (((_value) min 2) max 0);";
+	attributeSave = "missionNamespace getvariable ['UO_FW_AI_initAction_value',1];";
 	h = "5 * (pixelH * pixelGrid * 0.50)";
 	class Controls: Controls {
 		class Title: Title {
+
 			h = "5 * (pixelH * pixelGrid * 0.50)";
 		};
 		class Value: ctrlToolbox {
+
 			idc = 152;
 			style = "0x02";
 			x = "48 * (pixelW * pixelGrid * 0.50)";
@@ -1029,19 +1142,21 @@ class UO_FW_AI_initActionControl : Title {
 			tooltips[] = {
 				"Do Nothing to linked zones","Disable linked zones","Enable linked zones"
 			};
-			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_initAction_value',_this select 1];";
+			onToolboxSelChanged = "missionNamespace setvariable ['UO_FW_AI_initAction_value',_this select 1];";
 		};
 	};
 };
 class UO_FW_AI_actionControl : Title {
-	attributeLoad = "missionnamespace setvariable ['UO_FW_AI_action_value',_value]; (_this controlsGroupCtrl 153) lbsetcursel (((_value) min 2) max 0);";
-	attributeSave = "missionnamespace getvariable ['UO_FW_AI_action_value',1];";
+	attributeLoad = "missionNamespace setvariable ['UO_FW_AI_action_value',_value]; (_this controlsGroupCtrl 153) lbsetcursel (((_value) min 2) max 0);";
+	attributeSave = "missionNamespace getvariable ['UO_FW_AI_action_value',1];";
 	h = "5 * (pixelH * pixelGrid * 0.50)";
 	class Controls: Controls {
 		class Title: Title {
+
 			h = "5 * (pixelH * pixelGrid * 0.50)";
 		};
 		class Value: ctrlToolbox {
+
 			idc = 153;
 			style = "0x02";
 			x = "48 * (pixelW * pixelGrid * 0.50)";
@@ -1056,7 +1171,7 @@ class UO_FW_AI_actionControl : Title {
 			tooltips[] = {
 				"Enable linked zones","Disable linked zones","If linked zone is disabled, enable it. If linked zone enabled, disabled it."
 			};
-			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_action_value',_this select 1];";
+			onToolboxSelChanged = "missionNamespace setvariable ['UO_FW_AI_action_value',_this select 1];";
 		};
 	};
 };
@@ -1064,8 +1179,11 @@ class UO_FW_AI_flyinheightControl : Edit {
      attributeLoad = "if (typename _value != typename '')then{_value = str _value;};(_this controlsGroupCtrl 154) ctrlSetText _value;";
      attributeSave = "_value = ctrlText (_this controlsGroupCtrl 154);if (gettext (_config >> 'typeName') == 'NUMBER')then{_value = parsenumber _value;};_value";
      class Controls: Controls {
-         class Title: Title{};
+		 class Title: Title {
+
+ 		};
          class Value: ctrlEdit {
+
              idc = 154;
              style = ST_LEFT;
              x = "48 * (pixelW * pixelGrid * 0.50)";
@@ -1075,11 +1193,14 @@ class UO_FW_AI_flyinheightControl : Edit {
      };
  };
 class UO_FW_AI_boolControl : Title	{
-	attributeLoad = "_index = (if (_value isequaltype 0) then {_value} else {[false,true] find _value}); missionnamespace setvariable ['UO_FW_AI_bool_value',_index]; (_this controlsGroupCtrl 155) lbsetcursel _index;";
-	attributeSave = "[false,true] select (missionnamespace getvariable ['UO_FW_AI_bool_value',0]);";
+	attributeLoad = "_index = (if (_value isequaltype 0) then {_value} else {[false,true] find _value}); missionNamespace setvariable ['UO_FW_AI_bool_value',_index]; (_this controlsGroupCtrl 155) lbsetcursel _index;";
+	attributeSave = "[false,true] select (missionNamespace getvariable ['UO_FW_AI_bool_value',0]);";
 	class Controls: Controls {
-		class Title: Title{};
+		class Title: Title {
+
+		};
 		class Value: ctrlToolbox {
+
 			idc = 155;
 			style = "0x02";
 			x = "48 * (pixelW * pixelGrid * 0.50)";
@@ -1089,16 +1210,19 @@ class UO_FW_AI_boolControl : Title	{
 			columns = 2;
 			values[] = {0,1};
 			strings[] = {"FALSE","TRUE"};
-			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_bool_value',_this select 1];";
+			onToolboxSelChanged = "missionNamespace setvariable ['UO_FW_AI_bool_value',_this select 1];";
 		};
 	};
 };
 class UO_FW_AI_boolControl2 : Title	{
-	attributeLoad = "_index = (if (_value isequaltype 0) then {_value} else {[false,true] find _value}); missionnamespace setvariable ['UO_FW_AI_bool2_value',_index]; (_this controlsGroupCtrl 156) lbsetcursel _index;";
-	attributeSave = "[false,true] select (missionnamespace getvariable ['UO_FW_AI_bool2_value',0]);";
+	attributeLoad = "_index = (if (_value isequaltype 0) then {_value} else {[false,true] find _value}); missionNamespace setvariable ['UO_FW_AI_bool2_value',_index]; (_this controlsGroupCtrl 156) lbsetcursel _index;";
+	attributeSave = "[false,true] select (missionNamespace getvariable ['UO_FW_AI_bool2_value',0]);";
 	class Controls: Controls {
-		class Title: Title{};
+		class Title: Title {
+
+		};
 		class Value: ctrlToolbox {
+
 			idc = 156;
 			style = "0x02";
 			x = "48 * (pixelW * pixelGrid * 0.50)";
@@ -1108,19 +1232,21 @@ class UO_FW_AI_boolControl2 : Title	{
 			columns = 2;
 			values[] = {0,1};
 			strings[] = {"FALSE","TRUE"};
-			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_bool2_value',_this select 1];";
+			onToolboxSelChanged = "missionNamespace setvariable ['UO_FW_AI_bool2_value',_this select 1];";
 		};
 	};
 };
 class UO_FW_AI_numberSelect1Control : Title	{
-	attributeLoad = "missionnamespace setvariable ['UO_FW_AI_numberSelect1_value',_value]; (_this controlsGroupCtrl 159) lbsetcursel (((_value) min 6) max 0);";
-	attributeSave = "missionnamespace getvariable ['UO_FW_AI_numberSelect1_value',0];";
+	attributeLoad = "missionNamespace setvariable ['UO_FW_AI_numberSelect1_value',_value]; (_this controlsGroupCtrl 159) lbsetcursel (((_value) min 6) max 0);";
+	attributeSave = "missionNamespace getvariable ['UO_FW_AI_numberSelect1_value',0];";
 	h = "5 * (pixelH * pixelGrid * 0.50)";
 	class Controls: Controls {
 		class Title: Title {
+
 			h = "5 * (pixelH * pixelGrid * 0.50)";
 		};
 		class Value: ctrlToolbox {
+
 			idc = 159;
 			style = "0x02";
 			x = "48 * (pixelW * pixelGrid * 0.50)";
@@ -1130,7 +1256,7 @@ class UO_FW_AI_numberSelect1Control : Title	{
 			columns = 7;
 			values[] = {0,1,2,3,4,5,6};
 			strings[] = {"OFF","1","2","3","4","5","6"};
-			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_AI_numberSelect1_value',_this select 1];";
+			onToolboxSelChanged = "missionNamespace setvariable ['UO_FW_AI_numberSelect1_value',_this select 1];";
 		};
 	};
 };

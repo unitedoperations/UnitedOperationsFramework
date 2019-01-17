@@ -6,7 +6,7 @@ class UO_FW_DIA_ENDSCREEN {
 	onLoad = "uiNamespace setVariable ['UO_FW_EndScreen', (_this select 0)];";
 	controlsBackground[] = {BACKGROUND};
 	objects[] = {};
-	controls[] = {TEXT_TITLE, TEXT_LEFT, TEXT_RIGHT, TEXT_BOTTOM_LEFT,TEXT_BOTTOM_MIDDLE_LEFT, TEXT_BOTTOM_MIDDLE_RIGHT, TEXT_BOTTOM_RIGHT};
+	controls[] = {TEXT_Title, TEXT_LEFT, TEXT_RIGHT, TEXT_BOTTOM_LEFT,TEXT_BOTTOM_MIDDLE_LEFT, TEXT_BOTTOM_MIDDLE_RIGHT, TEXT_BOTTOM_RIGHT};
 
 	class BACKGROUND: UO_FW_RscBackground {
 		idc = 3000;
@@ -15,7 +15,7 @@ class UO_FW_DIA_ENDSCREEN {
 		w = 4;
 		h = 4;
 	};
-	class TEXT_TITLE:  UO_FW_RscStructuredText {
+	class TEXT_Title:  UO_FW_RscStructuredText {
 		idc = 3001;
 		x = 0.2375 * safezoneW + safezoneX;
 		y = 0.149922 * safezoneH + safezoneY;

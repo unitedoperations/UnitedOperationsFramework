@@ -9,7 +9,7 @@ class UO_FW_AOLimitModule: OlsenModule {
 	isDisposable = 0;
 	is3DEN = 1;
 	canSetArea = 1;
-	icon = "\x\UO_FW\addons\main\AOLimitModule\resources\aolimitmodule_ca.paa";
+	icon = "\x\UO_FW\addons\Main\AOLimitModule\resources\aolimitmodule_ca.paa";
 
 	class AttributeValues {
 		size2[] = {100,100};

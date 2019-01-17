@@ -8,7 +8,7 @@
  */
 
 #define COMPONENT AntiND
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
 UO_FW_EXEC_CHECK(ALL);
 
 if !(UO_FW_Server_ANTINDMODULE_Allowed) exitwith {};
@@ -38,7 +38,7 @@ if (hasinterface) then {
 						private _msg1 = "";
 						private _msg2 = "";
 						if (missionNamespace getVariable ["UO_FW_ND_Active", false]) then {
-							_msg1 = "\nTime remaining: " + str round (UO_FW_Anti_ND_Time - time) + " seconds.";
+							_msg1 = "\nTime reMaining: " + str round (UO_FW_Anti_ND_Time - time) + " seconds.";
 						};
 						if ((UO_FW_SpawnPos distance player) <= UO_FW_Anti_ND_Distance) then {
 							_msg2 = "\nDistance from base: " + str round (UO_FW_SpawnPos distance player) + " out of " + str (round UO_FW_Anti_ND_Distance) + " meters.";

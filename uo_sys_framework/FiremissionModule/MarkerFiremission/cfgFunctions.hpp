@@ -1,6 +1,6 @@
 class UO_FW_MarkerFiremission
 {
-	file = "x\UO_FW\addons\main\FiremissionModule\MarkerFiremission\cfgFunctions\common";
+	file = "x\UO_FW\addons\Main\FiremissionModule\MarkerFiremission\cfgFunctions\common";
 	class DIA_MarkerFiremission {};
 	class DIA_MarkerFiremissionCloseDialog {};
 	class DIA_MarkerFiremissionFire {};

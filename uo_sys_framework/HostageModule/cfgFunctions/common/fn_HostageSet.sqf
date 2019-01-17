@@ -1,5 +1,5 @@
 #define COMPONENT Hostage
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
 if (!UO_FW_Server_HostageModule_Allowed) exitWith {};
 UO_FW_EXEC_CHECK(ALL);
 

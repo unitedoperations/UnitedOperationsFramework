@@ -388,7 +388,7 @@ if (!isDedicated) then {
 
 				[] spawn {
 					while {(player getVariable ["UO_FW_Spectating", false])} do {
-						player setOxygenRemaining 1;
+						player setOxygenReMaining 1;
 						sleep 0.25;
 					};
 				};

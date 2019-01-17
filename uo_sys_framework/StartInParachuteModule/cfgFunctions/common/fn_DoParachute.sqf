@@ -1,5 +1,5 @@
 #define COMPONENT StartInParachute
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
 
 params ["_target","_elev",["_rand",100,0],["_steer",false,false]];
 

@@ -17,7 +17,7 @@ _givenSearchArray = _this select 0;
 _givenSearchValue = _this select 1;
 _desiredIndex = _this select 2;
 
-scopeName "main";
+scopeName "Main";
 _index = -1;
 
 {
@@ -31,7 +31,7 @@ _index = -1;
         {
             if (_x isEqualTo _givenSearchValue) then {
                 _index = _currentIndex;
-                breakTo "main";
+                breakTo "Main";
             };
         } forEach _nestedArray;
     };

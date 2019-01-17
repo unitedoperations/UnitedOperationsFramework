@@ -1,5 +1,5 @@
 #define COMPONENT StartText
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
 UO_FW_EXEC_CHECK(ALL);
 
 if !(missionNamespace getVariable ["UO_FW_StartText_Enabled",false]) exitWith {};
@@ -9,11 +9,11 @@ private _dateTypeArray = [["DATE"],["TIME"],["DATETIME"]];
 private _dateType = _dateTypeArray select (missionNamespace getVariable ["UO_FW_StartText_TimeSelect",2]);
 private _startTextArray = [];
 private _collectInfo = {
-    params["_title","_text"];
+    params["_Title","_text"];
     private _ret = [];
-    private _titleQuoteVar = missionNamespace getVariable [_title,""];
+    private _TitleQuoteVar = missionNamespace getVariable [_Title,""];
     private _textVar = missionNamespace getVariable [_text,""];
-    if !(_titleQuoteVar isEqualto "" ) then {_ret pushBack ["TITLEQUOTE", _titleQuoteVar];};
+    if !(_TitleQuoteVar isEqualto "" ) then {_ret pushBack ["TitleQUOTE", _TitleQuoteVar];};
     if !(_textVar isEqualto "" ) then {_ret pushBack ["TEXT", _textVar];};
     _ret
 };

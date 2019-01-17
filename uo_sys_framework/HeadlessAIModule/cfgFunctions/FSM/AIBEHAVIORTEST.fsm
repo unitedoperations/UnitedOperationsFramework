@@ -635,7 +635,7 @@ class FSM
                         init = /*%FSM<STATEINIT""">*/"params [""_unit""];" \n
                          "private _group = group _unit;" \n
                          "" \n
-                         "if ((UO_FW_AI_MARKERS_EnableD) && !(_unit in UO_FW_AI_TRACKEDUNITS)) then {UO_FW_AI_TRACKEDUNITS pushback _Unit;};" \n
+                         "if ((UO_FW_AI_MARKERS_Enabled) && !(_unit in UO_FW_AI_TRACKEDUNITS)) then {UO_FW_AI_TRACKEDUNITS pushback _Unit;};" \n
                          "" \n
                          "_ReturnVariable = [_Unit] call UO_FW_AI_fnc_UnitCheck;" \n
                          "_ReturnVariable params [""_NoAICheck"",""_IsPlayerCheck"",""_IsBunkerCheck""];"/*%FSM</STATEINIT""">*/;
@@ -671,7 +671,7 @@ class FSM
                                         priority = 49.000000;
                                         to="Set_Vector";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"(_IsBunkerCheck) && {(UO_FW_AI_BUNKER_EnableD)}"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(_IsBunkerCheck) && {(UO_FW_AI_BUNKER_Enabled)}"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -856,7 +856,7 @@ class FSM
                                         priority = 50.000000;
                                         to="Main_Loop";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"((_LastTimeCheck8 + 2) < diag_ticktime) && {(_InitialWaypointSet)} && {(UO_FW_AI_SIGHTAID_EnableD)} && {(({_x distance2d _unit < UO_FW_AI_SIGHTAID_DISTANCE} count ([] call UO_FW_fnc_alivePlayers)) > 0)}"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"((_LastTimeCheck8 + 2) < diag_ticktime) && {(_InitialWaypointSet)} && {(UO_FW_AI_SIGHTAID_Enabled)} && {(({_x distance2d _unit < UO_FW_AI_SIGHTAID_DISTANCE} count ([] call UO_FW_fnc_alivePlayers)) > 0)}"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/"_LastTimeCheck8 = diag_ticktime;" \n
                                          "[_unit] spawn UO_FW_AI_fnc_SightAid;"/*%FSM</ACTION""">*/;
                                 };
@@ -868,7 +868,7 @@ class FSM
                                         priority = 49.000000;
                                         to="Set_Vector";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"((_unit getvariable [""UO_FW_AI_BUNKER"",false]) && (UO_FW_AI_BUNKER_EnableD))"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"((_unit getvariable [""UO_FW_AI_BUNKER"",false]) && (UO_FW_AI_BUNKER_Enabled))"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/

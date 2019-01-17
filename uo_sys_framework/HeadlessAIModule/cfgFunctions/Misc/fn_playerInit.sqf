@@ -1,5 +1,5 @@
 
-#include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
+#include "\x\UO_FW\addons\Main\HeadlessAIModule\module_macros.hpp"
 UO_FW_AI_EXEC_CHECK(CLIENT);
 
 [] spawn {
@@ -8,7 +8,7 @@ UO_FW_AI_EXEC_CHECK(CLIENT);
 	waituntil {UO_FW_AI_InitMainInitialized};
 	_unit = player;
 	if (!local _unit) exitwith {};
-	if !(UO_FW_AI_HEARINGAIDS_EnableD) exitwith {};
+	if !(UO_FW_AI_HEARINGAIDS_Enabled) exitwith {};
 		if ((_unit getVariable ["UO_FW_AI_unitFiredManHandlerSet",false])) exitwith {};
 
 			_ID = _unit addEventHandler ["FiredMan",{
@@ -36,7 +36,7 @@ UO_FW_AI_EXEC_CHECK(CLIENT);
 					};
 
 				};
-				if (UO_FW_AI_MARKERS_EnableD) then {
+				if (UO_FW_AI_MARKERS_Enabled) then {
 					LOG(_debugText);
 				};
 				}];

@@ -10,7 +10,7 @@
 
 
 #define COMPONENT TeamColour
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
 
 if (!UO_FW_Server_TeamColourModule_Allowed) exitWith {};
 if (hasinterface) then {

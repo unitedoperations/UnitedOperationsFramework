@@ -21,10 +21,10 @@ if (_unit getVariable ["UO_FW_Tracked", false]) then {
 	_unit setVariable ["UO_FW_HasDied", false]; //we will use this variable to make sure killed eventHandler doesn't fire twice
 
 	{
-		_x params ["", "_side", "_type", "_total", "_current"];
+		_x params ["", "_side", "_Type", "_total", "_current"];
 
 
-		if (_unit getVariable "UO_FW_Side" == _side and ((_type == "player" && isPlayer _unit) || (_type == "ai" && !(isPlayer _unit)) || (_type == "both"))) exitWith {
+		if (_unit getVariable "UO_FW_Side" == _side and ((_Type == "player" && isPlayer _unit) || (_Type == "ai" && !(isPlayer _unit)) || (_Type == "both"))) exitWith {
 
 			_x set [3, _total + 1];
 

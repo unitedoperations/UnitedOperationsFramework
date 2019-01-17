@@ -20,7 +20,7 @@
  *	Modified
  *		suits & PiZZADOX
  */
-#include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
+#include "\x\UO_FW\addons\Main\HeadlessAIModule\module_macros.hpp"
 UO_FW_AI_EXEC_CHECK(SERVERHC);
 
 
@@ -33,7 +33,7 @@ params [
   	["_combat", "NO CHANGE", [""]],
   	["_speed", "UNCHANGED", [""]],
 	["_formation", "NO CHANGE", [""]],
-	["_type","MOVE",[""]],
+	["_Type","MOVE",[""]],
 	["_oncomplete","this call UO_FW_AI_fnc_taskSearchNearby",[""]],
 	["_compradius",0,[0]],
 	["_wpcount",10,[0]]
@@ -53,7 +53,7 @@ if !(local _grp) exitWith {}; // Don't create waypoints on each machine
 //CBA backup
 private _timeout = [(_wait*0.5),_wait,(_wait*1.5)];
 //[_grp, _pos] call CBA_fnc_taskPatrol;
-//[_grp, _pos, _radius, _wpcount, _type, _behaviour, _combat, _speed, _formation, _oncomplete, _timeout] call CBA_fnc_taskPatrol;
+//[_grp, _pos, _radius, _wpcount, _Type, _behaviour, _combat, _speed, _formation, _oncomplete, _timeout] call CBA_fnc_taskPatrol;
 
 //_pos = [_pos,_grp] select (_pos isEqualTo []);
 //_pos = _pos call CBA_fnc_getPos;
@@ -83,7 +83,7 @@ for "_i" from 1 to _wpcount do {
     private _theta = (_i % 2) * 180 + sin (deg (_step * _i)) * _offset + _step * _i;
 
     private _wppos = _pos getPos [_rad, _theta];
-    [_grp,_wppos,_radius,_type,_behaviour, _combat, _speed, _formation, _oncomplete, _timeout] call CBA_fnc_addWaypoint;
+    [_grp,_wppos,_radius,_Type,_behaviour, _combat, _speed, _formation, _oncomplete, _timeout] call CBA_fnc_addWaypoint;
 };
 
 // Close the patrol loop

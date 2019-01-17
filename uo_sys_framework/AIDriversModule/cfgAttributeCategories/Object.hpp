@@ -1,4 +1,4 @@
-class UO_FW_AIDriversOptions {
+class UO_FW_AIDrivers_Options {
 	displayName = "AI Driver Options";
 	collapsed = 1;
 	class Attributes {

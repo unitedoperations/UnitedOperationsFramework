@@ -21,9 +21,9 @@ params [
 if (_unit getVariable ["UO_FW_Tracked", false]) then {
 
 	{
-		_x params ["", "_side", "_type", "", "_current"];
+		_x params ["", "_side", "_Type", "", "_current"];
 
-		if (!(_unit getVariable ["UO_FW_HasDied", false]) &&  !(_unit getVariable ["UO_FW_Dead", false]) && (_unit getVariable "UO_FW_Side" == _side) && ((_type == "player" && isPlayer _unit) || (_type == "ai" && !(isPlayer _unit)) || (_type == "both"))) exitWith {
+		if (!(_unit getVariable ["UO_FW_HasDied", false]) &&  !(_unit getVariable ["UO_FW_Dead", false]) && (_unit getVariable "UO_FW_Side" == _side) && ((_Type == "player" && isPlayer _unit) || (_Type == "ai" && !(isPlayer _unit)) || (_Type == "both"))) exitWith {
 
 			_unit setVariable ["UO_FW_HasDied", true];
 		

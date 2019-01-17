@@ -1,4 +1,4 @@
-class UO_FW_ACREOptions {
+class UO_FW_ACRE_UnitOptions {
 	displayName = "ACRE Options";
 	collapsed = 1;
 	class Attributes {
@@ -11,8 +11,8 @@ class UO_FW_ACREOptions {
 			condition = "objectControllable";
 			defaultValue = "false";
 		};
-		class UO_FW_ACRE_SR_RADIO_EnableD {
-			property = "UO_FW_ACRE_SR_RADIO_EnableD";
+		class UO_FW_ACRE_SR_RADIO_Enabled {
+			property = "UO_FW_ACRE_SR_RADIO_Enabled";
 			displayName = "Give Short Range Radio";
 			tooltip = "Gives this unit a short range radio defined in ACRE settings";
 			control = "CheckBox";
@@ -38,8 +38,8 @@ class UO_FW_ACREOptions {
 			condition = "objectControllable";
 			defaultValue = "0";
 		};
-		class UO_FW_ACRE_LR_RADIO_EnableD {
-			property = "UO_FW_ACRE_LR_RADIO_EnableD";
+		class UO_FW_ACRE_LR_RADIO_Enabled {
+			property = "UO_FW_ACRE_LR_RADIO_Enabled";
 			displayName = "Give Long Range Radio";
 			tooltip = "Gives this unit a long range radio defined in ACRE settings";
 			control = "CheckBox";
@@ -65,8 +65,8 @@ class UO_FW_ACREOptions {
 			condition = "objectControllable";
 			defaultValue = "0";
 		};
-		class UO_FW_ACRE_PK_RADIO_EnableD {
-			property = "UO_FW_ACRE_PK_RADIO_EnableD";
+		class UO_FW_ACRE_PK_RADIO_Enabled {
+			property = "UO_FW_ACRE_PK_RADIO_Enabled";
 			displayName = "Give Pack Radio";
 			tooltip = "Gives this unit a long range pack radio defined in ACRE settings";
 			control = "CheckBox";

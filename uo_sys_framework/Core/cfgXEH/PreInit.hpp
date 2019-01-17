@@ -1,3 +1,5 @@
 class UO_FW_Core_PreInit {
-	init = "call compile preProcessFileLineNumbers '\x\UO_FW\addons\main\Core\XEH_preInit.sqf'";
+	Init = "call compile preProcessFileLineNumbers '\x\UO_FW\addons\Main\Core\cfgXEH\init\GlobalPreInit.sqf';";
+	serverInit = "call compile preProcessFileLineNumbers '\x\UO_FW\addons\Main\Core\cfgXEH\init\ServerPreInit.sqf';";
+	clientInit = "call compile preProcessFileLineNumbers '\x\UO_FW\addons\Main\Core\cfgXEH\init\ClientPreInit.sqf';";
 };

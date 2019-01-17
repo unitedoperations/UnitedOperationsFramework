@@ -21,7 +21,7 @@
 *		suits & PiZZADOX
 */
 
-#include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
+#include "\x\UO_FW\addons\Main\HeadlessAIModule\module_macros.hpp"
 UO_FW_AI_EXEC_CHECK(SERVERHC);
 
 
@@ -34,7 +34,7 @@ params [
 	["_combat","RED",[""]],
 	["_speed","LIMITED",[""]],
 	["_formation","WEDGE",[""]],
-	["_type","MOVE",[""]],
+	["_Type","MOVE",[""]],
 	["_oncomplete","this call UO_FW_AI_fnc_taskSearchNearby",[""]],
 	["_compradius",0,[0]],
 	["_wpcount",10,[0]],

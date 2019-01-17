@@ -16,7 +16,7 @@ class UO_FW_CaptureZoneModule: OlsenModule {
 	canSetArea = 1;
 	canSetAreaHeight = 0;
 	canSetAreaShape = 0;
-	icon = "\x\UO_FW\addons\main\CaptureZoneModule\resources\capzonemodule_ca.paa";
+	icon = "\x\UO_FW\addons\Main\CaptureZoneModule\resources\capzonemodule_ca.paa";
 
 	class AttributeValues {
     	size2[] = {100,100};
