@@ -12,7 +12,7 @@
  * Public: No
  */
 
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
 
 if (!isServer) exitwith {_this remoteExec ["UO_FW_fnc_unTrackUnit",2];};
 
@@ -23,9 +23,9 @@ private _unit = _this;
 if (_unit getVariable ["UO_FW_Tracked", false]) then {
 
 	{
-		_x params ["", "_side", "_type", "_total", "_current"];
+		_x params ["", "_side", "_Type", "_total", "_current"];
 
-		if (_unit getVariable "UO_FW_Side" == _side and ((_type == "player" && isPlayer _unit) || (_type == "ai" && !(isPlayer _unit)) || (_type == "both"))) exitWith {
+		if (_unit getVariable "UO_FW_Side" == _side and ((_Type == "player" && isPlayer _unit) || (_Type == "ai" && !(isPlayer _unit)) || (_Type == "both"))) exitWith {
 
 			if (_unit call UO_FW_fnc_Alive) then {
 

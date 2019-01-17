@@ -1,4 +1,4 @@
 class UO_FW_AntiND {
-	file = "x\UO_FW\addons\main\AntiNDModule\cfgFunctions\common";
-	class antiNDInit {postInit = 1;};
+	file = "x\UO_FW\addons\Main\AntiNDModule\cfgFunctions\common";
+	class antiNDInit {};
 };

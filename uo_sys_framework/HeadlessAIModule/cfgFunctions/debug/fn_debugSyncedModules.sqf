@@ -5,12 +5,12 @@
  * 	Return Value:
  * 		BOOL 	- True
  */
-#include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
+#include "\x\UO_FW\addons\Main\HeadlessAIModule\module_macros.hpp"
 UO_FW_AI_EXEC_CHECK(SERVERHC);
 params ["_logic"];
-private _type	= typeof _logic;
+private _Type	= typeof _logic;
 private _synced = synchronizedObjects _logic;
-switch (_type) do {
+switch (_Type) do {
 	case "UO_FW_AI_ZoneModule_R";
 	case "UO_FW_AI_ZoneModule": {
 		private _AllowedLinks = ["UO_FW_AI_ControlModule","UO_FW_AI_ControlModule_R","UO_FW_AI_TaskModule","UO_FW_AI_PositionModule","UO_FW_AI_PositionModule_R","UO_FW_AI_RespawnModule","Group","Object","Vehicle"];
@@ -32,7 +32,7 @@ switch (_type) do {
 			};
 			private _Allowed = _check in _AllowedLinks;
 			if (!_Allowed) then {
-				if (_logic != _syncItem) then {(format["%2 a %3 is incorrectly linked to %1 a %4.",_logic,_syncItem,_check,_type]) call UO_FW_fnc_DebugMessage;};
+				if (_logic != _syncItem) then {(format["%2 a %3 is incorrectly linked to %1 a %4.",_logic,_syncItem,_check,_Type]) call UO_FW_fnc_DebugMessage;};
 			};
 		};
 	};
@@ -44,7 +44,7 @@ switch (_type) do {
 			if (_syncItem isKindOf "Man" || _syncItem isKindOf "AllVehicles" || _syncItem isKindOf "StaticWeapon" || _syncItem isKindOf "Static" || _syncItem isKindOf "Air" || _syncItem isKindOf "Ship" || _syncItem isKindOf "LandVehicle") then {_check = "Group";} else {_check = typeof _syncItem;};
 			private _Allowed = _check in _AllowedLinks;
 			if (!_Allowed) then {
-				if (_logic != _syncItem) then {(format["%2 a %3 is incorrectly linked to %1 a %4.",_logic,_syncItem,_check,_type]) call UO_FW_fnc_DebugMessage;};
+				if (_logic != _syncItem) then {(format["%2 a %3 is incorrectly linked to %1 a %4.",_logic,_syncItem,_check,_Type]) call UO_FW_fnc_DebugMessage;};
 			};
 		};
 	};
@@ -69,7 +69,7 @@ switch (_type) do {
 			};
 			private _Allowed = _check in _AllowedLinks;
 			if (!_Allowed) then {
-				if (_logic != _syncItem) then {(format["%2 a %3 is incorrectly linked to %1 a %4.",_logic,_syncItem,_check,_type]) call UO_FW_fnc_DebugMessage;};
+				if (_logic != _syncItem) then {(format["%2 a %3 is incorrectly linked to %1 a %4.",_logic,_syncItem,_check,_Type]) call UO_FW_fnc_DebugMessage;};
 			};
 		};
 	};
@@ -94,7 +94,7 @@ switch (_type) do {
 			};
 			private _Allowed = _check in _AllowedLinks;
 			if (!_Allowed) then {
-				if (_logic != _syncItem) then {(format["%2 a %3 is incorrectly linked to %1 a %4.",_logic,_syncItem,_check,_type]) call UO_FW_fnc_DebugMessage;};
+				if (_logic != _syncItem) then {(format["%2 a %3 is incorrectly linked to %1 a %4.",_logic,_syncItem,_check,_Type]) call UO_FW_fnc_DebugMessage;};
 			};
 		};
 	};
@@ -118,7 +118,7 @@ switch (_type) do {
 			};
 			private _Allowed = _check in _AllowedLinks;
 			if (!_Allowed) then {
-				if (_logic != _syncItem) then {(format["%2 a %3 is incorrectly linked to %1 a %4.",_logic,_syncItem,_check,_type]) call UO_FW_fnc_DebugMessage;};
+				if (_logic != _syncItem) then {(format["%2 a %3 is incorrectly linked to %1 a %4.",_logic,_syncItem,_check,_Type]) call UO_FW_fnc_DebugMessage;};
 			};
 		};
 	};
@@ -129,10 +129,10 @@ switch (_type) do {
 			private _check = typeof _syncItem;
 			private _Allowed = _check in _AllowedLinks;
 			if (!_Allowed) then {
-				if (_logic != _syncItem) then {(format["%2 a %3 is incorrectly linked to %1 a %4.",_logic,_syncItem,_check,_type]) call UO_FW_fnc_DebugMessage;};
+				if (_logic != _syncItem) then {(format["%2 a %3 is incorrectly linked to %1 a %4.",_logic,_syncItem,_check,_Type]) call UO_FW_fnc_DebugMessage;};
 			};
 		};
 	};
-	default { hint format["Invalid Logic Type - %1", _type];};
+	default { hint format["Invalid Logic Type - %1", _Type];};
 };
 true

@@ -1,16 +1,16 @@
 class UO_FW_GearInit
 {
-	file = "\x\UO_FW\addons\main\GearModule\cfgFunctions\common";
-	class GearInit {postInit = 1;};
+	file = "\x\UO_FW\addons\Main\GearModule\cfgFunctions\common";
+	class GearInit {};
 };
 class UO_FW_ACE_GearFunctionsAttributes
 {
-	file = "\x\UO_FW\addons\main\GearModule\cfgFunctions\ACE_Arsenal";
+	file = "\x\UO_FW\addons\Main\GearModule\cfgFunctions\ACE_Arsenal";
 	class GearTypeLoadfromAttribute {};
 };
 class UO_FW_OlsenGearFunctions
 {
-	file = "\x\UO_FW\addons\main\GearModule\cfgFunctions\Olsen";
+	file = "\x\UO_FW\addons\Main\GearModule\cfgFunctions\Olsen";
 	class OlsenGearScript {};
 	class addItemOrg {};
 	class addItemRandomOrg {};

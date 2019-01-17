@@ -1,5 +1,5 @@
 #define COMPONENT DisconnectControl
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
 UO_FW_EXEC_CHECK(SERVER);
 
 ["Disconnect Control", "Controls when player bodies should be deleted", "Olsen, Perfk and Sacher"] call UO_FW_fnc_RegisterModule;

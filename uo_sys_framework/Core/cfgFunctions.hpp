@@ -1,5 +1,5 @@
-class UO_CoreFunctions {
-	file = "x\UO_FW\addons\main\Core\cfgFunctions\common";
+class UO_FW_Core_Common {
+	file = "x\UO_FW\addons\Main\Core\cfgFunctions\common";
 	class addTeam {};
 	class alive {};
 	class alivePlayers {};
@@ -23,7 +23,6 @@ class UO_CoreFunctions {
 	class makeUnitsList {};
 	class notTrackUnit {};
 	class randomRange {};
-	class registerModule {};
 	class setTeamVariable {};
 	class spawnAI {};
 	class spawnVehicle {};
@@ -37,24 +36,67 @@ class UO_CoreFunctions {
 	class arrayFindAll {};
 };
 
-class UO_InitFunctions {
-	file = "x\UO_FW\addons\main\Core\cfgFunctions\init";
+class UO_FW_Core_Init {
+	file = "x\UO_FW\addons\Main\Core\cfgFunctions\init";
 	class postInit {};
-	class briefingFrameworkEntry {};
 	class postChecks {};
 	class spectate {};
 	class teamsInit {};
 };
 
-class UO_DebugFunctions {
-	file = "x\UO_FW\addons\main\Core\cfgFunctions\debug";
+
+class UO_FW_Core_BriefingEntries {
+	file = "x\UO_FW\addons\Main\Core\cfgFunctions\BriefingEntries";
+	class briefingFrameworkEntry {};
+	class registerModule {};
+};
+
+class UO_FW_Core_JIP {
+	file = "x\UO_FW\addons\Main\Core\cfgFunctions\JiP";
+	class jipInit {};
+};
+
+class UO_FW_Core_EndConditions {
+	file = "x\UO_FW\addons\Main\Core\cfgFunctions\EndConditions";
+	class EndConditionsInit {};
+};
+
+class UO_FW_Core_DebugFunctions {
+	file = "x\UO_FW\addons\Main\Core\cfgFunctions\debug";
 	class debugMessage {};
 	class debugMessageDetailed {};
 	class refreshDebug {};
-	//class debugInit {};
 };
 
-class UO_EndscreenFunctions {
-	file = "x\UO_FW\addons\main\Core\cfgFunctions\endscreen";
-	class dia_endscreen {};
+class UO_FW_EndscreenFunctions {
+	file = "x\UO_FW\addons\Main\Core\cfgFunctions\endscreen";
+	class endscreen {};
+};
+
+class UO_FW_3DEN_Inits {
+	file = "x\UO_FW\addons\Main\Core\cfgFunctions\3DEN\Inits";
+	class setDefaults {};
+	class setInitVar {};
+};
+
+class UO_FW_3DEN_Controls {
+	file = "x\UO_FW\addons\Main\Core\cfgFunctions\3DEN\Controls";
+	class attributeLoadCombo {};
+	class attributeSaveCombo {};
+};
+
+class UO_FW_3DEN_Eventhandlers {
+	file = "x\UO_FW\addons\Main\Core\cfgFunctions\3DEN\EventHandlers";
+	class checkDuplicates {};
+};
+
+class UO_FW_3DEN_Editor {
+	file = "x\UO_FW\addons\Main\Core\cfgFunctions\3DEN\Editor";
+	class BasicSettings3Den {};
+};
+
+class UO_FW_3DEN_ExportImport {
+	file = "x\UO_FW\addons\Main\Core\cfgFunctions\3DEN\ExportImport";
+	class ExportSettings {};
+	class ImportSettings {};
 };

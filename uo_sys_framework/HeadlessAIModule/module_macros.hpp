@@ -1,5 +1,5 @@
 #define COMPONENT HC
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
 
 //Script control
 #define UO_FW_AI_EXEC_CHECK(ARG)\

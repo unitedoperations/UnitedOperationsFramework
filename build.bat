@@ -1,5 +1,5 @@
 @echo off
-@title UOFW Build Tool
+@Title UOFW Build Tool
 Set "SideBar===================================================="
 Set "MiddleBar==================" 
 @echo %SideBar%%MiddleBar%%SideBar%
@@ -12,11 +12,11 @@ Set user_inputMove=NothingChosen
 Set armaDirFound=false
 set dest_directory=%CD%
 cd uo_sys_Framework
-REG QUERY "HKLM\SOFTWARE\WOW6432Node\bohemia interactive\arma 3" /v main> nul
+REG QUERY "HKLM\SOFTWARE\WOW6432Node\bohemia interactive\arma 3" /v Main> nul
 if %errorlevel%==0 set armaDirFound=true
 if %errorlevel%==1 goto ArmADirNotFound
-for /F "tokens=2*" %%A in ('REG QUERY "HKLM\SOFTWARE\WOW6432Node\bohemia interactive\arma 3" /v main') do set "arma_main_directory=%%B"
-@echo ArmA 3 Directory located at:%arma_main_directory%
+for /F "tokens=2*" %%A in ('REG QUERY "HKLM\SOFTWARE\WOW6432Node\bohemia interactive\arma 3" /v Main') do set "arma_Main_directory=%%B"
+@echo ArmA 3 Directory located at:%arma_Main_directory%
 if not exist "C:\Program Files\PBO Manager v.1.4 beta\PBOConsole.exe" goto :PBOManagerNotFound
 goto :build_choice
 
@@ -70,7 +70,7 @@ if %errorlevel% equ 0 @echo PBO built successfully!
 goto :move_choice
 
 :move_pbo
->nul xcopy "%dest_directory%\uo_sys_Framework.pbo" "%arma_main_directory%\@UOF\addons\" /Y
+>nul xcopy "%dest_directory%\uo_sys_Framework.pbo" "%arma_Main_directory%\@UOF\addons\" /Y
 if not %errorlevel% equ 0 goto :exit_choice
 @echo "PBO moved into @UOF\addons folder"
 @echo "Press any key to exit..."

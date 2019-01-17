@@ -1,4 +1,4 @@
 class UO_FW_MapCompassRemoverFunctions {
-	file = "\x\UO_FW\addons\main\MapCompassRemoverModule\cfgFunctions\common";
-	class MapCompassRemoverInit {postInit = 1;};
+	file = "\x\UO_FW\addons\Main\MapCompassRemoverModule\cfgFunctions\common";
+	class MapCompassRemoverInit {};
 };

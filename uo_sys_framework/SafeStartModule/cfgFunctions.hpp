@@ -1,4 +1,4 @@
 class UO_FW_SafeStart {
-	file = "x\UO_FW\addons\main\SafeStartModule\cfgFunctions\common";
-	class safeStartInit {postInit = 1;};
+	file = "x\UO_FW\addons\Main\SafeStartModule\cfgFunctions\common";
+	class safeStartInit {};
 };

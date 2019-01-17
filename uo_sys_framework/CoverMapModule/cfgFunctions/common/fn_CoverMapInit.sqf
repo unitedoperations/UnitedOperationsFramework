@@ -1,5 +1,5 @@
 #define COMPONENT CoverMap
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
 UO_FW_EXEC_CHECK(CLIENT);
 if (!UO_FW_Server_CoverMapModule_Allowed) exitWith {};
 if (!UO_FW_CoverMap_Enable) exitWith {};
@@ -16,7 +16,7 @@ if (!UO_FW_CoverMap_Enable) exitWith {};
 	} else {
 		switch (side player) do {
 			case west: {
-				_DefaultAO = MissionNamespace getvariable ["UO_FW_CoverMap_DefaultAO_West",""];
+				_DefaultAO = missionNamespace getvariable ["UO_FW_CoverMap_DefaultAO_West",""];
 				if (_DefaultAO isEqualto "") exitwith {
 					ERROR("No Default BLUFOR Area defined for CoverMap!");
 				};
@@ -25,7 +25,7 @@ if (!UO_FW_CoverMap_Enable) exitWith {};
 				};
 			};
 			case east: {
-				_DefaultAO = MissionNamespace getvariable ["UO_FW_CoverMap_DefaultAO_East",""];
+				_DefaultAO = missionNamespace getvariable ["UO_FW_CoverMap_DefaultAO_East",""];
 				if (_DefaultAO isEqualto "") exitwith {
 					ERROR("No Default OPFOR Area defined for CoverMap!");
 				};
@@ -34,7 +34,7 @@ if (!UO_FW_CoverMap_Enable) exitWith {};
 				};
 			};
 			case resistance: {
-				_DefaultAO = MissionNamespace getvariable ["UO_FW_CoverMap_DefaultAO_West",""];
+				_DefaultAO = missionNamespace getvariable ["UO_FW_CoverMap_DefaultAO_West",""];
 				if (_DefaultAO isEqualto "") exitwith {
 					ERROR("No Default INDFOR Area defined for CoverMap!");
 				};
@@ -43,7 +43,7 @@ if (!UO_FW_CoverMap_Enable) exitWith {};
 				};
 			};
 			case civilian: {
-				_DefaultAO = MissionNamespace getvariable ["UO_FW_CoverMap_DefaultAO_Civ",""];
+				_DefaultAO = missionNamespace getvariable ["UO_FW_CoverMap_DefaultAO_Civ",""];
 				if (_DefaultAO isEqualto "") exitwith {
 					ERROR("No Default Civilian Area defined for CoverMap!");
 				};
@@ -64,7 +64,7 @@ if (!UO_FW_CoverMap_Enable) exitWith {};
 }] call CBA_fnc_waitUntilAndExecute;
 
 [{((!isNull player) && {CBA_missionTime > 1})}, {
-	if (MissionNamespace getvariable ["UO_FW_CoverMap_AllowSwitching",false]) then {
+	if (missionNamespace getvariable ["UO_FW_CoverMap_AllowSwitching",false]) then {
 		if !((player getvariable ["UO_FW_CoverMap_UnitAONameArray",[]]) isEqualto []) then {
 			private _MapChangeMenu = ["MapChangeMenu", "Switch Map", "", {}, {true}] call ace_interact_menu_fnc_createAction;
 			[player, 1, ["ACE_SelfActions","ACE_Equipment"], _MapChangeMenu] call ace_interact_menu_fnc_addActionToObject;
@@ -79,7 +79,7 @@ if (!UO_FW_CoverMap_Enable) exitWith {};
 					if ((_AONameAllowed isEqualto _AOName) && {!(_AONameAllowed in _ActionArray)}) then {
 						private _condition = {
 							params ["", "", "_params"];
-							(visibleMap) && !(UO_FW_CoverMap_currentAO isEqualto (_params select 0)) && (MissionNamespace getvariable ["UO_FW_CoverMap_AllowSwitching",false])
+							(visibleMap) && !(UO_FW_CoverMap_currentAO isEqualto (_params select 0)) && (missionNamespace getvariable ["UO_FW_CoverMap_AllowSwitching",false])
 						};
 						private _statement = {
 							params ["", "", "_params"];

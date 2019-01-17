@@ -6,7 +6,7 @@
  * 	Return Value:
  * 		BOOL 	- True
  */
-#include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
+#include "\x\UO_FW\addons\Main\HeadlessAIModule\module_macros.hpp"
 UO_FW_AI_EXEC_CHECK(SERVERHC);
 
 params ["_grpid","_grpSet","_grpMem",["_blds",[],[[]]],["_bldPos",[],[[]]],["_uBld",objNull,[objNull]]];

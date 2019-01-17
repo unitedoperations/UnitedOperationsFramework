@@ -1,6 +1,6 @@
 class UO_FW_LineFiremission
 {
-	file = "x\UO_FW\addons\main\FiremissionModule\LineFiremission\cfgFunctions\common";
+	file = "x\UO_FW\addons\Main\FiremissionModule\LineFiremission\cfgFunctions\common";
 	class DIA_LineFiremission {};
 	class DIA_LineFiremissionCloseDialog {};
 	class DIA_LineFiremissionFire {};

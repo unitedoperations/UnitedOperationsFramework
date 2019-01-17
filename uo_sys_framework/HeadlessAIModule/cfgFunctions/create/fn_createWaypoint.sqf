@@ -19,7 +19,7 @@
  *	Modified
  *		suits & PiZZADOX
  */
-#include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
+#include "\x\UO_FW\addons\Main\HeadlessAIModule\module_macros.hpp"
 UO_FW_AI_EXEC_CHECK(SERVERHC);
 
 params [
@@ -31,7 +31,7 @@ params [
   ["_combat", "NO CHANGE", [""]],
   ["_speed", "UNCHANGED", [""]],
 	["_formation", "NO CHANGE", [""]],
-	["_type","MOVE",[""]],
+	["_Type","MOVE",[""]],
 	["_oncomplete","",[""]],
 	["_compradius",0,[0]]
 ];
@@ -40,7 +40,7 @@ params [
 	_grp = _grp call CBA_fnc_getGroup;
 	_pos = _pos call CBA_fnc_getPos;
 	private _wp = _grp addWaypoint [_pos,_radius];
-	_wp setWaypointType _type;
+	_wp setWaypointType _Type;
 	_wp setWaypointBehaviour _behaviour;
 	_wp setWaypointCombatMode _combat;
 	_wp setWaypointSpeed _speed;

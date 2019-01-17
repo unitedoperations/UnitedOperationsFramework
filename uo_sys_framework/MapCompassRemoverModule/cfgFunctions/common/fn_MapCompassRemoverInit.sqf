@@ -1,5 +1,5 @@
 #define COMPONENT MapAndCompassRemover
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
 
 if (!UO_FW_Server_RemoverModule_Allowed) exitWith {};
 ["Map and Compass Remover", "Removes Map and Compass upon spawn", "TinfoilHate, Sacher and PiZZADOX"] call UO_FW_fnc_RegisterModule;

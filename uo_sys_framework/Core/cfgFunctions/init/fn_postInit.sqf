@@ -8,15 +8,13 @@
  */
 
 #define COMPONENT Core
-#include "\x\UO_FW\addons\main\script_macros.hpp"
-UO_FW_EXEC_CHECK(SERVER);
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
+UO_FW_EXEC_CHECK(ALL);
 
 //Universal init
-#include "\x\UO_FW\addons\main\Core\defines\mainSettings.hpp"
 
 if (isServer) then {
 	//Server init
-	#include "\x\UO_FW\addons\main\Core\defines\serverSettings.hpp"
 	[] call UO_FW_fnc_StartingCount; //DO NOT REMOVE
 };
 
@@ -44,9 +42,6 @@ if (!isDedicated) then {
 	};
 
 
-	//Player settings
-	#include "\x\UO_FW\addons\main\Core\defines\playerSettings.hpp"
-	//#include "\x\UO_FW\addons\main\Core\defines\RespawnInit.hpp"
 
 	UO_FW_RespawnTickets = 0;
 

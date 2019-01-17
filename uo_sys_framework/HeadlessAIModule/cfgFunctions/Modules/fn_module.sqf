@@ -5,7 +5,7 @@
  * 	Return Value:
  * 		BOOL	- True
  */
-#include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
+#include "\x\UO_FW\addons\Main\HeadlessAIModule\module_macros.hpp"
 UO_FW_AI_EXEC_CHECK(SERVERHC);
 
 params [["_mode","",[""]],["_input",[],[[]]]];
@@ -17,9 +17,9 @@ params [["_mode","",[""]],["_input",[],[[]]]];
 				if !(_isActivated) exitWith {};
 				sleep 0.25;
 				_syncedZoneModule = [_logic,["UO_FW_AI_ZoneModule"]] call UO_FW_AI_fnc_getSyncedModules;
-				_type = typeof _logic;
+				_Type = typeof _logic;
 				if (_syncedZoneModule isEqualto []) then {
-					_msg = format["%1 a %2 has no Zone Modules linked.",_logic,_type];
+					_msg = format["%1 a %2 has no Zone Modules linked.",_logic,_Type];
 					UO_FW_DEBUG("",_msg);
 				};
 				[_logic] spawn UO_FW_AI_fnc_debugSyncedModules;

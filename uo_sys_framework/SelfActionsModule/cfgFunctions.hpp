@@ -1,4 +1,4 @@
 class UO_FW_SelfActions {
-	file = "x\UO_FW\addons\main\SelfActionsModule\cfgFunctions\common";
-	class selfActionsInit {postInit = 1;};
+	file = "x\UO_FW\addons\Main\SelfActionsModule\cfgFunctions\common";
+	class selfActionsInit {};
 };

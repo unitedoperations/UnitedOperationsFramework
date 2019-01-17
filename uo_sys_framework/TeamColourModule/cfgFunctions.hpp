@@ -1,4 +1,4 @@
 class UO_FW_TeamColour {
-	file = "\x\UO_FW\addons\main\TeamColourModule\cfgFunctions\common";
-	class teamColourInit {postInit = 1;};
+	file = "\x\UO_FW\addons\Main\TeamColourModule\cfgFunctions\common";
+	class teamColourInit {};
 };

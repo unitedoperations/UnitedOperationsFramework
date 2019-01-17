@@ -1,5 +1,5 @@
 class UO_FW_SetupTimerEnded {
-	title = "SETUP TIMER";
+	Title = "SETUP TIMER";
 	iconPicture = "\a3\Ui_f\data\GUI\Cfg\Notifications\tridentEnemy_ca.paa";
 	description = "<t>Setup Timer Over, Fight!</t>";
 	color[] = {1,1,1,1};

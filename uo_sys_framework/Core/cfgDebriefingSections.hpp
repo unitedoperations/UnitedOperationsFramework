@@ -1,4 +1,4 @@
 class acex_killTracker {
-	title = "Acex Killed Events";
+	Title = "Acex Killed Events";
 	variable = "acex_killTracker_outputText";
 };

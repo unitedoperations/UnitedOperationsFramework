@@ -1,6 +1,6 @@
 class UO_FW_GridSpottingFiremission
 {
-	file = "x\UO_FW\addons\main\FiremissionModule\GridSpottingFiremission\cfgFunctions\common";
+	file = "x\UO_FW\addons\Main\FiremissionModule\GridSpottingFiremission\cfgFunctions\common";
 	class DIA_GridSpottingFiremission {};
 	class DIA_GridSpottingFiremissionCloseDialog {};
 	class DIA_GridSpottingFiremissionFire {};

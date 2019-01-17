@@ -1,6 +1,6 @@
 class UO_FW_DonutFiremission
 {
-	file = "x\UO_FW\addons\main\FiremissionModule\DonutFiremission\cfgFunctions\common";
+	file = "x\UO_FW\addons\Main\FiremissionModule\DonutFiremission\cfgFunctions\common";
 	class DIA_DonutFiremission {};
 	class DIA_DonutFiremissionCloseDialog {};
 	class DIA_DonutFiremissionFire {};

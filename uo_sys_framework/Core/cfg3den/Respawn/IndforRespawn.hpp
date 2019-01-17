@@ -1,42 +1,62 @@
 class UO_FW_TeamRespawnSettings_Indfor {
     displayName = "INDFOR Respawn Settings";
     collapsed = 0; //_respawnTypeArray = [['1 Life','ONELIFE'],['Unlimited','UNLIMITED'],['Individual Tickets','INDTICKETS'],['Team Tickets','TEAMTICKETS'],['Wave','WAVE'],['Triggered','TRIGGERED']];\
-	class Attributes {
+    class Attributes {
 		class UO_FW_RespawnSetting_Type_Indfor {
 			displayName = "Respawn System";
-			tooltip = "Type of respawn system for INDFOR. Place down Gamelogic with name uo_fw_west_respawn to define respawn location.";
-			control = "UO_FW_Respawn_Combo";
-			value=0;
+			tooltip = "Type of respawn system for INDFOR. Place down Gamelogic with name uo_fw_independent_respawn to define respawn location.";
+			control = "UO_FW_Respawn_Combo_Indfor";
+			defaultValue = "0";
 			property = "UO_FW_RespawnSetting_Type_Indfor";
 			expression = "missionNamespace setVariable ['%s', _value]; %s = _value;";
 		};
 		class UO_FW_RespawnSetting_Templates_Indfor {
 	        property = "UO_FW_RespawnSetting_Templates_Indfor";
-	        displayName = "INDFOR Individual Respawn Tickets";
-	        tooltip = "Number of individual respawns.";
-	        control = "UO_FW_RespawnTemplates";
-	        expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
-			defaultValue="['']";
+	        displayName = "Respawn System Settings";
+	        tooltip = "";
+	        control = "UO_FW_RespawnTemplates_Indfor";
+	        expression = "missionNamespace setVariable ['%s', _value]; %s = _value;";
+			defaultValue = "['']";
 	    };
 	    class UO_FW_RespawnSetting_IndTickets_Indfor {
 	        property = "UO_FW_RespawnSetting_IndTickets_Indfor";
-	        displayName = "INDFOR Individual Respawn Tickets";
+	        displayName = "Individual Respawn Tickets";
 	        tooltip = "Number of individual respawns.";
-			respawnTypes[] = {1};
+			respawnTypes[] = {2};
 	        control = "EditShort";
-	        expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+	        expression = "missionNamespace setVariable ['%s', _value]; %s = _value;";
 	        defaultValue = "2";
 	        validate = "number";
 	    };
 		class UO_FW_RespawnSetting_TeamTickets_Indfor {
 	        property = "UO_FW_RespawnSetting_TeamTickets_Indfor";
-	        displayName = "INDFOR Team Respawn Tickets";
+	        displayName = "Team Respawn Tickets";
 	        tooltip = "Number of team respawns.";
-			respawnTypes[] = {2};
+			respawnTypes[] = {3};
 	        control = "EditShort";
-	        expression="missionNamespace setVariable ['%s', _value]; %s = _value;";
+	        expression = "missionNamespace setVariable ['%s', _value]; %s = _value;";
 	        defaultValue = "30";
 	        validate = "number";
+	    };
+		class UO_FW_RespawnSetting_WaveSize_Indfor {
+	        property = "UO_FW_RespawnSetting_WaveSize_Indfor";
+	        displayName = "Wave Condition";
+	        tooltip = "Number of team respawns.";
+			respawnTypes[] = {4};
+	        control = "EditCode";
+	        expression = "missionNamespace setVariable ['%s', _value]; %s = _value;";
+	        defaultValue = "''";
+	        validate = "expression";
+	    };
+		class UO_FW_RespawnSetting_TriggeredCond_Indfor {
+	        property = "UO_FW_RespawnSetting_TriggeredCond_Indfor";
+	        displayName = "Triggered Condition";
+	        tooltip = "Number of team respawns.";
+			respawnTypes[] = {5};
+	        control = "EditCode";
+	        expression = "missionNamespace setVariable ['%s', _value]; %s = _value;";
+	        defaultValue = "''";
+	        validate = "expression";
 	    };
     };
 };

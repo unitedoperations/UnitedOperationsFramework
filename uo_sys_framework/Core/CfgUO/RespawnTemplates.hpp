@@ -1,7 +1,10 @@
 class UO_FW_RespawnTemplates {
-	respawnTemplatesNone[] = {};
-	respawnTemplatesIndTick[] = {};
-	respawnTemplatesTeamTick[] = {};
+	respawnTemplatesNone[] = {"TestSetting0"};
+	respawnTemplatesUnlimited[] = {"TestSetting0"};
+	respawnTemplatesIndTick[] = {"TestSetting2","TestSetting4"};
+	respawnTemplatesTeamTick[] = {"TestSetting3","TestSetting4"};
+	respawnTemplatesWave[] = {"TestSetting5"};
+	respawnTemplatesTriggered[] = {"TestSetting6","TestSetting7"};
 	class TestSetting0 {
         displayName = "Test Setting all";
     };

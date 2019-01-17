@@ -1,0 +1,26 @@
+#define COMPONENT Core
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
+UO_FW_EXEC_CHECK(CLIENT);
+
+INFO("Client Post Init");
+
+[{!(isNull player)}, {
+	enableSaving [false, false];
+	enableEngineArtillery false; //Disable Arma 3 artillery computer
+	enableRadio false; //Disable Arma 3 regular radio
+	enableSentences false; //Disable Arma 3 regular radio chatter
+	0 fadeRadio 0; //Lower radio volume to 0
+
+	player addRating 100000; //Makes sure ai doesnt turn hostile when teamkilling
+	player setVariable ["BIS_noCoreConversations", true]; //Disable scroll wheel conversations
+
+	player setVariable ["UO_FW_Dead", false, true]; //Tells the framework the player is alive
+	player setVariable ["UO_FW_Spectating", false, true]; //Player is not spectating
+	player setVariable ["UO_FW_Body", player, true]; //Remembers his old body for spectating his dead body
+
+	//Makes the player go into spectator mode when dead or respawn if he has respawn tickets
+	UO_FW_KilledEh = player addEventHandler ["Killed", {[] spawn UO_FW_fnc_SpectateCheck;}];
+	UO_FW_RespawnEh = player addEventHandler ["Respawn", {_this call UO_FW_fnc_SpectatePrep;}];
+
+	setViewDistance UO_FW_Player_ViewDistance;
+}] call CBA_fnc_WaitUntilAndExecute;

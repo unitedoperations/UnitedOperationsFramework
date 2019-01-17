@@ -7,7 +7,7 @@ class UO_FW_ShotCount {
             displayName = "Shot Count";
             tooltip = "Enable Shot Count";
             control = "CheckboxState";
-            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
+            expression = "missionNamespace setVariable ['%s', _value];";
             defaultValue = "true";
         };
     };

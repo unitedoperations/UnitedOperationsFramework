@@ -1,9 +1,16 @@
-#include "\x\UO_FW\addons\main\script_mod.hpp"
+#include "\x\UO_FW\addons\Main\script_mod.hpp"
 #ifndef COMPONENT
 #define COMPONENT Main
 #endif
 #define DEBUG_MODE_FULL
-#include "\x\cba\addons\main\script_macros_common.hpp"
+#include "\x\cba\addons\Main\script_macros_common.hpp"
+
+//CBA Error Macro Intercept
+#define ERROR(MESSAGE) LOG_SYS_FILELINENUMBERS('ERROR',MESSAGE);\
+MESSAGE call UO_FW_fnc_DebugMessage
+
+#define WARNING(MESSAGE) LOG_SYS_FILELINENUMBERS('WARNING',MESSAGE);\
+MESSAGE call UO_FW_fnc_DebugMessage
 
 //Script control
 #define UO_FW_EXEC_CHECK(ARG)\

@@ -8,7 +8,7 @@
  */
 
 #define COMPONENT ShotCount
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
 UO_FW_EXEC_CHECK(SERVER);
 
 private ["_UO_FW_aCount_textBLU","_UO_FW_aCount_textOPF","_UO_FW_aCount_textIND","_UO_FW_aCount_textCIV"];

@@ -7,10 +7,9 @@ class UO_FW_StartText {
             displayName = "Start Text";
             tooltip = "Enables Start Text";
             control = "CheckboxState";
-            expression="missionNamespace setVariable ['%s', _value];";
+            expression = "missionNamespace setVariable ['%s', _value];";
             defaultValue = "true";
             typeName = "BOOL";
-
         };
         class UO_FW_StartText_TimeSelect {
 			displayName = "Time display";
@@ -27,7 +26,6 @@ class UO_FW_StartText {
 			};
 			defaultValue = "2";
 		};
-
 		class UO_FW_StartText_BluforTitleQuote {
 			// Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
 			displayName = "Blufor Title Quote"; // Attribute label
@@ -38,7 +36,6 @@ class UO_FW_StartText {
 			typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 			expression = "missionNamespace setVariable ['%s',_value];";
 			validate = "none";
-
 		};
 		class UO_FW_StartText_BluforText {
 			// Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
@@ -50,7 +47,6 @@ class UO_FW_StartText {
 			typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 			expression = "missionNamespace setVariable ['%s',_value];";
 			validate = "none";
-
 		};
 		class UO_FW_StartText_OpforTitleQuote {
 			// Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
@@ -62,7 +58,6 @@ class UO_FW_StartText {
 			typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 			expression = "missionNamespace setVariable ['%s',_value];";
 			validate = "none";
-
 		};
 		class UO_FW_StartText_OpforText {
 			// Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
@@ -74,7 +69,6 @@ class UO_FW_StartText {
 			typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 			expression = "missionNamespace setVariable ['%s',_value];";
 			validate = "none";
-
 		};
 		class UO_FW_StartText_IndependentTitleQuote {
 			// Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
@@ -86,7 +80,6 @@ class UO_FW_StartText {
 			typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 			expression = "missionNamespace setVariable ['%s',_value];";
 			validate = "none";
-
 		};
 		class UO_FW_StartText_IndependentText {
 			// Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
@@ -98,7 +91,6 @@ class UO_FW_StartText {
 			typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 			expression = "missionNamespace setVariable ['%s',_value];";
 			validate = "none";
-
 		};
 		class UO_FW_StartText_CivilianTitleQuote {
 			// Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
@@ -110,7 +102,6 @@ class UO_FW_StartText {
 			typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 			expression = "missionNamespace setVariable ['%s',_value];";
 			validate = "none";
-
 		};
 		class UO_FW_StartText_CivilianText {
 			// Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
@@ -122,7 +113,6 @@ class UO_FW_StartText {
 			typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 			expression = "missionNamespace setVariable ['%s',_value];";
 			validate = "none";
-
 		};
     };
 };

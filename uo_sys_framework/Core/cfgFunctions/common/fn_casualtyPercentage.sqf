@@ -11,8 +11,8 @@
  *
  * Public: Yes
  */
- 
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
 
 private _team = _this;
 
