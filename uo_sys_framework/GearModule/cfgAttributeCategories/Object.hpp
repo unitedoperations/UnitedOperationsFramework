@@ -10,7 +10,7 @@ class UO_FW_Gear
 			control = "UO_FW_Gear_SystemType";
 			typeName = "STRING";
 			property = "UO_FW_Gear_UnitSystemType";
-			expression = "if !(is3DEN) then {_propertyName = '%s'; [_this, _propertyName, _value, false] call UO_FW_fnc_setInitVar;};";
+			expression = "_this setVariable ['%s',_value];";
 			condition = "ObjectControllable";
 			validate = "none";
 			defaultValue = "'NONE'";
@@ -22,7 +22,7 @@ class UO_FW_Gear
 			GearSystems[] = {"ACEAR","OLSEN","NONE"};
 			property = "UO_FW_Gear_UnitGearType";
 			typeName = "STRING";
-			expression = "if !(is3DEN) then {_propertyName = '%s'; [_this, _propertyName, _value, false] call UO_FW_fnc_setInitVar;};";
+			expression = "_this setVariable ['%s',_value];";
 			condition = "ObjectControllable";
 			validate = "none";
 			defaultValue = "'NONE'";
@@ -34,7 +34,7 @@ class UO_FW_Gear
 			tooltip = "Defines a custom gear class for respawn and other functions. If set to ACE gear system, this corresponds to the name of an ACE mission loadout. If set to Olsen gear system, this corresponds to the name of gear type in the team olsen gear script. Leave blank to disable.";
 			control = "UO_FW_Gear_ManualGearEditShort";
 			typeName = "STRING";
-			expression = "if !(is3DEN) then {_propertyName = '%s'; [_this, _propertyName, _value, false] call UO_FW_fnc_setInitVar;};";
+			expression = "_this setVariable ['%s',_value];";
 			condition = "ObjectControllable";
 			defaultValue = "''";
         };
@@ -44,7 +44,7 @@ class UO_FW_Gear
 			control = "UO_FW_Gear_SystemTypeVehicle";
 			typeName = "STRING";
 			property = "UO_FW_Gear_VehicleSystemType";
-			expression = "if !(is3DEN) then {_propertyName = '%s'; [_this, _propertyName, _value, false] call UO_FW_fnc_setInitVar;};";
+			expression = "_this setVariable ['%s',_value];";
 			condition = "objectVehicle";
 			validate = "none";
 			defaultValue = "'NONE'";
@@ -56,7 +56,7 @@ class UO_FW_Gear
 			tooltip = "Defines a custom gear class for respawn and other functions. If set to ACE gear system, this corresponds to the name of an ACE mission loadout. If set to Olsen gear system, this corresponds to the name of gear type in the team olsen gear script. Leave blank to disable.";
 			control = "UO_FW_Gear_ManualGearEditShort";
 			typeName = "STRING";
-			expression = "if !(is3DEN) then {_propertyName = '%s'; [_this, _propertyName, _value, false] call UO_FW_fnc_setInitVar;};";
+			expression = "_this setVariable ['%s',_value];";
 			condition = "objectVehicle";
 			defaultValue = "''";
         };

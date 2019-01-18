@@ -7,7 +7,7 @@ class UO_FW_MainSettings {
             displayName = "Enable UO Framework";
             tooltip = "Enable UO Framework";
             control = "Checkbox";
-            expression = "if (is3DEN) then {if (_value) then {[] call UO_FW_fnc_BasicSettings3Den;};}; missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression = "if (is3DEN) then {if (_value) then {[] call UO_FW_fnc_BasicSettings3Den;};}; missionNamespace setVariable ['%s', _value];";
             defaultValue = "false";
         };
         class UO_FW_Type {

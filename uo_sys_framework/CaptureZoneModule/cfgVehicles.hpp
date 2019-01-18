@@ -29,7 +29,7 @@ class UO_FW_CaptureZoneModule: OlsenModule {
 			tooltip = "Name of CaptureZone used in End Conditions reference and in automated message mode. Also a variable that gets set to true once the CaptureZone is captured.";
 			property = "UO_FW_CaptureZone_ZoneName";
 			control = "Edit";
-			expression = "_this setVariable ['%s',_value,true];";
+			expression = "_this setVariable ['%s',_value];";
 			defaultValue = "''";
 			typeName = "STRING";
 			validate = "none";
@@ -39,7 +39,7 @@ class UO_FW_CaptureZoneModule: OlsenModule {
 			tooltip = "The size of the X value of the capture zone. Default: 100";
 			property = "UO_FW_CaptureZone_RadiusX";
 			control = "UO_FW_AI_moduleradiusControl";
-			expression = "_this setVariable ['%s',_value,true];";
+			expression = "_this setVariable ['%s',_value];";
 			defaultValue = "100";
 			typeName = "NUMBER";
 			validate = "number";
@@ -49,7 +49,7 @@ class UO_FW_CaptureZoneModule: OlsenModule {
 			tooltip = "The size of the Y value of the capture zone. Default: 100";
 			property = "UO_FW_CaptureZone_RadiusY";
 			control = "UO_FW_AI_moduleradiusControl2";
-			expression = "_this setVariable ['%s',_value,true];";
+			expression = "_this setVariable ['%s',_value];";
 			defaultValue = "100";
 			typeName = "NUMBER";
 			validate = "number";
@@ -59,7 +59,7 @@ class UO_FW_CaptureZoneModule: OlsenModule {
 			tooltip = "Ratio needed to capture the zone. Larger team / team in second place. Set to 0 to make any majority capture. Default: 0.75";
 			property = "UO_FW_CaptureZone_RatioNeeded";
 			control = "EditShort";
-			expression = "_this setVariable ['%s',_value,true];";
+			expression = "_this setVariable ['%s',_value];";
 			defaultValue = "0.75";
 			validate = "NUMBER";
 			typeName = "number";
@@ -69,7 +69,7 @@ class UO_FW_CaptureZoneModule: OlsenModule {
 			tooltip = "Whether or not the team can capture the zone, and whether they are checked in the player count.";
 			property = "UO_FW_CaptureZone_BluforCap";
 			control = "UO_FW_CAPTUREZONE_TEAMATTRIBUTE_BLU";
-			expression = "_this setVariable ['%s',_value,true];";
+			expression = "_this setVariable ['%s',_value];";
 			defaultValue = "0";
 			typeName = "number";
 		};
@@ -78,7 +78,7 @@ class UO_FW_CaptureZoneModule: OlsenModule {
 			tooltip = "Time needed for Blufor to capture the zone in seconds. Set to 0 for instant capture";
 			property = "UO_FW_CaptureZone_BluforTime";
 			control = "EditShort";
-			expression = "_this setVariable ['%s',_value,true];";
+			expression = "_this setVariable ['%s',_value];";
 			defaultValue = "30";
 			typeName = "NUMBER";
 			validate = "number";
@@ -88,7 +88,7 @@ class UO_FW_CaptureZoneModule: OlsenModule {
 			tooltip = "Message to display when Blufor is capturing the zone and when they capture the zone. Leave empty to disable this hint";
 			property = "UO_FW_CaptureZone_BluforMessage";
 			control = "EditStringArray";
-			expression = "_this setVariable ['%s',_value,true];";
+			expression = "_this setVariable ['%s',_value];";
 			defaultValue = "['BLUFOR is capturing the zone!','BLUFOR has captured the zone!']";
 			validate = "none";
 		};
@@ -97,7 +97,7 @@ class UO_FW_CaptureZoneModule: OlsenModule {
 			tooltip = "Whether or not the team can capture the zone, and whether they are checked in the player count.";
 			property = "UO_FW_CaptureZone_OpforCap";
 			control = "UO_FW_CAPTUREZONE_TEAMATTRIBUTE_OPF";
-			expression = "_this setVariable ['%s',_value,true];";
+			expression = "_this setVariable ['%s',_value];";
 			defaultValue = "0";
 			typeName = "number";
 		};
@@ -106,7 +106,7 @@ class UO_FW_CaptureZoneModule: OlsenModule {
 			tooltip = "Time needed for Opfor to capture the zone in seconds. Set to 0 for instant capture";
 			property = "UO_FW_CaptureZone_OpforTime";
 			control = "EditShort";
-			expression = "_this setVariable ['%s',_value,true];";
+			expression = "_this setVariable ['%s',_value];";
 			defaultValue = "30";
 			typeName = "NUMBER";
 			validate = "number";
@@ -116,7 +116,7 @@ class UO_FW_CaptureZoneModule: OlsenModule {
 			tooltip = "Message to display when Opfor is capturing the zone and when they capture the zone. Leave empty to disable this hint";
 			property = "UO_FW_CaptureZone_OpforMessage";
 			control = "EditStringArray";
-			expression = "_this setVariable ['%s',_value,true];";
+			expression = "_this setVariable ['%s',_value];";
 			defaultValue = "['OPFOR is capturing the zone!','OPFOR has captured the zone!']";
 			validate = "none";
 		};
@@ -125,7 +125,7 @@ class UO_FW_CaptureZoneModule: OlsenModule {
 			tooltip = "Whether or not the team can capture the zone, and whether they are checked in the player count.";
 			property = "UO_FW_CaptureZone_IndependentCap";
 			control = "UO_FW_CAPTUREZONE_TEAMATTRIBUTE_IND";
-			expression = "_this setVariable ['%s',_value,true];";
+			expression = "_this setVariable ['%s',_value];";
 			defaultValue = "0";
 			typeName = "number";
 		};
@@ -134,7 +134,7 @@ class UO_FW_CaptureZoneModule: OlsenModule {
 			tooltip = "Time needed for Independent to capture the zone in seconds. Set to 0 for instant capture";
 			property = "UO_FW_CaptureZone_IndependentTime";
 			control = "EditShort";
-			expression = "_this setVariable ['%s',_value,true];";
+			expression = "_this setVariable ['%s',_value];";
 			defaultValue = "30";
 			typeName = "NUMBER";
 			validate = "number";
@@ -144,7 +144,7 @@ class UO_FW_CaptureZoneModule: OlsenModule {
 			tooltip = "Message to display when Independent is capturing the zone and when they capture the zone. Leave empty to disable this hint";
 			property = "UO_FW_CaptureZone_IndependentMessage";
 			control = "EditStringArray";
-			expression = "_this setVariable ['%s',_value,true];";
+			expression = "_this setVariable ['%s',_value];";
 			defaultValue = "['Independent is capturing the zone!','Independent has captured the zone!']";
 			validate = "none";
 		};
@@ -153,7 +153,7 @@ class UO_FW_CaptureZoneModule: OlsenModule {
 			tooltip = "Whether or not the team can capture the zone, and whether they are checked in the player count.";
 			property = "UO_FW_CaptureZone_CivilianCap";
 			control = "UO_FW_CAPTUREZONE_TEAMATTRIBUTE_CIV";
-			expression = "_this setVariable ['%s',_value,true];";
+			expression = "_this setVariable ['%s',_value];";
 			defaultValue = "0";
 			typeName = "number";
 		};
@@ -162,7 +162,7 @@ class UO_FW_CaptureZoneModule: OlsenModule {
 			tooltip = "Time needed for Civilian to capture the zone in seconds. Set to 0 for instant capture";
 			property = "UO_FW_CaptureZone_CivilianTime";
 			control = "EditShort";
-			expression = "_this setVariable ['%s',_value,true];";
+			expression = "_this setVariable ['%s',_value];";
 			defaultValue = "30";
 			typeName = "NUMBER";
 			validate = "number";
@@ -172,7 +172,7 @@ class UO_FW_CaptureZoneModule: OlsenModule {
 			tooltip = "Message to display when Civilian is capturing the zone and when they capture the zone. Leave empty to disable this hint";
 			property = "UO_FW_CaptureZone_CivilianMessage";
 			control = "EditStringArray";
-			expression = "_this setVariable ['%s',_value,true];";
+			expression = "_this setVariable ['%s',_value];";
 			defaultValue = "['Civilian is capturing the zone!','Civilian has captured the zone!']";
 			validate = "none";
 		};
@@ -181,7 +181,7 @@ class UO_FW_CaptureZoneModule: OlsenModule {
 			tooltip = "Message to display when the zone is contested. Leave empty to disable this hint";
 			property = "UO_FW_CaptureZone_ContestedMessage";
 			control = "Edit";
-			expression = "_this setVariable ['%s',_value,true];";
+			expression = "_this setVariable ['%s',_value];";
 			defaultValue = "'The zone is contested!'";
 			typeName = "STRING";
 			validate = "none";
@@ -191,7 +191,7 @@ class UO_FW_CaptureZoneModule: OlsenModule {
 			tooltip = "Message to display when the zone is uncontested. Leave empty to disable this hint";
 			property = "UO_FW_CaptureZone_UncontestedMessage";
 			control = "Edit";
-			expression = "_this setVariable ['%s',_value,true];";
+			expression = "_this setVariable ['%s',_value];";
 			defaultValue = "'The zone is uncontested!'";
 			typeName = "STRING";
 			validate = "none";
@@ -201,7 +201,7 @@ class UO_FW_CaptureZoneModule: OlsenModule {
 			tooltip = "Enables automated messages based off of zone name. eg. For a zone named 'Everon' and a team called 'USMC', message would be 'USMC is capturing Everon!'";
 			property = "UO_FW_CaptureZone_AutoMessages";
 			control = "CheckBox";
-			expression = "_this setVariable ['%s',_value,true];";
+			expression = "_this setVariable ['%s',_value];";
 			defaultValue = "false";
 			typeName = "BOOL";
 			validate = "none";
@@ -211,7 +211,7 @@ class UO_FW_CaptureZoneModule: OlsenModule {
 			tooltip = "Array of colours used for the map markers when zone status changes. Colours are respective with BLUFOR, OPFOR, INDFOR, Civilian, Uncontrolled, and Contested.";
 			property = "UO_FW_CaptureZone_Colours";
 			control = "EditStringArray";
-			expression = "_this setVariable ['%s',_value,true];";
+			expression = "_this setVariable ['%s',_value];";
 			defaultValue = "['ColorBlue','ColorRed','ColorGreen','ColorYellow','ColorWhite','ColorKhaki']";
 			typeName = "STRING";
 			validate = "none";
@@ -221,7 +221,7 @@ class UO_FW_CaptureZoneModule: OlsenModule {
 			tooltip = "Hides the CaptureZone on the map. No markers are displayed if setting is enabled.";
 			property = "UO_FW_CaptureZone_Hidden";
 			control = "CheckBox";
-			expression = "_this setVariable ['%s',_value,true];";
+			expression = "_this setVariable ['%s',_value];";
 			defaultValue = "false";
 			typeName = "BOOL";
 			validate = "none";
@@ -231,7 +231,7 @@ class UO_FW_CaptureZoneModule: OlsenModule {
 			tooltip = "Does not show CaptureZone hints to players. No hints are displayed if this setting is enabled.";
 			property = "UO_FW_CaptureZone_Silent";
 			control = "CheckBox";
-			expression = "_this setVariable ['%s',_value,true];";
+			expression = "_this setVariable ['%s',_value];";
 			defaultValue = "false";
 			typeName = "BOOL";
 			validate = "none";
@@ -241,7 +241,7 @@ class UO_FW_CaptureZoneModule: OlsenModule {
 			tooltip = "Can this area be recaptured? If disabled, zone will deactivate once a CaptureZone team captures it.";
 			property = "UO_FW_CaptureZone_Repeatable";
 			control = "CheckBox";
-			expression = "_this setVariable ['%s',_value,true];";
+			expression = "_this setVariable ['%s',_value];";
 			defaultValue = "true";
 			typeName = "BOOL";
 			validate = "none";
@@ -251,7 +251,7 @@ class UO_FW_CaptureZoneModule: OlsenModule {
 			tooltip = "Time between checking the CaptureZone if no one is in it";
 			property = "UO_FW_CaptureZone_SleepInterval";
 			control = "EditShort";
-			expression = "_this setVariable ['%s',_value,true];";
+			expression = "_this setVariable ['%s',_value];";
 			defaultValue = "15";
 			typeName = "NUMBER";
 			validate = "number";
@@ -261,7 +261,7 @@ class UO_FW_CaptureZoneModule: OlsenModule {
 			tooltip = "Enter a custom condition that must be met for this zone to be captured. Default: true";
 			property = "UO_FW_CaptureZone_Condition";
 			control = "UO_FW_AI_codeControl";
-			expression = "_this setVariable ['%s',_value,true];";
+			expression = "_this setVariable ['%s',_value];";
 			defaultValue = "'true'";
 		};
 	};

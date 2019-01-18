@@ -31,7 +31,7 @@ class UO_FW_AIDrivers_Settings {
             displayName = "Flip Vehicle";
             tooltip = "Whether the player can flip the vehicle via ACE action";
             control = "CheckBox";
-            expression = "missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression = "missionNamespace setVariable ['%s', _value];";
             defaultValue = "true";
         };
     };

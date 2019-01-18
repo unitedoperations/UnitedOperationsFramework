@@ -7,7 +7,7 @@ class UO_FW_JIPCategory {
             displayName = "Deny Time";
             tooltip = "After how many seconds should a player be considered JIP (this only applies if you are using DENY";
 			control = "EditShort";
-            expression = "missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression = "missionNamespace setVariable ['%s', _value];";
 			validate = "number";
             defaultValue = "300";
         };
@@ -16,7 +16,7 @@ class UO_FW_JIPCategory {
             displayName = "Expire Time";
             tooltip = "After how many minutes JiPs will no longer have teleport or transport actions.";
 			control = "EditShort";
-            expression = "missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression = "missionNamespace setVariable ['%s', _value];";
 			validate = "number";
             defaultValue = "30";
         };
@@ -25,7 +25,7 @@ class UO_FW_JIPCategory {
             displayName = "Nearby Enemy Distance";
             tooltip = "Denies teleport action if the distance between enemies and the intended teleport location is less than this value in metres";
 			control = "EditShort";
-            expression = "missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression = "missionNamespace setVariable ['%s', _value];";
 			validate = "number";
             defaultValue = "100";
         };

@@ -5,7 +5,7 @@ class UO_Framework_AI {
 		class init { scope = 1;};
 		class deleteVehicles {scope = 1;};
 		class enableZones {scope = 1;};
-		class monitor {scope = 1; postinit = 1;};
+		class monitor {scope = 1;};
 		class playAnimation {scope = 1;};
 		class removeKit {scope = 1;};
 		class setup {scope = 1;};
@@ -16,7 +16,7 @@ class UO_Framework_AI {
 		class checkNearbyAll {scope = 1;};
 		class checkNearbyPlayer {scope = 1;};
 		class checkStance {scope = 1;};
-		class checkifHC { scope = 1; postInit = 1; };
+		class checkifHC { scope = 1;};
 	};
 	class UO_FW_AI_Create {
 		file = "x\UO_FW\addons\Main\HeadlessAIModule\cfgFunctions\create";
@@ -150,12 +150,12 @@ class UO_Framework_AI {
 		file = "x\UO_FW\addons\Main\HeadlessAIModule\cfgFunctions\Main";
 		class ActiveHandler {scope = 1;};
 		class GroupHandler {scope = 1;};
-		class initMain {scope = 1; postinit = 1;};
+		class initMain {scope = 1;};
 		class QueueHandle {scope = 1;};
 	};
 	class UO_FW_AI_Misc {
 		file = "x\UO_FW\addons\Main\HeadlessAIModule\cfgFunctions\Misc";
-		class playerInit {scope = 1; postinit = 1;};
+		class playerInit {scope = 1;};
 	};
 	class UO_FW_AI_Diag {
 		file = "x\UO_FW\addons\Main\HeadlessAIModule\cfgFunctions\Diag";

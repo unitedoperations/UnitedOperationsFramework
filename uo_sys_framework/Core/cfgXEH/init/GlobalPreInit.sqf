@@ -16,4 +16,10 @@ UO_FW_EXEC_CHECK(ALL);
 UO_FW_Framework_Initialized = false;
 
 INFO("Global Pre Init");
+
 [] call UO_FW_fnc_setDefaults;
+
+["UO_FW_EntityAttributeLoad", {
+	params ["_object", "_propertyName", "_value", ["_isGlobal",false,[false]]];
+	_object setvariable [_propertyName,_value,_isGlobal];
+}] call CBA_fnc_addEventHandler;

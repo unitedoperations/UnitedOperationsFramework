@@ -92,7 +92,8 @@ class UO_FW_3DEN_Eventhandlers {
 
 class UO_FW_3DEN_Editor {
 	file = "x\UO_FW\addons\Main\Core\cfgFunctions\3DEN\Editor";
-	class BasicSettings3Den {};
+	class BasicSettings3DEN {};
+	class includeMission {};
 };
 
 class UO_FW_3DEN_ExportImport {

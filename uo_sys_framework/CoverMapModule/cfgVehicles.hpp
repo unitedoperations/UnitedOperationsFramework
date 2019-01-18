@@ -27,7 +27,7 @@ class UO_FW_CoverMapModule: OlsenModule {
 				control = "EditShort";
 				typeName = "STRING";
 				property = "UO_FW_CoverMap_AOName";
-				expression = "_this setVariable ['%s',_value,true];";
+				expression = "_this setVariable ['%s',_value];";
 				validate = "STRING";
 				defaultValue = "'Area0'";
 			};
@@ -36,7 +36,7 @@ class UO_FW_CoverMapModule: OlsenModule {
 				tooltip = "The size of the X value of the setup zone. Default: 100";
 				property = "UO_FW_CoverMap_RadiusX";
 				control = "UO_FW_AI_moduleradiusControl";
-				expression = "_this setVariable ['%s',_value,true];";
+				expression = "_this setVariable ['%s',_value];";
 				defaultValue = "100";
 				typeName = "NUMBER";
 				validate = "number";
@@ -46,7 +46,7 @@ class UO_FW_CoverMapModule: OlsenModule {
 				tooltip = "The size of the Y value of the setup zone. Default: 100";
 				property = "UO_FW_CoverMap_RadiusY";
 				control = "UO_FW_AI_moduleradiusControl2";
-				expression = "_this setVariable ['%s',_value,true];";
+				expression = "_this setVariable ['%s',_value];";
 				defaultValue = "100";
 				typeName = "NUMBER";
 				validate = "number";
@@ -56,7 +56,7 @@ class UO_FW_CoverMapModule: OlsenModule {
 				tooltip = "Map zoom level of the AO. Default: 0.2";
 				property = "UO_FW_CoverMap_ZoomLevel";
 				control = "EditShort";
-				expression = "_this setVariable ['%s',_value,true];";
+				expression = "_this setVariable ['%s',_value];";
 				defaultValue = "0.2";
 				typeName = "NUMBER";
 				validate = "number";

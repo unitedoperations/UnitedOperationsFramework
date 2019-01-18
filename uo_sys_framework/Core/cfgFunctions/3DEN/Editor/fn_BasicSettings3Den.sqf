@@ -7,6 +7,10 @@
  *		Sacher
  */
 
+#define COMPONENT 3DEN
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
+UO_FW_EXEC_CHECK(ALL);
+
 "Multiplayer" set3DENMissionAttribute ["respawn",3];
 "Multiplayer" set3DENMissionAttribute ["respawndelay",5];
 "Multiplayer" set3DENMissionAttribute ["disabledAI",true];

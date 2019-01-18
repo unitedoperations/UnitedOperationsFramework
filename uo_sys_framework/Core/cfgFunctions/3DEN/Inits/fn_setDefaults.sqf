@@ -7,9 +7,9 @@
  *		PiZZADOX
  */
 
-#define DEBUG_MODE_NORMAL
+#define DEBUG_MODE_MINIMAL
 #define COMPONENT SetDefaults
-#include "\x\UO_FW\addons\Main\HeadlessAIModule\module_macros.hpp"
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
 
 if (!(getMissionConfigValue ["UO_FW_Enabled",false])) exitWith {};
 if (!UO_FW_Server_Framework_Allowed) exitWith {};
@@ -42,16 +42,18 @@ LOG_1("_configCategories: %1",_configCategories);
 	LOG_1("_propertyname: %1",_propertyname);
 	private _missionvalue = getMissionConfigValue [_propertyname,"NONE"];
 	if (_missionvalue isEqualTo "NONE") then {
-		if ((missionNamespace getvariable [_propertyname,""]) isEqualto "") then {
-			private _valuetext = getText(_x >> "defaultValue");
-			if !(_valuetext isEqualto "") then {
+		if ((missionNamespace getvariable [_propertyname,"NOTSET"]) isEqualto "NOTSET") then {
+			if (isText(_x >> "defaultValue")) then {
+				private _valuetext = getText(_x >> "defaultValue");
 				missionNamespace setvariable [_propertyname, (call compile _valuetext), true];
-				LOG_2("_propertyname: %1 set with value: %2",str _propertyname,_propertyname);
+				private _value = missionNamespace getvariable [_propertyname,""];
+				LOG_2("_propertyname: %1 already defined with value of %2! not set!",str _propertyname,_value);
 			} else {
 				LOG_1("_propertyname: %1 null default value! not set!",_propertyname);
 			};
 		} else {
-			LOG_2("_propertyname: %1 already defined with value of %2! not set!",str _propertyname,_propertyname);
+			private _value = missionNamespace getvariable [_propertyname,""];
+			LOG_2("_propertyname: %1 already defined with value of %2! not set!",str _propertyname,_value);
 		};
 	} else {
 		LOG_1("_propertyname: %1 has mission value!",_propertyname);

@@ -33,7 +33,8 @@ if (_obj isKindOf "Man") then {
 		};
 	}];
 	_obj setVariable ["UO_FW_aCount_firedEh", _firedEHhandle];
-} else {
+};
+if (!(_obj isKindOf "Man") && {(_obj isKindOf "Land") || (_obj isKindOf "Air") || (_obj isKindOf "Ship")}) then {
 	private _firedEHhandle = _obj addEventHandler ["fired",  {
 		["UO_FW_ShotCount_EH_Event", [side (_this select 0),(_this select 5)]] call CBA_fnc_serverEvent;
 	}];

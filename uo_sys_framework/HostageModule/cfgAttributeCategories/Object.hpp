@@ -7,7 +7,7 @@ class UO_FW_Hostage_Attributes {
             tooltip = "Makes this unit a hostage that starts bound/captive and must be rescued via player action.";
             property = "UO_FW_Hostage_State";
             control = "CheckboxState";
-            expression= "_this setVariable ['%s', _value,true]; if (_value) then {[{CBA_missionTime > 1},{[_this] call UO_FW_FNC_HostageSet;},_this] call CBA_fnc_WaitUntilAndExecute;};";
+			expression = "_this setVariable ['%s',_value]; [{CBA_missionTime > 1},{if (local _this && {_value}) then {[_this] call UO_FW_FNC_HostageSet;}};,_object] call CBA_fnc_WaitUntilAndExecute;";
 			condition = "objectControllable ";
             defaultValue = "false";
         };
@@ -16,7 +16,7 @@ class UO_FW_Hostage_Attributes {
             tooltip = "Marker that determines the hostage rescue zone. (Default: 'hostage_rescue' marker)";
             property = "UO_FW_Hostage_Rescue_Location";
             control = "Edit";
-            expression = "if !(is3DEN) then {_propertyName = '%s'; [_this, _propertyName, _value, false] call UO_FW_fnc_setInitVar;};";
+			expression = "_this setVariable ['%s',_value];";
             condition = "objectControllable ";
             defaultValue = "'hostage_rescue'";
         };
@@ -25,7 +25,7 @@ class UO_FW_Hostage_Attributes {
             tooltip = "Determine if the hostage will join the squad of the player who frees them. (Default: true)";
             property = "UO_FW_Hostage_Freed_JoinSquad";
             control = "Checkbox";
-            expression = "if !(is3DEN) then {_propertyName = '%s'; [_this, _propertyName, _value, false] call UO_FW_fnc_setInitVar;};";
+			expression = "_this setVariable ['%s',_value];";
             condition = "objectControllable ";
             defaultValue = "true";
         };
@@ -34,7 +34,7 @@ class UO_FW_Hostage_Attributes {
             tooltip = "Enable modifiers for hostage's behavior when they are freed. (False by default.)";
             property = "UO_FW_Hostage_Freed_Modifier";
             control = "Checkbox";
-            expression = "if !(is3DEN) then {_propertyName = '%s'; [_this, _propertyName, _value, false] call UO_FW_fnc_setInitVar;};";
+			expression = "_this setVariable ['%s',_value];";
             condition = "objectControllable ";
             defaultValue = "false";
         };
@@ -43,7 +43,7 @@ class UO_FW_Hostage_Attributes {
             tooltip = "Determine the hostages behavior when freed by the player.\nWill not function unless 'Hostage Freed Modifiers' is enabled. (Default: CARELESS)";
             property = "UO_FW_Hostage_Freed_Behavior";
             control = "Edit";
-            expression = "if !(is3DEN) then {_propertyName = '%s'; [_this, _propertyName, _value, false] call UO_FW_fnc_setInitVar;};";
+			expression = "_this setVariable ['%s',_value];";
             condition = "objectControllable ";
             defaultValue = "'CARELESS'";
         };

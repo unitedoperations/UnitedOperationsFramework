@@ -24,7 +24,7 @@ class UO_FW_AOLimitModule: OlsenModule {
 			tooltip = "The size of the X value of the setup zone. Default: 100";
 			property = "UO_FW_AOLimit_RadiusX";
 			control = "UO_FW_AI_moduleradiusControl";
-			expression = "_this setVariable ['%s',_value,true];";
+			expression = "_this setVariable ['%s',_value];";
 			defaultValue = "100";
 			typeName = "NUMBER";
 			validate = "number";
@@ -34,7 +34,7 @@ class UO_FW_AOLimitModule: OlsenModule {
 			tooltip = "The size of the Y value of the setup zone. Default: 100";
 			property = "UO_FW_AOLimit_RadiusY";
 			control = "UO_FW_AI_moduleradiusControl2";
-			expression = "_this setVariable ['%s',_value,true];";
+			expression = "_this setVariable ['%s',_value];";
 			defaultValue = "100";
 			typeName = "NUMBER";
 			validate = "number";
@@ -45,7 +45,7 @@ class UO_FW_AOLimitModule: OlsenModule {
 			property = "UO_FW_AOLimit_AOMode";
 			control = "UO_FW_AOModeAttribute";
 			typeName = "STRING";
-			expression = "_this setVariable ['%s',_value,true];";
+			expression = "_this setVariable ['%s',_value];";
 			defaultValue = "'HARD'";
 		};
 		class UO_FW_AOLimit_Blufor {
@@ -53,7 +53,7 @@ class UO_FW_AOLimitModule: OlsenModule {
 			tooltip = "Restrict Blufor to this AO. Units that start outside of the AO will be not be restricted.";
 			property = "UO_FW_AOLimit_Blufor";
 			control = "CheckBox";
-			expression = "_this setVariable ['%s',_value,true];";
+			expression = "_this setVariable ['%s',_value];";
 			defaultValue = "true";
 			typeName = "BOOL";
 			validate = "none";
@@ -63,7 +63,7 @@ class UO_FW_AOLimitModule: OlsenModule {
 			tooltip = "Restrict Opfor to this AO. Units that start outside of the AO will be not be restricted.";
 			property = "UO_FW_AOLimit_Opfor";
 			control = "CheckBox";
-			expression = "_this setVariable ['%s',_value,true];";
+			expression = "_this setVariable ['%s',_value];";
 			defaultValue = "true";
 			typeName = "BOOL";
 			validate = "none";
@@ -73,7 +73,7 @@ class UO_FW_AOLimitModule: OlsenModule {
 			tooltip = "Restrict Indfor to this AO. Units that start outside of the AO will be not be restricted.";
 			property = "UO_FW_AOLimit_Indfor";
 			control = "CheckBox";
-			expression = "_this setVariable ['%s',_value,true];";
+			expression = "_this setVariable ['%s',_value];";
 			defaultValue = "true";
 			typeName = "BOOL";
 			validate = "none";
@@ -83,7 +83,7 @@ class UO_FW_AOLimitModule: OlsenModule {
 			tooltip = "Restrict Civilian to this AO. Units that start outside of the AO will be not be restricted.";
 			property = "UO_FW_AOLimit_Civilian";
 			control = "CheckBox";
-			expression = "_this setVariable ['%s',_value,true];";
+			expression = "_this setVariable ['%s',_value];";
 			defaultValue = "true";
 			typeName = "BOOL";
 			validate = "none";
@@ -93,7 +93,7 @@ class UO_FW_AOLimitModule: OlsenModule {
 			tooltip = "Enable to restrict players within AO if they spawned outside the area but entered it.";
 			property = "UO_FW_AOLimit_EntryMode";
 			control = "CheckBox";
-			expression = "_this setVariable ['%s',_value,true];";
+			expression = "_this setVariable ['%s',_value];";
 			defaultValue = "false";
 			typeName = "BOOL";
 			validate = "none";
@@ -103,7 +103,7 @@ class UO_FW_AOLimitModule: OlsenModule {
 			tooltip = "Enable to exempt air units from AO restriction. Default: true";
 			property = "UO_FW_AOLimit_AirUnits";
 			control = "CheckBox";
-			expression = "_this setVariable ['%s',_value,true];";
+			expression = "_this setVariable ['%s',_value];";
 			defaultValue = "true";
 			typeName = "BOOL";
 			validate = "none";
@@ -113,7 +113,7 @@ class UO_FW_AOLimitModule: OlsenModule {
 			tooltip = "The amount of time in seconds a land based unit is allowed to stay outside the AO (-1 = Infinity)";
 			property = "UO_FW_AoLimit_SoftTimeOutside";
 			control = "EditShort";
-			expression = "_this setVariable ['%s',_value,true];";
+			expression = "_this setVariable ['%s',_value];";
 			defaultValue = "30";
 			AOTypes[] = {"SOFT"};
 			typeName = "number";
@@ -124,7 +124,7 @@ class UO_FW_AOLimitModule: OlsenModule {
 			tooltip = "The amount of time in seconds an air based unit is allowed to stay outside the AO (-1 = Infinity)";
 			property = "UO_FW_AoLimit_SoftTimeOutsideAir";
 			control = "EditShort";
-			expression = "_this setVariable ['%s',_value,true];";
+			expression = "_this setVariable ['%s',_value];";
 			defaultValue = "120";
 			AOTypes[] = {"SOFT"};
 			typeName = "number";

@@ -6,7 +6,6 @@ class MissionType: Toolbox {
 		class Title: Title {};
 		class Value: ctrlToolbox {
 			idc=100;
-			style="0x02 + 0x30 + 0x800";
 			h="8 * (pixelH * pixelGrid * 0.50)";
 			x="48 * (pixelW * pixelGrid * 0.50)";
 			w="82 * (pixelW * pixelGrid * 0.50)";

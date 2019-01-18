@@ -28,7 +28,7 @@
 					control = "Combo";
 					typeName = "NUMBER";
 					property = "UO_FW_SetupTimer_SideSelect";
-					expression = "_this setVariable ['%s',_value,true];";
+					expression = "_this setVariable ['%s',_value];";
 					validate = "none";
 					class values {
 						 class West    {name = "West"; value = 0; default = 0;};
@@ -43,7 +43,7 @@
 					tooltip = "The size of the X value of the setup zone. Default: 100";
 					property = "UO_FW_SetupTimer_RadiusX";
 					control = "UO_FW_AI_moduleradiusControl";
-					expression = "_this setVariable ['%s',_value,true];";
+					expression = "_this setVariable ['%s',_value];";
 					defaultValue = "100";
 					typeName = "NUMBER";
 					validate = "number";
@@ -53,7 +53,7 @@
 					tooltip = "The size of the Y value of the setup zone. Default: 100";
 					property = "UO_FW_SetupTimer_RadiusY";
 					control = "UO_FW_AI_moduleradiusControl2";
-					expression = "_this setVariable ['%s',_value,true];";
+					expression = "_this setVariable ['%s',_value];";
 					defaultValue = "100";
 					typeName = "NUMBER";
 					validate = "number";
@@ -67,7 +67,7 @@
 					property = "UO_FW_SetupTimer_Time";
 					defaultValue = "30"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
 					typeName = "NUMBER"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-					expression = "_this setVariable ['%s',_value,true];";
+					expression = "_this setVariable ['%s',_value];";
 					validate = "number";
 				};
 			};
