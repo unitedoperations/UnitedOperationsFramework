@@ -7,7 +7,7 @@ class UO_FW_AIDrivers_Options {
 			tooltip = "Enable AI driver for this vehicle";
 			property = "UO_FW_AIDriverVeh_Enabled";
 			control = "CheckBox";
-			expression = "_this setVariable ['%s',_value];";
+			expression = UO_FW_ENTITY_DELAYED_FNC_EXPRESSION(aiDriversVehInit);
 			condition = "objectVehicle";
 			defaultValue = "false";
 		};
@@ -17,7 +17,7 @@ class UO_FW_AIDrivers_Options {
 			tooltip = "Whether the player can use NVGs in AI Driver view";
 			control = "CheckBox";
 			condition = "objectVehicle";
-			expression = "_this setVariable ['%s',_value];";
+			expression = UO_FW_ENTITY_EXPRESSION;
 			defaultValue = "false";
     	};
 		class UO_FW_AIDriversVeh_FlipEnabled {
@@ -26,7 +26,7 @@ class UO_FW_AIDrivers_Options {
 			tooltip = "Whether the player can flip the vehicle via ACE action";
 			control = "CheckBox";
 			condition = "objectVehicle";
-			expression = "_this setVariable ['%s',_value];";
+			expression = UO_FW_ENTITY_EXPRESSION;
 			defaultValue = "true";
     	};
 	};

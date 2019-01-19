@@ -7,7 +7,7 @@ class UO_FW_MarkerControl {
 			displayName = "Marker Control";
 			tooltip = "Enables Marker Control";
 			control = "CheckboxState";
-			expression = "missionNamespace setVariable ['%s', _value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			defaultValue = "true";
 			typeName = "BOOL";
 		};
@@ -17,7 +17,7 @@ class UO_FW_MarkerControl {
 			control = "EditArray";
 			typeName = "STRING";
 			property = "UO_FW_MarkerControl_BluforMarkers";
-			expression = "missionNamespace setVariable ['%s',_value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			validate = "none";
 			defaultValue = "[]";
 		};
@@ -27,7 +27,7 @@ class UO_FW_MarkerControl {
 			control = "EditArray";
 			typeName = "STRING";
 			property = "UO_FW_MarkerControl_BluforBriefingMarkers";
-			expression = "missionNamespace setVariable ['%s',_value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			validate = "none";
 			defaultValue = "[]";
 		};
@@ -37,7 +37,7 @@ class UO_FW_MarkerControl {
 			control = "EditArray";
 			typeName = "STRING";
 			property = "UO_FW_MarkerControl_OpforMarkers";
-			expression = "missionNamespace setVariable ['%s',_value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			validate = "none";
 			defaultValue = "[]";
 		};
@@ -47,7 +47,7 @@ class UO_FW_MarkerControl {
 			control = "EditArray";
 			typeName = "STRING";
 			property = "UO_FW_MarkerControl_OpforBriefingMarkers";
-			expression = "missionNamespace setVariable ['%s',_value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			validate = "none";
 			defaultValue = "[]";
 		};
@@ -57,7 +57,7 @@ class UO_FW_MarkerControl {
 			control = "EditArray";
 			typeName = "STRING";
 			property = "UO_FW_MarkerControl_IndependentMarkers";
-			expression = "missionNamespace setVariable ['%s',_value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			validate = "none";
 			defaultValue = "[]";
 		};
@@ -67,7 +67,7 @@ class UO_FW_MarkerControl {
 			control = "EditArray";
 			typeName = "STRING";
 			property = "UO_FW_MarkerControl_IndependentBriefingMarkers";
-			expression = "missionNamespace setVariable ['%s',_value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			validate = "none";
 			defaultValue = "[]";
 		};
@@ -77,7 +77,7 @@ class UO_FW_MarkerControl {
 			control = "EditArray";
 			typeName = "STRING";
 			property = "UO_FW_MarkerControl_CivilianMarkers";
-			expression = "missionNamespace setVariable ['%s',_value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			validate = "none";
 			defaultValue = "[]";
 		};
@@ -87,7 +87,7 @@ class UO_FW_MarkerControl {
 			control = "EditArray";
 			typeName = "STRING";
 			property = "UO_FW_MarkerControl_CivilianBriefingMarkers";
-			expression = "missionNamespace setVariable ['%s',_value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			validate = "none";
 			defaultValue = "[]";
 		};
@@ -97,7 +97,7 @@ class UO_FW_MarkerControl {
 			control = "EditArray";
 			typeName = "STRING";
 			property = "UO_FW_MarkerControl_SystemMarkers";
-			expression = "missionNamespace setVariable ['%s',_value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			validate = "none";
 			defaultValue = "[]";
 		};

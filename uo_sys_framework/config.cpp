@@ -1,4 +1,5 @@
 #include "script_macros.hpp"
+#include "\x\UO_FW\addons\Main\config_macros.hpp"
 
 class CfgPatches {
 	class ADDON {
@@ -33,11 +34,7 @@ class CfgFunctions {
 		#include "Core\cfgFunctions.hpp"
 		//Add Custom Functions
 		#include "BriefingModule\cfgFunctions.hpp"
-		#include "TeamColourModule\cfgFunctions.hpp"
-		#include "SelfActionsModule\cfgFunctions.hpp"
-		#include "SafeStartModule\cfgFunctions.hpp"
 		#include "ShotCountModule\cfgFunctions.hpp"
-		#include "AntiNDModule\cfgFunctions.hpp"
 		#include "AIDriversModule\cfgFunctions.hpp"
 		#include "ACREModule\cfgFunctions.hpp"
 		#include "GearModule\cfgFunctions.hpp"
@@ -45,7 +42,6 @@ class CfgFunctions {
 		#include "SetupTimerModule\cfgFunctions.hpp"
 		#include "AILinkModule\cfgFunctions.hpp"
 		#include "DisconnectControlModule\cfgFunctions.hpp"
-		#include "MarkerControlModule\cfgFunctions.hpp"
 		#include "StartTextModule\cfgFunctions.hpp"
 		#include "AutoTrackAssetModule\cfgFunctions.hpp"
 		#include "CaptureZoneModule\cfgFunctions.hpp"
@@ -229,6 +225,7 @@ class Cfg3DEN {
 		#include "ACREModule\CfgAttributes.hpp"
 		#include "GearModule\CfgAttributes.hpp"
 		#include "AOLimitModule\CfgAttributes.hpp"
+		#include "HostageModule\CfgAttributes.hpp"
 	};
 };
 
@@ -286,25 +283,41 @@ class Params {
 
 class Extended_PreInit_EventHandlers {
 	#include "Core\cfgXEH\PreInit.hpp"
+	//Module PreInit Activation
+	#include "GearModule\cfgXEH\PreInit.hpp"
+	#include "CoverMapModule\cfgXEH\PreInit.hpp"
+	#include "BriefingModule\cfgXEH\PreInit.hpp"
+	#include "AntiNDModule\cfgXEH\PreInit.hpp"
+	#include "TeamColourModule\cfgXEH\PreInit.hpp"
+	#include "SelfActionsModule\cfgXEH\PreInit.hpp"
+	#include "MarkerControlModule\cfgXEH\PreInit.hpp"
+	#include "ShotCountModule\cfgXEH\PreInit.hpp"
 };
 
 class Extended_PostInit_Eventhandlers {
 	#include "Core\cfgXEH\PostInit.hpp"
-	#include "AutoTrackAssetModule\cfgXEH\PostInit.hpp"
-	#include "ShotCountModule\cfgXEH\PostInit.hpp"
+	//Module PostInit Activation
 };
 
 class Extended_InitPost_Eventhandlers {
+	//Module InitPost Activation
     class CAManBase {
-		#include "ShotCountModule\cfgXEH\InitPost_CAManBase.hpp"
+		#include "ShotCountModule\cfgXEH\InitPost.hpp"
     };
-	class Land {
-		#include "ShotCountModule\cfgXEH\InitPost_CAManBase.hpp"
+	class LandVehicle {
+		#include "ShotCountModule\cfgXEH\InitPost.hpp"
+		#include "AutoTrackAssetModule\cfgXEH\InitPost.hpp"
 	};
-	class Air {
-		#include "ShotCountModule\cfgXEH\InitPost_CAManBase.hpp"
+	class Helicopter {
+		#include "ShotCountModule\cfgXEH\InitPost.hpp"
+		#include "AutoTrackAssetModule\cfgXEH\InitPost.hpp"
 	};
-	class Ship {
-		#include "ShotCountModule\cfgXEH\InitPost_CAManBase.hpp"
+	class Plane {
+		#include "ShotCountModule\cfgXEH\InitPost.hpp"
+		#include "AutoTrackAssetModule\cfgXEH\InitPost.hpp"
+	};
+	class Ship_F {
+		#include "ShotCountModule\cfgXEH\InitPost.hpp"
+		#include "AutoTrackAssetModule\cfgXEH\InitPost.hpp"
 	};
 };

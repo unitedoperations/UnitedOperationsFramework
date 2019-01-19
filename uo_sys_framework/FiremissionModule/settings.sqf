@@ -26,7 +26,7 @@
 */
 
 /*
- * UO_FW_FNC_GetAmmoDisplayNameAndIndex
+ * UO_FW_fnc_GetAmmoDisplayNameAndIndex
  *
  * Returns an array of [index,className,displayName] for each ammunition defined in the artillery config.
  *
@@ -37,11 +37,11 @@
  * array
  *
  * Example:
- * unit call UO_FW_FNC_GetAmmoDisplayNameAndIndex;
+ * unit call UO_FW_fnc_GetAmmoDisplayNameAndIndex;
  */
 
  /*
-  * UO_FW_FNC_ArtMakePlayerObserver
+  * UO_FW_fnc_ArtMakePlayerObserver
   *
   * Makes a player an artillery observer
   *
@@ -53,16 +53,16 @@
   * none
   *
   * Example:
-  * [fo,[m109]] call UO_FW_FNC_ArtMakePlayerObserver;
+  * [fo,[m109]] call UO_FW_fnc_ArtMakePlayerObserver;
   *
   * Note:
-  * for JIP compatibility use [this,guns] call UO_FW_FNC_ArtMakePlayerObserver; in the unit Init
-  * Right now you cannot change the artilleries a unit has because of certain ace issues but you can disable the gun with [gun,isAviable] call UO_FW_FNC_SetArtyAviable; isAviable = false if you want it not be used
+  * for JIP compatibility use [this,guns] call UO_FW_fnc_ArtMakePlayerObserver; in the unit Init
+  * Right now you cannot change the artilleries a unit has because of certain ace issues but you can disable the gun with [gun,isAviable] call UO_FW_fnc_SetArtyAviable; isAviable = false if you want it not be used
   */
 
 
   /*
-   * UO_FW_FNC_SetArtilleryData
+   * UO_FW_fnc_SetArtilleryData
    *
    * Sets variables on the artillery gun which are used in firemissions
    *
@@ -82,11 +82,11 @@
    * none
    *
    * Example:
-   * [arty1,1,0,300,4,3,"Arty at Airfield",true] call UO_FW_FNC_SetArtilleryData;
+   * [arty1,1,0,300,4,3,"Arty at Airfield",true] call UO_FW_fnc_SetArtilleryData;
    */
 
    /*
-	* UO_FW_FNC_SetObserverSkill
+	* UO_FW_fnc_SetObserverSkill
 	*
 	* Sets variables on an AI Observer used in the observer function
 	*
@@ -99,11 +99,11 @@
 	* none
 	*
 	* Example:
-	* [obs1,0,0] call UO_FW_FNC_SetObserverSkill;
+	* [obs1,0,0] call UO_FW_fnc_SetObserverSkill;
 	*/
 
 	/*
-	 * UO_FW_FNC_RegisterForwardObserver
+	 * UO_FW_fnc_RegisterForwardObserver
 	 *
 	 * Makes an AI unit an FO who can call in artillery
 	 *
@@ -118,17 +118,17 @@
 	 * 7: roundsPerSalvo <int> number of rounds per salvo
 	 * 8: salvoWaitTime <int> downtime between salvos
 	 * 9: minSpottedDistance <int> range in m of how close a spotting round needs to be to be accepted
-	 * 10: roundIndex <int> ammunition index from UO_FW_FNC_GetAmmoDisplayNameAndIndex
+	 * 10: roundIndex <int> ammunition index from UO_FW_fnc_GetAmmoDisplayNameAndIndex
 	 *
 	 * Return Value:
 	 * none
 	 *
 	 * Example:
-	 *  [obs1,[arty11,arty12,arty13,arty14],1,300,1000,10,5,10,300,150,0] call UO_FW_FNC_RegisterForwardObserver;
+	 *  [obs1,[arty11,arty12,arty13,arty14],1,300,1000,10,5,10,300,150,0] call UO_FW_fnc_RegisterForwardObserver;
 	 */
 
 	 /*
-	  * UO_FW_FNC_PolarFiremission
+	  * UO_FW_fnc_PolarFiremission
 	  *
 	  * Calls in a polar firemission
 	  *
@@ -142,18 +142,18 @@
 	  * 6: roundsPerSalvo <int> number of rounds per salvo
 	  * 7: salvoWaitTime <int> downtime between salvos
 	  * 9: minSpottedDistance <int> range in m of how close a spotting round needs to be to be accepted
-	  * 10: roundIndex <int> ammunition index from UO_FW_FNC_GetAmmoDisplayNameAndIndex
+	  * 10: roundIndex <int> ammunition index from UO_FW_fnc_GetAmmoDisplayNameAndIndex
 
 	  *
 	  * Return Value:
 	  * none
 	  *
 	  * Example:
-	  *  [arty1,"132035",3230,500,200,10,5,10,100,0]   call UO_FW_FNC_PolarFiremission;
+	  *  [arty1,"132035",3230,500,200,10,5,10,100,0]   call UO_FW_fnc_PolarFiremission;
 	  */
 
 	  /*
-	   * UO_FW_FNC_PointFiremission
+	   * UO_FW_fnc_PointFiremission
 	   *
 	   * Calls in a point firemission
 	   *
@@ -165,18 +165,18 @@
 	   * 4: roundsPerSalvo <int> number of rounds per salvo
 	   * 5: salvoWaitTime <int> downtime between salvos
 	   * 6: minSpottedDistance <int> range in m of how close a spotting round needs to be to be accepted
-	   * 7: roundIndex <int> ammunition index from UO_FW_FNC_GetAmmoDisplayNameAndIndex
+	   * 7: roundIndex <int> ammunition index from UO_FW_fnc_GetAmmoDisplayNameAndIndex
 
 	   *
 	   * Return Value:
 	   * none
 	   *
 	   * Example:
-	   *  [arty1,getPos gameLogic1,200,10,5,10,100,0]   call UO_FW_FNC_PointFiremission;
+	   *  [arty1,getPos gameLogic1,200,10,5,10,100,0]   call UO_FW_fnc_PointFiremission;
 	   */
 
 	   /*
-		* UO_FW_FNC_LineFiremission
+		* UO_FW_fnc_LineFiremission
 		*
 		* Calls in a firemission which moves from startPoint to endPoint. Line between SP and EP will be cut into salvoCount pieces and a salvo will be fired at every piece
 		*
@@ -189,18 +189,18 @@
 		* 5: roundsPerSalvo <int> number of rounds per salvo
 		* 6: salvoWaitTime <int> downtime between salvos
 		* 7: minSpottedDistance <int> range in m of how close a spotting round needs to be to be accepted
-		* 8: roundIndex <int> ammunition index from UO_FW_FNC_GetAmmoDisplayNameAndIndex
+		* 8: roundIndex <int> ammunition index from UO_FW_fnc_GetAmmoDisplayNameAndIndex
 
 		*
 		* Return Value:
 		* none
 		*
 		* Example:
-		*  [arty2,getPos gameLogic2,getPos gameLogic3,10,2,10,100,0]   call UO_FW_FNC_LineFiremission;
+		*  [arty2,getPos gameLogic2,getPos gameLogic3,10,2,10,100,0]   call UO_FW_fnc_LineFiremission;
 		*/
 
 		/*
-		 * UO_FW_FNC_BracketFiremission
+		 * UO_FW_fnc_BracketFiremission
 		 *
 		 * Calls in a firemission which moves from startPoint half way to endPoint and from endPoint halfway to startPoint. Line between SP and EP will be cut into salvoCount pieces and a salvo will be fired at every piece.
 		 *
@@ -213,18 +213,18 @@
 		 * 5: roundsPerSalvo <int> number of rounds per salvo
 		 * 6: salvoWaitTime <int> downtime between salvos
 		 * 7: minSpottedDistance <int> range in m of how close a spotting round needs to be to be accepted
-		 * 8: roundIndex <int> ammunition index from UO_FW_FNC_GetAmmoDisplayNameAndIndex
+		 * 8: roundIndex <int> ammunition index from UO_FW_fnc_GetAmmoDisplayNameAndIndex
 
 		 *
 		 * Return Value:
 		 * none
 		 *
 		 * Example:
-		 *  [arty2,getPos gameLogic2,getPos gameLogic3,10,2,10,100,0]  call UO_FW_FNC_BracketFiremission;
+		 *  [arty2,getPos gameLogic2,getPos gameLogic3,10,2,10,100,0]  call UO_FW_fnc_BracketFiremission;
 		 */
 
 		 /*
-		  * UO_FW_FNC_DonutFiremission
+		  * UO_FW_fnc_DonutFiremission
 		  *
 		  * Calls in a firemission where artillery will shoot between innerRadius and outerRadius from the target
 		  *
@@ -237,18 +237,18 @@
 		  * 5: roundsPerSalvo <int> number of rounds per salvo
 		  * 6: salvoWaitTime <int> downtime between salvos
 		  * 7: minSpottedDistance <int> range in m of how close a spotting round needs to be to be accepted
-		  * 8: roundIndex <int> ammunition index from UO_FW_FNC_GetAmmoDisplayNameAndIndex
+		  * 8: roundIndex <int> ammunition index from UO_FW_fnc_GetAmmoDisplayNameAndIndex
 
 		  *
 		  * Return Value:
 		  * none
 		  *
 		  * Example:
-		  *  [arty4,getPos gameLogic6,200,400,10,5,20,100,0]   call UO_FW_FNC_DonutFiremission;
+		  *  [arty4,getPos gameLogic6,200,400,10,5,20,100,0]   call UO_FW_fnc_DonutFiremission;
 		  */
 
 		  /*
-		   * UO_FW_FNC_MarkerFiremission
+		   * UO_FW_fnc_MarkerFiremission
 		   *
 		   * Calls in a firemission where artillery will shoot in the rectangle or circle marker
 		   *
@@ -259,18 +259,18 @@
 		   * 3: roundsPerSalvo <int> number of rounds per salvo
 		   * 4: salvoWaitTime <int> downtime between salvos
 		   * 5: minSpottedDistance <int> range in m of how close a spotting round needs to be to be accepted
-		   * 6: roundIndex <int> ammunition index from UO_FW_FNC_GetAmmoDisplayNameAndIndex
+		   * 6: roundIndex <int> ammunition index from UO_FW_fnc_GetAmmoDisplayNameAndIndex
 
 		   *
 		   * Return Value:
 		   * none
 		   *
 		   * Example:
-		   * [arty5,"artytarget1",10,5,20,100,0]   call UO_FW_FNC_MarkerFiremission;
+		   * [arty5,"artytarget1",10,5,20,100,0]   call UO_FW_fnc_MarkerFiremission;
 		   */
 
 		   /*
-			* UO_FW_FNC_PointMarkerFiremission
+			* UO_FW_fnc_PointMarkerFiremission
 			*
 			* Calls a point firemission on a given markername
 			*
@@ -282,18 +282,18 @@
 			* 4: roundsPerSalvo <int> number of rounds per salvo
 			* 5: salvoWaitTime <int> downtime between salvos
 			* 6: minSpottedDistance <int> range in m of how close a spotting round needs to be to be accepted
-			* 7: roundIndex <int> ammunition index from UO_FW_FNC_GetAmmoDisplayNameAndIndex
+			* 7: roundIndex <int> ammunition index from UO_FW_fnc_GetAmmoDisplayNameAndIndex
 
 			*
 			* Return Value:
 			* none
 			*
 			* Example:
-			* [arty5,"artytarget1",300,10,5,20,100,0]   call UO_FW_FNC_PointMarkerFiremission;
+			* [arty5,"artytarget1",300,10,5,20,100,0]   call UO_FW_fnc_PointMarkerFiremission;
 			*/
 
 			/*
-			 * UO_FW_FNC_DynamicMarkerFiremission
+			 * UO_FW_fnc_DynamicMarkerFiremission
 			 *
 			 * Calls a point firemission on a marker with a given text
 			 *
@@ -305,18 +305,18 @@
 			 * 4: roundsPerSalvo <int> number of rounds per salvo
 			 * 5: salvoWaitTime <int> downtime between salvos
 			 * 6: minSpottedDistance <int> range in m of how close a spotting round needs to be to be accepted
-			 * 7: roundIndex <int> ammunition index from UO_FW_FNC_GetAmmoDisplayNameAndIndex
+			 * 7: roundIndex <int> ammunition index from UO_FW_fnc_GetAmmoDisplayNameAndIndex
 
 			 *
 			 * Return Value:
 			 * none
 			 *
 			 * Example:
-			 * [arty5,"artytarget1",300,10,5,20,100,0]   call UO_FW_FNC_DynamicMarkerFiremission;
+			 * [arty5,"artytarget1",300,10,5,20,100,0]   call UO_FW_fnc_DynamicMarkerFiremission;
 			 */
 
 			 /*
-			  * UO_FW_FNC_CurtainFiremission
+			  * UO_FW_fnc_CurtainFiremission
 			  *
 			  * Calls in multiple synchronized line firemission from START to ENDPOINT with WIDTH left right dispersion
 			  *
@@ -329,12 +329,12 @@
 			  * 5: roundsPerSalvo <int> number of rounds per salvo
 			  * 6: salvoWaitTime <int> downtime between salvos
 			  * 7: minSpottedDistance <int> range in m of how close a spotting round needs to be to be accepted
-			  * 8: roundIndex <int> ammunition index from UO_FW_FNC_GetAmmoDisplayNameAndIndex
+			  * 8: roundIndex <int> ammunition index from UO_FW_fnc_GetAmmoDisplayNameAndIndex
 
 			  *
 			  * Return Value:
 			  * none
 			  *
 			  * Example:
-			  * [[arty6,arty7,arty8,arty9,arty10],getPos gameLogic7,getPos gameLogic8,200,10,5,20,100,0]   call UO_FW_FNC_CurtainFiremission;
+			  * [[arty6,arty7,arty8,arty9,arty10],getPos gameLogic7,getPos gameLogic8,200,10,5,20,100,0]   call UO_FW_fnc_CurtainFiremission;
 			  */

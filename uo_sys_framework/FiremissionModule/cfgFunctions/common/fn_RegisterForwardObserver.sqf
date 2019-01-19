@@ -40,7 +40,7 @@ if (isServer) then {
 										{
 												if ((!(_x getVariable [VAR_SART_ARTINFIREMission,false])) && !(_hasFired) ) then {
 														_currentShotTargets pushBack [_x,_pos];
-														[_x,_pos,_standardDispersion,_standardRoundCount,_standardRoundSalvo,_standardRoundSalvoWait,_minSpottedDistance,_standardRound] call UO_FW_FNC_PointFiremission;
+														[_x,_pos,_standardDispersion,_standardRoundCount,_standardRoundSalvo,_standardRoundSalvoWait,_minSpottedDistance,_standardRound] call UO_FW_fnc_PointFiremission;
 														_hasFired = true;
 												};
 													_freeBattery = _batteries ;

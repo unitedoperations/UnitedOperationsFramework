@@ -8,7 +8,7 @@ class UO_FW_GearSettings_ACE_Arsenal_Opfor {
 			tooltip = "Rifleman Loadout saved in ACE Arsenal mission loadouts";
 			control = "UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo";
 			typeName = "STRING";
-			expression = "missionNamespace setVariable ['%s', _value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			defaultValue = "'None'";
 		};
 		class UO_FW_GearSettings_ACE_Arsenal_LoadoutType_Opfor_RFLAT {
@@ -17,7 +17,7 @@ class UO_FW_GearSettings_ACE_Arsenal_Opfor {
 			tooltip = "Rifleman AT Loadout saved in ACE Arsenal mission loadouts";
 			control = "UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo";
 			typeName = "STRING";
-			expression = "missionNamespace setVariable ['%s', _value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			defaultValue = "'None'";
 		};
 		class UO_FW_GearSettings_ACE_Arsenal_LoadoutType_Opfor_AR {
@@ -26,7 +26,7 @@ class UO_FW_GearSettings_ACE_Arsenal_Opfor {
 			tooltip = "Automatic Rifleman Loadout saved in ACE Arsenal mission loadouts";
 			control = "UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo";
 			typeName = "STRING";
-			expression = "missionNamespace setVariable ['%s', _value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			defaultValue = "'None'";
 		};
 		class UO_FW_GearSettings_ACE_Arsenal_LoadoutType_Opfor_GRN {
@@ -35,7 +35,7 @@ class UO_FW_GearSettings_ACE_Arsenal_Opfor {
 			tooltip = "Automatic Rifleman Loadout saved in ACE Arsenal mission loadouts";
 			control = "UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo";
 			typeName = "STRING";
-			expression = "missionNamespace setVariable ['%s', _value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			defaultValue = "'None'";
 		};
 		class UO_FW_GearSettings_ACE_Arsenal_LoadoutType_Opfor_TL {
@@ -44,7 +44,7 @@ class UO_FW_GearSettings_ACE_Arsenal_Opfor {
 			tooltip = "Automatic Rifleman Loadout saved in ACE Arsenal mission loadouts";
 			control = "UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo";
 			typeName = "STRING";
-			expression = "missionNamespace setVariable ['%s', _value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			defaultValue = "'None'";
 		};
 		class UO_FW_GearSettings_ACE_Arsenal_LoadoutType_Opfor_SQL {
@@ -53,7 +53,7 @@ class UO_FW_GearSettings_ACE_Arsenal_Opfor {
 			tooltip = "Automatic Rifleman Loadout saved in ACE Arsenal mission loadouts";
 			control = "UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo";
 			typeName = "STRING";
-			expression = "missionNamespace setVariable ['%s', _value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			defaultValue = "'None'";
 		};
 		class UO_FW_GearSettings_ACE_Arsenal_LoadoutType_Opfor_AT {
@@ -62,7 +62,7 @@ class UO_FW_GearSettings_ACE_Arsenal_Opfor {
 			tooltip = "Automatic Rifleman Loadout saved in ACE Arsenal mission loadouts";
 			control = "UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo";
 			typeName = "STRING";
-			expression = "missionNamespace setVariable ['%s', _value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			defaultValue = "'None'";
 		};
 		class UO_FW_GearSettings_ACE_Arsenal_LoadoutType_Opfor_AAT {
@@ -71,7 +71,7 @@ class UO_FW_GearSettings_ACE_Arsenal_Opfor {
 			tooltip = "Automatic Rifleman Loadout saved in ACE Arsenal mission loadouts";
 			control = "UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo";
 			typeName = "STRING";
-			expression = "missionNamespace setVariable ['%s', _value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			defaultValue = "'None'";
 		};
 		class UO_FW_GearSettings_ACE_Arsenal_LoadoutType_Opfor_MG {
@@ -80,7 +80,7 @@ class UO_FW_GearSettings_ACE_Arsenal_Opfor {
 			tooltip = "Automatic Rifleman Loadout saved in ACE Arsenal mission loadouts";
 			control = "UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo";
 			typeName = "STRING";
-			expression = "missionNamespace setVariable ['%s', _value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			defaultValue = "'None'";
 		};
 		class UO_FW_GearSettings_ACE_Arsenal_LoadoutType_Opfor_AMG {
@@ -89,7 +89,7 @@ class UO_FW_GearSettings_ACE_Arsenal_Opfor {
 			tooltip = "Automatic Rifleman Loadout saved in ACE Arsenal mission loadouts";
 			control = "UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo";
 			typeName = "STRING";
-			expression = "missionNamespace setVariable ['%s', _value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			defaultValue = "'None'";
 		};
 		class UO_FW_GearSettings_ACE_Arsenal_LoadoutType_Opfor_VCRW {
@@ -98,7 +98,7 @@ class UO_FW_GearSettings_ACE_Arsenal_Opfor {
 			tooltip = "Automatic Rifleman Loadout saved in ACE Arsenal mission loadouts";
 			control = "UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo";
 			typeName = "STRING";
-			expression = "missionNamespace setVariable ['%s', _value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			defaultValue = "'None'";
 		};
 		class UO_FW_GearSettings_ACE_Arsenal_LoadoutType_Opfor_VCMD {
@@ -107,7 +107,7 @@ class UO_FW_GearSettings_ACE_Arsenal_Opfor {
 			tooltip = "Automatic Rifleman Loadout saved in ACE Arsenal mission loadouts";
 			control = "UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo";
 			typeName = "STRING";
-			expression = "missionNamespace setVariable ['%s', _value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			defaultValue = "'None'";
 		};
 		class UO_FW_GearSettings_ACE_Arsenal_LoadoutType_Opfor_OFF {
@@ -116,7 +116,7 @@ class UO_FW_GearSettings_ACE_Arsenal_Opfor {
 			tooltip = "Officer Loadout saved in ACE Arsenal mission loadouts";
 			control = "UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo";
 			typeName = "STRING";
-			expression = "missionNamespace setVariable ['%s', _value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			defaultValue = "'None'";
 		};
 		class UO_FW_GearSettings_ACE_Arsenal_LoadoutType_Opfor_RTO {
@@ -125,7 +125,7 @@ class UO_FW_GearSettings_ACE_Arsenal_Opfor {
 			tooltip = "RATELO Loadout saved in ACE Arsenal mission loadouts";
 			control = "UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo";
 			typeName = "STRING";
-			expression = "missionNamespace setVariable ['%s', _value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			defaultValue = "'None'";
 		};
 		class UO_FW_GearSettings_ACE_Arsenal_LoadoutType_Opfor_FAC {
@@ -134,7 +134,7 @@ class UO_FW_GearSettings_ACE_Arsenal_Opfor {
 			tooltip = "FAC Loadout saved in ACE Arsenal mission loadouts";
 			control = "UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo";
 			typeName = "STRING";
-			expression = "missionNamespace setVariable ['%s', _value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			defaultValue = "'None'";
 		};
 		class UO_FW_GearSettings_ACE_Arsenal_LoadoutType_Opfor_CUS1 {
@@ -143,7 +143,7 @@ class UO_FW_GearSettings_ACE_Arsenal_Opfor {
 			tooltip = "Custom Loadout Slot";
 			control = "UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo";
 			typeName = "STRING";
-			expression = "missionNamespace setVariable ['%s', _value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			defaultValue = "'None'";
 		};
 		class UO_FW_GearSettings_ACE_Arsenal_LoadoutType_Opfor_CUS2 {
@@ -152,7 +152,7 @@ class UO_FW_GearSettings_ACE_Arsenal_Opfor {
 			tooltip = "Custom Loadout Slot";
 			control = "UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo";
 			typeName = "STRING";
-			expression = "missionNamespace setVariable ['%s', _value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			defaultValue = "'None'";
 		};
 		class UO_FW_GearSettings_ACE_Arsenal_LoadoutType_Opfor_CUS3 {
@@ -161,7 +161,7 @@ class UO_FW_GearSettings_ACE_Arsenal_Opfor {
 			tooltip = "Custom Loadout Slot";
 			control = "UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo";
 			typeName = "STRING";
-			expression = "missionNamespace setVariable ['%s', _value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			defaultValue = "'None'";
 		};
 		class UO_FW_GearSettings_ACE_Arsenal_LoadoutType_Opfor_CUS4 {
@@ -170,7 +170,7 @@ class UO_FW_GearSettings_ACE_Arsenal_Opfor {
 			tooltip = "Custom Loadout Slot";
 			control = "UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo";
 			typeName = "STRING";
-			expression = "missionNamespace setVariable ['%s', _value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			defaultValue = "'None'";
 		};
 		class UO_FW_GearSettings_ACE_Arsenal_LoadoutType_Opfor_CUS5 {
@@ -179,7 +179,7 @@ class UO_FW_GearSettings_ACE_Arsenal_Opfor {
 			tooltip = "Custom Loadout Slot";
 			control = "UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo";
 			typeName = "STRING";
-			expression = "missionNamespace setVariable ['%s', _value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			defaultValue = "'None'";
 		};
 	};
@@ -194,7 +194,7 @@ class UO_FW_GearSettings_Olsen_Opfor {
 			tooltip = "Rifleman Loadout saved in ACE Arsenal mission loadouts";
 			control = "EditShort";
 			typeName = "STRING";
-			expression = "missionNamespace setVariable ['%s', _value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			defaultValue = "''";
 		};
 		class UO_FW_GearSettings_Olsen_LoadoutType_Opfor_RFLAT {
@@ -203,7 +203,7 @@ class UO_FW_GearSettings_Olsen_Opfor {
 			tooltip = "Rifleman AT Loadout saved in ACE Arsenal mission loadouts";
 			control = "EditShort";
 			typeName = "STRING";
-			expression = "missionNamespace setVariable ['%s', _value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			defaultValue = "''";
 		};
 		class UO_FW_GearSettings_Olsen_LoadoutType_Opfor_AR {
@@ -212,7 +212,7 @@ class UO_FW_GearSettings_Olsen_Opfor {
 			tooltip = "Automatic Rifleman Loadout saved in ACE Arsenal mission loadouts";
 			control = "EditShort";
 			typeName = "STRING";
-			expression = "missionNamespace setVariable ['%s', _value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			defaultValue = "''";
 		};
 		class UO_FW_GearSettings_Olsen_LoadoutType_Opfor_GRN {
@@ -221,7 +221,7 @@ class UO_FW_GearSettings_Olsen_Opfor {
 			tooltip = "Automatic Rifleman Loadout saved in ACE Arsenal mission loadouts";
 			control = "EditShort";
 			typeName = "STRING";
-			expression = "missionNamespace setVariable ['%s', _value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			defaultValue = "''";
 		};
 		class UO_FW_GearSettings_Olsen_LoadoutType_Opfor_TL {
@@ -230,7 +230,7 @@ class UO_FW_GearSettings_Olsen_Opfor {
 			tooltip = "Automatic Rifleman Loadout saved in ACE Arsenal mission loadouts";
 			control = "EditShort";
 			typeName = "STRING";
-			expression = "missionNamespace setVariable ['%s', _value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			defaultValue = "''";
 		};
 		class UO_FW_GearSettings_Olsen_LoadoutType_Opfor_SQL {
@@ -239,7 +239,7 @@ class UO_FW_GearSettings_Olsen_Opfor {
 			tooltip = "Automatic Rifleman Loadout saved in ACE Arsenal mission loadouts";
 			control = "EditShort";
 			typeName = "STRING";
-			expression = "missionNamespace setVariable ['%s', _value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			defaultValue = "''";
 		};
 		class UO_FW_GearSettings_Olsen_LoadoutType_Opfor_AT {
@@ -248,7 +248,7 @@ class UO_FW_GearSettings_Olsen_Opfor {
 			tooltip = "Automatic Rifleman Loadout saved in ACE Arsenal mission loadouts";
 			control = "EditShort";
 			typeName = "STRING";
-			expression = "missionNamespace setVariable ['%s', _value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			defaultValue = "''";
 		};
 		class UO_FW_GearSettings_Olsen_LoadoutType_Opfor_AAT {
@@ -257,7 +257,7 @@ class UO_FW_GearSettings_Olsen_Opfor {
 			tooltip = "Automatic Rifleman Loadout saved in ACE Arsenal mission loadouts";
 			control = "EditShort";
 			typeName = "STRING";
-			expression = "missionNamespace setVariable ['%s', _value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			defaultValue = "''";
 		};
 		class UO_FW_GearSettings_Olsen_LoadoutType_Opfor_MG {
@@ -266,7 +266,7 @@ class UO_FW_GearSettings_Olsen_Opfor {
 			tooltip = "Automatic Rifleman Loadout saved in ACE Arsenal mission loadouts";
 			control = "EditShort";
 			typeName = "STRING";
-			expression = "missionNamespace setVariable ['%s', _value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			defaultValue = "''";
 		};
 		class UO_FW_GearSettings_Olsen_LoadoutType_Opfor_AMG {
@@ -275,7 +275,7 @@ class UO_FW_GearSettings_Olsen_Opfor {
 			tooltip = "Automatic Rifleman Loadout saved in ACE Arsenal mission loadouts";
 			control = "EditShort";
 			typeName = "STRING";
-			expression = "missionNamespace setVariable ['%s', _value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			defaultValue = "''";
 		};
 		class UO_FW_GearSettings_Olsen_LoadoutType_Opfor_VCRW {
@@ -284,7 +284,7 @@ class UO_FW_GearSettings_Olsen_Opfor {
 			tooltip = "Automatic Rifleman Loadout saved in ACE Arsenal mission loadouts";
 			control = "EditShort";
 			typeName = "STRING";
-			expression = "missionNamespace setVariable ['%s', _value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			defaultValue = "''";
 		};
 		class UO_FW_GearSettings_Olsen_LoadoutType_Opfor_VCMD {
@@ -293,7 +293,7 @@ class UO_FW_GearSettings_Olsen_Opfor {
 			tooltip = "Automatic Rifleman Loadout saved in ACE Arsenal mission loadouts";
 			control = "EditShort";
 			typeName = "STRING";
-			expression = "missionNamespace setVariable ['%s', _value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			defaultValue = "''";
 		};
 		class UO_FW_GearSettings_Olsen_LoadoutType_Opfor_OFF {
@@ -302,7 +302,7 @@ class UO_FW_GearSettings_Olsen_Opfor {
 			tooltip = "Officer Loadout saved in ACE Arsenal mission loadouts";
 			control = "EditShort";
 			typeName = "STRING";
-			expression = "missionNamespace setVariable ['%s', _value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			defaultValue = "''";
 		};
 		class UO_FW_GearSettings_Olsen_LoadoutType_Opfor_RTO {
@@ -311,7 +311,7 @@ class UO_FW_GearSettings_Olsen_Opfor {
 			tooltip = "RATELO Loadout saved in ACE Arsenal mission loadouts";
 			control = "EditShort";
 			typeName = "STRING";
-			expression = "missionNamespace setVariable ['%s', _value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			defaultValue = "''";
 		};
 		class UO_FW_GearSettings_Olsen_LoadoutType_Opfor_FAC {
@@ -320,7 +320,7 @@ class UO_FW_GearSettings_Olsen_Opfor {
 			tooltip = "FAC Loadout saved in ACE Arsenal mission loadouts";
 			control = "EditShort";
 			typeName = "STRING";
-			expression = "missionNamespace setVariable ['%s', _value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			defaultValue = "''";
 		};
 		class UO_FW_GearSettings_Olsen_LoadoutType_Opfor_CUS1 {
@@ -329,7 +329,7 @@ class UO_FW_GearSettings_Olsen_Opfor {
 			tooltip = "Custom Loadout Slot";
 			control = "EditShort";
 			typeName = "STRING";
-			expression = "missionNamespace setVariable ['%s', _value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			defaultValue = "''";
 		};
 		class UO_FW_GearSettings_Olsen_LoadoutType_Opfor_CUS2 {
@@ -338,7 +338,7 @@ class UO_FW_GearSettings_Olsen_Opfor {
 			tooltip = "Custom Loadout Slot";
 			control = "EditShort";
 			typeName = "STRING";
-			expression = "missionNamespace setVariable ['%s', _value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			defaultValue = "''";
 		};
 		class UO_FW_GearSettings_Olsen_LoadoutType_Opfor_CUS3 {
@@ -347,7 +347,7 @@ class UO_FW_GearSettings_Olsen_Opfor {
 			tooltip = "Custom Loadout Slot";
 			control = "EditShort";
 			typeName = "STRING";
-			expression = "missionNamespace setVariable ['%s', _value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			defaultValue = "''";
 		};
 		class UO_FW_GearSettings_Olsen_LoadoutType_Opfor_CUS4 {
@@ -356,7 +356,7 @@ class UO_FW_GearSettings_Olsen_Opfor {
 			tooltip = "Custom Loadout Slot";
 			control = "EditShort";
 			typeName = "STRING";
-			expression = "missionNamespace setVariable ['%s', _value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			defaultValue = "''";
 		};
 		class UO_FW_GearSettings_Olsen_LoadoutType_Opfor_CUS5 {
@@ -365,7 +365,7 @@ class UO_FW_GearSettings_Olsen_Opfor {
 			tooltip = "Custom Loadout Slot";
 			control = "EditShort";
 			typeName = "STRING";
-			expression = "missionNamespace setVariable ['%s', _value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			defaultValue = "''";
 		};
 	};

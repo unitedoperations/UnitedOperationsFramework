@@ -84,7 +84,7 @@ class UO_FW_DIA_GRIDSPOTTINGFIREMission
 		w = ARTILAYOUTWIDTH * safezoneW;
 		h = ARTILAYOUTHEIGHT * safezoneH;
 	shadow = 0;
-			onMouseButtonDown = "[] call UO_FW_FNC_DIA_GridSpottingFiremissionFire;";
+			onMouseButtonDown = "[] call UO_FW_fnc_DIA_GridSpottingFiremissionFire;";
 	};
 	class GSFM_SELECTEDGUNEDIT: UO_FW_RscListbox
 	{
@@ -97,7 +97,7 @@ class UO_FW_DIA_GRIDSPOTTINGFIREMission
 		//colorText[] = {0,1,1,1};
 		//
 		shadow = 0;
-		onLBSelChanged = "(_this select 1) call UO_FW_FNC_DIA_GridSpottingFiremissionSetArtillery;";
+		onLBSelChanged = "(_this select 1) call UO_FW_fnc_DIA_GridSpottingFiremissionSetArtillery;";
 	};
 	class GSFM_SELECTEDSHELLEDIT: UO_FW_RscListbox
 	{
@@ -130,7 +130,7 @@ class UO_FW_DIA_GRIDSPOTTINGFIREMission
 		w = ARTILAYOUTWIDTH * safezoneW;
 		h = ARTILAYOUTHEIGHT * safezoneH;
 	shadow = 0;
-			onMouseButtonDown = "[] call UO_FW_FNC_DIA_GridSpottingFiremissionCloseDialog;";
+			onMouseButtonDown = "[] call UO_FW_fnc_DIA_GridSpottingFiremissionCloseDialog;";
 	};
 };
 

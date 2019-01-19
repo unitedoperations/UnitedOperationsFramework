@@ -21,29 +21,21 @@ _attributeValues = [];
 _sections = "!(((str(configname _x)) find 'UO_FW') isEqualto -1)" configClasses (Configfile >> "Cfg3DEN" >> "Mission");
 {
 	private _section = configName _x;
-	if (UO_FW_EXPORTSETTINGSSDEBUGMODE) then {
-		diag_log format ["foreach _section: %1",_section];
-	};
+	LOG_1("foreach _section: %1",_section);
 	private _children = [configfile >> "Cfg3DEN" >> "Mission" >> _section >> "AttributeCategories",2,false] call BIS_fnc_returnChildren;
-	if (UO_FW_EXPORTSETTINGSSDEBUGMODE) then {
-		diag_log format ["_children: %1",_children];
-	};
+	LOG_1("_children: %1",_children);
 	{
 		private _attributeName = "";
 		_attributeName = getText (_x >> "data");
-		//By default get value by data config entry
 		private _attributeValue = _section get3DENMissionAttribute _attributeName;
-		//If value is nil, try to get it by the attribute name
 		if (isNil "_attributeValue") then {
 			_attributeName = configName _x;
 			_attributeValue = _section get3DENMissionAttribute _attributeName;
-			//If data is still nil, use property config entry
 			if (isNil "_attributeValue") then {
 				_attributeName = getText (_x >> "property");
 				_attributeValue = _section get3DENMissionAttribute _attributeName;
 			};
 		};
-		//If there are still values which are nil, they are either categories, internal oder never fully implemented attributes by BIS
 		if !(isNil "_attributeValue") then {
 			_attributeValues pushBack [_section,_attributeName,_attributeValue];
 		};

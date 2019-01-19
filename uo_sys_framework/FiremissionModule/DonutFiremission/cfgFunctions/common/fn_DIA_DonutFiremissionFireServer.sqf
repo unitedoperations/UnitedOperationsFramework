@@ -10,5 +10,5 @@ _requester  = _this select 0;
 	_salvoDelay = _this select 8;
 	_spotting =  _this select 9;
 
-	[_selectedUnit,_requester] call UO_FW_FNC_SetArtyCaller;
-	[_selectedUnit ,[_grid,true] call CBA_fnc_mapGridToPos,_innerRadius,_outerRadius,_salvoNumber,_salvoRounds,_salvoDelay,_spotting,_selectedAmmo]   call UO_FW_FNC_DonutFiremission;
+	[_selectedUnit,_requester] call UO_FW_fnc_SetArtyCaller;
+	[_selectedUnit ,[_grid,true] call CBA_fnc_mapGridToPos,_innerRadius,_outerRadius,_salvoNumber,_salvoRounds,_salvoDelay,_spotting,_selectedAmmo]   call UO_FW_fnc_DonutFiremission;

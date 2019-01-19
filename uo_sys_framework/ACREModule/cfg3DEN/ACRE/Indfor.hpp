@@ -7,7 +7,7 @@ class UO_FW_INDFOR_ACRE_RadioTypes_CAT {
             displayName = "Short Range Radio Type";
             tooltip = "Sets the short range radio type for the side";
             control = "UO_FW_ACRE_SR_Select";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "0";
         };
 		class UO_FW_ACRE_INDFOR_LR_Type {
@@ -15,7 +15,7 @@ class UO_FW_INDFOR_ACRE_RadioTypes_CAT {
             displayName = "Long Range Radio Type";
             tooltip = "Sets the long range radio type for the side";
             control = "UO_FW_ACRE_LR_Select";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "0";
         };
 		class UO_FW_ACRE_INDFOR_PK_Type {
@@ -23,7 +23,7 @@ class UO_FW_INDFOR_ACRE_RadioTypes_CAT {
             displayName = "Long Range Pack Radio Type";
             tooltip = "Sets the long range pack radio type for the side";
             control = "UO_FW_ACRE_PK_Select";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "0";
         };
 	};
@@ -37,7 +37,7 @@ class UO_FW_INDFOR_ACRE_SETTINGS_RADIONET_CAT {
             property = "UO_FW_ACRE_INDFOR_RADIONET_Enabled";
             displayName = "Enable Radio Net Channel Names";
 			control = "CheckBoxState";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
         class UO_FW_ACRE_INDFOR_RADIONET_NAME1 {
@@ -45,7 +45,7 @@ class UO_FW_INDFOR_ACRE_SETTINGS_RADIONET_CAT {
             displayName = "Channel 1 Name";
             tooltip = "Sets the name of the channel";
             control = "EditShort";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "'PLTNET 1'";
         };
 		class UO_FW_ACRE_INDFOR_RADIONET_NAME2 {
@@ -53,7 +53,7 @@ class UO_FW_INDFOR_ACRE_SETTINGS_RADIONET_CAT {
             displayName = "Channel 2 Name";
             tooltip = "Sets the name of the channel";
             control = "EditShort";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "'PLTNET 2'";
         };
 		class UO_FW_ACRE_INDFOR_RADIONET_NAME3 {
@@ -61,7 +61,7 @@ class UO_FW_INDFOR_ACRE_SETTINGS_RADIONET_CAT {
             displayName = "Channel 3 Name";
             tooltip = "Sets the name of the channel";
             control = "EditShort";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "'PLTNET 3'";
         };
 		class UO_FW_ACRE_INDFOR_RADIONET_NAME4 {
@@ -69,7 +69,7 @@ class UO_FW_INDFOR_ACRE_SETTINGS_RADIONET_CAT {
             displayName = "Channel 4 Name";
             tooltip = "Sets the name of the channel";
             control = "EditShort";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "'PLTNET 4'";
         };
 		class UO_FW_ACRE_INDFOR_RADIONET_NAME5 {
@@ -77,7 +77,7 @@ class UO_FW_INDFOR_ACRE_SETTINGS_RADIONET_CAT {
             displayName = "Channel 5 Name";
             tooltip = "Sets the name of the channel";
             control = "EditShort";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "'COY'";
         };
 		class UO_FW_ACRE_INDFOR_RADIONET_NAME6 {
@@ -85,7 +85,7 @@ class UO_FW_INDFOR_ACRE_SETTINGS_RADIONET_CAT {
             displayName = "Channel 6 Name";
             tooltip = "Sets the name of the channel";
             control = "EditShort";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "'CAS'";
         };
 		class UO_FW_ACRE_INDFOR_RADIONET_NAME7 {
@@ -93,7 +93,7 @@ class UO_FW_INDFOR_ACRE_SETTINGS_RADIONET_CAT {
             displayName = "Channel 7 Name";
             tooltip = "Sets the name of the channel";
             control = "EditShort";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "'FIRES'";
         };
 	};
@@ -107,7 +107,7 @@ class UO_FW_INDFOR_ACRE_SETTINGS_BABEL_CAT {
             property = "UO_FW_ACRE_INDFOR_BABEL_Enabled";
             displayName = "Enable Babel Languages";
 			control = "CheckBoxState";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
 		class UO_FW_ACRE_INDFOR_BABEL_EN {
@@ -115,7 +115,7 @@ class UO_FW_INDFOR_ACRE_SETTINGS_BABEL_CAT {
             displayName = "English";
             tooltip = "Enables the language for this side";
             control = "CheckBox";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "true";
         };
 		class UO_FW_ACRE_INDFOR_BABEL_RU {
@@ -123,7 +123,7 @@ class UO_FW_INDFOR_ACRE_SETTINGS_BABEL_CAT {
             displayName = "Russian";
             tooltip = "Enables the language for this side";
             control = "CheckBox";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
 		class UO_FW_ACRE_INDFOR_BABEL_FR {
@@ -131,7 +131,7 @@ class UO_FW_INDFOR_ACRE_SETTINGS_BABEL_CAT {
             displayName = "French";
             tooltip = "Enables the language for this side";
             control = "CheckBox";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
 		class UO_FW_ACRE_INDFOR_BABEL_AR {
@@ -139,7 +139,7 @@ class UO_FW_INDFOR_ACRE_SETTINGS_BABEL_CAT {
             displayName = "Arabic";
             tooltip = "Enables the language for this side";
             control = "CheckBox";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
 		class UO_FW_ACRE_INDFOR_BABEL_GK {
@@ -147,7 +147,7 @@ class UO_FW_INDFOR_ACRE_SETTINGS_BABEL_CAT {
             displayName = "Greek";
             tooltip = "Enables the language for this side";
             control = "CheckBox";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
 		class UO_FW_ACRE_INDFOR_BABEL_Custom {
@@ -155,7 +155,7 @@ class UO_FW_INDFOR_ACRE_SETTINGS_BABEL_CAT {
             displayName = "Custom Language";
             tooltip = "Define a custom language for this side";
             control = "EditShort";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
 		class UO_FW_ACRE_INDFOR_BABEL_Custom2 {
@@ -163,7 +163,7 @@ class UO_FW_INDFOR_ACRE_SETTINGS_BABEL_CAT {
             displayName = "Custom Language 2";
             tooltip = "Define a custom language for this side";
             control = "EditShort";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
     };

@@ -4,6 +4,4 @@ class UO_FW_ShotCount {
 	class aCount_addEH {};
 	class aCount_shotCount {};
 	class aCount_endCount {};
-	class aCount_PostInit {};
-	class aCount_ServerPostInit {};
 };

@@ -8,9 +8,9 @@
 	private	_degrees = MILSPERROUND / _mils * 360.0;
 	private _dir = [cos _degrees,sin _degrees,0];
 	private _target =  _loc vectorAdd (_dir vectorMultiply _distance);
-	private	_rounds = ((_unit call UO_FW_FNC_GetArtyAmmo) select _roundType);
+	private	_rounds = ((_unit call UO_FW_fnc_GetArtyAmmo) select _roundType);
 	private _text =   getText (configfile / "CfgMagazines" / (_rounds select 0) / "displayName");
-	private	_unitName = _unit call UO_FW_FNC_GetArtyDisplayName;
+	private	_unitName = _unit call UO_FW_fnc_GetArtyDisplayName;
 	private _ret = 	"Name: " + _unitName +"\n" +
 												"Firemission type: Spotting-Firemission \n" +
 												"Shell: " + _text +" \n" +

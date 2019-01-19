@@ -8,7 +8,7 @@ class UO_FW_CoverMapUnitSettings {
         	tooltip = "List of AO Names that this unit can access via ace interact on map if CoverMap setting is enabled. Leave blank to disable.";
         	control = "EditStringArray";
 			condition = "ObjectControllable";
-			expression = "_this setVariable ['%s',_value];";
+			expression = UO_FW_ENTITY_EXPRESSION;
         	defaultValue = "[]";
     	};
 		class UO_FW_CoverMap_UnitDefaultAO {
@@ -18,7 +18,7 @@ class UO_FW_CoverMapUnitSettings {
         	control = "UO_FW_EditShortPlayerOnlyCategory";
         	validate = "STRING";
 			condition = "ObjectControllable";
-			expression = "_this setVariable ['%s',_value];";
+			expression = UO_FW_ENTITY_EXPRESSION;
         	defaultValue = "''";
     	};
 	};

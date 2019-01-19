@@ -2,7 +2,7 @@
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 UO_FW_EXEC_CHECK(CLIENT);
 
-INFO("Client Post Init");
+LOG("Client Post Init");
 
 [{!(isNull player)}, {
 	enableSaving [false, false];
@@ -23,4 +23,6 @@ INFO("Client Post Init");
 	UO_FW_RespawnEh = player addEventHandler ["Respawn", {_this call UO_FW_fnc_SpectatePrep;}];
 
 	setViewDistance UO_FW_Player_ViewDistance;
+
+	["UO_FW_RegisterFrameworkEvent", []] call CBA_fnc_localEvent;
 }] call CBA_fnc_WaitUntilAndExecute;

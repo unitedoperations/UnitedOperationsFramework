@@ -13,7 +13,7 @@ UO_FW_EXEC_CHECK(ALL);
 
 if !(UO_FW_Server_ShotCountModule_Allowed) exitwith {};
 if (!(missionNamespace getVariable ["UO_FW_ShotCount_Enabled",false])) exitwith {};
-["Shot Count", "Count shots fired by units", "Beta, TinfoilHate, PiZZADOX and Sacher"] call UO_FW_fnc_RegisterModule;
+["UO_FW_RegisterModuleEvent", ["Shot Count", "Count shots fired by units", "Beta, TinfoilHate, PiZZADOX and Sacher"]] call CBA_fnc_globalEvent;
 
 params ["_obj"];
 
@@ -34,7 +34,7 @@ if (_obj isKindOf "Man") then {
 	}];
 	_obj setVariable ["UO_FW_aCount_firedEh", _firedEHhandle];
 };
-if (!(_obj isKindOf "Man") && {(_obj isKindOf "Land") || (_obj isKindOf "Air") || (_obj isKindOf "Ship")}) then {
+if (!(_obj isKindOf "Man") && {(_obj isKindOf "LandVehicle") || (_obj isKindOf "Air") || (_obj isKindOf "Ship_F")}) then {
 	private _firedEHhandle = _obj addEventHandler ["fired",  {
 		["UO_FW_ShotCount_EH_Event", [side (_this select 0),(_this select 5)]] call CBA_fnc_serverEvent;
 	}];

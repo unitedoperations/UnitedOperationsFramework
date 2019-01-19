@@ -146,7 +146,7 @@ class UO_FW_DIA_POINTFIREMission
 		w = ARTILAYOUTWIDTH * safezoneW;
 		h = ARTILAYOUTHEIGHT * safezoneH;
 		shadow = 0;
-		onMouseButtonDown = "[] call UO_FW_FNC_DIA_PointFiremissionFire;";
+		onMouseButtonDown = "[] call UO_FW_fnc_DIA_PointFiremissionFire;";
 	};
 	class PFM_SELECTEDGUNEDIT: UO_FW_RscListbox
 	{
@@ -159,7 +159,7 @@ class UO_FW_DIA_POINTFIREMission
 		//colorText[] = {0,1,1,1};
 		//
 		shadow = 0;
-		onLBSelChanged = "(_this select 1) call UO_FW_FNC_DIA_PointFiremissionSetArtillery;";
+		onLBSelChanged = "(_this select 1) call UO_FW_fnc_DIA_PointFiremissionSetArtillery;";
 	};
 	class PFM_SELECTEDSHELLEDIT: UO_FW_RscListbox
 	{
@@ -253,7 +253,7 @@ class UO_FW_DIA_POINTFIREMission
 		w = ARTILAYOUTWIDTH * safezoneW;
 		h = ARTILAYOUTHEIGHT * safezoneH;
 	shadow = 0;
-			onMouseButtonDown = "[] call UO_FW_FNC_DIA_PointFiremissionCloseDialog;";
+			onMouseButtonDown = "[] call UO_FW_fnc_DIA_PointFiremissionCloseDialog;";
 	};
 };
 

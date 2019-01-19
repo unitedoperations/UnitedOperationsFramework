@@ -7,7 +7,7 @@ class UO_FW_AI_UnitOptions {
 			tooltip = "Pass custom name to the unit. Default: Nil";
 			property = "UO_FW_AI_unitName";
 			control = "UO_FW_AI_unitnameControl";
-			expression = "_this setVariable ['%s',_value];";
+			expression = UO_FW_ENTITY_EXPRESSION;
 			defaultValue = "''";
 		};
 		class UO_FW_AI_unitIdentity {
@@ -15,7 +15,7 @@ class UO_FW_AI_UnitOptions {
 			tooltip = "Set the custom name to appear when the units Identity is checked. Default: Nil";
 			property = "UO_FW_AI_unitIdentity";
 			control = "UO_FW_AI_standardStringOneControl";
-			expression = "_this setVariable ['%s',_value];";
+			expression = UO_FW_ENTITY_EXPRESSION;
 			defaultValue = "''";
 		};
 		class UO_FW_AI_unitPersistent {
@@ -23,7 +23,7 @@ class UO_FW_AI_UnitOptions {
 			tooltip = "Is the unit persistent, will be it get cleaned up by the clean up script if it dies. Default: Not Persistent";
 			property = "UO_FW_AI_unitPersistent";
 			control = "UO_FW_AI_persistentControl";
-			expression = "_this setVariable ['%s',_value];";
+			expression = UO_FW_ENTITY_EXPRESSION;
 			defaultValue = "false";
 			typeName = "BOOL";
 		};
@@ -32,7 +32,7 @@ class UO_FW_AI_UnitOptions {
 			tooltip = "Force the stance of the unit. Default: AUTO";
 			property = "UO_FW_AI_stance";
 			control = "UO_FW_AI_stanceControl";
-			expression = "_this setVariable ['%s',_value];";
+			expression = UO_FW_ENTITY_EXPRESSION;
 			defaultValue = "'auto'";
 			condition = "objectControllable";
 		};
@@ -41,7 +41,7 @@ class UO_FW_AI_UnitOptions {
 			tooltip = "Select option to remove certain equipment from unit. Default: OFF";
 			property = "UO_FW_AI_remove";
 			control = "UO_FW_AI_removeControl";
-			expression = "_this setVariable ['%s',_value];";
+			expression = UO_FW_ENTITY_EXPRESSION;
 			defaultValue = "0";
 			condition = "objectControllable";
 		};
@@ -50,7 +50,7 @@ class UO_FW_AI_UnitOptions {
 			tooltip = "Is the unit spawning in flight. Default: False";
 			property = "UO_FW_AI_unitFlying";
 			control = "UO_FW_AI_flyingControl";
-			expression = "_this setVariable ['%s',_value];";
+			expression = UO_FW_ENTITY_EXPRESSION;
 			condition = "objectVehicle";
 			defaultValue = "false";
 			typeName = "BOOL";
@@ -60,7 +60,7 @@ class UO_FW_AI_UnitOptions {
 			tooltip = "Set the unit flying height. Default: 250";
 			property = "UO_FW_AI_unitFlyInHeight";
 			control = "UO_FW_AI_flyinheightControl";
-			expression = "_this setVariable ['%s',_value];";
+			expression = UO_FW_ENTITY_EXPRESSION;
 			condition = "objectVehicle";
 			defaultValue = 250;
 			typeName = "NUMBER";
@@ -70,7 +70,7 @@ class UO_FW_AI_UnitOptions {
 			tooltip = "Pass custom parameters or code to the unit.( _this = unit ) Default: Nil";
 			property = "UO_FW_AI_unitInit";
 			control = "UO_FW_AI_codeunitControl";
-			expression = "_this setVariable ['%s',_value];";
+			expression = UO_FW_ENTITY_EXPRESSION;
 			defaultValue = "";
 		};
 	};

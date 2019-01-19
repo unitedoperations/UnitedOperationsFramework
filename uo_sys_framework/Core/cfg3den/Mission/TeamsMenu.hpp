@@ -14,7 +14,7 @@ class UO_FW_TeamsSetting {
             displayName = "Type";
             tooltip = "Set team to either AI, Player Controlled, or Both";
             control = "UO_FW_TeamType_Select";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "0";
         };
 		class UO_FW_TeamSetting_Blufor_TeamName {
@@ -22,7 +22,7 @@ class UO_FW_TeamsSetting {
             displayName = "Name";
             tooltip = "Set team name";
             control = "EditShort";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "'BLUFOR TEAM'";
         };
 		class UO_FW_TeamSetting_Opfor_Title {
@@ -37,7 +37,7 @@ class UO_FW_TeamsSetting {
             displayName = "Type";
             tooltip = "Set team to either AI, Player Controlled, or Both";
             control = "UO_FW_TeamType_Select";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "0";
         };
 		class UO_FW_TeamSetting_Opfor_TeamName {
@@ -45,7 +45,7 @@ class UO_FW_TeamsSetting {
             displayName = "Name";
             tooltip = "Set team name";
             control = "EditShort";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "'OPFOR TEAM'";
         };
 		class UO_FW_TeamSetting_Indfor_Title {
@@ -60,7 +60,7 @@ class UO_FW_TeamsSetting {
             displayName = "Type";
             tooltip = "Set team to either AI, Player Controlled, or Both";
             control = "UO_FW_TeamType_Select";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "0";
         };
 		class UO_FW_TeamSetting_Indfor_TeamName {
@@ -68,7 +68,7 @@ class UO_FW_TeamsSetting {
             displayName = "Name";
             tooltip = "Set team name";
             control = "EditShort";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "'INDFOR TEAM'";
         };
 		class UO_FW_TeamSetting_Civ_Title {
@@ -83,7 +83,7 @@ class UO_FW_TeamsSetting {
             displayName = "Type";
             tooltip = "Set team to either AI, Player Controlled, or Both";
             control = "UO_FW_TeamType_Select";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "0";
         };
 		class UO_FW_TeamSetting_Civ_TeamName {
@@ -91,7 +91,7 @@ class UO_FW_TeamsSetting {
             displayName = "Name";
             tooltip = "Set team name";
             control = "EditShort";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "'CIVILIAN TEAM'";
         };
     };

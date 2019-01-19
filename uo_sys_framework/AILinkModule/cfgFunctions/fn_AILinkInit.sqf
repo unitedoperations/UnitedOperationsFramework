@@ -3,7 +3,7 @@
 UO_FW_EXEC_CHECK(ALL);
 
 if !(missionNamespace getVariable ["UO_FW_AILink_Enabled",false]) exitWith {};
-["AI link", "Shares targeting information between AI groups based on radios.", "TinfoilHate and Sacher"] call UO_FW_fnc_RegisterModule;
+["UO_FW_RegisterModuleEvent", ["AI link", "Shares targeting information between AI groups based on radios.", "TinfoilHate and Sacher"]] call CBA_fnc_globalEvent;
 tin_AILink_startDelay 	= (missionNamespace getVariable ["UO_FW_AILink_StartDelay",30]);		//Delay in seconds when starting the mission until the first loop runs.
 tin_AILink_shareDelay	= (missionNamespace getVariable ["UO_FW_AILink_ShareDelay",15]);		//Delay in seconds  between loops after the first.
 tin_AILink_transDelay	= (missionNamespace getVariable ["UO_FW_AILink_TransDelay",10]);		//Delay in seconds, maximum randomized, for target information to be transmitted. No effect if set higher than tin_AILink_shareDelay.

@@ -69,7 +69,7 @@ if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_4",false]) then {
 					{
 						private _unit = missionNamespace getVariable [_x,objNull];
 						if ((_unit isEqualType "OBJECT") && {!(_unit isEqualto objNull)}) then {
-							_alive = _alive && (_unit call UO_FW_FNC_alive);
+							_alive = _alive && (_unit call UO_FW_fnc_alive);
 						} else {
 							_alive = false;
 							["Unit " + _x + " not found!","Unit " + _x + " not found!"] call UO_FW_fnc_DebugMessageDetailed;
@@ -86,7 +86,7 @@ if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_4",false]) then {
 					{
 						private _unit = missionNamespace getVariable [_x,objNull];
 						if ((_unit isEqualType "OBJECT") && {!(_unit isEqualto objNull)}) then {
-							_dead = _dead && (!(_unit call UO_FW_FNC_alive));
+							_dead = _dead && (!(_unit call UO_FW_fnc_alive));
 						} else {
 							_dead = false;
 							LOG_1("Unit %1 not found!",_x);
@@ -119,8 +119,8 @@ if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_4",false]) then {
 					private _rescued = true;
 					{
 						private _unit = missionNamespace getVariable [_x,objNull];
-						if (!(_unit isEqualto objNull) && {(_unit call UO_FW_FNC_alive)}) then {
-							_rescued = _rescued && (_unit call UO_FW_FNC_HostageIsRescued);
+						if (!(_unit isEqualto objNull) && {(_unit call UO_FW_fnc_alive)}) then {
+							_rescued = _rescued && (_unit call UO_FW_fnc_HostageIsRescued);
 						} else {
 							_rescued = false;
 							LOG_1("Unit %1 not found!",_x);

@@ -2,7 +2,7 @@
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 UO_FW_EXEC_CHECK(SERVER);
 
-INFO("Server Post Init");
+LOG("Server Post Init");
 //Create Respawn Markers
 {_x call UO_FW_fnc_CreateRespawnMarker;} foreach ["west","east","guer","civ"];
 
@@ -13,7 +13,6 @@ UO_FW_EventDisconnectHandle = addMissionEventHandler ["HandleDisconnect", {_this
 
 setViewDistance UO_FW_AI_ViewDistance;
 
-//Module Hooks
 if (UO_FW_DisconnectControl_Enabled) then {
 	ace_respawn_RemoveDeadBodiesDisconnected = false;
 };

@@ -38,7 +38,7 @@ switch (_mode) do {
 			private _silent = _logic getVariable ["UO_FW_CaptureZone_Silent",false];
 			private _automessages = _logic getVariable ["UO_FW_CaptureZone_AutoMessages",false];
 			private _cond = _logic getVariable ["UO_FW_CaptureZone_Condition","true"];
-			[_logic,_zoneName,_area,_interval,_repeatable,[_BluforCap,_OpforCap,_IndependentCap,_CivilianCap],[_BluforTime,_OpforTime,_IndependentTime,_CivilianTime],[_BluforMessage,_OpforMessage,_IndependentMessage,_CivilianMessage,_ContestedMessage,_UncontestedMessage],_colours,_hidden,_silent,_automessages,_ratioNeeded,_cond] call UO_FW_FNC_CaptureZoneLoop;
+			[_logic,_zoneName,_area,_interval,_repeatable,[_BluforCap,_OpforCap,_IndependentCap,_CivilianCap],[_BluforTime,_OpforTime,_IndependentTime,_CivilianTime],[_BluforMessage,_OpforMessage,_IndependentMessage,_CivilianMessage,_ContestedMessage,_UncontestedMessage],_colours,_hidden,_silent,_automessages,_ratioNeeded,_cond] call UO_FW_fnc_CaptureZoneLoop;
 		};
 
 	};

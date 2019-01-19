@@ -141,7 +141,7 @@ class UO_FW_DIA_LINEFIREMission
 		w = ARTILAYOUTWIDTH * safezoneW;
 		h = ARTILAYOUTHEIGHT * safezoneH;
 
-			onMouseButtonDown = "[] call UO_FW_FNC_DIA_LineFiremissionFire;";
+			onMouseButtonDown = "[] call UO_FW_fnc_DIA_LineFiremissionFire;";
 	};
 	class LFM_SELECTEDGUNEDIT: UO_FW_RscListbox
 	{
@@ -154,7 +154,7 @@ class UO_FW_DIA_LINEFIREMission
 		//colorText[] = {0,1,1,1};
 		//colorBackground[] = {1,1,1,1};
 		//colorActive[] = {0,1,0,1};
-		onLBSelChanged = "(_this select 1) call UO_FW_FNC_DIA_LineFiremissionSetArtillery;";
+		onLBSelChanged = "(_this select 1) call UO_FW_fnc_DIA_LineFiremissionSetArtillery;";
 	};
 	class LFM_SELECTEDSHELLEDIT: UO_FW_RscListbox
 	{
@@ -248,7 +248,7 @@ class UO_FW_DIA_LINEFIREMission
 		w = ARTILAYOUTWIDTH * safezoneW;
 		h = ARTILAYOUTHEIGHT * safezoneH;
 
-			onMouseButtonDown = "[] call UO_FW_FNC_DIA_LineFiremissionCloseDialog;";
+			onMouseButtonDown = "[] call UO_FW_fnc_DIA_LineFiremissionCloseDialog;";
 	};
 };
 

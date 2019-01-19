@@ -2,24 +2,26 @@
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 UO_FW_EXEC_CHECK(SERVER);
 
-if !(UO_FW_Server_AUTOTRACKASSETMODULE_Allowed) exitwith {};
-if !(missionNamespace getVariable ["UO_FW_AutoTrackAsset_Enabled",false]) exitWith {};
+params ["_vehicle"];
 
-["Auto Track Assets", "Automatically runs UO_FW_FNC_TrackAsset on AI vehicles.", "Starfox64 and Sacher"] call UO_FW_fnc_RegisterModule;
-[{CBA_missionTime > 1},{
-	{
-		private _vehicle = _x;
+["UO_FW_SettingsLoaded", {
+	if !(UO_FW_Server_AUTOTRACKASSETMODULE_Allowed) exitwith {};
+	if !(UO_FW_GETMVAR(AutoTrackAsset_Enabled,false)) exitWith {};
+	["UO_FW_RegisterModuleEvent", ["Auto Track Assets", "Automatically runs Asset Tracking on AI vehicles.", "Starfox64, Sacher and PiZZADOX"]] call CBA_fnc_globalEvent;
+	[{(!isNull (_this select 0))},{
+		params ["_vehicle"];
 		if ((!isPlayer _vehicle) && {!(side _vehicle isEqualto civilian)}) then {
-			if (_vehicle getVariable ["UO_FW_AssetName", ""] isEqualto "") then {
+			if (UO_FW_GETVAR(_vehicle,UO_FW_AssetName,"")) then {
 				{
-					if ((_x select 1) isEqualto (side _vehicle)) exitWith {
+					_x params ["_name", "_side", "_type", "_start", "_current", "_disabled", "_destroyed"];
+					if (_side isEqualto (side _vehicle)) exitWith {
 						private _vehCfg = (configFile >> "CfgVehicles" >> (typeOf _vehicle));
 						if (isText(_vehCfg >> "displayName")) then {
-							[_vehicle, getText(_vehCfg >> "displayName"), (_x select 0)] call UO_FW_FNC_TrackAsset;
+							[_vehicle, getText(_vehCfg >> "displayName"), _name] call UO_FW_fnc_TrackAsset;
 						};
 					};
 				} forEach UO_FW_Teams;
 			};
 		};
-	} forEach vehicles;
-}] call CBA_fnc_WaitUntilAndExecute;
+	}, [_vehicle]] call CBA_fnc_WaitUntilAndExecute;
+}] call CBA_fnc_addEventHandler;

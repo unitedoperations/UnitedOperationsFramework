@@ -5,7 +5,8 @@ if (!(getMissionConfigValue ["UO_FW_AI_Enabled",false])) exitWith {};
 
 LOG("running fn_initMain");
 
-["Headless AI", "Custom AI Scripts and spawning modules for AI", "PiZZADOX"] call UO_FW_fnc_RegisterModule;
+["UO_FW_RegisterModuleEvent", ["Headless AI", "Custom AI Scripts and spawning modules for AI", "PiZZADOX"]] call CBA_fnc_globalEvent;
+
 
 UO_FW_AI_MARKERARRAY = [];
 UO_FW_AI_UnitQueue = [];
@@ -117,7 +118,7 @@ if ((!hasinterface) && (!isDedicated)) then {
 
 	if (UO_FW_AI_FORCETIME_Enabled) then {
 		[] spawn {
-			waituntil {time > 1};
+			waituntil {CBA_missionTime > 1};
 			while {true} do {
 				sleep 2;
 				skiptime ((missionNamespace getvariable ["UO_FW_AI_FORCETIME_TIME",daytime]) / 3600) - (daytime);

@@ -44,13 +44,6 @@ class UO_FW_Core_Init {
 	class teamsInit {};
 };
 
-
-class UO_FW_Core_BriefingEntries {
-	file = "x\UO_FW\addons\Main\Core\cfgFunctions\BriefingEntries";
-	class briefingFrameworkEntry {};
-	class registerModule {};
-};
-
 class UO_FW_Core_JIP {
 	file = "x\UO_FW\addons\Main\Core\cfgFunctions\JiP";
 	class jipInit {};
@@ -76,7 +69,6 @@ class UO_FW_EndscreenFunctions {
 class UO_FW_3DEN_Inits {
 	file = "x\UO_FW\addons\Main\Core\cfgFunctions\3DEN\Inits";
 	class setDefaults {};
-	class setInitVar {};
 };
 
 class UO_FW_3DEN_Controls {

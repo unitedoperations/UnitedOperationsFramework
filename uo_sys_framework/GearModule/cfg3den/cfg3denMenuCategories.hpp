@@ -10,7 +10,7 @@ class UO_FW_Gear_Settings {
 					displayName = "Enable ACE Arsenal System";
 					tooltip = "Should Gear System be enabled";
 					control = "CheckboxState";
-					expression = "missionNamespace setVariable ['%s', _value];";
+					expression = UO_FW_SCENARIO_EXPRESSION;
 					defaultValue = "false";
 				};
 			};
@@ -24,7 +24,7 @@ class UO_FW_Gear_Settings {
 					displayName = "Enable Olsen System";
 					tooltip = "Should Olsen Gear be enabled";
 					control = "CheckboxState";
-					expression = "missionNamespace setVariable ['%s', _value];";
+					expression = UO_FW_SCENARIO_EXPRESSION;
 					defaultValue = "false";
 				};
 				class UO_FW_Gear_Olsen_OverfillEnabled {
@@ -32,7 +32,7 @@ class UO_FW_Gear_Settings {
 					displayName = "Enable Gear overfill";
 					tooltip = "Forces adding an item to inventory. Works only if container is specified!";
 					control = "Checkbox";
-					expression = "missionNamespace setVariable ['%s', _value];";
+					expression = UO_FW_SCENARIO_EXPRESSION;
 					defaultValue = "false";
 				};
 				class UO_FW_Gear_Olsen_FaceRemovalEnabled {
@@ -40,7 +40,7 @@ class UO_FW_Gear_Settings {
 					displayName = "Force remove facewear";
 					tooltip = "When set to false, facewear types that are whitelisted will not be removed";
 					control = "Checkbox";
-					expression = "missionNamespace setVariable ['%s', _value];";
+					expression = UO_FW_SCENARIO_EXPRESSION;
 					defaultValue = "false";
 				};
 				class UO_FW_Gear_Olsen_PathToGear {
@@ -48,7 +48,7 @@ class UO_FW_Gear_Settings {
 					displayName = "Path to Gearscript";
 					tooltip = "Path to the gearscript file in your mission folder";
 					control = "EditShort";
-					expression = "missionNamespace setVariable ['%s', _value];";
+					expression = UO_FW_SCENARIO_EXPRESSION;
 					defaultValue = "'GearScript.sqf'";
 				};
 			};
@@ -92,7 +92,7 @@ class ace_arsenal_DummyCategory {
 				class ace_arsenal_DefaultLoadoutsListAttribute {
 					property="ace_arsenal_DefaultLoadoutsListAttribute";
 					value=0;
-					expression = "missionNamespace setvariable ['ace_arsenal_defaultLoadoutsList',_value];";
+					expression = "missionNamespace setvariable ['ace_arsenal_defaultLoadoutsList', _value, true];";
 					defaultValue="[]";
 					validate="none";
 					wikiType="[[Array]]";

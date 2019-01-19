@@ -11,10 +11,10 @@ if (isServer) then {
 		switch(_parachuteType) do {
 			case "NONE": {};
 			case "NONSTEERABLE": {
-				[_x,_altitude,_randomAltitude,false] call UO_FW_FNC_DoParachute;
+				[_x,_altitude,_randomAltitude,false] call UO_FW_fnc_DoParachute;
 			};
 			case "STEERABLE": {
-				[_x,_altitude,_randomAltitude,true] call UO_FW_FNC_DoParachute;
+				[_x,_altitude,_randomAltitude,true] call UO_FW_fnc_DoParachute;
 			};
 		};
 	} forEach (allUnits select {!(isPlayer _x)});
@@ -37,7 +37,7 @@ if (isServer) then {
 
 if (!isDedicated) then {
 	[{!isNull player}, {
-	_id = ["Event_PlayerDoParachute", {[player,_this select 0,_this select 1,_this select 2] call UO_FW_FNC_DoParachute;}] call CBA_fnc_addEventHandler;
+	_id = ["Event_PlayerDoParachute", {[player,_this select 0,_this select 1,_this select 2] call UO_FW_fnc_DoParachute;}] call CBA_fnc_addEventHandler;
 	["Event_PlayerParachuteJipped", [player]] call CBA_fnc_serverEvent;
 	}] call CBA_fnc_waitUntilAndExecute;
 };

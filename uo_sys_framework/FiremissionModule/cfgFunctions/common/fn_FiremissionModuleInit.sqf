@@ -11,7 +11,7 @@ if (isServer) then {
 			_guns = _x getVariable ["UO_FW_ArtilleryFOAIGuns",[]];
 			_accuracy = _x getVariable ["UO_FW_ArtilleryFOAIAccuracy",50];
 			_speed = _x getVariable ["UO_FW_ArtilleryFOAISpeed",50];
-			[_x,_accuracy,_speed] call UO_FW_FNC_SetObserverSkill;
+			[_x,_accuracy,_speed] call UO_FW_fnc_SetObserverSkill;
 
 			_guns = _x getVariable ["UO_FW_ArtilleryFOAIGuns",[]];
 			_knowledge = _x getVariable ["UO_FW_ArtilleryFOAIKnowledge",2];
@@ -24,7 +24,7 @@ if (isServer) then {
 			_minSpot = _x getVariable ["UO_FW_ArtilleryFOAIMinSpottedDistance",150];
 			_index = _x getVariable ["UO_FW_ArtilleryFOAIRoundIndex",0];
 
-			[_x,_guns,_knowledge,_minRange,_viewRange,_dispersion,_salvoCount,_roundsPerSalvo,_salvoWaitTIme,_minSpot,_index] call UO_FW_FNC_RegisterForwardObserver;
+			[_x,_guns,_knowledge,_minRange,_viewRange,_dispersion,_salvoCount,_roundsPerSalvo,_salvoWaitTIme,_minSpot,_index] call UO_FW_fnc_RegisterForwardObserver;
 		};
 
 
@@ -38,24 +38,24 @@ if (isServer) then {
 			_artilleryCalculationTime = _x getVariable ["UO_FW_ArtilleryCalculationTime",30];
 			_artilleryCustomName = _x getVariable ["UO_FW_ArtilleryCustomName",""];
 			_artilleryUnlimitedAmmo = _x getVariable ["UO_FW_ArtilleryUnlimitedAmmo",false];
-			[_x,_artilleryFireRate,_artilleryAccuracy,_artillerySpottingAccuracy,_artilleryAimTime,_artilleryCalculationTime,_artilleryCustomName,_artilleryUnlimitedAmmo] call UO_FW_FNC_SetArtilleryData;
+			[_x,_artilleryFireRate,_artilleryAccuracy,_artillerySpottingAccuracy,_artilleryAimTime,_artilleryCalculationTime,_artilleryCustomName,_artilleryUnlimitedAmmo] call UO_FW_fnc_SetArtilleryData;
 		};
 	}forEach vehicles;
-	_id = ["CallBracketFiremission", {_this call UO_FW_FNC_DIA_BracketFiremissionFireServer;}] call CBA_fnc_addEventHandler;
-	_id = ["CallPolarSpotting", {_this call UO_FW_FNC_DIA_PolarSpottingFiremissionFireServer;}] call CBA_fnc_addEventHandler;
-	_id = ["CallPointFiremission", {_this call UO_FW_FNC_DIA_PointFiremissionFireServer;}] call CBA_fnc_addEventHandler;
-	_id = ["CallPolarFiremission", {_this call UO_FW_FNC_DIA_PolarFiremissionFireServer;}] call CBA_fnc_addEventHandler;
-	_id = ["CallLineFiremission", {_this call UO_FW_FNC_DIA_LineFiremissionFireServer;}] call CBA_fnc_addEventHandler;
-	_id = ["CallGridSpottingFiremission", {_this call UO_FW_FNC_DIA_GridSpottingFiremissionFireServer;}] call CBA_fnc_addEventHandler;
-	_id = ["CallDonutFiremission", {_this call UO_FW_FNC_DIA_DonutFiremissionFireServer;}] call CBA_fnc_addEventHandler;
-	_id = ["CallMarkerFiremission", {_this call UO_FW_FNC_DIA_MarkerFiremissionFireServer;}] call CBA_fnc_addEventHandler;
-	_id = ["Event_ArtPlayerJipped", {_this call UO_FW_FNC_ArtMakePlayerObserverServer}] call CBA_fnc_addEventHandler;
+	_id = ["CallBracketFiremission", {_this call UO_FW_fnc_DIA_BracketFiremissionFireServer;}] call CBA_fnc_addEventHandler;
+	_id = ["CallPolarSpotting", {_this call UO_FW_fnc_DIA_PolarSpottingFiremissionFireServer;}] call CBA_fnc_addEventHandler;
+	_id = ["CallPointFiremission", {_this call UO_FW_fnc_DIA_PointFiremissionFireServer;}] call CBA_fnc_addEventHandler;
+	_id = ["CallPolarFiremission", {_this call UO_FW_fnc_DIA_PolarFiremissionFireServer;}] call CBA_fnc_addEventHandler;
+	_id = ["CallLineFiremission", {_this call UO_FW_fnc_DIA_LineFiremissionFireServer;}] call CBA_fnc_addEventHandler;
+	_id = ["CallGridSpottingFiremission", {_this call UO_FW_fnc_DIA_GridSpottingFiremissionFireServer;}] call CBA_fnc_addEventHandler;
+	_id = ["CallDonutFiremission", {_this call UO_FW_fnc_DIA_DonutFiremissionFireServer;}] call CBA_fnc_addEventHandler;
+	_id = ["CallMarkerFiremission", {_this call UO_FW_fnc_DIA_MarkerFiremissionFireServer;}] call CBA_fnc_addEventHandler;
+	_id = ["Event_ArtPlayerJipped", {_this call UO_FW_fnc_ArtMakePlayerObserverServer}] call CBA_fnc_addEventHandler;
 };
 
 if (hasInterface) then {
 	[{!isNull player}, {
 		_id = ["Event_ArtyReceiveHint", {hint _this;}] call CBA_fnc_addEventHandler;
-		_id = ["Event_ReceiveFoGuns", {_this call UO_FW_FNC_initPlayerFO;}] call CBA_fnc_addEventHandler;
+		_id = ["Event_ReceiveFoGuns", {_this call UO_FW_fnc_initPlayerFO;}] call CBA_fnc_addEventHandler;
 		if (player getVariable ["UO_FW_ArtilleryFOPlayerEnabled",false]) then {
 			private	_guns = [];
 			{
@@ -74,7 +74,7 @@ if (hasInterface) then {
 			private	_allowPoint = player getVariable ["UO_FW_ArtilleryFOPlayerAllowPointFiremission",false];
 			private	_allowPolar = player getVariable ["UO_FW_ArtilleryFOPlayerAllowPolarFiremission",false];
 			private	_allowPolarspotting = player getVariable ["UO_FW_ArtilleryFOPlayerAllowPolarspottingFiremission",false];
-			[_guns,_allowBracket,_allowDonut,_allowGridSpotting,_allowLine,_allowMarker,_allowPoint,_allowPolar,_allowPolarspotting] call UO_FW_FNC_initPlayerFO;
+			[_guns,_allowBracket,_allowDonut,_allowGridSpotting,_allowLine,_allowMarker,_allowPoint,_allowPolar,_allowPolarspotting] call UO_FW_fnc_initPlayerFO;
 		};
 	}] call CBA_fnc_waitUntilAndExecute;
 };

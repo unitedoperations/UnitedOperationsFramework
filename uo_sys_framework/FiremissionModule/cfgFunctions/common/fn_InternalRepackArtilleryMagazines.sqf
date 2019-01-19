@@ -1,6 +1,6 @@
 #include "..\..\Global\defs.hpp"
 private _unit = _this;
-	private _ammo = _unit call UO_FW_FNC_GetArtyAmmo;
+	private _ammo = _unit call UO_FW_fnc_GetArtyAmmo;
 	{_unit removeMagazine _x} forEach (magazines _unit);
 	{
 		_count  = _x select 1;

@@ -19,7 +19,7 @@ if (isServer) then {
 };
 
 if (!isDedicated) then {
-	[] call UO_FW_FNC_BriefingFrameworkEntry;
+	[] call UO_FW_fnc_BriefingFrameworkEntry;
 	//non server init
 	//Anything done using "player" must be past this line for JIP compatibility
 

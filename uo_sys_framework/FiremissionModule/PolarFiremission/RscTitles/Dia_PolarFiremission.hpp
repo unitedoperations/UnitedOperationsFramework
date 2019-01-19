@@ -170,7 +170,7 @@ class UO_FW_DIA_POLARFIREMission
 		w = ARTILAYOUTWIDTH * safezoneW;
 		h = ARTILAYOUTHEIGHT * safezoneH;
 	shadow = 0;
-			onMouseButtonDown = "[] call UO_FW_FNC_DIA_PolarFiremissionFire;";
+			onMouseButtonDown = "[] call UO_FW_fnc_DIA_PolarFiremissionFire;";
 	};
 	class POFM_SELECTEDGUNEDIT: UO_FW_RscListbox
 	{
@@ -183,7 +183,7 @@ class UO_FW_DIA_POLARFIREMission
 		//colorText[] = {0,1,1,1};
 		//
 		shadow = 0;
-		onLBSelChanged = "(_this select 1) call UO_FW_FNC_DIA_PolarFiremissionSetArtillery;";
+		onLBSelChanged = "(_this select 1) call UO_FW_fnc_DIA_PolarFiremissionSetArtillery;";
 	};
 	class POFM_SELECTEDSHELLEDIT: UO_FW_RscListbox
 	{
@@ -301,7 +301,7 @@ class UO_FW_DIA_POLARFIREMission
 		w = ARTILAYOUTWIDTH * safezoneW;
 		h = ARTILAYOUTHEIGHT * safezoneH;
 	shadow = 0;
-			onMouseButtonDown = "[] call UO_FW_FNC_DIA_PolarFiremissionCloseDialog;";
+			onMouseButtonDown = "[] call UO_FW_fnc_DIA_PolarFiremissionCloseDialog;";
 	};
 };
 

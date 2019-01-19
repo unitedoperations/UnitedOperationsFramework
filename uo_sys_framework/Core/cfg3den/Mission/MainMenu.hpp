@@ -15,7 +15,7 @@ class UO_FW_MainSettings {
             displayName = "Mission Type";
             tooltip = "Determines Mission Type";
             control = "MissionType";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "0";
         };
     };

@@ -25,7 +25,7 @@ private ["_success", "_parents", "_Type"];
 private _amount = 1;
 private _position = "none";
 
-if !([_item, _unit] call UO_FW_FNC_checkClassname) exitWith {};
+if !([_item, _unit] call UO_FW_fnc_checkClassname) exitWith {};
 
 if (count _this > 3) then {
 	_amount = _this select 3;
@@ -108,13 +108,13 @@ for "_x" from 1 to _amount do {
 					_success = true;
 				};
 			} else {
-				if ([handgunWeapon _unit, _item] call UO_FW_FNC_CanAttachItem) then {
+				if ([handgunWeapon _unit, _item] call UO_FW_fnc_CanAttachItem) then {
 					if (!(_Type in handgunItems _unit)) then {
 						_unit addHandgunItem _item;
 						_success = true;
 					};
 				} else {
-					if ([secondaryWeapon _unit, _item] call UO_FW_FNC_CanAttachItem) then {
+					if ([secondaryWeapon _unit, _item] call UO_FW_fnc_CanAttachItem) then {
 						if (!(_Type in secondaryWeaponItems _unit)) then {
 							_unit addSecondaryWeaponItem _item;
 							_success = true;

@@ -5,7 +5,7 @@ UO_FW_EXEC_CHECK(SERVER);
 //[_logic,_zoneName,_area,_interval,_repeatable,_capArray,_timeArray,_messagesArray,_colours,_hidden,_silent,_automessages,_ratioNeeded,_cond] passed array
 params ["","_zoneName","","_interval","","","","","","","","","",["_cond","true",[""]]];
 
-["Capture Zone", "Creates Capture Zone objectives for variable declares and end condition requirements", "Sacher and PiZZADOX"] call UO_FW_fnc_RegisterModule;
+["UO_FW_RegisterModuleEvent", ["Capture Zone", "Creates Capture Zone objectives for variable declares and end condition requirements", "Sacher and PiZZADOX"]] call CBA_fnc_globalEvent;
 
 if (!(_this call UO_FW_fnc_ValidateCaptureZone)) exitWith {
 	ERROR_1("CaptureZone %1 failed to Validate",_zoneName);

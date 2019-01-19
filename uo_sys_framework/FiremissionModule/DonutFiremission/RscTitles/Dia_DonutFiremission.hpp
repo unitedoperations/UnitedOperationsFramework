@@ -144,7 +144,7 @@ class UO_FW_DIA_DONUTFIREMission
 		y = (ARTIHEIGHTMainSPACE + ARTILAYOUTHEIGHTSPACE * 10) * safezoneH + safezoneY;
 		w = ARTILAYOUTWIDTH * safezoneW;
 		h = ARTILAYOUTHEIGHT * safezoneH;
-			onMouseButtonDown = "[] call UO_FW_FNC_DIA_DonutFiremissionFire;";
+			onMouseButtonDown = "[] call UO_FW_fnc_DIA_DonutFiremissionFire;";
 	};
 	class DFM_SELECTEDGUNEDIT: UO_FW_RscListbox
 	{
@@ -157,7 +157,7 @@ class UO_FW_DIA_DONUTFIREMission
 		//colorText[] = {0,1,1,1};
 		//colorBackground[] = {1,1,1,1};
 		//colorActive[] = {0,1,0,1};
-		onLBSelChanged = "(_this select 1) call UO_FW_FNC_DIA_DonutFiremissionSetArtillery;";
+		onLBSelChanged = "(_this select 1) call UO_FW_fnc_DIA_DonutFiremissionSetArtillery;";
 	};
 	class DFM_SELECTEDSHELLEDIT: UO_FW_RscListbox
 	{
@@ -254,7 +254,7 @@ class UO_FW_DIA_DONUTFIREMission
 		w = ARTILAYOUTWIDTH * safezoneW;
 		h = ARTILAYOUTHEIGHT * safezoneH;
 
-			onMouseButtonDown = "[] call UO_FW_FNC_DIA_DonutFiremissionCloseDialog;";
+			onMouseButtonDown = "[] call UO_FW_fnc_DIA_DonutFiremissionCloseDialog;";
 	};
 };
 

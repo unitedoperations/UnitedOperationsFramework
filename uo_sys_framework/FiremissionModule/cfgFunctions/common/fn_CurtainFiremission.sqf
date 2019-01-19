@@ -5,8 +5,8 @@ _handle = _this spawn {
 		{
 			_tempArray = _this;
 			_tempArray set [0,_x];
-			_x setVariable [VAR_SART_ARTFMTEXT,_tempArray call UO_FW_FNC_GetCurtainFiremissionText,true];
-				[_x , true] call UO_FW_FNC_SetArtyReadyStatus;
+			_x setVariable [VAR_SART_ARTFMTEXT,_tempArray call UO_FW_fnc_GetCurtainFiremissionText,true];
+				[_x , true] call UO_FW_fnc_SetArtyReadyStatus;
 		}forEach _unit;
 		private _startPoint = _this select 1;
 		private _endPoint = _this select 2;
@@ -17,14 +17,14 @@ _handle = _this spawn {
 		private	_minSpottedDistance = _this select 7;
 
 		private	_roundType = _this select 8;
-		private _roundClassName = ((_unit call UO_FW_FNC_GetArtyAmmo) select _roundType) select 0 ;
+		private _roundClassName = ((_unit call UO_FW_fnc_GetArtyAmmo) select _roundType) select 0 ;
 		{
-			[_x , true] call UO_FW_FNC_SetArtyReadyStatus;
-			_x setVariable [VAR_SART_ARTFMTEXT,_this call UO_FW_FNC_GetPointFiremissionText,true];
-			[_x, 0,_salvoCount * _salvoSize] call UO_FW_FNC_SetArtyFiremissionRoundsRequired;
+			[_x , true] call UO_FW_fnc_SetArtyReadyStatus;
+			_x setVariable [VAR_SART_ARTFMTEXT,_this call UO_FW_fnc_GetPointFiremissionText,true];
+			[_x, 0,_salvoCount * _salvoSize] call UO_FW_fnc_SetArtyFiremissionRoundsRequired;
 		}forEach _unit;
 		private	_fireRate = [];
-		sleep((_unit call UO_FW_FNC_GetArtyAimTime));
+		sleep((_unit call UO_FW_fnc_GetArtyAimTime));
 		private	_dis = 1000;
 		private	_tempAcc = ((_unit select 0) getVariable [VAR_SART_ARTSPOTACCURACY,MEANSPOTTINGACCURACY]) + 1;
 		private	_dir = _endPoint vectorDiff  _startPoint;
@@ -38,10 +38,10 @@ _handle = _this spawn {
 		private _tempCount = 0;
 		{
 				_startingSpots pushBack (_leftEdge vectorAdd (_rightDir vectorMultiply  (_tempCount * _interval)));
-				_fireRate pushBack (_x call UO_FW_FNC_ArtGetFireRate);
+				_fireRate pushBack (_x call UO_FW_fnc_ArtGetFireRate);
 				_tempCount = _tempCount + 1;
 		}forEach _unit;
-		[_unit,_startPoint,_roundClassName ] call UO_FW_FNC_InternalSpottingFiremission;
+		[_unit,_startPoint,_roundClassName ] call UO_FW_fnc_InternalSpottingFiremission;
 		//spotting rounds finished
 
 
@@ -49,16 +49,16 @@ _handle = _this spawn {
 		for "_i" from 0 to _salvoCount do {
 				_row = 0;
 				{
-						[_unit,(_startingSpots select _row) vectorAdd (_dir vectorMultiply _i),0,_salvoSize,_roundClassName] call UO_FW_FNC_InternalFiremission;
-						[_x, ((_x getVariable [VAR_SART_ARTROUNDSFIRED,[0,0]]) select 1) + _salvoSize,_salvoCount * _salvoSize] call UO_FW_FNC_SetArtyFiremissionRoundsRequired;
+						[_unit,(_startingSpots select _row) vectorAdd (_dir vectorMultiply _i),0,_salvoSize,_roundClassName] call UO_FW_fnc_InternalFiremission;
+						[_x, ((_x getVariable [VAR_SART_ARTROUNDSFIRED,[0,0]]) select 1) + _salvoSize,_salvoCount * _salvoSize] call UO_FW_fnc_SetArtyFiremissionRoundsRequired;
 						_row = _row + 1;
 				}forEach _unit;
 					sleep((((_fireRate select 0) * ((_unit select 0) getVariable [VAR_SART_ARTFIRERATE,MEANFIRERATE]) ) * _salvoSize) max _salvoWait);
 		};
 		{
-				[_x, 0,0] call UO_FW_FNC_SetArtyFiremissionRoundsRequired;
-				[_x , false] call UO_FW_FNC_SetArtyReadyStatus;
-				[_x,objNULL] call UO_FW_FNC_SetArtyCaller;
+				[_x, 0,0] call UO_FW_fnc_SetArtyFiremissionRoundsRequired;
+				[_x , false] call UO_FW_fnc_SetArtyReadyStatus;
+				[_x,objNULL] call UO_FW_fnc_SetArtyCaller;
 		}forEach _unit;
 	};
 	{

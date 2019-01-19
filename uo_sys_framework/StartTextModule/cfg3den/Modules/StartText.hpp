@@ -7,7 +7,7 @@ class UO_FW_StartText {
             displayName = "Start Text";
             tooltip = "Enables Start Text";
             control = "CheckboxState";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "true";
             typeName = "BOOL";
         };
@@ -17,7 +17,7 @@ class UO_FW_StartText {
 			control = "Combo";
 			typeName = "NUMBER";
 			property = "UO_FW_StartText_TimeSelect";
-			expression = "missionNamespace setVariable ['%s',_value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			validate = "none";
 			class values {
 				class Date    {name = "Date"; value = 0;};
@@ -34,7 +34,7 @@ class UO_FW_StartText {
 			property = "UO_FW_StartText_BluforTitleQuote";
 			defaultValue = "''"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
 			typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-			expression = "missionNamespace setVariable ['%s',_value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			validate = "none";
 		};
 		class UO_FW_StartText_BluforText {
@@ -45,7 +45,7 @@ class UO_FW_StartText {
 			property = "UO_FW_StartText_BluforText";
 			defaultValue = "''"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
 			typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-			expression = "missionNamespace setVariable ['%s',_value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			validate = "none";
 		};
 		class UO_FW_StartText_OpforTitleQuote {
@@ -56,7 +56,7 @@ class UO_FW_StartText {
 			property = "UO_FW_StartText_OpforTitleQuote";
 			defaultValue = "''"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
 			typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-			expression = "missionNamespace setVariable ['%s',_value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			validate = "none";
 		};
 		class UO_FW_StartText_OpforText {
@@ -67,7 +67,7 @@ class UO_FW_StartText {
 			property = "UO_FW_StartText_OpforText";
 			defaultValue = "''"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
 			typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-			expression = "missionNamespace setVariable ['%s',_value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			validate = "none";
 		};
 		class UO_FW_StartText_IndependentTitleQuote {
@@ -78,7 +78,7 @@ class UO_FW_StartText {
 			property = "UO_FW_StartText_IndependentTitleQuote";
 			defaultValue = "''"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
 			typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-			expression = "missionNamespace setVariable ['%s',_value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			validate = "none";
 		};
 		class UO_FW_StartText_IndependentText {
@@ -89,7 +89,7 @@ class UO_FW_StartText {
 			property = "UO_FW_StartText_IndependentText";
 			defaultValue = "''"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
 			typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-			expression = "missionNamespace setVariable ['%s',_value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			validate = "none";
 		};
 		class UO_FW_StartText_CivilianTitleQuote {
@@ -100,7 +100,7 @@ class UO_FW_StartText {
 			property = "UO_FW_StartText_CivilianTitleQuote";
 			defaultValue = "''"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
 			typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-			expression = "missionNamespace setVariable ['%s',_value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			validate = "none";
 		};
 		class UO_FW_StartText_CivilianText {
@@ -111,7 +111,7 @@ class UO_FW_StartText {
 			property = "UO_FW_StartText_CivilianText";
 			defaultValue = "''"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
 			typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-			expression = "missionNamespace setVariable ['%s',_value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			validate = "none";
 		};
     };

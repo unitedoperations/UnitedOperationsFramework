@@ -7,7 +7,7 @@ class UO_FW_DebugSettings {
             displayName = "Debug Enabled";
             tooltip = "Toggle debug mode.";
             control = "Checkbox";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
 		class UO_FW_Debug_Detailed_Enabled {
@@ -15,7 +15,7 @@ class UO_FW_DebugSettings {
             displayName = "Detailed Debug Enabled";
             tooltip = "Toggle detailed debug mode.";
             control = "Checkbox";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
 		class UO_FW_Debug_Logs {
@@ -23,7 +23,7 @@ class UO_FW_DebugSettings {
             displayName = "Log all debug messages";
             tooltip = "Log all debug messages.";
             control = "Checkbox";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
 		class UO_FW_ForceTerrain_Enabled {
@@ -31,7 +31,7 @@ class UO_FW_DebugSettings {
             displayName = "Force TerrainGrid";
             tooltip = "Force terrain grid to prevent far away objects from appearing as floating.";
             control = "Checkbox";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
     };

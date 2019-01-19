@@ -3,7 +3,7 @@
 UO_FW_EXEC_CHECK(ALL);
 
 if !(missionNamespace getVariable ["UO_FW_StartText_Enabled",false]) exitWith {};
-["Start Text", "Displays animated text on mission start.", "Sacher"] call UO_FW_fnc_RegisterModule;
+["UO_FW_RegisterModuleEvent", ["Start Text", "Displays animated text on mission start.", "Sacher"]] call CBA_fnc_globalEvent;
 
 private _dateTypeArray = [["DATE"],["TIME"],["DATETIME"]];
 private _dateType = _dateTypeArray select (missionNamespace getVariable ["UO_FW_StartText_TimeSelect",2]);

@@ -8,7 +8,7 @@ private _isValid = true;
 
 //if (!isMultiplayer) then {
 //	_isValid = false;
-//	"Setup Timer: Singleplayer session detected, this module will function only in multiplayer." call UO_FW_FNC_DebugMessage;
+//	"Setup Timer: Singleplayer session detected, this module will function only in multiplayer." call UO_FW_fnc_DebugMessage;
 //};
 
 if (count _area < 4) then {

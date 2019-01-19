@@ -12,7 +12,7 @@
 UO_FW_EXEC_CHECK(ALL);
 
 if !(missionNamespace getvariable ["UO_FW_ACRE_SETTINGS_Enabled",false]) exitwith {};
-["ACRE Setup", "Module for Acre Settings", "PiZZADOX and Sacher"] call UO_FW_fnc_RegisterModule;
+["UO_FW_RegisterModuleEvent", ["ACRE Setup", "Module for Acre Settings", "PiZZADOX and Sacher"]] call CBA_fnc_globalEvent;
 
 UO_FW_Presets = ["default2", "default3", "default4", "default"];
 UO_FW_Presets_BLUFOR = "default";

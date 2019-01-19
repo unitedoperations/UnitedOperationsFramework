@@ -7,7 +7,7 @@ class UO_FW_EndConditions_Custom_File {
             displayName = "Custom End Condition File";
             tooltip = "Loads file on server as end conditions instead of framework category settings.";
             control = "CheckboxState";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
 		class UO_FW_EndConditions_File_Path {
@@ -16,7 +16,7 @@ class UO_FW_EndConditions_Custom_File {
             tooltip = "Path to End Condition File";
 			control = "Edit";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
 	};

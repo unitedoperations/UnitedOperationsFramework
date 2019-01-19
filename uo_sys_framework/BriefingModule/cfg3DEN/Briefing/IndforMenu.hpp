@@ -7,7 +7,7 @@ class UO_FW_INDFOR_NATOStyle {
             displayName = "NATO style briefing";
             tooltip = "Enables NATO style briefing";
             control = "CheckboxState";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "false";
 
         };
@@ -25,7 +25,7 @@ class UO_FW_INDFOR_NATOStyle {
             tooltip = "Situation";
 			control = "EditMulti5";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
 
         };
@@ -35,7 +35,7 @@ class UO_FW_INDFOR_NATOStyle {
             tooltip = "Terrain";
 			control = "EditMulti5";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
 
         };
@@ -45,7 +45,7 @@ class UO_FW_INDFOR_NATOStyle {
             tooltip = "Key Terrain";
 			control = "EditMulti5";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
 
         };
@@ -55,7 +55,7 @@ class UO_FW_INDFOR_NATOStyle {
             tooltip = "Weather";
 			control = "EditMulti5";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
 
         };
@@ -73,7 +73,7 @@ class UO_FW_INDFOR_NATOStyle {
             tooltip = "Enemy Disposition";
 			control = "EditMulti5";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
 
         };
@@ -83,7 +83,7 @@ class UO_FW_INDFOR_NATOStyle {
             tooltip = "Enemy Strength";
 			control = "EditMulti5";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
 		class UO_FW_Briefing_INDFOR_NATO_Enemy_EQUIPMENT {
@@ -92,7 +92,7 @@ class UO_FW_INDFOR_NATOStyle {
             tooltip = "Enemy Equipment";
 			control = "EditMulti5";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
 		class UO_FW_Briefing_INDFOR_NATO_Enemy_APPEARANCE {
@@ -101,7 +101,7 @@ class UO_FW_INDFOR_NATOStyle {
             tooltip = "Enemy Appearance";
 			control = "EditMulti5";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
 		class UO_FW_Briefing_INDFOR_NATO_Enemy_MLCOA {
@@ -110,7 +110,7 @@ class UO_FW_INDFOR_NATOStyle {
             tooltip = "Most Likely Course of Action";
 			control = "EditMulti5";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
 
         };
@@ -120,7 +120,7 @@ class UO_FW_INDFOR_NATOStyle {
             tooltip = "Most Dangerous Course of Action";
 			control = "EditMulti5";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
 
         };
@@ -138,7 +138,7 @@ class UO_FW_INDFOR_NATOStyle {
             tooltip = "Friendly Disposition";
 			control = "EditMulti5";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
 
         };
@@ -148,7 +148,7 @@ class UO_FW_INDFOR_NATOStyle {
             tooltip = "Friendly Higher Units";
 			control = "EditMulti5";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
 
         };
@@ -158,7 +158,7 @@ class UO_FW_INDFOR_NATOStyle {
             tooltip = "Friendly Strength";
 			control = "EditMulti5";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
 
         };
@@ -168,7 +168,7 @@ class UO_FW_INDFOR_NATOStyle {
             tooltip = "Friendly Appearance";
 			control = "EditMulti5";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
 
         };
@@ -186,7 +186,7 @@ class UO_FW_INDFOR_NATOStyle {
             tooltip = "Mission";
 			control = "EditMulti5";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
 
         };
@@ -206,7 +206,7 @@ class UO_FW_INDFOR_NATOStyle {
             tooltip = "Intent";
 			control = "EditMulti5";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
 
         };
@@ -216,7 +216,7 @@ class UO_FW_INDFOR_NATOStyle {
             tooltip = "Maneuver";
 			control = "EditMulti5";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
 
         };
@@ -226,7 +226,7 @@ class UO_FW_INDFOR_NATOStyle {
             tooltip = "Timings";
 			control = "EditMulti5";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
 
         };
@@ -236,7 +236,7 @@ class UO_FW_INDFOR_NATOStyle {
             tooltip = "Tasks";
 			control = "EditMulti5";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
 
         };
@@ -264,7 +264,7 @@ class UO_FW_INDFOR_NATOStyle {
             tooltip = "Fires";
 			control = "EditMulti5";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
 
         };
@@ -274,7 +274,7 @@ class UO_FW_INDFOR_NATOStyle {
             tooltip = "Ammo";
 			control = "EditMulti5";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
 
         };
@@ -293,7 +293,7 @@ class UO_FW_INDFOR_NATOStyle {
             tooltip = "General";
 			control = "EditMulti5";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
 
         };
@@ -321,7 +321,7 @@ class UO_FW_INDFOR_NATOStyle {
             tooltip = "Command";
 			control = "EditMulti5";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
 
         };
@@ -340,7 +340,7 @@ class UO_FW_INDFOR_NATOStyle {
             tooltip = "Radio Frequencies";
 			control = "EditMulti5";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
 
         };
@@ -350,7 +350,7 @@ class UO_FW_INDFOR_NATOStyle {
             tooltip = "Codewords";
 			control = "EditMulti5";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
 
         };
@@ -360,7 +360,7 @@ class UO_FW_INDFOR_NATOStyle {
             tooltip = "Special Signals";
 			control = "EditMulti5";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
 
         };
@@ -370,7 +370,7 @@ class UO_FW_INDFOR_NATOStyle {
             tooltip = "Callsigns";
 			control = "EditMulti5";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
 
         };
@@ -380,7 +380,7 @@ class UO_FW_INDFOR_NATOStyle {
             tooltip = "Passwords";
 			control = "EditMulti5";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
     };
@@ -395,7 +395,7 @@ class UO_FW_INDFOR_WPStyle {
             displayName = "Warsaw Pact style briefing";
             tooltip = "Enables Warsaw Pact style briefing";
             control = "CheckboxState";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
 		class UO_FW_Briefing_INDFOR_Warsaw_Preliminaries_Title {
@@ -411,7 +411,7 @@ class UO_FW_INDFOR_WPStyle {
             tooltip = "Weather";
 			control = "EditMulti5";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
 		class UO_FW_Briefing_INDFOR_Warsaw_Preliminaries_Terrain {
@@ -420,7 +420,7 @@ class UO_FW_INDFOR_WPStyle {
             tooltip = "Terrain";
 			control = "EditMulti5";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
 		class UO_FW_Briefing_INDFOR_Warsaw_Reference_Title {
@@ -436,7 +436,7 @@ class UO_FW_INDFOR_WPStyle {
             tooltip = "Deployment Reference Points";
 			control = "EditMulti5";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
 		class UO_FW_Briefing_INDFOR_Warsaw_Reference_SubsequentPoints {
@@ -445,7 +445,7 @@ class UO_FW_INDFOR_WPStyle {
             tooltip = "Subsequent Reference Points";
 			control = "EditMulti5";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
 		class UO_FW_Briefing_INDFOR_Warsaw_Enemy_Title {
@@ -461,7 +461,7 @@ class UO_FW_INDFOR_WPStyle {
             tooltip = "Enemy Disposition";
 			control = "EditMulti5";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
 		class UO_FW_Briefing_INDFOR_Warsaw_Enemy_Equip {
@@ -470,7 +470,7 @@ class UO_FW_INDFOR_WPStyle {
             tooltip = "Enemy Equipment";
 			control = "EditMulti5";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
 		class UO_FW_Briefing_INDFOR_Warsaw_Enemy_Prob_HQ {
@@ -479,7 +479,7 @@ class UO_FW_INDFOR_WPStyle {
             tooltip = "Probable Enemy HQ Location";
 			control = "EditMulti5";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
 		class UO_FW_Briefing_INDFOR_Warsaw_Enemy_Prob_Line {
@@ -488,7 +488,7 @@ class UO_FW_INDFOR_WPStyle {
             tooltip = "Probable Enemy Main Element Location";
 			control = "EditMulti5";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
 		class UO_FW_Briefing_INDFOR_Warsaw_Enemy_Prob_Dir_Attack {
@@ -497,7 +497,7 @@ class UO_FW_INDFOR_WPStyle {
             tooltip = "Probable Enemy Direction of Attack";
 			control = "EditMulti5";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
 		class UO_FW_Briefing_INDFOR_Warsaw_Enemy_Prob_Arty {
@@ -506,7 +506,7 @@ class UO_FW_INDFOR_WPStyle {
             tooltip = "Probable Enemy Artillery Positions & Capability";
 			control = "EditMulti5";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
 		class UO_FW_Briefing_INDFOR_Warsaw_Higher_Title {
@@ -522,7 +522,7 @@ class UO_FW_INDFOR_WPStyle {
             tooltip = "Description";
 			control = "EditMulti5";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
 		class UO_FW_Briefing_INDFOR_Warsaw_Higher_Boundary {
@@ -531,7 +531,7 @@ class UO_FW_INDFOR_WPStyle {
             tooltip = "Boundaries";
 			control = "EditMulti5";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
 		class UO_FW_Briefing_INDFOR_Warsaw_Higher_Arty {
@@ -540,7 +540,7 @@ class UO_FW_INDFOR_WPStyle {
             tooltip = "Location and Capability of Artillery";
 			control = "EditMulti5";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
 		class UO_FW_Briefing_INDFOR_Warsaw_Mission_Title {
@@ -556,7 +556,7 @@ class UO_FW_INDFOR_WPStyle {
             tooltip = "Mission Statement";
 			control = "EditMulti5";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
 		class UO_FW_Briefing_INDFOR_Warsaw_Mission_DIR {
@@ -565,7 +565,7 @@ class UO_FW_INDFOR_WPStyle {
             tooltip = "End State Direction";
 			control = "EditMulti5";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
 		class UO_FW_Briefing_INDFOR_Warsaw_Order_Title {
@@ -581,7 +581,7 @@ class UO_FW_INDFOR_WPStyle {
             tooltip = "Tasks";
 			control = "EditMulti5";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
 		class UO_FW_Briefing_INDFOR_Warsaw_Order_Tasks_Arty {
@@ -590,7 +590,7 @@ class UO_FW_INDFOR_WPStyle {
             tooltip = "Tasks for Artillery Elements";
 			control = "EditMulti5";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
 		class UO_FW_Briefing_INDFOR_Warsaw_Order_Timings {
@@ -599,7 +599,7 @@ class UO_FW_INDFOR_WPStyle {
             tooltip = "Readiness Timings";
 			control = "EditMulti5";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
 		class UO_FW_Briefing_INDFOR_Warsaw_Order_Signals {
@@ -608,7 +608,7 @@ class UO_FW_INDFOR_WPStyle {
             tooltip = "Signals";
 			control = "EditMulti5";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
 		class UO_FW_Briefing_INDFOR_Warsaw_COMM_Title {
@@ -624,7 +624,7 @@ class UO_FW_INDFOR_WPStyle {
             tooltip = "Location of the Commander";
 			control = "EditMulti5";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
 		class UO_FW_Briefing_INDFOR_Warsaw_SUCC_Title {
@@ -640,7 +640,7 @@ class UO_FW_INDFOR_WPStyle {
             tooltip = "Succession of Command";
 			control = "EditMulti5";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
 	};
@@ -655,7 +655,7 @@ class UO_FW_INDFOR_Custom_File {
             displayName = "Briefing File";
             tooltip = "Loads file as briefing";
             control = "CheckboxState";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
 		class UO_FW_Briefing_INDFOR_File_Path {
@@ -664,7 +664,7 @@ class UO_FW_INDFOR_Custom_File {
             tooltip = "Path to briefing file";
 			control = "Edit";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
 	};
@@ -679,7 +679,7 @@ class UO_FW_INDFOR_Appendix {
             displayName = "Appendix File";
             tooltip = "Enables Appendix File";
             control = "CheckboxState";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "false";
 
         };
@@ -689,7 +689,7 @@ class UO_FW_INDFOR_Appendix {
             tooltip = "Path to Appendix Briefing File";
 			control = "Edit";
             validate = "STRING";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
 
         };

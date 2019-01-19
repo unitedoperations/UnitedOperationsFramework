@@ -61,7 +61,7 @@ UO_FW_AidriverLastTimeIn = time;
             _unit enableAI "Path";
             UO_FW_AidriverLastTimeIn = time;
         };
-        if (time > 120 + UO_FW_AidriverLastTimeIn || !alive _target || !alive _caller || !alive _unit || (vehicle _unit) != _target || (driver _target) != _unit) then {
+        if (CBA_missionTime > 120 + UO_FW_AidriverLastTimeIn || !alive _target || !alive _caller || !alive _unit || (vehicle _unit) != _target || (driver _target) != _unit) then {
             [_target, _caller] call UO_FW_fnc_aidriversremoveUnit;
         };
     }, 1, _this] call CBA_fnc_addPerFrameHandler;

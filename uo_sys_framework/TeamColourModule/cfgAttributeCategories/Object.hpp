@@ -8,7 +8,7 @@ class UO_FW_TeamColourOptions {
 			property = "UO_FW_TeamColour";
 			control = "UO_FW_TeamColourAttribute";
 			typeName = "STRING";
-			expression = "_this setVariable ['%s',_value];";
+			expression = UO_FW_ENTITY_EXPRESSION;
 			condition = "objectControllable";
 			defaultValue = "'None'";
 		};

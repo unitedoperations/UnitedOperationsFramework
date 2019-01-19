@@ -7,7 +7,7 @@ class UO_FW_MACR {
 			displayName = "Remove Map";
 			tooltip = "Remove map from all AI after briefing";
 			control = "Checkbox";
-			expression = "missionNamespace setVariable ['%s', _value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			defaultValue = "false";
         };
 		class UO_FW_MACR_COMPASS_ALL {
@@ -15,7 +15,7 @@ class UO_FW_MACR {
 			displayName = "Remove Compass";
 			tooltip = "Remove compass from all AI after briefing";
 			control = "Checkbox";
-			expression = "missionNamespace setVariable ['%s', _value];";
+			expression = UO_FW_SCENARIO_EXPRESSION;
 			defaultValue = "false";
         };
     };
