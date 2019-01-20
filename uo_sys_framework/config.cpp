@@ -296,6 +296,9 @@ class Extended_PreInit_EventHandlers {
 	#include "FiremissionModule\cfgXEH\PreInit.hpp"
 	#include "StartInParachuteModule\cfgXEH\PreInit.hpp"
 	#include "StartTextModule\cfgXEH\PreInit.hpp"
+	#include "ACREModule\cfgXEH\PreInit.hpp"
+	#include "AIDriversModule\cfgXEH\PreInit.hpp"
+	#include "AILinkModule\cfgXEH\PreInit.hpp"
 };
 
 class Extended_PostInit_Eventhandlers {
