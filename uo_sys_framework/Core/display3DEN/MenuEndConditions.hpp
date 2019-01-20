@@ -1,13 +1,13 @@
 class UO_FW_EndConditions_Folder {
     text = "Configure End Conditions";
-	items[] = {	"UO_FW_EndConditions_Settings",
-		"UO_FW_EndConditions_Settings_Category1",
-		"UO_FW_EndConditions_Settings_Category2",
-		"UO_FW_EndConditions_Settings_Category3",
-		"UO_FW_EndConditions_Settings_Category4",
-		"UO_FW_EndConditions_Settings_Category5",
-		"UO_FW_EndConditions_Settings_Category6"
-	};
+    items[] = {    "UO_FW_EndConditions_Settings",
+        "UO_FW_EndConditions_Settings_Category1",
+        "UO_FW_EndConditions_Settings_Category2",
+        "UO_FW_EndConditions_Settings_Category3",
+        "UO_FW_EndConditions_Settings_Category4",
+        "UO_FW_EndConditions_Settings_Category5",
+        "UO_FW_EndConditions_Settings_Category6"
+    };
     picture = "\a3\ui_f\data\IGUI\RscTitles\MPProgress\timer_ca.paa";
 };
 

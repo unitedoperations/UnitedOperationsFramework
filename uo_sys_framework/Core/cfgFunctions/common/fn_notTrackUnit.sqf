@@ -23,6 +23,6 @@ private _unit = _this;
 
 if (isServer) then {
 
-	_unit setVariable ["UO_FW_DontTrack", true];
+    _unit setVariable ["UO_FW_DontTrack", true];
 
 };

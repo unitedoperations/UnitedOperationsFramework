@@ -2,7 +2,7 @@ class UO_FW_MainSettings {
     displayName = "Main Settings";
     collapsed = 0;
     class Attributes {
-		class UO_FW_Enabled {
+        class UO_FW_Enabled {
             property = "UO_FW_Enabled";
             displayName = "Enable UO Framework";
             tooltip = "Enable UO Framework";

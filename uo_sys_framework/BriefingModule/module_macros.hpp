@@ -8,5 +8,5 @@
 _size = count _briefing - 1;\
 for '_i' from 0 to _size do\
 {\
-	player createDiaryRecord (_briefing select _size - _i);\
+    player createDiaryRecord (_briefing select _size - _i);\
 };

@@ -14,5 +14,5 @@ UO_FW_EventDisconnectHandle = addMissionEventHandler ["HandleDisconnect", {_this
 setViewDistance UO_FW_AI_ViewDistance;
 
 if (UO_FW_DisconnectControl_Enabled) then {
-	ace_respawn_RemoveDeadBodiesDisconnected = false;
+    ace_respawn_RemoveDeadBodiesDisconnected = false;
 };

@@ -1,11 +1,11 @@
-/*	Description: Execute task on complete code.
- * 	Arguments:
- * 		GROUP	- Group
- * 		OBJECT	- Task Module Completed
- * 	Return Value:
- * 		BOOL 	- True
- *	Author
- *		suits & PiZZADOX
+/*    Description: Execute task on complete code.
+ *     Arguments:
+ *         GROUP    - Group
+ *         OBJECT    - Task Module Completed
+ *     Return Value:
+ *         BOOL     - True
+ *    Author
+ *        suits & PiZZADOX
  */
 #include "\x\UO_FW\addons\Main\HeadlessAIModule\module_macros.hpp"
 UO_FW_AI_EXEC_CHECK(SERVERHC);

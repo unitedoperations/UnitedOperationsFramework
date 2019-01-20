@@ -18,12 +18,12 @@ _dgn_returnvariable = false;
 _Position = getposASL _Enemy;
 _Array = lineIntersectsObjs [_Position,[_Position select 0,_Position select 1,(_Position select 2) + 10], objnull, objnull, true, 4];
 {
-	if (_x isKindof "Building") exitWith {_dgn_returnvariable = true;};
+    if (_x isKindof "Building") exitWith {_dgn_returnvariable = true;};
 } foreach _Array;
 
 _Array = lineIntersectsObjs [_Position,[_Position select 0,_Position select 1,(_Position select 2) - 10], objnull, objnull, true, 4];
 {
-	if (_x isKindof "Building") exitWith {_dgn_returnvariable = true;};
+    if (_x isKindof "Building") exitWith {_dgn_returnvariable = true;};
 } foreach _Array;
 
 _dgn_returnvariable

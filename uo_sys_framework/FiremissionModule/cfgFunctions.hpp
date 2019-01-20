@@ -9,8 +9,8 @@
 
 class UO_FW_Firemission
 {
-	file = "x\UO_FW\addons\Main\FiremissionModule\cfgFunctions\common";
-	class StopArtilleryClient {};
+    file = "x\UO_FW\addons\Main\FiremissionModule\cfgFunctions\common";
+    class StopArtilleryClient {};
     class AddEventHandler {};
     class ArtGetFireRate {};
     class ArtLoadAviableArtilleries {};
@@ -69,5 +69,5 @@ class UO_FW_Firemission
     class SetArtyReadyStatus{};
     class SetObserverSkill{};
     class StopArtillery{};
-		class FiremissionModuleInit {};
+        class FiremissionModuleInit {};
 };

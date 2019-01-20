@@ -14,7 +14,7 @@
  */
 
 FW_terrainGridPFH_handle = [{
-	if (CBA_missionTime > 0 && {getTerrainGrid != 2}) then {
-		setTerrainGrid 2;
-	};
+    if (CBA_missionTime > 0 && {getTerrainGrid != 2}) then {
+        setTerrainGrid 2;
+    };
 }, 1] call CBA_fnc_addPerFrameHandler;

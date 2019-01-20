@@ -3,24 +3,24 @@
 UO_FW_EXEC_CHECK(CLIENT);
 
 ["UO_FW_MapRemover_PlayerEvent", {
-	if (!UO_FW_Server_RemoverModule_Allowed) exitWith {};
-	["UO_FW_RegisterModuleEvent", ["Map and Compass Remover", "Removes Map and Compass after briefing", "TinfoilHate, Sacher and PiZZADOX"]] call CBA_fnc_globalEvent;
-	[{(CBA_missionTime > 1)}, {
-		if (UO_FW_GETPLVAR(RemoveMap,false)) then {
-			player unlinkItem "ItemMap";
-		};
-		if (UO_FW_GETPLVAR(RemoveCompass,false)) then {
-			player unlinkItem "ItemCompass";
-		};
-	}] call CBA_fnc_waitUntilAndExecute;
+    if (!UO_FW_Server_RemoverModule_Allowed) exitWith {};
+    ["UO_FW_RegisterModuleEvent", ["Map and Compass Remover", "Removes Map and Compass after briefing", "TinfoilHate, Sacher and PiZZADOX"]] call CBA_fnc_globalEvent;
+    [{(CBA_missionTime > 1)}, {
+        if (UO_FW_GETPLVAR(RemoveMap,false)) then {
+            player unlinkItem "ItemMap";
+        };
+        if (UO_FW_GETPLVAR(RemoveCompass,false)) then {
+            player unlinkItem "ItemCompass";
+        };
+    }] call CBA_fnc_waitUntilAndExecute;
 }] call CBA_fnc_addEventHandler;
 
 if !(hasInterface) then {
-	["UO_FW_SettingsLoaded", {
-		["UO_FW_MapRemover_LocalEvent", []] call CBA_fnc_localEvent;
-	}] call CBA_fnc_addEventHandler;
+    ["UO_FW_SettingsLoaded", {
+        ["UO_FW_MapRemover_LocalEvent", []] call CBA_fnc_localEvent;
+    }] call CBA_fnc_addEventHandler;
 } else {
-	["UO_FW_SettingsLoaded", {
-		["UO_FW_MapRemover_PlayerEvent", []] call CBA_fnc_localEvent;
-	}] call CBA_fnc_addEventHandler;
+    ["UO_FW_SettingsLoaded", {
+        ["UO_FW_MapRemover_PlayerEvent", []] call CBA_fnc_localEvent;
+    }] call CBA_fnc_addEventHandler;
 };

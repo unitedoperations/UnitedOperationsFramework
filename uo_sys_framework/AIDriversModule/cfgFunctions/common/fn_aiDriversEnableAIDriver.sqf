@@ -1,10 +1,10 @@
-/*	Description: Gives AI Driver actions to vehicle
- *	Arguments:
- * 		OBJECT - vehicle
- *	Return Value:
- * 		ARRAY
- *	Author
- *		BlackHawk & PiZZADOX
+/*    Description: Gives AI Driver actions to vehicle
+ *    Arguments:
+ *         OBJECT - vehicle
+ *    Return Value:
+ *         ARRAY
+ *    Author
+ *        BlackHawk & PiZZADOX
  */
 
 #define COMPONENT AIDrivers
@@ -68,11 +68,11 @@ if (_veh getvariable ["UO_FW_hasAIDriverActions",false]) exitwith {};
         [_veh, 1, ["ACE_SelfActions"], _pipAction] call ace_interact_menu_fnc_addActionToObject;
 
 if ( _enableFlip) then {
-	[_veh, 1, ["ACE_SelfActions"], _unflipAction] call ace_interact_menu_fnc_addActionToObject;
+    [_veh, 1, ["ACE_SelfActions"], _unflipAction] call ace_interact_menu_fnc_addActionToObject;
 };
 
 if (_enableNV ) then {
-	[_veh, 1, ["ACE_SelfActions"], _pipNvAction] call ace_interact_menu_fnc_addActionToObject;
+    [_veh, 1, ["ACE_SelfActions"], _pipNvAction] call ace_interact_menu_fnc_addActionToObject;
 };
 
 _veh setvariable ["UO_FW_hasAIDriverActions",true,true];

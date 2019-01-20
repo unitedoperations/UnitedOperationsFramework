@@ -25,9 +25,9 @@ viewMode = 0;
 targets = [];
 
 {
-	if (!(_x getVariable "UO_FW_Dead")) then {
-		targets set [count targets, _x];
-	}
+    if (!(_x getVariable "UO_FW_Dead")) then {
+        targets set [count targets, _x];
+    }
 } forEach playableUnits;
 
 selection = 0;
@@ -41,269 +41,269 @@ mapOn = false;
 
 _keyDown_camConstruct = (finddisplay 12) displayaddeventhandler ["keydown", "
 
-	if ((_this select 1) == 1 && mapOn) then {
+    if ((_this select 1) == 1 && mapOn) then {
 
-		forceMap false;
+        forceMap false;
 
-		if (thirdPerson) then {
+        if (thirdPerson) then {
 
-			camera cameraeffect ['internal', 'back'];
-			camera setpos oldPos;
-			camera setdir oldDir;
+            camera cameraeffect ['internal', 'back'];
+            camera setpos oldPos;
+            camera setdir oldDir;
 
-		} else {
+        } else {
 
-			_target = (vehicle (targets select selection));
+            _target = (vehicle (targets select selection));
 
-			if (!(count targets > 0)) then {
+            if (!(count targets > 0)) then {
 
-				_target = deadbody;
+                _target = deadbody;
 
-			};
+            };
 
-			camera cameraeffect ['Terminate', 'back'];
-			_target switchCamera 'EXTERNAL';
+            camera cameraeffect ['Terminate', 'back'];
+            _target switchCamera 'EXTERNAL';
 
-		};
+        };
 
-		mapOn = false;
+        mapOn = false;
 
-	};
+    };
 "];
 
 _keyDown_camConstruct = (finddisplay 46) displayaddeventhandler ["MouseButtonDown", "
 
-	if (((_this select 1) == 0) && (!thirdPerson) && !mapOn) then {
+    if (((_this select 1) == 0) && (!thirdPerson) && !mapOn) then {
 
-		camera cameraeffect ['internal', 'back'];
-		camera setpos [((position target) select 0) + ((sin (getdir target)) * ( - 10)), ((position target) select 1) + ((cos (getdir target)) * (- 10)), ((position target) select 2) + 2];
-		camera setdir getdir target;
+        camera cameraeffect ['internal', 'back'];
+        camera setpos [((position target) select 0) + ((sin (getdir target)) * ( - 10)), ((position target) select 1) + ((cos (getdir target)) * (- 10)), ((position target) select 2) + 2];
+        camera setdir getdir target;
 
-		if (target == deadbody) then {
+        if (target == deadbody) then {
 
-			cutText ['Your body', 'PLAIN DOWN'];
+            cutText ['Your body', 'PLAIN DOWN'];
 
-		} else {
+        } else {
 
-			cutText [format ['%1', name target], 'PLAIN DOWN'];
+            cutText [format ['%1', name target], 'PLAIN DOWN'];
 
-		};
+        };
 
-		thirdPerson = true;
+        thirdPerson = true;
 
-	};
+    };
 "];
 
 _keyDown_switchCamera = (finddisplay 46) displayaddeventhandler ["MouseButtonDown", "
 
-	if (((_this select 1) == 1) && thirdPerson && !mapOn) then {
+    if (((_this select 1) == 1) && thirdPerson && !mapOn) then {
 
-		if (target == deadbody) then {
+        if (target == deadbody) then {
 
-			camera cameraeffect ['internal', 'back'];
-			camera setpos [((position target) select 0) + ((sin (getdir target)) * ( - 10)), ((position target) select 1) + ((cos (getdir target)) * (- 10)), ((position target) select 2) + 2];
-			camera setdir getdir target;
+            camera cameraeffect ['internal', 'back'];
+            camera setpos [((position target) select 0) + ((sin (getdir target)) * ( - 10)), ((position target) select 1) + ((cos (getdir target)) * (- 10)), ((position target) select 2) + 2];
+            camera setdir getdir target;
 
-			cutText ['Your body', 'PLAIN DOWN'];
+            cutText ['Your body', 'PLAIN DOWN'];
 
-		} else {
+        } else {
 
-			camera cameraeffect ['Terminate', 'back'];
-			target switchCamera 'EXTERNAL';
+            camera cameraeffect ['Terminate', 'back'];
+            target switchCamera 'EXTERNAL';
 
-			cutText [format ['%1', name target], 'PLAIN DOWN'];
+            cutText [format ['%1', name target], 'PLAIN DOWN'];
 
-			thirdPerson = false;
+            thirdPerson = false;
 
-		};
-	};
+        };
+    };
 "];
 
 _keyDown_showMap = (finddisplay 46) displayaddeventhandler ["keydown", "
 
-	if ((_this select 1) in (actionkeys 'ShowMap')) then {
+    if ((_this select 1) in (actionkeys 'ShowMap')) then {
 
-		if (!mapOn) then {
+        if (!mapOn) then {
 
-			if (visibleMap) then {
+            if (visibleMap) then {
 
-				forceMap false;
+                forceMap false;
 
-			};
+            };
 
-			oldPos = position camera;
-			oldDir = getdir camera;
-			camera cameraeffect ['Terminate', 'back'];
-			player switchCamera 'EXTERNAL';
+            oldPos = position camera;
+            oldDir = getdir camera;
+            camera cameraeffect ['Terminate', 'back'];
+            player switchCamera 'EXTERNAL';
 
-			openMap true;
-			mapOn = true;
+            openMap true;
+            mapOn = true;
 
-			if (thirdPerson) then {
+            if (thirdPerson) then {
 
-				mapAnimAdd [0, 0.5, oldPos];
+                mapAnimAdd [0, 0.5, oldPos];
 
-			} else {
+            } else {
 
-				mapAnimAdd [0, 0.5, getPos target];
+                mapAnimAdd [0, 0.5, getPos target];
 
-			};
+            };
 
-			mapAnimCommit;
+            mapAnimCommit;
 
-		} else {
+        } else {
 
-			forceMap false;
+            forceMap false;
 
-			if (thirdPerson) then {
+            if (thirdPerson) then {
 
-				camera cameraeffect ['internal', 'back'];
-				camera setpos oldPos;
-				camera setdir oldDir;
+                camera cameraeffect ['internal', 'back'];
+                camera setpos oldPos;
+                camera setdir oldDir;
 
-			} else {
+            } else {
 
-				_target = (vehicle (targets select selection));
+                _target = (vehicle (targets select selection));
 
-				if (!(count targets > 0)) then {
+                if (!(count targets > 0)) then {
 
-					_target = deadbody;
+                    _target = deadbody;
 
-				};
+                };
 
-				camera cameraeffect ['Terminate', 'back'];
-				_target switchCamera 'EXTERNAL';
+                camera cameraeffect ['Terminate', 'back'];
+                _target switchCamera 'EXTERNAL';
 
-			};
+            };
 
-			mapOn = false;
+            mapOn = false;
 
-		};
+        };
 
-	};
+    };
 "];
 
 _keyDown_nightVision = (finddisplay 46) displayaddeventhandler ["keydown", "
 
-	if ((_this select 1) in (actionkeys 'NightVision')) then {
+    if ((_this select 1) in (actionkeys 'NightVision')) then {
 
-		switch (viewMode) do {
+        switch (viewMode) do {
 
-			case 0: {
+            case 0: {
 
-				camUseNVG true;
+                camUseNVG true;
 
-			};
+            };
 
-			case 1: {
+            case 1: {
 
-				camUseNVG false;
-				true setCamUseTi 0;
+                camUseNVG false;
+                true setCamUseTi 0;
 
-			};
+            };
 
-			case 2: {
+            case 2: {
 
-				false setCamUseTi 0;
-				true setCamUseTi 1;
+                false setCamUseTi 0;
+                true setCamUseTi 1;
 
-			};
+            };
 
-			case 3: {
+            case 3: {
 
-				false setCamUseTi 1;
+                false setCamUseTi 1;
 
-			};
-		};
+            };
+        };
 
-		viewMode = viewMode + 1;
+        viewMode = viewMode + 1;
 
-		if (viewMode > 3) then {
+        if (viewMode > 3) then {
 
-			viewMode = 0;
+            viewMode = 0;
 
-		};
-	};
+        };
+    };
 "];
 
 _keydown_mouseZ = (findDisplay 46) displayAddEventHandler ["mousezchanged", "
 
-	if (!mapOn) then {
+    if (!mapOn) then {
 
-		if (count targets > 0) then {
+        if (count targets > 0) then {
 
-			_z = _this select 1;
+            _z = _this select 1;
 
-			if (_z  < 0) then {
+            if (_z  < 0) then {
 
-				selection = selection - 1;
+                selection = selection - 1;
 
-				if (selection < 0) then {
+                if (selection < 0) then {
 
-					selection = maxIndex;
+                    selection = maxIndex;
 
-				};
+                };
 
-			} else {
+            } else {
 
-				selection = selection + 1;
+                selection = selection + 1;
 
-				if (selection > maxIndex) then {
+                if (selection > maxIndex) then {
 
-					selection = 0;
+                    selection = 0;
 
-				};
-			};
+                };
+            };
 
-			target = vehicle (targets select selection);
+            target = vehicle (targets select selection);
 
-		} else {
+        } else {
 
-			target = deadbody;
+            target = deadbody;
 
-		};
+        };
 
-		if (thirdPerson) then {
+        if (thirdPerson) then {
 
-			camera setpos [((position target) select 0) + ((sin (getdir target)) * ( - 10)), ((position target) select 1) + ((cos (getdir target)) * (- 10)), ((position target) select 2) + 2];
-			camera setdir getdir target;
+            camera setpos [((position target) select 0) + ((sin (getdir target)) * ( - 10)), ((position target) select 1) + ((cos (getdir target)) * (- 10)), ((position target) select 2) + 2];
+            camera setdir getdir target;
 
-		} else {
+        } else {
 
-			target switchCamera 'EXTERNAL';
+            target switchCamera 'EXTERNAL';
 
-		};
+        };
 
-		if (target == deadbody) then {
+        if (target == deadbody) then {
 
-			cutText ['Your body', 'PLAIN DOWN'];
+            cutText ['Your body', 'PLAIN DOWN'];
 
-		} else {
+        } else {
 
-			cutText [format ['%1', name target], 'PLAIN DOWN'];
+            cutText [format ['%1', name target], 'PLAIN DOWN'];
 
-		};
+        };
 
-	};
+    };
 "];
 
 while {(player getVariable ["UO_FW_Spectating", false])} do {
 
-	targets = [];
+    targets = [];
 
-	{
+    {
 
-		if (!(_x getVariable ["UO_FW_Dead", false])) then {
+        if (!(_x getVariable ["UO_FW_Dead", false])) then {
 
-			targets set [count targets, _x];
+            targets set [count targets, _x];
 
-		}
+        }
 
-	} forEach playableUnits;
+    } forEach playableUnits;
 
-	maxIndex = count targets - 1;
+    maxIndex = count targets - 1;
 
-	player setOxygenReMaining 1;
+    player setOxygenReMaining 1;
 
-	sleep 0.25;
+    sleep 0.25;
 };

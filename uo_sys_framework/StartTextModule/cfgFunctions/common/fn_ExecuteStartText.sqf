@@ -83,5 +83,5 @@ _unparsedText = _unparsedText + "</t>";
 LOG_1("Executing Start Text with %1",_unparsedText);
 
 [{(CBA_missionTime > 10)},{
-	_this spawn BIS_fnc_textTiles;
+    _this spawn BIS_fnc_textTiles;
 },[parsetext _unparsedText, true, nil, 10, 0.7, 0]] call CBA_fnc_WaitUntilAndExecute;

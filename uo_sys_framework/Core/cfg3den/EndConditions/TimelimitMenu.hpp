@@ -14,17 +14,17 @@ class UO_FW_EndConditions_Timelimit_Settings {
             property = "UO_FW_Timelimit";
             displayName = "Time Limit";
             tooltip = "Ends mission after this time has been reached. Time in minutes";
-			control = "EditShort";
+            control = "EditShort";
             expression = UO_FW_SCENARIO_EXPRESSION;
-			validate = "number";
+            validate = "number";
             defaultValue = "30";
         };
-		class UO_FW_Timelimit_Message {
+        class UO_FW_Timelimit_Message {
             property = "UO_FW_Timelimit_Message";
             displayName = "Time Limit Message";
             tooltip = "Message displayed on time limit reached";
             control = "Edit";
-			validate = "string";
+            validate = "string";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "'Time Limit Reached!'";
         };

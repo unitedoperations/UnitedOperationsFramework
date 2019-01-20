@@ -258,60 +258,60 @@ item253[] = {"____FAKE____",9,100,0.000000,0.000000,0.000000,0.000000,0.000000,"
 version=1;
 class LayoutItems
 {
-	class Item104
-	{
-		class ItemInfo
-		{
-			FontFace="Arial Black";
-			FontHeight=17;
-			lStyle=1;
-		};
-	};
-	class Item105
-	{
-		class ItemInfo
-		{
-			FontFace="Arial Black";
-			FontHeight=17;
-			lStyle=1;
-		};
-	};
-	class Item166
-	{
-		class ItemInfo
-		{
-			FontFace="Arial Black";
-			FontHeight=17;
-			lStyle=1;
-		};
-	};
-	class Item167
-	{
-		class ItemInfo
-		{
-			FontFace="Arial Black";
-			FontHeight=17;
-			lStyle=1;
-		};
-	};
-	class Item168
-	{
-		class ItemInfo
-		{
-			FontFace="Arial Black";
-			FontHeight=17;
-			lStyle=1;
-		};
-	};
-	class Item221
-	{
-		class ItemInfo
-		{
-			FontFace="Arial Black";
-			FontHeight=17;
-			lStyle=1;
-		};
-	};
+    class Item104
+    {
+        class ItemInfo
+        {
+            FontFace="Arial Black";
+            FontHeight=17;
+            lStyle=1;
+        };
+    };
+    class Item105
+    {
+        class ItemInfo
+        {
+            FontFace="Arial Black";
+            FontHeight=17;
+            lStyle=1;
+        };
+    };
+    class Item166
+    {
+        class ItemInfo
+        {
+            FontFace="Arial Black";
+            FontHeight=17;
+            lStyle=1;
+        };
+    };
+    class Item167
+    {
+        class ItemInfo
+        {
+            FontFace="Arial Black";
+            FontHeight=17;
+            lStyle=1;
+        };
+    };
+    class Item168
+    {
+        class ItemInfo
+        {
+            FontFace="Arial Black";
+            FontHeight=17;
+            lStyle=1;
+        };
+    };
+    class Item221
+    {
+        class ItemInfo
+        {
+            FontFace="Arial Black";
+            FontHeight=17;
+            lStyle=1;
+        };
+    };
 };
 link0[] = {0,94};
 link1[] = {0,97};
@@ -726,14 +726,14 @@ class FSM
                          "_StartMission = _group getvariable [""UO_FW_AI_Task"",4];" \n
                          "" \n
                          "if ((leader _unit) isEqualto _unit) then {" \n
-                         "	if (UO_FW_AI_REINFORCE) then {" \n
-                         "		_Group setVariable [""UO_FW_AI_REINFORCE"",true];" \n
-                         "	} else {" \n
-                         "		_Group setVariable [""UO_FW_AI_REINFORCE"",false];" \n
-                         "	};" \n
-                         "	if (UO_FW_AI_DEBUG) then {" \n
-                         "		diag_log format [""_group: %1 _StartMission: %2"",_group,_StartMission];" \n
-                         "	};" \n
+                         "    if (UO_FW_AI_REINFORCE) then {" \n
+                         "        _Group setVariable [""UO_FW_AI_REINFORCE"",true];" \n
+                         "    } else {" \n
+                         "        _Group setVariable [""UO_FW_AI_REINFORCE"",false];" \n
+                         "    };" \n
+                         "    if (UO_FW_AI_DEBUG) then {" \n
+                         "        diag_log format [""_group: %1 _StartMission: %2"",_group,_StartMission];" \n
+                         "    };" \n
                          "};" \n
                          "" \n
                          "//Unit Inits" \n
@@ -921,7 +921,7 @@ class FSM
                         itemno = 23;
                         init = /*%FSM<STATEINIT""">*/"private _simtime = diag_ticktime;" \n
                          "if (UO_FW_AI_DEBUG) then {" \n
-                         "	diag_log format [""_group: %1 paused simulation"",_group];" \n
+                         "    diag_log format [""_group: %1 paused simulation"",_group];" \n
                          "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
@@ -960,7 +960,7 @@ class FSM
                         init = /*%FSM<STATEINIT""">*/"private _halttime = diag_ticktime;" \n
                          "_MyNearestEnemy = [_Unit] call UO_FW_AI_fnc_ClosestEnemy;" \n
                          "if (UO_FW_AI_DEBUG) then {" \n
-                         "	diag_log format [""_group: %1 halted"",_group];" \n
+                         "    diag_log format [""_group: %1 halted"",_group];" \n
                          "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
@@ -1143,7 +1143,7 @@ class FSM
                          "_EnemyInRange = [];" \n
                          "_EnemyArray = _Unit call UO_FW_AI_fnc_EnemyArray;" \n
                          "if (count _EnemyArray > 0) then {" \n
-                         "	_EnemyInRange = _EnemyArray select {(_unit distance2d _x) < UO_FW_AI_Bunker_Distance};" \n
+                         "    _EnemyInRange = _EnemyArray select {(_unit distance2d _x) < UO_FW_AI_Bunker_Distance};" \n
                          "};" \n
                          "" \n
                          ""/*%FSM</STATEINIT""">*/;
@@ -1249,7 +1249,7 @@ class FSM
                          "_unit setunitpos ""AUTO"";" \n
                          "_releaseTime = diag_ticktime;" \n
                          "if (leader group _unit isEqualTo _unit) then {" \n
-                         "	[group _unit, position _unit, 20, ""SAD"", ""COMBAT"", ""RED""] call CBA_fnc_addWaypoint;" \n
+                         "    [group _unit, position _unit, 20, ""SAD"", ""COMBAT"", ""RED""] call CBA_fnc_addWaypoint;" \n
                          "};" \n
                          "group _unit setvariable [""UO_FW_AI_Mission"",""BUNKER RELEASE""];" \n
                          "_unit setvariable [""UO_FW_AI_Mission"",""BUNKER RELEASE""];"/*%FSM</STATEINIT""">*/;
@@ -1371,7 +1371,7 @@ class FSM
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"((_unit weaponDirection (currentWeapon _unit) vectorCos ((_lastknowntargetpos) vectorDiff (eyepos _unit))) > 0.980 min (0.975 + (0.00024 * (_unit distance _lastknowntargetpos))))" \n
                                          "&& ({" \n
-                                         "	!([getPosATL _unit, getDir _unit, 5, getPosATL _x] call bis_fnc_inAngleSector)" \n
+                                         "    !([getPosATL _unit, getDir _unit, 5, getPosATL _x] call bis_fnc_inAngleSector)" \n
                                          "} foreach _otherfriendlies)"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
@@ -1468,7 +1468,7 @@ class FSM
                          "_EnemyArrayClose = [];" \n
                          "_EnemyArrayClose = _Unit call UO_FW_AI_fnc_EnemyArray;" \n
                          "if (count _EnemyArrayClose > 0) then {" \n
-                         "	_EnemyInCloseRange = _EnemyArrayClose select {(_unit distance2d _x) < 50};" \n
+                         "    _EnemyInCloseRange = _EnemyArrayClose select {(_unit distance2d _x) < 50};" \n
                          "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
@@ -1616,7 +1616,7 @@ class FSM
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"((_unit weaponDirection (currentWeapon _unit) vectorCos ((getposASL _NearestEnemyBunker) vectorDiff (eyepos _unit))) > 0.999 min (0.975 + (0.00024 * (_unit distance _NearestEnemyBunker))))" \n
                                          "&& {({" \n
-                                         "	!([getPosATL _unit, getDir _unit, 5, getPosATL _x] call bis_fnc_inAngleSector)" \n
+                                         "    !([getPosATL _unit, getDir _unit, 5, getPosATL _x] call bis_fnc_inAngleSector)" \n
                                          "} foreach _otherfriendlies)}"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
@@ -1678,7 +1678,7 @@ class FSM
                          "_otherfriendlies = _otherfriendlies - [_unit];" \n
                          "_laserTarget = ""Sign_Sphere100cm_F"" createVehicleLocal [0,0,0];" \n
                          "if (!UO_FW_AI_UseMarkers) then {" \n
-                         "	_laserTarget setobjecttexture [0,""""];" \n
+                         "    _laserTarget setobjecttexture [0,""""];" \n
                          "};" \n
                          "_laserPos = [(_relpos) select 0, (_relpos) select 1, ((_oldtrenchpos) select 2) + 4];" \n
                          "_unit lookat _laserTarget;" \n
@@ -1787,7 +1787,7 @@ class FSM
                         init = /*%FSM<STATEINIT""">*/"_leadertime = diag_ticktime;" \n
                          "" \n
                          "if (UO_FW_AI_DEBUG) then {" \n
-                         "	diag_log format [""_group: %1 groupcheck"",_group];" \n
+                         "    diag_log format [""_group: %1 groupcheck"",_group];" \n
                          "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
@@ -1837,7 +1837,7 @@ class FSM
                         init = /*%FSM<STATEINIT""">*/"_checkEnemytime = diag_ticktime;" \n
                          "_ClosestTarget = _unit findNearestEnemy _unit;" \n
                          "if (UO_FW_AI_DEBUG) then {" \n
-                         "	diag_log format [""_group: %1 refreshEnemyArray"",_group];" \n
+                         "    diag_log format [""_group: %1 refreshEnemyArray"",_group];" \n
                          "};" \n
                          "" \n
                          ""/*%FSM</STATEINIT""">*/;
@@ -1936,7 +1936,7 @@ class FSM
                         init = /*%FSM<STATEINIT""">*/"_leadertime2 = diag_ticktime;" \n
                          "" \n
                          "if (UO_FW_AI_DEBUG) then {" \n
-                         "	diag_log format [""_group: %1 leadercheck"",_group];" \n
+                         "    diag_log format [""_group: %1 leadercheck"",_group];" \n
                          "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
@@ -1950,7 +1950,7 @@ class FSM
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"(!(_currentTarget isEqualto objnull))"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/"if (UO_FW_AI_DEBUG) then {" \n
-                                         "	diag_log format [""_target set for: %1"",_group];" \n
+                                         "    diag_log format [""_target set for: %1"",_group];" \n
                                          "};"/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -1963,7 +1963,7 @@ class FSM
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"(_currentTarget isEqualto objnull)"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/"if (UO_FW_AI_DEBUG) then {" \n
-                                         "	diag_log format [""_group: %1 leadercheck target not set"",_group];" \n
+                                         "    diag_log format [""_group: %1 leadercheck target not set"",_group];" \n
                                          "};" \n
                                          ""/*%FSM</ACTION""">*/;
                                 };
@@ -2037,7 +2037,7 @@ class FSM
                          "_group setvariable [""UO_FW_AI_HasRadio"",_RadioCheck];" \n
                          "" \n
                          "if (UO_FW_AI_DEBUG) then {" \n
-                         "	diag_log format [""_group: %1 radiocheck"",_group];" \n
+                         "    diag_log format [""_group: %1 radiocheck"",_group];" \n
                          "};" \n
                          ""/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
@@ -2052,7 +2052,7 @@ class FSM
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"(_RadioCheck) || {(!UO_FW_AI_Radio_NeedRadio)} "/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/"if (UO_FW_AI_DEBUG) then {" \n
-                                         "	diag_log format [""%1 has radio"",_group];" \n
+                                         "    diag_log format [""%1 has radio"",_group];" \n
                                          "};"/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -2065,7 +2065,7 @@ class FSM
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/"if (UO_FW_AI_DEBUG) then {" \n
-                                         "	diag_log format [""%1 has radio"",_group];" \n
+                                         "    diag_log format [""%1 has radio"",_group];" \n
                                          "};"/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -2079,7 +2079,7 @@ class FSM
                         itemno = 163;
                         init = /*%FSM<STATEINIT""">*/"[_group,_currentTarget,_side] call UO_FW_AI_fnc_RadioCommsEnemy;" \n
                          "if (UO_FW_AI_DEBUG) then {" \n
-                         "	diag_log format [""%1 radioing for help"",_group];" \n
+                         "    diag_log format [""%1 radioing for help"",_group];" \n
                          "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
@@ -2269,7 +2269,7 @@ class FSM
                          "_group setvariable [""UO_FW_AI_HasRadio"",_RadioCheck];" \n
                          "" \n
                          "if (UO_FW_AI_DEBUG) then {" \n
-                         "	diag_log format [""_group: %1 radiocheck"",_group];" \n
+                         "    diag_log format [""_group: %1 radiocheck"",_group];" \n
                          "};" \n
                          ""/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
@@ -2284,7 +2284,7 @@ class FSM
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
                                         condition=/*%FSM<CONDITION""">*/"(_RadioCheck) || {(!UO_FW_AI_Radio_NeedRadio)} "/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/"if (UO_FW_AI_DEBUG) then {" \n
-                                         "	diag_log format [""%1 has radio"",_group];" \n
+                                         "    diag_log format [""%1 has radio"",_group];" \n
                                          "};"/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -2309,7 +2309,7 @@ class FSM
                         itemno = 198;
                         init = /*%FSM<STATEINIT""">*/"[_group,_NearestEnemyBunker,side _unit] call UO_FW_AI_fnc_RadioCommsEnemy;" \n
                          "if (UO_FW_AI_DEBUG) then {" \n
-                         "	diag_log format [""%1 radioing for help"",_group];" \n
+                         "    diag_log format [""%1 radioing for help"",_group];" \n
                          "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
@@ -2335,7 +2335,7 @@ class FSM
                         itemno = 210;
                         init = /*%FSM<STATEINIT""">*/"[_Unit,(group _unit),_thisfsm] spawn UO_FW_AI_fnc_GroupLoiter;" \n
                          "if (UO_FW_AI_DEBUG) then {" \n
-                         "	diag_log format [""setting _group: %1 to reinforcment stance"",_group];" \n
+                         "    diag_log format [""setting _group: %1 to reinforcment stance"",_group];" \n
                          "};" \n
                          "//{_x forcespeed -1;} foreach units _group;" \n
                          ""/*%FSM</STATEINIT""">*/;
@@ -2354,9 +2354,9 @@ class FSM
                          "_wait = 5;" \n
                          "" \n
                          "if (UO_FW_AI_DEBUG) then {" \n
-                         "	diag_log format [""_group: %1"",_group];" \n
-                         "	diag_log format [""_TaskIs: %1"",_currentmission];" \n
-                         "	diag_log format [""_StartTask: %1"",_StartMission];" \n
+                         "    diag_log format [""_group: %1"",_group];" \n
+                         "    diag_log format [""_TaskIs: %1"",_currentmission];" \n
+                         "    diag_log format [""_StartTask: %1"",_StartMission];" \n
                          "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
@@ -2406,7 +2406,7 @@ class FSM
                         itemno = 223;
                         init = /*%FSM<STATEINIT""">*/"[_Unit,(group _unit),_thisfsm] spawn UO_FW_AI_fnc_taskPatrol;" \n
                          "if (UO_FW_AI_DEBUG) then {" \n
-                         "	diag_log format [""setting _group: %1 to default patrol"",_group];" \n
+                         "    diag_log format [""setting _group: %1 to default patrol"",_group];" \n
                          "};" \n
                          ""/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
@@ -2433,7 +2433,7 @@ class FSM
                         itemno = 226;
                         init = /*%FSM<STATEINIT""">*/"[_Unit,(group _unit),_thisfsm] spawn UO_FW_AI_fnc_taskPatrol;" \n
                          "if (UO_FW_AI_DEBUG) then {" \n
-                         "	diag_log format [""setting _group: %1 to patrol"",_group];" \n
+                         "    diag_log format [""setting _group: %1 to patrol"",_group];" \n
                          "};" \n
                          "//{_x forcespeed -1;} foreach units _group;" \n
                          ""/*%FSM</STATEINIT""">*/;
@@ -2450,7 +2450,7 @@ class FSM
                         itemno = 229;
                         init = /*%FSM<STATEINIT""">*/"[_Unit,(group _unit),_thisfsm] spawn UO_FW_AI_fnc_GroupLoiter;" \n
                          "if (UO_FW_AI_DEBUG) then {" \n
-                         "	diag_log format [""setting _group: %1 to loiter"",_group];" \n
+                         "    diag_log format [""setting _group: %1 to loiter"",_group];" \n
                          "};" \n
                          "//{_x forcespeed -1;} foreach units _group;" \n
                          ""/*%FSM</STATEINIT""">*/;
@@ -2467,7 +2467,7 @@ class FSM
                         itemno = 232;
                         init = /*%FSM<STATEINIT""">*/"[_Unit,(group _unit),_thisfsm] spawn UO_FW_AI_fnc_GarrisonClearPatrol;" \n
                          "if (UO_FW_AI_DEBUG) then {" \n
-                         "	diag_log format [""setting _group: %1 to garrison patrol"",_group];" \n
+                         "    diag_log format [""setting _group: %1 to garrison patrol"",_group];" \n
                          "};" \n
                          "//{_x forcespeed -1;} foreach units _group;" \n
                          ""/*%FSM</STATEINIT""">*/;
@@ -2484,7 +2484,7 @@ class FSM
                         itemno = 236;
                         init = /*%FSM<STATEINIT""">*/"[_Unit,(group _unit),_thisfsm] spawn UO_FW_AI_fnc_taskPatrolPerimeter;" \n
                          "if (UO_FW_AI_DEBUG) then {" \n
-                         "	diag_log format [""setting _group: %1 to perimeter patrol"",_group];" \n
+                         "    diag_log format [""setting _group: %1 to perimeter patrol"",_group];" \n
                          "};" \n
                          "//{_x forcespeed -1;} foreach units _group;" \n
                          ""/*%FSM</STATEINIT""">*/;
@@ -2501,7 +2501,7 @@ class FSM
                         itemno = 238;
                         init = /*%FSM<STATEINIT""">*/"[_Unit,(group _unit),_thisfsm] spawn UO_FW_AI_fnc_taskHoldUntil;" \n
                          "if (UO_FW_AI_DEBUG) then {" \n
-                         "	diag_log format [""setting _group: %1 to hold"",_group];" \n
+                         "    diag_log format [""setting _group: %1 to hold"",_group];" \n
                          "};" \n
                          "//{_x forcespeed -1;} foreach units _group;" \n
                          ""/*%FSM</STATEINIT""">*/;
@@ -2518,7 +2518,7 @@ class FSM
                         itemno = 241;
                         init = /*%FSM<STATEINIT""">*/"[_Unit,(group _unit),_thisfsm] spawn UO_FW_AI_fnc_GroupPatrol;" \n
                          "if (UO_FW_AI_DEBUG) then {" \n
-                         "	diag_log format [""setting _group: %1 to sentry"",_group];" \n
+                         "    diag_log format [""setting _group: %1 to sentry"",_group];" \n
                          "};" \n
                          "//{_x forcespeed -1;} foreach units _group;" \n
                          ""/*%FSM</STATEINIT""">*/;
@@ -2535,7 +2535,7 @@ class FSM
                         itemno = 243;
                         init = /*%FSM<STATEINIT""">*/"[_Unit,(group _unit),_thisfsm] spawn UO_FW_AI_fnc_Garrison;" \n
                          "if (UO_FW_AI_DEBUG) then {" \n
-                         "	diag_log format [""setting _group: %1 to garrison defend"",_group];" \n
+                         "    diag_log format [""setting _group: %1 to garrison defend"",_group];" \n
                          "};" \n
                          "//{_x forcespeed -1;} foreach units _group;" \n
                          ""/*%FSM</STATEINIT""">*/;

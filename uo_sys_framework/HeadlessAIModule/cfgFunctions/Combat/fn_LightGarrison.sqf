@@ -28,7 +28,7 @@ _pcnt = _pcnt + 1;
 };
 _LocationArray = [];
 {
-	_LocationArray = _LocationArray + [(_nBuilding buildingPos _x)];
+    _LocationArray = _LocationArray + [(_nBuilding buildingPos _x)];
 } forEach _bposleft;
 
 if (isNil "_LocationArray") exitWith {};

@@ -14,22 +14,22 @@
  */
 
 params [
-	["_unit", objNull, [objNull]],
-	["_killer", objNull, [objNull]]
+    ["_unit", objNull, [objNull]],
+    ["_killer", objNull, [objNull]]
 ];
 
 if (_unit getVariable ["UO_FW_Tracked", false]) then {
 
-	{
-		_x params ["", "_side", "_Type", "", "_current"];
+    {
+        _x params ["", "_side", "_Type", "", "_current"];
 
-		if (!(_unit getVariable ["UO_FW_HasDied", false]) &&  !(_unit getVariable ["UO_FW_Dead", false]) && (_unit getVariable "UO_FW_Side" == _side) && ((_Type == "player" && isPlayer _unit) || (_Type == "ai" && !(isPlayer _unit)) || (_Type == "both"))) exitWith {
+        if (!(_unit getVariable ["UO_FW_HasDied", false]) &&  !(_unit getVariable ["UO_FW_Dead", false]) && (_unit getVariable "UO_FW_Side" == _side) && ((_Type == "player" && isPlayer _unit) || (_Type == "ai" && !(isPlayer _unit)) || (_Type == "both"))) exitWith {
 
-			_unit setVariable ["UO_FW_HasDied", true];
-		
-			_x set [4, _current - 1];
+            _unit setVariable ["UO_FW_HasDied", true];
+        
+            _x set [4, _current - 1];
 
-		};
+        };
 
-	} forEach UO_FW_Teams;
+    } forEach UO_FW_Teams;
 };

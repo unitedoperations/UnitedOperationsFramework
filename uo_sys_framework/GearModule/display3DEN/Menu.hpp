@@ -1,7 +1,7 @@
 class UO_FW_Gear_Folder
 {
     text = "Configure Gear";
-		items[] = {"UO_FW_Gear_Settings","UO_FW_Blufor_Gear_Configure","UO_FW_Opfor_Gear_Configure","UO_FW_Indfor_Gear_Configure","UO_FW_Civilian_Gear_Configure"};
+        items[] = {"UO_FW_Gear_Settings","UO_FW_Blufor_Gear_Configure","UO_FW_Opfor_Gear_Configure","UO_FW_Indfor_Gear_Configure","UO_FW_Civilian_Gear_Configure"};
     picture = "\a3\3DEN\Data\Cfg3DEN\Comment\texture_ca.paa";
 };
 
@@ -15,23 +15,23 @@ class UO_FW_Gear_Settings
 class UO_FW_Blufor_Gear_Configure
 {
     text = "Configure Blufor Gear";
-		action = "edit3DENMissionAttributes 'UO_FW_GearSettings_Blufor';";
+        action = "edit3DENMissionAttributes 'UO_FW_GearSettings_Blufor';";
 };
 
 class UO_FW_Opfor_Gear_Configure
 {
     text = "Configure Opfor Gear";
-		action = "edit3DENMissionAttributes 'UO_FW_GearSettings_Opfor';";
+        action = "edit3DENMissionAttributes 'UO_FW_GearSettings_Opfor';";
 };
 
 class UO_FW_Indfor_Gear_Configure
 {
     text = "Configure Indfor Gear";
-		action = "edit3DENMissionAttributes 'UO_FW_GearSettings_Indfor';";
+        action = "edit3DENMissionAttributes 'UO_FW_GearSettings_Indfor';";
 };
 
 class UO_FW_Civilian_Gear_Configure
 {
     text = "Configure Civilian Gear";
-		action = "edit3DENMissionAttributes 'UO_FW_GearSettings_Civilian';";
+        action = "edit3DENMissionAttributes 'UO_FW_GearSettings_Civilian';";
 };

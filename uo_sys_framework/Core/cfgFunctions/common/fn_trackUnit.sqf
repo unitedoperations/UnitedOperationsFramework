@@ -22,9 +22,9 @@ private _unit = _this;
 
 if (!(_unit getVariable ["UO_FW_Tracked", false])) then {
 
-	_unit setVariable ["UO_FW_Side", side _unit];
-	_unit setVariable ["UO_FW_Tracked", true];
+    _unit setVariable ["UO_FW_Side", side _unit];
+    _unit setVariable ["UO_FW_Tracked", true];
 
-	_unit call UO_FW_fnc_EventSpawned;
+    _unit call UO_FW_fnc_EventSpawned;
 
 };

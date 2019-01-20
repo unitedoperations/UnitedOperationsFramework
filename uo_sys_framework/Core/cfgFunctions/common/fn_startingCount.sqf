@@ -14,10 +14,10 @@
 
 {
 
-	if (!(_x getVariable ["UO_FW_DontTrack", false])) then {
+    if (!(_x getVariable ["UO_FW_DontTrack", false])) then {
 
-		_x call UO_FW_fnc_TrackUnit;
+        _x call UO_FW_fnc_TrackUnit;
 
-	};
+    };
 
 } forEach allUnits;

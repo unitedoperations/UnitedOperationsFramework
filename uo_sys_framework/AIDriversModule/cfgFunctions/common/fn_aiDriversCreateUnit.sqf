@@ -1,11 +1,11 @@
-/*	Description: Creates AI Driver
- *	Arguments:
- * 		OBJECT - vehicle
- * 		OBJECT - player
- *	Return Value:
- * 		ARRAY
- *	Author
- *		BlackHawk & PiZZADOX
+/*    Description: Creates AI Driver
+ *    Arguments:
+ *         OBJECT - vehicle
+ *         OBJECT - player
+ *    Return Value:
+ *         ARRAY
+ *    Author
+ *        BlackHawk & PiZZADOX
  */
 
 #define COMPONENT AIDrivers

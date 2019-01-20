@@ -23,10 +23,10 @@ private _current = [_team, 4] call UO_FW_fnc_GetTeamVariable;
 
 if (_start == 0) then {
 
-	private _tempText = format ["Casualty count:<br></br>Warning no units on team ""%1"".", _team];
-	UO_FW_DEBUG(_tempText,_tempText);
+    private _tempText = format ["Casualty count:<br></br>Warning no units on team ""%1"".", _team];
+    UO_FW_DEBUG(_tempText,_tempText);
 } else {
-	_count = (_start - _current) / (_start * 0.01);
+    _count = (_start - _current) / (_start * 0.01);
 };
 
 _count

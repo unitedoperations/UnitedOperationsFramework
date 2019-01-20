@@ -21,7 +21,7 @@ if (count _this > 0) then {
     _lowerThis pushback (tolower _x);
   } foreach _this;
 
-	private _return = [];
+    private _return = [];
 
   if (("blufor" in _this) || ("west" in _this)) then {
     _return append (_alivePlayers select {side _x == west});

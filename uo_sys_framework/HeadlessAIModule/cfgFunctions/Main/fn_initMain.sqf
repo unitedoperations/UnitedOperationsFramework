@@ -110,21 +110,21 @@ UO_FW_AI_FORCETIME_TIME = 12;
 
 //marker function
 if (UO_FW_AI_MARKERS_Enabled) then {
-	[] spawn UO_FW_AI_fnc_MapMarkers;
+    [] spawn UO_FW_AI_fnc_MapMarkers;
 };
 
 if ((!hasinterface) && (!isDedicated)) then {
-	setViewDistance (missionNamespace getvariable ["UO_FW_AI_ViewDistance",2500]);
+    setViewDistance (missionNamespace getvariable ["UO_FW_AI_ViewDistance",2500]);
 
-	if (UO_FW_AI_FORCETIME_Enabled) then {
-		[] spawn {
-			waituntil {CBA_missionTime > 1};
-			while {true} do {
-				sleep 2;
-				skiptime ((missionNamespace getvariable ["UO_FW_AI_FORCETIME_TIME",daytime]) / 3600) - (daytime);
-			};
-		};
-	};
+    if (UO_FW_AI_FORCETIME_Enabled) then {
+        [] spawn {
+            waituntil {CBA_missionTime > 1};
+            while {true} do {
+                sleep 2;
+                skiptime ((missionNamespace getvariable ["UO_FW_AI_FORCETIME_TIME",daytime]) / 3600) - (daytime);
+            };
+        };
+    };
 };
 
 UO_FW_AI_InitMainInitialized = true;

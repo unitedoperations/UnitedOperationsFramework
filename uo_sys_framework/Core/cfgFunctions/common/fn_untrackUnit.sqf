@@ -22,23 +22,23 @@ private _unit = _this;
 
 if (_unit getVariable ["UO_FW_Tracked", false]) then {
 
-	{
-		_x params ["", "_side", "_Type", "_total", "_current"];
+    {
+        _x params ["", "_side", "_Type", "_total", "_current"];
 
-		if (_unit getVariable "UO_FW_Side" == _side and ((_Type == "player" && isPlayer _unit) || (_Type == "ai" && !(isPlayer _unit)) || (_Type == "both"))) exitWith {
+        if (_unit getVariable "UO_FW_Side" == _side and ((_Type == "player" && isPlayer _unit) || (_Type == "ai" && !(isPlayer _unit)) || (_Type == "both"))) exitWith {
 
-			if (_unit call UO_FW_fnc_Alive) then {
+            if (_unit call UO_FW_fnc_Alive) then {
 
-				_x set [3, _total - 1];
-				_x set [4, _current - 1];
+                _x set [3, _total - 1];
+                _x set [4, _current - 1];
 
-			};
+            };
 
-		};
+        };
 
-	} forEach UO_FW_Teams;
+    } forEach UO_FW_Teams;
 
-	_unit setVariable ["UO_FW_Side", nil];
-	_unit setVariable ["UO_FW_Tracked", nil];
+    _unit setVariable ["UO_FW_Side", nil];
+    _unit setVariable ["UO_FW_Tracked", nil];
 
 };
