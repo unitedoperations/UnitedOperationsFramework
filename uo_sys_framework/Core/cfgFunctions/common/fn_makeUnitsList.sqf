@@ -17,7 +17,7 @@ params ["_class", "_unit"];
 
 if (isNil "UO_FW_missing_gear") then {
 	UO_FW_missing_gear = [];
-	[{time > 0}, {publicVariable "UO_FW_missing_gear"}] call CBA_fnc_waitUntilAndExecute;
+	[{CBA_missionTime > 0}, {publicVariable "UO_FW_missing_gear"}] call CBA_fnc_waitUntilAndExecute;
 };
 
 private _index = -1;
@@ -32,6 +32,6 @@ if (_index != -1) then {
 	UO_FW_missing_gear pushBack [_class, [_unit]];
 };
 
-if (time > 0) then {
+if (CBA_missionTime > 0) then {
 	publicVariable "UO_FW_missing_gear";
 };

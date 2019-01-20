@@ -214,7 +214,7 @@ if (!isDedicated) then {
 			_loadout = (player getVariable ["UO_FW_Loadout", ""]);
 
 			if (_loadout != "") then {
-				[player, _loadout] call UO_FW_FNC_GearScript;
+				[player, _loadout] call UO_FW_fnc_GearScript;
 			};
 
 			if (!isNull(_respawnPoint)) then {
@@ -388,7 +388,7 @@ if (!isDedicated) then {
 
 				[] spawn {
 					while {(player getVariable ["UO_FW_Spectating", false])} do {
-						player setOxygenRemaining 1;
+						player setOxygenReMaining 1;
 						sleep 0.25;
 					};
 				};

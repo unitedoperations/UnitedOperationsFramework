@@ -20,5 +20,5 @@ _unit setPos _pos;
 if !(isNil "UO_FW_aCount_event_addEH") then {
 	["UO_FW_aCount_event_addEH", _unit] call CBA_fnc_serverEvent;
 };
-_unit call UO_FW_FNC_trackUnit;
+_unit call UO_FW_fnc_trackUnit;
 _unit

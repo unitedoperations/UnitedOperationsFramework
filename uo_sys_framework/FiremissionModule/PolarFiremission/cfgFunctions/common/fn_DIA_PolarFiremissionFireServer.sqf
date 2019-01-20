@@ -12,5 +12,5 @@ private _requester  = _this select 0;
 	private _spotting =  _this select 10;
 	private _guns = _requester getVariable [VAR_SART_OBSGUNS,[]];
 
-	[_selectedUnit,_requester] call UO_FW_FNC_SetArtyCaller;
-	[_selectedUnit,[_grid,true] call CBA_fnc_mapGridToPos,_mils,_distance,_dispersion,_salvoNumber,_salvoRounds,_salvoDelay,_spotting,_selectedAmmo]   call UO_FW_FNC_PolarFiremission;
+	[_selectedUnit,_requester] call UO_FW_fnc_SetArtyCaller;
+	[_selectedUnit,[_grid,true] call CBA_fnc_mapGridToPos,_mils,_distance,_dispersion,_salvoNumber,_salvoRounds,_salvoDelay,_spotting,_selectedAmmo]   call UO_FW_fnc_PolarFiremission;

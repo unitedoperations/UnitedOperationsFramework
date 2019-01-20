@@ -1,7 +1,7 @@
 @echo off
-@title UOFW Build Tool
+@Title UOFW Build Tool
 Set "SideBar===================================================="
-Set "MiddleBar==================" 
+Set "MiddleBar=================="
 @echo %SideBar%%MiddleBar%%SideBar%
 @echo %SideBar% UOFW build tool %SideBar%
 @echo %SideBar%%MiddleBar%%SideBar%
@@ -52,7 +52,7 @@ goto :sub_errorMove
 
 :exit_choice
 @echo Press any key to exit...
-pause >nul 
+pause >nul
 exit
 
 :sub_errorBuild

@@ -1,3 +1,5 @@
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
+
 #define NEWTAB(NAME) _briefing set [count _briefing, ["Diary",[NAME,
 
 #define ENDTAB ]]];

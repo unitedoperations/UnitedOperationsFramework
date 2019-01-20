@@ -14,7 +14,7 @@
  */
 
 #define COMPONENT Gear
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
 UO_FW_EXEC_CHECK(ALL);
 
 private ["_unit", "_loadoutType", "_items", "_amount", "_position", "_randomPick"];

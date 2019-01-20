@@ -14,7 +14,7 @@ assignees: ''
 >#### Naming Convention
 >
 >Bug reports should be named "Bug Report: Short description of Problem"  
->eg. "Bug Report: Player vehicles not activating AI spawn zone" 
+>eg. "Bug Report: Player vehicles not activating AI spawn zone"
 
 #### Description of issue
 

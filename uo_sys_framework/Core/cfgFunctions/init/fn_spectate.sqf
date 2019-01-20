@@ -303,7 +303,7 @@ while {(player getVariable ["UO_FW_Spectating", false])} do {
 
 	maxIndex = count targets - 1;
 
-	player setOxygenRemaining 1;
+	player setOxygenReMaining 1;
 
 	sleep 0.25;
 };

@@ -1,8 +1,8 @@
 #define COMPONENT Hostage
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
 UO_FW_EXEC_CHECK(ALL);
 
 params ["_unit"];
 
-private _isRescued = _unit getVariable ["UO_FW_Rescued", false];
+private _isRescued = (UO_FW_GETVAR(_unit,Rescued,false));
 _isRescued;

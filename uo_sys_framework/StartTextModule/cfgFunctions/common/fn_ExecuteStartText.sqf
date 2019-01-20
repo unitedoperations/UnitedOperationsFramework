@@ -1,12 +1,8 @@
 #define COMPONENT StartText
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
 UO_FW_EXEC_CHECK(ALL);
 
 params ["_startTextArray"];
-private _isValid = _startTextArray call UO_FW_fnc_ValidateStartText;
-if (!_isValid) exitWith {
-	ERROR("Start Text Module Failed to validate!");
-};
 
 private ["_month","_hour","_min"];
 
@@ -57,10 +53,10 @@ private _unparsedText = "<t align='right' size='1.2'>";
 for "_i" from 0 to ((count _startTextArray) -1) do {
     private _line = _startTextArray select _i;
     switch (_line select 0) do {
-        case "TITLEQUOTE": {
+        case "TitleQUOTE": {
             _unparsedText = _unparsedText + format ["<t font='PuristaBold' size='1.6'>""%1""</t>", _line select 1];
         };
-        case "TITLE": {
+        case "Title": {
             _unparsedText = _unparsedText + format ["<t font='PuristaBold' size='1.6'>%1</t>", _line select 1];
         };
         case "TEXT": {

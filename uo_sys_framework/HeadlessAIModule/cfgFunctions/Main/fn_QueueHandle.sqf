@@ -1,4 +1,4 @@
-#include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
+#include "\x\UO_FW\addons\Main\HeadlessAIModule\module_macros.hpp"
 UO_FW_AI_EXEC_CHECK(HC);
 
 if (!(UO_FW_AI_Enabled)) exitWith {};
@@ -12,7 +12,7 @@ while {true} do {
 		if ((vehicle _ConsideringUnit) isKindOf "Plane") then {_Disabled = true;_ConsideringUnit setVariable ["UO_FW_AI_NOAI",true];};
 		if (!(isNull _ConsideringUnit) && !(_Disabled)) then {
 			if (side _ConsideringUnit in UO_FW_AI_SideBasedExecution) then {
-				[_ConsideringUnit] execFSM "x\UO_FW\addons\main\HeadlessAIModule\cfgFunctions\FSM\AIBEHAVIORTEST.fsm";
+				[_ConsideringUnit] execFSM "x\UO_FW\addons\Main\HeadlessAIModule\cfgFunctions\FSM\AIBEHAVIORTEST.fsm";
 			} else {
 				_ConsideringUnit forcespeed -1;
 			};

@@ -5,5 +5,5 @@ private _requester  = _this select 0;
 	private _selectedAmmo = _this select 3;
 	private _guns = _requester getVariable [VAR_SART_OBSGUNS,[]];
 
-	[_selectedUnit,_requester] call UO_FW_FNC_SetArtyCaller;
-	[_selectedUnit,[_grid,true] call CBA_fnc_mapGridToPos,_selectedAmmo]   call UO_FW_FNC_GridSpottingFiremission;
+	[_selectedUnit,_requester] call UO_FW_fnc_SetArtyCaller;
+	[_selectedUnit,[_grid,true] call CBA_fnc_mapGridToPos,_selectedAmmo]   call UO_FW_fnc_GridSpottingFiremission;

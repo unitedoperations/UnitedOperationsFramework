@@ -12,7 +12,7 @@
  * Public: No
  */
 
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
 
 if (!isServer) exitwith {_this remoteExec ["UO_FW_fnc_trackUnit",2];};
 

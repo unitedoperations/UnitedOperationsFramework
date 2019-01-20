@@ -1,30 +1,16 @@
-//class UO_FW_TeamColourAttribute: Toolbox {
-//	attributeLoad = "missionnamespace setvariable ['UO_FW_TeamColour_value',_value]; (_this controlsGroupCtrl 193) lbsetcursel _value;";
-//	attributeSave = "missionnamespace getvariable ['UO_FW_TeamColour_value',0];";
-//	h = "18 * (pixelH * pixelGrid * 0.50)";
-//	class Controls: Controls {
-//		class Title: Title {};
-//		class Value: ctrlToolbox {
-//			idc = 193;
-//			style = "0x02";
-//			x = "48 * (pixelW * pixelGrid * 0.50)";
-//      w = "82 * (pixelW * pixelGrid * 0.50)";
-//      h = "12 * (pixelH * pixelGrid * 0.50)";
-//			rows = 2;
-//      columns = 3;
-//			strings[] = {"NONE","WHITE","RED","BLUE","GREEN","YELLOW"};
-//			values[] = {0,1,2,3,4,5};
-//			onToolboxSelChanged = "missionnamespace setvariable ['UO_FW_TeamColour_value',(_this select 1)];";
-//		};
-//	};
-//};
-
 class UO_FW_TeamColourAttribute: Combo {
 	//save the lbData from the selected entry upon exit
-	attributeSave = "_value = (_this controlsGroupCtrl 100) lbData lbCurSel (_this controlsGroupCtrl 100); _value";
+	attributeSave = "\
+		private _value = ((_this controlsGroupCtrl 100) lbData lbCurSel (_this controlsGroupCtrl 100));\
+		private _unit = ((get3denselected 'object') select 0);\
+		private _name = gettext (_config >> 'property');\
+		_unit setvariable [_name,_value];\
+		_value\
+	";
 	//_this - config, _value - saved value
 	attributeLoad="\
 		private _control = (_this controlsGroupCtrl 100);\
+		private _name = gettext (_config >> 'property');\
 		_teamcolourarray = [['None',[0, 0, 0, 0]],['White',[1, 1, 1, 1]],['Red',[1, 0, 0, 1]],['Green',[0, 1, 0, 1]],['Blue',[0, 0, 1, 1]],['Yellow',[1, 1, 0, 1]]];\
 		{\
 			_x params ['_name','_colour'];\
@@ -38,7 +24,6 @@ class UO_FW_TeamColourAttribute: Combo {
 				_control lbSetCurSel _index;\
 			};\
 		} foreach _teamcolourarray;\
-		private _unit = ((get3denselected 'object') select 0);\
 		private ['_isUnitPlayable'];\
 		private _ctrlGroup = ctrlParentControlsGroup ctrlParentControlsGroup _control;\
 		{\

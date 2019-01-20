@@ -17,8 +17,8 @@ class UO_FW_DIA_POLARFIREMission
 		class POFM_BACKGROUND: UO_FW_RscText
 		{
 			idc = -1;
-			x = ARTIWIDTHMAINSPACE * safezoneW + safezoneX - ARTIBORDERTHICKNESS;
-			y = (ARTIHEIGHTMAINSPACE + ARTILAYOUTHEIGHTSPACE * 0) * safezoneH + safezoneY - ARTIBORDERTHICKNESS;
+			x = ARTIWIDTHMainSPACE * safezoneW + safezoneX - ARTIBORDERTHICKNESS;
+			y = (ARTIHEIGHTMainSPACE + ARTILAYOUTHEIGHTSPACE * 0) * safezoneH + safezoneY - ARTIBORDERTHICKNESS;
 			w =  ( ARTILAYOUTWIDTH +  ARTILAYOUTWIDTHSPACE) *  safezoneW  + ARTIBORDERTHICKNESS * 2 ;
 			h = ARTILAYOUTHEIGHTSPACE * 12 * safezoneH + ARTIBORDERTHICKNESS * 2 ;
 				shadow = 0;
@@ -29,8 +29,8 @@ class UO_FW_DIA_POLARFIREMission
 			idc = -1;
 			text = "Polar Firemission"; //--- ToDo: Localize;
 
-			x = ARTIWIDTHMAINSPACE * safezoneW + safezoneX;
-			y = (ARTIHEIGHTMAINSPACE + ARTILAYOUTHEIGHTSPACE * 0) * safezoneH + safezoneY;
+			x = ARTIWIDTHMainSPACE * safezoneW + safezoneX;
+			y = (ARTIHEIGHTMainSPACE + ARTILAYOUTHEIGHTSPACE * 0) * safezoneH + safezoneY;
 			w = ARTILAYOUTWIDTH * safezoneW;
 			h = ARTILAYOUTHEIGHT * safezoneH;
 			colorText[] = {0,0,0,1};
@@ -43,8 +43,8 @@ class UO_FW_DIA_POLARFIREMission
 		idc = -1;
 		text = "Selected gun:"; //--- ToDo: Localize;
 
-		x = ARTIWIDTHMAINSPACE * safezoneW + safezoneX;
-		y = (ARTIHEIGHTMAINSPACE + ARTILAYOUTHEIGHTSPACE * 1) * safezoneH + safezoneY;
+		x = ARTIWIDTHMainSPACE * safezoneW + safezoneX;
+		y = (ARTIHEIGHTMainSPACE + ARTILAYOUTHEIGHTSPACE * 1) * safezoneH + safezoneY;
 		w = ARTILAYOUTWIDTH * safezoneW;
 
 		h = ARTILAYOUTHEIGHT * safezoneH;
@@ -57,8 +57,8 @@ class UO_FW_DIA_POLARFIREMission
 	{
 		idc = -1;
 		text = "Aviable ammunition:"; //--- ToDo: Localize;
-		x = ARTIWIDTHMAINSPACE * safezoneW + safezoneX;
-		y = (ARTIHEIGHTMAINSPACE + ARTILAYOUTHEIGHTSPACE * 2) * safezoneH + safezoneY;
+		x = ARTIWIDTHMainSPACE * safezoneW + safezoneX;
+		y = (ARTIHEIGHTMainSPACE + ARTILAYOUTHEIGHTSPACE * 2) * safezoneH + safezoneY;
 		w = ARTILAYOUTWIDTH * safezoneW;
 		h = ARTILAYOUTHEIGHT * safezoneH;
 		colorText[] = {0,0,0,1};
@@ -69,8 +69,8 @@ class UO_FW_DIA_POLARFIREMission
 	{
 		idc = -1;
 		text = "Caller Grid:"; //--- ToDo: Localize;
-		x = ARTIWIDTHMAINSPACE * safezoneW + safezoneX;
-		y = (ARTIHEIGHTMAINSPACE + ARTILAYOUTHEIGHTSPACE * 3) * safezoneH + safezoneY;
+		x = ARTIWIDTHMainSPACE * safezoneW + safezoneX;
+		y = (ARTIHEIGHTMainSPACE + ARTILAYOUTHEIGHTSPACE * 3) * safezoneH + safezoneY;
 		w = ARTILAYOUTWIDTH * safezoneW;
 		h = ARTILAYOUTHEIGHT * safezoneH;
 		colorText[] = {0,0,0,1};
@@ -81,8 +81,8 @@ class UO_FW_DIA_POLARFIREMission
 	{
 		idc = -1;
 		text = "Mils:"; //--- ToDo: Localize;
-		x = ARTIWIDTHMAINSPACE * safezoneW + safezoneX;
-		y = (ARTIHEIGHTMAINSPACE + ARTILAYOUTHEIGHTSPACE * 4) * safezoneH + safezoneY;
+		x = ARTIWIDTHMainSPACE * safezoneW + safezoneX;
+		y = (ARTIHEIGHTMainSPACE + ARTILAYOUTHEIGHTSPACE * 4) * safezoneH + safezoneY;
 		w = ARTILAYOUTWIDTH * safezoneW;
 		h = ARTILAYOUTHEIGHT * safezoneH;
 		colorText[] = {0,0,0,1};
@@ -93,8 +93,8 @@ class UO_FW_DIA_POLARFIREMission
 	{
 		idc = -1;
 		text = "Distance:"; //--- ToDo: Localize;
-		x = ARTIWIDTHMAINSPACE * safezoneW + safezoneX;
-		y = (ARTIHEIGHTMAINSPACE + ARTILAYOUTHEIGHTSPACE * 5) * safezoneH + safezoneY;
+		x = ARTIWIDTHMainSPACE * safezoneW + safezoneX;
+		y = (ARTIHEIGHTMainSPACE + ARTILAYOUTHEIGHTSPACE * 5) * safezoneH + safezoneY;
 		w = ARTILAYOUTWIDTH * safezoneW;
 		h = ARTILAYOUTHEIGHT * safezoneH;
 		colorText[] = {0,0,0,1};
@@ -105,8 +105,8 @@ class UO_FW_DIA_POLARFIREMission
 	{
 		idc = -1;
 		text = "Dispersion:"; //--- ToDo: Localize;
-		x = ARTIWIDTHMAINSPACE * safezoneW + safezoneX;
-		y = (ARTIHEIGHTMAINSPACE + ARTILAYOUTHEIGHTSPACE * 6) * safezoneH + safezoneY;
+		x = ARTIWIDTHMainSPACE * safezoneW + safezoneX;
+		y = (ARTIHEIGHTMainSPACE + ARTILAYOUTHEIGHTSPACE * 6) * safezoneH + safezoneY;
 		w = ARTILAYOUTWIDTH * safezoneW;
 		h = ARTILAYOUTHEIGHT * safezoneH;
 		colorText[] = {0,0,0,1};
@@ -117,8 +117,8 @@ class UO_FW_DIA_POLARFIREMission
 	{
 		idc = -1;
 		text = "Number of salvos:"; //--- ToDo: Localize;
-		x = ARTIWIDTHMAINSPACE * safezoneW + safezoneX;
-		y = (ARTIHEIGHTMAINSPACE + ARTILAYOUTHEIGHTSPACE * 7) * safezoneH + safezoneY;
+		x = ARTIWIDTHMainSPACE * safezoneW + safezoneX;
+		y = (ARTIHEIGHTMainSPACE + ARTILAYOUTHEIGHTSPACE * 7) * safezoneH + safezoneY;
 		w = ARTILAYOUTWIDTH * safezoneW;
 		h = ARTILAYOUTHEIGHT * safezoneH;
 		colorText[] = {0,0,0,1};
@@ -129,8 +129,8 @@ class UO_FW_DIA_POLARFIREMission
 	{
 		idc = -1;
 		text = "Number of rounds per salvo:"; //--- ToDo: Localize;
-		x = ARTIWIDTHMAINSPACE * safezoneW + safezoneX;
-		y = (ARTIHEIGHTMAINSPACE + ARTILAYOUTHEIGHTSPACE * 8) * safezoneH + safezoneY;
+		x = ARTIWIDTHMainSPACE * safezoneW + safezoneX;
+		y = (ARTIHEIGHTMainSPACE + ARTILAYOUTHEIGHTSPACE * 8) * safezoneH + safezoneY;
 		w = ARTILAYOUTWIDTH * safezoneW;
 		h = ARTILAYOUTHEIGHT * safezoneH;
 		colorText[] = {0,0,0,1};
@@ -141,8 +141,8 @@ class UO_FW_DIA_POLARFIREMission
 	{
 		idc = -1;
 		text = "Delay between salvos:"; //--- ToDo: Localize;
-		x = ARTIWIDTHMAINSPACE * safezoneW + safezoneX;
-		y = (ARTIHEIGHTMAINSPACE + ARTILAYOUTHEIGHTSPACE * 9) * safezoneH + safezoneY;
+		x = ARTIWIDTHMainSPACE * safezoneW + safezoneX;
+		y = (ARTIHEIGHTMainSPACE + ARTILAYOUTHEIGHTSPACE * 9) * safezoneH + safezoneY;
 		w = ARTILAYOUTWIDTH * safezoneW;
 		h = ARTILAYOUTHEIGHT * safezoneH;
 		colorText[] = {0,0,0,1};
@@ -153,8 +153,8 @@ class UO_FW_DIA_POLARFIREMission
 	{
 		idc = -1;
 		text = "Minimum spotting round distance:"; //--- ToDo: Localize;
-		x = ARTIWIDTHMAINSPACE * safezoneW + safezoneX;
-		y = (ARTIHEIGHTMAINSPACE + ARTILAYOUTHEIGHTSPACE * 10) * safezoneH + safezoneY;
+		x = ARTIWIDTHMainSPACE * safezoneW + safezoneX;
+		y = (ARTIHEIGHTMainSPACE + ARTILAYOUTHEIGHTSPACE * 10) * safezoneH + safezoneY;
 		w = ARTILAYOUTWIDTH * safezoneW;
 		h = ARTILAYOUTHEIGHT * safezoneH;
 		colorText[] = {0,0,0,1};
@@ -165,32 +165,32 @@ class UO_FW_DIA_POLARFIREMission
 	{
 		idc = 1430;
 		text = "Fire Artillery"; //--- ToDo: Localize;
-		x = ARTIWIDTHMAINSPACE * safezoneW + safezoneX;
-		y = (ARTIHEIGHTMAINSPACE + ARTILAYOUTHEIGHTSPACE * 11) * safezoneH + safezoneY;
+		x = ARTIWIDTHMainSPACE * safezoneW + safezoneX;
+		y = (ARTIHEIGHTMainSPACE + ARTILAYOUTHEIGHTSPACE * 11) * safezoneH + safezoneY;
 		w = ARTILAYOUTWIDTH * safezoneW;
 		h = ARTILAYOUTHEIGHT * safezoneH;
 	shadow = 0;
-			onMouseButtonDown = "[] call UO_FW_FNC_DIA_PolarFiremissionFire;";
+			onMouseButtonDown = "[] call UO_FW_fnc_DIA_PolarFiremissionFire;";
 	};
 	class POFM_SELECTEDGUNEDIT: UO_FW_RscListbox
 	{
 		idc = POFM_DIA_IDC_GUNSELECT;
 		text = ""; //--- ToDo: Localize;
-		x = (ARTIWIDTHMAINSPACE + ARTILAYOUTWIDTHSPACE) * safezoneW + safezoneX;
-		y = (ARTIHEIGHTMAINSPACE + ARTILAYOUTHEIGHTSPACE * 1) * safezoneH + safezoneY;
+		x = (ARTIWIDTHMainSPACE + ARTILAYOUTWIDTHSPACE) * safezoneW + safezoneX;
+		y = (ARTIHEIGHTMainSPACE + ARTILAYOUTHEIGHTSPACE * 1) * safezoneH + safezoneY;
 		w = ARTILAYOUTWIDTH * safezoneW;
 		h = ARTILAYOUTHEIGHT * safezoneH;
 		//colorText[] = {0,1,1,1};
 		//
 		shadow = 0;
-		onLBSelChanged = "(_this select 1) call UO_FW_FNC_DIA_PolarFiremissionSetArtillery;";
+		onLBSelChanged = "(_this select 1) call UO_FW_fnc_DIA_PolarFiremissionSetArtillery;";
 	};
 	class POFM_SELECTEDSHELLEDIT: UO_FW_RscListbox
 	{
 		idc = POFM_DIA_IDC_SHELLSELECT;
 		text = ""; //--- ToDo: Localize;
-		x = (ARTIWIDTHMAINSPACE + ARTILAYOUTWIDTHSPACE) * safezoneW + safezoneX;
-		y = (ARTIHEIGHTMAINSPACE + ARTILAYOUTHEIGHTSPACE * 2) * safezoneH + safezoneY;
+		x = (ARTIWIDTHMainSPACE + ARTILAYOUTWIDTHSPACE) * safezoneW + safezoneX;
+		y = (ARTIHEIGHTMainSPACE + ARTILAYOUTHEIGHTSPACE * 2) * safezoneH + safezoneY;
 		w = ARTILAYOUTWIDTH * safezoneW;
 		h = ARTILAYOUTHEIGHT * safezoneH;
 			shadow = 0;
@@ -199,8 +199,8 @@ class UO_FW_DIA_POLARFIREMission
 	{
 		idc = POFM_DIA_IDC_GRID;
 		text = ""; //--- ToDo: Localize;
-		x = (ARTIWIDTHMAINSPACE + ARTILAYOUTWIDTHSPACE) * safezoneW + safezoneX;
-		y = (ARTIHEIGHTMAINSPACE + ARTILAYOUTHEIGHTSPACE * 3) * safezoneH + safezoneY;
+		x = (ARTIWIDTHMainSPACE + ARTILAYOUTWIDTHSPACE) * safezoneW + safezoneX;
+		y = (ARTIHEIGHTMainSPACE + ARTILAYOUTHEIGHTSPACE * 3) * safezoneH + safezoneY;
 		w = ARTILAYOUTWIDTH * safezoneW;
 		h = ARTILAYOUTHEIGHT * safezoneH;
 		colorText[] = {0,0,0,1};
@@ -211,8 +211,8 @@ class UO_FW_DIA_POLARFIREMission
 	{
 		idc = POFM_DIA_IDC_MILS;
 		text = ""; //--- ToDo: Localize;
-		x = (ARTIWIDTHMAINSPACE + ARTILAYOUTWIDTHSPACE) * safezoneW + safezoneX;
-		y = (ARTIHEIGHTMAINSPACE + ARTILAYOUTHEIGHTSPACE * 4) * safezoneH + safezoneY;
+		x = (ARTIWIDTHMainSPACE + ARTILAYOUTWIDTHSPACE) * safezoneW + safezoneX;
+		y = (ARTIHEIGHTMainSPACE + ARTILAYOUTHEIGHTSPACE * 4) * safezoneH + safezoneY;
 		w = ARTILAYOUTWIDTH * safezoneW;
 		h = ARTILAYOUTHEIGHT * safezoneH;
 		colorText[] = {0,0,0,1};
@@ -223,8 +223,8 @@ class UO_FW_DIA_POLARFIREMission
 	{
 		idc = POFM_DIA_IDC_DISTANCE;
 		text = ""; //--- ToDo: Localize;
-		x = (ARTIWIDTHMAINSPACE + ARTILAYOUTWIDTHSPACE) * safezoneW + safezoneX;
-		y = (ARTIHEIGHTMAINSPACE + ARTILAYOUTHEIGHTSPACE * 5) * safezoneH + safezoneY;
+		x = (ARTIWIDTHMainSPACE + ARTILAYOUTWIDTHSPACE) * safezoneW + safezoneX;
+		y = (ARTIHEIGHTMainSPACE + ARTILAYOUTHEIGHTSPACE * 5) * safezoneH + safezoneY;
 		w = ARTILAYOUTWIDTH * safezoneW;
 		h = ARTILAYOUTHEIGHT * safezoneH;
 		colorText[] = {0,0,0,1};
@@ -235,8 +235,8 @@ class UO_FW_DIA_POLARFIREMission
 	{
 		idc = POFM_DIA_IDC_DISPERSION;
 		text = ""; //--- ToDo: Localize;
-		x = (ARTIWIDTHMAINSPACE + ARTILAYOUTWIDTHSPACE) * safezoneW + safezoneX;
-		y = (ARTIHEIGHTMAINSPACE + ARTILAYOUTHEIGHTSPACE * 6) * safezoneH + safezoneY;
+		x = (ARTIWIDTHMainSPACE + ARTILAYOUTWIDTHSPACE) * safezoneW + safezoneX;
+		y = (ARTIHEIGHTMainSPACE + ARTILAYOUTHEIGHTSPACE * 6) * safezoneH + safezoneY;
 		w = ARTILAYOUTWIDTH * safezoneW;
 		h = ARTILAYOUTHEIGHT * safezoneH;
 		colorText[] = {0,0,0,1};
@@ -247,8 +247,8 @@ class UO_FW_DIA_POLARFIREMission
 	{
 		idc = POFM_DIA_IDC_BURSTNUMBER;
 		text = ""; //--- ToDo: Localize;
-		x = (ARTIWIDTHMAINSPACE + ARTILAYOUTWIDTHSPACE) * safezoneW + safezoneX;
-		y = (ARTIHEIGHTMAINSPACE + ARTILAYOUTHEIGHTSPACE * 7) * safezoneH + safezoneY;
+		x = (ARTIWIDTHMainSPACE + ARTILAYOUTWIDTHSPACE) * safezoneW + safezoneX;
+		y = (ARTIHEIGHTMainSPACE + ARTILAYOUTHEIGHTSPACE * 7) * safezoneH + safezoneY;
 		w = ARTILAYOUTWIDTH * safezoneW;
 		h = ARTILAYOUTHEIGHT * safezoneH;
 		colorText[] = {0,0,0,1};
@@ -259,8 +259,8 @@ class UO_FW_DIA_POLARFIREMission
 	{
 		idc = POFM_DIA_IDC_BURSTROUNDS;
 		text = ""; //--- ToDo: Localize;
-		x = (ARTIWIDTHMAINSPACE + ARTILAYOUTWIDTHSPACE) * safezoneW + safezoneX;
-		y = (ARTIHEIGHTMAINSPACE + ARTILAYOUTHEIGHTSPACE * 8) * safezoneH + safezoneY;
+		x = (ARTIWIDTHMainSPACE + ARTILAYOUTWIDTHSPACE) * safezoneW + safezoneX;
+		y = (ARTIHEIGHTMainSPACE + ARTILAYOUTHEIGHTSPACE * 8) * safezoneH + safezoneY;
 		w = ARTILAYOUTWIDTH * safezoneW;
 		h = ARTILAYOUTHEIGHT * safezoneH;
 		colorText[] = {0,0,0,1};
@@ -271,8 +271,8 @@ class UO_FW_DIA_POLARFIREMission
 	{
 		idc = POFM_DIA_IDC_BURSTDELAY;
 		text = ""; //--- ToDo: Localize;
-		x = (ARTIWIDTHMAINSPACE + ARTILAYOUTWIDTHSPACE) * safezoneW + safezoneX;
-		y = (ARTIHEIGHTMAINSPACE + ARTILAYOUTHEIGHTSPACE * 9) * safezoneH + safezoneY;
+		x = (ARTIWIDTHMainSPACE + ARTILAYOUTWIDTHSPACE) * safezoneW + safezoneX;
+		y = (ARTIHEIGHTMainSPACE + ARTILAYOUTHEIGHTSPACE * 9) * safezoneH + safezoneY;
 		w = ARTILAYOUTWIDTH * safezoneW;
 		h = ARTILAYOUTHEIGHT * safezoneH;
 		colorText[] = {0,0,0,1};
@@ -284,8 +284,8 @@ class UO_FW_DIA_POLARFIREMission
 	{
 		idc = POFM_DIA_IDC_SPOTTING;
 		text = ""; //--- ToDo: Localize;
-		x = (ARTIWIDTHMAINSPACE + ARTILAYOUTWIDTHSPACE) * safezoneW + safezoneX;
-		y = (ARTIHEIGHTMAINSPACE + ARTILAYOUTHEIGHTSPACE * 10) * safezoneH + safezoneY;
+		x = (ARTIWIDTHMainSPACE + ARTILAYOUTWIDTHSPACE) * safezoneW + safezoneX;
+		y = (ARTIHEIGHTMainSPACE + ARTILAYOUTHEIGHTSPACE * 10) * safezoneH + safezoneY;
 		w = ARTILAYOUTWIDTH * safezoneW;
 		h = ARTILAYOUTHEIGHT * safezoneH;
 		colorText[] = {0,0,0,1};
@@ -296,12 +296,12 @@ class UO_FW_DIA_POLARFIREMission
 	{
 		idc = 1600;
 		text = "Cancel"; //--- ToDo: Localize;
-		x = (ARTIWIDTHMAINSPACE + ARTILAYOUTWIDTHSPACE) * safezoneW + safezoneX;
-		y = (ARTIHEIGHTMAINSPACE + ARTILAYOUTHEIGHTSPACE * 11) * safezoneH + safezoneY;
+		x = (ARTIWIDTHMainSPACE + ARTILAYOUTWIDTHSPACE) * safezoneW + safezoneX;
+		y = (ARTIHEIGHTMainSPACE + ARTILAYOUTHEIGHTSPACE * 11) * safezoneH + safezoneY;
 		w = ARTILAYOUTWIDTH * safezoneW;
 		h = ARTILAYOUTHEIGHT * safezoneH;
 	shadow = 0;
-			onMouseButtonDown = "[] call UO_FW_FNC_DIA_PolarFiremissionCloseDialog;";
+			onMouseButtonDown = "[] call UO_FW_fnc_DIA_PolarFiremissionCloseDialog;";
 	};
 };
 

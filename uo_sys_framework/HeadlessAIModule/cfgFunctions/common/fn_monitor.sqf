@@ -6,7 +6,7 @@
  *	Author
  *		suits & PiZZADOX
  */
-#include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
+#include "\x\UO_FW\addons\Main\HeadlessAIModule\module_macros.hpp"
 UO_FW_AI_EXEC_CHECK(SERVERHC);
 
 
@@ -14,7 +14,7 @@ UO_FW_AI_EXEC_CHECK(SERVERHC);
 	sleep 1;
 	while {true} do {
 		{
-			_x params ["_zone","_loc","_radiusX","_isOn","_side","_type","_cond","_delay","_code","_radiusY","_isRectangle","_direction"];
+			_x params ["_zone","_loc","_radiusX","_isOn","_side","_Type","_cond","_delay","_code","_radiusY","_isRectangle","_direction"];
 			LOG_1("zone checked: %1",_x);
 			private _initial = _zone getVariable ["initiallyspawned",false];
 			private _populated = 0;
@@ -26,7 +26,7 @@ UO_FW_AI_EXEC_CHECK(SERVERHC);
 				private _aliveplayers = [] call UO_FW_fnc_alivePlayers;
 				_populated = {
 					private _player = _x;
-					(({(vehicle _player) isKindOf _x} count _type) > 0)
+					(({(vehicle _player) isKindOf _x} count _Type) > 0)
 					&& (side _player) in _side
 					&& _player inArea _area
 				} count _aliveplayers;

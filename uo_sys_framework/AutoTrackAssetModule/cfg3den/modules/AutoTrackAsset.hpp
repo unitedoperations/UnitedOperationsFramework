@@ -7,7 +7,7 @@ class UO_FW_AutoTrackAsset {
             displayName = "Auto Track Asset";
             tooltip = "Enables Auto Track Asset";
             control = "CheckboxState";
-            expression="missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "true";
             typeName = "BOOL";
         };

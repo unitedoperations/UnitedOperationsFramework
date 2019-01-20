@@ -1,6 +1,6 @@
 class UO_FW_PolarSpottingFiremission
 {
-	file = "x\UO_FW\addons\main\FiremissionModule\PolarSpottingFiremission\cfgFunctions\common";
+	file = "x\UO_FW\addons\Main\FiremissionModule\PolarSpottingFiremission\cfgFunctions\common";
 	class DIA_PolarSpottingFiremission {};
 	class DIA_PolarSpottingFiremissionCloseDialog {};
 	class DIA_PolarSpottingFiremissionFire {};

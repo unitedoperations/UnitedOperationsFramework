@@ -1,7 +1,7 @@
 //Created on 8/14/14
 // Modified on : 8/3/16: Resolved AI getting stuck when no enemies existed, or enemies were far away.
 
-#include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
+#include "\x\UO_FW\addons\Main\HeadlessAIModule\module_macros.hpp"
 UO_FW_AI_EXEC_CHECK(SERVERHC);
 
 params ["_Unit","_UO_FW_AI_MovedRecently","_UO_FW_AI_VisuallyCanSee","_UO_FW_AI_MovedRecentlyCover"];

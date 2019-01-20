@@ -10,7 +10,7 @@ class UO_FW_Gear_ComboGearLoad: ComboPreview {
 	attributeLoad="\
 		private _control = (_this controlsGroupCtrl 100);\
 		_control setvariable ['UO_FW_parentcontrolcfg',_config];\
-		_classArray = [['None','NONE'],['Rifleman','RFL'],['Rifleman AT','RFLAT'],['Automatic Rifleman','AR'],['Grenadier','GRN'],['Team Leader','TL'],['Squad Leader','SQL'],['Anti Tank','AT'],['Assistant Anti Tank','AAT'],['Machinegunner','MGA'],['Assistant Machinegunner','AMG'],['Vehicle Crewman','VCRW'],['Vehicle Commander','VCMD'],['Officer','OFF'],['RATELO','RTO'],['FAC','FAC'],['Custom 1','CUS1'],['Custom 2','CUS2'],['Custom 3','CUS3'],['Custom 4','CUS4'],['Custom 5','CUS5'],['Manual Define','MANUAL']];\
+		_classArray = [['None','NONE'],['Rifleman','RFL'],['Rifleman AT','RFLAT'],['Automatic Rifleman','AR'],['Grenadier','GRN'],['Team Leader','TL'],['Squad Leader','SQL'],['Anti Tank','AT'],['Assistant Anti Tank','AAT'],['Machinegunner','MGA'],['Assistant Machinegunner','AMG'],['Vehicle Crewman','VCRW'],['Vehicle Commander','VCMD'],['Medic','MED'],['Marksman','MKS'],['Officer','OFF'],['RATELO','RTO'],['FAC','FAC'],['Custom 1','CUS1'],['Custom 2','CUS2'],['Custom 3','CUS3'],['Custom 4','CUS4'],['Custom 5','CUS5'],['Manual Define','MANUAL']];\
 		{\
 			_x params ['_name','_className'];\
 			private _index = _control lbadd _name;\

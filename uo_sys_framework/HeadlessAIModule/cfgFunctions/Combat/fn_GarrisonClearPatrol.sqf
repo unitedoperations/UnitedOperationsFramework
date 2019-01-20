@@ -3,7 +3,7 @@ params ["_Locations","_Unit","_UO_FW_AI_InCover","_UO_FW_AI_InCover","_Enemy"];
 
 sleep (random 5);
 
-			//Define this array so the original remains intact in case needed latter.
+			//Define this array so the original reMains intact in case needed latter.
 			_RefinedBuildingArray = _Locations;
 
 			//Remove any positions below or above the player.
@@ -27,7 +27,7 @@ while {(_Unit distance _ClosestPos) > 3 && alive _Unit} do {
 			_Unit doMove _ClosestPos;
 			sleep 5;
 
-			//Define this array so the original remains intact in case needed latter.
+			//Define this array so the original reMains intact in case needed latter.
 			_RefinedBuildingArray = _Locations;
 
 			//Remove any positions below or above the player.

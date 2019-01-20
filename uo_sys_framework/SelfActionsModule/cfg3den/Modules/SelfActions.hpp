@@ -7,7 +7,7 @@ class UO_FW_SelfActions {
             displayName = "Self Actions Enable";
             tooltip = "Enable Self Actions";
             control = "CheckboxState";
-            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "true";
         };
 		class UO_FW_SelfActions_CheckColour_Enabled {
@@ -15,7 +15,7 @@ class UO_FW_SelfActions {
             displayName = "Team Colour Action";
             tooltip = "Enable Team Colour Action";
             control = "Checkbox";
-            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "true";
         };
 		class UO_FW_SelfActions_CheckMap_Enabled {
@@ -23,7 +23,7 @@ class UO_FW_SelfActions {
             displayName = "View Map Action";
             tooltip = "Enable View Map Action";
             control = "Checkbox";
-            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "true";
         };
 		class UO_FW_SelfActions_CutGrass_Enabled {
@@ -31,7 +31,7 @@ class UO_FW_SelfActions {
             displayName = "Cut Grass Action";
             tooltip = "Enable Cut Grass Action";
             control = "Checkbox";
-            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
     };

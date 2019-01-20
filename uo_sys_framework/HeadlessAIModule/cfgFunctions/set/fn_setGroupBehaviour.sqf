@@ -10,7 +10,7 @@
  *	Author
  *		suits & PiZZADOX
  */
-#include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
+#include "\x\UO_FW\addons\Main\HeadlessAIModule\module_macros.hpp"
 params ["_grp",["_behave","SAFE",[""]],["_combat","RED",[""]],["_speed","LIMITED",[""]],["_formation","WEDGE",[""]]];	
 	_grp setBehaviour _behave;
 	_grp setCombatMode _combat;

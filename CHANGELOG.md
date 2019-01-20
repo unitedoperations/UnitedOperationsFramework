@@ -1,6 +1,6 @@
 # Changelog
 All notable changes to this project will be documented in this file.
-Version Numbers mainly refer to the UO Modpack addition.
+Version Numbers Mainly refer to the UO Modpack addition.
 
 ## [Unreleased]
 ### Added

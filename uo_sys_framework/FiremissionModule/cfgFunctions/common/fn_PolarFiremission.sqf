@@ -16,4 +16,4 @@ private _unit = _this select 0;
 	private	_degrees = MILSPERROUND / _mils * 360.0;
 	private _dir = [cos _degrees,sin _degrees,0];
 
-	[_unit,_loc vectorAdd (_dir vectorMultiply _distance),_dispersion,_salvoCount,_salvoSize,_salvoWait,_minSpottedDistance,_roundType] call UO_FW_FNC_PointFiremission;
+	[_unit,_loc vectorAdd (_dir vectorMultiply _distance),_dispersion,_salvoCount,_salvoSize,_salvoWait,_minSpottedDistance,_roundType] call UO_FW_fnc_PointFiremission;

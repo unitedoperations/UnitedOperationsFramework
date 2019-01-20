@@ -10,18 +10,18 @@ _handle = _this spawn {
 		private _dir = [cos _degrees,sin _degrees,0];
 		private _target =  _loc vectorAdd (_dir vectorMultiply _distance);
 
-		private	_fireRate = _unit call UO_FW_FNC_ArtGetFireRate;
-		[_unit , true] call UO_FW_FNC_SetArtyReadyStatus;
+		private	_fireRate = _unit call UO_FW_fnc_ArtGetFireRate;
+		[_unit , true] call UO_FW_fnc_SetArtyReadyStatus;
 
-		private	_rounds = ((_unit call UO_FW_FNC_GetArtyAmmo) select _roundType);
-		_unit setVariable [VAR_SART_ARTFMTEXT,_this call UO_FW_FNC_GetPolarSpottingFiremissionText,true];
+		private	_rounds = ((_unit call UO_FW_fnc_GetArtyAmmo) select _roundType);
+		_unit setVariable [VAR_SART_ARTFMTEXT,_this call UO_FW_fnc_GetPolarSpottingFiremissionText,true];
 
-		sleep((_unit call UO_FW_FNC_GetArtyAimTime));
+		sleep((_unit call UO_FW_fnc_GetArtyAimTime));
 		_randomPos = [[[_target, _unit getVariable [VAR_SART_ARTSPOTACCURACY,MEANSPOTTINGACCURACY]]],[]] call BIS_fnc_randomPos;
-			_eta = [_unit,_randomPos, ((_unit call UO_FW_FNC_GetArtyAmmo) select _roundType) select 0] call UO_FW_FNC_GetArtyEta;
-		_unit commandArtilleryFire [_randomPos,  ((_unit call UO_FW_FNC_GetArtyAmmo) select _roundType) select 0, 1];
+			_eta = [_unit,_randomPos, ((_unit call UO_FW_fnc_GetArtyAmmo) select _roundType) select 0] call UO_FW_fnc_GetArtyEta;
+		_unit commandArtilleryFire [_randomPos,  ((_unit call UO_FW_fnc_GetArtyAmmo) select _roundType) select 0, 1];
 		_waitTime = (_fireRate * (_unit getVariable [VAR_SART_ARTFIRERATE,MEANFIRERATE]));
 		sleep(_waitTime);
-		[_unit,objNULL] call UO_FW_FNC_SetArtyCaller;
-		[_unit, false] call UO_FW_FNC_SetArtyReadyStatus;
+		[_unit,objNULL] call UO_FW_fnc_SetArtyCaller;
+		[_unit, false] call UO_FW_fnc_SetArtyReadyStatus;
 	};

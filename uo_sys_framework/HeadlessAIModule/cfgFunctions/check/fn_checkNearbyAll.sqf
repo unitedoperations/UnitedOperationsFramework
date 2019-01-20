@@ -9,20 +9,20 @@
  * 	Return Value:
  * 		NUMBER	- A count of any units of specified type within the given radius of selected position.
  */
-#include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
+#include "\x\UO_FW\addons\Main\HeadlessAIModule\module_macros.hpp"
 UO_FW_AI_EXEC_CHECK(SERVERHC);
 
 params [
 	["_pos",[0,0,0],[[]],[3]],
 	["_radius",5,[0]],
 	["_side",[west],[[]]],
-	["_types",["CAManBase","LandVehicle","Ship","Helicopter","Plane"],[[]]],
-	["_enabledEntities",[],[[]]]
+	["_Types",["CAManBase","LandVehicle","Ship","Helicopter","Plane"],[[]]],
+	["_EnabledEntities",[],[[]]]
 ];
 	if (typeName _side != typeName [] ) then { _side = [_side] };
-	if (typeName _types != typeName [] ) then { _types = [_types] };
-	private _nearEntities = _pos nearEntities [_types,_radius];
+	if (typeName _Types != typeName [] ) then { _Types = [_Types] };
+	private _nearEntities = _pos nearEntities [_Types,_radius];
 	{
-		if ( (side _x) IN _side && (alive _x) ) then { _enabledEntities set [ count _enabledEntities, _x] };
-	}forEach _nearEntities;
-	_enabledEntities
+		if ( (side _x) IN _side && (alive _x) ) then { _EnabledEntities set [ count _EnabledEntities, _x] };
+	} forEach _nearEntities;
+	_EnabledEntities

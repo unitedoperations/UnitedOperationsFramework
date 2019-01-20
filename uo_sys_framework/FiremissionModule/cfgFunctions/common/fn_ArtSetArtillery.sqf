@@ -5,18 +5,18 @@ if (_gun >= 0) then {
 	_guns = player getVariable [VAR_SART_OBSGUNS,[]];
 	_usableGuns = [];
 	{
-		if (_x call UO_FW_FNC_IsArtyAviable) then {
+		if (_x call UO_FW_fnc_IsArtyAviable) then {
 			_usableGuns pushBack _x;
 		};
-	}forEach _guns;
+	} forEach _guns;
 	_actualGunUnit = _usableGuns select _gun;
 	lbClear _id;
-	_ammo = _actualGunUnit call UO_FW_FNC_GetArtyAmmo;
+	_ammo = _actualGunUnit call UO_FW_fnc_GetArtyAmmo;
 
 	{
 		_text = (str (_x select 1)) + "x " + getText (configfile / "CfgMagazines" / (_x select 0) / "displayName");
 		lbAdd [_id, _text];
 
-	}forEach _ammo;
+	} forEach _ammo;
 	lbSetCurSel [_id,0];
 }

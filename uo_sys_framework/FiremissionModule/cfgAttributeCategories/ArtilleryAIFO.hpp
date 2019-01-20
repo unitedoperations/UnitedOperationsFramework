@@ -10,7 +10,7 @@ class UO_FW_ArtilleryAIFO
 			displayName = "Make Unit an Artillery AI FO?";
 			tooltip = "Enables Artillery FO";
 			control = "UO_FW_CheckBoxStateAIOnlyCategory";
-			expression = "if !(is3DEN) then {_propertyName = '%s'; [_this, _propertyName, _value, false] call UO_FW_fnc_setInitVar;};";
+			expression = UO_FW_ENTITY_EXPRESSION;
 			defaultValue = "false";
 			typeName = "BOOL";
 			condition = "objectControllable";
@@ -21,7 +21,7 @@ class UO_FW_ArtilleryAIFO
 			tooltip = "List of guns the FO is able to use seperated by comma. Default empty";
 			property = "UO_FW_ArtilleryFOAIGuns";
 			control = "EditArray";
-			expression = "if !(is3DEN) then {_propertyName = '%s'; [_this, _propertyName, _value, false] call UO_FW_fnc_setInitVar;};";
+			expression = UO_FW_ENTITY_EXPRESSION;
 			condition = "objectControllable";
 			defaultValue = "[]";
 		};
@@ -31,7 +31,7 @@ class UO_FW_ArtilleryAIFO
 			tooltip = "Minimum required knowledge about unit targeted. https://community.bistudio.com/wiki/knowsAbout. Default 3";
 			property = "UO_FW_ArtilleryFOAIKnowledge";
 			control = "EditShort";
-			expression = "if !(is3DEN) then {_propertyName = '%s'; [_this, _propertyName, _value, false] call UO_FW_fnc_setInitVar;};";
+			expression = UO_FW_ENTITY_EXPRESSION;
 			condition = "objectControllable";
 			validate = "number";
 			typeName = "NUMBER";
@@ -43,7 +43,7 @@ class UO_FW_ArtilleryAIFO
 			tooltip = "minimum range between firemission to stop 10 batteries shooting 1 guy. Default 300";
 			property = "UO_FW_ArtilleryFOAIminRange";
 			control = "EditShort";
-			expression = "if !(is3DEN) then {_propertyName = '%s'; [_this, _propertyName, _value, false] call UO_FW_fnc_setInitVar;};";
+			expression = UO_FW_ENTITY_EXPRESSION;
 			condition = "objectControllable";
 			validate = "number";
 			typeName = "NUMBER";
@@ -55,7 +55,7 @@ class UO_FW_ArtilleryAIFO
 			tooltip = "Maximum range the FO can see. Default 1000";
 			property = "UO_FW_ArtilleryFOAIViewRange";
 			control = "EditShort";
-			expression = "if !(is3DEN) then {_propertyName = '%s'; [_this, _propertyName, _value, false] call UO_FW_fnc_setInitVar;};";
+			expression = UO_FW_ENTITY_EXPRESSION;
 			condition = "objectControllable";
 			validate = "number";
 			typeName = "NUMBER";
@@ -67,7 +67,7 @@ class UO_FW_ArtilleryAIFO
 			tooltip = "Dispersion of called in artillery strike. Default 200";
 			property = "UO_FW_ArtilleryFOAIDispersion";
 			control = "EditShort";
-			expression = "if !(is3DEN) then {_propertyName = '%s'; [_this, _propertyName, _value, false] call UO_FW_fnc_setInitVar;};";
+			expression = UO_FW_ENTITY_EXPRESSION;
 			condition = "objectControllable";
 			validate = "number";
 			typeName = "NUMBER";
@@ -79,7 +79,7 @@ class UO_FW_ArtilleryAIFO
 			tooltip = "Number of salvos the artillery should fire. Default 3";
 			property = "UO_FW_ArtilleryFOAISalvoCount";
 			control = "EditShort";
-			expression = "if !(is3DEN) then {_propertyName = '%s'; [_this, _propertyName, _value, false] call UO_FW_fnc_setInitVar;};";
+			expression = UO_FW_ENTITY_EXPRESSION;
 			condition = "objectControllable";
 			validate = "number";
 			typeName = "NUMBER";
@@ -91,7 +91,7 @@ class UO_FW_ArtilleryAIFO
 			tooltip = "Number of rounds which should be fired per salvo. Default 5";
 			property = "UO_FW_ArtilleryFOAIRoundsPerSalvo";
 			control = "EditShort";
-			expression = "if !(is3DEN) then {_propertyName = '%s'; [_this, _propertyName, _value, false] call UO_FW_fnc_setInitVar;};";
+			expression = UO_FW_ENTITY_EXPRESSION;
 			condition = "objectControllable";
 			validate = "number";
 			typeName = "NUMBER";
@@ -103,7 +103,7 @@ class UO_FW_ArtilleryAIFO
 			tooltip = "Time between salvos, which should be waited in seconds. Default 30";
 			property = "UO_FW_ArtilleryFOAISalvoWaitTime";
 			control = "EditShort";
-			expression = "if !(is3DEN) then {_propertyName = '%s'; [_this, _propertyName, _value, false] call UO_FW_fnc_setInitVar;};";
+			expression = UO_FW_ENTITY_EXPRESSION;
 			condition = "objectControllable";
 			validate = "number";
 			typeName = "NUMBER";
@@ -115,7 +115,7 @@ class UO_FW_ArtilleryAIFO
 			tooltip = "Range in m of how close a spotting round needs to land near the target before a firemission is fired. Default 150";
 			property = "UO_FW_ArtilleryFOAIMinSpottedDistance";
 			control = "EditShort";
-			expression = "if !(is3DEN) then {_propertyName = '%s'; [_this, _propertyName, _value, false] call UO_FW_fnc_setInitVar;};";
+			expression = UO_FW_ENTITY_EXPRESSION;
 			condition = "objectControllable";
 			validate = "number";
 			typeName = "NUMBER";
@@ -124,10 +124,10 @@ class UO_FW_ArtilleryAIFO
 		class UO_FW_ArtilleryFOAIRoundIndex
 		{
 			displayName = "Round Index";
-			tooltip = "Ammunition index from _artillery call UO_FW_FNC_GetAmmoDisplayNameAndIndex. 0 is generally HE. Default 0";
+			tooltip = "Ammunition index from _artillery call UO_FW_fnc_GetAmmoDisplayNameAndIndex. 0 is generally HE. Default 0";
 			property = "UO_FW_ArtilleryFOAIRoundIndex";
 			control = "EditShort";
-			expression = "if !(is3DEN) then {_propertyName = '%s'; [_this, _propertyName, _value, false] call UO_FW_fnc_setInitVar;};";
+			expression = UO_FW_ENTITY_EXPRESSION;
 			condition = "objectControllable";
 			validate = "number";
 			typeName = "NUMBER";
@@ -139,7 +139,7 @@ class UO_FW_ArtilleryAIFO
 			tooltip = "Accuracy of location estimation of target in meters. Default 50";
 			property = "UO_FW_ArtilleryFOAIAccuracy";
 			control = "EditShort";
-			expression = "if !(is3DEN) then {_propertyName = '%s'; [_this, _propertyName, _value, false] call UO_FW_fnc_setInitVar;};";
+			expression = UO_FW_ENTITY_EXPRESSION;
 			condition = "objectControllable";
 			validate = "number";
 			typeName = "NUMBER";
@@ -151,7 +151,7 @@ class UO_FW_ArtilleryAIFO
 			tooltip = "Time needed for FO to calculate firemission. Default 30";
 			property = "UO_FW_ArtilleryFOAISpeed";
 			control = "EditShort";
-			expression = "if !(is3DEN) then {_propertyName = '%s'; [_this, _propertyName, _value, false] call UO_FW_fnc_setInitVar;};";
+			expression = UO_FW_ENTITY_EXPRESSION;
 			condition = "objectControllable";
 			validate = "number";
 			typeName = "NUMBER";

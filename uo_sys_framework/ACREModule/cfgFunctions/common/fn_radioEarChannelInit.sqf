@@ -7,12 +7,12 @@
  * 		PiZZADOX
  */
 #define COMPONENT ACRE
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
 
 if !(UO_FW_Server_AcreModule_Allowed) exitwith {};
 
 if (hasInterface) then {
-	[{(!isNull player) && (time > 1) && (isNull acre_player) && ([] call acre_api_fnc_isInitialized)}, {
+	[{(!isNull player) && (CBA_missionTime > 1) && (isNull acre_player) && ([] call acre_api_fnc_isInitialized)}, {
 	if (player getVariable ["UO_FW_ACRE_UNITSETTINGS_Enable", false]) then {
 		{
 			private _radioID = [_x] call acre_api_fnc_getRadioByType;

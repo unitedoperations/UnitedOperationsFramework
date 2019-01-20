@@ -17,15 +17,15 @@
  */
 
 #define COMPONENT Gear
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
 UO_FW_EXEC_CHECK(ALL);
 
 params ["_unit", "_loadoutType", "_item"];
-private ["_success", "_parents", "_type"];
+private ["_success", "_parents", "_Type"];
 private _amount = 1;
 private _position = "none";
 
-if !([_item, _unit] call UO_FW_FNC_checkClassname) exitWith {};
+if !([_item, _unit] call UO_FW_fnc_checkClassname) exitWith {};
 
 if (count _this > 3) then {
 	_amount = _this select 3;
@@ -38,7 +38,7 @@ if (count _this > 4) then {
 for "_x" from 1 to _amount do {
 	_success = false;
 	_parents = [configFile >> "CFGweapons" >> _item, true] call BIS_fnc_returnParents;
-	_type = (_item call BIS_fnc_itemType) select 1;
+	_Type = (_item call BIS_fnc_itemType) select 1;
 
 	if (_position == "none") then {
 		if (!_success && "Rifle" in _parents) then {
@@ -59,63 +59,63 @@ for "_x" from 1 to _amount do {
 				_success = true;
 			};
 		};
-		if (!_success && _type in ["Map", "GPS", "Compass", "Watch", "NVGoggles"]) then {
-			if ([_unit, _type] call UO_FW_fnc_CanLinkItem) then {
+		if (!_success && _Type in ["Map", "GPS", "Compass", "Watch", "NVGoggles"]) then {
+			if ([_unit, _Type] call UO_FW_fnc_CanLinkItem) then {
 				_unit linkItem _item;
 				_success = true;
 			};
 		};
-		if (!_success && _type == "uniform") then {
+		if (!_success && _Type == "uniform") then {
 			if (uniform _unit == "") then {
 				_unit forceAddUniform _item;
 				_success = true;
 			};
 		};
-		if (!_success && _type == "vest") then {
+		if (!_success && _Type == "vest") then {
 			if (vest _unit == "") then {
 				_unit addVest _item;
 				_success = true;
 			};
 		};
-		if (!_success && _type == "backpack") then {
+		if (!_success && _Type == "backpack") then {
 			if (backpack _unit == "") then {
 				_unit addBackpackGlobal _item;
 				_success = true;
 			};
 		};
-		if (!_success && _type == "Headgear") then {
+		if (!_success && _Type == "Headgear") then {
 			if (headgear _unit == "") then {
 				_unit addHeadgear _item;
 				_success = true;
 			};
 		};
-		if (!_success && _type == "Glasses") then {
+		if (!_success && _Type == "Glasses") then {
 			if (goggles _unit == "") then {
 				_unit addGoggles _item;
 				_success = true;
 			};
 		};
-		if (!_success && _type == "Binocular") then {
+		if (!_success && _Type == "Binocular") then {
 			if (binocular _unit == "") then {
 				_unit addWeaponGlobal _item;
 				_success = true;
 			};
 		};
-		if (!_success && _type in ["AccessoryMuzzle", "AccessoryPointer", "AccessorySights", "AccessoryBipod"]) then {
+		if (!_success && _Type in ["AccessoryMuzzle", "AccessoryPointer", "AccessorySights", "AccessoryBipod"]) then {
 			if ([primaryWeapon _unit, _item] call UO_FW_fnc_CanAttachItem) then {
-				if (!(_type in primaryWeaponItems _unit)) then {
+				if (!(_Type in primaryWeaponItems _unit)) then {
 					_unit addPrimaryWeaponItem _item;
 					_success = true;
 				};
 			} else {
-				if ([handgunWeapon _unit, _item] call UO_FW_FNC_CanAttachItem) then {
-					if (!(_type in handgunItems _unit)) then {
+				if ([handgunWeapon _unit, _item] call UO_FW_fnc_CanAttachItem) then {
+					if (!(_Type in handgunItems _unit)) then {
 						_unit addHandgunItem _item;
 						_success = true;
 					};
 				} else {
-					if ([secondaryWeapon _unit, _item] call UO_FW_FNC_CanAttachItem) then {
-						if (!(_type in secondaryWeaponItems _unit)) then {
+					if ([secondaryWeapon _unit, _item] call UO_FW_fnc_CanAttachItem) then {
+						if (!(_Type in secondaryWeaponItems _unit)) then {
 							_unit addSecondaryWeaponItem _item;
 							_success = true;
 						};
@@ -164,7 +164,7 @@ for "_x" from 1 to _amount do {
 	};
 
 	if (!_success) then {
-		if (_unit canAdd _item && _type != "Backpack") then {
+		if (_unit canAdd _item && _Type != "Backpack") then {
 			_unit addItem _item;
 			_success = true;
 		} else {

@@ -1,4 +1,5 @@
 #include "script_macros.hpp"
+#include "\x\UO_FW\addons\Main\config_macros.hpp"
 
 class CfgPatches {
 	class ADDON {
@@ -8,16 +9,16 @@ class CfgPatches {
 		url = "https://github.com/unitedoperations/UnitedOperationsFramework";
 		units[] = {};
 		requiredVersion = REQUIRED_VERSION;
-		requiredAddons[] = {"cba_main","3DEN","ace_main","ace_arsenal","A3_Modules_F"};
+		requiredAddons[] = {"cba_Main","3DEN","ace_Main","ace_arsenal","A3_Modules_F"};
 		VERSION_CONFIG;
 	};
 };
 
-//external class references
+//External Class References
 #include "Core\RscTitles\rscdefinitions.hpp"
 #include "\a3\3DEN\UI\macros.inc"
 #include "\a3\3DEN\UI\resincl.inc"
-#include "3den\MainExternal.hpp"
+#include "Core\MainExternal.hpp"
 
 class CfgFactionClasses {
 	class NO_CATEGORY;
@@ -30,17 +31,10 @@ class CfgFactionClasses {
 class CfgFunctions {
 	class UO_Framework {
 		tag = "UO_FW";
-		//add custom functions
-		#include "3DEN\cfgFunctions.hpp"
-		#include "CallExecution\cfgFunctions.hpp"
 		#include "Core\cfgFunctions.hpp"
+		//Add Custom Functions
 		#include "BriefingModule\cfgFunctions.hpp"
-		#include "EndConditionsModule\cfgFunctions.hpp"
-		#include "TeamColourModule\cfgFunctions.hpp"
-		#include "SelfActionsModule\cfgFunctions.hpp"
-		#include "SafeStartModule\cfgFunctions.hpp"
 		#include "ShotCountModule\cfgFunctions.hpp"
-		#include "AntiNDModule\cfgFunctions.hpp"
 		#include "AIDriversModule\cfgFunctions.hpp"
 		#include "ACREModule\cfgFunctions.hpp"
 		#include "GearModule\cfgFunctions.hpp"
@@ -48,10 +42,8 @@ class CfgFunctions {
 		#include "SetupTimerModule\cfgFunctions.hpp"
 		#include "AILinkModule\cfgFunctions.hpp"
 		#include "DisconnectControlModule\cfgFunctions.hpp"
-		#include "MarkerControlModule\cfgFunctions.hpp"
 		#include "StartTextModule\cfgFunctions.hpp"
 		#include "AutoTrackAssetModule\cfgFunctions.hpp"
-		#include "JipModule\cfgFunctions.hpp"
 		#include "CaptureZoneModule\cfgFunctions.hpp"
 		#include "StartInParachuteModule\cfgFunctions.hpp"
 		#include "MapCompassRemoverModule\cfgFunctions.hpp"
@@ -59,6 +51,7 @@ class CfgFunctions {
 		#include "HostageModule\cfgFunctions.hpp"
 		#include "CoverMapModule\cfgFunctions.hpp"
 	};
+	//Add Custom Function Categories with a Different Tag
 	#include "HeadlessAIModule\cfgFunctions.hpp"
 };
 
@@ -121,17 +114,17 @@ class Cfg3DEN {
 		class UO_FW_Settings {
 			displayName = "Mission Settings";
 			class AttributeCategories {
-				//add main mission settings here
-				#include "Core\cfg3den\Mission\Main.hpp"
-				#include "Core\cfg3den\Mission\Teams.hpp"
-				#include "JipModule\cfg3den\Mission\Jip.hpp"
+				//add Main mission settings here
+				#include "Core\cfg3den\Mission\MainMenu.hpp"
+				#include "Core\cfg3den\Mission\TeamsMenu.hpp"
+				#include "Core\cfg3den\Mission\JipMenu.hpp"
 				//debug at bottom
-				#include "Core\cfg3den\Mission\Debug.hpp"
+				#include "Core\cfg3den\Mission\DebugMenu.hpp"
 			};
 		};
 
 		//Additional Core cfg3denMenu defines
-		#include "Core\cfg3den\cfg3denMenu.hpp"
+		#include "Core\cfg3den\cfg3denMenuCategories.hpp"
 
 		class UO_FW_Module_Settings {
 			displayName = "Module Settings";
@@ -151,16 +144,14 @@ class Cfg3DEN {
 				#include "CoverMapModule\cfg3den\Modules\CoverMap.hpp"
 			};
 		};
-		#include "GearModule\cfg3den\cfg3denMenu.hpp"
-		//add custom mission 3den editor categories
-		#include "EndConditionsModule\cfg3den\cfg3denMenu.hpp"
-		#include "BriefingModule\cfg3den\cfg3denMenu.hpp"
-		#include "HeadlessAIModule\cfg3den\cfg3denMenu.hpp"
-		#include "ACREModule\cfg3den\cfg3denMenu.hpp"
-		#include "3DEN\cfg3den\cfg3denMenu.hpp"
+		#include "GearModule\cfg3den\cfg3denMenuCategories.hpp"
+		//Add Custom Mission 3DEN Editor Categories
+		#include "BriefingModule\cfg3den\cfg3denMenuCategories.hpp"
+		#include "HeadlessAIModule\cfg3den\cfg3denMenuCategories.hpp"
+		#include "ACREModule\cfg3den\cfg3denMenuCategories.hpp"
 	};
 
-	//add custom base 3den options & categories
+	//Add Custom Base 3DEN Options & Categories
 	class Group {
 		class AttributeCategories {
 			#include "HeadlessAIModule\cfgAttributeCategories\Group.hpp"
@@ -179,13 +170,14 @@ class Cfg3DEN {
 			#include "FiremissionModule\cfgAttributeCategories\Object.hpp"
 			#include "HostageModule\cfgAttributeCategories\Object.hpp"
 			#include "CoverMapModule\cfgAttributeCategories\Object.hpp"
+			#include "ObjectSettingsModule\cfgAttributeCategories\Object.hpp"
 		};
 	};
 
 	class Logic {
 		class Draw {
 			class 3D {
-				textureBackgroundModule =  "\x\UO_FW\addons\main\3DEN\Resources\UI\textureBackgroundModuleSquareInv_ca.paa";
+				textureBackgroundModule =  "\x\UO_FW\addons\Main\Core\Resources\UI\textureBackgroundModuleSquareInv_ca.paa";
 				sizeModule="(32 + 14) * pixelW";
 				sizeBackgroundModule="(48 + 14) * pixelW";
 				colorModule[]={0,0,0};
@@ -201,7 +193,7 @@ class Cfg3DEN {
 				fadeDistance=2500;
 			};
 			class 2D {
-				textureBackgroundModule =  "\x\UO_FW\addons\main\3DEN\Resources\UI\textureBackgroundModuleSquareInv_ca.paa";
+				textureBackgroundModule =  "\x\UO_FW\addons\Main\Core\Resources\UI\textureBackgroundModuleSquareInv_ca.paa";
 				sizeModule="(32 + 6) * pixelW";
 				sizeBackgroundModule="(48 + 6) * pixelW";
 				presenceBorder=2;
@@ -224,19 +216,17 @@ class Cfg3DEN {
 		};
 	};
 
-	//Add custom configs & controls for 3den and modules
+	//Add Custom Configs & Controls for 3DEN and Modules
 	class Attributes {
-		#include "3DEN\CfgAttributes.hpp"
 		#include "Core\CfgAttributes.hpp"
-		#include "EndConditionsModule\CfgAttributes.hpp"
 		#include "HeadlessAIModule\CfgAttributes.hpp"
 		#include "TeamColourModule\CfgAttributes.hpp"
 		#include "CaptureZoneModule\CfgAttributes.hpp"
 		#include "StartInParachuteModule\CfgAttributes.hpp"
-		#include "JipModule\CfgAttributes.hpp"
 		#include "ACREModule\CfgAttributes.hpp"
 		#include "GearModule\CfgAttributes.hpp"
 		#include "AOLimitModule\CfgAttributes.hpp"
+		#include "HostageModule\CfgAttributes.hpp"
 	};
 };
 
@@ -244,33 +234,33 @@ class display3DEN {
 	class Controls {
 		class MenuStrip: ctrlMenuStrip {
 			class Items {
-				//UO menus define
+				//UO Menus Define
 				#include "Core\display3DEN\Menu.hpp"
+				#include "Core\display3DEN\MenuEndConditions.hpp"
 				#include "Core\display3DEN\MenuRespawn.hpp"
-				//Add custom UO menus
+				//Add Custom UO Menus
 				#include "HeadlessAIModule\display3DEN\Menu.hpp"
 				#include "BriefingModule\display3DEN\Menu.hpp"
-				#include "EndConditionsModule\display3DEN\Menu.hpp"
 				#include "GearModule\display3DEN\Menu.hpp"
 				#include "ACREModule\display3DEN\Menu.hpp"
-				#include "3DEN\display3DEN\Menu.hpp"
-				//tools define
+				//Tools Define
+				#include "Core\display3DEN\Menu3DEN.hpp"
 				#include "Core\display3DEN\MenuTools.hpp"
-				//add custom tools menus
+				//Add Custom Tools Menus
 				/*class UO_FW_Tools_Folder {
 					text = "Tools";
 					items[] = {"UO_FW_Test_Mission","UO_FW_Test_Loadouts"};
 				};*/
-				//documentation define
+				//Documentation Define
 				#include "Core\display3DEN\MenuDoc.hpp"
-				//compile UO menu folder
-				//add custom items with an additional entry in items[]
+				//Compile UO Menu Folder
+				//Add Custom Items with an Additional Entry in Items[]
 				class UO_FW_Folder {
 					text = "UO Framework";
 					items[] = {"UO_FW_Settings","UO_FW_Briefing_Folder","UO_FW_Respawn_Folder","UO_FW_Module_Settings","UO_FW_EndConditions_Folder","UO_FW_ACRE_Folder","UO_FW_Gear_Folder","UO_FW_AI_Settings","UO_FW_ExportImport_Folder","UO_FW_Documentation"};
 					//items[] = {"UO_FW_Settings","UO_FW_Module_Settings","UO_FW_Gear_Settings","UO_FW_EndConditions_Folder","UO_FW_ACRE_Folder","UO_FW_Briefing_Folder","UO_FW_Documentation"};
 				};
-				//compile main menu
+				//Compile Main Menu
 				items[] += {"UO_FW_Folder"};
 			};
 		};
@@ -278,18 +268,7 @@ class display3DEN {
 };
 
 class CfgRemoteExec {
-    class Functions {
-        mode = 2;
-        jip = 0;
-        class bis_fnc_call {
-        	allowedTargets = 0;
-			jip = 0;
-        };
-		class call {
-        	allowedTargets = 0;
-			jip = 0;
-        };
-    };
+
 };
 
 #include "Core\CfgUO\RespawnTemplates.hpp"
@@ -299,26 +278,50 @@ class Params {
 	#include "\a3\functions_f\Params\paramDaytimeHour.hpp"
 };
 
+//class Extended_PreStart_EventHandlers {
+//	#include "Core\cfgXEH\PreStart.hpp"
+//};
+
 class Extended_PreInit_EventHandlers {
 	#include "Core\cfgXEH\PreInit.hpp"
+	//Module PreInit Activation
+	#include "GearModule\cfgXEH\PreInit.hpp"
+	#include "CoverMapModule\cfgXEH\PreInit.hpp"
+	#include "BriefingModule\cfgXEH\PreInit.hpp"
+	#include "AntiNDModule\cfgXEH\PreInit.hpp"
+	#include "TeamColourModule\cfgXEH\PreInit.hpp"
+	#include "SelfActionsModule\cfgXEH\PreInit.hpp"
+	#include "MarkerControlModule\cfgXEH\PreInit.hpp"
+	#include "ShotCountModule\cfgXEH\PreInit.hpp"
+	#include "FiremissionModule\cfgXEH\PreInit.hpp"
+	#include "StartInParachuteModule\cfgXEH\PreInit.hpp"
+	#include "StartTextModule\cfgXEH\PreInit.hpp"
 };
 
 class Extended_PostInit_Eventhandlers {
-	#include "AutoTrackAssetModule\cfgXEH\PostInit.hpp"
-	#include "ShotCountModule\cfgXEH\PostInit.hpp"
+	#include "Core\cfgXEH\PostInit.hpp"
+	//Module PostInit Activation
 };
 
 class Extended_InitPost_Eventhandlers {
+	//Module InitPost Activation
     class CAManBase {
-		#include "ShotCountModule\cfgXEH\InitPost_CAManBase.hpp"
+		#include "ShotCountModule\cfgXEH\InitPost.hpp"
     };
-	class Land {
-		#include "ShotCountModule\cfgXEH\InitPost_CAManBase.hpp"
+	class LandVehicle {
+		#include "ShotCountModule\cfgXEH\InitPost.hpp"
+		#include "AutoTrackAssetModule\cfgXEH\InitPost.hpp"
 	};
-	class Air {
-		#include "ShotCountModule\cfgXEH\InitPost_CAManBase.hpp"
+	class Helicopter {
+		#include "ShotCountModule\cfgXEH\InitPost.hpp"
+		#include "AutoTrackAssetModule\cfgXEH\InitPost.hpp"
 	};
-	class Ship {
-		#include "ShotCountModule\cfgXEH\InitPost_CAManBase.hpp"
+	class Plane {
+		#include "ShotCountModule\cfgXEH\InitPost.hpp"
+		#include "AutoTrackAssetModule\cfgXEH\InitPost.hpp"
+	};
+	class Ship_F {
+		#include "ShotCountModule\cfgXEH\InitPost.hpp"
+		#include "AutoTrackAssetModule\cfgXEH\InitPost.hpp"
 	};
 };

@@ -7,7 +7,7 @@ class UO_FW_AIDrivers_Settings {
             displayName = "Vehicle Classes";
             tooltip = "Classes to give AI Drivers to at mission start. Leave blank to disable.";
             control = "EditArray";
-            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "[]";
         };
         class UO_FW_AIDrivers_AllVehs {
@@ -15,7 +15,7 @@ class UO_FW_AIDrivers_Settings {
             displayName = "All Vehicles";
             tooltip = "Give AI Driver actions to all vehicles at mission start";
             control = "CheckBox";
-            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
 		class UO_FW_AIDrivers_NVEnabled {
@@ -23,7 +23,7 @@ class UO_FW_AIDrivers_Settings {
             displayName = "Night Vision";
             tooltip = "Whether the player can use NVGs in AI Driver view";
             control = "CheckBox";
-            expression="missionNamespace setVariable ['%s', _value, true]; %s = _value;";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
 		class UO_FW_AIDrivers_FlipEnabled {
@@ -31,7 +31,7 @@ class UO_FW_AIDrivers_Settings {
             displayName = "Flip Vehicle";
             tooltip = "Whether the player can flip the vehicle via ACE action";
             control = "CheckBox";
-            expression = "missionNamespace setVariable ['%s', _value]; %s = _value;";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "true";
         };
     };

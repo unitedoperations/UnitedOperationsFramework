@@ -4,7 +4,7 @@ class UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo: Combo
 	attributeSave = "\
 		private _attProperty = getText (_config >> 'property');\
 		_value = ((_this controlsGroupCtrl 100) lbData lbCurSel (_this controlsGroupCtrl 100));\
-		MissionNamespace setvariable [_attProperty,_value];\
+		missionNamespace setvariable [_attProperty,_value];\
 		_value\
 	";
 	//_this - config, _value - saved value
@@ -12,14 +12,14 @@ class UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo: Combo
 		private _control = (_this controlsGroupCtrl 100);\
 		_control setvariable ['UO_FW_parentcontrolcfg',_config];\
 		private _attProperty = getText (_config >> 'property');\
-		private _defaultloadoutsArray = MissionNamespace getvariable ['ace_arsenal_defaultLoadoutsList',[]];\
+		private _defaultloadoutsArray = missionNamespace getvariable ['ace_arsenal_defaultLoadoutsList',[]];\
 		if (_defaultloadoutsArray isEqualto []) then {\
 			lbClear _control;\
 			private _indexEmpty = _control lbadd 'No Loadouts Defined';\
 			_control lbsetdata [_indexEmpty,'No Loadouts Defined'];\
 			_control lbsetValue [_indexEmpty,99];\
 			_control lbSetCurSel _indexEmpty;\
-			MissionNamespace setvariable [_attProperty,'NONE'];\
+			missionNamespace setvariable [_attProperty,'NONE'];\
 		} else {\
 			lbClear _control;\
 			private _indexNone = _control lbadd 'None';\
@@ -27,7 +27,7 @@ class UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo: Combo
 			_control lbsetValue [_indexNone,99];\
 			if (_value isEqualto (_control lbData _indexNone)) then {\
 				_control lbSetCurSel _indexNone;\
-				MissionNamespace setvariable [_attProperty,'NONE'];\
+				missionNamespace setvariable [_attProperty,'NONE'];\
 			};\
 			{\
 				_x params ['_loadoutName', '_loadoutData'];\
@@ -70,7 +70,7 @@ class UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo: Combo
 				};\
 				if (_value isEqualto (_control lbData _index)) then {\
 					_control lbSetCurSel _index;\
-					MissionNamespace setvariable [_attProperty,_value];\
+					missionNamespace setvariable [_attProperty,_value];\
 				};\
 			} foreach _defaultloadoutsArray;\
 		};\
@@ -87,7 +87,7 @@ class UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo: Combo
 				_value = _control lbData _cursel;\
 				private _config = _ctrlCombo getvariable ['UO_FW_parentcontrolcfg',''];\
 				private _attProperty = getText (_config >> 'property');\
-				MissionNamespace setvariable [_attProperty,_value];\
+				missionNamespace setvariable [_attProperty,_value];\
 			";
 		};
 	};

@@ -1,4 +1,4 @@
-#define MAINPREFIX x
+#define MainPREFIX x
 #define PREFIX UO_FW
 
 #define MAJOR 1

@@ -8,5 +8,5 @@
 
 	private _guns = _requester getVariable [VAR_SART_OBSGUNS,[]];
 
-	[_selectedUnit,_requester] call UO_FW_FNC_SetArtyCaller;
-	[_selectedUnit,[_callGrid,true] call CBA_fnc_mapGridToPos,_mils,_distance,_roundType]   call UO_FW_FNC_PolarSpottingFiremission;
+	[_selectedUnit,_requester] call UO_FW_fnc_SetArtyCaller;
+	[_selectedUnit,[_callGrid,true] call CBA_fnc_mapGridToPos,_mils,_distance,_roundType]   call UO_FW_fnc_PolarSpottingFiremission;

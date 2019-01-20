@@ -15,4 +15,4 @@
 		_unit setVariable [VAR_SART_ARTCALCSPEED,_calcSpeed];
 		_unit setVariable [VAR_SART_ARTCustomNAME,_customName,true];
 		_unit setVariable [VAR_SART_ARTAMMO,_unlimitedAmmo];
-		if (_unlimitedAmmo) then {_unit call UO_FW_FNC_AddEventHandler;};
+		if (_unlimitedAmmo) then {_unit call UO_FW_fnc_AddEventHandler;};

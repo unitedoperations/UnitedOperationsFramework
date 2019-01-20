@@ -1,31 +1,27 @@
 #define COMPONENT Gear
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
 UO_FW_EXEC_CHECK(ALL);
 
 params ["_loadoutAttributeClass","_unit","_GearSystem"];
-private ["_loadoutvarname","_SystemTag","_type"];
+private ["_loadoutvarname","_SystemTag","_Type"];
 private _loadoutName = "NONE";
 
-//private _classArray = [['None','NONE'],['Rifleman','RFL'],['Rifleman AT','RFLAT'],['Automatic Rifleman','AR'],['Grenadier','GRN'],['Team Leader','TL'],['Squad Leader','SQL'],['Anti Tank','AT'],['Assistant Anti Tank','AAT'],['Machinegunner','MGA'],['Assistant Machinegunner','AMG'],['Vehicle Crewman','VCRW'],['Vehicle Commander','VCMD'],['Officer','OFF'],['RATELO','RTO'],['FAC','FAC'],['Custom 1','CUS1'],['Custom 2','CUS2'],['Custom 3','CUS3'],['Custom 4','CUS4'],['Custom 5','CUS5'],['Manual Define','MANUAL']];
-//private _loadoutAttributeClass = ((_classArray select _loadoutAttributeNumber) select 1);
-
-_unit setvariable ["UO_FW_Gear_UnitClass",_loadoutAttributeClass,true];
-
+(UO_FW_SETPLVAR(Gear_UnitClass,_loadoutAttributeClass));
 if (_loadoutAttributeClass isEqualto "NONE") exitwith {
 	ERROR_1("No loadout found for unit: %1",_unit);
 };
 
 if (_loadoutAttributeClass isEqualto "MANUAL") then {
-	_unit setvariable ["UO_FW_Gear_ManualUnitClass","MANUAL",true];
+	(UO_FW_SETPLVAR(Gear_UnitGearManualType,_loadoutAttributeClass));
 	switch (_GearSystem) do {
 		case "ACEAR": {
-			_loadoutName = _unit getvariable ["UO_FW_Gear_UnitGearManualType",""];
+			_loadoutName = (UO_FW_GETPLVAR(Gear_UnitGearManualType,""));
 			if (_loadoutName isEqualto "") exitwith {
 				ERROR_1("Unit %1 is set to manual loadout but has none!, exiting gearscript.",_unit);
 				UO_FW_GearReady = true;
 			};
 			private _found = false;
-			private _defaultloadoutsArray = MissionNamespace getvariable ['ace_arsenal_defaultLoadoutsList',[]];
+			private _defaultloadoutsArray = missionNamespace getvariable ['ace_arsenal_defaultLoadoutsList',[]];
 			{
 				_x params ["_name","_loadoutData"];
 				if (_loadoutName isEqualto _name) exitwith {
@@ -40,13 +36,13 @@ if (_loadoutAttributeClass isEqualto "MANUAL") then {
 			};
 		};
 		case "OLSEN": {
-			_type = _unit getvariable ["UO_FW_Gear_UnitGearManualType",""];
-			if (_type isEqualto "") exitwith {
+			_Type = (UO_FW_GETPLVAR(Gear_UnitGearManualType,""));
+			if (_Type isEqualto "") exitwith {
 				ERROR_1("Unit %1 is set to manual loadout but has none!, exiting gearscript.",_unit);
 				UO_FW_GearReady = true;
 			};
-			LOG_2("Executing gear of file: %1 for unit %2",_type,_unit);
-			[_unit,_type] call UO_FW_fnc_OlsenGearScript;
+			LOG_2("Executing gear of file: %1 for unit %2",_Type,_unit);
+			[_unit,_Type] call UO_FW_fnc_OlsenGearScript;
 		};
 	};
 } else {
@@ -70,9 +66,7 @@ if (_loadoutAttributeClass isEqualto "MANUAL") then {
 		};
 	};
 
-	LOG_2("_loadoutvarname: %1 for unit %2",_loadoutvarname,_unit);
-	_loadoutName = MissionNamespace getvariable [_loadoutvarname,"NONE"];
-	LOG_2("_loadoutName: %1 for unit %2",_loadoutvarname,_unit);
+	_loadoutName = missionNamespace getvariable [_loadoutvarname,"NONE"];
 
 	if (_loadoutName isEqualto "NONE") exitwith {
 		ERROR_2("No loadout found for unit: %1 and var %2",_unit,_loadoutvarname);
@@ -81,7 +75,7 @@ if (_loadoutAttributeClass isEqualto "MANUAL") then {
 	switch (_GearSystem) do {
 		case "ACEAR": {
 			private _found = false;
-			private _defaultloadoutsArray = MissionNamespace getvariable ['ace_arsenal_defaultLoadoutsList',[]];
+			private _defaultloadoutsArray = missionNamespace getvariable ['ace_arsenal_defaultLoadoutsList',[]];
 			{
 				_x params ["_name","_loadoutData"];
 				if (_loadoutName isEqualto _name) exitwith {

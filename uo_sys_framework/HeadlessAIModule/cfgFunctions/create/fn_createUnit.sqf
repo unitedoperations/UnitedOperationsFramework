@@ -9,7 +9,7 @@
  *	Author
  *		suits & PiZZADOX
  */
-#include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
+#include "\x\UO_FW\addons\Main\HeadlessAIModule\module_macros.hpp"
 UO_FW_AI_EXEC_CHECK(SERVERHC);
 
 params ["_occupy","_grp","_gpos","_startBld","_i","_u","_taskRadius",["_currentVeh",objNull,[objNull]]];
@@ -40,7 +40,7 @@ params ["_occupy","_grp","_gpos","_startBld","_i","_u","_taskRadius",["_currentV
 		[_unit,_vr,_currentVeh] call UO_FW_AI_fnc_setAssignedVehicle;
 	};
 	if (!isNil "UO_FW_aCount_event_addEH") then { ["UO_FW_aCount_event_addEH", _unit] call CBA_fnc_serverEvent};
-	_unit call UO_FW_FNC_trackUnit;
+	_unit call UO_FW_fnc_trackUnit;
 	if (UO_FW_MACR_MAP_ALL) then {
 		_unit unlinkItem "ItemMap";
 	} else {

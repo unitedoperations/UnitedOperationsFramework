@@ -8,7 +8,7 @@
  */
 
 #define COMPONENT AIDrivers
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
 UO_FW_EXEC_CHECK(ALL);
 
 params ["_veh","_enableNV","_enableFlip"];
@@ -19,7 +19,7 @@ if (_veh getvariable ["UO_FW_hasAIDriverActions",false]) exitwith {};
 //AI driver action
     private _action = ["ai_driver","Add/Remove AI driver","",{
 
-        [_target, _player] call UO_FW_FNC_aiDriversToggle;
+        [_target, _player] call UO_FW_fnc_aiDriversToggle;
     },{
         vehicle _player == _target && ((assignedVehicleRole _player) select 0) == "Turret" && UO_FW_AiDriverVehicle in [objNull, vehicle _player]
     }] call ace_interact_menu_fnc_createAction;
@@ -43,7 +43,7 @@ if (_veh getvariable ["UO_FW_hasAIDriverActions",false]) exitwith {};
 
     //PIP action
     private _pipAction = ["ai_driver_pip","Enable/Disable driver's view","",{
-        (isNil "UO_FW_driverCam" || {isNull UO_FW_driverCam}) call  UO_FW_FNC_aiDriversToggleDriverCam;
+        (isNil "UO_FW_driverCam" || {isNull UO_FW_driverCam}) call  UO_FW_fnc_aiDriversToggleDriverCam;
     },
     {
         vehicle _player == _target && ((assignedVehicleRole _player) select 0) == "Turret" && !isNull (_target getVariable ["UO_FW_aidrivers_driver", objNull])

@@ -3,7 +3,7 @@ class UO_FW_ACRE_Folder {
 	//items[] = {"UO_FW_Blufor_ACRE_Configure","UO_FW_Opfor_ACRE_Configure","UO_FW_Indfor_ACRE_Configure","UO_FW_CIV_ACRE_Configure","UO_FW_ACRE_MainSettings_Configure"};
 	items[] = {"UO_FW_Blufor_ACRE_Configure","UO_FW_Opfor_ACRE_Configure","UO_FW_Indfor_ACRE_Configure","UO_FW_CIV_ACRE_Configure","UO_FW_ACRE_MainSettings_Configure"};
 	//picture = "\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\talk_ca.paa";
-	picture = "x\UO_FW\addons\main\ACREModule\resources\RadioIcon_Radio.paa";
+	picture = "x\UO_FW\addons\Main\ACREModule\resources\RadioIcon_Radio.paa";
 };
 
 class UO_FW_Blufor_ACRE_Configure {

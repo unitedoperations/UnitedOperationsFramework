@@ -8,12 +8,12 @@
  */
 
 #define COMPONENT ShotCount
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
 UO_FW_EXEC_CHECK(ALL);
 
 if !(UO_FW_Server_ShotCountModule_Allowed) exitwith {};
 if (!(missionNamespace getVariable ["UO_FW_ShotCount_Enabled",false])) exitwith {};
-["Shot Count", "Count shots fired by units", "Beta, TinfoilHate, PiZZADOX and Sacher"] call UO_FW_fnc_RegisterModule;
+["UO_FW_RegisterModuleEvent", ["Shot Count", "Count shots fired by units", "Beta, TinfoilHate, PiZZADOX and Sacher"]] call CBA_fnc_globalEvent;
 
 params ["_obj"];
 
@@ -22,7 +22,7 @@ _obj setVariable ["UO_FW_aCount_originalSide",side _obj];
 
 if (_obj isKindOf "Man") then {
 	private _firedEHhandle = _obj addEventHandler ["fired", {
-		if ((isPlayer (_this select 0)) && {MissionNamespace getvariable ["UO_FW_ND_Active",false]}) then {
+		if ((isPlayer (_this select 0)) && {missionNamespace getvariable ["UO_FW_ND_Active",false]}) then {
 			if (((_this select 0) getvariable ["UO_FW_ND_EHid",""]) isEqualto "DISABLED") then {
 				["UO_FW_ShotCount_EH_Event", [side (_this select 0),(_this select 5)]] call CBA_fnc_serverEvent;
 			} else {
@@ -33,7 +33,8 @@ if (_obj isKindOf "Man") then {
 		};
 	}];
 	_obj setVariable ["UO_FW_aCount_firedEh", _firedEHhandle];
-} else {
+};
+if (!(_obj isKindOf "Man") && {(_obj isKindOf "LandVehicle") || (_obj isKindOf "Air") || (_obj isKindOf "Ship_F")}) then {
 	private _firedEHhandle = _obj addEventHandler ["fired",  {
 		["UO_FW_ShotCount_EH_Event", [side (_this select 0),(_this select 5)]] call CBA_fnc_serverEvent;
 	}];

@@ -1,6 +1,6 @@
 //Handles Group States, communications between friendly groups, and command structure
 
-#include "\x\UO_FW\addons\main\HeadlessAIModule\module_macros.hpp"
+#include "\x\UO_FW\addons\Main\HeadlessAIModule\module_macros.hpp"
 UO_FW_AI_EXEC_CHECK(SERVERHC);
 
 UO_FW_AI_GroupArray = [];

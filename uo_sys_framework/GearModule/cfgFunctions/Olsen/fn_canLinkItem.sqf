@@ -14,14 +14,14 @@
  */
 
 #define COMPONENT Gear
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
 UO_FW_EXEC_CHECK(ALL);
 
 private ["_assignedItems", "_result"];
 
 params [
 	["_unit", objNull, [objNull]],
-	["_type", "", [""]]
+	["_Type", "", [""]]
 ];
 
 _assignedItems = [];
@@ -32,6 +32,6 @@ _assignedItems = [];
 
 } forEach (assignedItems _unit);
 
-_result = _type in _assignedItems;
+_result = _Type in _assignedItems;
 
 !_result

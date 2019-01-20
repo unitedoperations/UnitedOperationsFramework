@@ -16,13 +16,13 @@ params ["_unit"];
 
 if (UO_FW_Server_DisconnectModule_Allowed) then {
 	if (missionNamespace getVariable ["UO_FW_DisconnectControl_Enabled",false]) then {
-		[_unit] call UO_FW_FNC_EventDisconnect_BodyCleanup;
+		[_unit] call UO_FW_fnc_EventDisconnect_BodyCleanup;
 	};
 };
 
 if (_unit getVariable ["UO_FW_Tracked", false]) then {
 	{
-		_x params ["", "_side", "_type", "_total", "_current"];
+		_x params ["", "_side", "_Type", "_total", "_current"];
 		if ((_unit getVariable "UO_FW_Side") isEqualto _side) exitWith {
 			if (_unit call UO_FW_fnc_Alive) then {
 				_x set [3, _total - 1];
