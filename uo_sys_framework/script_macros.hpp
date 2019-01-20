@@ -30,6 +30,7 @@ MESSAGE call UO_FW_fnc_DebugMessage
 #define UO_FW_SETVAR(var1,var2,var3) var1 SETVAR_SYS(var2,var3)
 #define UO_FW_SETPLVAR(var1,var2) player SETVAR_SYS(var1,var2)
 #define UO_FW_SETMVAR(var1,var2) missionNamespace SETVAR_SYS(var1,var2)
+#define UO_FW_SETPMVAR(var1,var2) missionNamespace SETPVAR_SYS(var1,var2)
 #define UO_FW_SETPVAR(var1,var2,var3) var1 SETPVAR_SYS(var2,var3)
 #define UO_FW_SETPLPVAR(var1,var2) player SETPVAR_SYS(var1,var2)
 

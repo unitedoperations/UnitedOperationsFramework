@@ -24,7 +24,7 @@ class UO_FW_MapCompassRemoverOptions_AI {
 			displayName = "Remove map after briefing";
 			tooltip = "If ticked the map for the unit will be removed after the briefing is done!";
 			property = "UO_FW_RemoveMapAI";
-			control = "UO_FW_CheckBoxPlayerOnlyCategory";
+			control = "Checkbox";
 			expression = UO_FW_ENTITY_EXPRESSION;
 			condition = "objectControllable";
 			defaultValue = "false";

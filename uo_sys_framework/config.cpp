@@ -170,6 +170,7 @@ class Cfg3DEN {
 			#include "FiremissionModule\cfgAttributeCategories\Object.hpp"
 			#include "HostageModule\cfgAttributeCategories\Object.hpp"
 			#include "CoverMapModule\cfgAttributeCategories\Object.hpp"
+			#include "ObjectSettingsModule\cfgAttributeCategories\Object.hpp"
 		};
 	};
 
