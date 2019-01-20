@@ -27,7 +27,7 @@ if (isServer) then {
 								if ( _distance2DToClosestFiremission > _target distance2D (_x select 1)) then {
 										_distance2DToClosestFiremission = _target distance2D (_x select 1);
 								};
-							}forEach _currentShotTargets;
+							} forEach _currentShotTargets;
 
 							if ((_observer knowsAbout  _target >= _minimumKnowledge) && (_distance2DToClosestFiremission > _minRange) && (((getPosATL _target) select 2) < 10 ) ) then {
 									//we know enough about it
@@ -45,11 +45,11 @@ if (isServer) then {
 												};
 													_freeBattery = _batteries ;
 
-										}forEach _batteries;
+										} forEach _batteries;
 									};
 							};
 					};
-				}forEach _possibleTargets;
+				} forEach _possibleTargets;
 
 
 
@@ -59,7 +59,7 @@ if (isServer) then {
 					if ((_x select 0) getVariable [VAR_SART_ARTINFIREMission,false]) then {
 							_tempAdd pushBack (_x);
 					};
-			}forEach _currentShotTargets;
+			} forEach _currentShotTargets;
 			_currentShotTargets = _tempAdd;
 		};
 	};

@@ -24,5 +24,5 @@ params [
 	private _nearEntities = _pos nearEntities [_Types,_radius];
 	{
 		if ( (side _x) IN _side && (alive _x) ) then { _EnabledEntities set [ count _EnabledEntities, _x] };
-	}forEach _nearEntities;
+	} forEach _nearEntities;
 	_EnabledEntities

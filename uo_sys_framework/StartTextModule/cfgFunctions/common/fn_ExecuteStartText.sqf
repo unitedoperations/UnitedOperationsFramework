@@ -3,10 +3,6 @@
 UO_FW_EXEC_CHECK(ALL);
 
 params ["_startTextArray"];
-private _isValid = _startTextArray call UO_FW_fnc_ValidateStartText;
-if (!_isValid) exitWith {
-	ERROR("Start Text Module Failed to validate!");
-};
 
 private ["_month","_hour","_min"];
 

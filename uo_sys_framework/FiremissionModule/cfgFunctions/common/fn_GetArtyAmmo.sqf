@@ -5,7 +5,7 @@ private _unit =_this;
 	private _possibleMags = getArray (configfile >> "CfgWeapons">>  (((_unit) weaponsTurret [0]) select 0) >> "magazines");
 	{
 		_ret pushBack [_x,0];
-	}forEach _possibleMags;
+	} forEach _possibleMags;
 
 	{
 		_check = _x;
@@ -16,10 +16,10 @@ private _unit =_this;
 				_num = (_check select 1) + (_x select 1);
 				_x set [1,_num];
 			}
-		}forEach _ret;
+		} forEach _ret;
 		if (!_found) then {
 			hint "GetArtyAmmo Error";
 		};
 
-	}forEach _ammo;
+	} forEach _ammo;
 	_ret

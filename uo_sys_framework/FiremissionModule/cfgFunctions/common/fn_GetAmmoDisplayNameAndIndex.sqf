@@ -4,5 +4,5 @@ private _unit =_this;
 	private _possibleMags = getArray (configfile >> "CfgWeapons">>  (((_unit) weaponsTurret [0]) select 0) >> "magazines");
 	{
 		_ret pushBack [_forEachIndex,_x,getText (configfile >> "CfgMagazines">>  _x >> "displayName")];
-	}forEach _possibleMags;
+	} forEach _possibleMags;
 	_ret

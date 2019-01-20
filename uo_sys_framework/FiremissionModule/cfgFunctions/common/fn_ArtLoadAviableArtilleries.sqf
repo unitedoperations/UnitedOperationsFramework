@@ -7,12 +7,12 @@ private _usableGuns = [];
 	if (_x call UO_FW_fnc_IsArtyAviable) then {
 		_usableGuns pushBack _x;
 	};
-}forEach _guns;
+} forEach _guns;
 
 
 lbClear _id;
 {
 	lbAdd [_id,_x call UO_FW_fnc_GetArtyDisplayName];
 
-}forEach _usableGuns;
+} forEach _usableGuns;
 lbSetCurSel [_id,0];

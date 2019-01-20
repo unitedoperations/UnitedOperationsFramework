@@ -293,6 +293,9 @@ class Extended_PreInit_EventHandlers {
 	#include "SelfActionsModule\cfgXEH\PreInit.hpp"
 	#include "MarkerControlModule\cfgXEH\PreInit.hpp"
 	#include "ShotCountModule\cfgXEH\PreInit.hpp"
+	#include "FiremissionModule\cfgXEH\PreInit.hpp"
+	#include "StartInParachuteModule\cfgXEH\PreInit.hpp"
+	#include "StartTextModule\cfgXEH\PreInit.hpp"
 };
 
 class Extended_PostInit_Eventhandlers {

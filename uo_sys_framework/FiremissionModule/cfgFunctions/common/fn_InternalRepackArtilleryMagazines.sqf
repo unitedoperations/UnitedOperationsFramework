@@ -16,4 +16,4 @@ private _unit = _this;
 			};
 			_count = _count - _maxAmmo;
 		};
-	}forEach _ammo;
+	} forEach _ammo;

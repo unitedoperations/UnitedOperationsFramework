@@ -75,14 +75,14 @@ if (!isDedicated) then {
 					_text = ("Stop " + _artyName);
 					_action = ["Stop",_text , "", {(_this select 2) call UO_FW_fnc_StopArtilleryClient; }, {!(( _this select 2) call UO_FW_fnc_IsArtyAviable)},{},_x] call ace_interact_menu_fnc_createAction;
 					[player, 1, ["ACE_SelfActions","Artillery_Menu","StopFiremission"], _action] call ace_interact_menu_fnc_addActionToObject;
-				}forEach _guns;
+				} forEach _guns;
 
 				{
 					_artyName =_x call UO_FW_fnc_GetArtyDisplayName;
 					_text = ("Info " + _artyName);
 					_action = ["Info",_text , "",{hint ((_this select 2) call UO_FW_fnc_GetCompleteInfoText); }, { !((_this select 2) call UO_FW_fnc_IsArtyAviable)},{},_x] call ace_interact_menu_fnc_createAction;
 					[player, 1, ["ACE_SelfActions","Artillery_Menu","FiremissionInformation"], _action] call ace_interact_menu_fnc_addActionToObject;
-				}forEach _guns;
+				} forEach _guns;
 
 				_id = ["Event_ArtyIsReady",
 				{

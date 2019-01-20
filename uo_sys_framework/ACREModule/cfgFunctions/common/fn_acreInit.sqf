@@ -194,7 +194,7 @@ if (hasinterface) then {
 			{
 				_index = _forEachIndex + 1;
 				UO_FW_CURRENTBABEL_LANGUAGES pushBack ["cl" + (str _index),(missionNamespace getVariable [_x,""])];
-			}forEach _names;
+			} forEach _names;
 			["",format ["Acre Babel Lanugages: %1",UO_FW_CURRENTBABEL_LANGUAGES]] call UO_FW_fnc_DebugMessageDetailed;
 			{_x call acre_api_fnc_babelAddLanguageType;} foreach UO_FW_CURRENTBABEL_LANGUAGES;
 
@@ -210,8 +210,8 @@ if (hasinterface) then {
 					if (_language select 1 == missionNamespace getVariable [_x,""] &&  missionNamespace getVariable [_x,""] != "" ) then {
 						UO_FW_ACRE_BLUFOR_BABEL_LANGUAGES pushBack (_language select 0);
 					};
-				}forEach ["UO_FW_ACRE_BLUFOR_BABEL_Custom","UO_FW_ACRE_BLUFOR_BABEL_Custom2"];
-			}forEach UO_FW_CURRENTBABEL_LANGUAGES;
+				} forEach ["UO_FW_ACRE_BLUFOR_BABEL_Custom","UO_FW_ACRE_BLUFOR_BABEL_Custom2"];
+			} forEach UO_FW_CURRENTBABEL_LANGUAGES;
 
 			UO_FW_ACRE_OPFOR_BABEL_LANGUAGES = [];
 			if (UO_FW_ACRE_OPFOR_BABEL_EN) then {UO_FW_ACRE_OPFOR_BABEL_LANGUAGES pushBack "en"; };
@@ -225,8 +225,8 @@ if (hasinterface) then {
 					if (_language select 1 == missionNamespace getVariable [_x,""] &&  missionNamespace getVariable [_x,""] != "" ) then {
 						UO_FW_ACRE_OPFOR_BABEL_LANGUAGES pushBack (_language select 0);
 					};
-				}forEach ["UO_FW_ACRE_OPFOR_BABEL_Custom","UO_FW_ACRE_OPFOR_BABEL_Custom2"];
-			}forEach UO_FW_CURRENTBABEL_LANGUAGES;
+				} forEach ["UO_FW_ACRE_OPFOR_BABEL_Custom","UO_FW_ACRE_OPFOR_BABEL_Custom2"];
+			} forEach UO_FW_CURRENTBABEL_LANGUAGES;
 
 			UO_FW_ACRE_INDEPENDENT_BABEL_LANGUAGES = [];
 			if (UO_FW_ACRE_INDEPENDENT_BABEL_EN) then {UO_FW_ACRE_INDEPENDENT_BABEL_LANGUAGES pushBack "en"; };
@@ -240,8 +240,8 @@ if (hasinterface) then {
 					if (_language select 1 == missionNamespace getVariable [_x,""] &&  missionNamespace getVariable [_x,""] != "" ) then {
 						UO_FW_ACRE_INDEPENDENT_BABEL_LANGUAGES pushBack (_language select 0);
 					};
-				}forEach ["UO_FW_ACRE_INDEPENDENT_BABEL_Custom","UO_FW_ACRE_INDEPENDENT_BABEL_Custom2"];
-			}forEach UO_FW_CURRENTBABEL_LANGUAGES;
+				} forEach ["UO_FW_ACRE_INDEPENDENT_BABEL_Custom","UO_FW_ACRE_INDEPENDENT_BABEL_Custom2"];
+			} forEach UO_FW_CURRENTBABEL_LANGUAGES;
 
 			UO_FW_ACRE_CIVILIAN_BABEL_LANGUAGES = [];
 			if (UO_FW_ACRE_CIVILIAN_BABEL_EN) then {UO_FW_ACRE_CIVILIAN_BABEL_LANGUAGES pushBack "en"; };
@@ -255,8 +255,8 @@ if (hasinterface) then {
 					if (_language select 1 == missionNamespace getVariable [_x,""] &&  missionNamespace getVariable [_x,""] != "" ) then {
 						UO_FW_ACRE_CIVILIAN_BABEL_LANGUAGES pushBack (_language select 0);
 					};
-				}forEach ["UO_FW_ACRE_CIVILIAN_BABEL_Custom","UO_FW_ACRE_CIVILIAN_BABEL_Custom2"];
-			}forEach UO_FW_CURRENTBABEL_LANGUAGES;
+				} forEach ["UO_FW_ACRE_CIVILIAN_BABEL_Custom","UO_FW_ACRE_CIVILIAN_BABEL_Custom2"];
+			} forEach UO_FW_CURRENTBABEL_LANGUAGES;
 
 
 			if (UO_FW_ACRE_BLUFOR_BABEL_Enabled  && (side player == west)) then {

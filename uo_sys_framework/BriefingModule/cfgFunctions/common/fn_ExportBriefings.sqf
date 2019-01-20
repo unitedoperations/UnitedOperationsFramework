@@ -20,7 +20,7 @@ _export = "_briefing = [];" + _br +
 "};" + _br + _br +
 
 
- "switch(side player) do " + _br +
+ "switch (side player) do " + _br +
 "{" + _br +
 "case west:" + _br +
 "{" + _br;

@@ -28,7 +28,7 @@ if (isServer) then {
 		};
 
 
-	}forEach allUnits;
+	} forEach allUnits;
 	{
 		if ((_x getVariable ["UO_FW_ArtilleryEnabled",false])) then {
 			_artilleryFireRate = _x getVariable ["UO_FW_ArtilleryFireRate",1];
@@ -40,7 +40,7 @@ if (isServer) then {
 			_artilleryUnlimitedAmmo = _x getVariable ["UO_FW_ArtilleryUnlimitedAmmo",false];
 			[_x,_artilleryFireRate,_artilleryAccuracy,_artillerySpottingAccuracy,_artilleryAimTime,_artilleryCalculationTime,_artilleryCustomName,_artilleryUnlimitedAmmo] call UO_FW_fnc_SetArtilleryData;
 		};
-	}forEach vehicles;
+	} forEach vehicles;
 	_id = ["CallBracketFiremission", {_this call UO_FW_fnc_DIA_BracketFiremissionFireServer;}] call CBA_fnc_addEventHandler;
 	_id = ["CallPolarSpotting", {_this call UO_FW_fnc_DIA_PolarSpottingFiremissionFireServer;}] call CBA_fnc_addEventHandler;
 	_id = ["CallPointFiremission", {_this call UO_FW_fnc_DIA_PointFiremissionFireServer;}] call CBA_fnc_addEventHandler;
@@ -65,7 +65,7 @@ if (hasInterface) then {
 					UO_FW_DEBUG("Firemission Module",_msg);
 				};
 				_guns pushBackUnique _tempUnit;
-			}forEach (player getVariable ["UO_FW_ArtilleryFOPlayerGuns",[]]);
+			} forEach (player getVariable ["UO_FW_ArtilleryFOPlayerGuns",[]]);
 			private	_allowBracket = player getVariable ["UO_FW_ArtilleryFOPlayerAllowBracketFiremission",false];
 			private	_allowDonut = player getVariable ["UO_FW_ArtilleryFOPlayerAllowDonutFiremission",false];
 			private	_allowGridSpotting = player getVariable ["UO_FW_ArtilleryFOPlayerAllowGridspottingFiremission",false];

@@ -5,7 +5,7 @@ _guns = player getVariable [VAR_SART_OBSGUNS,[]];
 		if (_x call UO_FW_fnc_IsArtyAviable) then {
 			_usableGuns pushBack _x;
 		};
-	}forEach _guns;
+	} forEach _guns;
 	_selectedUnit = objNull;
 	 if ((count _usableGuns) > 0) then { _selectedUnit = (_usableGuns select (lbCurSel POFM_DIA_IDC_GUNSELECT));};
 	_selectedAmmo = lbCurSel POFM_DIA_IDC_SHELLSELECT;

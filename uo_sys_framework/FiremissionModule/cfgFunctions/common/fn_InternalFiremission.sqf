@@ -11,7 +11,7 @@ private	_unit = _this select 0;
 				_hasAmmunition = true;
 				_salvoSize = _salvoSize min (_x select 1);
 		};
-	}forEach (_unit call UO_FW_fnc_GetArtyAmmo);
+	} forEach (_unit call UO_FW_fnc_GetArtyAmmo);
 	if (_hasAmmunition) then {
 		_randomPos = [[[_target, _dispersion]],[]] call BIS_fnc_randomPos;
 		_randomPos =	[[[_randomPos, _unit getVariable[VAR_SART_ARTACCURACY,MEANPlOTTEDACCURACY]]],[]] call BIS_fnc_randomPos;
