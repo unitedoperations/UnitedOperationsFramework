@@ -13,9 +13,9 @@
  * Public: Yes
  */
 
- #define COMPONENT Core
- #include "\x\UO_FW\addons\Main\script_macros.hpp"
- UO_FW_EXEC_CHECK(SERVER);
+#define COMPONENT Core
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
+UO_FW_EXEC_CHECK(SERVER);
 
 params ["_scenario"];
 
@@ -26,7 +26,6 @@ if (CBA_missiontime > ((missionNamespace getvariable ["UO_FW_ConditionDelay",0])
         LOG("Sending ShotcountData");
         [] call UO_FW_fnc_aCount_endCount;
     };
-
     {
         private _team = (_x select 0);
         private _assets = _team call UO_FW_fnc_GetDamagedAssets;
@@ -35,5 +34,5 @@ if (CBA_missiontime > ((missionNamespace getvariable ["UO_FW_ConditionDelay",0])
     } forEach UO_FW_Teams;
     ["UO_FW_EndMission_Event", [_scenario]] call CBA_fnc_globalEvent;
 } else {
-    ["","End Conditions have just been triggered. Mission might need to be ended manually!"] call UO_FW_fnc_DebugMessageDetailed;
+    ERROR("End Conditions have just been triggered. Mission might need to be ended manually!");
 };

@@ -1,5 +1,4 @@
-class UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo: Combo
-{
+class UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo: Combo {
     //save the lbData from the selected entry upon exit
     attributeSave = "\
         private _attProperty = getText (_config >> 'property');\
@@ -75,11 +74,9 @@ class UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo: Combo
             } foreach _defaultloadoutsArray;\
         };\
     ";
-    class Controls: Controls
-    {
+    class Controls: Controls {
         class Title: Title {};
-        class Value: Value
-        {
+        class Value: Value {
             idc=100;
             onLBSelChanged="\
                 _ctrlCombo = _this select 0;\

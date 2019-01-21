@@ -16,8 +16,7 @@ class UO_FW_Gear_ManualGearEditShort: EditShort {
         (_this controlsGroupCtrl 100) ctrlSetText _value;\
     ";
 
-    class Controls: Controls
-    {
+    class Controls: Controls {
         class Title: Title {};
         class Value: Value {
             onKillFocus="\

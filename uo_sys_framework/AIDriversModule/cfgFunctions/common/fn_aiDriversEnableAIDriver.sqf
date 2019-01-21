@@ -15,8 +15,7 @@ params ["_veh","_enableNV","_enableFlip"];
 if (isNil "UO_FW_AiDriverVehicle") then {UO_FW_AiDriverVehicle = objNull;};
 
 if (_veh getvariable ["UO_FW_hasAIDriverActions",false]) exitwith {};
-
-//AI driver action
+    //IGNORE_PRIVATE_WARNING ["_player", "_target"];
     private _action = ["ai_driver","Add/Remove AI driver","",{
 
         [_target, _player] call UO_FW_fnc_aiDriversToggle;

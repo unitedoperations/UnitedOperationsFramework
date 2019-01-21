@@ -1,9 +1,11 @@
+//private _respawnSystemTypeArray = [['None',0],['Unlimited',1],['Individual Tickets',2],['Team Tickets',3],['Wave',4],['Triggered',5]];
+
 #define UO_FW_RESPAWN_COMBO_ATTR_LOAD(VALUEVAR,CFGVAR) \
 attributeLoad = "\
     private _ctrlCombo = (_this controlsGroupCtrl 100);\
     missionNamespace setvariable ['##VALUEVAR##',_value];\
     missionNamespace setvariable ['##CFGVAR##',_config];\
-    private _respawnSystemTypeArray = [['None',0],['Unlimited',1],['Individual Tickets',2],['Team Tickets',3],['Wave',4],['Triggered',5]];\
+    private _respawnSystemTypeArray = [['None',0],['Unlimited',1],['Individual Tickets',2],['Team Tickets',3]];\
     {\
         _x params ['_name','_number'];\
         private _index = _ctrlCombo lbadd _name;\
@@ -37,10 +39,10 @@ onLoad = "\
         private _ctrlGroup = ctrlParentControlsGroup ctrlParentControlsGroup _ctrlCombo;\
         _n = 0;\
         {\
-            if (ctrlParentControlsGroup _x == _ctrlGroup) then {\
+            if (ctrlParentControlsGroup _x isEqualto _ctrlGroup) then {\
                 _cfg = _cfgAttributes select _n;\
                 _respawnTypes = getarray (_cfg >> 'respawnTypes');\
-                _state = ((count _respawnTypes == 0) || (_respawnType in _respawnTypes));\
+                _state = ((_respawnTypes isEqualto []) || (_respawnType in _respawnTypes));\
                 _fade = [0.75,0] select _state;\
                 _n = _n + 1;\
                 _x ctrlenable _state;\
@@ -83,6 +85,9 @@ onLBSelChanged = "\
     };\
 "
 
+//getarray (configfile >> 'UO_FW_RespawnTemplates' >> 'respawnTemplatesWave'),
+//getarray (configfile >> 'UO_FW_RespawnTemplates' >> 'respawnTemplatesTriggered')
+
 #define UO_FW_RESPAWN_TEMPLATES_ATTR_LOAD(VALUEVAR) \
 attributeLoad = "\
     private _selectedRespawnType = missionNamespace getvariable ['##VALUEVAR##',0];\
@@ -92,9 +97,7 @@ attributeLoad = "\
         getarray (configfile >> 'UO_FW_RespawnTemplates' >> 'respawnTemplatesNone'),\
         getarray (configfile >> 'UO_FW_RespawnTemplates' >> 'respawnTemplatesUnlimited'),\
         getarray (configfile >> 'UO_FW_RespawnTemplates' >> 'respawnTemplatesIndTick'),\
-        getarray (configfile >> 'UO_FW_RespawnTemplates' >> 'respawnTemplatesTeamTick'),\
-        getarray (configfile >> 'UO_FW_RespawnTemplates' >> 'respawnTemplatesWave'),\
-        getarray (configfile >> 'UO_FW_RespawnTemplates' >> 'respawnTemplatesTriggered')\
+        getarray (configfile >> 'UO_FW_RespawnTemplates' >> 'respawnTemplatesTeamTick')\
     ];\
     private _isDefault = _value isequalto [''];\
     {\
@@ -104,15 +107,15 @@ attributeLoad = "\
         {\
             private _respawnType = _x;\
             private _ctrlListbox = _this controlsGroupCtrl (100 + _respawnType);\
-            private _selected = if ((_respawnType == _selectedRespawnType) && {!_isDefault}) then {\
+            private _selected = if ((_respawnType isEqualto _selectedRespawnType) && {!_isDefault}) then {\
                 _value\
             } else {\
                 _defaultTemplates select _respawnType\
             };\
-            if ((_scope > 1) && {(count _respawnTypes == 0) || _respawnType in _respawnTypes}) then {\
+            if ((_scope > 1) && {(_respawnTypes isEqualto []) || _respawnType in _respawnTypes}) then {\
                 private _data = configname _cfgTemplate;\
                 private _name = gettext (_cfgTemplate >> 'displayName');\
-                if (_name == '') then {_name = _data};\
+                if (_name isEqualto '') then {_name = _data};\
                 private _lbAdd = _ctrlListbox lbadd _name;\
                 _ctrlListbox lbsetdata [_lbAdd,_data];\
                 private _active = _data in _selected;\
@@ -123,7 +126,7 @@ attributeLoad = "\
     } foreach configproperties [configfile >> 'UO_FW_RespawnTemplates','isclass _x'];\
     {\
         private _ctrlListbox = _this controlsGroupCtrl (100 + _x);\
-        _ctrlListbox ctrlshow (_x == _selectedRespawnType);\
+        _ctrlListbox ctrlshow (_x isEqualto _selectedRespawnType);\
         lbsort _ctrlListbox;\
     } foreach [0,1,2,3,4,5];\
 "
@@ -135,7 +138,9 @@ attributeSave = "\
         _ctrlListbox = _this controlsGroupCtrl (100 + _x);\
         if (ctrlshown _ctrlListbox) exitwith {\
             for '_i' from 0 to (lbsize _ctrlListbox - 1) do {\
-                if (_ctrlListbox lbvalue _i > 0) then {_value pushback (_ctrlListbox lbdata _i);};\
+                if (_ctrlListbox lbvalue _i > 0) then {\
+                    _value pushback (_ctrlListbox lbdata _i);\
+                };\
             };\
         };\
     } foreach [0,1,2,3,4,5];\
@@ -163,7 +168,7 @@ _ctrl = _this select 0;\
     _selectedRespawnType = missionNamespace getvariable [_valueVar,0];\
     {\
         _ctrlListbox = _ctrlGroup controlsGroupCtrl (100 + _x);\
-        _ctrlListbox ctrlshow (_x == _selectedRespawnType);\
+        _ctrlListbox ctrlshow (_x isEqualto _selectedRespawnType);\
     } foreach [0,1,2,3,4,5];\
 }, [_ctrl,'##VALUEVAR##']] call CBA_fnc_waitUntilAndExecute;\
 "

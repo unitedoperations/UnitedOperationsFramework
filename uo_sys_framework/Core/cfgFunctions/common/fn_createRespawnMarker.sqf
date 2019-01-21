@@ -12,7 +12,11 @@
  * Public: No
  */
 
-private _team = _this;
+#define COMPONENT Core
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
+UO_FW_EXEC_CHECK(ALL);
+
+params ["_team"];
 
 private _markerName = format ["respawn_%1", _team];
 

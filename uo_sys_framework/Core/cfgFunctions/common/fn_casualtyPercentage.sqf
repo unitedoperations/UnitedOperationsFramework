@@ -12,19 +12,16 @@
  * Public: Yes
  */
 
+#define COMPONENT Core
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
+UO_FW_EXEC_CHECK(ALL);
 
-private _team = _this;
-
+params ["_team"];
 private _count = 0;
-
 private _start = [_team, 3] call UO_FW_fnc_GetTeamVariable;
 private _current = [_team, 4] call UO_FW_fnc_GetTeamVariable;
-
-if (_start == 0) then {
-
-    private _tempText = format ["Casualty count:<br></br>Warning no units on team ""%1"".", _team];
-    UO_FW_DEBUG(_tempText,_tempText);
+if (_start isEqualto 0) then {
+    ERROR_1("Casualty count:<br></br>Warning no units on team ""%1"".", _team);
 } else {
     _count = (_start - _current) / (_start * 0.01);
 };

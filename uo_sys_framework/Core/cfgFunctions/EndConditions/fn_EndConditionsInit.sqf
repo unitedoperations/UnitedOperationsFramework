@@ -25,7 +25,7 @@ if (_frequency < 30) then {
         if (UO_FW_Timelimit > 0) then {
             LOG_1("checking timelimit: %1",UO_FW_Timelimit);
             LOG_1("checking timelimit message: %1",UO_FW_Timelimit_Message);
-            private _timeLimitPFHhandle = [{
+            [{
                 params ["_argNested", "_idPFH"];
                 _argNested params ["_timelimit","_message","_lastCheckedTime"];
                 private _timeDifference = (CBA_missionTime - _lastCheckedTime);
@@ -49,7 +49,7 @@ if (_frequency < 30) then {
         if !(UO_FW_EndConditions_File_Path isEqualto "") then {
             [_frequency] spawn {
                 params ["_frequency"];
-                _endScript = (compile preprocessFileLineNumbers UO_FW_EndConditions_File_Path);
+                private _endScript = (compile preprocessFileLineNumbers UO_FW_EndConditions_File_Path);
                 while {!UO_FW_MissionEnded} do {
                     sleep _frequency;
                     [] call _endScript;

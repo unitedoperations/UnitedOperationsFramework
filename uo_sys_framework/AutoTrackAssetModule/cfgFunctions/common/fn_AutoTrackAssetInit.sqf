@@ -17,7 +17,7 @@ params ["_vehicle"];
                     if (_side isEqualto (side _vehicle)) exitWith {
                         private _vehCfg = (configFile >> "CfgVehicles" >> (typeOf _vehicle));
                         if (isText(_vehCfg >> "displayName")) then {
-                            [_vehicle, getText(_vehCfg >> "displayName"), _name] call UO_FW_fnc_TrackAsset;
+                            ["UO_FW_TrackAsset_Event",[_vehicle, getText(_vehCfg >> "displayName"), _name]] call CBA_fnc_serverEvent;
                         };
                     };
                 } forEach UO_FW_Teams;

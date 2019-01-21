@@ -12,9 +12,9 @@
  *    Author
  *        lecks
  */
- #include "\x\UO_FW\addons\Main\HeadlessAIModule\module_macros.hpp"
- UO_FW_AI_EXEC_CHECK(SERVERHC);
- 
+#include "\x\UO_FW\addons\Main\HeadlessAIModule\module_macros.hpp"
+ UO_FW_AI_EXEC_CHECK(ALL);
+
     params ["_object", "_addActionParams", ["_distance",3,[1]], ["_pos", [0,0,0], [[]], [2,3]], ["_actionName", "", [""]], ["_actionType",0,[0]], ["_subMenu",[],[[]]]];
     _addActionParams params [["_actionText", "", [""]], ["_action", "", ["",{}]], ["_params", []],"_none","_none","_none","_none",["_condition", "true", ["",{}]]];
     if ((typename _action) == "STRING") then { _action = call compile format["{%1}",_action]; };

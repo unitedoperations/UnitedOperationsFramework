@@ -11,7 +11,7 @@ UO_FW_AI_EXEC_CHECK(SERVERHC);
     params ["_obj",["_pos",[],[[]]]];
     private _unitInit = _obj getVariable ["UO_FW_AI_unitInit",""];
     if (typename _unitInit isEqualTo "STRING") then {_unitInit = compile _unitInit;};
-    if (_pos isEqualTo [])then{_pos = (getposATL _obj)};
+    if (_pos isEqualTo []) then {_pos = (getposATL _obj)};
     private _return = [
         typeOf _obj, 
         _pos, 

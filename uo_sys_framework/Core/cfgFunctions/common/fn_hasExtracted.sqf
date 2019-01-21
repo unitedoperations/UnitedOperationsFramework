@@ -15,18 +15,22 @@
  * Public: Yes
  */
 
+#define COMPONENT Core
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
+UO_FW_EXEC_CHECK(ALL);
+
 params [["_team", "", [""]],
     ["_marker", "", [""]],
     ["_ratio", 1, [0]]
 ];
 private _side = [_team, 1] call UO_FW_fnc_getTeamVariable;
 private _count = {
-    (side _x == _side) && (_x inArea _marker)
+    (side _x isEqualto _side) && {(_x inArea _marker)}
 } count allUnits;
 
 private _result = false;
 if (_count >= _ratio * ([_team, 4] call UO_FW_fnc_getTeamVariable)) then {
-    if (!isNil "UO_FW_hasDeparted" && {UO_FW_hasDeparted}) then {
+    if (UO_FW_GETMVAR(UO_FW_hasDeparted,false)) then {
         _result = true;
     };
 } else {

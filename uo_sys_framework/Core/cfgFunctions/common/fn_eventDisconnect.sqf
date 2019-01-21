@@ -12,10 +12,14 @@
  * Public: No
  */
 
+#define COMPONENT Core
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
+UO_FW_EXEC_CHECK(SERVER);
+
 params ["_unit"];
 
 if (UO_FW_Server_DisconnectModule_Allowed) then {
-    if (missionNamespace getVariable ["UO_FW_DisconnectControl_Enabled",false]) then {
+    if (UO_FW_GETMVAR(UO_FW_DisconnectControl_Enabled,false)) then {
         [_unit] call UO_FW_fnc_EventDisconnect_BodyCleanup;
     };
 };

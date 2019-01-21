@@ -12,14 +12,14 @@ UO_FW_AI_EXEC_CHECK(SERVERHC);
 
 params ["_pos","_veh","_side"];
     _veh params ["_uv","_uc","_vpos","_vcd","_vcu","_dmg","_f","_a","_vlc","_vw","_name","_per","_init","_fly","_flyInHeight"];
-    private _flying = if (_fly && (_uc isKindOf "Air")) then {"FLY"}else{"NONE"};
-    if (_flying == "FLY")then {
+    private _flying = if (_fly && (_uc isKindOf "Air")) then {"FLY"} else {"NONE"};
+    if (_flying == "FLY") then {
         _pos = ([_pos select 0, _pos select 1, _flyInHeight] vectorAdd [0,0,150]);
     };
     private _v = createVehicle [_uc, _pos,[],0,_flying];
     _v setVectorDirAndUp [_vcd,_vcu];
     _v setPosATL _pos;
-    if (_fly)then {
+    if (_fly) then {
         _v FlyInHeight _flyInHeight;
         _v setVelocity [((velocity _v) select 0) + (sin (getDir _v) * 80),((velocity _v) select 1) + (cos (getDir _v) * 80),((velocity _v) select 2)];
     };
@@ -34,7 +34,7 @@ params ["_pos","_veh","_side"];
         missionNamespace setVariable[_name, _v];
     };
     if (UO_FW_AutoTrackAsset_Enabled) then {
-        _team = "";
+        private _team = "";
         switch (_side) do {
             case west: {_team = UO_FW_TeamSetting_Blufor_TeamName};
             case east: {_team = UO_FW_TeamSetting_Opfor_TeamName};
@@ -42,9 +42,9 @@ params ["_pos","_veh","_side"];
             case civilian: {_team = UO_FW_TeamSetting_Civ_TeamName};
         };
         if (!(_team isEqualto "")) then {
-            _vehCfg = (configFile >> "CfgVehicles" >> (typeOf _v));
+            private _vehCfg = (configFile >> "CfgVehicles" >> (typeOf _v));
             if (isText(_vehCfg >> "displayName")) then {
-                [_v, getText(_vehCfg >> "displayName"), _team] call UO_FW_fnc_TrackAsset;
+                ["UO_FW_TrackAsset_Event",[_v, getText(_vehCfg >> "displayName"), _team]] call CBA_fnc_serverEvent;
             };
         };
     };

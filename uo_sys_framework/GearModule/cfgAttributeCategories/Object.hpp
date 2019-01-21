@@ -1,9 +1,7 @@
-class UO_FW_Gear
-{
+class UO_FW_Gear {
     displayName = "Gear Options";
     collapsed = 1;
-    class Attributes
-    {
+    class Attributes {
         class UO_FW_Gear_UnitSystemType {
             displayName = "Gear System Type";
             tooltip = "Set the gear system type for the unit.";

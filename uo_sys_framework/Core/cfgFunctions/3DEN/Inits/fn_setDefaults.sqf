@@ -12,7 +12,7 @@
 
 LOG("setDefaultsCalled");
 
-if (!(getMissionConfigValue ["UO_FW_Enabled",false])) exitWith {};
+if !(UO_FW_GETMVALUE(UO_FW_Enabled,false)) exitWith {};
 if (!UO_FW_Server_Framework_Allowed) exitWith {};
 
 private _sections = "!(((str(configname _x)) find 'UO_FW') isEqualto -1)" configClasses (Configfile >> "Cfg3DEN" >> "Mission");

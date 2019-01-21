@@ -14,6 +14,10 @@
  * Public: No
  */
 
+#define COMPONENT Core
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
+UO_FW_EXEC_CHECK(ALL);
+
 params [
     ["_team", "", [""]],
     ["_index", 0, [0]],
@@ -21,17 +25,11 @@ params [
 ];
 
 private _return = false;
-
 {
-
     if ((_x select 0) == _team) exitWith {
-
         _x set [_index, _value];
-
         _return = true;
-
     };
-
 } forEach UO_FW_Teams;
 
 _return
