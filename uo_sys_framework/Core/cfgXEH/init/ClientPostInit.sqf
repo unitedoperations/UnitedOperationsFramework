@@ -17,7 +17,9 @@ if (hasInterface) then {
 
     [{!(isNull player)}, {
         //Global client init including JiPs
-        ["UO_FW_RegisterFrameworkEvent", []] call CBA_fnc_localEvent;
+        [{
+            ["UO_FW_RegisterFrameworkEvent", []] call CBA_fnc_localEvent;
+        }, [], 2] call CBA_fnc_WaitAndExecute;
 
         if (didJIP && {CBA_missionTime > (UO_FW_GETMVAR(UO_FW_JIP_DENYTIME,300))}) exitwith {
             ["UO_FW_JIP_PlayerEvent", []] call CBA_fnc_localEvent;
