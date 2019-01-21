@@ -15,8 +15,8 @@ if ((vehicle _Unit) != _Unit) exitWith {};
 _Unit setUnitPos "DOWN";_Unit spawn {sleep 30; _this setUnitPos "MIDDLE";sleep 30;_this setUnitPos "AUTO";};
 
 if ((random 100) < 5) then {
-	_unit setUnconscious true;
-	_unit spawn {sleep 15;_this setUnconscious false;};
+    _unit setUnconscious true;
+    _unit spawn {sleep 15;_this setUnconscious false;};
 };
 
 //[_Unit,false,false,false,false] spawn UO_FW_AI_fnc_MoveToCover;

@@ -13,16 +13,8 @@
  * Public: Yes
  */
 
+#define COMPONENT Core
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
+UO_FW_EXEC_CHECK(ALL);
 
-if (!isServer) exitwith {_this remoteExec ["UO_FW_fnc_notTrackUnit",2];};
-
-UO_FW_EXEC_CHECK(SERVER);
-
-private _unit = _this;
-
-if (isServer) then {
-
-	_unit setVariable ["UO_FW_DontTrack", true];
-
-};
+["UO_FW_NotTrack_Event", []] call CBA_fnc_serverEvent;

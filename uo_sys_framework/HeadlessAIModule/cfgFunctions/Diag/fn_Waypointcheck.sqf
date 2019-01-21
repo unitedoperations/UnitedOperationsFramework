@@ -7,7 +7,7 @@ _WaypointsToIncriminate = [];
 _index = currentWaypoint _GroupToInspect;
 _WaypointIs = waypointType [_GroupToInspect,_index];
 {
-	if (_WaypointIs isEqualTo _x) then {_WaypointsToIncriminate pushback _x};
+    if (_WaypointIs isEqualTo _x) then {_WaypointsToIncriminate pushback _x};
 } foreach ["HOLD","GUARD","UNLOAD","LOAD","TR UNLOAD","SENTRY","DESTROY"];
 
 

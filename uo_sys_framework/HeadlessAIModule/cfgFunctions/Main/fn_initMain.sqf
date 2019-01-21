@@ -5,7 +5,8 @@ if (!(getMissionConfigValue ["UO_FW_AI_Enabled",false])) exitWith {};
 
 LOG("running fn_initMain");
 
-["Headless AI", "Custom AI Scripts and spawning modules for AI", "PiZZADOX"] call UO_FW_fnc_RegisterModule;
+["UO_FW_RegisterModuleEvent", ["Headless AI", "Custom AI Scripts and spawning modules for AI", "PiZZADOX"]] call CBA_fnc_globalEvent;
+
 
 UO_FW_AI_MARKERARRAY = [];
 UO_FW_AI_UnitQueue = [];
@@ -109,21 +110,21 @@ UO_FW_AI_FORCETIME_TIME = 12;
 
 //marker function
 if (UO_FW_AI_MARKERS_Enabled) then {
-	[] spawn UO_FW_AI_fnc_MapMarkers;
+    [] spawn UO_FW_AI_fnc_MapMarkers;
 };
 
 if ((!hasinterface) && (!isDedicated)) then {
-	setViewDistance (missionNamespace getvariable ["UO_FW_AI_ViewDistance",2500]);
+    setViewDistance (missionNamespace getvariable ["UO_FW_AI_ViewDistance",2500]);
 
-	if (UO_FW_AI_FORCETIME_Enabled) then {
-		[] spawn {
-			waituntil {time > 1};
-			while {true} do {
-				sleep 2;
-				skiptime ((missionNamespace getvariable ["UO_FW_AI_FORCETIME_TIME",daytime]) / 3600) - (daytime);
-			};
-		};
-	};
+    if (UO_FW_AI_FORCETIME_Enabled) then {
+        [] spawn {
+            waituntil {CBA_missionTime > 1};
+            while {true} do {
+                sleep 2;
+                skiptime ((missionNamespace getvariable ["UO_FW_AI_FORCETIME_TIME",daytime]) / 3600) - (daytime);
+            };
+        };
+    };
 };
 
 UO_FW_AI_InitMainInitialized = true;

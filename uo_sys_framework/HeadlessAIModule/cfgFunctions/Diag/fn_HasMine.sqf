@@ -10,19 +10,19 @@ private _ActualObj = [];
 private _SatchelArray = [];
 
 {
-	private _Magazine = _x select 0;
-	private _value = (configfile >> "CfgMagazines" >> _Magazine >> "nameSound") call BIS_fnc_getCfgData;
+    private _Magazine = _x select 0;
+    private _value = (configfile >> "CfgMagazines" >> _Magazine >> "nameSound") call BIS_fnc_getCfgData;
 
-	if (_value isEqualTo "satchelcharge") then  {
+    if (_value isEqualTo "satchelcharge") then  {
 
-		_SatchelArray pushback [((configfile >> "CfgMagazines" >> _Magazine >> "ammo") call BIS_fnc_getCfgData),_Magazine];
-		_UO_FW_AI_HASSATCHEL = true;
+        _SatchelArray pushback [((configfile >> "CfgMagazines" >> _Magazine >> "ammo") call BIS_fnc_getCfgData),_Magazine];
+        _UO_FW_AI_HASSATCHEL = true;
 
-	};
-	if (_value isEqualTo "mine") then {
-		_UO_FW_AI_HasMine = true;
-		_ActualObj pushback [((configfile >> "CfgMagazines" >> _Magazine >> "ammo") call BIS_fnc_getCfgData),_Magazine];
-	};
+    };
+    if (_value isEqualTo "mine") then {
+        _UO_FW_AI_HasMine = true;
+        _ActualObj pushback [((configfile >> "CfgMagazines" >> _Magazine >> "ammo") call BIS_fnc_getCfgData),_Magazine];
+    };
 
 
 } forEach _magazinesAmmo;

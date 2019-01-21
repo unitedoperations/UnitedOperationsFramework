@@ -7,34 +7,34 @@ class UO_FW_MissionNotes {
             displayName = "Enable Mission Notes";
             tooltip = "Enables Mission Notes";
             control = "CheckboxState";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "false";
 
         };
-		class UO_FW_Briefing_MissionNotes_Author {
+        class UO_FW_Briefing_MissionNotes_Author {
             property = "UO_FW_Briefing_MissionNotes_Author";
             displayName = "Mission Author";
             tooltip = "Mission Author";
             control = "EditShort";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "profileNameSteam";
 
         };
-		class UO_FW_Briefing_MissionNotes_Testers {
+        class UO_FW_Briefing_MissionNotes_Testers {
             property = "UO_FW_Briefing_MissionNotes_Testers";
             displayName = "Mission Testers and Additional Credit";
             tooltip = "Mission Testers and Additional Credit";
             control = "Edit";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
 
         };
-		class UO_FW_Briefing_MissionNotes_Conditions {
+        class UO_FW_Briefing_MissionNotes_Conditions {
             property = "UO_FW_Briefing_MissionNotes_Conditions";
             displayName = "End Conditions";
             tooltip = "Describe the specific end conditions for the mission here";
             control = "EditMulti5";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
 
         };
@@ -43,7 +43,7 @@ class UO_FW_MissionNotes {
             displayName = "Mission Specific Notes";
             tooltip = "Put any special notes for the mission in here";
             control = "EditMulti5";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
 
         };
@@ -52,16 +52,16 @@ class UO_FW_MissionNotes {
             displayName = "Mission Changelog";
             tooltip = "Put any changes for the mission in here(Bugfixes and such)";
             control = "EditMulti5";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
 
         };
-		class UO_FW_Briefing_MissionNotes_GM {
+        class UO_FW_Briefing_MissionNotes_GM {
             property = "UO_FW_Briefing_MissionNotes_GM";
             displayName = "Allow Game Mastering";
             tooltip = "Allow Game Mastering";
             control = "CheckBox";
-            expression = "missionNamespace setVariable ['%s', _value];";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "false";
 
         };

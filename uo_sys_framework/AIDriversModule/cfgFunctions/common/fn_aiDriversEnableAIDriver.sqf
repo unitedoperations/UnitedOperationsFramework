@@ -1,10 +1,10 @@
-/*	Description: Gives AI Driver actions to vehicle
- *	Arguments:
- * 		OBJECT - vehicle
- *	Return Value:
- * 		ARRAY
- *	Author
- *		BlackHawk & PiZZADOX
+/*    Description: Gives AI Driver actions to vehicle
+ *    Arguments:
+ *         OBJECT - vehicle
+ *    Return Value:
+ *         ARRAY
+ *    Author
+ *        BlackHawk & PiZZADOX
  */
 
 #define COMPONENT AIDrivers
@@ -15,11 +15,10 @@ params ["_veh","_enableNV","_enableFlip"];
 if (isNil "UO_FW_AiDriverVehicle") then {UO_FW_AiDriverVehicle = objNull;};
 
 if (_veh getvariable ["UO_FW_hasAIDriverActions",false]) exitwith {};
-
-//AI driver action
+    //IGNORE_PRIVATE_WARNING ["_player", "_target"];
     private _action = ["ai_driver","Add/Remove AI driver","",{
 
-        [_target, _player] call UO_FW_FNC_aiDriversToggle;
+        [_target, _player] call UO_FW_fnc_aiDriversToggle;
     },{
         vehicle _player == _target && ((assignedVehicleRole _player) select 0) == "Turret" && UO_FW_AiDriverVehicle in [objNull, vehicle _player]
     }] call ace_interact_menu_fnc_createAction;
@@ -43,7 +42,7 @@ if (_veh getvariable ["UO_FW_hasAIDriverActions",false]) exitwith {};
 
     //PIP action
     private _pipAction = ["ai_driver_pip","Enable/Disable driver's view","",{
-        (isNil "UO_FW_driverCam" || {isNull UO_FW_driverCam}) call  UO_FW_FNC_aiDriversToggleDriverCam;
+        (isNil "UO_FW_driverCam" || {isNull UO_FW_driverCam}) call  UO_FW_fnc_aiDriversToggleDriverCam;
     },
     {
         vehicle _player == _target && ((assignedVehicleRole _player) select 0) == "Turret" && !isNull (_target getVariable ["UO_FW_aidrivers_driver", objNull])
@@ -68,11 +67,11 @@ if (_veh getvariable ["UO_FW_hasAIDriverActions",false]) exitwith {};
         [_veh, 1, ["ACE_SelfActions"], _pipAction] call ace_interact_menu_fnc_addActionToObject;
 
 if ( _enableFlip) then {
-	[_veh, 1, ["ACE_SelfActions"], _unflipAction] call ace_interact_menu_fnc_addActionToObject;
+    [_veh, 1, ["ACE_SelfActions"], _unflipAction] call ace_interact_menu_fnc_addActionToObject;
 };
 
 if (_enableNV ) then {
-	[_veh, 1, ["ACE_SelfActions"], _pipNvAction] call ace_interact_menu_fnc_addActionToObject;
+    [_veh, 1, ["ACE_SelfActions"], _pipNvAction] call ace_interact_menu_fnc_addActionToObject;
 };
 
 _veh setvariable ["UO_FW_hasAIDriverActions",true,true];
