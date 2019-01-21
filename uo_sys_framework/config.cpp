@@ -36,7 +36,6 @@ class CfgFunctions {
 		#include "BriefingModule\cfgFunctions.hpp"
 		#include "ShotCountModule\cfgFunctions.hpp"
 		#include "AIDriversModule\cfgFunctions.hpp"
-		#include "ACREModule\cfgFunctions.hpp"
 		#include "GearModule\cfgFunctions.hpp"
 		#include "AOLimitModule\cfgFunctions.hpp"
 		#include "SetupTimerModule\cfgFunctions.hpp"
