@@ -160,8 +160,9 @@ Press <t color='#FFA500'>SHIFT</t>, <t color='#FFA500'>ALT</t> or <t color='#FFA
 Spectator controls can be customized in game <t color='#FFA500'>options->controls->'Camera'</t> tab.</t>", _killcam_msg];
 [_text, 0.55, 0.8, 20, 1] spawn BIS_fnc_dynamicText;
 
-player setVariable ["UO_FW_Spectating", true, true];
+UO_FW_SETPLPVAR(UO_FW_Spectating,true);
 
+[{(UO_FW_GETPLVAR(UO_FW_Spectating,false))},{
 UO_FW_Spectate_PFH = [{
     params ["","_idPFH"];
     player setOxygenRemaining 1;
@@ -170,3 +171,4 @@ UO_FW_Spectate_PFH = [{
         [_idPFH] call CBA_fnc_removePerFrameHandler;
     };
 }, 5, []] call CBA_fnc_addPerFrameHandler;
+}, []] call CBA_fnc_WaitUntilAndExecute;

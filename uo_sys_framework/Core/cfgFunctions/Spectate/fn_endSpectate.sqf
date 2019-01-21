@@ -12,7 +12,9 @@ player allowdamage true;
 [player, true] remoteExec ["allowdamage", 2];
 player call UO_FW_fnc_RemoveAllGear;
 [false] call acre_api_fnc_setSpectator;
-(findDisplay 46) displayRemoveEventHandler ["keyDown",UO_FW_EG_keyHandle46];
+if (!isNil "UO_FW_EG_keyHandle46") then {
+    (findDisplay 46) displayRemoveEventHandler ["keyDown",UO_FW_EG_keyHandle46];
+};
 
 ["Terminate"] call BIS_fnc_EGSpectator;
 
