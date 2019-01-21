@@ -18,19 +18,19 @@
 UO_FW_EXEC_CHECK(ALL);
 
 params [
-    ["_weapon", "", [""]],
-    ["_item", "", [""]]
+	["_weapon", "", [""]],
+	["_item", "", [""]]
 ];
 
 private _result = false;
 
 {
 
-    if (_item == _x) exitWith {
+	if (_item == _x) exitWith {
 
-        _result = true;
+		_result = true;
 
-    };
+	};
 
 } forEach ([_weapon] call BIS_fnc_compatibleItems);
 

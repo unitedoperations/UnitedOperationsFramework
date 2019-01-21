@@ -47,13 +47,10 @@ class UO_FW_Core_Common {
     class getTeamVariable {};
     class hasEmptyPositions {};
     class hasExtracted {};
-    class notTrackUnit {};
     class randomRange {};
     class setTeamVariable {};
     class spawnAI {};
     class spawnVehicle {};
-    class spectateCheck {};
-    class spectatePrep {};
     class stackNames {};
 };
 
@@ -67,6 +64,11 @@ class UO_FW_Core_JIP {
 class UO_FW_Core_EndConditions {
     file = "x\UO_FW\addons\Main\Core\cfgFunctions\EndConditions";
     class EndConditionsInit {};
+};
+
+class UO_FW_Core_EndScreen {
+    file = "x\UO_FW\addons\Main\Core\cfgFunctions\EndScreen";
+    class EndScreen {};
 };
 
 class UO_FW_Core_Spectate {

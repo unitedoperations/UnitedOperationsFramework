@@ -22,7 +22,7 @@ params ["_unit"];
 
 removeHeadgear _unit;
 if ((!isPlayer _unit) || {!((goggles _unit) in WHITELIST)} || {(missionNamespace getVariable ["UO_FW_Gear_Olsen_FaceRemovalEnabled",false])}) then {
-    removeGoggles _unit;
+	removeGoggles _unit;
 };
 removeVest _unit;
 removeBackpack _unit;

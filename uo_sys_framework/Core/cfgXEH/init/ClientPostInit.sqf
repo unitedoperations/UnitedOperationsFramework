@@ -9,7 +9,7 @@ if (hasInterface) then {
 
     ["endMission", {
         private _msg = "Mission ended by admin";
-        if (count (_this select 0) > 0) then {
+        if ((_this select 0) isEqualto []) then {
             _msg = _msg + ": " + (_this select 0);
         };
         _msg call UO_FW_fnc_EndMission;

@@ -31,27 +31,27 @@ if !([_item] call UO_FW_fnc_checkClassname) exitWith {};
 
 if (count _this > 3) then {
 
-    _amount = _this select 3;
+	_amount = _this select 3;
 
 };
 
 for "_x" from 1 to _amount do {
 
-    if (_vehicle canAdd _item) then {
+	if (_vehicle canAdd _item) then {
 
-        if (_Type == "backpack") then {
+		if (_Type == "backpack") then {
 
-            _vehicle addBackpackCargoGlobal [_item, 1];
+			_vehicle addBackpackCargoGlobal [_item, 1];
 
-        } else {
+		} else {
 
-            _vehicle addItemCargoGlobal [_item, 1];
+			_vehicle addItemCargoGlobal [_item, 1];
 
-        };
+		};
 
-    } else {
+	} else {
 
-        (format ["UO_FW_fnc_AddItemVehicle: Warning couldn't fit %1, in %2, case %3", _item, _vehicle, _loadoutType]) call UO_FW_fnc_DebugMessage;
+		(format ["UO_FW_fnc_AddItemVehicle: Warning couldn't fit %1, in %2, case %3", _item, _vehicle, _loadoutType]) call UO_FW_fnc_DebugMessage;
 
-    };
+	};
 };
