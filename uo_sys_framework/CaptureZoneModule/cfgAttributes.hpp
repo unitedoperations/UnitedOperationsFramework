@@ -1,0 +1,1 @@
+#include "CfgAttributes\TeamCaptureAttribute.hpp"

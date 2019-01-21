@@ -1,0 +1,16 @@
+========================================================================
+
+    Module: AI Link
+    Author: TinfoilHate & Sacher
+    Date Created: ?
+    Date Last Updated: ?
+
+    Description: Shares targeting information between AI groups based on radios.
+
+    Uses 3DEN Menu: Yes
+    Uses 3DEN Module: No
+    Uses PreInit Function: No
+    Uses PostInit Function: Yes
+
+
+========================================================================
