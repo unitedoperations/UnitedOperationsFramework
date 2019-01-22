@@ -18,14 +18,14 @@ UO_FW_EXEC_CHECK(SERVER);
 
 params ["_unit"];
 
-if (_unit getVariable ["UO_FW_Tracked", false]) then {
-    _unit setVariable ["UO_FW_HasDied", false]; //we will use this variable to make sure killed eventHandler doesn't fire twice
+if (UO_FW_GETVAR(_unit,Tracked,false)) then {
+    UO_FW_SETVAR(_unit,HasDied,false); //we will use this variable to make sure killed eventHandler doesn't fire twice
     {
         _x params ["", "_side", "_Type", "_total", "_current"];
-        if (_unit getVariable "UO_FW_Side" isEqualto _side && {((_Type isEqualto "player" && isPlayer _unit) || (_Type isEqualto "ai" && !(isPlayer _unit)) || (_Type isEqualto "both"))}) exitWith {
-            _x set [3, _total + 1];
+        if (UO_FW_GETVAR(_unit,Side,"") isEqualto _side && {((_Type isEqualto "player" && isPlayer _unit) || (_Type isEqualto "ai" && !(isPlayer _unit)) || (_Type isEqualto "both"))}) exitWith {
+            _x set [3, (_total + 1)];
             if (_unit call UO_FW_fnc_Alive) then {
-                _x set [4, _current + 1];
+                _x set [4, (_current + 1)];
             };
         };
     } forEach UO_FW_Teams;

@@ -16,7 +16,7 @@ UO_FW_EXEC_CHECK(CLIENT);
         } else {
             switch (side player) do {
                 case west: {
-                    _DefaultAO = (UO_FW_GETMVAR(CoverMap_DefaultAO_West,""));
+                    _DefaultAO = (UO_FW_GETMVAR(CoverMap_DefaultAO_BLUFOR,""));
                     if (_DefaultAO isEqualto "") exitwith {
                         ERROR("No Default BLUFOR Area defined for CoverMap!");
                     };
@@ -25,7 +25,7 @@ UO_FW_EXEC_CHECK(CLIENT);
                     };
                 };
                 case east: {
-                    _DefaultAO = (UO_FW_GETMVAR(CoverMap_DefaultAO_East,""));
+                    _DefaultAO = (UO_FW_GETMVAR(CoverMap_DefaultAO_OPFOR,""));
                     if (_DefaultAO isEqualto "") exitwith {
                         ERROR("No Default OPFOR Area defined for CoverMap!");
                     };
@@ -33,7 +33,7 @@ UO_FW_EXEC_CHECK(CLIENT);
                         ERROR_1("Default CoverMap OPFOR area: %1 does not exist!",_DefaultAO);
                     };
                 };
-                case resistance: {
+                case independent: {
                     _DefaultAO = (UO_FW_GETMVAR(CoverMap_DefaultAO_Indfor,""));
                     if (_DefaultAO isEqualto "") exitwith {
                         ERROR("No Default INDFOR Area defined for CoverMap!");

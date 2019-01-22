@@ -2,8 +2,6 @@
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 UO_FW_EXEC_CHECK(CLIENT);
 
-if (UO_FW_GETPLVAR(Spectating,false)) exitwith {};
-
 player setVariable ["UO_FW_Dead", true, true];
 [player,true] remoteExecCall ["hideObject", 0];
 [player,true] remoteExecCall ["hideObjectGlobal", 2];
@@ -12,14 +10,14 @@ player allowdamage false;
 [player, true] remoteExec ["setCaptive", 2];
 [player, false] remoteExec ["allowdamage", 2];
 player call UO_FW_fnc_RemoveAllGear;
-player addWeapon "itemMap";
 player setPos [0, 0, 0];
 [player] join grpNull;
-[true] call acre_api_fnc_setSpectator;
+
+if (UO_FW_GETPLVAR(Spectating,false)) exitwith {};
 
 //TODO move settings to menu attributes
-// Whitelisted sides (BLUFOR,OPFOR,RESISTANCE,CIVILIAN)
-UO_FW_EG_whitelisted_sides = [BLUFOR,OPFOR,RESISTANCE,CIVILIAN];
+// Whitelisted sides (BLUFOR,OPFOR,INDEPENDENT,CIVILIAN)
+UO_FW_EG_whitelisted_sides = [BLUFOR,OPFOR,INDEPENDENT,CIVILIAN];
 // Whether AI can be viewed by the spectator (true/false)
 UO_FW_EG_ai_viewed_by_spectator = true;
 // Whether Free camera mode is available (true/false)
@@ -43,6 +41,10 @@ UO_FW_EG_Killcam_active = true;
 // Makes screen turn black instantly and mutes all audio when killed
 UO_FW_EG_instant_death = true;
 
+private _teamDelayVarName = format ["UO_FW_RespawnSetting_Delay_%1",UO_FW_GETPLVAR(TeamTag,"")];
+private _delaySetting = missionNamespace getVariable [_teamDelayVarName, 5];
+private _delay = if (_delaySetting <= 5) then {2} else {(_delaySetting - 5)};
+
 if (UO_FW_GETMVAR(eg_instant_death,true)) then {
     [{
         "UO_FW_KilledLayer" cutText ["","BLACK IN", 5];
@@ -60,9 +62,12 @@ if (UO_FW_GETMVAR(eg_instant_death,true)) then {
             UO_FW_EG_Show_Header_Widget,
             UO_FW_EG_Show_Entities_And_Locations_Lists]
         ] call BIS_fnc_EGSpectator;
-    }, [], 3] call CBA_fnc_WaitAndExecute;
+        player addWeapon "itemMap";
+        [true] call acre_api_fnc_setSpectator;
+    }, [], _delay] call CBA_fnc_WaitAndExecute;
 } else {
     [{
+        0 fadeSound 1;
         playSound ("Transition" + str (1 + floor random 3));
         ["Initialize",[
             player,
@@ -77,8 +82,9 @@ if (UO_FW_GETMVAR(eg_instant_death,true)) then {
             UO_FW_EG_Show_Entities_And_Locations_Lists]
         ] call BIS_fnc_EGSpectator;
         [] call BIS_fnc_VRFadeIn;
-        0 fadeSound 1;
-    }, [], 3] call CBA_fnc_WaitAndExecute;
+        player addWeapon "itemMap";
+        [true] call acre_api_fnc_setSpectator;
+    }, [], _delay] call CBA_fnc_WaitAndExecute;
 };
 
 UO_FW_SETMVAR(EG_keyHandler_display_hidden,false);
@@ -111,7 +117,7 @@ if (getMarkerColor UO_FW_EG_spectator_marker isEqualto "") then {
 } else {
     _pos = getmarkerpos UO_FW_EG_spectator_marker;
 };
-if (abs(_pos select 0) < 2 && abs(_pos select 1) < 2) then {
+if (abs(_pos select 0) < 2 && {abs(_pos select 1) < 2}) then {
     _pos = [2000, 2000, 100];
 };
 
@@ -180,12 +186,13 @@ if !(_cam isEqualto objNull) then {
 private _killcam_msg = "";
 if (UO_FW_EG_Killcam_active) then {
     _killcam_msg = "Press <t color='#FFA500'>K</t> to toggle indicator showing location where you were killed from.<br/>";
+    [_killcam_msg, 0.55, 0.8, 8, 1] spawn BIS_fnc_dynamicText;
 };
-private _text = format ["<t size='0.5' color='#ffffff'>%1
-Close spectator HUD by pressing <t color='#FFA500'>CTRL+H</t>.<br/>
-Press <t color='#FFA500'>SHIFT</t>, <t color='#FFA500'>ALT</t> or <t color='#FFA500'>SHIFT+ALT</t> to modify camera speed. Open map by pressing <t color='#FFA500'>M</t> and click anywhere to move camera to that postion.<br/>
-Spectator controls can be customized in game <t color='#FFA500'>options->controls->'Camera'</t> tab.</t>", _killcam_msg];
-[_text, 0.55, 0.8, 20, 1] spawn BIS_fnc_dynamicText;
+//private _text = format ["<t size='0.5' color='#ffffff'>%1
+//Close spectator HUD by pressing <t color='#FFA500'>CTRL+H</t>.<br/>
+//Press <t color='#FFA500'>SHIFT</t>, <t color='#FFA500'>ALT</t> or <t color='#FFA500'>SHIFT+ALT</t> to modify camera speed. Open map by pressing <t color='#FFA500'>M</t> and click anywhere to move camera to that postion.<br/>
+//Spectator controls can be customized in game <t color='#FFA500'>options->controls->'Camera'</t> tab.</t>", _killcam_msg];
+
 
 UO_FW_SETPLPVAR(Spectating,true);
 

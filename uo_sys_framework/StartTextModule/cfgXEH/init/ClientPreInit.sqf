@@ -23,14 +23,14 @@ UO_FW_EXEC_CHECK(CLIENT);
                 if !(_textVar isEqualto "" ) then {_startTextArray pushBack ["TEXT", _textVar];};
             };
             case independent: {
-                private _TitleQuoteVar = UO_FW_GETMVAR(StartText_IndependentTitleQuote,"");
-                private _textVar = UO_FW_GETMVAR(StartText_IndependentText,"");
+                private _TitleQuoteVar = UO_FW_GETMVAR(StartText_INDFORTitleQuote,"");
+                private _textVar = UO_FW_GETMVAR(StartText_INDFORText,"");
                 if !(_TitleQuoteVar isEqualto "" ) then {_startTextArray pushBack ["TitleQUOTE", _TitleQuoteVar];};
                 if !(_textVar isEqualto "" ) then {_startTextArray pushBack ["TEXT", _textVar];};
             };
             case civilian: {
-                private _TitleQuoteVar = UO_FW_GETMVAR(StartText_CivilianTitleQuote,"");
-                private _textVar = UO_FW_GETMVAR(StartText_CivilianText,"");
+                private _TitleQuoteVar = UO_FW_GETMVAR(StartText_CIVTitleQuote,"");
+                private _textVar = UO_FW_GETMVAR(StartText_CIVText,"");
                 if !(_TitleQuoteVar isEqualto "" ) then {_startTextArray pushBack ["TitleQUOTE", _TitleQuoteVar];};
                 if !(_textVar isEqualto "" ) then {_startTextArray pushBack ["TEXT", _textVar];};
             };

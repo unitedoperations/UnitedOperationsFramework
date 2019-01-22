@@ -41,8 +41,8 @@ class UO_FW_DisconnectControl {
             defaultValue = "true";
             typeName = "BOOL";
         };
-        class UO_FW_DisconnectControl_IndependentDelete {
-            property = "UO_FW_DisconnectControl_IndependentDelete";
+        class UO_FW_DisconnectControl_INDFORDelete {
+            property = "UO_FW_DisconnectControl_INDFORDelete";
             displayName = "Delete Independent?";
             tooltip = "Should Independent units be deleted";
             control = "Checkbox";
@@ -51,8 +51,8 @@ class UO_FW_DisconnectControl {
             defaultValue = "true";
             typeName = "BOOL";
         };
-        class UO_FW_DisconnectControl_CivilianDelete {
-            property = "UO_FW_DisconnectControl_CivilianDelete";
+        class UO_FW_DisconnectControl_CIVDelete {
+            property = "UO_FW_DisconnectControl_CIVDelete";
             displayName = "Delete Civilian?";
             tooltip = "Should Civilian units be deleted";
             control = "Checkbox";

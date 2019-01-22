@@ -1,9 +1,5 @@
-
-
 class UO_FW_CaptureZoneModule: OlsenModule {
-
     displayName = "Capture Zone (Circle)"; // Name displayed in the menu
-
     // Name of function triggered once conditions are met
     function = "UO_FW_fnc_CaptureZone";
     // Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
@@ -65,113 +61,113 @@ class UO_FW_CaptureZoneModule: OlsenModule {
             validate = "NUMBER";
             typeName = "number";
         };
-        class UO_FW_CaptureZone_BluforCap {
+        class UO_FW_CaptureZone_Cap_Blufor {
             displayName = "Blufor";
             tooltip = "Whether or not the team can capture the zone, and whether they are checked in the player count.";
-            property = "UO_FW_CaptureZone_BluforCap";
+            property = "UO_FW_CaptureZone_Cap_Blufor";
             control = "UO_FW_CaptureZone_TeamAttribute";
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "0";
             typeName = "number";
         };
-        class UO_FW_CaptureZone_BluforTime {
+        class UO_FW_CaptureZone_Time_Blufor {
             displayName = "Blufor Time";
             tooltip = "Time needed for Blufor to capture the zone in seconds. Set to 0 for instant capture";
-            property = "UO_FW_CaptureZone_BluforTime";
+            property = "UO_FW_CaptureZone_Time_Blufor";
             control = "EditShort";
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "30";
             typeName = "NUMBER";
             validate = "number";
         };
-        class UO_FW_CaptureZone_BluforMessage {
+        class UO_FW_CaptureZone_Message_Blufor {
             displayName = "Blufor Message";
             tooltip = "Message to display when Blufor is capturing the zone and when they capture the zone. Leave empty to disable this hint";
-            property = "UO_FW_CaptureZone_BluforMessage";
+            property = "UO_FW_CaptureZone_Message_Blufor";
             control = "EditStringArray";
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "['BLUFOR is capturing the zone!','BLUFOR has captured the zone!']";
             validate = "none";
         };
-        class UO_FW_CaptureZone_OpforCap {
+        class UO_FW_CaptureZone_Cap_Opfor {
             displayName = "Opfor";
             tooltip = "Whether or not the team can capture the zone, and whether they are checked in the player count.";
-            property = "UO_FW_CaptureZone_OpforCap";
+            property = "UO_FW_CaptureZone_Cap_Opfor";
             control = "UO_FW_CaptureZone_TeamAttribute";
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "0";
             typeName = "number";
         };
-        class UO_FW_CaptureZone_OpforTime {
+        class UO_FW_CaptureZone_Time_Opfor {
             displayName = "Opfor Time";
             tooltip = "Time needed for Opfor to capture the zone in seconds. Set to 0 for instant capture";
-            property = "UO_FW_CaptureZone_OpforTime";
+            property = "UO_FW_CaptureZone_Time_Opfor";
             control = "EditShort";
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "30";
             typeName = "NUMBER";
             validate = "number";
         };
-        class UO_FW_CaptureZone_OpforMessage {
+        class UO_FW_CaptureZone_Message_Opfor {
             displayName = "Opfor Message";
             tooltip = "Message to display when Opfor is capturing the zone and when they capture the zone. Leave empty to disable this hint";
-            property = "UO_FW_CaptureZone_OpforMessage";
+            property = "UO_FW_CaptureZone_Message_Opfor";
             control = "EditStringArray";
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "['OPFOR is capturing the zone!','OPFOR has captured the zone!']";
             validate = "none";
         };
-        class UO_FW_CaptureZone_IndependentCap {
+        class UO_FW_CaptureZone_Cap_INDFOR {
             displayName = "Independent";
             tooltip = "Whether or not the team can capture the zone, and whether they are checked in the player count.";
-            property = "UO_FW_CaptureZone_IndependentCap";
+            property = "UO_FW_CaptureZone_Cap_INDFOR";
             control = "UO_FW_CaptureZone_TeamAttribute";
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "0";
             typeName = "number";
         };
-        class UO_FW_CaptureZone_IndependentTime {
+        class UO_FW_CaptureZone_Time_INDFOR {
             displayName = "Independent Time";
             tooltip = "Time needed for Independent to capture the zone in seconds. Set to 0 for instant capture";
-            property = "UO_FW_CaptureZone_IndependentTime";
+            property = "UO_FW_CaptureZone_Time_INDFOR";
             control = "EditShort";
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "30";
             typeName = "NUMBER";
             validate = "number";
         };
-        class UO_FW_CaptureZone_IndependentMessage {
+        class UO_FW_CaptureZone_Message_INDFOR {
             displayName = "Independent Message";
             tooltip = "Message to display when Independent is capturing the zone and when they capture the zone. Leave empty to disable this hint";
-            property = "UO_FW_CaptureZone_IndependentMessage";
+            property = "UO_FW_CaptureZone_Message_INDFOR";
             control = "EditStringArray";
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "['Independent is capturing the zone!','Independent has captured the zone!']";
             validate = "none";
         };
-        class UO_FW_CaptureZone_CivilianCap {
+        class UO_FW_CaptureZone_Cap_CIV {
             displayName = "Civilian";
             tooltip = "Whether or not the team can capture the zone, and whether they are checked in the player count.";
-            property = "UO_FW_CaptureZone_CivilianCap";
+            property = "UO_FW_CaptureZone_Cap_CIV";
             control = "UO_FW_CaptureZone_TeamAttribute";
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "0";
             typeName = "number";
         };
-        class UO_FW_CaptureZone_CivilianTime {
+        class UO_FW_CaptureZone_Time_CIV {
             displayName = "Civilian Time";
             tooltip = "Time needed for Civilian to capture the zone in seconds. Set to 0 for instant capture";
-            property = "UO_FW_CaptureZone_CivilianTime";
+            property = "UO_FW_CaptureZone_Time_CIV";
             control = "EditShort";
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "30";
             typeName = "NUMBER";
             validate = "number";
         };
-        class UO_FW_CaptureZone_CivilianMessage {
+        class UO_FW_CaptureZone_Message_CIV {
             displayName = "Civilian Message";
             tooltip = "Message to display when Civilian is capturing the zone and when they capture the zone. Leave empty to disable this hint";
-            property = "UO_FW_CaptureZone_CivilianMessage";
+            property = "UO_FW_CaptureZone_Message_CIV";
             control = "EditStringArray";
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "['Civilian is capturing the zone!','Civilian has captured the zone!']";

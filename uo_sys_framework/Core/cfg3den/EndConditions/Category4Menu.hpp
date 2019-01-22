@@ -69,16 +69,16 @@ class UO_FW_EndConditions_CasualtySettings_Category4 {
             validate = "number";
             defaultValue = "75";
         };
-        class UO_FW_EndCondition_CasualtyCount_RESISTANCE_Enabled_4 {
-            property = "UO_FW_EndCondition_CasualtyCount_RESISTANCE_Enabled_4";
+        class UO_FW_EndCondition_CasualtyCount_INDFOR_Enabled_4 {
+            property = "UO_FW_EndCondition_CasualtyCount_INDFOR_Enabled_4";
             displayName = "INDFOR Casualty";
             tooltip = "Enables casualty limit for this team";
             control = "CheckBox";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
-        class UO_FW_EndCondition_CasualtyCount_RESISTANCE_Percentage_4 {
-            property = "UO_FW_EndCondition_CasualtyCount_RESISTANCE_Percentage_4";
+        class UO_FW_EndCondition_CasualtyCount_INDFOR_Percentage_4 {
+            property = "UO_FW_EndCondition_CasualtyCount_INDFOR_Percentage_4";
             displayName = "Casualty Percentage";
             tooltip = "End condition fires when team casualty percentage is over this number";
             control = "EditShort";
@@ -86,16 +86,16 @@ class UO_FW_EndConditions_CasualtySettings_Category4 {
             validate = "number";
             defaultValue = "75";
         };
-        class UO_FW_EndCondition_CasualtyCount_CIVILIAN_Enabled_4 {
-            property = "UO_FW_EndCondition_CasualtyCount_CIVILIAN_Enabled_4";
+        class UO_FW_EndCondition_CasualtyCount_CIV_Enabled_4 {
+            property = "UO_FW_EndCondition_CasualtyCount_CIV_Enabled_4";
             displayName = "CIVILIAN Casualty";
             tooltip = "Enables casualty limit for this team";
             control = "CheckBox";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
-        class UO_FW_EndCondition_CasualtyCount_CIVILIAN_Percentage_4 {
-            property = "UO_FW_EndCondition_CasualtyCount_CIVILIAN_Percentage_4";
+        class UO_FW_EndCondition_CasualtyCount_CIV_Percentage_4 {
+            property = "UO_FW_EndCondition_CasualtyCount_CIV_Percentage_4";
             displayName = "Casualty Percentage";
             tooltip = "End condition fires when team casualty percentage is over this number";
             control = "EditShort";

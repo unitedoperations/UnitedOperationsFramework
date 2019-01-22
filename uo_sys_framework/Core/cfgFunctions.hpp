@@ -71,6 +71,11 @@ class UO_FW_Core_EndScreen {
     class EndScreen {};
 };
 
+class UO_FW_Core_Respawn {
+    file = "x\UO_FW\addons\Main\Core\cfgFunctions\Respawn";
+    class HandlePlayerRespawn {};
+};
+
 class UO_FW_Core_Spectate {
     file = "x\UO_FW\addons\Main\Core\cfgFunctions\Spectate";
     class Spectate {};

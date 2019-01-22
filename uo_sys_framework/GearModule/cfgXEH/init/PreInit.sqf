@@ -61,11 +61,11 @@ UO_FW_EXEC_CHECK(CLIENTHC);
 					case east: {
 						_loadoutvarname = format ["UO_FW_GearSettings_%1_LoadoutType_Opfor_%2",_SystemTag,_UnitClass];
 					};
-					case resistance: {
+					case independent: {
 						_loadoutvarname = format ["UO_FW_GearSettings_%1_LoadoutType_Indfor_%2",_SystemTag,_UnitClass];
 					};
 					case civilian: {
-						_loadoutvarname = format ["UO_FW_GearSettings_%1_LoadoutType_Civilian_%2",_SystemTag,_UnitClass];
+						_loadoutvarname = format ["UO_FW_GearSettings_%1_LoadoutType_CIV_%2",_SystemTag,_UnitClass];
 					};
 				};
 				_loadoutName = missionNamespace getvariable [_loadoutvarname,"NONE"];

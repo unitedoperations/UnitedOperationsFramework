@@ -80,10 +80,10 @@ class UO_FW_AOLimitModule: OlsenModule {
             typeName = "BOOL";
             validate = "none";
         };
-        class UO_FW_AOLimit_Civilian {
+        class UO_FW_AOLimit_CIV {
             displayName = "Civilian";
             tooltip = "Restrict Civilian to this AO. Units that start outside of the AO will be not be restricted.";
-            property = "UO_FW_AOLimit_Civilian";
+            property = "UO_FW_AOLimit_CIV";
             control = "CheckBox";
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "true";

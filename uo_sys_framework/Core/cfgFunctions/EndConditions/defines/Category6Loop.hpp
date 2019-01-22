@@ -7,8 +7,8 @@ if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_6",false]) then {
         private _conditionsCountCategory6 = 0;
         if (UO_FW_EndCondition_CasualtyCount_BLUFOR_Enabled_6) then {_conditionsCountCategory6 = _conditionsCountCategory6 + 1;};
         if (UO_FW_EndCondition_CasualtyCount_OPFOR_Enabled_6) then {_conditionsCountCategory6 = _conditionsCountCategory6 + 1;};
-        if (UO_FW_EndCondition_CasualtyCount_RESISTANCE_Enabled_6) then {_conditionsCountCategory6 = _conditionsCountCategory6 + 1;};
-        if (UO_FW_EndCondition_CasualtyCount_CIVILIAN_Enabled_6) then {_conditionsCountCategory6 = _conditionsCountCategory6 + 1;};
+        if (UO_FW_EndCondition_CasualtyCount_INDFOR_Enabled_6) then {_conditionsCountCategory6 = _conditionsCountCategory6 + 1;};
+        if (UO_FW_EndCondition_CasualtyCount_CIV_Enabled_6) then {_conditionsCountCategory6 = _conditionsCountCategory6 + 1;};
 
         if (!(UO_FW_EndCondition_EntitiesAlive_Array_6 isEqualto [])) then {_conditionsCountCategory6 = _conditionsCountCategory6 + 1;};
         if (!(UO_FW_EndCondition_EntitiesDead_Array_6 isEqualto [])) then {_conditionsCountCategory6 = _conditionsCountCategory6 + 1;};
@@ -47,18 +47,18 @@ if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_6",false]) then {
 
                 private _IndforCasConditionCheck = false;
 
-                if (UO_FW_EndCondition_CasualtyCount_RESISTANCE_Enabled_6) then {
+                if (UO_FW_EndCondition_CasualtyCount_INDFOR_Enabled_6) then {
                     private _resCasualty = UO_FW_TeamSetting_Indfor_TeamName call UO_FW_fnc_CasualtyPercentage;
-                    if (_resCasualty >= UO_FW_EndCondition_CasualtyCount_RESISTANCE_Percentage_6) then {_IndforCasConditionCheck = true;} else {_IndforCasConditionCheck = false;};
+                    if (_resCasualty >= UO_FW_EndCondition_CasualtyCount_INDFOR_Percentage_6) then {_IndforCasConditionCheck = true;} else {_IndforCasConditionCheck = false;};
                     _ConditionCheckList pushback ["INDFOR Cas Check",_IndforCasConditionCheck];
                 };
 
-                private _CivilianCasConditionCheck = false;
+                private _CIVCasConditionCheck = false;
 
-                if (UO_FW_EndCondition_CasualtyCount_CIVILIAN_Enabled_6) then {
+                if (UO_FW_EndCondition_CasualtyCount_CIV_Enabled_6) then {
                     private _civCasualty = UO_FW_TeamSetting_Civ_TeamName call UO_FW_fnc_CasualtyPercentage;
-                    if (_civCasualty >= UO_FW_EndCondition_CasualtyCount_CIVILIAN_Percentage_6) then {_CivilianCasConditionCheck = true;} else {_CivilianCasConditionCheck = false;};
-                    _ConditionCheckList pushback ["CIVILIAN Cas Check",_CivilianCasConditionCheck];
+                    if (_civCasualty >= UO_FW_EndCondition_CasualtyCount_CIV_Percentage_6) then {_CIVCasConditionCheck = true;} else {_CIVCasConditionCheck = false;};
+                    _ConditionCheckList pushback ["CIVILIAN Cas Check",_CIVCasConditionCheck];
                 };
 
                 //alive entity block

@@ -65,20 +65,7 @@ UO_FW_EXEC_CHECK(CLIENTHC);
 				case "ACEAR": {_SystemTag = "ACE_Arsenal"};
 				case "OLSEN": {_SystemTag = "Olsen"};
 			};
-			switch (side player) do {
-				case west: {
-					_loadoutvarname = format ["UO_FW_GearSettings_%1_LoadoutType_Blufor_%2",_SystemTag,_UnitClass];
-				};
-				case east: {
-					_loadoutvarname = format ["UO_FW_GearSettings_%1_LoadoutType_Opfor_%2",_SystemTag,_UnitClass];
-				};
-				case resistance: {
-					_loadoutvarname = format ["UO_FW_GearSettings_%1_LoadoutType_Indfor_%2",_SystemTag,_UnitClass];
-				};
-				case civilian: {
-					_loadoutvarname = format ["UO_FW_GearSettings_%1_LoadoutType_Civilian_%2",_SystemTag,_UnitClass];
-				};
-			};
+            _loadoutvarname = format ["UO_FW_GearSettings_%1_LoadoutType_%3_%2",_SystemTag,_UnitClass,TeamTag];
 			_loadoutName = missionNamespace getvariable [_loadoutvarname,"NONE"];
 			if (_loadoutName isEqualto "NONE") exitwith {
 				ERROR_2("No loadout found for unit: %1 and var %2",player,_loadoutvarname);

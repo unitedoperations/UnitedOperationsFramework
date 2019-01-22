@@ -70,45 +70,45 @@ class UO_FW_StartText {
             expression = UO_FW_SCENARIO_EXPRESSION;
             validate = "none";
         };
-        class UO_FW_StartText_IndependentTitleQuote {
+        class UO_FW_StartText_INDFORTitleQuote {
             // Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
             displayName = "Independent Title Quote"; // Attribute label
             tooltip = "Title Quote of the Independent Start Text. Empty for none";
             control = "Edit";
-            property = "UO_FW_StartText_IndependentTitleQuote";
+            property = "UO_FW_StartText_INDFORTitleQuote";
             defaultValue = "''"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
             typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
             expression = UO_FW_SCENARIO_EXPRESSION;
             validate = "none";
         };
-        class UO_FW_StartText_IndependentText {
+        class UO_FW_StartText_INDFORText {
             // Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
             displayName = "Independent Text"; // At    tribute label
             tooltip = "Text of the Independent Start Text. Empty for none";
             control = "Edit";
-            property = "UO_FW_StartText_IndependentText";
+            property = "UO_FW_StartText_INDFORText";
             defaultValue = "''"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
             typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
             expression = UO_FW_SCENARIO_EXPRESSION;
             validate = "none";
         };
-        class UO_FW_StartText_CivilianTitleQuote {
+        class UO_FW_StartText_CIVTitleQuote {
             // Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
             displayName = "Civilian Title Quote"; // Attribute label
             tooltip = "Title Quote of the Civilian Start Text. Empty for none";
             control = "Edit";
-            property = "UO_FW_StartText_CivilianTitleQuote";
+            property = "UO_FW_StartText_CIVTitleQuote";
             defaultValue = "''"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
             typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
             expression = UO_FW_SCENARIO_EXPRESSION;
             validate = "none";
         };
-        class UO_FW_StartText_CivilianText {
+        class UO_FW_StartText_CIVText {
             // Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
             displayName = "Civilian Text"; // At    tribute label
             tooltip = "Text of the Civilian Start Text. Empty for none";
             control = "Edit";
-            property = "UO_FW_StartText_CivilianText";
+            property = "UO_FW_StartText_CIVText";
             defaultValue = "''"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
             typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
             expression = UO_FW_SCENARIO_EXPRESSION;

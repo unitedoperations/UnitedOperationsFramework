@@ -18,8 +18,8 @@ class UO_FW_CoverMap {
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
-        class UO_FW_CoverMap_DefaultAO_West {
-            property = "UO_FW_CoverMap_DefaultAO_West";
+        class UO_FW_CoverMap_DefaultAO_BLUFOR {
+            property = "UO_FW_CoverMap_DefaultAO_BLUFOR";
             displayName = "BLUFOR Starting AO";
             tooltip = "Set the BLUFOR Map area to corresponding CoverMap AO name.";
             control = "EditShort";
@@ -27,8 +27,8 @@ class UO_FW_CoverMap {
             defaultValue = "'Area0'";
             validate = "STRING";
         };
-        class UO_FW_CoverMap_DefaultAO_East {
-            property = "UO_FW_CoverMap_DefaultAO_East";
+        class UO_FW_CoverMap_DefaultAO_OPFOR {
+            property = "UO_FW_CoverMap_DefaultAO_OPFOR";
             displayName = "OPFOR Starting AO";
             tooltip = "Set the OPFOR Map area to corresponding CoverMap AO name.";
             control = "EditShort";

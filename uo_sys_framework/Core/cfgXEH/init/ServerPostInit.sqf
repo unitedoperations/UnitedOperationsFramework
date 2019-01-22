@@ -3,10 +3,6 @@
 UO_FW_EXEC_CHECK(SERVER);
 
 LOG("Server Post Init");
-//Create Respawn Markers
-{
-    _x call UO_FW_fnc_CreateRespawnMarker;
-} foreach ["west","east","guer","civ"];
 
 UO_FW_EventRespawnedHandle = addMissionEventHandler ["EntityRespawned", {_this call UO_FW_fnc_EventRespawned;}];
 UO_FW_EventKilledHandle = addMissionEventHandler ["EntityKilled", {_this call UO_FW_fnc_EventKilled;}];
@@ -21,6 +17,10 @@ UO_FW_SETMPVAR(ServerInitialized,true);
 
 [{CBA_missionTime > 1}, {
     [] call UO_FW_EndConditionsInit;
+    UO_FW_SETMVAR(TeamTicketsRemaining_Blufor,(UO_FW_GETMVAR(RespawnSetting_TeamTickets_Blufor,30)));
+    UO_FW_SETMVAR(TeamTicketsRemaining_Opfor,(UO_FW_GETMVAR(RespawnSetting_TeamTickets_Opfor,30)));
+    UO_FW_SETMVAR(TeamTicketsRemaining_Indfor,(UO_FW_GETMVAR(RespawnSetting_TeamTickets_Indfor,30)));
+    UO_FW_SETMVAR(TeamTicketsRemaining_Civ,(UO_FW_GETMVAR(RespawnSetting_TeamTickets_Civ,30)));
 }] call CBA_fnc_WaitUntilAndExecute;
 
 if (UO_FW_DisconnectControl_Enabled) then {

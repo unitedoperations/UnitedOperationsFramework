@@ -58,11 +58,11 @@ if (_loadoutAttributeClass isEqualto "MANUAL") then {
 		case east: {
 			_loadoutvarname = format ["UO_FW_GearSettings_%1_LoadoutType_Opfor_%2",_SystemTag,_loadoutAttributeClass];
 		};
-		case resistance: {
+		case independent: {
 			_loadoutvarname = format ["UO_FW_GearSettings_%1_LoadoutType_Indfor_%2",_SystemTag,_loadoutAttributeClass];
 		};
 		case civilian: {
-			_loadoutvarname = format ["UO_FW_GearSettings_%1_LoadoutType_Civilian_%2",_SystemTag,_loadoutAttributeClass];
+			_loadoutvarname = format ["UO_FW_GearSettings_%1_LoadoutType_CIV_%2",_SystemTag,_loadoutAttributeClass];
 		};
 	};
 

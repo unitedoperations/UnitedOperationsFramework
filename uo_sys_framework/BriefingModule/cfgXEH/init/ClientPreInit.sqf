@@ -13,7 +13,7 @@ UO_FW_EXEC_CHECK(CLIENT);
             case east: {
                 #include "\x\UO_FW\addons\Main\BriefingModule\defines\opfor_briefing.hpp"
             };
-            case resistance: {
+            case independent: {
                 #include "\x\UO_FW\addons\Main\BriefingModule\defines\indfor_briefing.hpp"
             };
             case civilian: {

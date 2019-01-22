@@ -4,6 +4,8 @@ UO_FW_EXEC_CHECK(CLIENT);
 
 _this params ["_unit", "", "_instigator"];
 
+UO_FW_SETPLPVAR(Dead,true);
+
 if (UO_FW_GETMVAR(Killcam_Enabled,true)) then {
     //we check if player didn't kill himself or died for unknown reasons
     if ((vehicle _instigator != vehicle _unit) && {_instigator != objNull}) then {
@@ -52,7 +54,7 @@ if (UO_FW_GETMVAR(eg_instant_death,true)) then {
     [{
         params ["_fadeInSpeed"];
         0 fadeSound 0;
-        "UO_FW_KilledLayer" cutText ["<t color='#FF0000' size='3.0'>YOU ARE DEAD</t>", "BLACK", _fadeInSpeed, true, true];
+        "UO_FW_KilledLayer" cutText ["<t color='#FF0000' size='2.0'>YOU ARE DEAD</t>", "BLACK", _fadeInSpeed, true, true];
         ["UO_FW_death", 0, true] call ace_common_fnc_setHearingCapability;
     }, [_fadeInSpeed]] call CBA_fnc_execNextFrame;
 } else {

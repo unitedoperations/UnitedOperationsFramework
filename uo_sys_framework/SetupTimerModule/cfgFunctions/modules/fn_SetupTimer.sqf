@@ -7,7 +7,7 @@ switch _mode do {
         if (!is3DEN) then {
             _input params ["_logic",["_isActivated",true,[true]]];
             if !(_isActivated) exitWith {};
-            private _selectedSide = [west,east,resistance,civilian] select ((_logic getVariable ["UO_FW_SetupTimer_SideSelect",0]));
+            private _selectedSide = [west,east,independent,civilian] select ((_logic getVariable ["UO_FW_SetupTimer_SideSelect",0]));
               private _time = _logic getVariable ["UO_FW_SetupTimer_Time",30];
             private _loc = getPosATL _logic;
             private _radiusX = _logic getVariable ["UO_FW_SetupTimer_RadiusX",100];

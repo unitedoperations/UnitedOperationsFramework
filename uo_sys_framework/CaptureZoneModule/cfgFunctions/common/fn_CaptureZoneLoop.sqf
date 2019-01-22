@@ -30,8 +30,8 @@ if (_interval < 5) then {
         _argNested params ["_args","_lastCheckedTime",["_initialized",false,[false]],"_varName","_teamControllingvarName",["_oldOwner","UNCONTESTED",[""]],["_ownerControlCount",0,[0]],"_marker"];
         _args params ["_logic","_zoneName","_area","_interval","_repeatable","_capArray","_timeArray","_messagesArray","_colours","_hidden","_silent","_automessages","_ratioNeeded","_cond"];
         _area params ["_loc","_radiusX","_radiusY","_direction","_isRectangle"];
-        _colours params ["_bluforcolour","_opforcolour","_indforcolour","_civiliancolour","_uncontestedcolour","_contestedcolour"];
-        _messagesArray params ["_bluformessageArray","_opformessageArray","_indformessageArray","_civilianmessageArray","_contestedmessage","_uncontestedmessage"];
+        _colours params ["_bluforcolour","_opforcolour","_indforcolour","_CIVcolour","_uncontestedcolour","_contestedcolour"];
+        _messagesArray params ["_bluformessageArray","_opformessageArray","_indformessageArray","_CIVmessageArray","_contestedmessage","_uncontestedmessage"];
         _capArray params ["_bluforCapMode","_opforCapMode","_indforCapMode","_civCapMode"];
         private ["_owner","_markername"];
 
@@ -312,7 +312,7 @@ if (_interval < 5) then {
                                 if ((_argNested select 6) > (_timeArray select 3)) then {
                                     //message is blufor has captured
                                     if !(_hidden) then {
-                                        _marker setMarkerColor _civiliancolour;
+                                        _marker setMarkerColor _CIVcolour;
                                         _marker setMarkerAlpha 0.5;
                                     };
                                     if !(_silent) then {
@@ -320,7 +320,7 @@ if (_interval < 5) then {
                                             private _msg = format ["%1 has captured %2!",UO_FW_TeamSetting_Civ_TeamName,_zoneName];
                                             _msg remoteExec ["hint"];
                                         } else {
-                                            (_civilianmessageArray select 1) remoteExec ["hint"];
+                                            (_CIVmessageArray select 1) remoteExec ["hint"];
                                         };
                                     };
                                     missionNamespace setVariable [_varName,true,true];
@@ -338,7 +338,7 @@ if (_interval < 5) then {
                             _argNested set [5,_owner];
                             _argNested set [6,0];
                             if !(_hidden) then {
-                                _marker setMarkerColor _civiliancolour;
+                                _marker setMarkerColor _CIVcolour;
                                 _marker setMarkerAlpha 0.25;
                             };
                             if !(_silent) then {
@@ -346,7 +346,7 @@ if (_interval < 5) then {
                                     private _msg = format ["%1 is capturing %2!",UO_FW_TeamSetting_Civ_TeamName,_zoneName];
                                     _msg remoteExec ["hint"];
                                 } else {
-                                    (_civilianmessageArray select 0) remoteExec ["hint"];
+                                    (_CIVmessageArray select 0) remoteExec ["hint"];
                                 };
                             };
                         };

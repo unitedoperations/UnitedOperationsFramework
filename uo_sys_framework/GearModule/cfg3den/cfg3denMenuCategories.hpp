@@ -77,7 +77,7 @@ class UO_FW_GearSettings_Indfor {
 	};
 };
 
-class UO_FW_GearSettings_Civilian {
+class UO_FW_GearSettings_CIV {
 	displayName = "Civilian Gear Settings";
 	class AttributeCategories {
 		#include "Gear\CivilianMenu.hpp"

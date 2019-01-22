@@ -53,6 +53,13 @@ LOG("Client Pre Init");
     LOG_1("Client call waituntil player: %1",player);
     ["UO_FW_RecievePlayerVarRequest", [player,clientOwner]] call CBA_fnc_serverEvent;
     UO_FW_SETMVAR(SpawnPos,(getposATL player));
+    switch (side player) do {
+        case WEST: {UO_FW_SETPLPVAR(TeamTag,"BLUFOR");};
+        case EAST: {UO_FW_SETPLPVAR(TeamTag,"OPFOR");};
+        case INDEPENDENT: {UO_FW_SETPLPVAR(TeamTag,"INDFOR");};
+        case CIVILIAN: {UO_FW_SETPLPVAR(TeamTag,"CIV");};
+        default {UO_FW_SETPLPVAR(TeamTag,"BLUFOR");};
+    };
 }] call CBA_fnc_WaitUntilAndExecute;
 
 ["UO_FW_EndMission_PlayerEvent", {
@@ -65,9 +72,7 @@ LOG("Client Pre Init");
 }] call CBA_fnc_addEventHandler;
 
 ["UO_FW_Specator_StartSpectate_Event", {
-    if !(UO_FW_GETPLVAR(Spectating,false)) then {
-        [] call UO_FW_fnc_spectate;
-    };
+    [] call UO_FW_fnc_spectate;
 }] call CBA_fnc_addEventHandler;
 
 ["UO_FW_Spectator_EndSpectate_Event", {
@@ -75,7 +80,47 @@ LOG("Client Pre Init");
 }] call CBA_fnc_addEventHandler;
 
 ["UO_FW_PlayerRespawn_Event", {
-    ["UO_FW_PlayerInit_Event", []] call CBA_fnc_localEvent;
+    [] call UO_FW_fnc_HandlePlayerRespawn;
+}] call CBA_fnc_addEventHandler;
+
+["UO_FW_PlayerRespawn_RecieveTicketEvent", {
+    params ["_unit","_response","_ticketType","_ticketsRemaining"];
+    TRACE_1("RecieveTicketEvent",_this);
+    if !(local _unit) exitwith {};
+    switch (_ticketType) do {
+        case "IND": {
+            if (_response) then {
+                ["UO_FW_PlayerRespawn_Event", []] call CBA_fnc_localEvent;
+                if (_ticketsRemaining isEqualTo 0) exitwith {
+                    "You have no respawn tickets remaining." call BIS_fnc_titleText;
+                };
+                private _pluralForm = "tickets";
+                if (_ticketsRemaining isEqualTo 1) then {
+                    private _pluralForm = "ticket";
+                };
+                (format ["You have %1 respawn %2 remaining.",_ticketsRemaining,_pluralForm]) call BIS_fnc_titleText;
+            } else {
+                ["UO_FW_Specator_StartSpectate_Event", []] call CBA_fnc_localEvent;
+                "You had no respawn tickets remaining<br />Enabling spectator." call BIS_fnc_titleText;
+            };
+        };
+        case "TEAM": {
+            if (_response) then {
+                ["UO_FW_PlayerRespawn_Event", []] call CBA_fnc_localEvent;
+                if (_ticketsRemaining isEqualTo 0) exitwith {
+                    "Your team has no respawn tickets remaining." call BIS_fnc_titleText;
+                };
+                private _pluralForm = "tickets";
+                if (_ticketsRemaining isEqualTo 1) then {
+                    private _pluralForm = "ticket";
+                };
+                (format ["Your team has %1 respawn %2 remaining.",_ticketsRemaining,_pluralForm]) call BIS_fnc_titleText;
+            } else {
+                ["UO_FW_Specator_StartSpectate_Event", []] call CBA_fnc_localEvent;
+                "Your team had no respawn tickets remaining<br />Enabling spectator." call BIS_fnc_titleText;
+            };
+        };
+    };
 }] call CBA_fnc_addEventHandler;
 
 ["UO_FW_PlayerInit_Event", {
@@ -103,10 +148,10 @@ LOG("Client Pre Init");
 
 ["UO_FW_JIP_PlayerEvent", {
     if ((CBA_missionTime > ((UO_FW_GETMVAR(JIP_EXPIRETIME,30)) * 60))
-        || (((UO_FW_JIP_TypeBLUFOR isEqualto 2) && (side player isEqualto west))
-        || ((UO_FW_JIP_TypeOPFOR isEqualto 2) && (side player isEqualto east))
-        || ((UO_FW_JIP_TypeINDFOR isEqualto 2) && (side player isEqualto independent))
-        || ((UO_FW_JIP_TypeCIVILIAN isEqualto 2) && (side player isEqualto civilian)))
+        || (((UO_FW_JIP_Type_BLUFOR isEqualto 2) && (side player isEqualto west))
+        || ((UO_FW_JIP_Type_BLUFOR isEqualto 2) && (side player isEqualto east))
+        || ((UO_FW_JIP_Type_INDFOR isEqualto 2) && (side player isEqualto independent))
+        || ((UO_FW_JIP_Type_INDFOR isEqualto 2) && (side player isEqualto civilian)))
     ) exitwith {
         if (CBA_missionTime > ((UO_FW_GETMVAR(JIP_EXPIRETIME,30)) * 60)) then {
             ["You have spawned in past the mission JiP cutoff timer, enabling spectator"] call ace_common_fnc_displayTextStructured;

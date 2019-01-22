@@ -2,6 +2,9 @@
 #ifndef COMPONENT
 #define COMPONENT Main
 #endif
+#ifndef DEBUG_MODE_MINIMUM
+#define DEBUG_MODE_NORMAL
+#endif
 #define DEBUG_MODE_FULL
 #include "\x\cba\addons\Main\script_macros_common.hpp"
 
@@ -16,7 +19,7 @@ MESSAGE call UO_FW_fnc_DebugMessage
 #define UO_FW_DEBUG(basicmsg,detailedmsg)\
 [basicmsg,detailedmsg] call UO_FW_fnc_DebugMessageDetailed
 
-#define UO_FW_GETMVALUE(var1,var2) getMissionConfigValue [ARR_2(QUOTE(var1),var2)]
+#define UO_FW_GETMVALUE(var1,var2) getMissionConfigValue [ARR_2(QUOTE(DOUBLES(PREFIX,var1)),var2)]
 
 //UO_FW_ Vars
 #define GETVAR_SYS(var1,var2) getVariable [ARR_2(QUOTE(DOUBLES(PREFIX,var1)),var2)]
@@ -41,7 +44,7 @@ MESSAGE call UO_FW_fnc_DebugMessage
 #define UO_FW_EXEC_CHECK(ARG)\
 _argUpper = toUpper(#ARG);\
 if (isNil "UO_FW_Enabled") then {\
-    UO_FW_Enabled = (getMissionConfigValue ["UO_FW_Enabled",false]);\
+    UO_FW_Enabled = UO_FW_GETMVALUE(Enabled,false);\
 };\
 if ((_argUpper == "SERVER") && {(((!isServer) && isMultiplayer) || (!UO_FW_Enabled))}) exitWith {}; \
 if ((_argUpper == "CLIENT") && {((!hasinterface) || (!UO_FW_Enabled))}) exitWith {};\

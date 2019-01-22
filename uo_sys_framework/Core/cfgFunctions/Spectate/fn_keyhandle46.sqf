@@ -3,7 +3,7 @@
 UO_FW_EXEC_CHECK(CLIENT);
 
 params ["_control", "_code", "_shift", "_control", "_alt"];
-if (_code isEqualto 35 && {!_shift} && {_control} && {!_alt} && {(UO_FW_GETMVALUE(UO_FW_EG_keyHandler_display_hidden,false))}) then {
+if (_code isEqualto 35 && {!_shift} && {_control} && {!_alt} && {(UO_FW_GETMVAR(EG_keyHandler_display_hidden,false))}) then {
     ([] call BIS_fnc_displayMission) createDisplay "RscDisplayEGSpectator";
     UO_FW_EG_keyHandler_display_hidden = false;
     UO_FW_EG_keyHandleEG = (findDisplay 60492) displayAddEventHandler ["keyDown", {[] call UO_FW_fnc_keyHandleEG;}];

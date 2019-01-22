@@ -33,22 +33,22 @@ if !(UO_FW_aCount_east_ExpendedAmmunition isEqualto []) then {
     _UO_FW_aCount_textOPF = "";
 };
 
-if !(UO_FW_aCount_INDEPENDENT_ExpendedAmmunition isEqualto []) then {
+if !(UO_FW_aCount_INDFOR_ExpendedAmmunition isEqualto []) then {
     _UO_FW_aCount_textIND = "INDEPENDENT Munitions Expended:<br/>";
     {
         _x params ["_label","_count"];
         _UO_FW_aCount_textIND = _UO_FW_aCount_textIND + _label + ": " + str(_count) + " Rounds" + "<br/>";
-    } foreach UO_FW_aCount_INDEPENDENT_ExpendedAmmunition;
+    } foreach UO_FW_aCount_INDFOR_ExpendedAmmunition;
 } else {
     _UO_FW_aCount_textIND = "";
 };
 
-if !(UO_FW_aCount_CIVILIAN_ExpendedAmmunition isEqualto []) then {
+if !(UO_FW_aCount_CIV_ExpendedAmmunition isEqualto []) then {
     _UO_FW_aCount_textCIV = "CIVILIAN Munitions Expended:<br/>";
     {
         _x params ["_label","_count"];
         _UO_FW_aCount_textCIV = _UO_FW_aCount_textCIV + _label + ": " + str(_count) + " Rounds" + "<br/>";
-    } foreach UO_FW_aCount_CIVILIAN_ExpendedAmmunition;
+    } foreach UO_FW_aCount_CIV_ExpendedAmmunition;
 } else {
     _UO_FW_aCount_textCIV = "";
 };

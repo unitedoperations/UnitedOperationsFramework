@@ -16,7 +16,7 @@ While {true} do {
                     private _markercolor = switch (_side) do {
                         case west: {"ColorBlue"};
                         case east: {"ColorRed"};
-                        case resistance: {"ColorGreen"};
+                        case independent: {"ColorGreen"};
                         default {"ColorBlack"};
                     };
 

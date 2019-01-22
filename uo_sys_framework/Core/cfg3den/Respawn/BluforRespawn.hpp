@@ -24,7 +24,7 @@ class UO_FW_TeamRespawnSettings_Blufor {
             displayName = "Respawn Delay";
             tooltip = "Delay in seconds between a player being killed and respawning. Must be more than 5 seconds.";
             respawnTypes[] = {1,2,3,4,5};
-            control = "EditShort";
+            control = "UO_FW_RespawnDelay_Slider";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "5";
             validate = "number";

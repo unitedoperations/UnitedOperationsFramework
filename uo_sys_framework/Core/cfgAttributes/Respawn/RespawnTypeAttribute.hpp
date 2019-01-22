@@ -185,17 +185,17 @@ class UO_FW_Respawn_Combo_Blufor: Combo {
 class UO_FW_RespawnTemplates_Blufor: Title {
 	UO_FW_RESPAWN_TEMPLATES_ATTR_LOAD(UO_FW_Respawn_Value_Blufor);
 	UO_FW_RESPAWN_TEMPLATES_ATTR_SAVE;
-	h="5 * 	5 * (pixelH * pixelGrid * 	0.50)";
+	h="8 * 	5 * (pixelH * pixelGrid * 	0.50)";
 	class Controls: Controls {
 		class Title: Title {
-			h="5 * 	5 * (pixelH * pixelGrid * 	0.50)";
+			h="8 * 	5 * (pixelH * pixelGrid * 	0.50)";
 		};
 		class Value0: ctrlListbox {
 			idc=100;
 			show=0;
 			x="48 * (pixelW * pixelGrid * 	0.50)";
 			w="82 * (pixelW * pixelGrid * 	0.50)";
-			h="5 * 	5 * (pixelH * pixelGrid * 	0.50)";
+			h="8 * 	5 * (pixelH * pixelGrid * 	0.50)";
 			colorSelectBackground[]={0,0,0,0};
 			colorSelectBackground2[]={0,0,0,0};
 			UO_FW_RESPAWN_TEMPLATES_ATTR_ONLOAD;

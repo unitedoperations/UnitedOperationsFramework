@@ -1,5 +1,6 @@
 class UO_FW_Respawn_Settings_BLUFOR {
     displayName = "BLUFOR Respawn Settings";
+    display = "Display3DENEditAttributesPreviewMediumSized";
     class AttributeCategories {
         #include "Respawn\BluforRespawn.hpp"
     };
@@ -7,6 +8,7 @@ class UO_FW_Respawn_Settings_BLUFOR {
 
 class UO_FW_Respawn_Settings_OPFOR {
     displayName = "OPFOR Respawn Settings";
+    display = "Display3DENEditAttributesPreviewMediumSized";
     class AttributeCategories {
         #include "Respawn\OpforRespawn.hpp"
     };
@@ -14,13 +16,23 @@ class UO_FW_Respawn_Settings_OPFOR {
 
 class UO_FW_Respawn_Settings_INDFOR {
     displayName = "INDFOR Respawn Settings";
+    display = "Display3DENEditAttributesPreviewMediumSized";
     class AttributeCategories {
         #include "Respawn\IndforRespawn.hpp"
     };
 };
 
-class UO_FW_Respawn_Settings_CIVILIAN {
+class UO_FW_Respawn_Settings_CIV {
     displayName = "Civilian Respawn Settings";
+    display = "Display3DENEditAttributesPreviewMediumSized";
+    class AttributeCategories {
+        #include "Respawn\CivilianRespawn.hpp"
+    };
+};
+
+class UO_FW_Respawn_Settings_Main {
+    displayName = "General Respawn Settings";
+    display = "Display3DENEditAttributesPreviewMediumSized";
     class AttributeCategories {
         #include "Respawn\CivilianRespawn.hpp"
     };
