@@ -52,7 +52,7 @@ LOG("Client Pre Init");
 [{!(isNull player)}, {
     LOG_1("Client call waituntil player: %1",player);
     ["UO_FW_RecievePlayerVarRequest", [player,clientOwner]] call CBA_fnc_serverEvent;
-    UO_FW_SETMVAR(UO_FW_SpawnPos,(getposATL player));
+    UO_FW_SETMVAR(SpawnPos,(getposATL player));
 }] call CBA_fnc_WaitUntilAndExecute;
 
 ["UO_FW_EndMission_PlayerEvent", {
@@ -65,20 +65,22 @@ LOG("Client Pre Init");
 }] call CBA_fnc_addEventHandler;
 
 ["UO_FW_Specator_StartSpectate_Event", {
-    [] call UO_FW_fnc_spectate;
+    if !(UO_FW_GETPLVAR(Spectating,false)) then {
+        [] call UO_FW_fnc_spectate;
+    };
 }] call CBA_fnc_addEventHandler;
 
 ["UO_FW_Spectator_EndSpectate_Event", {
     [] call UO_FW_fnc_endSpectate;
 }] call CBA_fnc_addEventHandler;
 
-["UO_FW_Respawn_PlayerRespawn_Event", {
+["UO_FW_PlayerRespawn_Event", {
     ["UO_FW_PlayerInit_Event", []] call CBA_fnc_localEvent;
 }] call CBA_fnc_addEventHandler;
 
 ["UO_FW_PlayerInit_Event", {
-    if (UO_FW_GETMVAR(UO_FW_Player_ViewDistance_Enforce,false)) then {
-        setViewDistance UO_FW_GETMVAR(UO_FW_Player_ViewDistance,2500);
+    if (UO_FW_GETMVAR(Player_ViewDistance_Enforce,false)) then {
+        setViewDistance UO_FW_GETMVAR(Player_ViewDistance,2500);
     };
     enableSaving [false, false];
     enableEngineArtillery false;
@@ -86,13 +88,13 @@ LOG("Client Pre Init");
     enableSentences false;
     0 fadeRadio 0;
     player addRating 100000;
-    UO_FW_SETPLVAR(BIS_noCoreConversations,true);
+    player setvariable ["BIS_noCoreConversations",true,true];
 }] call CBA_fnc_addEventHandler;
 
 ["UO_FW_PlayerInitEH_Event", {
-    UO_FW_SETPLPVAR(UO_FW_Dead,false);
-    UO_FW_SETPLPVAR(UO_FW_Spectating,false);
-    UO_FW_SETPLPVAR(UO_FW_Body,player);
+    UO_FW_SETPLPVAR(Dead,false);
+    UO_FW_SETPLPVAR(Spectating,false);
+    UO_FW_SETPLPVAR(Body,player);
     UO_FW_PlayerHitHandle = [player, "Hit", UO_FW_FUNC(HitHandler), []] call CBA_fnc_addBISEventHandler;
     UO_FW_PlayerKillHandle = [player, "Killed", UO_FW_FUNC(KilledHandler), []] call CBA_fnc_addBISEventHandler;
     UO_FW_PlayerRespawnHandle = [player, "Respawn", UO_FW_FUNC(RespawnHandler), []] call CBA_fnc_addBISEventHandler;
@@ -100,20 +102,20 @@ LOG("Client Pre Init");
 }] call CBA_fnc_addEventHandler;
 
 ["UO_FW_JIP_PlayerEvent", {
-    if ((CBA_missionTime > ((UO_FW_GETMVAR(UO_FW_JIP_EXPIRETIME,30)) * 60))
+    if ((CBA_missionTime > ((UO_FW_GETMVAR(JIP_EXPIRETIME,30)) * 60))
         || (((UO_FW_JIP_TypeBLUFOR isEqualto 2) && (side player isEqualto west))
         || ((UO_FW_JIP_TypeOPFOR isEqualto 2) && (side player isEqualto east))
         || ((UO_FW_JIP_TypeINDFOR isEqualto 2) && (side player isEqualto independent))
         || ((UO_FW_JIP_TypeCIVILIAN isEqualto 2) && (side player isEqualto civilian)))
     ) exitwith {
-        if (CBA_missionTime > ((UO_FW_GETMVAR(UO_FW_JIP_EXPIRETIME,30)) * 60)) then {
+        if (CBA_missionTime > ((UO_FW_GETMVAR(JIP_EXPIRETIME,30)) * 60)) then {
             ["You have spawned in past the mission JiP cutoff timer, enabling spectator"] call ace_common_fnc_displayTextStructured;
         } else {
             ["This mission does not support JIP for your team, enabling spectator"] call ace_common_fnc_displayTextStructured;
         };
-        ["UO_FW_Specator_StartSpectate_Event", []] call CBA_fnc_localEvent;
         ["UO_FW_UnTrack_Event", [player]] call CBA_fnc_serverEvent;
-        UO_FW_SETPLPVAR(UO_FW_JIP_Excluded,true);
+        ["UO_FW_Specator_StartSpectate_Event", []] call CBA_fnc_localEvent;
+        UO_FW_SETPLPVAR(JIP_Excluded,true);
     };
     // Player can JiP, initialize player vars and EHs
     ["UO_FW_PlayerInitEH_Event", []] call CBA_fnc_localEvent;

@@ -15,20 +15,20 @@ private ["_type","_distance"];
 
 switch (side player) do {
     case west: {
-        _type = UO_FW_GETMVAR(UO_FW_JIP_TypeBLUFOR,0);
-        _distance = UO_FW_GETMVAR(UO_FW_JIP_DistanceBLUFOR,200);
+        _type = UO_FW_GETMVAR(JIP_TypeBLUFOR,0);
+        _distance = UO_FW_GETMVAR(JIP_DistanceBLUFOR,200);
     };
     case east: {
-        _type = UO_FW_GETMVAR(UO_FW_JIP_TypeOPFOR,0);
-        _distance = UO_FW_GETMVAR(UO_FW_JIP_DistanceOPFOR,200);
+        _type = UO_FW_GETMVAR(JIP_TypeOPFOR,0);
+        _distance = UO_FW_GETMVAR(JIP_DistanceOPFOR,200);
     };
     case resistance: {
-        _type = UO_FW_GETMVAR(UO_FW_JIP_TypeINDFOR,0);
-        _distance = UO_FW_GETMVAR(UO_FW_JIP_DistanceINDFOR,200);
+        _type = UO_FW_GETMVAR(JIP_TypeINDFOR,0);
+        _distance = UO_FW_GETMVAR(JIP_DistanceINDFOR,200);
     };
     case civilian: {
-        _type = UO_FW_GETMVAR(UO_FW_JIP_TypeCIVILIAN,0);
-        _distance = UO_FW_GETMVAR(UO_FW_JIP_DistanceCIVILIAN,200);
+        _type = UO_FW_GETMVAR(JIP_TypeCIVILIAN,0);
+        _distance = UO_FW_GETMVAR(JIP_DistanceCIVILIAN,200);
     };
 };
 

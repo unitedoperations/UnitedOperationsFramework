@@ -23,7 +23,7 @@ if (hasInterface) then {
             }] call CBA_fnc_execNextFrame;
         }] call CBA_fnc_execNextFrame;
 
-        if (didJIP && {CBA_missionTime > (UO_FW_GETMVAR(UO_FW_JIP_DENYTIME,300))}) exitwith {
+        if (didJIP && {CBA_missionTime > (UO_FW_GETMVAR(JIP_DENYTIME,300))}) exitwith {
             ["UO_FW_JIP_PlayerEvent", []] call CBA_fnc_localEvent;
             ["UO_FW_JIP_ServerEvent", [player]] call CBA_fnc_serverEvent;
         };
@@ -33,7 +33,7 @@ if (hasInterface) then {
     }] call CBA_fnc_WaitUntilAndExecute;
 } else {
     LOG("HC Post Init");
-    if (UO_FW_GETMVAR(UO_FW_AI_ViewDistance_Enforce,false)) then {
-        setViewDistance UO_FW_GETMVAR(UO_FW_AI_ViewDistance,2500);
+    if (UO_FW_GETMVAR(AI_ViewDistance_Enforce,false)) then {
+        setViewDistance UO_FW_GETMVAR(AI_ViewDistance,2500);
     };
 };

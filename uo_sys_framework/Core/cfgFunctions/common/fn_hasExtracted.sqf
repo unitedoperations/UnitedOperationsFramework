@@ -30,7 +30,7 @@ private _count = {
 
 private _result = false;
 if (_count >= _ratio * ([_team, 4] call UO_FW_fnc_getTeamVariable)) then {
-    if (UO_FW_GETMVAR(UO_FW_hasDeparted,false)) then {
+    if (UO_FW_GETMVAR(hasDeparted,false)) then {
         _result = true;
     };
 } else {

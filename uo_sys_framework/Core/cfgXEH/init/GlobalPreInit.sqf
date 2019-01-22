@@ -40,7 +40,7 @@ UO_FW_Framework_Initialized = false;
     } foreach allUnits select {local _x};
 }] call CBA_fnc_addEventHandler;
 
-if !(hasInterface) then {
+if (!(hasInterface) || !(isMultiplayer)) then {
     ["UO_FW_EndMission_Event", {
         ["UO_FW_EndMission_LocalObjectsEvent", []] call CBA_fnc_localEvent;
     }] call CBA_fnc_addEventHandler;

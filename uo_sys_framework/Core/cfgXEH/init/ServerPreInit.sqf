@@ -7,21 +7,9 @@ LOG("Server Pre Init");
 ["UO_FW_TeamsInitEvent", {
     UO_FW_Teams = [];
     {
-        params ["_side","_namevar","_teamType"];
-        switch (_teamType) do {
-            case 0: {
-                [_side,_namevar,"player"] call UO_FW_fnc_AddTeam;
-            };
-            case 1: {
-                [_side,_namevar,"ai"] call UO_FW_fnc_AddTeam;
-            };
-            case 2: {
-                [_side,_namevar,"both"] call UO_FW_fnc_AddTeam;
-            };
-            default {
-                [_side,_namevar,"both"] call UO_FW_fnc_AddTeam;
-            };
-        };
+        _x params ["_side","_namevar","_teamTypeNum"];
+        private _teamType = ["player","ai","both"] select _teamTypeNum;
+        [_side,_namevar,_teamType] call UO_FW_fnc_AddTeam;
     } foreach [[west,UO_FW_TeamSetting_Blufor_TeamName,UO_FW_TeamSetting_Blufor_TeamType],[east,UO_FW_TeamSetting_Opfor_TeamName,UO_FW_TeamSetting_Opfor_TeamType],[independent,UO_FW_TeamSetting_Indfor_TeamName,UO_FW_TeamSetting_Indfor_TeamType],[civilian,UO_FW_TeamSetting_Civ_TeamName,UO_FW_TeamSetting_Civ_TeamType]];
 }] call CBA_fnc_addEventHandler;
 
@@ -92,4 +80,13 @@ LOG("Server Pre Init");
     } foreach _allUOVars;
     LOG_1("Var Request Array: %1",_varArray);
     ["UO_FW_RecievePlayerVars", [_object,_varArray], _object] call CBA_fnc_targetEvent;
+}] call CBA_fnc_addEventHandler;
+
+["UO_FW_PlayerRespawn_RequestTicketEvent", {
+    params ["_unit","_ticketType"];
+
+}] call CBA_fnc_addEventHandler;
+
+["UO_FW_SettingsLoaded", {
+    ["UO_FW_TeamsInitEvent", []] call CBA_fnc_localEvent;
 }] call CBA_fnc_addEventHandler;

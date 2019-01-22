@@ -4,7 +4,7 @@ class UO_FW_TeamRespawnSettings_Opfor {
     class Attributes {
         class UO_FW_RespawnSetting_Type_Opfor {
             displayName = "Respawn System";
-            tooltip = "Type of respawn system for OPFOR. Place down Gamelogic with name uo_fw_east_respawn to define respawn location.";
+            tooltip = "Type of respawn system for OPFOR. Place down Gamelogic with name UO_FW_east_respawn to define respawn location.";
             control = "UO_FW_Respawn_Combo_Opfor";
             defaultValue = "0";
             property = "UO_FW_RespawnSetting_Type_Opfor";

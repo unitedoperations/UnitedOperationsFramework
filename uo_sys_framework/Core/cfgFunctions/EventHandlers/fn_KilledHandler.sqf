@@ -4,7 +4,7 @@ UO_FW_EXEC_CHECK(CLIENT);
 
 _this params ["_unit", "", "_instigator"];
 
-if (UO_FW_Killcam_Enabled) then {
+if (UO_FW_GETMVAR(Killcam_Enabled,true)) then {
     //we check if player didn't kill himself or died for unknown reasons
     if ((vehicle _instigator != vehicle _unit) && {_instigator != objNull}) then {
         //this is the standard case (killed EH got triggered by getting shot)
@@ -15,7 +15,7 @@ if (UO_FW_Killcam_Enabled) then {
     } else {
         //we will try to retrieve info from our hit EH
         LOG("using hit EH");
-        private _last_hit_info = UO_FW_GETMVAR(UO_FW_Killcam_LastHit,[]);
+        private _last_hit_info = UO_FW_GETMVAR(Killcam_LastHit,[]);
         //hit info retrieved, now we check if it's not caused by fall damage etc.
         //also we won't use info that's over 10 seconds old
         if (_last_hit_info isEqualto []) then {
@@ -46,36 +46,21 @@ if (UO_FW_Killcam_Enabled) then {
 
 // Handle respawn delay
 
-if (UO_FW_eg_instant_death) then {
-    private _damage = UO_FW_GETMVAR(UO_FW_Killcam_LastHitDamage,0.5);
+if (UO_FW_GETMVAR(eg_instant_death,true)) then {
+    private _damage = UO_FW_GETMVAR(Killcam_LastHitDamage,0.5);
+    private _fadeInSpeed = (1.001 - _damage);
     [{
-        cutText ["\n", "BLACK", 1.01-_damage, true];
-        ["UO_FW_death", 0, true] call ace_common_fnc_setHearingCapability;
+        params ["_fadeInSpeed"];
         0 fadeSound 0;
-        ["<t color='#FF0000'>YOU ARE DEAD</t>", 0, 0.4, 2, 0.5, 0, 1000] spawn BIS_fnc_dynamicText;
-        [{
-            cutText ["\n","BLACK IN", 5];
-            ["UO_FW_death", 0, false] call ace_common_fnc_setHearingCapability;
-            0 fadeSound 1;
-        }, [], 5] call CBA_fnc_WaitAndExecute;
-    }] call CBA_fnc_execNextFrame;
+        "UO_FW_KilledLayer" cutText ["<t color='#FF0000' size='3.0'>YOU ARE DEAD</t>", "BLACK", _fadeInSpeed, true, true];
+        ["UO_FW_death", 0, true] call ace_common_fnc_setHearingCapability;
+    }, [_fadeInSpeed]] call CBA_fnc_execNextFrame;
 } else {
     [{
-        "BIS_layerEstShot" cutRsc ["RscStatic", "PLAIN"];
         playSound "Simulation_Fatal";
+        0 fadeSound 0;
         [] call BIS_fnc_VRFadeOut;
-        [{
-            playSound ("Transition" + str (1 + floor random 3));
-            [{
-                [] call BIS_fnc_VRFadeIn;
-            }, [], 1] call CBA_fnc_WaitAndExecute;
-        }, [], 1] call CBA_fnc_WaitAndExecute;
     }] call CBA_fnc_execNextFrame;
 };
 
-
-//Handle Respawn Modes or Send to Spectate Here
-
-if !(player getVariable ["UO_FW_Spectating", false]) then {
-    ["UO_FW_Specator_StartSpectate_Event", []] call CBA_fnc_localEvent;
-};
+//Handle respawn system modes

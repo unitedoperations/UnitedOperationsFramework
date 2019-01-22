@@ -5,7 +5,7 @@ class UO_FW_TeamRespawnSettings_Blufor {
         //_respawnTypeArray = [['1 Life','ONELIFE'],['Unlimited','UNLIMITED'],['Individual Tickets','INDTICKETS'],['Team Tickets','TEAMTICKETS'],['Wave','WAVE'],['Triggered','TRIGGERED']];
         class UO_FW_RespawnSetting_Type_Blufor {
             displayName = "Respawn System";
-            tooltip = "Type of respawn system for BLUFOR. Place down Gamelogic with name uo_fw_west_respawn to define respawn location.";
+            tooltip = "Type of respawn system for BLUFOR. Place down Gamelogic with name UO_FW_west_respawn to define respawn location.";
             control = "UO_FW_Respawn_Combo_Blufor";
             defaultValue = "0";
             property = "UO_FW_RespawnSetting_Type_Blufor";

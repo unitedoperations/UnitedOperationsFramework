@@ -4,7 +4,7 @@ class UO_FW_TeamRespawnSettings_Civ {
     class Attributes {
         class UO_FW_RespawnSetting_Type_Civ {
             displayName = "Respawn System";
-            tooltip = "Type of respawn system for Civilian. Place down Gamelogic with name uo_fw_civilian_respawn to define respawn location.";
+            tooltip = "Type of respawn system for Civilian. Place down Gamelogic with name UO_FW_civilian_respawn to define respawn location.";
             control = "UO_FW_Respawn_Combo_Civ";
             defaultValue = "0";
             property = "UO_FW_RespawnSetting_Type_Civ";

@@ -43,7 +43,7 @@ UO_FW_EXEC_CHECK(CLIENT);
                     };
                 };
                 case civilian: {
-                    _DefaultAO = (UO_FW_GETMVAR(UO_FW_CoverMap_DefaultAO_Civ,""));
+                    _DefaultAO = (UO_FW_GETMVAR(CoverMap_DefaultAO_Civ,""));
                     if (_DefaultAO isEqualto "") exitwith {
                         ERROR("No Default Civilian Area defined for CoverMap!");
                     };
