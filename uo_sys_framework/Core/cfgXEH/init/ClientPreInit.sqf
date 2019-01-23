@@ -54,11 +54,11 @@ LOG("Client Pre Init");
     ["UO_FW_RecievePlayerVarRequest", [player,clientOwner]] call CBA_fnc_serverEvent;
     UO_FW_SETMVAR(SpawnPos,(getpos player));
     switch (side player) do {
-        case WEST: {UO_FW_SETPLPVAR(TeamTag,"BLUFOR");};
-        case EAST: {UO_FW_SETPLPVAR(TeamTag,"OPFOR");};
-        case INDEPENDENT: {UO_FW_SETPLPVAR(TeamTag,"INDFOR");};
-        case CIVILIAN: {UO_FW_SETPLPVAR(TeamTag,"CIV");};
-        default {UO_FW_SETPLPVAR(TeamTag,"BLUFOR");};
+        case WEST: {UO_FW_SETMVAR(TeamTag,"BLUFOR");};
+        case EAST: {UO_FW_SETMVAR(TeamTag,"OPFOR");};
+        case INDEPENDENT: {UO_FW_SETMVAR(TeamTag,"INDFOR");};
+        case CIVILIAN: {UO_FW_SETMVAR(TeamTag,"CIV");};
+        default {UO_FW_SETMVAR(TeamTag,"BLUFOR");};
     };
 }] call CBA_fnc_WaitUntilAndExecute;
 
