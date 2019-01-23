@@ -5,6 +5,7 @@
 #include "cfgAttributes\Respawn\RespawnDelayAttribute.hpp"
 #include "cfgAttributes\Respawn\RespawnTypeAttribute.hpp"
 #include "cfgAttributes\Respawn\RespawnWaveGearSystemAttribute.hpp"
+#include "cfgAttributes\Respawn\RespawnSideAttribute.hpp"
 #include "cfgAttributes\EndConditions\ExtractionTeamAttribute.hpp"
 #include "cfgAttributes\EndConditions\EndConditionModeAttribute.hpp"
 #include "cfgAttributes\EndConditions\EndConditionsCaptureZoneTeamAttribute.hpp"
@@ -14,3 +15,4 @@
 #include "CfgAttributes\3DEN\ImportFromProfileAttribute.hpp"
 #include "CfgAttributes\3DEN\AIOnlyCategoryAttributes.hpp"
 #include "CfgAttributes\3DEN\PlayerOnlyCategoryAttributes.hpp"
+#include "CfgAttributes\Spectate\SpectateTeamsAttribute.hpp"

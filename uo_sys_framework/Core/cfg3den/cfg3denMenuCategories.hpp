@@ -19,10 +19,18 @@ class UO_FW_Respawn_Settings_INDFOR {
     };
 };
 
-class UO_FW_Respawn_Settings_CIVILIAN {
+class UO_FW_Respawn_Settings_CIV {
     displayName = "Civilian Respawn Settings";
     class AttributeCategories {
         #include "Respawn\CivilianRespawn.hpp"
+    };
+};
+
+class UO_FW_Respawn_Settings_Main {
+    displayName = "General Respawn Settings";
+    display = "Display3DENEditAttributesPreviewHalfSized";
+    class AttributeCategories {
+        #include "Respawn\MainRespawn.hpp"
     };
 };
 

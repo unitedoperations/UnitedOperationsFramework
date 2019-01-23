@@ -34,7 +34,7 @@ if (count _this > 0) then {
     _return append (_alivePlayers select {side _x isEqualto east});
   };
 
-  if (("independent" in _lowerThis) || ("resistance" in _lowerThis) || ("guer" in _lowerThis)) then {
+  if (("independent" in _lowerThis) || ("independent" in _lowerThis) || ("guer" in _lowerThis)) then {
     _return append (_alivePlayers select {side _x isEqualto independent});
   };
 

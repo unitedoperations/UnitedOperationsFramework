@@ -1,5 +1,3 @@
-//private _respawnSystemTypeArray = [['None',0],['Unlimited',1],['Individual Tickets',2],['Team Tickets',3],['Wave',4],['Triggered',5]];
-
 #define UO_FW_RESPAWN_COMBO_ATTR_LOAD(VALUEVAR,CFGVAR) \
 attributeLoad = "\
     private _ctrlCombo = (_this controlsGroupCtrl 100);\
@@ -39,10 +37,10 @@ onLoad = "\
         private _ctrlGroup = ctrlParentControlsGroup ctrlParentControlsGroup _ctrlCombo;\
         _n = 0;\
         {\
-            if (ctrlParentControlsGroup _x isEqualto _ctrlGroup) then {\
+            if (ctrlParentControlsGroup _x == _ctrlGroup) then {\
                 _cfg = _cfgAttributes select _n;\
                 _respawnTypes = getarray (_cfg >> 'respawnTypes');\
-                _state = ((_respawnTypes isEqualto []) || (_respawnType in _respawnTypes));\
+                _state = ((count _respawnTypes == 0) || (_respawnType in _respawnTypes));\
                 _fade = [0.75,0] select _state;\
                 _n = _n + 1;\
                 _x ctrlenable _state;\
@@ -61,6 +59,7 @@ onLBSelChanged = "\
     [_ctrlCombo,_cursel] spawn {\
         params ['_ctrlCombo','_cursel'];\
         _respawnType = _ctrlCombo lbValue _cursel;\
+        diag_log format ['combo new var onsel: %1',_respawnType];\
         private _configstr = missionNamespace getvariable ['##CFGVAR##',''];\
         private _configH = configHierarchy _configstr;\
         private _configHParent = _configH select ((count _configH) - 2);\
@@ -85,9 +84,6 @@ onLBSelChanged = "\
     };\
 "
 
-//getarray (configfile >> 'UO_FW_RespawnTemplates' >> 'respawnTemplatesWave'),
-//getarray (configfile >> 'UO_FW_RespawnTemplates' >> 'respawnTemplatesTriggered')
-
 #define UO_FW_RESPAWN_TEMPLATES_ATTR_LOAD(VALUEVAR) \
 attributeLoad = "\
     private _selectedRespawnType = missionNamespace getvariable ['##VALUEVAR##',0];\
@@ -97,7 +93,9 @@ attributeLoad = "\
         getarray (configfile >> 'UO_FW_RespawnTemplates' >> 'respawnTemplatesNone'),\
         getarray (configfile >> 'UO_FW_RespawnTemplates' >> 'respawnTemplatesUnlimited'),\
         getarray (configfile >> 'UO_FW_RespawnTemplates' >> 'respawnTemplatesIndTick'),\
-        getarray (configfile >> 'UO_FW_RespawnTemplates' >> 'respawnTemplatesTeamTick')\
+        getarray (configfile >> 'UO_FW_RespawnTemplates' >> 'respawnTemplatesTeamTick'),\
+        getarray (configfile >> 'UO_FW_RespawnTemplates' >> 'respawnTemplatesWave'),\
+        getarray (configfile >> 'UO_FW_RespawnTemplates' >> 'respawnTemplatesTriggered')\
     ];\
     private _isDefault = _value isequalto [''];\
     {\
@@ -107,15 +105,15 @@ attributeLoad = "\
         {\
             private _respawnType = _x;\
             private _ctrlListbox = _this controlsGroupCtrl (100 + _respawnType);\
-            private _selected = if ((_respawnType isEqualto _selectedRespawnType) && {!_isDefault}) then {\
+            private _selected = if ((_respawnType == _selectedRespawnType) && {!_isDefault}) then {\
                 _value\
             } else {\
                 _defaultTemplates select _respawnType\
             };\
-            if ((_scope > 1) && {(_respawnTypes isEqualto []) || _respawnType in _respawnTypes}) then {\
+            if ((_scope > 1) && {(count _respawnTypes == 0) || _respawnType in _respawnTypes}) then {\
                 private _data = configname _cfgTemplate;\
                 private _name = gettext (_cfgTemplate >> 'displayName');\
-                if (_name isEqualto '') then {_name = _data};\
+                if (_name == '') then {_name = _data};\
                 private _lbAdd = _ctrlListbox lbadd _name;\
                 _ctrlListbox lbsetdata [_lbAdd,_data];\
                 private _active = _data in _selected;\
@@ -126,7 +124,7 @@ attributeLoad = "\
     } foreach configproperties [configfile >> 'UO_FW_RespawnTemplates','isclass _x'];\
     {\
         private _ctrlListbox = _this controlsGroupCtrl (100 + _x);\
-        _ctrlListbox ctrlshow (_x isEqualto _selectedRespawnType);\
+        _ctrlListbox ctrlshow (_x == _selectedRespawnType);\
         lbsort _ctrlListbox;\
     } foreach [0,1,2,3,4,5];\
 "
@@ -138,9 +136,7 @@ attributeSave = "\
         _ctrlListbox = _this controlsGroupCtrl (100 + _x);\
         if (ctrlshown _ctrlListbox) exitwith {\
             for '_i' from 0 to (lbsize _ctrlListbox - 1) do {\
-                if (_ctrlListbox lbvalue _i > 0) then {\
-                    _value pushback (_ctrlListbox lbdata _i);\
-                };\
+                if (_ctrlListbox lbvalue _i > 0) then {_value pushback (_ctrlListbox lbdata _i);};\
             };\
         };\
     } foreach [0,1,2,3,4,5];\
@@ -162,15 +158,16 @@ onLBSelChanged = "\
 #define UO_FW_RESPAWN_TEMPLATES_ATTR_ONSETFOCUS(VALUEVAR) \
 onSetFocus = "\
 _ctrl = _this select 0;\
-[{!((missionNamespace getvariable [(_this select 1),'']) isEqualto '')},{\
-    params ['_ctrl','_valueVar'];\
+diag_log format ['onsetfocus this: %1',_this];\
+private _selectedRespawnType = missionNamespace getvariable ['##VALUEVAR##',0];\
+diag_log format ['onsetfocus _valueVar: %1',_valueVar];\
+    diag_log format ['onsetfocus wait this: %1',_this];\
     _ctrlGroup = ctrlparentcontrolsgroup _ctrl;\
-    _selectedRespawnType = missionNamespace getvariable [_valueVar,0];\
+    diag_log format ['onsetfocus _selectedRespawnType: %1',_selectedRespawnType];\
     {\
         _ctrlListbox = _ctrlGroup controlsGroupCtrl (100 + _x);\
-        _ctrlListbox ctrlshow (_x isEqualto _selectedRespawnType);\
+        _ctrlListbox ctrlshow (_x == _selectedRespawnType);\
     } foreach [0,1,2,3,4,5];\
-}, [_ctrl,'##VALUEVAR##']] call CBA_fnc_waitUntilAndExecute;\
 "
 
 class UO_FW_Respawn_Combo_Blufor: Combo {
@@ -188,17 +185,17 @@ class UO_FW_Respawn_Combo_Blufor: Combo {
 class UO_FW_RespawnTemplates_Blufor: Title {
     UO_FW_RESPAWN_TEMPLATES_ATTR_LOAD(UO_FW_Respawn_Value_Blufor);
     UO_FW_RESPAWN_TEMPLATES_ATTR_SAVE;
-    h="5 *     5 * (pixelH * pixelGrid *     0.50)";
+    h="8 *     5 * (pixelH * pixelGrid *     0.50)";
     class Controls: Controls {
         class Title: Title {
-            h="5 *     5 * (pixelH * pixelGrid *     0.50)";
+            h="8 *     5 * (pixelH * pixelGrid *     0.50)";
         };
         class Value0: ctrlListbox {
             idc=100;
             show=0;
             x="48 * (pixelW * pixelGrid *     0.50)";
             w="82 * (pixelW * pixelGrid *     0.50)";
-            h="5 *     5 * (pixelH * pixelGrid *     0.50)";
+            h="8 *     5 * (pixelH * pixelGrid *     0.50)";
             colorSelectBackground[]={0,0,0,0};
             colorSelectBackground2[]={0,0,0,0};
             UO_FW_RESPAWN_TEMPLATES_ATTR_ONLOAD;
@@ -231,7 +228,7 @@ class UO_FW_RespawnTemplates_Opfor: UO_FW_RespawnTemplates_Blufor {
     UO_FW_RESPAWN_TEMPLATES_ATTR_SAVE;
     class Controls: Controls {
         class Title: Title {};
-        class Value0: ctrlListbox {
+        class Value0: Value0 {
             UO_FW_RESPAWN_TEMPLATES_ATTR_ONLOAD;
             UO_FW_RESPAWN_TEMPLATES_ATTR_ONSETFOCUS(UO_FW_Respawn_Value_Opfor);
         };
@@ -262,7 +259,7 @@ class UO_FW_RespawnTemplates_Indfor: UO_FW_RespawnTemplates_Blufor {
     UO_FW_RESPAWN_TEMPLATES_ATTR_SAVE;
     class Controls: Controls {
         class Title: Title {};
-        class Value0: ctrlListbox {
+        class Value0: Value0 {
             UO_FW_RESPAWN_TEMPLATES_ATTR_ONLOAD;
             UO_FW_RESPAWN_TEMPLATES_ATTR_ONSETFOCUS(UO_FW_Respawn_Value_Indfor);
         };
@@ -293,7 +290,7 @@ class UO_FW_RespawnTemplates_Civ: UO_FW_RespawnTemplates_Blufor {
     UO_FW_RESPAWN_TEMPLATES_ATTR_SAVE;
     class Controls: Controls {
         class Title: Title {};
-        class Value0: ctrlListbox {
+        class Value0: Value0 {
             UO_FW_RESPAWN_TEMPLATES_ATTR_ONLOAD;
             UO_FW_RESPAWN_TEMPLATES_ATTR_ONSETFOCUS(UO_FW_Respawn_Value_Civ);
         };

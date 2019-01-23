@@ -4,9 +4,7 @@
 if !(UO_FW_Server_FireMissionModule_Allowed) exitwith {};
 
 if (isServer) then {
-
     {
-
         if ((_x getVariable ["UO_FW_ArtilleryFOAIEnabled",false])) then {
             private _guns = _x getVariable ["UO_FW_ArtilleryFOAIGuns",[]];
             private _accuracy = _x getVariable ["UO_FW_ArtilleryFOAIAccuracy",50];
@@ -26,8 +24,6 @@ if (isServer) then {
 
             [_x,_guns,_knowledge,_minRange,_viewRange,_dispersion,_salvoCount,_roundsPerSalvo,_salvoWaitTIme,_minSpot,_index] call UO_FW_fnc_RegisterForwardObserver;
         };
-
-
     } forEach allUnits;
     {
         if ((_x getVariable ["UO_FW_ArtilleryEnabled",false])) then {
@@ -57,11 +53,12 @@ if (hasInterface) then {
         ["Event_ArtyReceiveHint", {hint _this;}] call CBA_fnc_addEventHandler;
         ["Event_ReceiveFoGuns", {_this call UO_FW_fnc_initPlayerFO;}] call CBA_fnc_addEventHandler;
         if (player getVariable ["UO_FW_ArtilleryFOPlayerEnabled",false]) then {
-            private    _guns = [];
+            private _guns = [];
             {
                 private _tempUnit = missionNamespace getVariable [_x,objNull];
                 if (isNull _tempUnit) then {
-                    ERROR_1("Firemission module:<br></br>Warning Unit ""%1"" does not exist.", _x);
+                    private _msg = format ["Firemission module:<br></br>Warning Unit ""%1"" does not exist.", _x];
+                    UO_FW_DEBUG("Firemission Module",_msg);
                 };
                 _guns pushBackUnique _tempUnit;
             } forEach (player getVariable ["UO_FW_ArtilleryFOPlayerGuns",[]]);

@@ -17,8 +17,8 @@ class UO_FW_TeamsSetting {
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "0";
         };
-        class UO_FW_TeamSetting_Blufor_TeamName {
-            property = "UO_FW_TeamSetting_Blufor_TeamName";
+        class UO_FW_TeamSetting_TeamName_Blufor {
+            property = "UO_FW_TeamSetting_TeamName_Blufor";
             displayName = "Name";
             tooltip = "Set team name";
             control = "EditShort";
@@ -40,8 +40,8 @@ class UO_FW_TeamsSetting {
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "0";
         };
-        class UO_FW_TeamSetting_Opfor_TeamName {
-            property = "UO_FW_TeamSetting_Opfor_TeamName";
+        class UO_FW_TeamSetting_TeamName_Opfor {
+            property = "UO_FW_TeamSetting_TeamName_Opfor";
             displayName = "Name";
             tooltip = "Set team name";
             control = "EditShort";
@@ -63,8 +63,8 @@ class UO_FW_TeamsSetting {
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "0";
         };
-        class UO_FW_TeamSetting_Indfor_TeamName {
-            property = "UO_FW_TeamSetting_Indfor_TeamName";
+        class UO_FW_TeamSetting_TeamName_Indfor {
+            property = "UO_FW_TeamSetting_TeamName_Indfor";
             displayName = "Name";
             tooltip = "Set team name";
             control = "EditShort";
@@ -86,8 +86,8 @@ class UO_FW_TeamsSetting {
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "0";
         };
-        class UO_FW_TeamSetting_Civ_TeamName {
-            property = "UO_FW_TeamSetting_Civ_TeamName";
+        class UO_FW_TeamSetting_TeamName_Civ {
+            property = "UO_FW_TeamSetting_TeamName_Civ";
             displayName = "Name";
             tooltip = "Set team name";
             control = "EditShort";

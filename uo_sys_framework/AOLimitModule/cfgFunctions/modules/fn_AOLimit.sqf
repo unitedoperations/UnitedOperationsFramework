@@ -12,8 +12,8 @@ switch _mode do {
             private _selectedSides = [];
             if (_logic getVariable ["UO_FW_AOLimit_Blufor",true]) then {_selectedSides pushBackUnique west;};
             if (_logic getVariable ["UO_FW_AOLimit_Opfor",true]) then {_selectedSides pushBackUnique east;};
-            if (_logic getVariable ["UO_FW_AOLimit_Indfor",true]) then {_selectedSides pushBackUnique resistance;};
-            if (_logic getVariable ["UO_FW_AOLimit_Civilian",true]) then {_selectedSides pushBackUnique civilian;};
+            if (_logic getVariable ["UO_FW_AOLimit_Indfor",true]) then {_selectedSides pushBackUnique independent;};
+            if (_logic getVariable ["UO_FW_AOLimit_CIV",true]) then {_selectedSides pushBackUnique civilian;};
             if (_selectedSides isEqualTo []) exitwith {LOG("No sides defined for AO limit!");};
             private _entryMode = _logic getVariable ["UO_FW_AOLimit_EntryMode",false];
             private _airsetting = _logic getVariable ["UO_FW_AOLimit_AirUnits",true];

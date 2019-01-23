@@ -1,21 +1,21 @@
-if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_1",false]) then {
-    if ((isNil "UO_FW_EndCondition_Message_1") || {!(UO_FW_EndCondition_Message_1 isEqualType "STRING")}) then {
+if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_3",false]) then {
+    if ((isNil "UO_FW_EndCondition_Message_3") || {!(UO_FW_EndCondition_Message_3 isEqualType "STRING")}) then {
         ERROR("invalid message for End Condition Category 3");
     } else {
         LOG("Valid message for End Condition Category 3, executing");
 
         private _conditionsCountCategory3 = 0;
-        if (UO_FW_EndCondition_CasualtyCount_BLUFOR_Enabled_1) then {_conditionsCountCategory3 = _conditionsCountCategory3 + 1;};
-        if (UO_FW_EndCondition_CasualtyCount_OPFOR_Enabled_1) then {_conditionsCountCategory3 = _conditionsCountCategory3 + 1;};
-        if (UO_FW_EndCondition_CasualtyCount_RESISTANCE_Enabled_1) then {_conditionsCountCategory3 = _conditionsCountCategory3 + 1;};
-        if (UO_FW_EndCondition_CasualtyCount_CIVILIAN_Enabled_1) then {_conditionsCountCategory3 = _conditionsCountCategory3 + 1;};
+        if (UO_FW_EndCondition_CasualtyCount_BLUFOR_Enabled_3) then {_conditionsCountCategory3 = _conditionsCountCategory3 + 1;};
+        if (UO_FW_EndCondition_CasualtyCount_OPFOR_Enabled_3) then {_conditionsCountCategory3 = _conditionsCountCategory3 + 1;};
+        if (UO_FW_EndCondition_CasualtyCount_INDFOR_Enabled_3) then {_conditionsCountCategory3 = _conditionsCountCategory3 + 1;};
+        if (UO_FW_EndCondition_CasualtyCount_CIV_Enabled_3) then {_conditionsCountCategory3 = _conditionsCountCategory3 + 1;};
 
-        if (!(UO_FW_EndCondition_EntitiesAlive_Array_1 isEqualto [])) then {_conditionsCountCategory3 = _conditionsCountCategory3 + 1;};
-        if (!(UO_FW_EndCondition_EntitiesDead_Array_1 isEqualto [])) then {_conditionsCountCategory3 = _conditionsCountCategory3 + 1;};
-        if (!(UO_FW_EndCondition_EntitiesDamaged_Array_1 isEqualto [])) then {_conditionsCountCategory3 = _conditionsCountCategory3 + 1;};
-        if (!(UO_FW_EndCondition_HostageRescued_Array_1 isEqualto [])) then {_conditionsCountCategory3 = _conditionsCountCategory3 + 1;};
-        if (!(UO_FW_EndCondition_CustomVariables_Array_1 isEqualto [])) then {_conditionsCountCategory3 = _conditionsCountCategory3 + 1;};
-        if (!(UO_FW_EndCondition_CaptureZoneCaptured_Array_1 isEqualto [])) then {_conditionsCountCategory3 = _conditionsCountCategory3 + 1;};
+        if (!(UO_FW_EndCondition_EntitiesAlive_Array_3 isEqualto [])) then {_conditionsCountCategory3 = _conditionsCountCategory3 + 1;};
+        if (!(UO_FW_EndCondition_EntitiesDead_Array_3 isEqualto [])) then {_conditionsCountCategory3 = _conditionsCountCategory3 + 1;};
+        if (!(UO_FW_EndCondition_EntitiesDamaged_Array_3 isEqualto [])) then {_conditionsCountCategory3 = _conditionsCountCategory3 + 1;};
+        if (!(UO_FW_EndCondition_HostageRescued_Array_3 isEqualto [])) then {_conditionsCountCategory3 = _conditionsCountCategory3 + 1;};
+        if (!(UO_FW_EndCondition_CustomVariables_Array_3 isEqualto [])) then {_conditionsCountCategory3 = _conditionsCountCategory3 + 1;};
+        if (!(UO_FW_EndCondition_CaptureZoneCaptured_Array_3 isEqualto [])) then {_conditionsCountCategory3 = _conditionsCountCategory3 + 1;};
 
         if ((_conditionsCountCategory3) > 0) then {
             LOG_1("Starting Category 3 Condition Count:%1",_conditionsCountCategory3);
@@ -31,38 +31,38 @@ if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_1",false]) then {
                 //Casualty Checks
                 private _BluforCasConditionCheck = false;
 
-                if (UO_FW_EndCondition_CasualtyCount_BLUFOR_Enabled_1) then {
-                    private _westCasualty = UO_FW_TeamSetting_Blufor_TeamName call UO_FW_fnc_CasualtyPercentage;
-                    if (_westCasualty >= UO_FW_EndCondition_CasualtyCount_BLUFOR_Percentage_1) then {_BluforCasConditionCheck = true;} else {_BluforCasConditionCheck = false;};
+                if (UO_FW_EndCondition_CasualtyCount_BLUFOR_Enabled_3) then {
+                    private _westCasualty = UO_FW_TeamSetting_TeamName_Blufor call UO_FW_fnc_CasualtyPercentage;
+                    if (_westCasualty >= UO_FW_EndCondition_CasualtyCount_BLUFOR_Percentage_3) then {_BluforCasConditionCheck = true;} else {_BluforCasConditionCheck = false;};
                     _ConditionCheckList pushback ["BLUFOR Cas Check",_BluforCasConditionCheck];
                 };
 
                 private _OpforCasConditionCheck = false;
 
-                if (UO_FW_EndCondition_CasualtyCount_OPFOR_Enabled_1) then {
-                    private _eastCasualty = UO_FW_TeamSetting_Opfor_TeamName call UO_FW_fnc_CasualtyPercentage;
-                    if (_eastCasualty >= UO_FW_EndCondition_CasualtyCount_OPFOR_Percentage_1) then {_OpforCasConditionCheck = true;} else {_OpforCasConditionCheck = false;};
+                if (UO_FW_EndCondition_CasualtyCount_OPFOR_Enabled_3) then {
+                    private _eastCasualty = UO_FW_TeamSetting_TeamName_Opfor call UO_FW_fnc_CasualtyPercentage;
+                    if (_eastCasualty >= UO_FW_EndCondition_CasualtyCount_OPFOR_Percentage_3) then {_OpforCasConditionCheck = true;} else {_OpforCasConditionCheck = false;};
                     _ConditionCheckList pushback ["OPFOR Cas Check",_OpforCasConditionCheck];
                 };
 
                 private _IndforCasConditionCheck = false;
 
-                if (UO_FW_EndCondition_CasualtyCount_RESISTANCE_Enabled_1) then {
-                    private _resCasualty = UO_FW_TeamSetting_Indfor_TeamName call UO_FW_fnc_CasualtyPercentage;
-                    if (_resCasualty >= UO_FW_EndCondition_CasualtyCount_RESISTANCE_Percentage_1) then {_IndforCasConditionCheck = true;} else {_IndforCasConditionCheck = false;};
+                if (UO_FW_EndCondition_CasualtyCount_INDFOR_Enabled_3) then {
+                    private _resCasualty = UO_FW_TeamSetting_TeamName_Indfor call UO_FW_fnc_CasualtyPercentage;
+                    if (_resCasualty >= UO_FW_EndCondition_CasualtyCount_INDFOR_Percentage_3) then {_IndforCasConditionCheck = true;} else {_IndforCasConditionCheck = false;};
                     _ConditionCheckList pushback ["INDFOR Cas Check",_IndforCasConditionCheck];
                 };
 
-                private _CivilianCasConditionCheck = false;
+                private _CIVCasConditionCheck = false;
 
-                if (UO_FW_EndCondition_CasualtyCount_CIVILIAN_Enabled_1) then {
-                    private _civCasualty = UO_FW_TeamSetting_Civ_TeamName call UO_FW_fnc_CasualtyPercentage;
-                    if (_civCasualty >= UO_FW_EndCondition_CasualtyCount_CIVILIAN_Percentage_1) then {_CivilianCasConditionCheck = true;} else {_CivilianCasConditionCheck = false;};
-                    _ConditionCheckList pushback ["CIVILIAN Cas Check",_CivilianCasConditionCheck];
+                if (UO_FW_EndCondition_CasualtyCount_CIV_Enabled_3) then {
+                    private _civCasualty = UO_FW_TeamSetting_TeamName_Civ call UO_FW_fnc_CasualtyPercentage;
+                    if (_civCasualty >= UO_FW_EndCondition_CasualtyCount_CIV_Percentage_3) then {_CIVCasConditionCheck = true;} else {_CIVCasConditionCheck = false;};
+                    _ConditionCheckList pushback ["CIVILIAN Cas Check",_CIVCasConditionCheck];
                 };
 
                 //alive entity block
-                private _aliveUnitArray = missionNamespace getVariable ["UO_FW_EndCondition_EntitiesAlive_Array_1",[]];
+                private _aliveUnitArray = missionNamespace getVariable ["UO_FW_EndCondition_EntitiesAlive_Array_3",[]];
                 if (!(_aliveUnitArray isEqualto [])) then {
                     LOG_1("Alive Array 1:%1",_aliveUnitArray);
                     private _alive = true;
@@ -79,7 +79,7 @@ if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_1",false]) then {
                 };
 
                 //dead entity block
-                private _deadUnitArray = missionNamespace getVariable ["UO_FW_EndCondition_EntitiesDead_Array_1",[]];
+                private _deadUnitArray = missionNamespace getVariable ["UO_FW_EndCondition_EntitiesDead_Array_3",[]];
                 if (!(_deadUnitArray isEqualto [])) then {
                     LOG_1("Dead Array 1:%1",_deadUnitArray);
                     private _dead = true;
@@ -96,7 +96,7 @@ if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_1",false]) then {
                 };
 
                 //damaged & immobilized entity block
-                private _damagedUnitArray = missionNamespace getVariable ["UO_FW_EndCondition_EntitiesDamaged_Array_1",[]];
+                private _damagedUnitArray = missionNamespace getVariable ["UO_FW_EndCondition_EntitiesDamaged_Array_3",[]];
                 if (!(_damagedUnitArray isEqualto [])) then {
                     LOG_1("Damaged Array 1:%1",_damagedUnitArray);
                     private _damaged = true;
@@ -113,7 +113,7 @@ if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_1",false]) then {
                 };
 
                 //rescued hostage block
-                private _hostageRescuedArray = missionNamespace getVariable ["UO_FW_EndCondition_HostageRescued_Array_1",[]];
+                private _hostageRescuedArray = missionNamespace getVariable ["UO_FW_EndCondition_HostageRescued_Array_3",[]];
                 if (!(_hostageRescuedArray isEqualto [])) then {
                     LOG_1("Rescued Array 1:%1",_hostageRescuedArray);
                     private _rescued = true;
@@ -130,9 +130,9 @@ if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_1",false]) then {
                 };
 
                 //custom variables block
-                private _customVariablesArray = missionNamespace getVariable ["UO_FW_EndCondition_CustomVariables_Array_1",[]];
+                private _customVariablesArray = missionNamespace getVariable ["UO_FW_EndCondition_CustomVariables_Array_3",[]];
                 if (!(_customVariablesArray isEqualto [])) then {
-                    LOG_1("Var Array 1:%1",UO_FW_EndCondition_CustomVariables_Array_1);
+                    LOG_1("Var Array 1:%1",UO_FW_EndCondition_CustomVariables_Array_3);
                     private _custom = true;
                     {
                         if (isNil _x) then {
@@ -147,9 +147,9 @@ if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_1",false]) then {
                     } forEach _customVariablesArray;
                 };
 
-                private _captureZones_Array_1 = missionNamespace getVariable ["UO_FW_EndCondition_CaptureZoneCaptured_Array_1",[]];
-                if (!(_captureZones_Array_1 isEqualto [])) then {
-                    private _captureZones_TeamSetting_1 = missionNamespace getVariable ["UO_FW_EndCondition_CaptureZoneCaptured_Team_1",1];
+                private _captureZones_Array_3 = missionNamespace getVariable ["UO_FW_EndCondition_CaptureZoneCaptured_Array_3",[]];
+                if (!(_captureZones_Array_3 isEqualto [])) then {
+                    private _captureZones_TeamSetting_3 = missionNamespace getVariable ["UO_FW_EndCondition_CaptureZoneCaptured_Team_3",1];
                     {
                         private _CaptureZoneConditionCheck = true;
                         if !(_x in CaptureZone_Array) then {
@@ -159,7 +159,7 @@ if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_1",false]) then {
                             private _varName = format ["%1_var",false];
                             private _teamControllingvarName = format ["%1_teamControlling","UNCONTESTED"];
 
-                            switch (_captureZones_TeamSetting_1) do {
+                            switch (_captureZones_TeamSetting_3) do {
                                 case 0: {
                                     if ((missionNamespace getVariable [_teamControllingvarName,false]) isEqualto "UNCONTESTED") then {
                                         _CaptureZoneConditionCheck = true;
@@ -202,7 +202,7 @@ if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_1",false]) then {
                             private _checklisttext = format ["CaptureZoneCheck Check: %1 _var: %2 _team: %3", _x,(missionNamespace getVariable [_varName,false]),(missionNamespace getVariable [_teamControllingvarName,false])];
                             _ConditionCheckList pushback [_checklisttext,_CaptureZoneConditionCheck];
                         };
-                    } foreach _captureZones_Array_1;
+                    } foreach _captureZones_Array_3;
                 };
 
                 LOG_1("Category 3 _ConditionCheckList:%1",_ConditionCheckList);
@@ -210,11 +210,11 @@ if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_1",false]) then {
                 private _ExtractionCheck = false;
 
                 //check block
-                if (UO_FW_EndCondition_ExtractionEnabled_1) then {
-                    private _team = ([UO_FW_TeamSetting_Blufor_TeamName,UO_FW_TeamSetting_Opfor_TeamName,UO_FW_TeamSetting_Indfor_TeamName,UO_FW_TeamSetting_Civ_TeamName] select UO_FW_EndCondition_ExtractionTeam_1);
-                    if (UO_FW_EndCondition_ExtractionMarker_1 isEqualto "") exitwith {["","No marker entered for extract zone for Category 3!"] call UO_FW_fnc_DebugMessageDetailed;};
-                    if (getMarkerColor UO_FW_EndCondition_ExtractionMarker_1 isEqualto "") exitwith {["","Invalid extract marker for Category 3!"] call UO_FW_fnc_DebugMessageDetailed;};
-                        if ([_team,UO_FW_EndCondition_ExtractionMarker_1,UO_FW_EndCondition_ExtractionRatio_1] call UO_FW_fnc_hasExtracted) then {
+                if (UO_FW_EndCondition_ExtractionEnabled_3) then {
+                    private _team = ([UO_FW_TeamSetting_TeamName_Blufor,UO_FW_TeamSetting_TeamName_Opfor,UO_FW_TeamSetting_TeamName_Indfor,UO_FW_TeamSetting_TeamName_Civ] select UO_FW_EndCondition_ExtractionTeam_3);
+                    if (UO_FW_EndCondition_ExtractionMarker_3 isEqualto "") exitwith {["","No marker entered for extract zone for Category 3!"] call UO_FW_fnc_DebugMessageDetailed;};
+                    if (getMarkerColor UO_FW_EndCondition_ExtractionMarker_3 isEqualto "") exitwith {["","Invalid extract marker for Category 3!"] call UO_FW_fnc_DebugMessageDetailed;};
+                        if ([_team,UO_FW_EndCondition_ExtractionMarker_3,UO_FW_EndCondition_ExtractionRatio_3] call UO_FW_fnc_hasExtracted) then {
                             _ExtractionCheck = true;
                         } else {
                             _ExtractionCheck = false;
@@ -224,12 +224,12 @@ if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_1",false]) then {
                 };
 
                 if (_ExtractionCheck) then {
-                    if (UO_FW_EndCondition_Mode_1 isEqualto 1) then {
+                    if (UO_FW_EndCondition_Mode_3 isEqualto 1) then {
                         {
                             _x params ["_name","_value"];
                             if (_value) exitwith {
                                 LOG_1("Category 3 Ending due to :%1",_value);
-                                UO_FW_EndCondition_Message_1 call UO_FW_fnc_EndMission;
+                                UO_FW_EndCondition_Message_3 call UO_FW_fnc_EndMission;
                                 [_idPFH] call CBA_fnc_removePerFrameHandler;
                             };
                         } foreach _ConditionCheckList;
@@ -242,7 +242,7 @@ if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_1",false]) then {
                         } foreach _ConditionCheckList;
                         if (_fullcheck) then {
                             LOG("Category 3 Ending due to all conditions met!");
-                            UO_FW_EndCondition_Message_1 call UO_FW_fnc_EndMission;
+                            UO_FW_EndCondition_Message_3 call UO_FW_fnc_EndMission;
                             [_idPFH] call CBA_fnc_removePerFrameHandler;
                         };
                     };

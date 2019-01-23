@@ -24,7 +24,7 @@ if (_unit getVariable ["UO_FW_Tracked", false]) then {
         _x params ["", "_side", "_Type", "", "_current"];
         if (!(_unit getVariable ["UO_FW_HasDied", false]) && {!(_unit getVariable ["UO_FW_Dead", false])} && {(_unit getVariable "UO_FW_Side" isEqualto _side)} && {((_Type isEqualto "player" && isPlayer _unit) || (_Type isEqualto "ai" && !(isPlayer _unit)) || (_Type isEqualto "both"))}) exitWith {
             _unit setVariable ["UO_FW_HasDied", true];
-            _x set [4, _current - 1];
+            _x set [4, (_current - 1)];
         };
     } forEach UO_FW_Teams;
 };

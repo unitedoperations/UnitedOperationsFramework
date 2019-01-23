@@ -9,8 +9,8 @@ if (!UO_FW_Server_Framework_Allowed) exitWith {
     INFO("Framework is disabled in Server settings, exiting");
 };
 
-if !(UO_FW_GETMVALUE(UO_FW_Enabled,false)) exitWith {
-    INFO("Framework is disabled in Mission settings, exiting");
+if !(UO_FW_GETMVALUE(Enabled,false)) exitWith {
+    INFO("Framework is disabled in Mission settings... exiting");
 };
 
 INFO("Initializing Framework");
@@ -23,11 +23,9 @@ UO_FW_Framework_Initialized = false;
     _object setvariable [_propertyName,_value,_isGlobal];
 }] call CBA_fnc_addEventHandler;
 
-// Set Respawn Modes of all Teams from FW Settings
-["UO_FW_SettingsLoaded", {
-    //_respawnTypeArray = [['1 Life','ONELIFE'],['Unlimited','UNLIMITED'],['Individual Tickets','INDTICKETS'],['Team Tickets','TEAMTICKETS']];
-
-}] call CBA_fnc_addEventHandler;
+//["UO_FW_SettingsLoaded", {
+//    //_respawnTypeArray = [['1 Life','ONELIFE'],['Unlimited','UNLIMITED'],['Individual Tickets','INDTICKETS'],['Team Tickets','TEAMTICKETS']];
+//}] call CBA_fnc_addEventHandler;
 
 ["UO_FW_EndMission_LocalObjectsEvent", {
     {
@@ -40,7 +38,7 @@ UO_FW_Framework_Initialized = false;
     } foreach allUnits select {local _x};
 }] call CBA_fnc_addEventHandler;
 
-if !(hasInterface) then {
+if (!(hasInterface) || !(isMultiplayer)) then {
     ["UO_FW_EndMission_Event", {
         ["UO_FW_EndMission_LocalObjectsEvent", []] call CBA_fnc_localEvent;
     }] call CBA_fnc_addEventHandler;

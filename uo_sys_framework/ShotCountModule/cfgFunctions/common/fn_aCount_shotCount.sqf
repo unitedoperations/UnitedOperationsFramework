@@ -23,13 +23,13 @@ switch (_side) do {
         if (isNil "UO_FW_aCount_east_ExpendedAmmunition") then {UO_FW_aCount_east_ExpendedAmmunition = [];};
         _teamvar = UO_FW_aCount_east_ExpendedAmmunition;
     };
-    case resistance: {
-        if (isNil "UO_FW_aCount_independent_ExpendedAmmunition") then {UO_FW_aCount_independent_ExpendedAmmunition = [];};
-        _teamvar = UO_FW_aCount_independent_ExpendedAmmunition;
+    case independent: {
+        if (isNil "UO_FW_aCount_INDFOR_ExpendedAmmunition") then {UO_FW_aCount_INDFOR_ExpendedAmmunition = [];};
+        _teamvar = UO_FW_aCount_INDFOR_ExpendedAmmunition;
     };
     case civilian: {
-        if (isNil "UO_FW_aCount_civilian_ExpendedAmmunition") then {UO_FW_aCount_civilian_ExpendedAmmunition = [];};
-        _teamvar = UO_FW_aCount_civilian_ExpendedAmmunition;
+        if (isNil "UO_FW_aCount_CIV_ExpendedAmmunition") then {UO_FW_aCount_CIV_ExpendedAmmunition = [];};
+        _teamvar = UO_FW_aCount_CIV_ExpendedAmmunition;
     };
 };
 

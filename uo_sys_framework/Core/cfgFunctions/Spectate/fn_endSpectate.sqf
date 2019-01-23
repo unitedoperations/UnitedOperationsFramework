@@ -2,6 +2,8 @@
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 UO_FW_EXEC_CHECK(CLIENT);
 
+if !(UO_FW_GETPLVAR(Spectating,false)) exitwith {};
+
 player setVariable ["UO_FW_Spectating", false, true];
 player setVariable ["UO_FW_Dead", false, true];
 [player,false] remoteExecCall ["hideObject", 0];
@@ -12,7 +14,9 @@ player allowdamage true;
 [player, true] remoteExec ["allowdamage", 2];
 player call UO_FW_fnc_RemoveAllGear;
 [false] call acre_api_fnc_setSpectator;
-(findDisplay 46) displayRemoveEventHandler ["keyDown",UO_FW_EG_keyHandle46];
+if (!isNil "UO_FW_EG_keyHandle46") then {
+    (findDisplay 46) displayRemoveEventHandler ["keyDown",UO_FW_EG_keyHandle46];
+};
 
 ["Terminate"] call BIS_fnc_EGSpectator;
 
@@ -24,7 +28,7 @@ switch (side player) do {
     case WEST: {_marker = "respawn_west";};
     case EAST: {_marker = "respawn_east";};
     case INDEPENDENT: {_marker = "respawn_guerrila";};
-    case CIVILIAN: {_marker = "respawn_civilian";};
+    case CIVILIAN: {_marker = "respawn_CIV";};
     default {};
 };
 

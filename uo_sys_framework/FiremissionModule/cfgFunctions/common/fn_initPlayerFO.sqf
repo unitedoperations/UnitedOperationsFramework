@@ -84,7 +84,7 @@ if (!isDedicated) then {
                     [player, 1, ["ACE_SelfActions","Artillery_Menu","FiremissionInformation"], _action] call ace_interact_menu_fnc_addActionToObject;
                 } forEach _guns;
 
-                _id = ["Event_ArtyIsReady",
+                ["Event_ArtyIsReady",
                 {
                     [PFM_DIA_IDC_GUNSELECT] call UO_FW_fnc_ArtLoadAviableArtilleries;
                     [LFM_DIA_IDC_GUNSELECT] call UO_FW_fnc_ArtLoadAviableArtilleries;

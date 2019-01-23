@@ -38,32 +38,32 @@ UO_FW_EXEC_CHECK(CLIENT);
     } forEach (UO_FW_GETMVAR(MarkerControl_OpforBriefingMarkers,[]));
     {
         if ((count ((getMissionLayerEntities _x) select 1)) > 0) then {
-            {_markers pushBack [resistance, _x];} foreach ((getMissionLayerEntities _x) select 1);
+            {_markers pushBack [independent, _x];} foreach ((getMissionLayerEntities _x) select 1);
         } else {
-            _markers pushBack [resistance, _x];
+            _markers pushBack [independent, _x];
         };
-    } forEach (UO_FW_GETMVAR(MarkerControl_IndependentBriefing,[]));
+    } forEach (UO_FW_GETMVAR(MarkerControl_INDFORBriefing,[]));
     {
         if ((count ((getMissionLayerEntities _x) select 1)) > 0) then {
-            {_markersBriefing pushBack [resistance, _x];} foreach ((getMissionLayerEntities _x) select 1);
+            {_markersBriefing pushBack [independent, _x];} foreach ((getMissionLayerEntities _x) select 1);
         } else {
-            _markersBriefing pushBack [resistance, _x];
+            _markersBriefing pushBack [independent, _x];
         };
-    } forEach (UO_FW_GETMVAR(MarkerControl_IndependentBriefingMarkers,[]));
+    } forEach (UO_FW_GETMVAR(MarkerControl_INDFORBriefingMarkers,[]));
     {
         if ((count ((getMissionLayerEntities _x) select 1)) > 0) then {
             {_markers pushBack [civilian, _x];} foreach ((getMissionLayerEntities _x) select 1);
         } else {
             _markers pushBack [civilian, _x];
         };
-    } forEach (UO_FW_GETMVAR(MarkerControl_CivilianBriefing,[]));
+    } forEach (UO_FW_GETMVAR(MarkerControl_CIVBriefing,[]));
     {
         if ((count ((getMissionLayerEntities _x) select 1)) > 0) then {
             {_markersBriefing pushBack [civilian, _x];} foreach ((getMissionLayerEntities _x) select 1);
         } else {
             _markersBriefing pushBack [civilian, _x];
         };
-    } forEach (UO_FW_GETMVAR(MarkerControl_CivilianBriefingMarkers,[]));
+    } forEach (UO_FW_GETMVAR(MarkerControl_CIVBriefingMarkers,[]));
     {
         if ((count ((getMissionLayerEntities _x) select 1)) > 0) then {
             {_markers pushBack [sideLogic, _x];} foreach ((getMissionLayerEntities _x) select 1);

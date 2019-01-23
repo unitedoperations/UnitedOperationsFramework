@@ -51,42 +51,42 @@ class UO_FW_MarkerControl {
             validate = "none";
             defaultValue = "[]";
         };
-        class UO_FW_MarkerControl_IndependentMarkers {
+        class UO_FW_MarkerControl_INDFORMarkers {
             displayName = "Independent Markers";
             tooltip = "Markers which are only visible by Independent. Marker names or 3DEN layer names without quotes and seperated by ,";
             control = "EditArray";
             typeName = "STRING";
-            property = "UO_FW_MarkerControl_IndependentMarkers";
+            property = "UO_FW_MarkerControl_INDFORMarkers";
             expression = UO_FW_SCENARIO_EXPRESSION;
             validate = "none";
             defaultValue = "[]";
         };
-        class UO_FW_MarkerControl_IndependentBriefingMarkers {
+        class UO_FW_MarkerControl_INDFORBriefingMarkers {
             displayName = "Independent briefing Markers";
             tooltip = "Markers which are only visible by Independent during the briefing. Marker names or 3DEN layer names without quotes and seperated by ,";
             control = "EditArray";
             typeName = "STRING";
-            property = "UO_FW_MarkerControl_IndependentBriefingMarkers";
+            property = "UO_FW_MarkerControl_INDFORBriefingMarkers";
             expression = UO_FW_SCENARIO_EXPRESSION;
             validate = "none";
             defaultValue = "[]";
         };
-        class UO_FW_MarkerControl_CivilianMarkers {
+        class UO_FW_MarkerControl_CIVMarkers {
             displayName = "Civilian Markers";
             tooltip = "Markers which are only visible by Civilian. Marker names or 3DEN layer names without quotes and seperated by ,";
             control = "EditArray";
             typeName = "STRING";
-            property = "UO_FW_MarkerControl_CivilianMarkers";
+            property = "UO_FW_MarkerControl_CIVMarkers";
             expression = UO_FW_SCENARIO_EXPRESSION;
             validate = "none";
             defaultValue = "[]";
         };
-        class UO_FW_MarkerControl_CivilianBriefingMarkers {
+        class UO_FW_MarkerControl_CIVBriefingMarkers {
             displayName = "Civilian briefing Markers";
             tooltip = "Markers which are only visible by Civilian during the briefing. Marker names or 3DEN layer names without quotes and seperated by ,";
             control = "EditArray";
             typeName = "STRING";
-            property = "UO_FW_MarkerControl_CivilianBriefingMarkers";
+            property = "UO_FW_MarkerControl_CIVBriefingMarkers";
             expression = UO_FW_SCENARIO_EXPRESSION;
             validate = "none";
             defaultValue = "[]";

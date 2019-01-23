@@ -2,22 +2,22 @@
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 UO_FW_EXEC_CHECK(CLIENT);
 
-["UO_FW_SettingsLoaded", {
+["UO_FW_CoverMapInit_Event", {
     if (!UO_FW_Server_CoverMapModule_Allowed) exitWith {};
     if (!UO_FW_CoverMap_Enable) exitWith {};
-
+    ["UO_FW_RegisterModuleEvent", ["Cover Map", "Covers map except specified area, allows switching between multiple AOs", "Blackhawk and PIZZADOX"]] call CBA_fnc_globalEvent;
     [{(!isNull player)}, {
-        ["UO_FW_RegisterModuleEvent", ["Cover Map", "Covers map except specified area, allows switching between multiple AOs", "Blackhawk and PIZZADOX"]] call CBA_fnc_globalEvent;
         private ["_DefaultAO"];
         if !((UO_FW_GETPLVAR(CoverMap_UnitDefaultAO,[])) isEqualto "") then {
             _DefaultAO = UO_FW_GETPLVAR(CoverMap_UnitDefaultAO,[]);
+            //IGNORE_PRIVATE_WARNING ["_x"];
             if ((UO_FW_CoverMap_AO_Array findif {_DefaultAO isEqualto (_x select 0)}) isEqualto -1) exitwith {
                 ERROR_2("Default CoverMap for unit: %1 area: %1 does not exist!",player,_DefaultAO);
             };
         } else {
             switch (side player) do {
                 case west: {
-                    _DefaultAO = (UO_FW_GETMVAR(CoverMap_DefaultAO_West,""));
+                    _DefaultAO = (UO_FW_GETMVAR(CoverMap_DefaultAO_BLUFOR,""));
                     if (_DefaultAO isEqualto "") exitwith {
                         ERROR("No Default BLUFOR Area defined for CoverMap!");
                     };
@@ -26,7 +26,7 @@ UO_FW_EXEC_CHECK(CLIENT);
                     };
                 };
                 case east: {
-                    _DefaultAO = (UO_FW_GETMVAR(CoverMap_DefaultAO_East,""));
+                    _DefaultAO = (UO_FW_GETMVAR(CoverMap_DefaultAO_OPFOR,""));
                     if (_DefaultAO isEqualto "") exitwith {
                         ERROR("No Default OPFOR Area defined for CoverMap!");
                     };
@@ -34,7 +34,7 @@ UO_FW_EXEC_CHECK(CLIENT);
                         ERROR_1("Default CoverMap OPFOR area: %1 does not exist!",_DefaultAO);
                     };
                 };
-                case resistance: {
+                case independent: {
                     _DefaultAO = (UO_FW_GETMVAR(CoverMap_DefaultAO_Indfor,""));
                     if (_DefaultAO isEqualto "") exitwith {
                         ERROR("No Default INDFOR Area defined for CoverMap!");
@@ -44,7 +44,7 @@ UO_FW_EXEC_CHECK(CLIENT);
                     };
                 };
                 case civilian: {
-                    _DefaultAO = (UO_FW_GETMVAR(UO_FW_CoverMap_DefaultAO_Civ,""));
+                    _DefaultAO = (UO_FW_GETMVAR(CoverMap_DefaultAO_Civ,""));
                     if (_DefaultAO isEqualto "") exitwith {
                         ERROR("No Default Civilian Area defined for CoverMap!");
                     };
@@ -96,4 +96,8 @@ UO_FW_EXEC_CHECK(CLIENT);
             };
         };
     }] call CBA_fnc_waitUntilAndExecute;
+}] call CBA_fnc_addEventHandler;
+
+["UO_FW_SettingsLoaded", {
+    ["UO_FW_CoverMapInit_Event", []] call CBA_fnc_localEvent;
 }] call CBA_fnc_addEventHandler;

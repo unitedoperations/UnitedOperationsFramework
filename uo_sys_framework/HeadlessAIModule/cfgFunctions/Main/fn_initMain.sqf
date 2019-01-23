@@ -52,12 +52,12 @@ UO_FW_AI_LeaderExecuteLimit = 20;
 UO_FW_AI_FPSFreeze = 10;
 //Should the AI notice IR lasers?
 UO_FW_AI_IRLaser = true;
-//The longer an AI's target stays in 1 location, the more accurate and aware of the target the AI becomes.DEFAULT = [WEST,EAST,CIVILIAN,RESISTANCE];
+//The longer an AI's target stays in 1 location, the more accurate and aware of the target the AI becomes.DEFAULT = [WEST,EAST,CIVILIAN,INDEPENDENT];
 UO_FW_AI_IncreasingAccuracy = true;
-//UO_FW_AI_SideBasedMovement- Remove sides from the array below to force that specific AI side to not execute any advance movement code. (I.E. Moving to reinforce allies, being alerted by distant gunshots and etc). AI with this will still react normally in combat. DEFAULT = [WEST,EAST,CIVILIAN,RESISTANCE];
-UO_FW_AI_SideBasedMovement = [WEST,EAST,RESISTANCE,CIVILIAN];
-//UO_FW_AI_SideBasedExecution- Remove sides from the array below to remove that specific AI side from executing any of the VCOMAI scripts at all. DEFAULT = [WEST,EAST,CIVILIAN,RESISTANCE];
-UO_FW_AI_SideBasedExecution = [WEST,EAST,RESISTANCE,CIVILIAN];
+//UO_FW_AI_SideBasedMovement- Remove sides from the array below to force that specific AI side to not execute any advance movement code. (I.E. Moving to reinforce allies, being alerted by distant gunshots and etc). AI with this will still react normally in combat. DEFAULT = [WEST,EAST,CIVILIAN,INDEPENDENT];
+UO_FW_AI_SideBasedMovement = [WEST,EAST,INDEPENDENT,CIVILIAN];
+//UO_FW_AI_SideBasedExecution- Remove sides from the array below to remove that specific AI side from executing any of the VCOMAI scripts at all. DEFAULT = [WEST,EAST,CIVILIAN,INDEPENDENT];
+UO_FW_AI_SideBasedExecution = [WEST,EAST,INDEPENDENT,CIVILIAN];
 //Whether the AI will set up campfires at night if they are set to "DISMISS" waypoint
 UO_FW_AI_Campfires = true;
 //Distance the AI will attempt to flank around the enemy. I.E. How far off a waypoint, or around the enemy squad, the AI are willing to go in combat.

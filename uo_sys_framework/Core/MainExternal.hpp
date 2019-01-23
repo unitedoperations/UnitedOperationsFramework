@@ -41,50 +41,11 @@ class Display3DENEditAttributesPreview {
     class Controls;
     class AttributeCategory {
         class Controls {
-            class Minimize: ctrlCheckbox {
-                show=0;
-                x="0 * (pixelW * pixelGrid *     0.50)";
-                y=0;
-                w="5 * (pixelW * pixelGrid *     0.50)";
-                h="5 * (pixelH * pixelGrid *     0.50)";
-                textureChecked="\a3\3DEN\Data\Displays\Display3DENEditAttributes\textureChecked_ca.paa";
-                textureUnchecked="\a3\3DEN\Data\Displays\Display3DENEditAttributes\textureUnchecked_ca.paa";
-                textureFocusedChecked="\a3\3DEN\Data\Displays\Display3DENEditAttributes\textureChecked_ca.paa";
-                textureFocusedUnchecked="\a3\3DEN\Data\Displays\Display3DENEditAttributes\textureUnchecked_ca.paa";
-                textureHoverChecked="\a3\3DEN\Data\Displays\Display3DENEditAttributes\textureChecked_ca.paa";
-                textureHoverUnchecked="\a3\3DEN\Data\Displays\Display3DENEditAttributes\textureUnchecked_ca.paa";
-                texturePressedChecked="\a3\3DEN\Data\Displays\Display3DENEditAttributes\textureChecked_ca.paa";
-                texturePressedUnchecked="\a3\3DEN\Data\Displays\Display3DENEditAttributes\textureUnchecked_ca.paa";
-                textureDisabledChecked="\a3\3DEN\Data\Displays\Display3DENEditAttributes\textureChecked_ca.paa";
-                textureDisabledUnchecked="\a3\3DEN\Data\Displays\Display3DENEditAttributes\textureUnchecked_ca.paa";
-                color[]={1,1,1,0.5};
-                colorFocused[]={1,1,1,0.5};
-                colorHover[]={1,1,1,0.5};
-                colorPressed[]={1,1,1,0.5};
-                colorDisabled[]={1,1,1,0.5};
-            };
-            class Title: ctrlButton {
-                show=0;
-                x="5 * (pixelW * pixelGrid *     0.50)";
-                y="pixelH";
-                w="(    140 -     5 - 3) * (pixelW * pixelGrid *     0.50)";
-                h="5 * (pixelH * pixelGrid *     0.50)";
-                style="0x10 + 0x200";
-                font="RobotoCondensedLight";
-                sizeEx="4.32 * (1 / (getResolution select 3)) * pixelGrid * 0.5";
-                colorText[]={1,1,1,0.5};
-                colorBackground[]={0.2,0.2,0.2,1};
-                colorFocused[]={0.2,0.2,0.2,1};
-                colorBackgroundActive[]={0.2,0.2,0.2,1};
-                colorShadow[]={1,1,1,0.5};
-                offsetX=0;
-                offsetY="-pixelH";
-                offsetPressedX=0;
-                offsetPressedY=0;
-            };
+            class Minimize;
+            class Title;
             class Attributes: ctrlControlsGroupNoScrollbars {
                 y="4 * (pixelH * pixelGrid *     0.50) + 8 * pixelH";
-                w="(    140 - 5) * (pixelW * pixelGrid *     0.50)";
+                w="(    120 - 5) * (pixelW * pixelGrid *     0.50)";
                 class Controls {};
             };
         };
@@ -149,7 +110,7 @@ class Display3DENEditAttributesPreviewHalfSized: Display3DENEditAttributesPrevie
             class Title: ctrlButton {
                 x="5 * (pixelW * pixelGrid *     0.50)";
                 y="pixelH";
-                w="(    140 -     5 - 3) * (pixelW * pixelGrid *     0.50)";
+                w="(    120 -     5 - 3) * (pixelW * pixelGrid *     0.50)";
                 h="5 * (pixelH * pixelGrid *     0.50)";
                 fade=1;
                 show=0;
