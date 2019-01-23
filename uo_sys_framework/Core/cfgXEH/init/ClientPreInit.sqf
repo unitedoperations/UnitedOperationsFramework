@@ -85,42 +85,60 @@ LOG("Client Pre Init");
 
 ["UO_FW_PlayerRespawn_RecieveTicketEvent", {
     params ["_unit","_response","_ticketType","_ticketsRemaining"];
-    TRACE_1("RecieveTicketEvent",_this);
+    LOG_1("RecieveTicketEvent",_this);
     if !(local _unit) exitwith {};
-    switch (_ticketType) do {
-        case "IND": {
-            if (_response) then {
-                ["UO_FW_PlayerRespawn_Event", []] call CBA_fnc_localEvent;
-                if (_ticketsRemaining isEqualTo 0) exitwith {
-                    "You have no respawn tickets remaining." call BIS_fnc_titleText;
-                };
-                private _pluralForm = "tickets";
-                if (_ticketsRemaining isEqualTo 1) then {
-                    private _pluralForm = "ticket";
-                };
-                (format ["You have %1 respawn %2 remaining.",_ticketsRemaining,_pluralForm]) call BIS_fnc_titleText;
-            } else {
-                ["UO_FW_Specator_StartSpectate_Event", []] call CBA_fnc_localEvent;
-                "You had no respawn tickets remaining<br />Enabling spectator." call BIS_fnc_titleText;
-            };
+    private ["_delay","_teamSpectateList","_killCamSetting","_AISetting","_freeCamSetting","_thirdPersonSetting"];
+    switch (side player) do {
+        case west: {
+            _delay = UO_FW_GETMVAR(RespawnSetting_Delay_BLUFOR,5);
         };
-        case "TEAM": {
-            if (_response) then {
-                ["UO_FW_PlayerRespawn_Event", []] call CBA_fnc_localEvent;
-                if (_ticketsRemaining isEqualTo 0) exitwith {
-                    "Your team has no respawn tickets remaining." call BIS_fnc_titleText;
-                };
-                private _pluralForm = "tickets";
-                if (_ticketsRemaining isEqualTo 1) then {
-                    private _pluralForm = "ticket";
-                };
-                (format ["Your team has %1 respawn %2 remaining.",_ticketsRemaining,_pluralForm]) call BIS_fnc_titleText;
-            } else {
-                ["UO_FW_Specator_StartSpectate_Event", []] call CBA_fnc_localEvent;
-                "Your team had no respawn tickets remaining<br />Enabling spectator." call BIS_fnc_titleText;
-            };
+        case east: {
+            _delay = UO_FW_GETMVAR(RespawnSetting_Delay_OPFOR,5);
+        };
+        case independent: {
+            _delay = UO_FW_GETMVAR(RespawnSetting_Delay_INDFOR,5);
+        };
+        case civilian: {
+            _delay = UO_FW_GETMVAR(RespawnSetting_Delay_CIV,5);
         };
     };
+    [{
+        params ["_response","_ticketType","_ticketsRemaining"];
+        switch (_ticketType) do {
+            case "IND": {
+                if (_response) then {
+                    ["UO_FW_PlayerRespawn_Event", []] call CBA_fnc_localEvent;
+                    if (_ticketsRemaining isEqualTo 0) exitwith {
+                        "You have no respawn tickets remaining." call BIS_fnc_titleText;
+                    };
+                    private _pluralForm = "tickets";
+                    if (_ticketsRemaining isEqualTo 1) then {
+                        _pluralForm = "ticket";
+                    };
+                    (format ["You have %1 respawn %2 remaining.",_ticketsRemaining,_pluralForm]) call BIS_fnc_titleText;
+                } else {
+                    ["UO_FW_Specator_StartSpectate_Event", []] call CBA_fnc_localEvent;
+                    "You had no respawn tickets remaining<br />Enabling spectator." call BIS_fnc_titleText;
+                };
+            };
+            case "TEAM": {
+                if (_response) then {
+                    ["UO_FW_PlayerRespawn_Event", []] call CBA_fnc_localEvent;
+                    if (_ticketsRemaining isEqualTo 0) exitwith {
+                        "Your team has no respawn tickets remaining." call BIS_fnc_titleText;
+                    };
+                    private _pluralForm = "tickets";
+                    if (_ticketsRemaining isEqualTo 1) then {
+                        _pluralForm = "ticket";
+                    };
+                    (format ["Your team has %1 respawn %2 remaining.",_ticketsRemaining,_pluralForm]) call BIS_fnc_titleText;
+                } else {
+                    ["UO_FW_Specator_StartSpectate_Event", []] call CBA_fnc_localEvent;
+                    "Your team had no respawn tickets remaining<br />Enabling spectator." call BIS_fnc_titleText;
+                };
+            };
+        };
+    }, [_response,_ticketType,_ticketsRemaining], (_delay + 3)] call CBA_fnc_WaitAndExecute;
 }] call CBA_fnc_addEventHandler;
 
 ["UO_FW_PlayerInit_Event", {

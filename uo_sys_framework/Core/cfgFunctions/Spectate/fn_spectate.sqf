@@ -72,6 +72,7 @@ switch (side player) do {
     };
 };
 
+UO_FW_SETMVAR(EG_Killcam_active,_killCamSetting);
 // Whether to show Focus Info stats widget (true/false)
 UO_FW_EG_show_Focus_Info_widget = false;
 // Whether or not to show camera buttons widget (true/false)
@@ -163,7 +164,7 @@ if (abs(_pos select 0) < 2 && {abs(_pos select 1) < 2}) then {
     _pos = [2000, 2000, 100];
 };
 
-private _cam = missionNamespace getVariable [BIS_EGSpectatorCamera_camera,objNull];
+private _cam = missionNamespace getVariable ["BIS_EGSpectatorCamera_camera",objNull];
 if !(_cam isEqualto objNull) then {
     [{!isNull (findDisplay 60492)}, {
         LOG("Display loaded, attaching key EH");
@@ -202,7 +203,7 @@ if !(_cam isEqualto objNull) then {
         };
         UO_FW_killcam_drawHandle = addMissionEventHandler ["Draw3D", {
             //we don't draw hud unless we toggle it by keypress
-            if (missionNamespace getVariable ["UO_FW_killcam_toggle", false]) then {
+            if (UO_FW_GETMVAR(killcam_toggle,false)) then {
                 if ((UO_FW_killcam_killer_pos select 0) != 0) then {
                     private _u = UO_FW_killcam_unit_pos;
                     private _k = UO_FW_killcam_killer_pos;
@@ -218,15 +219,16 @@ if !(_cam isEqualto objNull) then {
                         drawIcon3D ["a3\ui_f\data\gui\cfg\debriefing\enddeath_ca.paa", [1,0,0,1], [eyePos UO_FW_killcam_killer select 0, eyePos UO_FW_killcam_killer select 1, (ASLtoAGL eyePos UO_FW_killcam_killer select 2) + 0.4], 0.7, 0.7, 0, _name + ", " + (str round UO_FW_killcam_distance) + "m", 1, 0.04, "PuristaMedium"];
                     };
                 } else {
-                    cutText ["killer info unavailable", "PLAIN DOWN"];
-                    missionNamespace setVariable ["UO_FW_killcam_toggle", false];
+                    "KillCamLayer" cutText ["killer info unavailable", "PLAIN DOWN"];
+                    UO_FW_SETMVAR(killcam_toggle,false);
+                    "KillCamLayer" cutFadeout 2;
                 };
             };
         }];//draw EH
     };//killcam (not) active
 };//checking camera
 if (_killCamSetting) then {
-    private _killcam_msg = "Press <t color='#FFA500'>K</t> to toggle indicator showing location where you were killed from.<br/>";
+    private _killcam_msg = "<t size = '.8'>Press </t><t color='#FFA500' size = '.8'>K</t><t size = '.8'> to toggle indicator showing location where you were killed from.</t>";
     [_killcam_msg, 0.55, 0.8, 8, 1] spawn BIS_fnc_dynamicText;
 };
 //private _text = format ["<t size='0.5' color='#ffffff'>%1

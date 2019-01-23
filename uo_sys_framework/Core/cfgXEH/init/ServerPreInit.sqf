@@ -86,7 +86,7 @@ LOG("Server Pre Init");
 
 ["UO_FW_PlayerRespawn_RequestTicketEvent", {
     params ["_unit","_ticketType"];
-    TRACE_2("RequestTicketEvent",_unit,_ticketType);
+    LOG_2("RequestTicketEvent",_unit,_ticketType);
     switch (_ticketType) do {
         case "IND": {
             //Individual Tickets
@@ -107,12 +107,13 @@ LOG("Server Pre Init");
                 };
             };
             private _indTicketsRemaining = (UO_FW_GETVAR(_unit,IndTicketsRemaining,0));
+            LOG_1("_indTicketsRemaining: %1",_indTicketsRemaining);
             if (_indTicketsRemaining > 0) then {
                 DEC(_indTicketsRemaining);
                 UO_FW_SETVAR(_unit,IndTicketsRemaining,_indTicketsRemaining);
-                ["UO_FW_PlayerRespawn_RecieveTicketEvent", [_unit,true,"IND"], [_unit]] call CBA_fnc_targetEvent;
+                ["UO_FW_PlayerRespawn_RecieveTicketEvent", [_unit,true,"IND",_indTicketsRemaining], [_unit]] call CBA_fnc_targetEvent;
             } else {
-                ["UO_FW_PlayerRespawn_RecieveTicketEvent", [_unit,false,"IND"], [_unit]] call CBA_fnc_targetEvent;
+                ["UO_FW_PlayerRespawn_RecieveTicketEvent", [_unit,false,"IND",_indTicketsRemaining], [_unit]] call CBA_fnc_targetEvent;
             };
         };
         case "TEAM": {

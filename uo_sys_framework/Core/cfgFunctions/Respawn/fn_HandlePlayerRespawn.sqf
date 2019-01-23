@@ -76,7 +76,7 @@ if ((_respawnType isEqualto "INDTICK") || (_respawnType isEqualto "TEAMTICK") ||
 
         // Handle Teleport Locations
         if !(isNull (missionNamespace getVariable [_teamRespawnMarker, objNull])) then {
-            [player,(getpos(missionNamespace getVariable _teamRespawnMarker)),30] call CBA_fnc_setPos;
+            [player,(getpos(missionNamespace getVariable _teamRespawnMarker)),10] call CBA_fnc_setPos;
         } else {
             [player,UO_FW_SpawnPos,30] call CBA_fnc_setPos;
         };

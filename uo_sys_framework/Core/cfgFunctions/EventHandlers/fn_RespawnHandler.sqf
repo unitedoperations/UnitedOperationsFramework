@@ -30,6 +30,8 @@ switch (side player) do {
     };
 };
 
+LOG_1("_respawnType: %1",_respawnType);
+
 switch (_respawnType) do {
     case "ONELIFE": {
         ["UO_FW_Specator_StartSpectate_Event", []] call CBA_fnc_localEvent;
