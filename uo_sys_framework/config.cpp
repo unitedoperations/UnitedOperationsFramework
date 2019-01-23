@@ -36,7 +36,6 @@ class CfgFunctions {
         #include "BriefingModule\cfgFunctions.hpp"
         #include "ShotCountModule\cfgFunctions.hpp"
         #include "AIDriversModule\cfgFunctions.hpp"
-        #include "ACREModule\cfgFunctions.hpp"
         #include "GearModule\cfgFunctions.hpp"
         #include "AOLimitModule\cfgFunctions.hpp"
         #include "SetupTimerModule\cfgFunctions.hpp"
@@ -296,6 +295,9 @@ class Extended_PreInit_EventHandlers {
     #include "FiremissionModule\cfgXEH\PreInit.hpp"
     #include "StartInParachuteModule\cfgXEH\PreInit.hpp"
     #include "StartTextModule\cfgXEH\PreInit.hpp"
+    #include "ACREModule\cfgXEH\PreInit.hpp"
+    #include "AIDriversModule\cfgXEH\PreInit.hpp"
+    #include "AILinkModule\cfgXEH\PreInit.hpp"
     #include "HostageModule\cfgXEH\PreInit.hpp"
 };
 
