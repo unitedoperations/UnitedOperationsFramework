@@ -10,7 +10,7 @@ if (!UO_FW_Server_Framework_Allowed) exitWith {
 };
 
 if !(UO_FW_GETMVALUE(Enabled,false)) exitWith {
-    INFO("Framework is disabled in Mission settings, exiting");
+    INFO("Framework is disabled in Mission settings... exiting");
 };
 
 INFO("Initializing Framework");

@@ -28,8 +28,9 @@ class UO_FW_Respawn_Settings_CIV {
 
 class UO_FW_Respawn_Settings_Main {
     displayName = "General Respawn Settings";
+    display = "Display3DENEditAttributesPreviewHalfSized";
     class AttributeCategories {
-        #include "Respawn\CivilianRespawn.hpp"
+        #include "Respawn\MainRespawn.hpp"
     };
 };
 

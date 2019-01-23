@@ -11,7 +11,8 @@ LOG("Server Pre Init");
         private _teamType = ["player","ai","both"] select _teamTypeNum;
         [_side,_namevar,_teamType] call UO_FW_fnc_AddTeam;
         _side call UO_FW_fnc_CreateRespawnMarker;
-    } foreach [[west,UO_FW_TeamSetting_Blufor_TeamName,UO_FW_TeamSetting_Blufor_TeamType],[east,UO_FW_TeamSetting_Opfor_TeamName,UO_FW_TeamSetting_Opfor_TeamType],[independent,UO_FW_TeamSetting_Indfor_TeamName,UO_FW_TeamSetting_Indfor_TeamType],[civilian,UO_FW_TeamSetting_Civ_TeamName,UO_FW_TeamSetting_Civ_TeamType]];
+        createCenter _side;
+    } foreach [[west,UO_FW_TeamSetting_TeamName_Blufor,UO_FW_TeamSetting_Blufor_TeamType],[east,UO_FW_TeamSetting_TeamName_Opfor,UO_FW_TeamSetting_Opfor_TeamType],[independent,UO_FW_TeamSetting_TeamName_Indfor,UO_FW_TeamSetting_Indfor_TeamType],[civilian,UO_FW_TeamSetting_TeamName_Civ,UO_FW_TeamSetting_Civ_TeamType]];
 }] call CBA_fnc_addEventHandler;
 
 ["UO_FW_PlayerSpawned", {
@@ -168,5 +169,7 @@ LOG("Server Pre Init");
 }] call CBA_fnc_addEventHandler;
 
 ["UO_FW_SettingsLoaded", {
-    ["UO_FW_TeamsInitEvent", []] call CBA_fnc_localEvent;
+    [{
+        ["UO_FW_TeamsInitEvent", []] call CBA_fnc_localEvent;
+    }] call CBA_fnc_execNextFrame;
 }] call CBA_fnc_addEventHandler;

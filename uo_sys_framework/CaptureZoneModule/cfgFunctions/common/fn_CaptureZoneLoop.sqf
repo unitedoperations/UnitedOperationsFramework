@@ -176,7 +176,7 @@ if (_interval < 5) then {
                                     };
                                     if !(_silent) then {
                                         if (_automessages) then {
-                                            private _msg = format ["%1 has captured %2!",UO_FW_TeamSetting_Blufor_TeamName,_zoneName];
+                                            private _msg = format ["%1 has captured %2!",UO_FW_TeamSetting_TeamName_Blufor,_zoneName];
                                             _msg remoteExec ["hint"];
                                         } else {
                                             (_bluformessageArray select 1) remoteExec ["hint"];
@@ -203,7 +203,7 @@ if (_interval < 5) then {
                             };
                             if !(_silent) then {
                                 if (_automessages) then {
-                                    private _msg = format ["%1 is capturing %2!",UO_FW_TeamSetting_Blufor_TeamName,_zoneName];
+                                    private _msg = format ["%1 is capturing %2!",UO_FW_TeamSetting_TeamName_Blufor,_zoneName];
                                     _msg remoteExec ["hint"];
                                 } else {
                                     (_bluformessageArray select 0) remoteExec ["hint"];
@@ -223,7 +223,7 @@ if (_interval < 5) then {
                                     };
                                     if !(_silent) then {
                                         if (_automessages) then {
-                                            private _msg = format ["%1 has captured %2!",UO_FW_TeamSetting_Opfor_TeamName,_zoneName];
+                                            private _msg = format ["%1 has captured %2!",UO_FW_TeamSetting_TeamName_Opfor,_zoneName];
                                             _msg remoteExec ["hint"];
                                         } else {
                                             (_opformessageArray select 1) remoteExec ["hint"];
@@ -250,7 +250,7 @@ if (_interval < 5) then {
                             };
                             if !(_silent) then {
                                 if (_automessages) then {
-                                    private _msg = format ["%1 is capturing %2!",UO_FW_TeamSetting_Opfor_TeamName,_zoneName];
+                                    private _msg = format ["%1 is capturing %2!",UO_FW_TeamSetting_TeamName_Opfor,_zoneName];
                                     _msg remoteExec ["hint"];
                                 } else {
                                     (_opformessageArray select 0) remoteExec ["hint"];
@@ -270,7 +270,7 @@ if (_interval < 5) then {
                                     };
                                     if !(_silent) then {
                                         if (_automessages) then {
-                                            private _msg = format ["%1 has captured %2!",UO_FW_TeamSetting_Indfor_TeamName,_zoneName];
+                                            private _msg = format ["%1 has captured %2!",UO_FW_TeamSetting_TeamName_Indfor,_zoneName];
                                             _msg remoteExec ["hint"];
                                         } else {
                                             (_indformessageArray select 1) remoteExec ["hint"];
@@ -297,7 +297,7 @@ if (_interval < 5) then {
                             };
                             if !(_silent) then {
                                 if (_automessages) then {
-                                    private _msg = format ["%1 is capturing %2!",UO_FW_TeamSetting_Indfor_TeamName,_zoneName];
+                                    private _msg = format ["%1 is capturing %2!",UO_FW_TeamSetting_TeamName_Indfor,_zoneName];
                                     _msg remoteExec ["hint"];
                                 } else {
                                     (_indformessageArray select 0) remoteExec ["hint"];
@@ -317,7 +317,7 @@ if (_interval < 5) then {
                                     };
                                     if !(_silent) then {
                                         if (_automessages) then {
-                                            private _msg = format ["%1 has captured %2!",UO_FW_TeamSetting_Civ_TeamName,_zoneName];
+                                            private _msg = format ["%1 has captured %2!",UO_FW_TeamSetting_TeamName_Civ,_zoneName];
                                             _msg remoteExec ["hint"];
                                         } else {
                                             (_CIVmessageArray select 1) remoteExec ["hint"];
@@ -343,7 +343,7 @@ if (_interval < 5) then {
                             };
                             if !(_silent) then {
                                 if (_automessages) then {
-                                    private _msg = format ["%1 is capturing %2!",UO_FW_TeamSetting_Civ_TeamName,_zoneName];
+                                    private _msg = format ["%1 is capturing %2!",UO_FW_TeamSetting_TeamName_Civ,_zoneName];
                                     _msg remoteExec ["hint"];
                                 } else {
                                     (_CIVmessageArray select 0) remoteExec ["hint"];

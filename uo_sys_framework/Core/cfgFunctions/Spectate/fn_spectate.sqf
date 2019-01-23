@@ -11,19 +11,67 @@ player allowdamage false;
 [player, false] remoteExec ["allowdamage", 2];
 player call UO_FW_fnc_RemoveAllGear;
 player setPos [0, 0, 0];
-[player] join grpNull;
+[player] joinSilent grpNull;
 
 if (UO_FW_GETPLVAR(Spectating,false)) exitwith {};
 
-//TODO move settings to menu attributes
-// Whitelisted sides (BLUFOR,OPFOR,INDEPENDENT,CIVILIAN)
-UO_FW_EG_whitelisted_sides = [BLUFOR,OPFOR,INDEPENDENT,CIVILIAN];
-// Whether AI can be viewed by the spectator (true/false)
-UO_FW_EG_ai_viewed_by_spectator = true;
-// Whether Free camera mode is available (true/false)
-UO_FW_EG_free_camera_mode_available = true;
-// Whether 3th Person Perspective camera mode is available (true/false)
-UO_FW_EG_third_person_perspective_camera_mode_available = true;
+private ["_delay","_teamSpectateList","_killCamSetting","_AISetting","_freeCamSetting","_thirdPersonSetting"];
+
+switch (side player) do {
+    case west: {
+        _delay = UO_FW_GETMVAR(RespawnSetting_Delay_BLUFOR,5);
+        private _teamSpectateVarValue = UO_FW_GETMVAR(TeamSpectateSettings_EnabledTeams_Blufor,[]);
+        _teamSpectateList = [];
+        if ("BLUFOR" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique BLUFOR};
+        if ("OPFOR" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique OPFOR};
+        if ("INDFOR" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique INDEPENDENT};
+        if ("CIVILIAN" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique CIVILIAN};
+        _killCamSetting = UO_FW_GETMVAR(TeamSpectateSettings_KillCam_Blufor,true);
+        _AISetting = UO_FW_GETMVAR(TeamSpectateSettings_AIEnabled_Blufor,true);
+        _freeCamSetting = UO_FW_GETMVAR(TeamSpectateSettings_FreeCam_Blufor,true);
+        _thirdPersonSetting = UO_FW_GETMVAR(TeamSpectateSettings_3rdPerson_Blufor,true);
+    };
+    case east: {
+        _delay = UO_FW_GETMVAR(RespawnSetting_Delay_OPFOR,5);
+        private _teamSpectateVarValue = UO_FW_GETMVAR(TeamSpectateSettings_EnabledTeams_OPFOR,[]);
+        _teamSpectateList = [];
+        if ("BLUFOR" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique BLUFOR};
+        if ("OPFOR" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique OPFOR};
+        if ("INDFOR" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique INDEPENDENT};
+        if ("CIVILIAN" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique CIVILIAN};
+        _killCamSetting = UO_FW_GETMVAR(TeamSpectateSettings_KillCam_OPFOR,true);
+        _AISetting = UO_FW_GETMVAR(TeamSpectateSettings_AIEnabled_OPFOR,true);
+        _freeCamSetting = UO_FW_GETMVAR(TeamSpectateSettings_FreeCam_OPFOR,true);
+        _thirdPersonSetting = UO_FW_GETMVAR(TeamSpectateSettings_3rdPerson_OPFOR,true);
+    };
+    case independent: {
+        _delay = UO_FW_GETMVAR(RespawnSetting_Delay_INDFOR,5);
+        private _teamSpectateVarValue = UO_FW_GETMVAR(TeamSpectateSettings_EnabledTeams_INDFOR,[]);
+        _teamSpectateList = [];
+        if ("BLUFOR" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique BLUFOR};
+        if ("OPFOR" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique OPFOR};
+        if ("INDFOR" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique INDEPENDENT};
+        if ("CIVILIAN" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique CIVILIAN};
+        _killCamSetting = UO_FW_GETMVAR(TeamSpectateSettings_KillCam_INDFOR,true);
+        _AISetting = UO_FW_GETMVAR(TeamSpectateSettings_AIEnabled_INDFOR,true);
+        _freeCamSetting = UO_FW_GETMVAR(TeamSpectateSettings_FreeCam_INDFOR,true);
+        _thirdPersonSetting = UO_FW_GETMVAR(TeamSpectateSettings_3rdPerson_INDFOR,true);
+    };
+    case civilian: {
+        _delay = UO_FW_GETMVAR(RespawnSetting_Delay_CIV,5);
+        private _teamSpectateVarValue = UO_FW_GETMVAR(TeamSpectateSettings_EnabledTeams_CIV,[]);
+        _teamSpectateList = [];
+        if ("BLUFOR" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique BLUFOR};
+        if ("OPFOR" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique OPFOR};
+        if ("INDFOR" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique INDEPENDENT};
+        if ("CIVILIAN" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique CIVILIAN};
+        _killCamSetting = UO_FW_GETMVAR(TeamSpectateSettings_KillCam_CIV,true);
+        _AISetting = UO_FW_GETMVAR(TeamSpectateSettings_AIEnabled_CIV,true);
+        _freeCamSetting = UO_FW_GETMVAR(TeamSpectateSettings_FreeCam_CIV,true);
+        _thirdPersonSetting = UO_FW_GETMVAR(TeamSpectateSettings_3rdPerson_CIV,true);
+    };
+};
+
 // Whether to show Focus Info stats widget (true/false)
 UO_FW_EG_show_Focus_Info_widget = false;
 // Whether or not to show camera buttons widget (true/false)
@@ -36,26 +84,19 @@ UO_FW_EG_show_header_widget = true;
 UO_FW_EG_show_Entities_and_locations_lists = true;
 // Define where the spectator camera starts. (add a marker with the name inside the "")
 UO_FW_EG_spectator_marker = "";
-// Activate showing information about killer
-UO_FW_EG_Killcam_active = true;
-// Makes screen turn black instantly and mutes all audio when killed
-UO_FW_EG_instant_death = true;
 
-private _teamDelayVarName = format ["UO_FW_RespawnSetting_Delay_%1",UO_FW_GETPLVAR(TeamTag,"")];
-private _delaySetting = missionNamespace getVariable [_teamDelayVarName, 5];
-private _delay = if (_delaySetting <= 5) then {2} else {(_delaySetting - 5)};
-
-if (UO_FW_GETMVAR(eg_instant_death,true)) then {
+if (UO_FW_GETMVAR(RespawnSetting_InstantDeath,true)) then {
     [{
+        params ["_teamSpectateList","_AISetting","_freeCamSetting","_thirdPersonSetting"];
         "UO_FW_KilledLayer" cutText ["","BLACK IN", 5];
         ["UO_FW_death", 0, false] call ace_common_fnc_setHearingCapability;
         0 fadeSound 1;
         ["Initialize",[
             player,
-            UO_FW_EG_Whitelisted_Sides,
-            UO_FW_EG_Ai_Viewed_By_Spectator,
-            UO_FW_EG_Free_Camera_Mode_Available,
-            UO_FW_EG_Third_Person_Perspective_Camera_mode_Available,
+            _teamSpectateList,
+            _AISetting,
+            _freeCamSetting,
+            _thirdPersonSetting,
             UO_FW_EG_Show_Focus_Info_Widget,
             UO_FW_EG_Show_Camera_Buttons_Widget,
             UO_FW_EG_Show_Controls_Helper_Widget,
@@ -64,17 +105,18 @@ if (UO_FW_GETMVAR(eg_instant_death,true)) then {
         ] call BIS_fnc_EGSpectator;
         player addWeapon "itemMap";
         [true] call acre_api_fnc_setSpectator;
-    }, [], _delay] call CBA_fnc_WaitAndExecute;
+    }, [_teamSpectateList,_AISetting,_freeCamSetting,_thirdPersonSetting], _delay] call CBA_fnc_WaitAndExecute;
 } else {
     [{
+        params ["_teamSpectateList","_AISetting","_freeCamSetting","_thirdPersonSetting"];
         0 fadeSound 1;
         playSound ("Transition" + str (1 + floor random 3));
         ["Initialize",[
             player,
-            UO_FW_EG_Whitelisted_Sides,
-            UO_FW_EG_Ai_Viewed_By_Spectator,
-            UO_FW_EG_Free_Camera_Mode_Available,
-            UO_FW_EG_Third_Person_Perspective_Camera_mode_Available,
+            _teamSpectateList,
+            _AISetting,
+            _freeCamSetting,
+            _thirdPersonSetting,
             UO_FW_EG_Show_Focus_Info_Widget,
             UO_FW_EG_Show_Camera_Buttons_Widget,
             UO_FW_EG_Show_Controls_Helper_Widget,
@@ -84,13 +126,13 @@ if (UO_FW_GETMVAR(eg_instant_death,true)) then {
         [] call BIS_fnc_VRFadeIn;
         player addWeapon "itemMap";
         [true] call acre_api_fnc_setSpectator;
-    }, [], _delay] call CBA_fnc_WaitAndExecute;
+    }, [_teamSpectateList,_AISetting,_freeCamSetting,_thirdPersonSetting], _delay] call CBA_fnc_WaitAndExecute;
 };
 
 UO_FW_SETMVAR(EG_keyHandler_display_hidden,false);
 
 //If babel is enabled, allowed spectator to hear all languages present in mission.
-if (UO_FW_GETMVAR(UO_FW_enable_babel,false)) then {
+if (UO_FW_GETMVAR(enable_babel,false)) then {
     private _missionLanguages = [];
     {
         {
@@ -121,14 +163,14 @@ if (abs(_pos select 0) < 2 && {abs(_pos select 1) < 2}) then {
     _pos = [2000, 2000, 100];
 };
 
-private _cam = UO_FW_GETMVAR(BIS_EGSpectatorCamera_camera,objNull);
+private _cam = missionNamespace getVariable [BIS_EGSpectatorCamera_camera,objNull];
 if !(_cam isEqualto objNull) then {
     [{!isNull (findDisplay 60492)}, {
         LOG("Display loaded, attaching key EH");
         UO_FW_EG_keyHandleEG = (findDisplay 60492) displayAddEventHandler ["keyDown", {call UO_FW_fnc_keyHandleEG;}];
         UO_FW_EG_keyHandle46 = (findDisplay 46) displayAddEventHandler ["keyDown", {call UO_FW_fnc_keyHandle46}];
     }, []] call CBA_fnc_waitUntilAndExecute;
-    if !(UO_FW_EG_Killcam_active) then {
+    if !(_killCamSetting) then {
         //we move 2 meters back so player's body is visible
         _pos getpos [-2, _dir];
         _cam setposATL _pos;
@@ -183,9 +225,8 @@ if !(_cam isEqualto objNull) then {
         }];//draw EH
     };//killcam (not) active
 };//checking camera
-private _killcam_msg = "";
-if (UO_FW_EG_Killcam_active) then {
-    _killcam_msg = "Press <t color='#FFA500'>K</t> to toggle indicator showing location where you were killed from.<br/>";
+if (_killCamSetting) then {
+    private _killcam_msg = "Press <t color='#FFA500'>K</t> to toggle indicator showing location where you were killed from.<br/>";
     [_killcam_msg, 0.55, 0.8, 8, 1] spawn BIS_fnc_dynamicText;
 };
 //private _text = format ["<t size='0.5' color='#ffffff'>%1

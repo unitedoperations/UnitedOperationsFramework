@@ -1,32 +1,36 @@
 class UO_FW_RespawnTemplates {
     respawnTemplatesNone[] = {};
-    respawnTemplatesUnlimited[] = {"UO_FW_RTemplatesS_InstantDeath","UO_FW_RTemplatesS_SafeStart","UO_FW_RTemplatesS_Gear","UO_FW_RTemplatesS_CoverMap","UO_FW_RTemplatesS_MapAndCompassRemover"};
-    respawnTemplatesIndTick[] = {"UO_FW_RTemplatesS_InstantDeath","UO_FW_RTemplatesS_SafeStart","UO_FW_RTemplatesS_Gear","UO_FW_RTemplatesS_CoverMap","UO_FW_RTemplatesS_MapAndCompassRemover"};
-    respawnTemplatesTeamTick[] = {"UO_FW_RTemplatesS_InstantDeath","UO_FW_RTemplatesS_SafeStart","UO_FW_RTemplatesS_Gear","UO_FW_RTemplatesS_CoverMap","UO_FW_RTemplatesS_MapAndCompassRemover"};
-    respawnTemplatesWave[] = {"UO_FW_RTemplatesS_InstantDeath","UO_FW_RTemplatesS_SafeStart","UO_FW_RTemplatesS_Gear","UO_FW_RTemplatesS_CoverMap","UO_FW_RTemplatesS_MapAndCompassRemover"};
-    respawnTemplatesTriggered[] = {"UO_FW_RTemplatesS_InstantDeath","UO_FW_RTemplatesS_SafeStart","UO_FW_RTemplatesS_Gear","UO_FW_RTemplatesS_CoverMap","UO_FW_RTemplatesS_MapAndCompassRemover"};
-    class UO_FW_RTemplatesS_InstantDeath {
-        displayName = "Instant Death Effect";
-        respawnTypes[] = {0,1,2,3,4,5};
+    respawnTemplatesUnlimited[] = {"UO_FW_RTemplatesS_JoinGroup","UO_FW_RTemplatesS_SafeStart","UO_FW_RTemplatesS_ACRE","UO_FW_RTemplatesS_Gear","UO_FW_RTemplatesS_CoverMap","UO_FW_RTemplatesS_MapAndCompassRemover"};
+    respawnTemplatesIndTick[] = {"UO_FW_RTemplatesS_JoinGroup","UO_FW_RTemplatesS_SafeStart","UO_FW_RTemplatesS_ACRE","UO_FW_RTemplatesS_Gear","UO_FW_RTemplatesS_CoverMap","UO_FW_RTemplatesS_MapAndCompassRemover"};
+    respawnTemplatesTeamTick[] = {"UO_FW_RTemplatesS_JoinGroup","UO_FW_RTemplatesS_SafeStart","UO_FW_RTemplatesS_ACRE","UO_FW_RTemplatesS_Gear","UO_FW_RTemplatesS_CoverMap","UO_FW_RTemplatesS_MapAndCompassRemover"};
+    respawnTemplatesWave[] = {"UO_FW_RTemplatesS_JoinGroup","UO_FW_RTemplatesS_SafeStart","UO_FW_RTemplatesS_ACRE","UO_FW_RTemplatesS_Gear","UO_FW_RTemplatesS_CoverMap","UO_FW_RTemplatesS_MapAndCompassRemover"};
+    respawnTemplatesTriggered[] = {"UO_FW_RTemplatesS_JoinGroup","UO_FW_RTemplatesS_SafeStart","UO_FW_RTemplatesS_ACRE","UO_FW_RTemplatesS_Gear","UO_FW_RTemplatesS_CoverMap","UO_FW_RTemplatesS_MapAndCompassRemover"};
+    class UO_FW_RTemplatesS_JoinGroup {
+        displayName = "Rejoin Group on Respawn";
+        respawnTypes[] = {1,2,3,5};
     };
     class UO_FW_RTemplatesS_SafeStart {
         displayName = "Executes SafeStart Module Settings";
         respawnTypes[] = {1,2,3,4,5};
     };
     class UO_FW_RTemplatesS_CoverMap {
-        displayName = "Executes CoverMap Unit Settings";
+        displayName = "Executes Unit CoverMap Settings";
         respawnTypes[] = {1,2,3,4,5};
     };
     class UO_FW_RTemplatesS_TeamColour {
-        displayName = "Executes TeamColour Unit Settings";
+        displayName = "Executes Unit TeamColour Settings";
         respawnTypes[] = {1,2,3,4,5};
     };
     class UO_FW_RTemplatesS_StartInParachute {
-        displayName = "Executes StartInParachute Unit Settings";
+        displayName = "Executes Unit StartInParachute Settings";
         respawnTypes[] = {1,2,3,4,5};
     };
     class UO_FW_RTemplatesS_Gear {
-        displayName = "Executes Gear Unit Settings";
+        displayName = "Executes Unit Gear Settings";
+        respawnTypes[] = {1,2,3,4,5};
+    };
+    class UO_FW_RTemplatesS_ACRE {
+        displayName = "Executes Unit ACRE Settings";
         respawnTypes[] = {1,2,3,4,5};
     };
     class UO_FW_RTemplatesS_MapAndCompassRemover {

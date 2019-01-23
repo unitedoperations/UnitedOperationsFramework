@@ -228,7 +228,7 @@ class UO_FW_RespawnTemplates_Opfor: UO_FW_RespawnTemplates_Blufor {
 	UO_FW_RESPAWN_TEMPLATES_ATTR_SAVE;
 	class Controls: Controls {
 		class Title: Title {};
-		class Value0: ctrlListbox {
+		class Value0: Value0 {
 			UO_FW_RESPAWN_TEMPLATES_ATTR_ONLOAD;
 			UO_FW_RESPAWN_TEMPLATES_ATTR_ONSETFOCUS(UO_FW_Respawn_Value_Opfor);
 		};
@@ -259,7 +259,7 @@ class UO_FW_RespawnTemplates_Indfor: UO_FW_RespawnTemplates_Blufor {
 	UO_FW_RESPAWN_TEMPLATES_ATTR_SAVE;
 	class Controls: Controls {
 		class Title: Title {};
-		class Value0: ctrlListbox {
+		class Value0: Value0 {
 			UO_FW_RESPAWN_TEMPLATES_ATTR_ONLOAD;
 			UO_FW_RESPAWN_TEMPLATES_ATTR_ONSETFOCUS(UO_FW_Respawn_Value_Indfor);
 		};
@@ -290,7 +290,7 @@ class UO_FW_RespawnTemplates_Civ: UO_FW_RespawnTemplates_Blufor {
 	UO_FW_RESPAWN_TEMPLATES_ATTR_SAVE;
 	class Controls: Controls {
 		class Title: Title {};
-		class Value0: ctrlListbox {
+		class Value0: Value0 {
 			UO_FW_RESPAWN_TEMPLATES_ATTR_ONLOAD;
 			UO_FW_RESPAWN_TEMPLATES_ATTR_ONSETFOCUS(UO_FW_Respawn_Value_Civ);
 		};

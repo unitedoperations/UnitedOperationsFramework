@@ -36,10 +36,10 @@ params ["_pos","_veh","_side"];
     if (UO_FW_AutoTrackAsset_Enabled) then {
         private _team = "";
         switch (_side) do {
-            case west: {_team = UO_FW_TeamSetting_Blufor_TeamName};
-            case east: {_team = UO_FW_TeamSetting_Opfor_TeamName};
-            case independent: {_team = UO_FW_TeamSetting_Indfor_TeamName};
-            case civilian: {_team = UO_FW_TeamSetting_Civ_TeamName};
+            case west: {_team = UO_FW_TeamSetting_TeamName_Blufor};
+            case east: {_team = UO_FW_TeamSetting_TeamName_Opfor};
+            case independent: {_team = UO_FW_TeamSetting_TeamName_Indfor};
+            case civilian: {_team = UO_FW_TeamSetting_TeamName_Civ};
         };
         if (!(_team isEqualto "")) then {
             private _vehCfg = (configFile >> "CfgVehicles" >> (typeOf _v));

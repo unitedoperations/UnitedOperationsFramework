@@ -52,7 +52,7 @@ LOG("Client Pre Init");
 [{!(isNull player)}, {
     LOG_1("Client call waituntil player: %1",player);
     ["UO_FW_RecievePlayerVarRequest", [player,clientOwner]] call CBA_fnc_serverEvent;
-    UO_FW_SETMVAR(SpawnPos,(getposATL player));
+    UO_FW_SETMVAR(SpawnPos,(getpos player));
     switch (side player) do {
         case WEST: {UO_FW_SETPLPVAR(TeamTag,"BLUFOR");};
         case EAST: {UO_FW_SETPLPVAR(TeamTag,"OPFOR");};

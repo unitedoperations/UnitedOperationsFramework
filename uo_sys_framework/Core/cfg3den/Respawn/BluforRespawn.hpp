@@ -5,7 +5,7 @@ class UO_FW_TeamRespawnSettings_Blufor {
         //_respawnTypeArray = [['1 Life','ONELIFE'],['Unlimited','UNLIMITED'],['Individual Tickets','INDTICKETS'],['Team Tickets','TEAMTICKETS'],['Wave','WAVE'],['Triggered','TRIGGERED']];
         class UO_FW_RespawnSetting_Type_Blufor {
             displayName = "Respawn System";
-            tooltip = "Type of respawn system for BLUFOR. Place down Gamelogic with name UO_FW_west_respawn to define respawn location.";
+            tooltip = "Type of respawn system for BLUFOR. Place down a GameLogic object with name UO_FW_RESPAWN_BLUFOR to define respawn location.";
             control = "UO_FW_Respawn_Combo_Blufor";
             defaultValue = "0";
             property = "UO_FW_RespawnSetting_Type_Blufor";
@@ -18,6 +18,15 @@ class UO_FW_TeamRespawnSettings_Blufor {
             control = "UO_FW_RespawnTemplates_Blufor";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "['']";
+        };
+        class UO_FW_RespawnSetting_NewTeam_Blufor {
+            property = "UO_FW_RespawnSetting_NewTeam_Blufor";
+            displayName = "Respawn Side";
+            tooltip = "Determines what side the originally BLUFOR players will spawn on. Enabling this setting requires respawned players to join a new group.";
+            respawnTypes[] = {1,2,3};
+            control = "UO_FW_RespawnSide_Combo";
+            expression = UO_FW_SCENARIO_EXPRESSION;
+            defaultValue = "0";
         };
         class UO_FW_RespawnSetting_Delay_Blufor {
             property = "UO_FW_RespawnSetting_Delay_Blufor";
@@ -103,5 +112,52 @@ class UO_FW_TeamRespawnSettings_Blufor {
             defaultValue = "0";
             typeName = "number";
         };*/
+    };
+};
+
+class UO_FW_TeamSpectateSettings_Blufor {
+    displayName = "BLUFOR Spectate Settings";
+    collapsed = 0;
+    class Attributes {
+        class UO_FW_TeamSpectateSettings_EnabledTeams_Blufor {
+            property = "UO_FW_TeamSpectateSettings_EnabledTeams";
+            displayName = "Spectate Teams";
+            tooltip = "Teams that this team can spectate.";
+            control = "UO_FW_SpectateTeams_Attribute";
+            defaultValue = "['BLUFOR','OPFOR','INDFOR','CIVILIAN']";
+            expression = UO_FW_SCENARIO_EXPRESSION;
+        };
+        class UO_FW_TeamSpectateSettings_KillCam_Blufor {
+            property = "UO_FW_TeamSpectateSettings_KillCam";
+            displayName = "Killcam";
+            tooltip = "This setting enables the specator killcam functionality.";
+            control = "CheckBox";
+            expression = UO_FW_SCENARIO_EXPRESSION;
+            defaultValue = "true";
+        };
+        class UO_FW_TeamSpectateSettings_AIEnabled_Blufor {
+            property = "UO_FW_TeamSpectateSettings_AIEnabled_Blufor";
+            displayName = "Spectate AI";
+            tooltip = "Enable Spectating AI Entities.";
+            control = "CheckBox";
+            expression = UO_FW_SCENARIO_EXPRESSION;
+            defaultValue = "true";
+        };
+        class UO_FW_TeamSpectateSettings_FreeCam_Blufor {
+            property = "UO_FW_TeamSpectateSettings_FreeCam";
+            displayName = "Spectator Freecam";
+            tooltip = "Enable Freecam Ability in Spectator.";
+            control = "CheckBox";
+            expression = UO_FW_SCENARIO_EXPRESSION;
+            defaultValue = "true";
+        };
+        class UO_FW_TeamSpectateSettings_3rdPerson_Blufor {
+            property = "UO_FW_TeamSpectateSettings_3rdPerson";
+            displayName = "Spectator Third Person";
+            tooltip = "Enable Third Person Ability in Spectator.";
+            control = "CheckBox";
+            expression = UO_FW_SCENARIO_EXPRESSION;
+            defaultValue = "true";
+        };
     };
 };

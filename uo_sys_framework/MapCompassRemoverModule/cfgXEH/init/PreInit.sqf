@@ -3,7 +3,7 @@
 UO_FW_EXEC_CHECK(ALL);
 
 ["UO_FW_MapRemover_LocalEvent", {
-    [{(CBA_missionTime > 1) && ()}, {
+    [{(CBA_missionTime > 1)},{
         {
             if (UO_FW_MACR_MAP_ALL) then {
                 if !(UO_FW_GETVAR(_x,KeepMapAI,false)) then {

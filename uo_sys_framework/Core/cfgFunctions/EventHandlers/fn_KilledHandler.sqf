@@ -4,7 +4,34 @@ UO_FW_EXEC_CHECK(CLIENT);
 
 _this params ["_unit", "", "_instigator"];
 
+UO_FW_SETMVAR(OLDGROUP,(group player));
 UO_FW_SETPLPVAR(Dead,true);
+
+private ["_delay","_templateSettings"];
+
+switch (side player) do {
+    case west: {
+        _delay = UO_FW_GETMVAR(RespawnSetting_Delay_BLUFOR,5);
+        _templateSettings = UO_FW_GETMVAR(RespawnSetting_Templates_BLUFOR,[]);
+    };
+    case east: {
+        _delay = UO_FW_GETMVAR(RespawnSetting_Delay_OPFOR,5);
+        _templateSettings = UO_FW_GETMVAR(RespawnSetting_Templates_OPFOR,[]);
+    };
+    case independent: {
+        _delay = UO_FW_GETMVAR(RespawnSetting_Delay_INDFOR,5);
+        _templateSettings = UO_FW_GETMVAR(RespawnSetting_Templates_INDFOR,[]);
+    };
+    case civilian: {
+        _delay = UO_FW_GETMVAR(RespawnSetting_Delay_CIV,5);
+        _templateSettings = UO_FW_GETMVAR(RespawnSetting_Templates_CIV,[]);
+    };
+};
+
+[{
+    params ["_unit"];
+    [_unit] joinSilent grpNull;
+}, [_unit], 2] call CBA_fnc_WaitAndExecute;
 
 if (UO_FW_GETMVAR(Killcam_Enabled,true)) then {
     //we check if player didn't kill himself or died for unknown reasons
@@ -46,9 +73,7 @@ if (UO_FW_GETMVAR(Killcam_Enabled,true)) then {
     };
 };
 
-// Handle respawn delay
-
-if (UO_FW_GETMVAR(eg_instant_death,true)) then {
+if (UO_FW_GETMVAR(RespawnSetting_InstantDeath,true)) then {
     private _damage = UO_FW_GETMVAR(Killcam_LastHitDamage,0.5);
     private _fadeInSpeed = (1.001 - _damage);
     [{
@@ -64,5 +89,3 @@ if (UO_FW_GETMVAR(eg_instant_death,true)) then {
         [] call BIS_fnc_VRFadeOut;
     }] call CBA_fnc_execNextFrame;
 };
-
-//Handle respawn system modes

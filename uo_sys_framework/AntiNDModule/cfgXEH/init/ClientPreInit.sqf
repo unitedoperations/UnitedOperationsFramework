@@ -2,7 +2,7 @@
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 UO_FW_EXEC_CHECK(CLIENT);
 
-["UO_FW_SettingsLoaded", {
+["UO_FW_AntiND_Event", {
     if !(UO_FW_Server_ANTINDMODULE_Allowed) exitwith {};
     if !(UO_FW_Anti_ND_Enabled) exitwith {};
     ["UO_FW_RegisterModuleEvent", ["Anti ND", "Extra Safety for mission start", "Starfox64, PiZZADOX and Sacher"]] call CBA_fnc_globalEvent;
@@ -32,4 +32,8 @@ UO_FW_EXEC_CHECK(CLIENT);
         (UO_FW_SETPLVAR(ND_EHid,_UO_FW_FiredEh));
         [{(CBA_missionTime > UO_FW_Anti_ND_Time)},{player removeEventHandler ["Fired", _this]; (UO_FW_SETPLVAR(ND_EHid,"DISABLED"));},_UO_FW_FiredEh] call CBA_fnc_waitUntilAndExecute;
     }] call CBA_fnc_waitUntilAndExecute;
+}] call CBA_fnc_addEventHandler;
+
+["UO_FW_SettingsLoaded", {
+    ["UO_FW_AntiND_Event", []] call CBA_fnc_localEvent;
 }] call CBA_fnc_addEventHandler;

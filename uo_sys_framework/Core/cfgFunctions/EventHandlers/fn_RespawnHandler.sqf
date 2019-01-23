@@ -6,26 +6,29 @@ UO_FW_EXEC_CHECK(CLIENT);
 _this params ["_unit", "_corpse"];
 
 UO_FW_SETPLPVAR(Body,_corpse);
+UO_FW_SETMVAR(GearReady,false);
 
 //handle respawn delays, Rsc, gear & module settings, location, etc
-private ["_respawnTypeNum"];
+private ["_respawnType"];
 
 switch (side player) do {
     case west: {
-        _respawnTypeNum = UO_FW_GETMVAR(RespawnSetting_Type_BLUFOR,0);
+        private _respawnTypeNum = UO_FW_GETMVAR(RespawnSetting_Type_BLUFOR,0);
+        _respawnType = ["ONELIFE","UNLIMITED","INDTICK","TEAMTICK"] select _respawnTypeNum;
     };
     case east: {
-        _respawnTypeNum = UO_FW_GETMVAR(RespawnSetting_Type_OPFOR,0);
+        private _respawnTypeNum = UO_FW_GETMVAR(RespawnSetting_Type_OPFOR,0);
+        _respawnType = ["ONELIFE","UNLIMITED","INDTICK","TEAMTICK"] select _respawnTypeNum;
     };
     case independent: {
-        _respawnTypeNum = UO_FW_GETMVAR(RespawnSetting_Type_INDFOR,0);
+        private _respawnTypeNum = UO_FW_GETMVAR(RespawnSetting_Type_INDFOR,0);
+        _respawnType = ["ONELIFE","UNLIMITED","INDTICK","TEAMTICK"] select _respawnTypeNum;
     };
     case civilian: {
-        _respawnTypeNum = UO_FW_GETMVAR(RespawnSetting_Type_CIV,0);
+        private _respawnTypeNum = UO_FW_GETMVAR(RespawnSetting_Type_CIV,0);
+        _respawnType = ["ONELIFE","UNLIMITED","INDTICK","TEAMTICK"] select _respawnTypeNum;
     };
 };
-
-private _respawnType = ["ONELIFE","UNLIMITED","INDTICK","TEAMTICK"] select _respawnTypeNum;
 
 switch (_respawnType) do {
     case "ONELIFE": {

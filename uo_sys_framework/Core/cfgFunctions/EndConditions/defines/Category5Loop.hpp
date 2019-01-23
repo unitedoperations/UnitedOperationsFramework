@@ -32,7 +32,7 @@ if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_5",false]) then {
                 private _BluforCasConditionCheck = false;
 
                 if (UO_FW_EndCondition_CasualtyCount_BLUFOR_Enabled_5) then {
-                    private _westCasualty = UO_FW_TeamSetting_Blufor_TeamName call UO_FW_fnc_CasualtyPercentage;
+                    private _westCasualty = UO_FW_TeamSetting_TeamName_Blufor call UO_FW_fnc_CasualtyPercentage;
                     if (_westCasualty >= UO_FW_EndCondition_CasualtyCount_BLUFOR_Percentage_5) then {_BluforCasConditionCheck = true;} else {_BluforCasConditionCheck = false;};
                     _ConditionCheckList pushback ["BLUFOR Cas Check",_BluforCasConditionCheck];
                 };
@@ -40,7 +40,7 @@ if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_5",false]) then {
                 private _OpforCasConditionCheck = false;
 
                 if (UO_FW_EndCondition_CasualtyCount_OPFOR_Enabled_5) then {
-                    private _eastCasualty = UO_FW_TeamSetting_Opfor_TeamName call UO_FW_fnc_CasualtyPercentage;
+                    private _eastCasualty = UO_FW_TeamSetting_TeamName_Opfor call UO_FW_fnc_CasualtyPercentage;
                     if (_eastCasualty >= UO_FW_EndCondition_CasualtyCount_OPFOR_Percentage_5) then {_OpforCasConditionCheck = true;} else {_OpforCasConditionCheck = false;};
                     _ConditionCheckList pushback ["OPFOR Cas Check",_OpforCasConditionCheck];
                 };
@@ -48,7 +48,7 @@ if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_5",false]) then {
                 private _IndforCasConditionCheck = false;
 
                 if (UO_FW_EndCondition_CasualtyCount_INDFOR_Enabled_5) then {
-                    private _resCasualty = UO_FW_TeamSetting_Indfor_TeamName call UO_FW_fnc_CasualtyPercentage;
+                    private _resCasualty = UO_FW_TeamSetting_TeamName_Indfor call UO_FW_fnc_CasualtyPercentage;
                     if (_resCasualty >= UO_FW_EndCondition_CasualtyCount_INDFOR_Percentage_5) then {_IndforCasConditionCheck = true;} else {_IndforCasConditionCheck = false;};
                     _ConditionCheckList pushback ["INDFOR Cas Check",_IndforCasConditionCheck];
                 };
@@ -56,7 +56,7 @@ if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_5",false]) then {
                 private _CIVCasConditionCheck = false;
 
                 if (UO_FW_EndCondition_CasualtyCount_CIV_Enabled_5) then {
-                    private _civCasualty = UO_FW_TeamSetting_Civ_TeamName call UO_FW_fnc_CasualtyPercentage;
+                    private _civCasualty = UO_FW_TeamSetting_TeamName_Civ call UO_FW_fnc_CasualtyPercentage;
                     if (_civCasualty >= UO_FW_EndCondition_CasualtyCount_CIV_Percentage_5) then {_CIVCasConditionCheck = true;} else {_CIVCasConditionCheck = false;};
                     _ConditionCheckList pushback ["CIVILIAN Cas Check",_CIVCasConditionCheck];
                 };
@@ -211,7 +211,7 @@ if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_5",false]) then {
 
                 //check block
                 if (UO_FW_EndCondition_ExtractionEnabled_5) then {
-                    private _team = ([UO_FW_TeamSetting_Blufor_TeamName,UO_FW_TeamSetting_Opfor_TeamName,UO_FW_TeamSetting_Indfor_TeamName,UO_FW_TeamSetting_Civ_TeamName] select UO_FW_EndCondition_ExtractionTeam_5);
+                    private _team = ([UO_FW_TeamSetting_TeamName_Blufor,UO_FW_TeamSetting_TeamName_Opfor,UO_FW_TeamSetting_TeamName_Indfor,UO_FW_TeamSetting_TeamName_Civ] select UO_FW_EndCondition_ExtractionTeam_5);
                     if (UO_FW_EndCondition_ExtractionMarker_5 isEqualto "") exitwith {["","No marker entered for extract zone for Category 5!"] call UO_FW_fnc_DebugMessageDetailed;};
                     if (getMarkerColor UO_FW_EndCondition_ExtractionMarker_5 isEqualto "") exitwith {["","Invalid extract marker for Category 5!"] call UO_FW_fnc_DebugMessageDetailed;};
                         if ([_team,UO_FW_EndCondition_ExtractionMarker_5,UO_FW_EndCondition_ExtractionRatio_5] call UO_FW_fnc_hasExtracted) then {
