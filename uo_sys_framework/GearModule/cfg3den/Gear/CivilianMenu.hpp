@@ -106,7 +106,7 @@ class UO_FW_GearSettings_ACE_Arsenal_CIV {
             displayName = "Vehicle Commander Loadout";
             tooltip = "Automatic Rifleman Loadout saved in ACE Arsenal mission loadouts";
             control = "UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo";
-            typeName = "STRING";
+            typeName = "UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "'None'";
         };
@@ -114,7 +114,7 @@ class UO_FW_GearSettings_ACE_Arsenal_CIV {
             property = "UO_FW_GearSettings_ACE_Arsenal_LoadoutType_CIV_MED";
             displayName = "Medic Loadout";
             tooltip = "Medic Loadout saved in ACE Arsenal mission loadouts";
-            control = "Edit";
+            control = "UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo";
             typeName = "STRING";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";

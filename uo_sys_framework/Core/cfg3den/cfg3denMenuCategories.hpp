@@ -28,7 +28,7 @@ class UO_FW_Respawn_Settings_CIV {
 
 class UO_FW_Respawn_Settings_Main {
     displayName = "General Respawn Settings";
-    display = "Display3DENEditAttributesPreviewHalfSized";
+    display = "Display3DENEditAttributesPreview";
     class AttributeCategories {
         #include "Respawn\MainRespawn.hpp"
     };
@@ -87,20 +87,11 @@ class UO_FW_EndConditions_Category_6_Menu {
 
 class UO_FW_Export_Menu {
     displayName = "Export Settings";
-    display = "Display3DENEditAttributesPreviewHalfSized";
     class AttributeCategories {
         class UO_FW_ExportAttributes {
             displayName = "Export Mission Settings";
             collapsed = 0;
             class Attributes {
-                class UO_FW_EXPORT_ExportToClipboard {
-                    property = "UO_FW_EXPORT_ExportToClipboard";
-                    displayName = "Export to Clipboard";
-                    tooltip = "Export framework settings to Clipboard";
-                    control = "UO_FW_ExportToClipboardAttribute";
-                    expression = "";
-                    defaultValue = "[]";
-                };
                 class UO_FW_EXPORT_ExportToProfile {
                     property = "UO_FW_EXPORT_ExportToProfile";
                     displayName = "Export to Profile";
@@ -109,6 +100,14 @@ class UO_FW_Export_Menu {
                     expression = "";
                     defaultValue = "''";
                 };
+                class UO_FW_EXPORT_ExportToClipboard {
+                    property = "UO_FW_EXPORT_ExportToClipboard";
+                    displayName = "Export to Clipboard";
+                    tooltip = "Export framework settings to Clipboard";
+                    control = "UO_FW_ExportToClipboardAttribute";
+                    expression = "";
+                    defaultValue = "[]";
+                };
             };
         };
     };
@@ -116,20 +115,11 @@ class UO_FW_Export_Menu {
 
 class UO_FW_Import_Menu {
     displayName = "Import Settings";
-    display = "Display3DENEditAttributesPreviewHalfSized";
     class AttributeCategories {
         class UO_FW_ImportAttributes {
             displayName = "Import Mission Settings";
             collapsed = 0;
             class Attributes {
-                class UO_FW_Import_ImportFromClipboard {
-                    property = "UO_FW_Import_ImportFromClipboard";
-                    displayName = "Import from Clipboard";
-                    tooltip = "Import framework settings from Clipboard";
-                    control = "UO_FW_ImportFromClipboardAttribute";
-                    expression = "";
-                    defaultValue = "[]";
-                };
                 class UO_FW_IMPORT_ImportfromProfile {
                     property = "UO_FW_IMPORT_ImportfromProfile";
                     displayName = "Import from Profile";
@@ -137,6 +127,14 @@ class UO_FW_Import_Menu {
                     control = "UO_FW_ImportFromProfileAttribute";
                     expression = "";
                     defaultValue = "''";
+                };
+                class UO_FW_Import_ImportFromClipboard {
+                    property = "UO_FW_Import_ImportFromClipboard";
+                    displayName = "Import from Clipboard";
+                    tooltip = "Import framework settings from Clipboard";
+                    control = "UO_FW_ImportFromClipboardAttribute";
+                    expression = "";
+                    defaultValue = "[]";
                 };
             };
         };

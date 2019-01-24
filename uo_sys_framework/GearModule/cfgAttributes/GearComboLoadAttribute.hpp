@@ -23,8 +23,7 @@ class UO_FW_Gear_ComboGearLoad: ComboPreview {
             };\
         } foreach _classArray;\
     ";
-    class Controls: Controls
-    {
+    class Controls: Controls {
         class Title: Title {};
         class Value: Value {
             onLBSelChanged="\
@@ -35,8 +34,7 @@ class UO_FW_Gear_ComboGearLoad: ComboPreview {
                 _unit setvariable ['UO_FW_Gear_UnitClass',_value,true];\
             ";
         };
-        class Preview: Preview
-        {
+        class Preview: Preview {
             idc=101;
             onMouseButtonClick="\
                 _ctrlButton = _this select 0;\

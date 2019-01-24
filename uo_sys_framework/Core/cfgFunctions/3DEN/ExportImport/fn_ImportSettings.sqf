@@ -12,6 +12,7 @@
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 
 LOG_1("ImportSettings params: %1",_this);
+[] call UO_FW_fnc_BasicSettings3Den;
 params [["_name",""],["_clipBoardMode",false]];
 
 if (_clipBoardMode) then {
