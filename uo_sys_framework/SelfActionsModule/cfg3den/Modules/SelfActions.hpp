@@ -32,7 +32,23 @@ class UO_FW_SelfActions {
             tooltip = "Enable Cut Grass Action";
             control = "Checkbox";
             expression = UO_FW_SCENARIO_EXPRESSION;
+            defaultValue = "true";
+        };
+        class UO_FW_SelfActions_ParaFlares_Enabled {
+            property = "UO_FW_SelfActions_ParaFlares_Enabled";
+            displayName = "Launch ParaFlare Action";
+            tooltip = "Enable Launch ParaFlare Action";
+            control = "Checkbox";
+            expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "false";
+        };
+        class UO_FW_SelfActions_ParaFlare_Brightness {
+            property = "UO_FW_SelfActions_ParaFlare_Brightness";
+            displayName = "ParaFlare Brightness";
+            tooltip = "Sets the brightness of paraflares";
+            control = "UO_FW_SelfActions_ParaFlare_Brightness_Slider";
+            expression = UO_FW_SCENARIO_EXPRESSION;
+            defaultValue = "15";
         };
     };
 };

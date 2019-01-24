@@ -101,7 +101,15 @@ class CfgDebriefingSections {
 };
 
 class CfgSounds {
+    #include "SelfActionsModule\cfgSounds.hpp"
+};
 
+class CfgAmmo {
+    #include "SelfActionsModule\cfgAmmo.hpp"
+};
+
+class CfgMagazines {
+    #include "SelfActionsModule\cfgMagazines.hpp"
 };
 
 class CfgUnitInsignia {
@@ -226,6 +234,7 @@ class Cfg3DEN {
         #include "GearModule\CfgAttributes.hpp"
         #include "AOLimitModule\CfgAttributes.hpp"
         #include "HostageModule\CfgAttributes.hpp"
+        #include "SelfActionsModule\CfgAttributes.hpp"
     };
 };
 

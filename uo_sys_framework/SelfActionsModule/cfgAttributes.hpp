@@ -1,0 +1,1 @@
+#include "cfgAttributes\ParaFlareBrightnessAttribute.hpp"

@@ -1,5 +1,6 @@
 #include "cfgAttributes\External.hpp"
 #include "cfgAttributes\Main\MissionTypeAttribute.hpp"
+#include "cfgAttributes\Main\FrameworkCheckboxAttribute.hpp"
 #include "cfgAttributes\Main\TeamTypeAttribute.hpp"
 #include "cfgAttributes\JiP\JipTypeAttribute.hpp"
 #include "cfgAttributes\Respawn\RespawnDelayAttribute.hpp"

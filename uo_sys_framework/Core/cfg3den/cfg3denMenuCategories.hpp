@@ -28,7 +28,7 @@ class UO_FW_Respawn_Settings_CIV {
 
 class UO_FW_Respawn_Settings_Main {
     displayName = "General Respawn Settings";
-    display = "Display3DENEditAttributesPreviewHalfSized";
+    display = "Display3DENEditAttributesPreview";
     class AttributeCategories {
         #include "Respawn\MainRespawn.hpp"
     };
@@ -87,7 +87,7 @@ class UO_FW_EndConditions_Category_6_Menu {
 
 class UO_FW_Export_Menu {
     displayName = "Export Settings";
-    display = "Display3DENEditAttributesPreviewHalfSized";
+    display = "Display3DENEditAttributesPreview";
     class AttributeCategories {
         class UO_FW_ExportAttributes {
             displayName = "Export Mission Settings";
@@ -116,7 +116,7 @@ class UO_FW_Export_Menu {
 
 class UO_FW_Import_Menu {
     displayName = "Import Settings";
-    display = "Display3DENEditAttributesPreviewHalfSized";
+    display = "Display3DENEditAttributesPreview";
     class AttributeCategories {
         class UO_FW_ImportAttributes {
             displayName = "Import Mission Settings";

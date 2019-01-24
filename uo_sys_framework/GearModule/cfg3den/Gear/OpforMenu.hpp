@@ -114,7 +114,7 @@ class UO_FW_GearSettings_ACE_Arsenal_Opfor {
             property = "UO_FW_GearSettings_ACE_Arsenal_LoadoutType_Opfor_MED";
             displayName = "Medic Loadout";
             tooltip = "Medic Loadout saved in ACE Arsenal mission loadouts";
-            control = "Edit";
+            control = "UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo";
             typeName = "STRING";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
@@ -123,7 +123,7 @@ class UO_FW_GearSettings_ACE_Arsenal_Opfor {
             property = "UO_FW_GearSettings_ACE_Arsenal_LoadoutType_Opfor_MKS";
             displayName = "Marksman Loadout";
             tooltip = "Marksman Loadout saved in ACE Arsenal mission loadouts";
-            control = "Edit";
+            control = "UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo";
             typeName = "STRING";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
