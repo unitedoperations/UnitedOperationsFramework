@@ -29,29 +29,29 @@ class CfgFactionClasses {
 };
 
 class CfgFunctions {
-    class UO_Framework {
-        tag = "UO_FW";
-        #include "Core\cfgFunctions.hpp"
-        //Add Custom Functions
-        #include "BriefingModule\cfgFunctions.hpp"
-        #include "ShotCountModule\cfgFunctions.hpp"
-        #include "AIDriversModule\cfgFunctions.hpp"
-        #include "GearModule\cfgFunctions.hpp"
-        #include "AOLimitModule\cfgFunctions.hpp"
-        #include "SetupTimerModule\cfgFunctions.hpp"
-        #include "AILinkModule\cfgFunctions.hpp"
-        #include "DisconnectControlModule\cfgFunctions.hpp"
-        #include "StartTextModule\cfgFunctions.hpp"
-        #include "AutoTrackAssetModule\cfgFunctions.hpp"
-        #include "CaptureZoneModule\cfgFunctions.hpp"
-        #include "StartInParachuteModule\cfgFunctions.hpp"
-        #include "MapCompassRemoverModule\cfgFunctions.hpp"
-        #include "FiremissionModule\cfgFunctions.hpp"
-        #include "HostageModule\cfgFunctions.hpp"
-        #include "CoverMapModule\cfgFunctions.hpp"
-    };
-    //Add Custom Function Categories with a Different Tag
-    #include "HeadlessAIModule\cfgFunctions.hpp"
+	class UO_Framework {
+		tag = "UO_FW";
+		#include "Core\cfgFunctions.hpp"
+		//Add Custom Functions
+		#include "BriefingModule\cfgFunctions.hpp"
+		#include "ShotCountModule\cfgFunctions.hpp"
+		#include "AIDriversModule\cfgFunctions.hpp"
+		#include "GearModule\cfgFunctions.hpp"
+		#include "AOLimitModule\cfgFunctions.hpp"
+		#include "SetupTimerModule\cfgFunctions.hpp"
+		#include "AILinkModule\cfgFunctions.hpp"
+		#include "DisconnectControlModule\cfgFunctions.hpp"
+		#include "StartTextModule\cfgFunctions.hpp"
+		#include "AutoTrackAssetModule\cfgFunctions.hpp"
+		#include "CaptureZoneModule\cfgFunctions.hpp"
+		#include "StartInParachuteModule\cfgFunctions.hpp"
+		#include "MapCompassRemoverModule\cfgFunctions.hpp"
+		#include "FiremissionModule\cfgFunctions.hpp"
+		#include "HostageModule\cfgFunctions.hpp"
+		#include "CoverMapModule\cfgFunctions.hpp"
+	};
+	//Add Custom Function Categories with a Different Tag
+	#include "HeadlessAIModule\cfgFunctions.hpp"
 };
 
 class CfgVehicles {
@@ -282,23 +282,22 @@ class Params {
 //};
 
 class Extended_PreInit_EventHandlers {
-    #include "Core\cfgXEH\PreInit.hpp"
-    //Module PreInit Activation
-    #include "GearModule\cfgXEH\PreInit.hpp"
-    #include "CoverMapModule\cfgXEH\PreInit.hpp"
-    #include "BriefingModule\cfgXEH\PreInit.hpp"
-    #include "AntiNDModule\cfgXEH\PreInit.hpp"
-    #include "TeamColourModule\cfgXEH\PreInit.hpp"
-    #include "SelfActionsModule\cfgXEH\PreInit.hpp"
-    #include "MarkerControlModule\cfgXEH\PreInit.hpp"
-    #include "ShotCountModule\cfgXEH\PreInit.hpp"
-    #include "FiremissionModule\cfgXEH\PreInit.hpp"
-    #include "StartInParachuteModule\cfgXEH\PreInit.hpp"
-    #include "StartTextModule\cfgXEH\PreInit.hpp"
-    #include "ACREModule\cfgXEH\PreInit.hpp"
-    #include "AIDriversModule\cfgXEH\PreInit.hpp"
-    #include "AILinkModule\cfgXEH\PreInit.hpp"
-    #include "HostageModule\cfgXEH\PreInit.hpp"
+	#include "Core\cfgXEH\PreInit.hpp"
+	//Module PreInit Activation
+	#include "GearModule\cfgXEH\PreInit.hpp"
+	#include "CoverMapModule\cfgXEH\PreInit.hpp"
+	#include "BriefingModule\cfgXEH\PreInit.hpp"
+	#include "AntiNDModule\cfgXEH\PreInit.hpp"
+	#include "TeamColourModule\cfgXEH\PreInit.hpp"
+	#include "SelfActionsModule\cfgXEH\PreInit.hpp"
+	#include "MarkerControlModule\cfgXEH\PreInit.hpp"
+	#include "ShotCountModule\cfgXEH\PreInit.hpp"
+	#include "FiremissionModule\cfgXEH\PreInit.hpp"
+	#include "StartInParachuteModule\cfgXEH\PreInit.hpp"
+	#include "StartTextModule\cfgXEH\PreInit.hpp"
+	#include "ACREModule\cfgXEH\PreInit.hpp"
+	#include "AIDriversModule\cfgXEH\PreInit.hpp"
+	#include "AILinkModule\cfgXEH\PreInit.hpp"
 };
 
 class Extended_PostInit_Eventhandlers {
