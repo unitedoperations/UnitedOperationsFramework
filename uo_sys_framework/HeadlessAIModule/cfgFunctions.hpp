@@ -6,7 +6,6 @@ class UO_Framework_AI {
         class deleteVehicles {scope = 1;};
         class enableZones {scope = 1;};
         class monitor {scope = 1;};
-        class playAnimation {scope = 1;};
         class removeKit {scope = 1;};
         class setup {scope = 1;};
     };
@@ -20,19 +19,15 @@ class UO_Framework_AI {
     };
     class UO_FW_AI_Create {
         file = "x\UO_FW\addons\Main\HeadlessAIModule\cfgFunctions\create";
-        class createAction {scope = 1;};
         class createFunctions {scope = 1;};
         class createGroup {scope = 1;};
-        class createGroupInit {scope = 1;};
         class createOccupyGroup {scope = 1;};
-        class createOccupyGroupInit {scope = 1;};
         class createUnit {scope = 1;};
         class createVehicle {scope = 1;};
         class createWaypoint {scope = 1;};
         class createWaypointModified {scope = 1;};
         class createWaypoints {scope = 1;};
         class createZone {scope = 1;};
-        class createZoneInit {scope = 1;};
     };
     class UO_FW_AI_Debug {
         file = "x\UO_FW\addons\Main\HeadlessAIModule\cfgFunctions\debug";
@@ -150,16 +145,18 @@ class UO_Framework_AI {
         file = "x\UO_FW\addons\Main\HeadlessAIModule\cfgFunctions\Main";
         class ActiveHandler {scope = 1;};
         class GroupHandler {scope = 1;};
+        class MapMarkers {scope = 1;};
         class initMain {scope = 1;};
         class QueueHandle {scope = 1;};
     };
-    class UO_FW_AI_Misc {
-        file = "x\UO_FW\addons\Main\HeadlessAIModule\cfgFunctions\Misc";
+    class UO_FW_AI_Eventhandlers {
+        file = "x\UO_FW\addons\Main\HeadlessAIModule\cfgFunctions\Eventhandlers";
+        class onAIHit {scope = 1;};
         class playerInit {scope = 1;};
+        class onInit {scope = 1;};
     };
     class UO_FW_AI_Diag {
         file = "x\UO_FW\addons\Main\HeadlessAIModule\cfgFunctions\Diag";
-        class AIHit {scope = 1;};
         class AttachPosition {scope = 1;};
         class BuildingCheck {scope = 1;};
         class BuildingSpawnCheck {scope = 1;};
@@ -173,7 +170,6 @@ class UO_Framework_AI {
         class HasRadioGroup {scope = 1;};
         class IRCheck {scope = 1;};
         class LOSCheck {scope = 1;};
-        class MapMarkers {scope = 1;};
         class NearEnemies {scope = 1;};
         class searchNestedArray {scope = 1;};
         class StanceModifier {scope = 1;};

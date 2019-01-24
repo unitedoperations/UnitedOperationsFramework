@@ -17,7 +17,7 @@ switch _mode do {
     case "init": {
         if !is3DEN then {
             if (isNil "UO_FW_AI_initialised") then {[] call UO_FW_AI_fnc_init;};
-            _input params ["_logic",["_isActivated",true,[true]],["_isCuratorPlaced",false,[false]]];
+            _input params ["_logic",["_isActivated",true,[true]]];
             if !(_isActivated) exitWith {};
             {
                 UO_FW_AI_respawns pushBack _x;
@@ -60,7 +60,11 @@ switch _mode do {
             if (UO_FW_AI_DEBUG) then {
                 private _syncedModules = [_logic,[]] call UO_FW_AI_fnc_getSyncedModules;
                 _entities params [["_grps",[],[[]]],["_emptyvehs",[],[[]]],["_objs",[],[[]]]];
-                if ((_syncedModules isEqualto []) && ({(count _x) > 0 } count _grps) == 0 && ({(count _x) > 0 } count _emptyvehs) == 0 && ({(count _x) > 0 } count _objs) == 0) then {
+                if ((_syncedModules isEqualto [])
+                    && {(({(count _x) > 0 } count _grps) == 0)}
+                    && {(({(count _x) > 0 } count _emptyvehs) == 0)}
+                    && {(({(count _x) > 0 } count _objs) == 0)}
+                ) then {
                     LOG_2("%1 a %2 has nothing linked.\nYou can link Units, Groups, Objects or other modules to a Zone Module.",_logic,typeof _logic);
                 };
                 [_logic] spawn UO_FW_AI_fnc_debugSyncedModules;

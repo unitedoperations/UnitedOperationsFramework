@@ -6,15 +6,15 @@
  *	Author
  *		PiZZADOX & Sacher
  */
- 
- 
+
+
 #define COMPONENT AIDriver
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 UO_FW_EXEC_CHECK(CLIENT);
 
 ["UO_FW_SettingsLoaded", {
 	if (!(UO_FW_Server_AIDRIVERSMODULE_Allowed)) exitwith {};
-	
+
 	if ((UO_FW_AIDrivers_VehClasses isEqualto "") && {!(UO_FW_GETMVAR(AIDrivers_AllVehs,false))}) exitwith {};
 	["UO_FW_RegisterModuleEvent", ["AI Drivers", "Module for adding AI Drivers to vehicles", "BlackHawk, PiZZADOX and Sacher"]] call CBA_fnc_globalEvent;
 	private _allowNV = (UO_FW_GETMVAR(AIDrivers_NVEnabled,false));

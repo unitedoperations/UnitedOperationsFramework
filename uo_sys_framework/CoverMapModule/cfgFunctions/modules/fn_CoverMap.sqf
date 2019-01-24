@@ -8,7 +8,7 @@ switch _mode do {
         if !is3DEN then {
             if (!UO_FW_Server_CoverMapModule_Allowed) exitWith {};
             if (!UO_FW_CoverMap_Enable) exitWith {};
-            _input params ["_logic",["_isActivated",true,[true]],["_isCuratorPlaced",false,[false]]];
+            _input params ["_logic",["_isActivated",true,[true]]];
             if !(_isActivated) exitWith {};
 
                 private _AOName = _logic getVariable ["UO_FW_CoverMap_AOName","Area0"];

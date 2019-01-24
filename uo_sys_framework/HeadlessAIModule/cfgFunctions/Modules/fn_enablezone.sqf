@@ -14,14 +14,14 @@ params [["_mode","",[""]],["_input",[],[[]]]];
     switch _mode do {
         case "init": {
             if !is3DEN then {
-                _input params ["_logic",["_isActivated",true,[true]],["_isCuratorPlaced",false,[false]]];
+                _input params ["_logic",["_isActivated",true,[true]]];
                 if !(_isActivated) exitWith {};
                 sleep 1;
                 UO_FW_AI_EXEC_CHECK(SERVERHC);
                 // Disable Linked Zones
                 private _syncedZoneModules = [_logic,["UO_FW_AI_ZoneModule","UO_FW_AI_ZoneModule_R"]] call UO_FW_AI_fnc_getSyncedModules;
                 if (count _syncedZoneModules > 0) then {
-                    for [{_z=0}, {(_z < count _syncedZoneModules)}, {_z = _z + 1}] do {
+                    for "_z" from 0 to (count _syncedZoneModules) step 1 do {
                         private _syncedZoneModule = _syncedZoneModules select _z;
                         ([_syncedZoneModule,UO_FW_AI_Zones] call UO_FW_AI_fnc_getDetails) set [3, 1];
                     };

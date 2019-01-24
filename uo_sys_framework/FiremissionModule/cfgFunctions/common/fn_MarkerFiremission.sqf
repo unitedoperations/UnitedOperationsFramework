@@ -2,13 +2,13 @@
 if (isServer) then {
         _handle = _this spawn {
                 private _unit = _this select 0;
-                private    _targetMarker = _this select 1;
-                private    _salvoCount = _this select 2;
-                private    _salvoSize = _this select 3;
-                private    _salvoWait = _this select 4;
-                private    _minSpottedDistance = _this select 5;
-                private    _roundType = _this select 6;
-                private    _fireRate = _unit call UO_FW_fnc_ArtGetFireRate;
+                private _targetMarker = _this select 1;
+                private _salvoCount = _this select 2;
+                private _salvoSize = _this select 3;
+                private _salvoWait = _this select 4;
+                private _minSpottedDistance = _this select 5;
+                private _roundType = _this select 6;
+                private _fireRate = _unit call UO_FW_fnc_ArtGetFireRate;
                 private _roundClassName = ((_unit call UO_FW_fnc_GetArtyAmmo) select _roundType) select 0 ;
                 [_unit , true] call UO_FW_fnc_SetArtyReadyStatus;
                 _unit setVariable [VAR_SART_ARTFMTEXT,_this call UO_FW_fnc_GetPointFiremissionText,true];

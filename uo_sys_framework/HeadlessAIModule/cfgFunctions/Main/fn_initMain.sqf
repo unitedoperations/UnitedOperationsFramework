@@ -7,11 +7,6 @@ LOG("running fn_initMain");
 
 ["UO_FW_RegisterModuleEvent", ["Headless AI", "Custom AI Scripts and spawning modules for AI", "PiZZADOX"]] call CBA_fnc_globalEvent;
 
-
-UO_FW_AI_MARKERARRAY = [];
-UO_FW_AI_UnitQueue = [];
-UO_FW_AI_ActiveList = [];
-UO_FW_AI_TrackedUnits = [];
 UO_FW_AI_BasicCheckCurrent = 0;
 UO_FW_AI_LeaderExecuteCurrent = 0;
 
@@ -99,31 +94,28 @@ UO_FW_AI_FORCETIME_Enabled = false;
 UO_FW_AI_FORCETIME_TIME = 12;
 
 //Lets gets the queue handler going
-[{time > 3},{
-[] spawn UO_FW_AI_fnc_QueueHandle;
-[] spawn UO_FW_AI_fnc_ActiveHandler;
-[] spawn UO_FW_AI_fnc_GroupHandler;
+[{CBA_MissionTime > 0},{
+    [] call UO_FW_AI_fnc_QueueHandle;
+    [] call UO_FW_AI_fnc_ActiveHandler;
+    [] call UO_FW_AI_fnc_GroupHandler;
+    [] call UO_FW_AI_fnc_MapMarkers;
 }] call CBA_fnc_waitUntilAndExecute;
 
 //leader/group behavior handling loop
 //[] spawn UO_FW_AI_fnc_MainLoop;
 
-//marker function
-if (UO_FW_AI_MARKERS_Enabled) then {
-    [] spawn UO_FW_AI_fnc_MapMarkers;
-};
-
-if ((!hasinterface) && (!isDedicated)) then {
+if ((!hasinterface) && {(!isDedicated)}) then {
     setViewDistance (missionNamespace getvariable ["UO_FW_AI_ViewDistance",2500]);
-
     if (UO_FW_AI_FORCETIME_Enabled) then {
-        [] spawn {
-            waituntil {CBA_missionTime > 1};
-            while {true} do {
-                sleep 2;
-                skiptime ((missionNamespace getvariable ["UO_FW_AI_FORCETIME_TIME",daytime]) / 3600) - (daytime);
-            };
-        };
+        private _timeForced = missionNamespace getvariable ["UO_FW_AI_FORCETIME_TIME",daytime];
+        [{CBA_missionTime > 1},{
+            private _HCTimeForcedPFH = [{
+                params ["_args", "_idPFH"];
+                _args params ["_timeForced"];
+                private _daytime = daytime;
+                skiptime ((_timeForced / 3600) - _daytime);
+            }, 1, [_timeForced]] call CBA_fnc_addPerFrameHandler;
+        }, [_timeForced]] call CBA_fnc_waitUntilAndExecute;
     };
 };
 

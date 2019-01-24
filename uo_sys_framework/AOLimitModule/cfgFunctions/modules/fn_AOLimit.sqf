@@ -7,7 +7,7 @@ params [["_mode","",[""]],["_input",[],[[]]]];
 switch _mode do {
     case "init": {
         if !is3DEN then {
-            _input params ["_logic",["_isActivated",true,[true]],["_isCuratorPlaced",false,[false]]];
+            _input params ["_logic",["_isActivated",true,[true]]];
             if !(_isActivated) exitWith {};
             private _selectedSides = [];
             if (_logic getVariable ["UO_FW_AOLimit_Blufor",true]) then {_selectedSides pushBackUnique west;};
@@ -20,7 +20,6 @@ switch _mode do {
             private _AOMode = _logic getVariable ["UO_FW_AOLimit_AOMode","HARD"];
             private _softAOtime = _logic getVariable ["UO_FW_AoLimit_SoftTimeOutside",30];
             private _softAOtimeAir = _logic getVariable ["UO_FW_AoLimit_SoftTimeOutsideAir",120];
-            // The amount of time in seconds an air based unit is allowed to stay outside the AO (-1 = Infinity)
             private _loc = getPosATL _logic;
             private _radiusX = _logic getVariable ["UO_FW_AOLimit_RadiusX",100];
             private _radiusY = _logic getVariable ["UO_FW_AOLimit_RadiusY",100];

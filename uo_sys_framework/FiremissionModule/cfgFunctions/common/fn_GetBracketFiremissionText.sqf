@@ -1,13 +1,13 @@
 #include "..\..\Global\defs.hpp"
 private _unit = _this select 0;
-    private    _startGrid = _this select 1;
-    private    _endGrid = _this select 2;
-    private    _salvoCount = _this select 3;
-    private    _salvoSize = _this select 4;
-    private    _salvoWait = _this select 5;
-    private    _minSpottedDistance = _this select 6;
-    private    _roundType = _this select 7;
-    private    _rounds = ((_unit call UO_FW_fnc_GetArtyAmmo) select _roundType) select 0;
+    private _startGrid = _this select 1;
+    private _endGrid = _this select 2;
+    private _salvoCount = _this select 3;
+    private _salvoSize = _this select 4;
+    private _salvoWait = _this select 5;
+    private _minSpottedDistance = _this select 6;
+    private _roundType = _this select 7;
+    private _rounds = ((_unit call UO_FW_fnc_GetArtyAmmo) select _roundType) select 0;
     private _text =  getText (configfile / "CfgMagazines" / _rounds / "displayName");
 
     _unitName = _unit call UO_FW_fnc_GetArtyDisplayName;

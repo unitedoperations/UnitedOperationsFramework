@@ -34,7 +34,7 @@ diag_log format["RETURN group alive | %1",count ((units _grp) select {alive _x})
             if (count (_grp getVariable ['UO_FW_AI_tasks',[]]) > 0 && (_grp getVariable ['UO_FW_AI_TaskTimer',0]) isEqualTo 0) then {
                 [_grp,(_grp getVariable ['UO_FW_AI_tasks',[]])] call UO_FW_AI_fnc_taskInit;
             } else {
-                _grp setVariable["UO_FW_AI_CurrentTaskEndTime",(time + (_grp getVariable ['UO_FW_AI_TaskTimer',0]))];
+                _grp setVariable["UO_FW_AI_CurrentTaskEndTime",(CBA_MissionTime + (_grp getVariable ['UO_FW_AI_TaskTimer',0]))];
                 [(_grp getVariable ['UO_FW_AI_task',0]),_grp,(_grp getVariable ['UO_FW_AI_GroupPos',getPos _leader]),(_grp getVariable ['UO_FW_AI_patrolRadius',100]),(_grp getVariable ['UO_FW_AI_waypointWait',3]),(_grp getVariable ['UO_FW_AI_behaviour',"AWARE"]),(_grp getVariable ['UO_FW_AI_combatMode',"RED"]),(_grp getVariable ['UO_FW_AI_speed',"FULL"]),(_grp getVariable ['UO_FW_AI_formation',"WEDGE"]),(_grp getVariable ['UO_FW_AI_occupyOption',0])] call UO_FW_AI_fnc_taskAssign;
             };
         };*/

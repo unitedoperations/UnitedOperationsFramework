@@ -10,7 +10,7 @@
 #include "\x\UO_FW\addons\Main\HeadlessAIModule\module_macros.hpp"
 UO_FW_AI_EXEC_CHECK(SERVERHC);
 params ["_grp","_check",["_init",false,[false]],["_syncedTasks",[],[[]]],["_task",objNull,[objNull]],["_taskCheck",[],[[]]],["_taskOrder",[],[[]]]];
-if (_grp getVariable "UO_FW_AI_CurrentTaskEndTime" < time || _init) then {
+if (_grp getVariable "UO_FW_AI_CurrentTaskEndTime" < CBA_MissionTime || _init) then {
     if ( !isNull (_grp getVariable["UO_FW_AI_CurrentTask",objNull]) ) then {[_grp,_check] call UO_FW_AI_fnc_setCompletedTasks;};
     private _groupTaskOrder = _grp getVariable ["UO_FW_AI_groupTaskOrder",[]];
     if (count _groupTaskOrder > 1) then {_taskOrder = _groupTaskOrder select 1;};

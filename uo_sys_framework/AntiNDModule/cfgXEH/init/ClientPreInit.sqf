@@ -11,16 +11,13 @@ UO_FW_EXEC_CHECK(CLIENT);
             params ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile", "_gunner"];
             if (UO_FW_GETMVAR(ND_Active,false)) then {
                 if (((UO_FW_GETMVAR(SpawnPos,(getpos player))) distance player) <= UO_FW_Anti_ND_Distance) then {
-                    deleteVehicle _projectile;
-                    private _msg1 = "";
-                    private _msg2 = "";
+                    deleteVehicle _projectile;;
                     if (CBA_missionTime > UO_FW_Anti_ND_Time) then {
-                        _msg1 = "\nTime reMaining: " + str round (UO_FW_Anti_ND_Time - time) + " seconds.";
+                        [["Anti-ND protection active!\nTime Remaining:%1 seconds.",(round (UO_FW_Anti_ND_Time - CBA_missionTime))]] call ace_common_fnc_displayTextStructured;
                     };
                     if (((UO_FW_GETMVAR(SpawnPos,(getpos player))) distance player) <= UO_FW_Anti_ND_Distance) then {
-                        _msg2 = "\nDistance from base: " + str round ((UO_FW_GETMVAR(SpawnPos,(getpos player))) distance player) + " out of " + str (round UO_FW_Anti_ND_Distance) + " meters.";
+                        [["Anti-ND protection active!\nDistance from base:%1 out of %2 meters.",(round ((UO_FW_GETMVAR(SpawnPos,(getpos player))) distance player)),(round UO_FW_Anti_ND_Distance)]] call ace_common_fnc_displayTextStructured;
                     };
-                    hintC format ["Anti-ND protection active!%1%2", _msg1, _msg2];
                     if (_magazine call BIS_fnc_isThrowable) then {
                         player addMagazine _magazine;
                     } else {

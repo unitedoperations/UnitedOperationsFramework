@@ -311,7 +311,7 @@ class FSM
                          "if (isnil (""_VBtemp"")) then {_this setVariable [""lastGestFreezeT"",-1000]}; //change to -1000" \n
                          "_VBtemp = _this getVariable ""lastGestFreezeT"";" \n
                          "" \n
-                         "if (_VBtemp + 25 < time) then //at least 20 seconds from last freeze gesture" \n
+                         "if (_VBtemp + 25 < CBA_MissionTime) then //at least 20 seconds from last freeze gesture" \n
                          "  {" \n
                          "" \n
                          "    if (isPlayer _this) then {}     " \n

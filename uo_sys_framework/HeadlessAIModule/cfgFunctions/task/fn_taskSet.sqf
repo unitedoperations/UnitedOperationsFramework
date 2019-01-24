@@ -17,7 +17,7 @@ if (!isNull _newTask) then {
     } else {
         _setTime = _time;
     };
-    _grp setVariable["UO_FW_AI_CurrentTaskEndTime",(time + _setTime)];
+    _grp setVariable["UO_FW_AI_CurrentTaskEndTime",(CBA_MissionTime + _setTime)];
     if (!isNull (_grp getVariable["UO_FW_AI_CurrentTask",objNull])) then {
         [_grp,(_grp getVariable["UO_FW_AI_CurrentTask",objNull])] call UO_FW_AI_fnc_taskComplete;
     };

@@ -17,7 +17,7 @@ params [["_mode","",[""]],["_input",[],[[]]]];
     switch _mode do {
         case "init": {
             if !is3DEN then {
-                _input params ["_logic",["_isActivated",true,[true]],["_isCuratorPlaced",false,[false]]];
+                _input params ["_logic",["_isActivated",true,[true]]];
                 if !(_isActivated) exitWith {};
                 sleep 1;
                 UO_FW_AI_EXEC_CHECK(SERVERHC);

@@ -23,12 +23,12 @@ params ["_grp","_i"];
                 [_u,_uBld,_bldPos,_wait,[_behave,_combat,_speed,_formation]] spawn UO_FW_AI_fnc_taskBuildingPatrol;
             };
             _grp setVariable["UO_FW_AI_CompletedTasks",[]];
-            _grp setVariable["UO_FW_AI_CurrentTaskEndTime",(time + _taskTimer)];
+            _grp setVariable["UO_FW_AI_CurrentTaskEndTime",(CBA_MissionTime + _taskTimer)];
         };
         if (_task isEqualTo 0 || _task isEqualTo 1 || _task isEqualTo 3) then {
             {_x setvariable["UO_FW_AI_Occupy",true]} forEach (units _grp);
             _grp setVariable["UO_FW_AI_CompletedTasks",[]];
-            _grp setVariable["UO_FW_AI_CurrentTaskEndTime",(time + _taskTimer)];
+            _grp setVariable["UO_FW_AI_CurrentTaskEndTime",(CBA_MissionTime + _taskTimer)];
             _passarray = [_task,_grp,_pos,_taskRadius,_wait,_behave,_combat,_speed,_formation,_occupyOption];
             [{!((count waypoints (_this select 1)) isEqualto 0)},{
                 _this call UO_FW_AI_fnc_taskAssign;
@@ -36,7 +36,7 @@ params ["_grp","_i"];
         };
     } else {
         _grp setVariable["UO_FW_AI_CompletedTasks",[]];
-        _grp setVariable["UO_FW_AI_CurrentTaskEndTime",(time + _taskTimer)];
+        _grp setVariable["UO_FW_AI_CurrentTaskEndTime",(CBA_MissionTime + _taskTimer)];
         _passarray = [_task,_grp,_pos,_taskRadius,_wait,_behave,_combat,_speed,_formation,_occupyOption];
         [{!((count waypoints (_this select 1)) isEqualto 0)},{
             _this call UO_FW_AI_fnc_taskAssign;

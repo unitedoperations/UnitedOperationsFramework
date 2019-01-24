@@ -24,6 +24,7 @@ sleep _delay;
         };
     };
     switch (typeof _logic) do {
+        //Function Types - spawns at synced position module if found, if not found spawns at function module pos
         default {};
     };
 } forEach _functions;

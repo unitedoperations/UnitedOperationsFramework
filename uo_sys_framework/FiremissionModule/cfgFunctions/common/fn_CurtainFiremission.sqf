@@ -11,23 +11,23 @@ _handle = _this spawn {
         private _startPoint = _this select 1;
         private _endPoint = _this select 2;
         private _width = _this select 3;
-        private    _salvoCount = _this select 4;
-        private    _salvoSize = _this select 5;
-        private    _salvoWait = _this select 6;
-        private    _minSpottedDistance = _this select 7;
+        private _salvoCount = _this select 4;
+        private _salvoSize = _this select 5;
+        private _salvoWait = _this select 6;
+        private _minSpottedDistance = _this select 7;
 
-        private    _roundType = _this select 8;
+        private _roundType = _this select 8;
         private _roundClassName = ((_unit call UO_FW_fnc_GetArtyAmmo) select _roundType) select 0 ;
         {
             [_x , true] call UO_FW_fnc_SetArtyReadyStatus;
             _x setVariable [VAR_SART_ARTFMTEXT,_this call UO_FW_fnc_GetPointFiremissionText,true];
             [_x, 0,_salvoCount * _salvoSize] call UO_FW_fnc_SetArtyFiremissionRoundsRequired;
         } forEach _unit;
-        private    _fireRate = [];
+        private _fireRate = [];
         sleep((_unit call UO_FW_fnc_GetArtyAimTime));
-        private    _dis = 1000;
-        private    _tempAcc = ((_unit select 0) getVariable [VAR_SART_ARTSPOTACCURACY,MEANSPOTTINGACCURACY]) + 1;
-        private    _dir = _endPoint vectorDiff  _startPoint;
+        private _dis = 1000;
+        private _tempAcc = ((_unit select 0) getVariable [VAR_SART_ARTSPOTACCURACY,MEANSPOTTINGACCURACY]) + 1;
+        private _dir = _endPoint vectorDiff  _startPoint;
         _dir = _dir vectorMultiply (1 /_salvoCount);
 
         private _rightDir = (vectorNormalized _dir) vectorCrossProduct [0,1,0];

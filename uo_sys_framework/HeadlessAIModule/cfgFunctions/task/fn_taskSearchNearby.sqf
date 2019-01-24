@@ -40,7 +40,7 @@ if !(local _group) exitWith {}; // Don't create waypoints on each machine
 private _otask = _group getvariable ["UO_FW_AI_Mission","NONE"];
 
 [_group,_building,_otask] spawn {
-    params ["_group","_building","_otask","_units"];
+    params ["_group","_building","_otask"];
     private _leader = leader _group;
 
         {_x forcespeed -1; _x enableAI "Path";} foreach units _group;
@@ -60,12 +60,11 @@ private _otask = _group getvariable ["UO_FW_AI_Mission","NONE"];
     // Search while there are still available positions
     private _positions = ([_building] call BIS_fnc_buildingPositions);
         while {!(_positions isEqualTo [])} do {
-            if (count (units _group) <= 2) then {
-                    _units = (units _group) - [_leader];
-            } else {
-                    _units = (units _group);
-            };
+            private _units = units _group;
             if (_units isEqualTo []) exitWith {};
+            if (count (units _group) <= 2) then {
+                _units deleteAt (_units find _leader);
+            };
             {
                     if (_positions isEqualTo []) exitWith {};
                     if (unitReady _x) then {
@@ -75,22 +74,6 @@ private _otask = _group getvariable ["UO_FW_AI_Mission","NONE"];
                     };
             } forEach _units;
         };
-
-    //while {!(_positions isEqualTo [])} do {
-    //    // Update units in case of death
-    //    private _units = (units _group) - [_leader];
-    //    // Abort search if the group has no units left
-    //    if (_units isEqualTo []) exitWith {};
-    //    // Send all available units to the next available position
-    //    {
-    //        if (_positions isEqualTo []) exitWith {};
-    //        if (unitReady _x) then {
-    //            private _pos = _positions deleteAt 0;
-    //            _x commandMove _pos;
-    //            sleep 2;
-    //        };
-    //    } forEach _units;
-    //};
 
     _group lockWP false;
     _group setVariable ["UO_FW_AI_Mission",_otask];
