@@ -15,11 +15,12 @@ UO_FW_EXEC_CHECK(ALL);
             _flareLight setLightBrightness _brightness;
         	_flareLight setLightUseFlare false;
         	_flareLight setLightColor _colour;
-            [{((getPosATL (_this select 0)) select 2) < 1}, {
-                params ["_flareLight"];
+            [{((getPosATL (_this select 0)) select 2) < 0.25}, {
+                params ["_flare", "_flareLight"];
         		if (alive _flareLight) then {deleteVehicle _flareLight};
-        	}, [_flareLight], 60, {
-                params ["_flareLight"];
+        		if (alive _flare) then {deleteVehicle _flare};
+        	}, [_flare,_flareLight], 60, {
+                params ["", "_flareLight"];
         		if (alive _flareLight) then {deleteVehicle _flareLight};
         	}] call CBA_fnc_waitUntilAndExecute;
         }, [_flare, _flareLight, _colour]] call CBA_fnc_waitUntilAndExecute;

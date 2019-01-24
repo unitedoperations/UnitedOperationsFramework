@@ -68,11 +68,9 @@ UO_FW_EXEC_CHECK(CLIENT);
             private _paraFlareActionTemp = [("SelfActions_LaunchParaFlare_" + _name), ("Launch " + _name + " Flare"), "", {
                 (_this select 2) params ["_magClass", "_colour", "_ammoType"];
                 private _pos = player modelToWorld [0, 1, 0];
-        		_pos = [_pos select 0, _pos select 1, 1.5];
-        		private _vectorDir = (vectorDir player);
-                _vectorDir set [2,(_vectorDir select 2) + 4];
-                _vectorDir vectorMultiply 5;
-                player removeMagazine _magClass;
+                _pos = [_pos select 0, _pos select 1, (_pos select 2) + 1.5];
+                private _vectorView = [(getCameraViewDirection player) select 0, (getCameraViewDirection player) select 1, ((getCameraViewDirection player) select 2) + 0.35];
+                private _vectorDir = _vectorView vectorMultiply 55;
                 player playActionNow "HandGunOn";
                 [{
                     params ["_ammoType", "_pos", "_vectorDir", "_colour"];
@@ -87,7 +85,7 @@ UO_FW_EXEC_CHECK(CLIENT);
                             ["UO_FW_SelfActions_ParaFlareCreateLightEvent", [_flare,_colour,_pos]] call CBA_fnc_globalEvent;
                         }, [_flare,_colour,_pos]] call CBA_fnc_waitUntilAndExecute;
                     }, [_ammoType,_pos,_vectorDir,_colour], 1] call CBA_fnc_waitAndExecute;
-                }, [_ammoType,_pos,_vectorDir,_colour], 1] call CBA_fnc_waitAndExecute;
+                }, [_ammoType,_pos,_vectorDir,_colour], 1.5] call CBA_fnc_waitAndExecute;
         	}, {
         		(vehicle player isEqualto player) && {((_this select 2 select 0) in magazines player)}
         	}, {}, [_magClass,_colour,_ammoType]] call ace_interact_menu_fnc_createAction;
