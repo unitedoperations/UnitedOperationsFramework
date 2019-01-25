@@ -1,21 +1,45 @@
 class UO_Framework_AI {
     tag = "UO_FW_AI";
-    class UO_FW_AI_Common {
-        file = "x\UO_FW\addons\Main\HeadlessAIModule\cfgFunctions\common";
-        class init { scope = 1;};
-        class deleteVehicles {scope = 1;};
-        class enableZones {scope = 1;};
-        class monitor {scope = 1;};
-        class removeKit {scope = 1;};
-        class setup {scope = 1;};
-    };
     class UO_FW_AI_Check {
         file = "x\UO_FW\addons\Main\HeadlessAIModule\cfgFunctions\check";
         class checkManualPos {scope = 1;};
         class checkNearbyAll {scope = 1;};
         class checkNearbyPlayer {scope = 1;};
         class checkStance {scope = 1;};
-        class checkifHC { scope = 1;};
+    };
+    class UO_FW_AI_Common {
+        file = "x\UO_FW\addons\Main\HeadlessAIModule\cfgFunctions\common";
+        class deleteVehicles {scope = 1;};
+        class enableZones {scope = 1;};
+        class removeKit {scope = 1;};
+    };
+    class UO_FW_AI_Combat {
+        file = "x\UO_FW\addons\Main\HeadlessAIModule\cfgFunctions\combat";
+        class ArmEmptyStatic {scope = 1;};
+        class CombatAttack {scope = 1;};
+        class CombatDefend {scope = 1;};
+        class CombatMode {scope = 1;};
+        class CombatMoveTo {scope = 1;};
+        class CombatResponse {scope = 1;};
+        class DestroyBuilding {scope = 1;};
+        class FindCoverPos {scope = 1;};
+        class FlankManeuver {scope = 1;};
+        class FocusedAccuracy {scope = 1;};
+        class ForceHeal {scope = 1;};
+        class FormationChange {scope = 1;};
+        class FragmentMove {scope = 1;};
+        class LoiterAction {scope = 1;};
+        class MoveInCombat {scope = 1;};
+        class MoveToCover {scope = 1;};
+        class PlaceMine {scope = 1;};
+        class RadioCommsEnemy {scope = 1;};
+        class RearmGo {scope = 1;};
+        class RearmSelf {scope = 1;};
+        class ReGroup {scope = 1;};
+        class SightAid {scope = 1;};
+        class SuppressingShots {scope = 1;};
+        class ThrowGrenade {scope = 1;};
+        class WatchEnemy {scope = 1;};
     };
     class UO_FW_AI_Create {
         file = "x\UO_FW\addons\Main\HeadlessAIModule\cfgFunctions\create";
@@ -28,19 +52,57 @@ class UO_Framework_AI {
         class createWaypointModified {scope = 1;};
         class createWaypoints {scope = 1;};
         class createZone {scope = 1;};
+        class setupZone {scope = 1;};
+    };
+    class UO_FW_AI_Danger {
+        file = "x\UO_FW\addons\Main\HeadlessAIModule\cfgFunctions\dangercauses";
+        class CombatMovement {scope = 1;};
+        class CurrentStance {scope = 1;};
+        class DeadBodyDetection {scope = 1;};
+        class ExplosionDetection {scope = 1;};
+        class MoveToCoverGroup {scope = 1;};
+        class RecentEnemyDetected {scope = 1;};
+        class SetCombatStance {scope = 1;};
+        class stopToShoot {scope = 1;};
+        class VehicleHandleDanger {scope = 1;};
     };
     class UO_FW_AI_Debug {
         file = "x\UO_FW\addons\Main\HeadlessAIModule\cfgFunctions\debug";
         class debugSyncedModules {scope = 1;};
         class debugCreateMarker {scope = 1;};
     };
+    class UO_FW_AI_Diag {
+        file = "x\UO_FW\addons\Main\HeadlessAIModule\cfgFunctions\Diag";
+        class AttachPosition {scope = 1;};
+        class BuildingCheck {scope = 1;};
+        class BuildingSpawnCheck {scope = 1;};
+        class CheckStatic {scope = 1;};
+        class Classvehicle {scope = 1;};
+        class ClosestEnemy {scope = 1;};
+        class ClosestObject {scope = 1;};
+        class DriverCheck {scope = 1;};
+        class EnemyArray {scope = 1;};
+        class HasRadioGroup {scope = 1;};
+        class IRCheck {scope = 1;};
+        class LOSCheck {scope = 1;};
+        class NearEnemies {scope = 1;};
+        class searchNestedArray {scope = 1;};
+        class StanceModifier {scope = 1;};
+        class UnitCheck {scope = 1;};
+        class Waypointcheck {scope = 1;};
+        class WepSupCheck {scope = 1;};
+    };
+    class UO_FW_AI_Eventhandlers {
+        file = "x\UO_FW\addons\Main\HeadlessAIModule\cfgFunctions\Eventhandlers";
+        class onAIHit {scope = 1;};
+        class playerInit {scope = 1;};
+        class onInit {scope = 1;};
+    };
     class UO_FW_AI_Get {
         file = "x\UO_FW\addons\Main\HeadlessAIModule\cfgFunctions\get";
         class getBuildingList {scope = 1;};
         class getBuildings {scope = 1;};
         class getGroupVariables {scope = 1;};
-        class getInjuredSound {scope = 1;};
-        class getKnockDownAnimation {scope = 1;};
         class getNearestBuilding {scope = 1;};
         class getNearestBuildings {scope = 1;};
         class getNearestGroupBuildings {scope = 1;};
@@ -48,6 +110,17 @@ class UO_Framework_AI {
         class getRandomBuilding {scope = 1;};
         class getRandomBuildings {scope = 1;};
         class getRandomGroupBuildings {scope = 1;};
+        class getRandomPositionCircle {scope = 1;};
+        class getSide {scope = 1;};
+        class getStartBuilding {scope = 1;};
+        class getTasks {scope = 1;};
+        class getTaskParams {scope = 1;};
+        class getTurrets {scope = 1;};
+        class getWaypointDetails {scope = 1;};
+        class getVehicleRoles {scope = 1;};
+    };
+    class UO_FW_AI_GetInfo {
+        file = "x\UO_FW\addons\Main\HeadlessAIModule\cfgFunctions\GetInfo";
         class getDetails {scope = 1;};
         class getDetailsArray {scope = 1;};
         class getDetailsGroup {scope = 1;};
@@ -55,21 +128,22 @@ class UO_Framework_AI {
         class getDetailsVehicle {scope = 1;};
         class getDetailsVehicleEmpty {scope = 1;};
         class getDetailsUnit {scope = 1;};
-        class getRandomPositionCircle {scope = 1;};
-        class getSafePos {scope = 1;};
-        class getSide {scope = 1;};
-        class getStartBuilding {scope = 1;};
         class getSynced {scope = 1;};
         class getSyncedGroups {scope = 1;};
         class getSyncedModules {scope = 1;};
         class getSyncedObjects {scope = 1;};
         class getSyncedObjectsTemplate {scope = 1;};
         class getSyncedRespawns {scope = 1;};
-        class getTasks {scope = 1;};
-        class getTaskParams {scope = 1;};
-        class getTurrets {scope = 1;};
-        class getWaypointDetails {scope = 1;};
-        class getVehicleRoles {scope = 1;};
+    };
+    class UO_FW_AI_Main {
+        file = "x\UO_FW\addons\Main\HeadlessAIModule\cfgFunctions\Main";
+        class ActiveHandler {scope = 1;};
+        class GroupHandler {scope = 1;};
+        class MapMarkers {scope = 1;};
+        class initMain {scope = 1;};
+        class zoneMonitor {scope = 1;};
+        class QueueHandle {scope = 1;};
+        class checkifHC { scope = 1;};
     };
     class UO_FW_AI_Modules {
         file = "x\UO_FW\addons\Main\HeadlessAIModule\cfgFunctions\modules";
@@ -80,13 +154,12 @@ class UO_Framework_AI {
         class task {scope = 1;};
         class temp {scope = 1;};
         class zone {scope = 1;};
+        class enablezone {scope = 1;};
     };
     class UO_FW_AI_Set {
         file = "x\UO_FW\addons\Main\HeadlessAIModule\cfgFunctions\set";
         class setAssignedVehicle {scope = 1;};
         class setBuildingPos {scope = 1;};
-        class setCaptive {scope = 1;};
-        class setCombatant {scope = 1;};
         class setCompletedTasks {scope = 1;};
         class setFlashlights {scope = 1;};
         class setGroupBehaviour {scope = 1;};
@@ -140,82 +213,5 @@ class UO_Framework_AI {
         class taskPlacement {scope = 1;};
         class taskPatrol {scope = 1;};
         class taskPatrolPerimeter {scope = 1;};
-    };
-    class UO_FW_AI_Main {
-        file = "x\UO_FW\addons\Main\HeadlessAIModule\cfgFunctions\Main";
-        class ActiveHandler {scope = 1;};
-        class GroupHandler {scope = 1;};
-        class MapMarkers {scope = 1;};
-        class initMain {scope = 1;};
-        class QueueHandle {scope = 1;};
-    };
-    class UO_FW_AI_Eventhandlers {
-        file = "x\UO_FW\addons\Main\HeadlessAIModule\cfgFunctions\Eventhandlers";
-        class onAIHit {scope = 1;};
-        class playerInit {scope = 1;};
-        class onInit {scope = 1;};
-    };
-    class UO_FW_AI_Diag {
-        file = "x\UO_FW\addons\Main\HeadlessAIModule\cfgFunctions\Diag";
-        class AttachPosition {scope = 1;};
-        class BuildingCheck {scope = 1;};
-        class BuildingSpawnCheck {scope = 1;};
-        class CheckStatic {scope = 1;};
-        class Classvehicle {scope = 1;};
-        class ClosestEnemy {scope = 1;};
-        class ClosestObject {scope = 1;};
-        class DriverCheck {scope = 1;};
-        class EnemyArray {scope = 1;};
-        class HasMine {scope = 1;};
-        class HasRadioGroup {scope = 1;};
-        class IRCheck {scope = 1;};
-        class LOSCheck {scope = 1;};
-        class NearEnemies {scope = 1;};
-        class searchNestedArray {scope = 1;};
-        class StanceModifier {scope = 1;};
-        class UnitCheck {scope = 1;};
-        class VehicleHandle {scope = 1;};
-        class Waypointcheck {scope = 1;};
-        class WepSupCheck {scope = 1;};
-    };
-    class UO_FW_AI_Danger {
-        file = "x\UO_FW\addons\Main\HeadlessAIModule\cfgFunctions\dangercauses";
-        class CombatMovement {scope = 1;};
-        class CurrentStance {scope = 1;};
-        class DeadBodyDetection {scope = 1;};
-        class ExplosionDetection {scope = 1;};
-        class MoveToCoverGroup {scope = 1;};
-        class RecentEnemyDetected {scope = 1;};
-        class SetCombatStance {scope = 1;};
-        class stopToShoot {scope = 1;};
-        class VehicleHandleDanger {scope = 1;};
-    };
-    class UO_FW_AI_Combat {
-        file = "x\UO_FW\addons\Main\HeadlessAIModule\cfgFunctions\combat";
-        class ArmEmptyStatic {scope = 1;};
-        class CombatAttack {scope = 1;};
-        class CombatDefend {scope = 1;};
-        class CombatMode {scope = 1;};
-        class CombatMoveTo {scope = 1;};
-        class CombatResponse {scope = 1;};
-        class DestroyBuilding {scope = 1;};
-        class FindCoverPos {scope = 1;};
-        class FlankManeuver {scope = 1;};
-        class FocusedAccuracy {scope = 1;};
-        class ForceHeal {scope = 1;};
-        class FormationChange {scope = 1;};
-        class FragmentMove {scope = 1;};
-        class LoiterAction {scope = 1;};
-        class MoveInCombat {scope = 1;};
-        class MoveToCover {scope = 1;};
-        class PlaceMine {scope = 1;};
-        class RadioCommsEnemy {scope = 1;};
-        class RearmGo {scope = 1;};
-        class RearmSelf {scope = 1;};
-        class ReGroup {scope = 1;};
-        class SightAid {scope = 1;};
-        class SuppressingShots {scope = 1;};
-        class ThrowGrenade {scope = 1;};
-        class WatchEnemy {scope = 1;};
     };
 };

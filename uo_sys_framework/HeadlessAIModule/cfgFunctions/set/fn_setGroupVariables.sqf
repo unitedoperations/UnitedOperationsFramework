@@ -23,7 +23,7 @@
         BOOL    - 20 - UO_FW_AI_forceLights
         BOOL    - 21 - UO_FW_AI_surrender
         BOOL    - 22 - UO_FW_AI_Tracker
-        
+
  *     Return Value:
  *         BOOL     - True
  *    Author
@@ -57,28 +57,28 @@ _grpSet params [
     /*21*/    "_surrender",
     /*22*/    "_tracker"
     ];
-    _grp setVariable ['UO_FW_AI_GroupPos',_gpos];
-    _grp setVariable ['UO_FW_AI_behaviour',_behave];
-    _grp setVariable ['UO_FW_AI_combatMode',_combat];
-    _grp setVariable ['UO_FW_AI_speed',_speed];
-    _grp setVariable ['UO_FW_AI_formation',_formation];
-    _grp setVariable ['UO_FW_AI_patrolRadius',_taskRadius];
-    _grp setVariable ['UO_FW_AI_waypointWait',_wait];
-    _grp setVariable ['UO_FW_AI_task',_task];
-    _grp setVariable ['UO_FW_AI_TaskTimer',_taskTimer];
-    _grp setVariable ['UO_FW_AI_occupyOption',_occupyOption];
-    _grp setVariable ['UO_FW_AI_Waypoints',_waypoints];
-    _grp setVariable ['UO_FW_AI_tasks',_tasks];
-    _grp setVariable ['UO_FW_AI_forceLights',_fl];
-    _grp setVariable ['UO_FW_AI_surrender',_surrender];
-    _grp setVariable ['UO_FW_AI_Tracker',_tracker];
-    //_grp call CBA_fnc_clearWaypoints;
-    [_grp,_behave,_combat,_speed,_formation] call UO_FW_AI_fnc_setGroupBehaviour;
-    {
-        _x setUnitPos _grpStance;
-        if (!isNull(assignedVehicle _x)) then {[_x] orderGetIn true;};
-    } forEach (units _grp);
-    if (_fl) then {[_grp] call UO_FW_AI_fnc_setFlashlights;};
-    if (_surrender) then {[_grp] call UO_FW_AI_fnc_setSurrender;};
-    _grp spawn _grpinit;
-    true
+_grp setVariable ['UO_FW_AI_GroupPos',_gpos];
+_grp setVariable ['UO_FW_AI_behaviour',_behave];
+_grp setVariable ['UO_FW_AI_combatMode',_combat];
+_grp setVariable ['UO_FW_AI_speed',_speed];
+_grp setVariable ['UO_FW_AI_formation',_formation];
+_grp setVariable ['UO_FW_AI_patrolRadius',_taskRadius];
+_grp setVariable ['UO_FW_AI_waypointWait',_wait];
+_grp setVariable ['UO_FW_AI_task',_task];
+_grp setVariable ['UO_FW_AI_TaskTimer',_taskTimer];
+_grp setVariable ['UO_FW_AI_occupyOption',_occupyOption];
+_grp setVariable ['UO_FW_AI_Waypoints',_waypoints];
+_grp setVariable ['UO_FW_AI_tasks',_tasks];
+_grp setVariable ['UO_FW_AI_forceLights',_fl];
+_grp setVariable ['UO_FW_AI_surrender',_surrender];
+_grp setVariable ['UO_FW_AI_Tracker',_tracker];
+//_grp call CBA_fnc_clearWaypoints;
+[_grp,_behave,_combat,_speed,_formation] call UO_FW_AI_fnc_setGroupBehaviour;
+{
+    _x setUnitPos _grpStance;
+    if (!isNull(assignedVehicle _x)) then {[_x] orderGetIn true;};
+} forEach (units _grp);
+if (_fl) then {[_grp] call UO_FW_AI_fnc_setFlashlights;};
+if (_surrender) then {[_grp] call UO_FW_AI_fnc_setSurrender;};
+_grp spawn _grpinit;
+true

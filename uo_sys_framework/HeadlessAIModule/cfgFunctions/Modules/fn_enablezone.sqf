@@ -7,17 +7,15 @@
  *         BOOL    - True
  */
 #include "\x\UO_FW\addons\Main\HeadlessAIModule\module_macros.hpp"
-UO_FW_AI_EXEC_CHECK(ALL);
+UO_FW_AI_EXEC_CHECK(SERVERHC);
 
 params [["_mode","",[""]],["_input",[],[[]]]];
     if (isNil "UO_FW_AI_initialised") then {call UO_FW_AI_fnc_init;};
     switch _mode do {
         case "init": {
-            if !is3DEN then {
+            if !(is3DEN) then {
                 _input params ["_logic",["_isActivated",true,[true]]];
                 if !(_isActivated) exitWith {};
-                sleep 1;
-                UO_FW_AI_EXEC_CHECK(SERVERHC);
                 // Disable Linked Zones
                 private _syncedZoneModules = [_logic,["UO_FW_AI_ZoneModule","UO_FW_AI_ZoneModule_R"]] call UO_FW_AI_fnc_getSyncedModules;
                 if (count _syncedZoneModules > 0) then {
@@ -28,9 +26,9 @@ params [["_mode","",[""]],["_input",[],[[]]]];
                 };
                 //Setup Suspend Module as Zone
                 private _cond = _logic getVariable ["UO_FW_AI_EnableZoneCondition","false"];
-                if (typename _cond isEqualTo "STRING") then {_cond = compile _cond;};
+                if (_cond isEqualType "STRING") then {_cond = compile _cond;};
                 private _code = _logic getVariable ["UO_FW_AI_EnableZoneCode","true"];
-                if (typename _code isEqualTo "STRING") then {_code = compile _code;};
+                if (_code isEqualType "STRING") then {_code = compile _code;};
                 private _isRectangle = if ((typeof _logic) isEqualTo "UO_FW_AI_ZoneModule_R") then {true} else {false};
                 UO_FW_AI_Zones pushBack [
                     _logic,
@@ -65,18 +63,9 @@ params [["_mode","",[""]],["_input",[],[[]]]];
             private _radiusY = _logic getVariable ["UO_FW_AI_EnableZoneRadiusY",_logic getVariable ["UO_FW_AI_EnableZoneRadius", 100]];
             set3DENAttributes [[[_logic],"size2",[_radiusX,_radiusY]]];
         };
-        case "registeredToWorld3DEN": {
-            private _logic = _input param [0,objNull,[objNull]];
-            // ... code here...
-        };
-        case "unregisteredFromWorld3DEN": {
-            private _logic = _input param [0,objNull,[objNull]];
-            // ... code here...
-        };
-        case "connectionChanged3DEN": {
-            private _logic = _input param [0,objNull,[objNull]];
-            // ... code here...
-        };
+        case "registeredToWorld3DEN": {};
+        case "unregisteredFromWorld3DEN": {};
+        case "connectionChanged3DEN": {};
         default {};
     };
     true

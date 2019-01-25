@@ -1,3 +1,6 @@
+#include "\x\UO_FW\addons\Main\HeadlessAIModule\module_macros.hpp"
+UO_FW_AI_EXEC_CHECK(SERVERHC);
+
 //params ["_Unit","_AttachObject","_UO_FW_AI_GRENADETHROWN"];
 params ["_Unit","_UO_FW_AI_GRENADETHROWN"];
 

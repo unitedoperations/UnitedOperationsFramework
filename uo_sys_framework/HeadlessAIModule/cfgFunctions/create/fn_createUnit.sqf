@@ -13,7 +13,7 @@
 UO_FW_AI_EXEC_CHECK(SERVERHC);
 
 params ["_occupy","_grp","_gpos","_startBld","_i","_unitArgs","_taskRadius",["_currentVeh",objNull,[objNull]],["_initmode",false,[false]]];
-_unitArgs params ["_uv","_unitClass","_unitPos","_unitVectorDir","_unitVectorUp","_damage","_editorGear","_vehicle","_vr","_vehicleAssigned","_handcuffed","_unitOnWater","_unitIsPersistent","_unitStance","_unitGearType","_unitGearSystem","_unitInit","_name","_identity"];
+_unitArgs params ["_uv","_unitClass","_unitPos","_unitVectorDir","_unitVectorUp","_damage","_editorGear","_vehicle","_vr","_vehicleAssigned","_handcuffed","_unitOnWater","_unitIsPersistent","_unitStance","_unitGearSystem","_unitGearType","_unitInit","_name","_identity"];
 if (_occupy) then {
     _unitPos = _gpos;
 } else {
@@ -44,7 +44,7 @@ switch (_unitGearSystem) do {
         };
     };
     case "OLSEN": {
-        LOG_2("Executing gear of file: %1 for unit %2",_Type,_unit);
+        LOG_2("Executing gear of file: %1 for unit %2",_unitGearType,_unit);
         [_unit,_unitGearType] call UO_FW_fnc_OlsenGearScript;
     };
     default {
@@ -53,8 +53,7 @@ switch (_unitGearSystem) do {
 };
 _unit setDamage _damage;
 if (_handcuffed) then {[_unit,_handcuffed] call ACE_captives_fnc_setHandcuffed;};
-
-if (count _name > 1) then {
+if !(_name isEqualTo "") then {
     missionNamespace setVariable[_name, _unit];
 };
 _unit setVariable["UO_FW_AI_unitIdentity",_identity,true];

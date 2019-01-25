@@ -1,5 +1,5 @@
 class UO_FW_AI_standardNumberControl : Edit {
-     attributeLoad = "if (typename _value != typename '') then {_value = str _value;};(_this controlsGroupCtrl 101) ctrlSetText _value;";
+     attributeLoad = "if !(_value isEqualType '') then {_value = str _value;};(_this controlsGroupCtrl 101) ctrlSetText _value;";
      attributeSave = "_value = ctrlText (_this controlsGroupCtrl 101);if (gettext (_config >> 'typeName') == 'NUMBER') then {_value = parsenumber _value;};_value";
      class Controls: Controls {
          class Title: Title {};
@@ -13,7 +13,7 @@ class UO_FW_AI_standardNumberControl : Edit {
      };
  };
 class UO_FW_AI_patrolradiusControl : Edit {
-     attributeLoad = "if (typename _value != typename '') then {_value = str _value;};(_this controlsGroupCtrl 102) ctrlSetText _value;";
+     attributeLoad = "if !(_value isEqualType '') then {_value = str _value;};(_this controlsGroupCtrl 102) ctrlSetText _value;";
      attributeSave = "_value = ctrlText (_this controlsGroupCtrl 102); if (gettext (_config >> 'typeName') == 'NUMBER') then {_value = parsenumber _value;}; [_value] spawn UO_FW_AI_fnc_setRadial; _value";
      class Controls: Controls {
          class Title: Title {};
@@ -46,7 +46,7 @@ class UO_FW_AI_behaviourControl : Title    {
     };
 };
 class UO_FW_AI_codeControl : Edit {
-    attributeLoad = "if (typename _value != typename '') then {_value = str _value;};(_this controlsGroupCtrl 104) ctrlSetText _value;";
+    attributeLoad = "if !(_value isEqualType '') then {_value = str _value;};(_this controlsGroupCtrl 104) ctrlSetText _value;";
     attributeSave = "_value = ctrlText (_this controlsGroupCtrl 104);if (gettext (_config >> 'typeName') == 'NUMBER') then {_value = parsenumber _value;};_value";
     h = 3 * SIZE_M * GRID_H;
     class Controls: Controls {
@@ -62,7 +62,7 @@ class UO_FW_AI_codeControl : Edit {
     };
 };
 class UO_FW_AI_waypointwaitControl : Edit {
-     attributeLoad = "if (typename _value != typename '') then {_value = str _value;};(_this controlsGroupCtrl 105) ctrlSetText _value;";
+     attributeLoad = "if !(_value isEqualType '') then {_value = str _value;};(_this controlsGroupCtrl 105) ctrlSetText _value;";
      attributeSave = "_value = ctrlText (_this controlsGroupCtrl 105);if (gettext (_config >> 'typeName') == 'NUMBER') then {_value = parsenumber _value;};_value";
      class Controls: Controls {
          class Title: Title {};
@@ -272,7 +272,7 @@ class UO_FW_AI_startbuildingControl : Title    {
     };
 };
 class UO_FW_AI_multiplierControl : Edit {
-     attributeLoad = "if (typename _value != typename '') then {_value = str _value;};(_this controlsGroupCtrl 120) ctrlSetText _value;";
+     attributeLoad = "if !(_value isEqualType '') then {_value = str _value;};(_this controlsGroupCtrl 120) ctrlSetText _value;";
      attributeSave = "_value = ctrlText (_this controlsGroupCtrl 120);if (gettext (_config >> 'typeName') == 'NUMBER') then {_value = parsenumber _value;};_value";
      class Controls: Controls {
          class Title: Title {};
@@ -352,7 +352,7 @@ class UO_FW_AI_removeControl : Title {
     };
 };
 class UO_FW_AI_codeunitControl : Edit {
-    attributeLoad = "if (typename _value != typename '') then {_value = str _value;};(_this controlsGroupCtrl 123) ctrlSetText _value;";
+    attributeLoad = "if !(_value isEqualType '') then {_value = str _value;};(_this controlsGroupCtrl 123) ctrlSetText _value;";
     attributeSave = "_value = ctrlText (_this controlsGroupCtrl 123);if (gettext (_config >> 'typeName') == 'NUMBER') then {_value = parsenumber _value;};_value";
     h = 3 * SIZE_M * GRID_H;
     class Controls: Controls {
@@ -410,7 +410,7 @@ class UO_FW_AI_unitnameControl : Edit {
                 };\
             } foreach (allcontrols (ctrlparent _ctrl));\
         ";
-     attributeLoad = "if (typename _value != typename '') then {_value = str _value;};(_this controlsGroupCtrl 125) ctrlSetText _value;";
+     attributeLoad = "if !(_value isEqualType '') then {_value = str _value;};(_this controlsGroupCtrl 125) ctrlSetText _value;";
      attributeSave = "_value = ctrlText (_this controlsGroupCtrl 125);if (gettext (_config >> 'typeName') == 'NUMBER') then {_value = parsenumber _value;};_value";
      class Controls: Controls {
          class Title: Title {};
@@ -462,7 +462,7 @@ class UO_FW_AI_multioccupyControl : Title {
     };
 };
 class UO_FW_AI_moduleradiusControl : Edit {
-     attributeLoad = "if (typename _value != typename '') then {_value = str _value;};(_this controlsGroupCtrl 127) ctrlSetText _value;";
+     attributeLoad = "if !(_value isEqualType '') then {_value = str _value;};(_this controlsGroupCtrl 127) ctrlSetText _value;";
      attributeSave = "_value = ctrlText (_this controlsGroupCtrl 127);if (gettext (_config >> 'typeName') == 'NUMBER') then {_value = parsenumber _value;};_value";
      class Controls: Controls {
          class Title: Title {};
@@ -476,7 +476,7 @@ class UO_FW_AI_moduleradiusControl : Edit {
      };
  };
 class UO_FW_AI_moduleradiusControl2 : Edit {
-     attributeLoad = "if (typename _value != typename '') then {_value = str _value;};(_this controlsGroupCtrl 227) ctrlSetText _value;";
+     attributeLoad = "if !(_value isEqualType '') then {_value = str _value;};(_this controlsGroupCtrl 227) ctrlSetText _value;";
      attributeSave = "_value = ctrlText (_this controlsGroupCtrl 227);if (gettext (_config >> 'typeName') == 'NUMBER') then {_value = parsenumber _value;};_value";
      class Controls: Controls {
          class Title: Title {};
@@ -490,7 +490,7 @@ class UO_FW_AI_moduleradiusControl2 : Edit {
      };
  };
 class UO_FW_AI_zoneDelayControl : Edit {
-     attributeLoad = "if (typename _value != typename '') then {_value = str _value;};(_this controlsGroupCtrl 128) ctrlSetText _value;";
+     attributeLoad = "if !(_value isEqualType '') then {_value = str _value;};(_this controlsGroupCtrl 128) ctrlSetText _value;";
      attributeSave = "_value = ctrlText (_this controlsGroupCtrl 128);if (gettext (_config >> 'typeName') == 'NUMBER') then {_value = parsenumber _value;};_value";
      class Controls: Controls {
          class Title: Title {};
@@ -542,7 +542,7 @@ class UO_FW_AI_zoneOnControl : Title {
     };
 };
 class UO_FW_AI_moduleconditionControl : Edit {
-    attributeLoad = "if (typename _value != typename '') then {_value = str _value;};(_this controlsGroupCtrl 130) ctrlSetText _value;";
+    attributeLoad = "if !(_value isEqualType '') then {_value = str _value;};(_this controlsGroupCtrl 130) ctrlSetText _value;";
     attributeSave = "_value = ctrlText (_this controlsGroupCtrl 130);if (gettext (_config >> 'typeName') == 'NUMBER') then {_value = parsenumber _value;};_value";
     h = 3 * SIZE_M * GRID_H;
     class Controls: Controls {
@@ -817,7 +817,7 @@ class UO_FW_AI_taskpriorityControl : Title {
     };
 };
 class UO_FW_AI_standardNumberAltControl : Edit {
-     attributeLoad = "if (typename _value != typename '') then {_value = str _value;};(_this controlsGroupCtrl 140) ctrlSetText _value;";
+     attributeLoad = "if !(_value isEqualType '') then {_value = str _value;};(_this controlsGroupCtrl 140) ctrlSetText _value;";
      attributeSave = "_value = ctrlText (_this controlsGroupCtrl 140);if (gettext (_config >> 'typeName') == 'NUMBER') then {_value = parsenumber _value;};_value";
      class Controls: Controls {
          class Title: Title {};
@@ -908,7 +908,7 @@ class UO_FW_AI_MaindebugControl : Title    {
     };
 };
 class UO_FW_AI_standardStringOneControl : Edit {
-     attributeLoad = "if (typename _value != typename '') then {_value = str _value;};(_this controlsGroupCtrl 146) ctrlSetText _value;";
+     attributeLoad = "if !(_value isEqualType '') then {_value = str _value;};(_this controlsGroupCtrl 146) ctrlSetText _value;";
      attributeSave = "_value = ctrlText (_this controlsGroupCtrl 146);if (gettext (_config >> 'typeName') == 'NUMBER') then {_value = parsenumber _value;};_value";
      class Controls: Controls {
          class Title: Title {};
@@ -922,7 +922,7 @@ class UO_FW_AI_standardStringOneControl : Edit {
      };
  };
 class UO_FW_AI_standardStringTwoControl : Edit {
-     attributeLoad = "if (typename _value != typename '') then {_value = str _value;};(_this controlsGroupCtrl 147) ctrlSetText _value;";
+     attributeLoad = "if !(_value isEqualType '') then {_value = str _value;};(_this controlsGroupCtrl 147) ctrlSetText _value;";
      attributeSave = "_value = ctrlText (_this controlsGroupCtrl 147);if (gettext (_config >> 'typeName') == 'NUMBER') then {_value = parsenumber _value;};_value";
      class Controls: Controls {
          class Title: Title {};
@@ -936,7 +936,7 @@ class UO_FW_AI_standardStringTwoControl : Edit {
      };
  };
 class UO_FW_AI_standardStringThreeControl : Edit {
-     attributeLoad = "if (typename _value != typename '') then {_value = str _value;};(_this controlsGroupCtrl 148) ctrlSetText _value;";
+     attributeLoad = "if !(_value isEqualType '') then {_value = str _value;};(_this controlsGroupCtrl 148) ctrlSetText _value;";
      attributeSave = "_value = ctrlText (_this controlsGroupCtrl 148);if (gettext (_config >> 'typeName') == 'NUMBER') then {_value = parsenumber _value;};_value";
      class Controls: Controls {
          class Title: Title {};
@@ -1061,7 +1061,7 @@ class UO_FW_AI_actionControl : Title {
     };
 };
 class UO_FW_AI_flyinheightControl : Edit {
-     attributeLoad = "if (typename _value != typename '') then {_value = str _value;};(_this controlsGroupCtrl 154) ctrlSetText _value;";
+     attributeLoad = "if !(_value isEqualType '') then {_value = str _value;};(_this controlsGroupCtrl 154) ctrlSetText _value;";
      attributeSave = "_value = ctrlText (_this controlsGroupCtrl 154);if (gettext (_config >> 'typeName') == 'NUMBER') then {_value = parsenumber _value;};_value";
      class Controls: Controls {
          class Title: Title {};

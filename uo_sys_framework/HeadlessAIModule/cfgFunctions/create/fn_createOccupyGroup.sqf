@@ -16,13 +16,13 @@ private _spos = _gpos;
 _blds = [_spos,_taskRadius,_occupyOption,(count _grpMem)] call UO_FW_AI_fnc_getBuildingList;
 _blds params [["_bld",[],[[]]],["_bldPos",[],[[]]]];
 private _ngrp = createGroup _side;
-for "_i" from 0 to (count _grpMem) step 1 do {
+{
     if !(_bld isEqualto []) then {
-        private _setBldPos = [_occupyOption,_i,_bld,_bldPos] call UO_FW_AI_fnc_setBuildingPos;
+        private _setBldPos = [_occupyOption,_foreachIndex,_bld,_bldPos] call UO_FW_AI_fnc_setBuildingPos;
         _setBldPos params [["_hpos",[],[[]]]];
         _spos = _hpos;
     };
-    private _u = [true,_ngrp,_spos,_startBld,_i,(_grpMem select _i),_taskRadius] call UO_FW_AI_fnc_createUnit;
+    private _u = [true,_ngrp,_spos,_startBld,_foreachIndex,_x,_taskRadius] call UO_FW_AI_fnc_createUnit;
     if ((count (units _ngrp)) isEqualTo 1) then { _gpos = _spos; };
     _u enableAI "Path";
     if (_task isEqualTo 2 || _task isEqualTo 4 || _task isEqualTo 5) then {
@@ -32,14 +32,14 @@ for "_i" from 0 to (count _grpMem) step 1 do {
     if !(_initmode) then {
         sleep 0.25;
     };
-};
+} foreach _grpMem;
 [_ngrp,_gpos,_grpSet] call UO_FW_AI_fnc_setGroupVariables;
-if (count _tasks > 0) then {
+if !(_tasks isEqualTo []) then {
     [_ngrp,_tasks] call UO_FW_AI_fnc_taskRegister;
     _tasks = _tasks call UO_FW_AI_fnc_taskRemoveZoneActivated;
 };
-if (count _tasks > 0) then {UO_FW_AI_taskedGroups pushBack [_ngrp];};
-if (count _tasks > 0 && {_taskTimer isEqualTo 0}) then {
+if !(_tasks isEqualTo []) then {UO_FW_AI_taskedGroups pushBack [_ngrp];};
+if (!(_tasks isEqualTo []) && {_taskTimer isEqualTo 0}) then {
     [_ngrp,_tasks] call UO_FW_AI_fnc_taskInit;
 } else {
     if (_task isEqualTo 0 || _task isEqualTo 1 || _task isEqualTo 3) then {
@@ -51,7 +51,7 @@ if (count _tasks > 0 && {_taskTimer isEqualTo 0}) then {
         },_passarray] call CBA_fnc_waitUntilAndExecute;
     };
 };
-if (UO_FW_AI_DEBUG && {_blds isEqualTo []}) then {
-    (format["Group %1 was unable to detect an enterable buildings. The group is located at %2. Increase Task Radius or move group closer to more buildings.",_ngrp,_spos]) call UO_FW_fnc_DebugMessage;
+if (_blds isEqualTo []) then {
+    LOG_2("Group %1 was unable to detect an enterable buildings. The group is located at %2. Increase Task Radius or move group closer to more buildings.",_ngrp,_spos);
 };
 true

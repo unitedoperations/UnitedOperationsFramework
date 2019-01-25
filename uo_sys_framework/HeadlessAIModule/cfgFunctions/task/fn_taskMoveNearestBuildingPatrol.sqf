@@ -43,7 +43,7 @@ if (_patrol) then {
     } forEach (units _grp);
 };
 if (UO_FW_AI_DEBUG) then {
-    [_grp,(getposatl _bld),"nBldP"] spawn UO_FW_AI_fnc_debugCreateMarker;
+    [_grp,(getposatl _bld),"nBldP"] call UO_FW_AI_fnc_debugCreateMarker;
 };
 _grp setvariable ["InitialWPSet",true];
 true

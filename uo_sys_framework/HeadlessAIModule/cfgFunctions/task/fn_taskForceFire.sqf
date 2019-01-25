@@ -5,7 +5,7 @@ _unit doWatch _target;
 /*waitUntil {
     sleep 0.2;
     if ((direction _unit) == ([_unit,_target] call BIS_fnc_relativeDirTo)) exitWith {
-          for [{_r=0},{_r < _rounds},{_r=_r+1}] do {
+          for "_i" from 0 to (count _rounds) do {
             _unit forceWeaponFire [ currentWeapon _unit, _fireMode];
           };
       };

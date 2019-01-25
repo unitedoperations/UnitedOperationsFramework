@@ -307,7 +307,7 @@ class Extended_PreInit_EventHandlers {
 	#include "ACREModule\cfgXEH\PreInit.hpp"
 	#include "AIDriversModule\cfgXEH\PreInit.hpp"
 	#include "AILinkModule\cfgXEH\PreInit.hpp"
-	#include "HeadlessModule\cfgXEH\PreInit.hpp"
+	#include "HeadlessAIModule\cfgXEH\PreInit.hpp"
 };
 
 class Extended_PostInit_Eventhandlers {
@@ -319,7 +319,7 @@ class Extended_InitPost_Eventhandlers {
     //Module InitPost Activation
     class CAManBase {
         #include "ShotCountModule\cfgXEH\InitPost.hpp"
-        #include "HeadlessModule\cfgXEH\InitPost.hpp"
+        #include "HeadlessAIModule\cfgXEH\InitPost.hpp"
     };
     class LandVehicle {
         #include "ShotCountModule\cfgXEH\InitPost.hpp"

@@ -9,11 +9,12 @@
 #include "\x\UO_FW\addons\Main\HeadlessAIModule\module_macros.hpp"
 UO_FW_AI_EXEC_CHECK(SERVERHC);
 params ["_unit","_pos","_vehicle"];
-private _unitInit = _unit getVariable ["UO_FW_AI_unitInit","true"];
+private _unitInit = (UO_FW_GETVAR(_unit,AI_unitInit,"true"));
 if (typename _unitInit isEqualTo "STRING") then {_unitInit = compile _unitInit;};
 private _vehAssigned = if ((assignedVehicleRole _unit) isEqualTo []) then {false} else {true};
 private _unitGearType = "EDITOR";
-switch (UO_FW_GETVAR(_unit,AI_Gear_UnitSystemType,"NONE")) do {
+private _unitGearSystemType = UO_FW_GETVAR(_unit,AI_Gear_UnitSystemType,"NONE");
+switch (_unitGearSystemType) do {
     case "ACEAR": {
         private _UnitClass = (UO_FW_GETVAR(_unit,Gear_UnitGearType,"NONE"));
         if (_UnitClass isEqualto "MANUAL") then {
@@ -92,7 +93,8 @@ switch (UO_FW_GETVAR(_unit,AI_Gear_UnitSystemType,"NONE")) do {
     case "NONE": {_unitGearType = "EDITOR";};
     default {_unitGearType = "EDITOR";};
 };
-[typeOf _unit,
+[false,
+typeOf _unit,
 _pos,
 vectorDir _unit,
 vectorUp _unit,
@@ -103,9 +105,10 @@ assignedVehicleRole _unit,
 _vehAssigned,
 _unit getVariable ["ACE_captives_isHandcuffed",false],
 (surfaceIsWater (getposATL _unit)),
-_unit getVariable ['UO_FW_AI_unitPersistent',true],
-_unit getVariable ['UO_FW_AI_stance','auto'],
+(UO_FW_GETVAR(_unit,AI_unitPersistent,true)),
+(UO_FW_GETVAR(_unit,AI_stance,"AUTO")),
+_unitGearSystemType,
 _unitGearType,
 _unitInit,
-_unit getVariable ['UO_FW_AI_unitName',""],
-_unit getVariable ['UO_FW_AI_unitIdentity',""]]
+(UO_FW_GETVAR(_unit,AI_unitName,"")),
+(UO_FW_GETVAR(_unit,AI_unitIdentity,""))]

@@ -15,7 +15,6 @@ params [["_mode","",[""]],["_input",[],[[]]]];
             if !is3DEN then {
                 _input params ["_logic",["_isActivated",true,[true]]];
                 if !(_isActivated) exitWith {};
-                sleep 0.25;
                 private _syncedZoneModule = [_logic,["UO_FW_AI_ZoneModule"]] call UO_FW_AI_fnc_getSyncedModules;
                 private _Type = typeof _logic;
                 if (_syncedZoneModule isEqualto []) then {

@@ -18,37 +18,46 @@ if !(_initmode) then {
 _entities params [["_grps",[],[[]]],["_emptyvehs",[],[[]]],["_objs",[],[[]]]];
 {
     private _veh = _x;
-    private _v = createVehicle [(_veh select 0),(_veh select 1),[],0,"CAN_COLLIDE"];
-    _v setPosATL (_veh select 1);
-    _v setVectorDirAndUp [_veh select 2,_veh select 3];
-    _v setDamage (_veh select 4);
-    _v setFuel (_veh select 5);
+    private _vehicle = createVehicle [(_veh select 0),(_veh select 1),[],0,"CAN_COLLIDE"];
+    _vehicle setPosATL (_veh select 1);
+    _vehicle setVectorDirAndUp [_veh select 2,_veh select 3];
+    _vehicle setDamage (_veh select 4);
+    _vehicle setFuel (_veh select 5);
     {
         _x params [["_class","",[""]],["_path",[],[[]]],["_ammo",0,[0]]];
-        _v setMagazineTurretAmmo [_class,_ammo,_path];
+        _vehicle setMagazineTurretAmmo [_class,_ammo,_path];
     } forEach (_veh select 6);
-    _v lock (_veh select 7);
+    _vehicle lock (_veh select 7);
     if ((count (_veh select 9)) > 1) then {
-        missionNamespace setVariable[(_veh select 9), _v];
+        missionNamespace setVariable[(_veh select 9), _vehicle];
     };
-    [_v,(_veh select 10)] call UO_FW_AI_fnc_setPersistent;
-    _v spawn (_veh select 11);
+    [_vehicle,(_veh select 10)] call UO_FW_AI_fnc_setPersistent;
     if !(_initmode) then {
         sleep 0.25;
+        _vehicle spawn (_veh select 11);
+    } else {
+        _vehicle call (_veh select 11);
+    };
+    switch (_veh select 12) do {
+        case "OLSEN": {
+            LOG_2("Executing gear of file: %1 for vehicle %2",(_veh select 13),_vehicle);
+            [_vehicle,(_veh select 13)] call UO_FW_fnc_OlsenGearScript;
+        };
+        case "NONE": {};
     };
 } forEach _emptyvehs;
 {
     private _obj = _x;
-    private _o = createVehicle [(_obj select 0),(_obj select 1),[],0,"CAN_COLLIDE"];
-    _o setVectorDirAndUp [_obj select 2,_obj select 3];
-    _o setPosATL (_obj select 1);
-    _o setVariable["persistent",true,true];
-    _o setDamage (_obj select 4);
+    private _object = createVehicle [(_obj select 0),(_obj select 1),[],0,"CAN_COLLIDE"];
+    _object setVectorDirAndUp [_obj select 2,_obj select 3];
+    _object setPosATL (_obj select 1);
+    _object setVariable["persistent",true,true];
+    _object setDamage (_obj select 4);
     if ((count (_obj select 6)) > 1) then {
-        missionNamespace setVariable[(_obj select 6), _o];
+        missionNamespace setVariable[(_obj select 6), _object];
     };
-    [_o,(_obj select 7)] call UO_FW_AI_fnc_setPersistent;
-    _o spawn (_obj select 8);
+    [_object,(_obj select 7)] call UO_FW_AI_fnc_setPersistent;
+    _object spawn (_obj select 8);
     if !(_initmode) then {
         sleep 0.25;
     };

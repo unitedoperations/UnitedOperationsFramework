@@ -1,3 +1,6 @@
+#include "\x\UO_FW\addons\Main\HeadlessAIModule\module_macros.hpp"
+UO_FW_AI_EXEC_CHECK(SERVERHC);
+
 params ["_unit"];
 
 private _UnitSide = (side _Unit);

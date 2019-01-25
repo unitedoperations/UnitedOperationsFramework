@@ -41,7 +41,7 @@ class UO_FW_AI_UnitOptions {
             tooltip = "Set the gear system type for the unit.";
             control = "UO_FW_Gear_SystemType";
             typeName = "STRING";
-            property = "UO_FW_Gear_UnitSystemType";
+            property = "UO_FW_AI_Gear_UnitSystemType";
             expression = UO_FW_ENTITY_EXPRESSION;
             condition = "ObjectControllable";
             validate = "none";
@@ -50,9 +50,9 @@ class UO_FW_AI_UnitOptions {
         class UO_FW_AI_Gear_UnitGearType {
             displayName = "Gear Type";
             tooltip = "Set the gear type for the unit. If set to ACE or Olsen gear mode, this corresponds to the types defined in the gear team settings.";
-            control = "UO_FW_AI_Gear_UnitGearType";
+            control = "UO_FW_Gear_ComboGearLoad";
             GearSystems[] = {"ACEAR","OLSEN","NONE"};
-            property = "UO_FW_Gear_UnitGearType";
+            property = "UO_FW_AI_Gear_UnitGearType";
             typeName = "STRING";
             expression = UO_FW_ENTITY_EXPRESSION;
             condition = "ObjectControllable";
@@ -73,9 +73,9 @@ class UO_FW_AI_UnitOptions {
         class UO_FW_AI_Gear_VehicleSystemType {
             displayName = "Gear System Type";
             tooltip = "Set the gear system type for the vehicle.";
-            control = "UO_FW_AI_Gear_VehicleSystemType";
+            control = "UO_FW_Gear_SystemTypeVehicle";
             typeName = "STRING";
-            property = "UO_FW_Gear_VehicleSystemType";
+            property = "UO_FW_AI_Gear_VehicleSystemType";
             expression = UO_FW_ENTITY_EXPRESSION;
             condition = "objectVehicle";
             validate = "none";

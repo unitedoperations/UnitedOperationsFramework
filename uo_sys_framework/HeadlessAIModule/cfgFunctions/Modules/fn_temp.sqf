@@ -18,7 +18,6 @@ switch _mode do {
         if !is3DEN then {
             _input params ["_logic",["_isActivated",true,[true]]];
             if !(_isActivated) exitWith {};
-            sleep 0.1;
             if (UO_FW_AI_DEBUG) then {
                 [_logic] spawn UO_FW_AI_fnc_debugSyncedModules;
             };

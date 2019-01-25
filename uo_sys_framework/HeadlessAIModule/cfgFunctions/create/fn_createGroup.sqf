@@ -14,29 +14,29 @@ params ["_args",["_initmode",false,[false]]];
 _args params ["","_grpSet","_grpMem",["_currentVeh",objNull,[objNull]]];
 _grpSet params ["_side","_gpos","_behave","_combat","_speed","_formation","","","","_taskRadius","_wait","_startBld","_task","_taskTimer","","_occupyOption","","_waypoints","","_tasks",""];
 private _ngrp = createGroup _side;
-for "_i" from 0 to (count _grpMem) step 1 do {
-    if (((_grpMem select _i) select 0)) then {
-        private _u = [false,_ngrp,_gpos,_startBld,_i,(_grpMem select _i),_taskRadius,_currentVeh,_initmode] call UO_FW_AI_fnc_createUnit;
+{
+    if ((_x select 0)) then {
+        private _u = [false,_ngrp,_gpos,_startBld,_foreachIndex,_x,_taskRadius,_currentVeh,_initmode] call UO_FW_AI_fnc_createUnit;
     } else {
-        private _vpos = ((_grpMem select _i) select 2);
-        private _v = [_vpos,(_grpMem select _i),_side,_initmode] call UO_FW_AI_fnc_createVehicle;
+        private _vpos = (_x select 2);
+        private _v = [_vpos,_x,_side,_initmode] call UO_FW_AI_fnc_createVehicle;
         _currentVeh = _v;
     };
     if !(_initmode) then {
         sleep 0.25;
     };
-};
+} foreach _grpMem;
 [_ngrp,_gpos,_grpSet] call UO_FW_AI_fnc_setGroupVariables;
 _ngrp call CBA_fnc_clearWaypoints;
-if (count _tasks > 0) then {
+if !(_tasks isEqualTo []) then {
     [_ngrp,_tasks] call UO_FW_AI_fnc_taskRegister;
     _tasks = _tasks call UO_FW_AI_fnc_taskRemoveZoneActivated;
 };
-if (count _tasks > 0) then {UO_FW_AI_taskedGroups pushBack [_ngrp];};
+if !(_tasks isEqualTo []) then {UO_FW_AI_taskedGroups pushBack [_ngrp];};
 if (count _waypoints > 2) then {
     [_ngrp,_waypoints] call UO_FW_AI_fnc_createWaypoints;
 } else {
-    if (count _tasks > 0 && (_ngrp getVariable ['UO_FW_AI_TaskTimer',0]) isEqualTo 0) then {
+    if (!(_tasks isEqualTo []) && {(_ngrp getVariable ['UO_FW_AI_TaskTimer',0]) isEqualTo 0}) then {
         [_ngrp,_tasks] call UO_FW_AI_fnc_taskInit;
     } else {
         _ngrp setVariable["UO_FW_AI_CurrentTaskEndTime",(CBA_MissionTime + _taskTimer)];

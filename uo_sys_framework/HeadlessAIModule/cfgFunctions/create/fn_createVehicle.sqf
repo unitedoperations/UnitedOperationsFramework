@@ -11,7 +11,7 @@
 UO_FW_AI_EXEC_CHECK(SERVERHC);
 
 params ["_pos","_vehArgs","_side",["_initmode",false,[false]]];
-_vehArgs params ["_uv","_vehClass","_vehpos","_vectorDir","_vectorUp","_damage","_fuel","_turretMags","_locked","_vehInWater","_vehName","_persistent","_vehInit","_fly","_flyInHeight"];
+_vehArgs params ["_uv","_vehClass","_vehpos","_vectorDir","_vectorUp","_damage","_fuel","_turretMags","_locked","_vehInWater","_vehName","_persistent","_vehInit","_vehGearSystemType","_vehGearType","_fly","_flyInHeight"];
 private _flying = if (_fly && {(_vehClass isKindOf "Air")}) then {"FLY"} else {"NONE"};
 if (_flying isEqualTo "FLY") then {
     _pos = ([_pos select 0, _pos select 1, _flyInHeight] vectorAdd [0,0,150]);
@@ -30,8 +30,15 @@ _vehicle lock _locked;
     _x params [["_class","",[""]],["_path",[],[[]]],["_ammo",0,[0]]];
     _vehicle setMagazineTurretAmmo [_class,_ammo,_path];
 } forEach _turretMags;
-if (count _vehName > 1) then {
-    missionNamespace setVariable[_vehName, _vehicle];
+switch (_vehGearSystemType) do {
+    case "OLSEN": {
+        LOG_2("Executing gear of file: %1 for vehicle %2",_vehGearType,_vehicle);
+        [_vehicle,_vehGearType] call UO_FW_fnc_OlsenGearScript;
+    };
+    case "NONE": {};
+};
+if !(_vehName isEqualto "") then {
+    missionNamespace setVariable [_vehName, _vehicle];
 };
 if (UO_FW_AutoTrackAsset_Enabled) then {
     private _team = switch (_side) do {
@@ -41,7 +48,7 @@ if (UO_FW_AutoTrackAsset_Enabled) then {
         case civilian: {UO_FW_TeamSetting_TeamName_Civ};
         default {""};
     };
-    if (!(_team isEqualto "")) then {
+    if !(_team isEqualto "") then {
         private _vehCfg = (configFile >> "CfgVehicles" >> (typeOf _vehicle));
         if (isText(_vehCfg >> "displayName")) then {
             ["UO_FW_TrackAsset_Event",[_vehicle, getText(_vehCfg >> "displayName"), _team]] call CBA_fnc_serverEvent;

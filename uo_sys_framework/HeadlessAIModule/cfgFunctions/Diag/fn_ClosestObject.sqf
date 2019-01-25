@@ -1,17 +1,16 @@
+#include "\x\UO_FW\addons\Main\HeadlessAIModule\module_macros.hpp"
+UO_FW_AI_EXEC_CHECK(SERVERHC);
+
 params ["_list","_object"];
-private ["_position","_ClosestObject"];
 //[_list,_object] call UO_FW_AI_fnc_ClosestObject;
 ////systemchat format ["%1",_object];
-
-_position = [0,0,0];
+private _position = [0,0,0];
 if (isNil "_object") exitWith {};
 if (isNil "_list") exitWith {};
 if (TypeName _object isEqualTo "OBJECT") then {_position = getPosWorld _object;};
 if (TypeName _object isEqualTo "STRING") then {_position = getMarkerPos _object;};
 if (TypeName _object isEqualTo "ARRAY") then {_position = _object;};
-
 private _DistanceArray = [];
-
 {
     if !(isNil "_x") then {
         private _CompareObjectPos = [0,0,0];
@@ -22,10 +21,7 @@ private _DistanceArray = [];
         _DistanceArray pushback [_NewObjectDistance,_x];
     };
 } foreach _list;
-
 _DistanceArray sort true;
-
-_ClosestObject = ((_DistanceArray select 0) select 1);
-
+private _ClosestObject = ((_DistanceArray select 0) select 1);
 if (isNil "_ClosestObject") exitWith {};
 _ClosestObject

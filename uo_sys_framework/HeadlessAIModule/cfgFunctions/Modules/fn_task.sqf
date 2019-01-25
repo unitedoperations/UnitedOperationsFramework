@@ -18,11 +18,9 @@ params [["_mode","",[""]],["_input",[],[[]]]];
             if !is3DEN then {
                 _input params ["_logic",["_isActivated",true,[true]]];
                 if !(_isActivated) exitWith {};
-
                 if (count ([_logic ,["UO_FW_AI_ZoneModule","UO_FW_AI_ZoneModule_R"]] call UO_FW_AI_fnc_getSyncedModules) > 0 ) then {
                     _logic setVariable["UO_FW_AI_taskZoneActivated",true];
                 };
-
                 [_logic] spawn UO_FW_AI_fnc_debugSyncedModules;
             };
         };

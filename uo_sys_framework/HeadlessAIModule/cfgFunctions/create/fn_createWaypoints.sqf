@@ -9,12 +9,9 @@
 #include "\x\UO_FW\addons\Main\HeadlessAIModule\module_macros.hpp"
 UO_FW_AI_EXEC_CHECK(SERVERHC);
 
-params [
-    "_grp",
-    ["_waypoints",[],[[]]]
-];
-for "_w" from 0 to (count _waypoints) step 1 do {
-    private _currentWaypoint = _waypoints select _w;
+params ["_grp",["_waypoints",[],[[]]]];
+{
+    private _currentWaypoint = _x;
     private _wp = _grp addWaypoint [(_currentWaypoint select 2),5,(_currentWaypoint select 0 select 1),(_currentWaypoint select 1)];
     _wp setWaypointType (_currentWaypoint select 3);
     _wp setWaypointBehaviour (_currentWaypoint select 4);
@@ -29,6 +26,6 @@ for "_w" from 0 to (count _waypoints) step 1 do {
     _wp setWaypointLoiterRadius (_currentWaypoint select 13);
     _wp setWaypointScript (_currentWaypoint select 14);
     _wp setWaypointStatements (_currentWaypoint select 15);
-};
+} foreach _waypoints;
 deleteWaypoint ((waypoints _grp) select 0);
 true

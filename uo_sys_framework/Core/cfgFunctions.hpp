@@ -23,7 +23,9 @@ class UO_FW_3DEN_Editor {
 class UO_FW_3DEN_ExportImport {
     file = "x\UO_FW\addons\Main\Core\cfgFunctions\3DEN\ExportImport";
     class ExportSettings {};
+    class ExportLoadoutSettings {};
     class ImportSettings {};
+    class ImportLoadoutSettings {};
 };
 
 class UO_FW_Core_Common {

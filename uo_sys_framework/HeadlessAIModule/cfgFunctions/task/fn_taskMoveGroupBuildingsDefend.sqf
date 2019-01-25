@@ -54,10 +54,10 @@ if (_patrol) then {
 if (UO_FW_AI_DEBUG) then {
     if (_patrol) then {
         if (_radius < 1) then {_radius = 30;};
-        [_grp,_bpos,"BLD ERROR PATROL","ColorOPFOR"] spawn UO_FW_AI_fnc_debugCreateMarker;
+        [_grp,_bpos,"BLD ERROR PATROL","ColorOPFOR"] call UO_FW_AI_fnc_debugCreateMarker;
     } else {
         {
-            [_grp,(getPosATL _x),format["gBldD%1",_forEachIndex]] spawn UO_FW_AI_fnc_debugCreateMarker;
+            [_grp,(getPosATL _x),format["gBldD%1",_forEachIndex]] call UO_FW_AI_fnc_debugCreateMarker;
         } forEach _blds;
     };
 };
