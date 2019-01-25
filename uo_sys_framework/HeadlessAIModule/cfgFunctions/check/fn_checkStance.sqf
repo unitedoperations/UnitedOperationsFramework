@@ -10,11 +10,11 @@ params [
     ["_Allowed",[],[[]]],
     ["_return",false,[false]]
 ];
-    if (count _Allowed > 0) then {
-        if ((stance _unit) in _Allowed) then {
-            _return    = false;
-        } else {
-            _return    = true;
-        };
+if !(_Allowed isEqualto []) then {
+    if ((stance _unit) in _Allowed) then {
+        _return    = false;
+    } else {
+        _return    = true;
     };
-    _return
+};
+_return

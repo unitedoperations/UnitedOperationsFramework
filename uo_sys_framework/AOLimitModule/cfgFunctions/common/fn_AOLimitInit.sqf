@@ -8,10 +8,9 @@ UO_FW_EXEC_CHECK(CLIENT);
 [{(!(isNull player)) && {(CBA_missionTime > 1)}}, {
     params ["_args", "_unit"];
     _args params ["_logic","_area","_selectedSides","_entryMode","","_AOMode","",""];
-    private ["_startedInside","_run","_arrayname","_enteredZone","_outSide","_softAOMode"];
-    if ((toUpper _AOMode) isEqualto "SOFT") then {_softAOMode = true} else {_softAOMode = false;};
-
+    private ["_startedInside","_run","_arrayname","_enteredZone","_outSide"];
     if !((side _unit) in _selectedSides) exitwith {};
+    private _softAOMode = ((toUpper _AOMode) isEqualto "SOFT");
 
     scopename "AOLimitMainSpawn";
 
@@ -28,7 +27,6 @@ UO_FW_EXEC_CHECK(CLIENT);
             if (({_logic inArea _x} count _AOLimitArray) > 0) exitwith {
                 _AOLimitArray pushBackUnique _area;
                 _run = false;
-                //diag_log "exiting AO limit fnc, already one running!";
                 breakOut "AOLimitMainSpawn";
             };
         } foreach UO_FW_AOLimit_Arrays;
@@ -38,7 +36,7 @@ UO_FW_EXEC_CHECK(CLIENT);
         _run = true;
     };
 
-    if ((count ((missionNamespace getvariable _arrayname))) isEqualto 1) then {
+    if ((count (missionNamespace getvariable _arrayname)) == 1) then {
         if ((vehicle _unit) inArea _area) then {
             _startedInside = true;
             _outSide = false;
@@ -54,7 +52,7 @@ UO_FW_EXEC_CHECK(CLIENT);
             _enteredZone = false;
         };
     } else {
-        if (({(vehicle _unit) inArea _x} count ((missionNamespace getvariable _arrayname))) > 0) then {
+        if (({(vehicle _unit) inArea _x} count (missionNamespace getvariable _arrayname)) > 0) then {
             _startedInside = true;
             _outSide = false;
             _enteredZone = true;
@@ -77,7 +75,7 @@ UO_FW_EXEC_CHECK(CLIENT);
         private _AOLimitPFHhandle = [{
             params ["_argNested", "_idPFH"];
             _argNested params ["_unit","_args","_startedInside","_outSide","_enteredZone","_arrayname","_softAOMode","_recheckDead","_pos"];
-            _args params ["_logic","_area","_selectedSides","_entryMode","_airsetting","_AOMode","_softAOtime","_softAOtimeAir"];
+            _args params ["","_area","","_entryMode","_airsetting","","_softAOtime","_softAOtimeAir"];
 
             LOG_1("_argNested: %1",_argNested);
             LOG_1("_area: %1",_area);
@@ -154,7 +152,7 @@ UO_FW_EXEC_CHECK(CLIENT);
             missionNamespace setVariable ["UO_FW_AOL_Display", _outSide];
             LOG_1("_outSide: %1",_outSide);
 
-            if ((count ((missionNamespace getvariable _arrayname))) isEqualto 1) then {
+            if ((count (missionNamespace getvariable _arrayname)) == 1) then {
                 if ((!(_startedInside) && {!_softAOMode} && {(_entryMode)} && {!((vehicle _unit) inArea _area)}) || {(_recheckDead && !_softAOMode)}) then {
                     _recheckDead = false;
                     _argNested set [7,_recheckDead];

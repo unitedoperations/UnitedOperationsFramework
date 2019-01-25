@@ -1,5 +1,6 @@
-//This function will determine if the player is alive and if we should be considering an IR laser or not. This function may be expanded later to consider flashlights and the like.
-//09/06/17 @ 1642
+#include "\x\UO_FW\addons\Main\HeadlessAIModule\module_macros.hpp"
+UO_FW_AI_EXEC_CHECK(SERVERHC);
+
 while {alive _this} do {
     if (_this isIRLaserOn currentWeapon _this) then {
         private _Side = side _this;

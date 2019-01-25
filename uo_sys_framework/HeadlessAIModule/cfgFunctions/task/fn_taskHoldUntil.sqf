@@ -26,8 +26,7 @@ params [
     ["_Type","MOVE",[""]],
     ["_oncomplete","this call UO_FW_AI_fnc_taskSearchNearby",[""]],
     ["_compradius",0,[0]],
-    ["_wpcount",10,[0]],
-    "_i"
+    ["_wpcount",10,[0]]
 ];
 {_x forcespeed -1; _x enableAI "Path";} foreach units _grp;
 
@@ -37,7 +36,7 @@ _grp setCombatMode _combat;
 _grp setSpeedMode _speed;
 _grp setFormation _formation;
 private _units = units _grp;
-for [{_i=0},{(_i < count _units)},{_i = _i + 1}] do {
+for "_i" from 0 to (count _units) do {
     private _u = _units select _i;
     _u doWatch ((getPosATL _u) vectorAdd((vectorDir _u) vectorMultiply 100));
     doStop _u;

@@ -39,9 +39,9 @@ if (_patrol) then {
 };
 if (UO_FW_AI_DEBUG) then {
     if (_patrol) then {
-        [_grp,_bpos,"BLD ERROR PATROL","ColorOPFOR"] spawn UO_FW_AI_fnc_debugCreateMarker;
+        [_grp,_bpos,"BLD ERROR PATROL","ColorOPFOR"] call UO_FW_AI_fnc_debugCreateMarker;
     } else {
-        [_grp,_bpos,"rBldP"] spawn UO_FW_AI_fnc_debugCreateMarker;
+        [_grp,_bpos,"rBldP"] call UO_FW_AI_fnc_debugCreateMarker;
     };
 };
 _grp setvariable ["InitialWPSet",true];

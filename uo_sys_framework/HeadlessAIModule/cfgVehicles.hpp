@@ -9,7 +9,7 @@ class UO_FW_AI_Module : OlsenModule {
 
 class UO_FW_AI_ZoneModule : UO_FW_AI_Module {
     scope = 2;
-    displayName = "Zone (Circle)";
+    displayName = "AI Zone (Circle)";
     //icon = "\UO_FW\Resources\Icons\zonemodule_ca.paa";
     function = "UO_FW_AI_fnc_zone";
     functionPriority = 0;
@@ -110,7 +110,7 @@ class UO_FW_AI_ZoneModule : UO_FW_AI_Module {
     };
 };
 class UO_FW_AI_ZoneModule_R : UO_FW_AI_ZoneModule {
-    displayName = "Zone (Square)";
+    displayName = "AI Zone (Square)";
     class AttributeValues {
         size2[] = {100,100};
         IsRectangle = 1;
@@ -119,7 +119,7 @@ class UO_FW_AI_ZoneModule_R : UO_FW_AI_ZoneModule {
 
 class UO_FW_AI_ControlModule : UO_FW_AI_Module {
     scope = 2;
-    displayName = "Control (Circle)";
+    displayName = "AI Control (Circle)";
     //icon = "\UO_FW\Resources\Icons\controlmodule_ca.paa";
     function = "UO_FW_AI_fnc_control";
     functionPriority = 0;
@@ -225,7 +225,7 @@ class UO_FW_AI_ControlModule : UO_FW_AI_Module {
     };
 };
 class UO_FW_AI_ControlModule_R : UO_FW_AI_ControlModule {
-    displayName = "Control (Square)";
+    displayName = "AI Control (Square)";
     class AttributeValues {
         size2[] = {100,100};
         IsRectangle = 1;
@@ -234,7 +234,7 @@ class UO_FW_AI_ControlModule_R : UO_FW_AI_ControlModule {
 
 class UO_FW_AI_TaskModule : UO_FW_AI_Module {
     scope = 2;
-    displayName = "Task";
+    displayName = "AI Task";
     //icon = "\UO_FW\Resources\Icons\taskmodule_ca.paa";
     function = "UO_FW_AI_fnc_task";
     functionPriority = 0;
@@ -375,7 +375,7 @@ class UO_FW_AI_TaskModule : UO_FW_AI_Module {
 };
 class UO_FW_AI_PositionModule : UO_FW_AI_Module {
     scope = 2;
-    displayName = "Position (Circle)";
+    displayName = "AI Position (Circle)";
     //icon = "\UO_FW\Resources\Icons\posmodule_ca.paa";
     function = "UO_FW_AI_fnc_position";
     functionPriority = 0;
@@ -431,7 +431,7 @@ class UO_FW_AI_PositionModule : UO_FW_AI_Module {
     };
 };
 class UO_FW_AI_PositionModule_R : UO_FW_AI_PositionModule {
-    displayName = "Position (Square)";
+    displayName = "AI Position (Square)";
     class AttributeValues {
         size2[] = {0,0};
         IsRectangle = 1;
@@ -439,7 +439,7 @@ class UO_FW_AI_PositionModule_R : UO_FW_AI_PositionModule {
 };
 class UO_FW_AI_RespawnModule : UO_FW_AI_Module {
     scope = 2;
-    displayName = "Respawn";
+    displayName = "AI Respawn";
     //icon = "\UO_FW\Resources\Icons\respawnmodule_ca.paa";
     function = "UO_FW_AI_fnc_respawn";
     functionPriority = 1;
@@ -462,7 +462,7 @@ class UO_FW_AI_RespawnModule : UO_FW_AI_Module {
 };
 class UO_FW_AI_TemplateModule : UO_FW_AI_Module {
     scope = 2;
-    displayName = "Group Template";
+    displayName = "AI Group Template";
     //icon = "\UO_FW\Resources\Icons\templatemodule_ca.paa";
     function = "UO_FW_AI_fnc_temp";
     functionPriority = 1;

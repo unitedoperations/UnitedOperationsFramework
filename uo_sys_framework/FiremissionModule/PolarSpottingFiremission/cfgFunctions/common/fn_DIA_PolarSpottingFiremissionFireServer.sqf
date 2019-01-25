@@ -4,7 +4,7 @@
     private _callGrid = _this select 2;
     private _mils = _this select 3;
     private _distance = _this select 4;
-    private    _roundType = _this select 5;
+    private _roundType = _this select 5;
 
     private _guns = _requester getVariable [VAR_SART_OBSGUNS,[]];
 

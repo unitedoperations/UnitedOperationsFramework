@@ -7,11 +7,23 @@ LOG("running fn_initMain");
 
 ["UO_FW_RegisterModuleEvent", ["Headless AI", "Custom AI Scripts and spawning modules for AI", "PiZZADOX"]] call CBA_fnc_globalEvent;
 
+UO_FW_AI_Zones = [];
+UO_FW_AI_entities = [];
+UO_FW_AI_templates = [];
+UO_FW_AI_respawns = [];
+UO_FW_AI_taskedGroups = [];
+UO_FW_AI_functions = ["UO_FW_AI_FastAirStrikeModule","UO_FW_AI_AirDropModule","UO_FW_AI_HeloInsertModule"];
+UO_FW_AI_zoneTypes = [/*0*/["CAManBase","LandVehicle","Ship","Helicopter","Plane"],/*1*/["CAManBase","LandVehicle"],/*2*/["Helicopter","Plane"],/*3*/["CAManBase","LandVehicle","Helicopter"],/*4*/["CAManBase","LandVehicle","Ship"],/*5*/["CAManBase","LandVehicle","Plane"],/*6*/["Ship","Helicopter","Plane"],/*7*/["CAManBase"],/*8*/["LandVehicle"],/*9*/["Ship"],/*10*/["Helicopter"],/*11*/["Plane"]];
+UO_FW_AI_paradrop = false;
+UO_FW_AI_zoneInit = [];
+UO_FW_AI_templatesyncedObjects = [];
+UO_FW_AI_templateCleanup = false;
+UO_FW_AI_initialised = true;
 
-UO_FW_AI_MARKERARRAY = [];
-UO_FW_AI_UnitQueue = [];
-UO_FW_AI_ActiveList = [];
-UO_FW_AI_TrackedUnits = [];
+
+
+
+
 UO_FW_AI_BasicCheckCurrent = 0;
 UO_FW_AI_LeaderExecuteCurrent = 0;
 
@@ -99,31 +111,29 @@ UO_FW_AI_FORCETIME_Enabled = false;
 UO_FW_AI_FORCETIME_TIME = 12;
 
 //Lets gets the queue handler going
-[{time > 3},{
-[] spawn UO_FW_AI_fnc_QueueHandle;
-[] spawn UO_FW_AI_fnc_ActiveHandler;
-[] spawn UO_FW_AI_fnc_GroupHandler;
+[{CBA_MissionTime > 0},{
+    [] call UO_FW_AI_fnc_QueueHandle;
+    [] call UO_FW_AI_fnc_ActiveHandler;
+    [] call UO_FW_AI_fnc_GroupHandler;
+    [] call UO_FW_AI_fnc_MapMarkers;
+    [] call UO_FW_AI_fnc_zoneMonitor;
 }] call CBA_fnc_waitUntilAndExecute;
 
 //leader/group behavior handling loop
 //[] spawn UO_FW_AI_fnc_MainLoop;
 
-//marker function
-if (UO_FW_AI_MARKERS_Enabled) then {
-    [] spawn UO_FW_AI_fnc_MapMarkers;
-};
-
-if ((!hasinterface) && (!isDedicated)) then {
+if ((!hasinterface) && {(!isDedicated)}) then {
     setViewDistance (missionNamespace getvariable ["UO_FW_AI_ViewDistance",2500]);
-
     if (UO_FW_AI_FORCETIME_Enabled) then {
-        [] spawn {
-            waituntil {CBA_missionTime > 1};
-            while {true} do {
-                sleep 2;
-                skiptime ((missionNamespace getvariable ["UO_FW_AI_FORCETIME_TIME",daytime]) / 3600) - (daytime);
-            };
-        };
+        private _timeForced = missionNamespace getvariable ["UO_FW_AI_FORCETIME_TIME",daytime];
+        [{CBA_missionTime > 1},{
+            private _HCTimeForcedPFH = [{
+                params ["_args", "_idPFH"];
+                _args params ["_timeForced"];
+                private _daytime = daytime;
+                skiptime ((_timeForced / 3600) - _daytime);
+            }, 1, [_timeForced]] call CBA_fnc_addPerFrameHandler;
+        }, [_timeForced]] call CBA_fnc_waitUntilAndExecute;
     };
 };
 

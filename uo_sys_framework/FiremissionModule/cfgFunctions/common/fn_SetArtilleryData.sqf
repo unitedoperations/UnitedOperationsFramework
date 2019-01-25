@@ -2,7 +2,7 @@
 //TODO do some value checking
         private _unit = _this select 0;
         private _fireRate = if ((_this select 1) < 0) then {MEANFIRERATE} else {  _this select 1};;
-        private    _accuracy = if ((_this select 2) < 0) then { MEANPlOTTEDACCURACY} else { _this select 2 };;
+        private _accuracy = if ((_this select 2) < 0) then { MEANPlOTTEDACCURACY} else { _this select 2 };;
         private _spottingAccuracy = if ((_this select 3) < 0) then {MEANSPOTTINGACCURACY} else { _this select 3  };;
         private _aimSpeed = if ((_this select 4) < 0) then {MEANAIMTIME} else {   _this select 4};;
         private _calcSpeed = if ((_this select 5) < 0) then {MEANCALCULATIONTIME } else { _this select 5 };;

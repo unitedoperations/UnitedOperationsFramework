@@ -17,7 +17,7 @@ params [["_mode","",[""]],["_input",[],[[]]]];
     switch _mode do {
         case "init": {
             if !is3DEN then {
-                _input params ["_logic",["_isActivated",true,[true]],["_isCuratorPlaced",false,[false]]];
+                _input params ["_logic",["_isActivated",true,[true]]];
                 if !(_isActivated) exitWith {};
                 sleep 1;
                 UO_FW_AI_EXEC_CHECK(SERVERHC);
@@ -35,9 +35,9 @@ params [["_mode","",[""]],["_input",[],[[]]]];
                 };
                 //Setup Control Module as Zone
                 private _cond = _logic getVariable ["UO_FW_AI_ControlCondition","false"];
-                if (typename _cond isEqualTo "STRING") then {_cond = compile _cond;};
+                if (_cond isEqualType "STRING") then {_cond = compile _cond;};
                 private _code = _logic getVariable ["UO_FW_AI_ControlCode","true"];
-                if (typename _code isEqualTo "STRING") then {_code = compile _code;};
+                if (_code isEqualType "STRING") then {_code = compile _code;};
                 private _isRectangle = if ((typeof _logic) isEqualTo "UO_FW_AI_ControlModule_R") then {true} else {false};
                 UO_FW_AI_Zones pushBack [
                     _logic,
@@ -59,7 +59,7 @@ params [["_mode","",[""]],["_input",[],[[]]]];
                 if (UO_FW_AI_DEBUG) then {
                     private _syncedZoneModule = [_logic,["UO_FW_AI_ZoneModule","UO_FW_AI_ZoneModule_R"]] call UO_FW_AI_fnc_getSyncedModules;
                     if (_syncedZoneModule isEqualto []) then {
-                        (format["%1 a %2 has no Zone Modules linked.\nLink a Zone Module to the Enable/Disable the zone when the Control Module is activated.",_logic,typeof _logic]) call UO_FW_fnc_DebugMessage;
+                        LOG_2("%1 a %2 has no Zone Modules linked.\nLink a Zone Module to the Enable/Disable the zone when the Control Module is activated.",_logic,typeof _logic);
                     };
                     [_logic] spawn UO_FW_AI_fnc_debugSyncedModules;
                 };

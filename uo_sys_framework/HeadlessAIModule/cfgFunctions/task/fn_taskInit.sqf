@@ -11,7 +11,7 @@
 UO_FW_AI_EXEC_CHECK(SERVERHC);
 params ["_grp",["_tasks",[],[[]]],["_task",objNull,[objNull]],["_taskOrdered",false,[false]]];
 private _activeTasks = [];
-for [{_i=0},{(_i < count _tasks)},{_i = _i + 1}] do {
+for "_i" from 0 to (count _tasks) do {
     private _taskSet = (_tasks select _i) call UO_FW_AI_fnc_getTaskParams;
     _taskSet params ["_task","_cond","_prior","_time","_onComp","_taskId"];
     if (call _cond) then {

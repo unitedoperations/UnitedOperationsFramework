@@ -4,10 +4,8 @@ params ["_display"];
 
 [{!(displayNull isEqualto _this)}, {
     disableserialization;
-
-    _this params ["_display"];
-    private _timecheckInit = CBA_missionTime;
-    private _endTime = (_timecheckInit + (missionNamespace getVariable ["UO_FW_AOL_TimeLeft", 30]));
+    params ["_display"];
+    private _endTime = (CBA_missionTime + (missionNamespace getVariable ["UO_FW_AOL_TimeLeft", 30]));
     private _nextBeep = _endTime - 10;
 
     ["AOLimitWarning"] call BIS_fnc_showNotification;
@@ -16,7 +14,7 @@ params ["_display"];
 
     private _SoftAOLimitPFHhandle = [{
         params ["_argNested", "_idPFH"];
-        _argNested params ["_timecheckInit","_endTime","_nextBeep",["_colorSet",["IGUI","TEXT_RGB"]],"_display"];
+        _argNested params ["_endTime","_nextBeep",["_colorSet",["IGUI","TEXT_RGB"]],"_display"];
 
         private _ctrlTime = _display displayCtrl 1003;
         private _shouldDisplay = missionNamespace getVariable ["UO_FW_AOL_Display", false];

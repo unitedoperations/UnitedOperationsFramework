@@ -21,7 +21,7 @@ UO_FW_AI_EXEC_CHECK(SERVERHC);
         } else {
             private _taskCheck = [_grp,(_grp getVariable["UO_FW_AI_CurrentTask",objNull])] call UO_FW_AI_fnc_taskCheck;
             _taskCheck params [["_task",objNull,[objNull]]];
-            if (_grp getVariable "UO_FW_AI_CurrentTaskEndTime" < time && !isNull _task) then {
+            if (_grp getVariable "UO_FW_AI_CurrentTaskEndTime" < CBA_MissionTime && !isNull _task) then {
                 [_grp,_task] call UO_FW_AI_fnc_taskSet;
             };
         };

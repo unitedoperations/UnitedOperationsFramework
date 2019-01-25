@@ -10,44 +10,55 @@
 #include "\x\UO_FW\addons\Main\HeadlessAIModule\module_macros.hpp"
 UO_FW_AI_EXEC_CHECK(SERVERHC);
 
-params ["_pos","_veh","_side"];
-    _veh params ["_uv","_uc","_vpos","_vcd","_vcu","_dmg","_f","_a","_vlc","_vw","_name","_per","_init","_fly","_flyInHeight"];
-    private _flying = if (_fly && (_uc isKindOf "Air")) then {"FLY"} else {"NONE"};
-    if (_flying == "FLY") then {
-        _pos = ([_pos select 0, _pos select 1, _flyInHeight] vectorAdd [0,0,150]);
+params ["_pos","_vehArgs","_side",["_initmode",false,[false]]];
+_vehArgs params ["_uv","_vehClass","_vehpos","_vectorDir","_vectorUp","_damage","_fuel","_turretMags","_locked","_vehInWater","_vehName","_persistent","_vehInit","_vehGearSystemType","_vehGearType","_fly","_flyInHeight"];
+private _flying = if (_fly && {(_vehClass isKindOf "Air")}) then {"FLY"} else {"NONE"};
+if (_flying isEqualTo "FLY") then {
+    _pos = ([_pos select 0, _pos select 1, _flyInHeight] vectorAdd [0,0,150]);
+};
+private _vehicle = createVehicle [_vehClass, _pos,[],0,_flying];
+_vehicle setVectorDirAndUp [_vectorDir,_vectorUp];
+_vehicle setPosATL _pos;
+if (_fly) then {
+    _vehicle FlyInHeight _flyInHeight;
+    _vehicle setVelocity [((velocity _vehicle) select 0) + (sin (getDir _vehicle) * 80),((velocity _vehicle) select 1) + (cos (getDir _vehicle) * 80),((velocity _vehicle) select 2)];
+};
+_vehicle setDamage _damage;
+_vehicle setFuel _fuel;
+_vehicle lock _locked;
+{
+    _x params [["_class","",[""]],["_path",[],[[]]],["_ammo",0,[0]]];
+    _vehicle setMagazineTurretAmmo [_class,_ammo,_path];
+} forEach _turretMags;
+switch (_vehGearSystemType) do {
+    case "OLSEN": {
+        LOG_2("Executing gear of file: %1 for vehicle %2",_vehGearType,_vehicle);
+        [_vehicle,_vehGearType] call UO_FW_fnc_OlsenGearScript;
     };
-    private _v = createVehicle [_uc, _pos,[],0,_flying];
-    _v setVectorDirAndUp [_vcd,_vcu];
-    _v setPosATL _pos;
-    if (_fly) then {
-        _v FlyInHeight _flyInHeight;
-        _v setVelocity [((velocity _v) select 0) + (sin (getDir _v) * 80),((velocity _v) select 1) + (cos (getDir _v) * 80),((velocity _v) select 2)];
+    case "NONE": {};
+};
+if !(_vehName isEqualto "") then {
+    missionNamespace setVariable [_vehName, _vehicle];
+};
+if (UO_FW_AutoTrackAsset_Enabled) then {
+    private _team = switch (_side) do {
+        case west: {UO_FW_TeamSetting_TeamName_Blufor};
+        case east: {UO_FW_TeamSetting_TeamName_Opfor};
+        case independent: {UO_FW_TeamSetting_TeamName_Indfor};
+        case civilian: {UO_FW_TeamSetting_TeamName_Civ};
+        default {""};
     };
-    _v setDamage _dmg;
-    _v setFuel _f;
-    _v lock _vlc;
-    {
-        _x params [["_class","",[""]],["_path",[],[[]]],["_ammo",0,[0]]];
-        _v setMagazineTurretAmmo [_class,_ammo,_path];
-    } forEach _a;
-    if (count _name > 1) then {
-        missionNamespace setVariable[_name, _v];
-    };
-    if (UO_FW_AutoTrackAsset_Enabled) then {
-        private _team = "";
-        switch (_side) do {
-            case west: {_team = UO_FW_TeamSetting_TeamName_Blufor};
-            case east: {_team = UO_FW_TeamSetting_TeamName_Opfor};
-            case independent: {_team = UO_FW_TeamSetting_TeamName_Indfor};
-            case civilian: {_team = UO_FW_TeamSetting_TeamName_Civ};
+    if !(_team isEqualto "") then {
+        private _vehCfg = (configFile >> "CfgVehicles" >> (typeOf _vehicle));
+        if (isText(_vehCfg >> "displayName")) then {
+            ["UO_FW_TrackAsset_Event",[_vehicle, getText(_vehCfg >> "displayName"), _team]] call CBA_fnc_serverEvent;
         };
-        if (!(_team isEqualto "")) then {
-            private _vehCfg = (configFile >> "CfgVehicles" >> (typeOf _v));
-            if (isText(_vehCfg >> "displayName")) then {
-                ["UO_FW_TrackAsset_Event",[_v, getText(_vehCfg >> "displayName"), _team]] call CBA_fnc_serverEvent;
-            };
-        };
     };
-    [_v,_per] call UO_FW_AI_fnc_setPersistent;
-    _v spawn _init;
-    _v
+};
+[_vehicle,_persistent] call UO_FW_AI_fnc_setPersistent;
+if (_initmode) then {
+    _vehicle call _vehInit;
+} else {
+    _vehicle spawn _vehInit;
+};
+_vehicle

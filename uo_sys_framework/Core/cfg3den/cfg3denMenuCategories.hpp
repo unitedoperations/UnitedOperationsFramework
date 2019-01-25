@@ -94,7 +94,7 @@ class UO_FW_Export_Menu {
             class Attributes {
                 class UO_FW_EXPORT_ExportToProfile {
                     property = "UO_FW_EXPORT_ExportToProfile";
-                    displayName = "Export to Profile";
+                    displayName = "Export Settings to Profile";
                     tooltip = "Enter the name of the settings preset that will be saved to your profile";
                     control = "UO_FW_ExportToProfileAttribute";
                     expression = "";
@@ -102,9 +102,25 @@ class UO_FW_Export_Menu {
                 };
                 class UO_FW_EXPORT_ExportToClipboard {
                     property = "UO_FW_EXPORT_ExportToClipboard";
-                    displayName = "Export to Clipboard";
-                    tooltip = "Export framework settings to Clipboard";
+                    displayName = "Export Settings to Clipboard";
+                    tooltip = "Export Settings to Clipboard";
                     control = "UO_FW_ExportToClipboardAttribute";
+                    expression = "";
+                    defaultValue = "[]";
+                };
+                class UO_FW_EXPORT_ExportLoadoutToProfile {
+                    property = "UO_FW_EXPORT_ExportLoadoutToProfile";
+                    displayName = "Export Loadouts to Profile";
+                    tooltip = "Enter the name of the settings preset that will be saved to your profile";
+                    control = "UO_FW_ExportLoadoutToProfileAttribute";
+                    expression = "";
+                    defaultValue = "''";
+                };
+                class UO_FW_EXPORT_ExportLoadoutToClipboard {
+                    property = "UO_FW_EXPORT_ExportLoadoutToClipboard";
+                    displayName = "Export Loadouts to Clipboard";
+                    tooltip = "Export Loadouts to Clipboard";
+                    control = "UO_FW_ExportLoadoutToClipboardAttribute";
                     expression = "";
                     defaultValue = "[]";
                 };
@@ -122,17 +138,33 @@ class UO_FW_Import_Menu {
             class Attributes {
                 class UO_FW_IMPORT_ImportfromProfile {
                     property = "UO_FW_IMPORT_ImportfromProfile";
-                    displayName = "Import from Profile";
-                    tooltip = "Enter the name of the settings preset that will be loaded from your profile";
+                    displayName = "Import Settings from Profile";
+                    tooltip = "";
                     control = "UO_FW_ImportFromProfileAttribute";
                     expression = "";
                     defaultValue = "''";
                 };
                 class UO_FW_Import_ImportFromClipboard {
                     property = "UO_FW_Import_ImportFromClipboard";
-                    displayName = "Import from Clipboard";
-                    tooltip = "Import framework settings from Clipboard";
+                    displayName = "Import Settings from Clipboard";
+                    tooltip = "Import Settings from Clipboard";
                     control = "UO_FW_ImportFromClipboardAttribute";
+                    expression = "";
+                    defaultValue = "[]";
+                };
+                class UO_FW_IMPORT_ImportLoadoutfromProfile {
+                    property = "UO_FW_IMPORT_ImportLoadoutfromProfile";
+                    displayName = "Import Loadouts from Profile";
+                    tooltip = "";
+                    control = "UO_FW_ImportLoadoutFromProfileAttribute";
+                    expression = "";
+                    defaultValue = "''";
+                };
+                class UO_FW_Import_ImportLoadoutFromClipboard {
+                    property = "UO_FW_Import_ImportLoadoutFromClipboard";
+                    displayName = "Import Loadouts from Clipboard";
+                    tooltip = "";
+                    control = "UO_FW_ImportLoadoutFromClipboardAttribute";
                     expression = "";
                     defaultValue = "[]";
                 };

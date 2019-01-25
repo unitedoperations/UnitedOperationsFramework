@@ -10,13 +10,13 @@
 #include "\x\UO_FW\addons\Main\HeadlessAIModule\module_macros.hpp"
 UO_FW_AI_EXEC_CHECK(SERVERHC);
 params ["_grp","_check",["_init",false,[false]],["_syncedTasks",[],[[]]],["_task",objNull,[objNull]],["_taskCheck",[],[[]]],["_taskOrder",[],[[]]]];
-if (_grp getVariable "UO_FW_AI_CurrentTaskEndTime" < time || _init) then {
+if (_grp getVariable "UO_FW_AI_CurrentTaskEndTime" < CBA_MissionTime || _init) then {
     if ( !isNull (_grp getVariable["UO_FW_AI_CurrentTask",objNull]) ) then {[_grp,_check] call UO_FW_AI_fnc_setCompletedTasks;};
     private _groupTaskOrder = _grp getVariable ["UO_FW_AI_groupTaskOrder",[]];
     if (count _groupTaskOrder > 1) then {_taskOrder = _groupTaskOrder select 1;};
     if (count _taskOrder > 0) then {
         private _tasks = _taskOrder select {!(_x in (_grp getVariable["UO_FW_AI_CompletedTasks",[]]))};
-        if (count _tasks > 0) then {
+        if !(_tasks isEqualTo []) then {
             _tasks sort (_groupTaskOrder select 0);
             _task = (_tasks select 0 select 2);
             _taskCheck = [_task];
@@ -26,7 +26,7 @@ if (_grp getVariable "UO_FW_AI_CurrentTaskEndTime" < time || _init) then {
             _grp setVariable["UO_FW_AI_CompletedTasks",[]];
             [_grp,(_taskOrder select 0 select 2)] call UO_FW_AI_fnc_setCompletedTasks;
             private _tasks = _taskOrder select {!(_x in (_grp getVariable["UO_FW_AI_CompletedTasks",[]]))};
-            if (count _tasks > 0) then {
+            if !(_tasks isEqualTo []) then {
                 _task = (_tasks select 0 select 2);
                 _taskCheck = [_task];
                 _grp setVariable ["UO_FW_AI_groupTaskOrder",[_sort,_taskOrder]];
@@ -51,14 +51,14 @@ if (_grp getVariable "UO_FW_AI_CurrentTaskEndTime" < time || _init) then {
             UO_FW_AI_taskedGroups deleteAt _index;
         } else {
             private _activeTasks = [];
-            for "_i" from 0 to ((count _tasks)-1) do {
-                private _checkTask = (_tasks select _i);
+            {
+                private _checkTask = _x;
                 private _taskSet = _checkTask call UO_FW_AI_fnc_getTaskParams;
                 _taskSet params ["_task","_cond","_prior","_time","_onComp","_taskId"];
                 if (call _cond) then {
                     _activeTasks pushback [_taskId,_prior,_task];
                 };
-            };
+            } foreach _tasks;
             if (!(_activeTasks isEqualTo [])) then {
                 _activeTasks sort true;
                 _task = (_activeTasks select 0 select 2);

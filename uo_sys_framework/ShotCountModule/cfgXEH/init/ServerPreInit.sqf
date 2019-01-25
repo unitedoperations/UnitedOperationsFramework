@@ -13,9 +13,9 @@ UO_FW_EXEC_CHECK(SERVER);
 ["UO_FW_SettingsLoaded", {
     if !(UO_FW_Server_ShotCountModule_Allowed) exitwith {};
     if !(UO_FW_GETMVAR(ShotCount_Enabled,false)) exitwith {};
-    UO_FW_aCount_west_ExpendedAmmunition = [];
-    UO_FW_aCount_INDFOR_ExpendedAmmunition = [];
-    UO_FW_aCount_east_ExpendedAmmunition = [];
-    UO_FW_aCount_CIV_ExpendedAmmunition = [];
-    UO_FW_aCount_classNames = [];
+    UO_FW_ShotCount_ExpendedAmmunition_BLUFOR = [];
+    UO_FW_ShotCount_ExpendedAmmunition_INDFOR = [];
+    UO_FW_ShotCount_ExpendedAmmunition_OPFOR = [];
+    UO_FW_ShotCount_ExpendedAmmunition_CIV = [];
+    UO_FW_ShotCount_classNames = [];
 }] call CBA_fnc_addEventHandler;

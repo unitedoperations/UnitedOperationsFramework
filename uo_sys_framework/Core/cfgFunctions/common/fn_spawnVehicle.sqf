@@ -21,8 +21,8 @@ params ["_class","_pos",["_side",""]];
 
 private _vehicle = _class createVehicle [0,0,0];
 _vehicle setpos _pos;
-if (!isNil "UO_FW_aCount_event_addEH") then {
-    ["UO_FW_aCount_event_addEH", _vehicle] call CBA_fnc_serverEvent;
+if (!isNil "UO_FW_ShotCount_EH_Event") then {
+    ["UO_FW_ShotCount_EH_Event", _vehicle] call CBA_fnc_serverEvent;
 };
 if (((_vehicle getVariable ["UO_FW_AssetName", ""]) isEqualto "") && {!(_side isEqualto "")}) then {
   {

@@ -311,7 +311,7 @@ class FSM
                          "if (isnil (""_VBtemp"")) then {_this setVariable [""lastGestFreezeT"",-1000]}; //change to -1000" \n
                          "_VBtemp = _this getVariable ""lastGestFreezeT"";" \n
                          "" \n
-                         "if (_VBtemp + 25 < time) then //at least 20 seconds from last freeze gesture" \n
+                         "if (_VBtemp + 25 < CBA_MissionTime) then //at least 20 seconds from last freeze gesture" \n
                          "  {" \n
                          "" \n
                          "    if (isPlayer _this) then {}     " \n
@@ -329,13 +329,13 @@ class FSM
                          "            {//me and somebody here" \n
                          "" \n
                          "                _this playAction ""gestureFreeze"";" \n
-                         "                //    _this globalChat format[""gestureFreeze (@T %1 %2)"",time,_this getVariable ""lastT""];" \n
+                         "                //    _this globalChat format[""gestureFreeze (@T %1 %2)"",CBA_missionTime,_this getVariable ""lastT""];" \n
                          "            };" \n
                          "        };" \n
                          "" \n
                          "    };" \n
                          "" \n
-                         "  _this setVariable [""lastGestFreezeT"",time];" \n
+                         "  _this setVariable [""lastGestFreezeT"",CBA_missionTime];" \n
                          "  };" \n
                          "" \n
                          ""/*%FSM</STATEINIT""">*/;

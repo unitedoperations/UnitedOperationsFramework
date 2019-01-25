@@ -20,7 +20,7 @@ UO_FW_EXEC_CHECK(CLIENTHC);
                 _unit setvariable ["UO_FW_Gear_ManualUnitClass","MANUAL"];
                 switch (_GearSystem) do {
                     case "ACEAR": {
-                        _loadoutName = (UO_FW_GETPLVAR(Gear_UnitGearManualType,""));
+                        _loadoutName = (UO_FW_GETVAR(_unit,Gear_UnitGearManualType,""));
                         if (_loadoutName isEqualto "") exitwith {
                             ERROR_1("Unit %1 is set to manual loadout but has none!, exiting gearscript.",_unit);
                         };
@@ -39,7 +39,7 @@ UO_FW_EXEC_CHECK(CLIENTHC);
                         };
                     };
                     case "OLSEN": {
-                        private _Type = (UO_FW_GETPLVAR(Gear_UnitGearManualType,""));
+                        private _Type = (UO_FW_GETVAR(_unit,Gear_UnitGearManualType,""));
                         if (_Type isEqualto "") exitwith {
                             ERROR_1("Unit %1 is set to manual loadout but has none!, exiting gearscript.",_unit);
                         };
@@ -49,7 +49,6 @@ UO_FW_EXEC_CHECK(CLIENTHC);
                 };
             } else {
                 private ["_SystemTag","_loadoutvarname"];
-
                 switch (_GearSystem) do {
                     case "ACEAR": {_SystemTag = "ACE_Arsenal"};
                     case "OLSEN": {_SystemTag = "Olsen"};

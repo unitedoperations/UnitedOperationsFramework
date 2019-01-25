@@ -21,8 +21,8 @@ params ["_group","_class","_pos"];
 
 private _unit = _group createUnit [_class,[0,0,0], [], 0, "NONE"];
 _unit setPos _pos;
-if !(isNil "UO_FW_aCount_event_addEH") then {
-    ["UO_FW_aCount_event_addEH", _unit] call CBA_fnc_serverEvent;
+if !(isNil "UO_FW_ShotCount_EH_Event") then {
+    ["UO_FW_ShotCount_EH_Event", _unit] call CBA_fnc_serverEvent;
 };
 ["UO_FW_Track_Event", _unit] call CBA_fnc_serverEvent;
 _unit

@@ -1,6 +1,6 @@
 #include "..\..\..\Global\defs.hpp"
     private _requester  = _this select 0;
-    private    _selectedUnit = _this select 1;
+    private _selectedUnit = _this select 1;
     private _marker = _this select 2;
     private _dispersion = _this select 3;
     private _salvoNumber = _this select 4;
