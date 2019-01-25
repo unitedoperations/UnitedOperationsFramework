@@ -1,4 +1,4 @@
-class UO_FW_ExportAAToProfileAttribute: ComboPreview {
+class UO_FW_ExportLoadoutToProfileAttribute: ComboPreview {
     attributeLoad="";
     attributeSave="";
 	class Controls: Controls {
