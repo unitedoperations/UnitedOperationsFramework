@@ -1,4 +1,4 @@
-class UO_FW_ImportAAFromProfileAttribute: Combo {
+class UO_FW_ImportLoadoutFromProfileAttribute: Combo {
     attributeLoad="\
         private _control = _this controlsgroupctrl 100;\
         private _profileArray = profileNamespace getvariable ['UO_FW_ProfileLoadoutSettingsArray',[]];\

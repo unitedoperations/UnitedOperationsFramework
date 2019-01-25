@@ -1,4 +1,4 @@
-class UO_FW_ImportAAFromClipboardAttribute: Title {
+class UO_FW_ImportLoadoutFromClipboardAttribute: Title {
     class Controls: Controls {
         class Title: Title {};
         class Value: ctrlButtonPictureKeepAspect {
