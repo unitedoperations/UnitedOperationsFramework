@@ -3,14 +3,11 @@ UO_FW_AI_EXEC_CHECK(HC);
 
 if (!(UO_FW_AI_Enabled)) exitWith {};
 
-while {true} do {
-	{
-		if (local _x && {simulationEnabled _x}) then {
-				if (!(_x in UO_FW_AI_ActiveList) && {!(_x in UO_FW_AI_UnitQueue)}) then {
-					//_x forcespeed 0;
-					UO_FW_AI_UnitQueue pushback _x;
-				};
-		};
-	} forEach allUnits;
-	sleep (random (10) + 10);
-};
+private _HCQueueHandlePFH = [{
+    if (isNil "UO_FW_AI_ActiveList") then {UO_FW_AI_ActiveList = [];};
+    {
+        if (isNull _x) then {
+            UO_FW_AI_ActiveList deleteAt _foreachIndex;
+        };
+    } foreach UO_FW_AI_ActiveList;
+}, 60] call CBA_fnc_addPerFrameHandler;

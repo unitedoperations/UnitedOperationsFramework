@@ -1,18 +1,11 @@
-private ["_NotDriver", "_Unit", "_Vehicle", "_ActualDriver"];
-//Created on 8/15/14
-// Modified on : 8/29/14 - Fixed passenger getting a nill for _NotDriver
-_Unit = _this;
+#include "\x\UO_FW\addons\Main\HeadlessAIModule\module_macros.hpp"
+UO_FW_AI_EXEC_CHECK(SERVERHC);
 
-_NotDriver = false;
-
-_Vehicle = (vehicle _Unit);
-
-_ActualDriver = driver _Vehicle;
-
+params ["_unit"];
+private _NotDriver = false;
+private _Vehicle = (vehicle _Unit);
+private _ActualDriver = driver _Vehicle;
 if (_Unit isEqualTo _ActualDriver) then  {
-
   _NotDriver = true;
-
 };
-
 _NotDriver

@@ -12,34 +12,25 @@
  * Public: No
  */
 
-private _array = _this;
+#define COMPONENT Core
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
+UO_FW_EXEC_CHECK(ALL);
+
+params ["_array"];
 private _foundArray = [];
 private _newArray = [];
-
 {
-
-	if (!(_x in _foundArray)) then {
-
-		private _string = _x;
-
-		_foundArray set [count _foundArray, _string];
-
-		private _count = 0;
-
-		{
-
-			if (_string == _x) then {
-
-				_count = _count + 1;
-
-			};
-
-		} forEach _array;
-
-		_newArray set [count _newArray, format ["%1 X %2", _count, _string]];
-
-	};
-
+    if (!(_x in _foundArray)) then {
+        private _string = _x;
+        _foundArray set [count _foundArray, _string];
+        private _count = 0;
+        {
+            if (_string isEqualto _x) then {
+                _count = _count + 1;
+            };
+        } forEach _array;
+        _newArray set [count _newArray, format ["%1 X %2", _count, _string]];
+    };
 } forEach _array;
 
 _newArray

@@ -3,5 +3,6 @@
 UO_FW_EXEC_CHECK(SERVER);
 
 ["UO_FW_SettingsLoaded", {
-	["UO_FW_StartInParachute_LocalEvent", []] call CBA_fnc_localEvent;
+    if (!UO_FW_Server_StartInParachuteModule_Allowed) exitWith {};
+    ["UO_FW_StartInParachute_LocalEvent", []] call CBA_fnc_localEvent;
 }] call CBA_fnc_addEventHandler;

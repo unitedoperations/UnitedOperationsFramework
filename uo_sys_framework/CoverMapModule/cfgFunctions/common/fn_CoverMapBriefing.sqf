@@ -1,8 +1,8 @@
 #define COMPONENT CoverMap
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(ALL);
+UO_FW_EXEC_CHECK(CLIENT);
 //Covers Map outside marker and centers map on marker center in briefing map
-if (!hasinterface) exitwith {};
+
 if ((CBA_missionTime > 0 || getClientState isEqualTo "Briefing READ")) exitwith {};
 //params ["_area",["_centered",true],["_zoomlevel",0.4],"_name",["_AOName",1]];
 params ["_AONameCalled"];
@@ -10,21 +10,21 @@ private ["_areaCalled","_logicCalled","_zoomlevelCalled","_index"];
 
 private _found = false;
 {
-	_x params ["_AOName","_area","_AOZoom","_logic"];
-	if (_AONameCalled isEqualto _AOName) then {
-		_areaCalled = _area;
-		_logicCalled = _logic;
-		_zoomlevelCalled = _AOZoom;
-		_index = _forEachIndex;
-		_found = true;
-	};
+    _x params ["_AOName","_area","_AOZoom","_logic"];
+    if (_AONameCalled isEqualto _AOName) then {
+        _areaCalled = _area;
+        _logicCalled = _logic;
+        _zoomlevelCalled = _AOZoom;
+        _index = _forEachIndex;
+        _found = true;
+    };
 } foreach UO_FW_CoverMap_AO_Array;
 
 if !(_found) exitwith {
-	ERROR_1("Default CoverMap area: %1 not found in array!",_AONameCalled);
+    ERROR_1("Default CoverMap area: %1 not found in array!",_AONameCalled);
 };
 
-if (isNil "	UO_FW_CoverMap_MarkerArray") then {UO_FW_CoverMap_MarkerArray = [];};
+if (isNil "    UO_FW_CoverMap_MarkerArray") then {UO_FW_CoverMap_MarkerArray = [];};
 //for self interact options and logging
 UO_FW_CoverMap_currentAO = _AONameCalled;
 
@@ -38,66 +38,66 @@ _MainS = 20000;
 _MainBS = 50;
 
 if ((_dir > 0 && _dir <= 90) || (_dir > 180 && _dir <= 270)) then {
-	private _temp = _radiusX;
-	_radiusX = _radiusY;
-	_radiusY = _temp;
+    private _temp = _radiusX;
+    _radiusX = _radiusY;
+    _radiusY = _temp;
 };
 
 private _colorForest = "colorKhaki";
 private _colors = ["colorBlack","colorBlack",_colorForest,"colorGreen",_colorForest,/**/"colorBlack"/**/,_colorForest,_colorForest];
 
 {
-	_x params ["_dir"];
-	private _i = _forEachIndex;
+    _x params ["_dir"];
+    private _i = _forEachIndex;
 
-	_dir = _dir mod 360;
-	if (_dir < 0) then {_dir = _dir + 360};
+    _dir = _dir mod 360;
+    if (_dir < 0) then {_dir = _dir + 360};
 
-	private _s = _radiusX;
-	private _w = 2 * _MainS +_radiusY;
-	private _bw = _radiusY + _MainBS;
-	if !((_dir > 0 && _dir <= 90) || (_dir > 180 && _dir <= 270)) then {
-		_s = _radiusY;
-		_w = _radiusX + 2 * _MainBS;
-		_bw = _radiusX + _MainBS;
-	};
-	private _posos_x = _posx + (sin _dir) * (_MainS + _s + _MainBS);
-	private _posos_y = _posy + (cos _dir) * (_MainS + _s + _MainBS);
+    private _s = _radiusX;
+    private _w = 2 * _MainS +_radiusY;
+    private _bw = _radiusY + _MainBS;
+    if !((_dir > 0 && _dir <= 90) || (_dir > 180 && _dir <= 270)) then {
+        _s = _radiusY;
+        _w = _radiusX + 2 * _MainBS;
+        _bw = _radiusX + _MainBS;
+    };
+    private _posos_x = _posx + (sin _dir) * (_MainS + _s + _MainBS);
+    private _posos_y = _posy + (cos _dir) * (_MainS + _s + _MainBS);
 
-	{
-		_x params ["_color"];
+    {
+        _x params ["_color"];
 
-		private _markername1 = format ["UO_FW_CoverMap_Marker_C_%1_%2",_i,_forEachIndex];
-		private _marker1 = createMarkerLocal [_markername1,[_posos_x, _posos_y]];
-		UO_FW_CoverMap_MarkerArray pushBack _marker1;
+        private _markername1 = format ["UO_FW_CoverMap_Marker_C_%1_%2",_i,_forEachIndex];
+        private _marker1 = createMarkerLocal [_markername1,[_posos_x, _posos_y]];
+        UO_FW_CoverMap_MarkerArray pushBack _marker1;
 
-		_marker1 setMarkerSizeLocal [_w,_MainS];
-		_marker1 setMarkerDirLocal _dir;
-		_marker1 setMarkerShapeLocal "rectangle";
-		_marker1 setMarkerBrushLocal "solid";
-		_marker1 setMarkerColorLocal _color;
+        _marker1 setMarkerSizeLocal [_w,_MainS];
+        _marker1 setMarkerDirLocal _dir;
+        _marker1 setMarkerShapeLocal "rectangle";
+        _marker1 setMarkerBrushLocal "solid";
+        _marker1 setMarkerColorLocal _color;
 
-		if (_forEachIndex isEqualto 5) then {
-			_marker1 setMarkerBrushLocal "grid";
-		};
+        if (_forEachIndex isEqualto 5) then {
+            _marker1 setMarkerBrushLocal "grid";
+        };
 
-	} forEach _colors;
+    } forEach _colors;
 
-	private _posos_x = _posx + (sin _dir) * (_MainBS / 2 + _s);
-	private _posos_y = _posy + (cos _dir) * (_MainBS / 2 + _s);
+    private _posos_x = _posx + (sin _dir) * (_MainBS / 2 + _s);
+    private _posos_y = _posy + (cos _dir) * (_MainBS / 2 + _s);
 
-	for "_m" from 0 to 7 do {
-		private _markername2 = format ["UO_FW_CoverMap_Marker_W_%1_%2",_i,_m];
-		private _marker2 = createMarkerLocal [_markername2,[_posos_x, _posos_y]];
-		UO_FW_CoverMap_MarkerArray pushBack _marker2;
+    for "_m" from 0 to 7 do {
+        private _markername2 = format ["UO_FW_CoverMap_Marker_W_%1_%2",_i,_m];
+        private _marker2 = createMarkerLocal [_markername2,[_posos_x, _posos_y]];
+        UO_FW_CoverMap_MarkerArray pushBack _marker2;
 
-		_marker2 setMarkerSizeLocal [_bw, _MainBS / 2];
-		_marker2 setMarkerDirLocal _dir;
-		_marker2 setMarkerShapeLocal "rectangle";
-		_marker2 setMarkerBrushLocal "solid";
-		_marker2 setMarkerColorLocal "colorwhite";
+        _marker2 setMarkerSizeLocal [_bw, _MainBS / 2];
+        _marker2 setMarkerDirLocal _dir;
+        _marker2 setMarkerShapeLocal "rectangle";
+        _marker2 setMarkerBrushLocal "solid";
+        _marker2 setMarkerColorLocal "colorwhite";
 
-	};
+    };
 
 } forEach [_dir, (_dir + 90), (_dir + 180), (_dir + 270)];
 

@@ -15,21 +15,63 @@
  * Public: Yes
  */
 
+#define COMPONENT Core
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
+UO_FW_EXEC_CHECK(SERVER);
+
 params [["_team", "", [""]],
-	["_marker", "", [""]],
-	["_ratio", 1, [0]]
+    ["_marker", "", [""]],
+    ["_ratio", 1, [0]]
 ];
 private _side = [_team, 1] call UO_FW_fnc_getTeamVariable;
 private _count = {
-	(side _x == _side) && (_x inArea _marker)
-} count allUnits;
+    (_x inArea _marker)
+} count ([_side] call UO_FW_fnc_alivePlayers);
 
-private _result = false;
-if (_count >= _ratio * ([_team, 4] call UO_FW_fnc_getTeamVariable)) then {
-	if (!isNil "UO_FW_hasDeparted" && {UO_FW_hasDeparted}) then {
-		_result = true;
-	};
-} else {
-	UO_FW_hasDeparted = true;
+private ["_respawnTypeNum","_result"];
+
+switch (_side) do {
+    case west: {
+        _respawnTypeNum = UO_FW_GETMVAR(hasDeparted_BLUFOR,false);
+        if (_count >= _ratio * ([_team, 4] call UO_FW_fnc_getTeamVariable)) then {
+            if (_respawnTypeNum) then {
+                _result = true;
+            };
+        } else {
+            UO_FW_SETMPVAR(hasDeparted_BLUFOR,true);
+        };
+    };
+    case east: {
+        _respawnTypeNum = UO_FW_GETMVAR(hasDeparted_OPFOR,false);
+        if (_count >= _ratio * ([_team, 4] call UO_FW_fnc_getTeamVariable)) then {
+            if (_respawnTypeNum) then {
+                _result = true;
+            };
+        } else {
+            UO_FW_SETMPVAR(hasDeparted_OPFOR,true);
+        };
+    };
+    case independent: {
+        _respawnTypeNum = UO_FW_GETMVAR(hasDeparted_INDFOR,false);
+        if (_count >= _ratio * ([_team, 4] call UO_FW_fnc_getTeamVariable)) then {
+            if (_respawnTypeNum) then {
+                _result = true;
+            };
+        } else {
+            UO_FW_SETMPVAR(hasDeparted_INDFOR,true);
+        };
+    };
+    case civilian: {
+        _respawnTypeNum = UO_FW_GETMVAR(hasDeparted_CIV,false);
+        if (_count >= _ratio * ([_team, 4] call UO_FW_fnc_getTeamVariable)) then {
+            if (_respawnTypeNum) then {
+                _result = true;
+            };
+        } else {
+            UO_FW_SETMPVAR(hasDeparted_CIV,true);
+        };
+    };
+    default {_result = false;};
 };
+
 _result

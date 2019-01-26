@@ -25,28 +25,28 @@ _amount = 1;
 _position = "NONE";
 
 if (count _items > 1) then {
-	if (typeName (_items select 1) == "ARRAY") then {
-		_position = "ARRAY";
-	} else {
-		if (typeName (_items select 1) == "SCALAR") then {
-			_amount = _items select 1;
-			if (count _items > 2) then {
-				_position = _items select 2;
-			};
-			_items = _items select 0;
-		};
-	};
+    if (typeName (_items select 1) == "ARRAY") then {
+        _position = "ARRAY";
+    } else {
+        if (typeName (_items select 1) == "SCALAR") then {
+            _amount = _items select 1;
+            if (count _items > 2) then {
+                _position = _items select 2;
+            };
+            _items = _items select 0;
+        };
+    };
 };
 
 _randomPick = (_items select (([1, count _items] call UO_FW_fnc_RandomRange) - 1));
 if (_position == "ARRAY") then {
-	if (typeName (_randomPick select 0) == "ARRAY") then {
-		{
-			([_unit, _loadoutType] + _x) call UO_FW_fnc_AddItemOrg;
-		} forEach _randomPick;
-	} else {
-		([_unit, _loadoutType] + _randomPick) call UO_FW_fnc_AddItemOrg;
-	};
+    if (typeName (_randomPick select 0) == "ARRAY") then {
+        {
+            ([_unit, _loadoutType] + _x) call UO_FW_fnc_AddItemOrg;
+        } forEach _randomPick;
+    } else {
+        ([_unit, _loadoutType] + _randomPick) call UO_FW_fnc_AddItemOrg;
+    };
 } else {
-	[_unit, _loadoutType, _randomPick, _amount, _position] call UO_FW_fnc_AddItemOrg;
+    [_unit, _loadoutType, _randomPick, _amount, _position] call UO_FW_fnc_AddItemOrg;
 };

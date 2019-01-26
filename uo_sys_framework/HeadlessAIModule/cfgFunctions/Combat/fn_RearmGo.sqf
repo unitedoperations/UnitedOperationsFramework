@@ -2,8 +2,8 @@
 params ["_RAU","_RL"];
 
 while {(_RAU distance _RL) > 5 && (_RAU distance _RL) < 100} do {
-	_RAU domove (getpos _RL);
-	sleep 4;
+    _RAU domove (getpos _RL);
+    sleep 4;
 };
 
-	_RAU action ["rearm", _RL];
+    _RAU action ["rearm", _RL];

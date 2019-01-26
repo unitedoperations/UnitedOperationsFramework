@@ -1,10 +1,10 @@
-/*	Description: Main UO Framework Init. Declares needed vars, calls core functions
- *	Arguments:
- * 		N/A
- *	Return Value:
- * 		N/A
- *	Author
- *		Sacher
+/*    Description: Main UO Framework Init. Declares needed vars, calls core functions
+ *    Arguments:
+ *         N/A
+ *    Return Value:
+ *         N/A
+ *    Author
+ *        Sacher
  */
 
 #define COMPONENT 3DEN

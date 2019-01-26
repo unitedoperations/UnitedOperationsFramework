@@ -10,7 +10,7 @@ if (isNull _AssignedGunner) then {
   _Unit doMove (getposATL _weapon);
   _Unit assignAsGunner _weapon;
   [_Unit] orderGetIn true;
-  _Waiting = 0;
+  private _Waiting = 0;
   while {_Waiting isEqualTo 0} do {
   sleep 1;
     if ((_Unit distance _Weapon) < 3) then {_Waiting = 1};

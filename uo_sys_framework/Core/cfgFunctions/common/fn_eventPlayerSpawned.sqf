@@ -12,8 +12,9 @@
  * Public: No
  */
 
-private ["_unit"];
+#define COMPONENT Core
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
+UO_FW_EXEC_CHECK(SERVER);
 
-_unit = _this;
-
+params ["_unit"];
 _unit call UO_FW_fnc_TrackUnit;

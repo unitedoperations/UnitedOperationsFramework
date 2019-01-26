@@ -1,47 +1,47 @@
-/*	Description: Task a group to patrol randomly in their patrol radius.
- * 	Arguments:
- * 		GROUP	- Group
- * 		ARRAY	- Task Position
- * 	Optional:
- * 		NUMBER	- Task Radius
- * 		NUMBER	- Wait Time at Waypoints
- * 		STRING	- Behaviour
- * 		STRING	- CombatMode
- * 		STRING	- Speed
- * 		STRING	- Formation
- * 		STRING	- Waypoint Type
- * 		STRING	- On Waypoint Complete Statement
- * 		NUMBER	- Waypoint Complete Radius
- *		NUMBER	- Required Waypoint Amount
- * 	Return Value:
- * 		BOOL 	- True
- *	Author:
- *		Rommel
- *	Modified
- *		suits & PiZZADOX
+/*    Description: Task a group to patrol randomly in their patrol radius.
+ *     Arguments:
+ *         GROUP    - Group
+ *         ARRAY    - Task Position
+ *     Optional:
+ *         NUMBER    - Task Radius
+ *         NUMBER    - Wait Time at Waypoints
+ *         STRING    - Behaviour
+ *         STRING    - CombatMode
+ *         STRING    - Speed
+ *         STRING    - Formation
+ *         STRING    - Waypoint Type
+ *         STRING    - On Waypoint Complete Statement
+ *         NUMBER    - Waypoint Complete Radius
+ *        NUMBER    - Required Waypoint Amount
+ *     Return Value:
+ *         BOOL     - True
+ *    Author:
+ *        Rommel
+ *    Modified
+ *        suits & PiZZADOX
  */
 #include "\x\UO_FW\addons\Main\HeadlessAIModule\module_macros.hpp"
 UO_FW_AI_EXEC_CHECK(SERVERHC);
 
 
 params [
-	"_grp",
-	"_pos",
-	["_radius",30,[0]],
-	["_wait",3,[0]],
-	["_behaviour", "UNCHANGED", [""]],
-  	["_combat", "NO CHANGE", [""]],
-  	["_speed", "UNCHANGED", [""]],
-	["_formation", "NO CHANGE", [""]],
-	["_Type","MOVE",[""]],
-	["_oncomplete","this call UO_FW_AI_fnc_taskSearchNearby",[""]],
-	["_compradius",0,[0]],
-	["_wpcount",10,[0]]
+    "_grp",
+    "_pos",
+    ["_radius",30,[0]],
+    ["_wait",3,[0]],
+    ["_behaviour", "UNCHANGED", [""]],
+      ["_combat", "NO CHANGE", [""]],
+      ["_speed", "UNCHANGED", [""]],
+    ["_formation", "NO CHANGE", [""]],
+    ["_Type","MOVE",[""]],
+    ["_oncomplete","this call UO_FW_AI_fnc_taskSearchNearby",[""]],
+    ["_compradius",0,[0]],
+    ["_wpcount",10,[0]]
 ];
 
 if (_radius < 30) then {
-	ERROR_1("taskPatrol _grp: %1 radius too small! Setting to default 30m",_grp);
-	_radius = 30;
+    ERROR_1("taskPatrol _grp: %1 radius too small! Setting to default 30m",_grp);
+    _radius = 30;
 };
 
 LOG_1("taskPatrol started _this: %1",_this);
@@ -58,7 +58,7 @@ private _timeout = [(_wait*0.5),_wait,(_wait*1.5)];
 //_pos = [_pos,_grp] select (_pos isEqualTo []);
 //_pos = _pos call CBA_fnc_getPos;
 //for [{_i=0},{(_i < _wpcount)},{_i = _i + 1}] do {
-//	_wp = _this call UO_FW_AI_fnc_createWaypoint;
+//    _wp = _this call UO_FW_AI_fnc_createWaypoint;
 //};
 //_this2 =+ _this;
 //_this2 set [(count _this2), "CYCLE"];

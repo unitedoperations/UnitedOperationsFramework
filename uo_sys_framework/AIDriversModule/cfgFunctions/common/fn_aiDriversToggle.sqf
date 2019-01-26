@@ -1,10 +1,10 @@
-/*	Description: Toggles AI Driver action depending on active setting
- *	Arguments:
- * 		N/A
- *	Return Value:
- * 		ARRAY
- *	Author
- *		BlackHawk & PiZZADOX
+/*    Description: Toggles AI Driver action depending on active setting
+ *    Arguments:
+ *         N/A
+ *    Return Value:
+ *         ARRAY
+ *    Author
+ *        BlackHawk & PiZZADOX
  */
 
 #define COMPONENT AIDrivers

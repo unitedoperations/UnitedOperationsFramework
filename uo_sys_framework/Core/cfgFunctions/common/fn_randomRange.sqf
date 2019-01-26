@@ -13,9 +13,13 @@
  * Public: No
  */
 
+#define COMPONENT Core
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
+UO_FW_EXEC_CHECK(ALL);
+
 params [
-	["_min", 0, [0]],
-	["_max", 0, [0]]
+    ["_min", 0, [0]],
+    ["_max", 0, [0]]
 ];
 
 private _return = _min + (floor(random (1 + _max - _min)));

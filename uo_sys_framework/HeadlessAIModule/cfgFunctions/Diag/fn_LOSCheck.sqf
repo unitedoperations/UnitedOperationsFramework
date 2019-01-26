@@ -1,14 +1,12 @@
 #include "\x\UO_FW\addons\Main\HeadlessAIModule\module_macros.hpp"
 UO_FW_AI_EXEC_CHECK(SERVERHC);
 
-
 //unit 1, unit 2
 params ["_unit","_target"];
 //private ["_canseeReturn","_getpos1","_getposTarget","_unitdirtotarget","_aheadUnit","_eyeP1","_eyeP2","_cansee"];
-private ["_canseeReturn","_getposTarget","_eyeP2","_cansee"];
+private ["_getposTarget","_eyeP2","_cansee"];
 
-_canseeReturn = false;
-
+private _canseeReturn = false;
 //_getpos1 = getposASL _unit;
 _getposTarget = getposASL _target;
 //_unitdirtotarget = _unit getdir _target;

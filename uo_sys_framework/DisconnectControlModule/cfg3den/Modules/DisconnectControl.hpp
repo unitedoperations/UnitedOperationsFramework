@@ -15,19 +15,19 @@ class UO_FW_DisconnectControl {
             property = "UO_FW_DisconnectControl_Time";
             displayName = "Time since start";
             tooltip = "Time for how long disconnected players should be deleted since mission start (in minutes)";
-			control = "EditShort";
+            control = "EditShort";
             expression = UO_FW_SCENARIO_EXPRESSION;
-			validate = "number";
+            validate = "number";
             defaultValue = "2";
             typeName = "NUMBER";
         };
-		class UO_FW_DisconnectControl_BluforDelete {
+        class UO_FW_DisconnectControl_BluforDelete {
             property = "UO_FW_DisconnectControl_BluforDelete";
             displayName = "Delete Blufor?";
             tooltip = "Should Blufor units be deleted";
-			control = "Checkbox";
+            control = "Checkbox";
             expression = UO_FW_SCENARIO_EXPRESSION;
-			validate = "none";
+            validate = "none";
             defaultValue = "true";
             typeName = "BOOL";
         };
@@ -35,29 +35,29 @@ class UO_FW_DisconnectControl {
             property = "UO_FW_DisconnectControl_OpforDelete";
             displayName = "Delete Opfor?";
             tooltip = "Should Opfor units be deleted";
-			control = "Checkbox";
+            control = "Checkbox";
             expression = UO_FW_SCENARIO_EXPRESSION;
-			validate = "none";
+            validate = "none";
             defaultValue = "true";
             typeName = "BOOL";
         };
-        class UO_FW_DisconnectControl_IndependentDelete {
-            property = "UO_FW_DisconnectControl_IndependentDelete";
+        class UO_FW_DisconnectControl_INDFORDelete {
+            property = "UO_FW_DisconnectControl_INDFORDelete";
             displayName = "Delete Independent?";
             tooltip = "Should Independent units be deleted";
-			control = "Checkbox";
+            control = "Checkbox";
             expression = UO_FW_SCENARIO_EXPRESSION;
-			validate = "none";
+            validate = "none";
             defaultValue = "true";
             typeName = "BOOL";
         };
-        class UO_FW_DisconnectControl_CivilianDelete {
-            property = "UO_FW_DisconnectControl_CivilianDelete";
+        class UO_FW_DisconnectControl_CIVDelete {
+            property = "UO_FW_DisconnectControl_CIVDelete";
             displayName = "Delete Civilian?";
             tooltip = "Should Civilian units be deleted";
-			control = "Checkbox";
+            control = "Checkbox";
             expression = UO_FW_SCENARIO_EXPRESSION;
-			validate = "none";
+            validate = "none";
             defaultValue = "true";
             typeName = "BOOL";
         };
