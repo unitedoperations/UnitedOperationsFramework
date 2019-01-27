@@ -3,7 +3,6 @@
 UO_FW_EXEC_CHECK(SERVER);
 
 ["UO_FW_SettingsLoaded", {
-<<<<<<< HEAD
 	{
 		if ((UO_FW_GETVAR(_x,ArtilleryFOAIEnabled,false))) then {
 			private _guns = (UO_FW_GETVAR(_x,ArtilleryFOAIGuns,[]));
@@ -37,7 +36,7 @@ UO_FW_EXEC_CHECK(SERVER);
 			[_x,_artilleryFireRate,_artilleryAccuracy,_artillerySpottingAccuracy,_artilleryAimTime,_artilleryCalculationTime,_artilleryCustomName,_artilleryUnlimitedAmmo] call UO_FW_fnc_SetArtilleryData;
 		};
 	} forEach vehicles;
-["UO_FW_RegisterModuleEvent", ["Fire mission", "Enables AI Fire Support", "Sacher"]] call CBA_fnc_globalEvent;
+	["UO_FW_RegisterModuleEvent", ["Fire mission", "Enables AI Fire Support", "Sacher"]] call CBA_fnc_globalEvent;
 	["CallBracketFiremission", {_this call UO_FW_fnc_DIA_BracketFiremissionFireServer;}] call CBA_fnc_addEventHandler;
 	["CallPolarSpotting", {_this call UO_FW_fnc_DIA_PolarSpottingFiremissionFireServer;}] call CBA_fnc_addEventHandler;
 	["CallPointFiremission", {_this call UO_FW_fnc_DIA_PointFiremissionFireServer;}] call CBA_fnc_addEventHandler;
