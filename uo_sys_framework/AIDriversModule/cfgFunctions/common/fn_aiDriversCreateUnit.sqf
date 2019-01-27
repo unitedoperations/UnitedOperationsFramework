@@ -48,7 +48,7 @@ doStop _unit;
 
 UO_FW_AidriverLastTimeIn = time;
 
-[{!(vehicle (_this select 0) isEqualto _this select 0)}, { //waiting for spawned unit to get into vehicle
+[{vehicle (_this select 0) != _this select 0}, { //waiting for spawned unit to get into vehicle
     private _pfhID = [{
         (_this select 0) params ["_unit", "_target", "_caller"];
 
