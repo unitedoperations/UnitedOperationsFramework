@@ -2,7 +2,7 @@ class UO_FW_MainAI {
     displayName = "AI Settings";
     collapsed = 0;
     class Attributes {
-		class UO_FW_AI_Enabled {
+        class UO_FW_AI_Enabled {
             property = "UO_FW_AI_Enabled";
             displayName = "Enable AI System";
             tooltip = "Enable AI System";

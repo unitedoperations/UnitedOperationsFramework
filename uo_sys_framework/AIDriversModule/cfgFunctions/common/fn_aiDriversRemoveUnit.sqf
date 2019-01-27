@@ -1,9 +1,9 @@
-/*	Description: Removes AI Driver
- * 		OBJECT - vehicle
- *	Return Value:
- * 		ARRAY
- *	Author
- *		BlackHawk & PiZZADOX
+/*    Description: Removes AI Driver
+ *         OBJECT - vehicle
+ *    Return Value:
+ *         ARRAY
+ *    Author
+ *        BlackHawk & PiZZADOX
  */
 
 #define COMPONENT AIDrivers

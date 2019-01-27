@@ -37,15 +37,15 @@ item32[] = {"__5",2,250,-642.596497,-137.681824,-552.596497,-87.681824,0.000000,
 version=1;
 class LayoutItems
 {
-	class Item0
-	{
-		class ItemInfo
-		{
-			FontFace="Arial";
-			FontHeight=10;
-			lStyle=1;
-		};
-	};
+    class Item0
+    {
+        class ItemInfo
+        {
+            FontFace="Arial";
+            FontHeight=10;
+            lStyle=1;
+        };
+    };
 };
 link0[] = {1,23};
 link1[] = {3,7};
@@ -311,31 +311,31 @@ class FSM
                          "if (isnil (""_VBtemp"")) then {_this setVariable [""lastGestFreezeT"",-1000]}; //change to -1000" \n
                          "_VBtemp = _this getVariable ""lastGestFreezeT"";" \n
                          "" \n
-                         "if (_VBtemp + 25 < time) then //at least 20 seconds from last freeze gesture" \n
+                         "if (_VBtemp + 25 < CBA_MissionTime) then //at least 20 seconds from last freeze gesture" \n
                          "  {" \n
                          "" \n
-                         "	if (isPlayer _this) then {}	 " \n
-                         "	else" \n
-                         "	{" \n
-                         "	if (random 10 < 3) then " \n
-                         "		{" \n
-                         "//			_unitlist = nearestObjects [position _this,[""All""],100];" \n
-                         "//			_sidecount=(side _this) countSide _unitlist;" \n
-                         "//			hint format[""%3 units: %1--%2"",_sidecount,_unitlist,_this];" \n
+                         "    if (isPlayer _this) then {}     " \n
+                         "    else" \n
+                         "    {" \n
+                         "    if (random 10 < 3) then " \n
+                         "        {" \n
+                         "//            _unitlist = nearestObjects [position _this,[""All""],100];" \n
+                         "//            _sidecount=(side _this) countSide _unitlist;" \n
+                         "//            hint format[""%3 units: %1--%2"",_sidecount,_unitlist,_this];" \n
                          "" \n
                          "" \n
-                         "//			if (_sidecount>1) then" \n
-                         "			if (count units group _this>1) then" \n
-                         "			{//me and somebody here" \n
+                         "//            if (_sidecount>1) then" \n
+                         "            if (count units group _this>1) then" \n
+                         "            {//me and somebody here" \n
                          "" \n
-                         "				_this playAction ""gestureFreeze"";" \n
-                         "				//	_this globalChat format[""gestureFreeze (@T %1 %2)"",time,_this getVariable ""lastT""];" \n
-                         "			};" \n
-                         "		};" \n
+                         "                _this playAction ""gestureFreeze"";" \n
+                         "                //    _this globalChat format[""gestureFreeze (@T %1 %2)"",CBA_missionTime,_this getVariable ""lastT""];" \n
+                         "            };" \n
+                         "        };" \n
                          "" \n
-                         "	};" \n
+                         "    };" \n
                          "" \n
-                         "  _this setVariable [""lastGestFreezeT"",time];" \n
+                         "  _this setVariable [""lastGestFreezeT"",CBA_missionTime];" \n
                          "  };" \n
                          "" \n
                          ""/*%FSM</STATEINIT""">*/;
@@ -365,16 +365,16 @@ class FSM
                          "_stopUntil = time + 1;" \n
                          "" \n
                          "if (getMissionConfigValue [""UO_FW_AI_Enabled"",false]) then {" \n
-                         "	_this setVariable [""UO_FW_AI_shooting"", true];" \n
-                         "	// soldier stop - set max. speed to 0" \n
-                         "	_this forceSpeed 0;" \n
-                         "	[_this, _dangerCausedBy] call UO_FW_AI_fnc_stopToShoot;" \n
+                         "    _this setVariable [""UO_FW_AI_shooting"", true];" \n
+                         "    // soldier stop - set max. speed to 0" \n
+                         "    _this forceSpeed 0;" \n
+                         "    [_this, _dangerCausedBy] call UO_FW_AI_fnc_stopToShoot;" \n
                          "" \n
-                         "	// shoot moar bullets" \n
-                         "	if (_this ammo (currentWeapon _this) > 40) then {" \n
-                         "		_stopUntil = _stopUntil + 2;" \n
-                         "		_this suppressFor 2;" \n
-                         "	}" \n
+                         "    // shoot moar bullets" \n
+                         "    if (_this ammo (currentWeapon _this) > 40) then {" \n
+                         "        _stopUntil = _stopUntil + 2;" \n
+                         "        _this suppressFor 2;" \n
+                         "    }" \n
                          "};" \n
                          "" \n
                          ""/*%FSM</STATEINIT""">*/;
@@ -446,14 +446,14 @@ class FSM
                         name = "Destroyed__Conti";
                         itemno = 23;
                         init = /*%FSM<STATEINIT""">*/"if (getMissionConfigValue [""UO_FW_AI_Enabled"",false]) then {" \n
-                         "	// continue moving" \n
-                         "	_this forceSpeed -1;" \n
-                         "	// reset unitpos, but not immediately" \n
-                         "	_this setVariable [""UO_FW_AI_shooting"", nil];" \n
-                         "	_this spawn {" \n
-                         "		sleep 2;" \n
-                         "		if !(_this getVariable [""UO_FW_AI_shooting"", false]) then {_this setunitPosWeak ""AUTO""};" \n
-                         "	};" \n
+                         "    // continue moving" \n
+                         "    _this forceSpeed -1;" \n
+                         "    // reset unitpos, but not immediately" \n
+                         "    _this setVariable [""UO_FW_AI_shooting"", nil];" \n
+                         "    _this spawn {" \n
+                         "        sleep 2;" \n
+                         "        if !(_this getVariable [""UO_FW_AI_shooting"", false]) then {_this setunitPosWeak ""AUTO""};" \n
+                         "    };" \n
                          "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
@@ -478,14 +478,14 @@ class FSM
                         name = "Timeout__Continu";
                         itemno = 24;
                         init = /*%FSM<STATEINIT""">*/"if (getMissionConfigValue [""UO_FW_AI_Enabled"",false]) then {" \n
-                         "	// continue moving" \n
-                         "	_this forceSpeed -1;" \n
-                         "	// reset unitpos, but not immediately" \n
-                         "	_this setVariable [""UO_FW_AI_shooting"", nil];" \n
-                         "	_this spawn {" \n
-                         "		sleep 2;" \n
-                         "		if !(_this getVariable [""UO_FW_AI_shooting"", false]) then {_this setunitPosWeak ""AUTO""};" \n
-                         "	};" \n
+                         "    // continue moving" \n
+                         "    _this forceSpeed -1;" \n
+                         "    // reset unitpos, but not immediately" \n
+                         "    _this setVariable [""UO_FW_AI_shooting"", nil];" \n
+                         "    _this spawn {" \n
+                         "        sleep 2;" \n
+                         "        if !(_this getVariable [""UO_FW_AI_shooting"", false]) then {_this setunitPosWeak ""AUTO""};" \n
+                         "    };" \n
                          "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
@@ -510,7 +510,7 @@ class FSM
                         name = "Combat_Response";
                         itemno = 27;
                         init = /*%FSM<STATEINIT""">*/"if (getMissionConfigValue [""UO_FW_AI_Enabled"",false]) then {" \n
-                         "	[(group _this)] call UO_FW_AI_fnc_CombatResponse;" \n
+                         "    [(group _this)] call UO_FW_AI_fnc_CombatResponse;" \n
                          "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links

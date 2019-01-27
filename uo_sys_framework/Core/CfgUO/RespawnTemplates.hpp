@@ -1,39 +1,48 @@
 class UO_FW_RespawnTemplates {
-	respawnTemplatesNone[] = {"TestSetting0"};
-	respawnTemplatesUnlimited[] = {"TestSetting0"};
-	respawnTemplatesIndTick[] = {"TestSetting2","TestSetting4"};
-	respawnTemplatesTeamTick[] = {"TestSetting3","TestSetting4"};
-	respawnTemplatesWave[] = {"TestSetting5"};
-	respawnTemplatesTriggered[] = {"TestSetting6","TestSetting7"};
-	class TestSetting0 {
-        displayName = "Test Setting all";
+    respawnTemplatesNone[] = {};
+    respawnTemplatesUnlimited[] = {"UO_FW_RTemplatesS_JoinGroup","UO_FW_RTemplatesS_SafeStart","UO_FW_RTemplatesS_ACRE","UO_FW_RTemplatesS_Gear","UO_FW_RTemplatesS_CoverMap","UO_FW_RTemplatesS_MapAndCompassRemover"};
+    respawnTemplatesIndTick[] = {"UO_FW_RTemplatesS_JoinGroup","UO_FW_RTemplatesS_SafeStart","UO_FW_RTemplatesS_ACRE","UO_FW_RTemplatesS_Gear","UO_FW_RTemplatesS_CoverMap","UO_FW_RTemplatesS_MapAndCompassRemover"};
+    respawnTemplatesTeamTick[] = {"UO_FW_RTemplatesS_JoinGroup","UO_FW_RTemplatesS_SafeStart","UO_FW_RTemplatesS_ACRE","UO_FW_RTemplatesS_Gear","UO_FW_RTemplatesS_CoverMap","UO_FW_RTemplatesS_MapAndCompassRemover"};
+    respawnTemplatesWave[] = {"UO_FW_RTemplatesS_JoinGroup","UO_FW_RTemplatesS_SafeStart","UO_FW_RTemplatesS_ACRE","UO_FW_RTemplatesS_Gear","UO_FW_RTemplatesS_CoverMap","UO_FW_RTemplatesS_MapAndCompassRemover"};
+    respawnTemplatesTriggered[] = {"UO_FW_RTemplatesS_JoinGroup","UO_FW_RTemplatesS_SafeStart","UO_FW_RTemplatesS_ACRE","UO_FW_RTemplatesS_Gear","UO_FW_RTemplatesS_CoverMap","UO_FW_RTemplatesS_MapAndCompassRemover"};
+    class UO_FW_RTemplatesS_JoinGroup {
+        displayName = "Rejoin Group on Respawn";
+        respawnTypes[] = {1,2,3,5};
     };
-	class TestSetting1 {
-        displayName = "Test Setting Unlimited";
-        respawnTypes[] = {1};
+    class UO_FW_RTemplatesS_SafeStart {
+        displayName = "Executes SafeStart Module Settings";
+        respawnTypes[] = {1,2,3,4,5};
     };
-	class TestSetting2 {
-        displayName = "Test Setting Individual Tickets";
-        respawnTypes[] = {2};
+    class UO_FW_RTemplatesS_CoverMap {
+        displayName = "Executes Unit CoverMap Settings";
+        respawnTypes[] = {1,2,3,4,5};
     };
-	class TestSetting3 {
-        displayName = "Test Setting Team Tickets";
-        respawnTypes[] = {3};
+    class UO_FW_RTemplatesS_TeamColour {
+        displayName = "Executes Unit TeamColour Settings";
+        respawnTypes[] = {1,2,3,4,5};
     };
-	class TestSetting4 {
-        displayName = "Test Setting Any Tickets";
-        respawnTypes[] = {2,3};
+    class UO_FW_RTemplatesS_StartInParachute {
+        displayName = "Executes Unit StartInParachute Settings";
+        respawnTypes[] = {1,2,3,4,5};
     };
-	class TestSetting5 {
-        displayName = "Wave Setting";
-        respawnTypes[] = {4};
+    class UO_FW_RTemplatesS_Gear {
+        displayName = "Executes Unit Gear Settings";
+        respawnTypes[] = {1,2,3,4,5};
     };
-	class TestSetting6 {
-        displayName = "Triggered Setting";
-        respawnTypes[] = {5};
+    class UO_FW_RTemplatesS_ACRE {
+        displayName = "Executes Unit ACRE Settings";
+        respawnTypes[] = {1,2,3,4,5};
     };
-	class TestSetting7 {
-        displayName = "Secondary Triggered Setting";
-        respawnTypes[] = {5};
+    class UO_FW_RTemplatesS_MapAndCompassRemover {
+        displayName = "Executes MapAndCompassRemover Unit Settings";
+        respawnTypes[] = {1,2,3,4,5};
     };
+    //class UO_FW_RTemplatesS_GearHandle {
+    //    displayName = "Handle Gear Classes for Wave Respawns";
+    //    respawnTypes[] = {4};
+    //};
+    //class UO_FW_RTemplatesS_TriggerReset {
+    //    displayName = "Reset Trigger Variable after Spawning a Wave/Queue of Players";
+    //    respawnTypes[] = {5};
+    //};
 };

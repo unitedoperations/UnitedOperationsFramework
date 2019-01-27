@@ -20,15 +20,15 @@ UO_FW_EXEC_CHECK(ALL);
 private ["_assignedItems", "_result"];
 
 params [
-	["_unit", objNull, [objNull]],
-	["_Type", "", [""]]
+    ["_unit", objNull, [objNull]],
+    ["_Type", "", [""]]
 ];
 
 _assignedItems = [];
 
 {
 
-	_assignedItems pushBack (([_x] call BIS_fnc_itemType) select 1);
+    _assignedItems pushBack (([_x] call BIS_fnc_itemType) select 1);
 
 } forEach (assignedItems _unit);
 

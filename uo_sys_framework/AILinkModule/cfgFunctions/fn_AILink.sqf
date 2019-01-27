@@ -8,7 +8,7 @@ if (isNil "tin_AILink_debug") then {tin_AILink_debug = false};
 if (tin_AILink_transDelay > tin_AILink_shareDelay) then {tin_AILink_transDelay = tin_AILink_shareDelay};
 
 private _allLinkGroups = [];
-{	//Remove player controlled groups
+{    //Remove player controlled groups
     if !(isPlayer (leader _x)) then {
         _allLinkGroups set [count _allLinkGroups,_x];
     };
@@ -16,7 +16,7 @@ private _allLinkGroups = [];
 
 if (tin_AILink_debug) then {diag_log format["Link Groups: %1",_allLinkGroups];};
 
-{	//Share that sweet, sweet info
+{    //Share that sweet, sweet info
     _thisGroup = _x;
     _groups = _groups - [_thisGroup];
     {

@@ -12,14 +12,14 @@
  * Public: No
  */
 
-private _new = _this select 0;
+#define COMPONENT Core
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
+UO_FW_EXEC_CHECK(SERVER);
 
-if (!(_new getVariable "UO_FW_Dead")) then {
+params ["_new"];
 
-	_new call UO_FW_fnc_EventSpawned;
-
+if (!(UO_FW_GETVAR(_new,Spectating,false))) then {
+    _new call UO_FW_fnc_EventSpawned;
 } else {
-
-	_new call UO_FW_fnc_UntrackUnit;
-
+    _new call UO_FW_fnc_UntrackUnit;
 };

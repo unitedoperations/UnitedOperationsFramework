@@ -3,6 +3,7 @@
 UO_FW_EXEC_CHECK(SERVER);
 
 ["UO_FW_SettingsLoaded", {
+<<<<<<< HEAD
 	{
 		if ((UO_FW_GETVAR(_x,ArtilleryFOAIEnabled,false))) then {
 			private _guns = (UO_FW_GETVAR(_x,ArtilleryFOAIGuns,[]));

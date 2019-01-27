@@ -7,11 +7,23 @@ LOG("running fn_initMain");
 
 ["UO_FW_RegisterModuleEvent", ["Headless AI", "Custom AI Scripts and spawning modules for AI", "PiZZADOX"]] call CBA_fnc_globalEvent;
 
+UO_FW_AI_Zones = [];
+UO_FW_AI_entities = [];
+UO_FW_AI_templates = [];
+UO_FW_AI_respawns = [];
+UO_FW_AI_taskedGroups = [];
+UO_FW_AI_functions = ["UO_FW_AI_FastAirStrikeModule","UO_FW_AI_AirDropModule","UO_FW_AI_HeloInsertModule"];
+UO_FW_AI_zoneTypes = [/*0*/["CAManBase","LandVehicle","Ship","Helicopter","Plane"],/*1*/["CAManBase","LandVehicle"],/*2*/["Helicopter","Plane"],/*3*/["CAManBase","LandVehicle","Helicopter"],/*4*/["CAManBase","LandVehicle","Ship"],/*5*/["CAManBase","LandVehicle","Plane"],/*6*/["Ship","Helicopter","Plane"],/*7*/["CAManBase"],/*8*/["LandVehicle"],/*9*/["Ship"],/*10*/["Helicopter"],/*11*/["Plane"]];
+UO_FW_AI_paradrop = false;
+UO_FW_AI_zoneInit = [];
+UO_FW_AI_templatesyncedObjects = [];
+UO_FW_AI_templateCleanup = false;
+UO_FW_AI_initialised = true;
 
-UO_FW_AI_MARKERARRAY = [];
-UO_FW_AI_UnitQueue = [];
-UO_FW_AI_ActiveList = [];
-UO_FW_AI_TrackedUnits = [];
+
+
+
+
 UO_FW_AI_BasicCheckCurrent = 0;
 UO_FW_AI_LeaderExecuteCurrent = 0;
 
@@ -52,12 +64,12 @@ UO_FW_AI_LeaderExecuteLimit = 20;
 UO_FW_AI_FPSFreeze = 10;
 //Should the AI notice IR lasers?
 UO_FW_AI_IRLaser = true;
-//The longer an AI's target stays in 1 location, the more accurate and aware of the target the AI becomes.DEFAULT = [WEST,EAST,CIVILIAN,RESISTANCE];
+//The longer an AI's target stays in 1 location, the more accurate and aware of the target the AI becomes.DEFAULT = [WEST,EAST,CIVILIAN,INDEPENDENT];
 UO_FW_AI_IncreasingAccuracy = true;
-//UO_FW_AI_SideBasedMovement- Remove sides from the array below to force that specific AI side to not execute any advance movement code. (I.E. Moving to reinforce allies, being alerted by distant gunshots and etc). AI with this will still react normally in combat. DEFAULT = [WEST,EAST,CIVILIAN,RESISTANCE];
-UO_FW_AI_SideBasedMovement = [WEST,EAST,RESISTANCE,CIVILIAN];
-//UO_FW_AI_SideBasedExecution- Remove sides from the array below to remove that specific AI side from executing any of the VCOMAI scripts at all. DEFAULT = [WEST,EAST,CIVILIAN,RESISTANCE];
-UO_FW_AI_SideBasedExecution = [WEST,EAST,RESISTANCE,CIVILIAN];
+//UO_FW_AI_SideBasedMovement- Remove sides from the array below to force that specific AI side to not execute any advance movement code. (I.E. Moving to reinforce allies, being alerted by distant gunshots and etc). AI with this will still react normally in combat. DEFAULT = [WEST,EAST,CIVILIAN,INDEPENDENT];
+UO_FW_AI_SideBasedMovement = [WEST,EAST,INDEPENDENT,CIVILIAN];
+//UO_FW_AI_SideBasedExecution- Remove sides from the array below to remove that specific AI side from executing any of the VCOMAI scripts at all. DEFAULT = [WEST,EAST,CIVILIAN,INDEPENDENT];
+UO_FW_AI_SideBasedExecution = [WEST,EAST,INDEPENDENT,CIVILIAN];
 //Whether the AI will set up campfires at night if they are set to "DISMISS" waypoint
 UO_FW_AI_Campfires = true;
 //Distance the AI will attempt to flank around the enemy. I.E. How far off a waypoint, or around the enemy squad, the AI are willing to go in combat.
@@ -99,32 +111,30 @@ UO_FW_AI_FORCETIME_Enabled = false;
 UO_FW_AI_FORCETIME_TIME = 12;
 
 //Lets gets the queue handler going
-[{time > 3},{
-[] spawn UO_FW_AI_fnc_QueueHandle;
-[] spawn UO_FW_AI_fnc_ActiveHandler;
-[] spawn UO_FW_AI_fnc_GroupHandler;
+[{CBA_MissionTime > 0},{
+    [] call UO_FW_AI_fnc_QueueHandle;
+    [] call UO_FW_AI_fnc_ActiveHandler;
+    [] call UO_FW_AI_fnc_GroupHandler;
+    [] call UO_FW_AI_fnc_MapMarkers;
+    [] call UO_FW_AI_fnc_zoneMonitor;
 }] call CBA_fnc_waitUntilAndExecute;
 
 //leader/group behavior handling loop
 //[] spawn UO_FW_AI_fnc_MainLoop;
 
-//marker function
-if (UO_FW_AI_MARKERS_Enabled) then {
-	[] spawn UO_FW_AI_fnc_MapMarkers;
-};
-
-if ((!hasinterface) && (!isDedicated)) then {
-	setViewDistance (missionNamespace getvariable ["UO_FW_AI_ViewDistance",2500]);
-
-	if (UO_FW_AI_FORCETIME_Enabled) then {
-		[] spawn {
-			waituntil {CBA_missionTime > 1};
-			while {true} do {
-				sleep 2;
-				skiptime ((missionNamespace getvariable ["UO_FW_AI_FORCETIME_TIME",daytime]) / 3600) - (daytime);
-			};
-		};
-	};
+if ((!hasinterface) && {(!isDedicated)}) then {
+    setViewDistance (missionNamespace getvariable ["UO_FW_AI_ViewDistance",2500]);
+    if (UO_FW_AI_FORCETIME_Enabled) then {
+        private _timeForced = missionNamespace getvariable ["UO_FW_AI_FORCETIME_TIME",daytime];
+        [{CBA_missionTime > 1},{
+            private _HCTimeForcedPFH = [{
+                params ["_args", "_idPFH"];
+                _args params ["_timeForced"];
+                private _daytime = daytime;
+                skiptime ((_timeForced / 3600) - _daytime);
+            }, 1, [_timeForced]] call CBA_fnc_addPerFrameHandler;
+        }, [_timeForced]] call CBA_fnc_waitUntilAndExecute;
+    };
 };
 
 UO_FW_AI_InitMainInitialized = true;

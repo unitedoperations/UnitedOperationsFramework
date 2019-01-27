@@ -1,33 +1,33 @@
-/*	Description: Task a group peform sentry, patrol back and forth.
- * 	Arguments:
- * 		GROUP	- Group
- * 		ARRAY	- Task Position
- * 	Optional:
- * 		NUMBER	- Wait Time at Waypoints
- * 		STRING	- Behaviour
- * 		STRING	- CombatMode
- * 		STRING	- Speed
- * 		STRING	- Formation
- * 	Return Value:
- * 		BOOL 	- True
+/*    Description: Task a group peform sentry, patrol back and forth.
+ *     Arguments:
+ *         GROUP    - Group
+ *         ARRAY    - Task Position
+ *     Optional:
+ *         NUMBER    - Wait Time at Waypoints
+ *         STRING    - Behaviour
+ *         STRING    - CombatMode
+ *         STRING    - Speed
+ *         STRING    - Formation
+ *     Return Value:
+ *         BOOL     - True
  */
 #include "\x\UO_FW\addons\Main\HeadlessAIModule\module_macros.hpp"
 UO_FW_AI_EXEC_CHECK(SERVERHC);
 
 params [
-	"_grp",
-	"_pos",
-	["_radius",30,[0]],
-	["_wait",3,[0]],
-	["_behave","SAFE",[""]],
-	["_combat","RED",[""]],
-	["_speed","LIMITED",[""]],
-	["_formation","WEDGE",[""]],
-	["_Type","MOVE",[""]],
-	["_oncomplete","this call UO_FW_AI_fnc_taskSearchNearby",[""]],
-	["_compradius",0,[0]],
-	["_wpcount",10,[0]],
-	"_i"
+    "_grp",
+    "_pos",
+    ["_radius",30,[0]],
+    ["_wait",3,[0]],
+    ["_behave","SAFE",[""]],
+    ["_combat","RED",[""]],
+    ["_speed","LIMITED",[""]],
+    ["_formation","WEDGE",[""]],
+    ["_Type","MOVE",[""]],
+    ["_oncomplete","this call UO_FW_AI_fnc_taskSearchNearby",[""]],
+    ["_compradius",0,[0]],
+    ["_wpcount",10,[0]],
+    "_i"
 ];
 
 {_x forcespeed -1; _x enableAI "Path";} foreach units _grp;

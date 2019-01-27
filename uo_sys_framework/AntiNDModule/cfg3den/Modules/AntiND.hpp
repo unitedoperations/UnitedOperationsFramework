@@ -10,7 +10,7 @@ class UO_FW_Anti_ND {
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "true";
         };
-		class UO_FW_Anti_ND_Time {
+        class UO_FW_Anti_ND_Time {
             property = "UO_FW_Anti_ND_Time";
             displayName = "Time";
             tooltip = "Time in seconds after spawn after which Anti ND functionality is disabled";
@@ -19,7 +19,7 @@ class UO_FW_Anti_ND {
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "30";
         };
-		class UO_FW_Anti_ND_Distance {
+        class UO_FW_Anti_ND_Distance {
             property = "UO_FW_Anti_ND_Distance";
             displayName = "Distance";
             tooltip = "Distance in meters at which Anti ND functionality is disabled";

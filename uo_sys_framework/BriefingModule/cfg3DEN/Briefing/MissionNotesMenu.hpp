@@ -11,7 +11,7 @@ class UO_FW_MissionNotes {
             defaultValue = "false";
 
         };
-		class UO_FW_Briefing_MissionNotes_Author {
+        class UO_FW_Briefing_MissionNotes_Author {
             property = "UO_FW_Briefing_MissionNotes_Author";
             displayName = "Mission Author";
             tooltip = "Mission Author";
@@ -20,7 +20,7 @@ class UO_FW_MissionNotes {
             defaultValue = "profileNameSteam";
 
         };
-		class UO_FW_Briefing_MissionNotes_Testers {
+        class UO_FW_Briefing_MissionNotes_Testers {
             property = "UO_FW_Briefing_MissionNotes_Testers";
             displayName = "Mission Testers and Additional Credit";
             tooltip = "Mission Testers and Additional Credit";
@@ -29,7 +29,7 @@ class UO_FW_MissionNotes {
             defaultValue = "''";
 
         };
-		class UO_FW_Briefing_MissionNotes_Conditions {
+        class UO_FW_Briefing_MissionNotes_Conditions {
             property = "UO_FW_Briefing_MissionNotes_Conditions";
             displayName = "End Conditions";
             tooltip = "Describe the specific end conditions for the mission here";
@@ -56,7 +56,7 @@ class UO_FW_MissionNotes {
             defaultValue = "''";
 
         };
-		class UO_FW_Briefing_MissionNotes_GM {
+        class UO_FW_Briefing_MissionNotes_GM {
             property = "UO_FW_Briefing_MissionNotes_GM";
             displayName = "Allow Game Mastering";
             tooltip = "Allow Game Mastering";

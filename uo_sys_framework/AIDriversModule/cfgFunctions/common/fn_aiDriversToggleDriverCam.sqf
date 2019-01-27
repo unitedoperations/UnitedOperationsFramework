@@ -1,10 +1,10 @@
-/*	Description: Toggles AI Driver camera
- *	Arguments:
- * 		Bool - off or on
- *	Return Value:
- * 		ARRAY
- *	Author
- *		PiZZADOX
+/*    Description: Toggles AI Driver camera
+ *    Arguments:
+ *         Bool - off or on
+ *    Return Value:
+ *         ARRAY
+ *    Author
+ *        PiZZADOX
  */
 
 #define COMPONENT AIDrivers
