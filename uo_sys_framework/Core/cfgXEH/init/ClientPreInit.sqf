@@ -167,9 +167,9 @@ LOG("Client Pre Init");
 ["UO_FW_JIP_PlayerEvent", {
     if ((CBA_missionTime > ((UO_FW_GETMVAR(JIP_EXPIRETIME,30)) * 60))
         || (((UO_FW_JIP_Type_BLUFOR isEqualto 2) && (side player isEqualto west))
-        || ((UO_FW_JIP_Type_BLUFOR isEqualto 2) && (side player isEqualto east))
+        || ((UO_FW_JIP_Type_OPFOR isEqualto 2) && (side player isEqualto east))
         || ((UO_FW_JIP_Type_INDFOR isEqualto 2) && (side player isEqualto independent))
-        || ((UO_FW_JIP_Type_INDFOR isEqualto 2) && (side player isEqualto civilian)))
+        || ((UO_FW_JIP_Type_CIV isEqualto 2) && (side player isEqualto civilian)))
     ) exitwith {
         if (CBA_missionTime > ((UO_FW_GETMVAR(JIP_EXPIRETIME,30)) * 60)) then {
             ["You have spawned in past the mission JiP cutoff timer, enabling spectator"] call ace_common_fnc_displayTextStructured;

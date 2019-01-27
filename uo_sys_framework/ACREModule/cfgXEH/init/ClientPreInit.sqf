@@ -17,7 +17,7 @@ UO_FW_EXEC_CHECK(CLIENT);
 	if !(missionNamespace getvariable ["UO_FW_ACRE_SETTINGS_Enabled",false]) exitwith {};
 	if (!isDedicated && {hasinterface}) then {
 
-		["UO_FW_RegisterModuleEvent", ["ACRE Setup", "Module for Acre Settings", "PiZZADOX and Sacher"]] call CBA_fnc_globalEvent;
+		["UO_FW_RegisterModuleEvent", ["ACRE Setup", "Module for Acre Settings", "PiZZADOX and Sacher"]] call CBA_fnc_localEvent;
 
 		private _UO_FW_Presets = ["default2", "default3", "default4", "default"];
 		private _UO_FW_Presets_BLUFOR = "default";
@@ -295,10 +295,7 @@ UO_FW_EXEC_CHECK(CLIENT);
 						_languages call acre_api_fnc_babelSetSpokenLanguages;
 					};
 				};
-
 			};
-
-
 
 			["UO_FW_ACRE_AddRadio_Event",[]] call CBA_fnc_localEvent;
 			//need to check again for acre
@@ -390,4 +387,4 @@ UO_FW_EXEC_CHECK(CLIENT);
 			} forEach ["ACRE_PRC117F", "ACRE_PRC77", "ACRE_SEM70"];
 		};
 	}] call CBA_fnc_waitUntilAndExecute;
-}] call CBA_fnc_addEventHandler; diag_lo
+}] call CBA_fnc_addEventHandler;

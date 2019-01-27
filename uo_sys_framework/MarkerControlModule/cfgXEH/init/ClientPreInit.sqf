@@ -5,7 +5,7 @@ UO_FW_EXEC_CHECK(CLIENT);
 ["UO_FW_SettingsLoaded", {
     if !(UO_FW_Server_MarkerControlModule_Allowed) exitWith {};
     if !(UO_FW_GETMVAR(MarkerControl_Enabled,false)) exitWith {};
-    ["UO_FW_RegisterModuleEvent", ["Marker Control", "Allows the mission maker to create markers visible to a single side and per briefing.", "Olsen, Sacher and PiZZADOX"]] call CBA_fnc_globalEvent;
+    ["UO_FW_RegisterModuleEvent", ["Marker Control", "Allows the mission maker to create markers visible to a single side and per briefing.", "Olsen, Sacher and PiZZADOX"]] call CBA_fnc_localEvent;
     private _markers = [];
     private _markersBriefing = [];
     {

@@ -5,7 +5,7 @@ UO_FW_EXEC_CHECK(CLIENT);
 ["UO_FW_CoverMapInit_Event", {
     if (!UO_FW_Server_CoverMapModule_Allowed) exitWith {};
     if (!UO_FW_CoverMap_Enable) exitWith {};
-    ["UO_FW_RegisterModuleEvent", ["Cover Map", "Covers map except specified area, allows switching between multiple AOs", "Blackhawk and PIZZADOX"]] call CBA_fnc_globalEvent;
+    ["UO_FW_RegisterModuleEvent", ["Cover Map", "Covers map except specified area, allows switching between multiple AOs", "Blackhawk and PIZZADOX"]] call CBA_fnc_localEvent;
     [{(!isNull player)}, {
         private ["_DefaultAO"];
         if !((UO_FW_GETPLVAR(CoverMap_UnitDefaultAO,[])) isEqualto "") then {

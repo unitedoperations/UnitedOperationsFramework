@@ -5,7 +5,7 @@ UO_FW_EXEC_CHECK(CLIENT);
 ["UO_FW_SettingsLoaded", {
     if (!UO_FW_Server_StartTextModule_Allowed) exitWith {};
     if !(UO_FW_GETMVAR(StartText_Enabled,false)) exitWith {};
-    ["UO_FW_RegisterModuleEvent", ["Start Text", "Displays animated text on mission start.", "Sacher"]] call CBA_fnc_globalEvent;
+    ["UO_FW_RegisterModuleEvent", ["Start Text", "Displays animated text on mission start.", "Sacher"]] call CBA_fnc_localEvent;
     [{(!isNull player) && {(CBA_missionTime > 1)}}, {
         private _dateType = [["DATE"],["TIME"],["DATETIME"]] select (UO_FW_GETMVAR(StartText_TimeSelect,2));
         private _startTextArray = [];
