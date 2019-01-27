@@ -3,7 +3,8 @@
 UO_FW_EXEC_CHECK(CLIENTHC);
 
 ["UO_FW_SettingsLoaded",{
-	if (UO_FW_GETPLVAR(ArtilleryFOPlayerEnabled,false)) then {
+	if (UO_FW_GETPLVAR(ArtilleryFOPlayerEnabled,false)) then 
+	{
 		["Event_ArtyReceiveHint", {hint _this;}] call CBA_fnc_addEventHandler;
 		private	_guns = [];
 		{

@@ -23,7 +23,9 @@ UO_FW_EXEC_CHECK(SERVER);
 		};
 	} forEach (allUnits select {!(isPlayer _x)});
 	{
-		if ((UO_FW_GETVAR(_x,ArtilleryEnabled,false))) then {
+		if ((UO_FW_GETVAR(_x,ArtilleryEnabled,false))) then 
+		{
+			
 			private _artilleryFireRate = (UO_FW_GETVAR(_x,ArtilleryFireRate,1));
 			private _artilleryAccuracy = (UO_FW_GETVAR(_x,ArtilleryAccuracy,50));
 			private _artillerySpottingAccuracy = (UO_FW_GETVAR(_x,ArtillerySpottingAccuracy,50));
@@ -34,6 +36,7 @@ UO_FW_EXEC_CHECK(SERVER);
 			[_x,_artilleryFireRate,_artilleryAccuracy,_artillerySpottingAccuracy,_artilleryAimTime,_artilleryCalculationTime,_artilleryCustomName,_artilleryUnlimitedAmmo] call UO_FW_fnc_SetArtilleryData;
 		};
 	} forEach vehicles;
+["UO_FW_RegisterModuleEvent", ["Fire mission", "Enables AI Fire Support", "Sacher"]] call CBA_fnc_globalEvent;
 	["CallBracketFiremission", {_this call UO_FW_fnc_DIA_BracketFiremissionFireServer;}] call CBA_fnc_addEventHandler;
 	["CallPolarSpotting", {_this call UO_FW_fnc_DIA_PolarSpottingFiremissionFireServer;}] call CBA_fnc_addEventHandler;
 	["CallPointFiremission", {_this call UO_FW_fnc_DIA_PointFiremissionFireServer;}] call CBA_fnc_addEventHandler;
@@ -42,4 +45,5 @@ UO_FW_EXEC_CHECK(SERVER);
 	["CallGridSpottingFiremission", {_this call UO_FW_fnc_DIA_GridSpottingFiremissionFireServer;}] call CBA_fnc_addEventHandler;
 	["CallDonutFiremission", {_this call UO_FW_fnc_DIA_DonutFiremissionFireServer;}] call CBA_fnc_addEventHandler;
 	["CallMarkerFiremission", {_this call UO_FW_fnc_DIA_MarkerFiremissionFireServer;}] call CBA_fnc_addEventHandler;
+
 }] call CBA_fnc_addEventHandler;
