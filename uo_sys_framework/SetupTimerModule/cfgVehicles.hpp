@@ -64,7 +64,7 @@ class UO_FW_SetupTimerModule: OlsenModule {
                 // Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
                 displayName = "Time"; // Attribute label
                 tooltip = "Time in seconds";
-                control = "Edit";
+                control = "UO_FW_30To120_Slider";
                 property = "UO_FW_SetupTimer_Time";
                 defaultValue = "30"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
                 typeName = "NUMBER"; // Value type, can be "NUMBER", "STRING" or "BOOL"

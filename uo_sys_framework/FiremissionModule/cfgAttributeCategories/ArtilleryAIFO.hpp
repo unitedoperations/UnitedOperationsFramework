@@ -30,7 +30,7 @@ class UO_FW_ArtilleryAIFO
             displayName = "Knowledge Required";
             tooltip = "Minimum required knowledge about unit targeted. https://community.bistudio.com/wiki/knowsAbout. Default 3";
             property = "UO_FW_ArtilleryFOAIKnowledge";
-            control = "EditShort";
+            control = "UO_FW_1To4Step01_Slider";
             expression = UO_FW_ENTITY_EXPRESSION;
             condition = "objectControllable";
             validate = "number";
@@ -42,7 +42,7 @@ class UO_FW_ArtilleryAIFO
             displayName = "Minimal Range";
             tooltip = "minimum range between firemission to stop 10 batteries shooting 1 guy. Default 300";
             property = "UO_FW_ArtilleryFOAIminRange";
-            control = "EditShort";
+            control = "UO_FW_200To1000Step100_Slider";
             expression = UO_FW_ENTITY_EXPRESSION;
             condition = "objectControllable";
             validate = "number";
@@ -54,7 +54,7 @@ class UO_FW_ArtilleryAIFO
             displayName = "View Range";
             tooltip = "Maximum range the FO can see. Default 1000";
             property = "UO_FW_ArtilleryFOAIViewRange";
-            control = "EditShort";
+            control = "UO_FW_500To2500Step100_Slider";
             expression = UO_FW_ENTITY_EXPRESSION;
             condition = "objectControllable";
             validate = "number";
@@ -66,7 +66,7 @@ class UO_FW_ArtilleryAIFO
             displayName = "Dispersion";
             tooltip = "Dispersion of called in artillery strike. Default 200";
             property = "UO_FW_ArtilleryFOAIDispersion";
-            control = "EditShort";
+            control = "UO_FW_50To250Step50_Slider";
             expression = UO_FW_ENTITY_EXPRESSION;
             condition = "objectControllable";
             validate = "number";
@@ -78,7 +78,7 @@ class UO_FW_ArtilleryAIFO
             displayName = "Ammount Of Salvos";
             tooltip = "Number of salvos the artillery should fire. Default 3";
             property = "UO_FW_ArtilleryFOAISalvoCount";
-            control = "EditShort";
+            control = "UO_FW_1To5_Slider";
             expression = UO_FW_ENTITY_EXPRESSION;
             condition = "objectControllable";
             validate = "number";
@@ -90,7 +90,7 @@ class UO_FW_ArtilleryAIFO
             displayName = "Rounds Per Salvo";
             tooltip = "Number of rounds which should be fired per salvo. Default 5";
             property = "UO_FW_ArtilleryFOAIRoundsPerSalvo";
-            control = "EditShort";
+            control = "UO_FW_1To10_Slider";
             expression = UO_FW_ENTITY_EXPRESSION;
             condition = "objectControllable";
             validate = "number";
@@ -102,7 +102,7 @@ class UO_FW_ArtilleryAIFO
             displayName = "Time Between Salvos";
             tooltip = "Time between salvos, which should be waited in seconds. Default 30";
             property = "UO_FW_ArtilleryFOAISalvoWaitTime";
-            control = "EditShort";
+            control = "UO_FW_30To120_Slider";
             expression = UO_FW_ENTITY_EXPRESSION;
             condition = "objectControllable";
             validate = "number";
@@ -114,7 +114,7 @@ class UO_FW_ArtilleryAIFO
             displayName = "Spotting Round Distance";
             tooltip = "Range in m of how close a spotting round needs to land near the target before a firemission is fired. Default 150";
             property = "UO_FW_ArtilleryFOAIMinSpottedDistance";
-            control = "EditShort";
+            control = "UO_FW_50To250Step50_Slider";
             expression = UO_FW_ENTITY_EXPRESSION;
             condition = "objectControllable";
             validate = "number";
@@ -138,7 +138,7 @@ class UO_FW_ArtilleryAIFO
             displayName = "Estimation Accuracy";
             tooltip = "Accuracy of location estimation of target in meters. Default 50";
             property = "UO_FW_ArtilleryFOAIAccuracy";
-            control = "EditShort";
+            control = "UO_FW_50To250Step50_Slider";
             expression = UO_FW_ENTITY_EXPRESSION;
             condition = "objectControllable";
             validate = "number";
@@ -150,7 +150,7 @@ class UO_FW_ArtilleryAIFO
             displayName = "Call In Speed";
             tooltip = "Time needed for FO to calculate firemission. Default 30";
             property = "UO_FW_ArtilleryFOAISpeed";
-            control = "EditShort";
+            control = "UO_FW_30To120_Slider";
             expression = UO_FW_ENTITY_EXPRESSION;
             condition = "objectControllable";
             validate = "number";

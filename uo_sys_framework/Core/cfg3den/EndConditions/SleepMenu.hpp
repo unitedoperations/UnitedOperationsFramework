@@ -6,7 +6,7 @@ class UO_FW_EndConditions_SleepMenu {
             property = "UO_FW_EndConditions_ConditionDelay";
             displayName = "End Condition Starting Delay";
             tooltip = "Time before any automatic end conditions are run!";
-            control = "EditShort";
+            control = "UO_FW_0To5_Slider";
             expression = UO_FW_SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "0";
@@ -15,7 +15,7 @@ class UO_FW_EndConditions_SleepMenu {
             property = "UO_FW_EndConditions_ConditionSleep";
             displayName = "End Condition Sleep";
             tooltip = "Time between end condition checks. Low values can cause server lag!";
-            control = "EditShort";
+            control = "UO_FW_30To100_Slider";
             expression = UO_FW_SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "30";

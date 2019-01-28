@@ -47,7 +47,7 @@ class UO_FW_EndConditions_CasualtySettings_Category4 {
             property = "UO_FW_EndCondition_CasualtyCount_BLUFOR_Percentage_4";
             displayName = "Casualty Percentage";
             tooltip = "End condition fires when team casualty percentage is over this number";
-            control = "EditShort";
+            control = "UO_FW_10To95Step5_Slider";
             expression = UO_FW_SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "75";
@@ -64,7 +64,7 @@ class UO_FW_EndConditions_CasualtySettings_Category4 {
             property = "UO_FW_EndCondition_CasualtyCount_OPFOR_Percentage_4";
             displayName = "Casualty Percentage";
             tooltip = "End condition fires when team casualty percentage is over this number";
-            control = "EditShort";
+            control = "UO_FW_10To95Step5_Slider";
             expression = UO_FW_SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "75";
@@ -81,7 +81,7 @@ class UO_FW_EndConditions_CasualtySettings_Category4 {
             property = "UO_FW_EndCondition_CasualtyCount_INDFOR_Percentage_4";
             displayName = "Casualty Percentage";
             tooltip = "End condition fires when team casualty percentage is over this number";
-            control = "EditShort";
+            control = "UO_FW_10To95Step5_Slider";
             expression = UO_FW_SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "75";
@@ -98,7 +98,7 @@ class UO_FW_EndConditions_CasualtySettings_Category4 {
             property = "UO_FW_EndCondition_CasualtyCount_CIV_Percentage_4";
             displayName = "Casualty Percentage";
             tooltip = "End condition fires when team casualty percentage is over this number";
-            control = "EditShort";
+            control = "UO_FW_10To95Step5_Slider";
             expression = UO_FW_SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "75";
@@ -199,7 +199,7 @@ class UO_FW_EndConditions_ExtractionSettings_Category4 {
             property = "UO_FW_EndCondition_ExtractionRatio_4";
             displayName = "Ratio";
             tooltip = "Percentage of alive personnel inside the marker to be considered extracted. Default 75";
-            control = "EditShort";
+            control = "UO_FW_10To95Step5_Slider";
             expression = UO_FW_SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "75";

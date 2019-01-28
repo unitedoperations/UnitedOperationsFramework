@@ -2,18 +2,13 @@
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 UO_FW_EXEC_CHECK(SERVER);
 
-//[_logic,_zoneName,_area,_interval,_repeatable,_capArray,_timeArray,_messagesArray,_colours,_hidden,_silent,_automessages,_ratioNeeded,_cond] passed array
-params ["","_zoneName","","_interval","","","","","","","","","",["_cond","true",[""]]];
+//[_logic,_zoneName,_area,_repeatable,_capArray,_timeArray,_messagesArray,_colours,_hidden,_silent,_automessages,_ratioNeeded,_cond] passed array
+params ["","_zoneName","","","","","","","","","","",["_cond","true",[""]]];
 
 ["UO_FW_RegisterModuleEvent", ["Capture Zone", "Creates Capture Zone objectives for variable declares and end condition requirements", "Sacher and PiZZADOX"]] call CBA_fnc_globalEvent;
 
 if (!(_this call UO_FW_fnc_ValidateCaptureZone)) exitWith {
     ERROR_1("CaptureZone %1 failed to Validate",_zoneName);
-};
-
-if (_interval < 5) then {
-    ERROR_1("CaptureZone %1 has too low an interval check! Setting to 5 seconds", _zoneName);
-    _interval = 5;
 };
 
 [{(call compile (_this select 1))}, {
@@ -28,7 +23,7 @@ if (_interval < 5) then {
         //var redeclares
         params ["_argNested", "_idPFH"];
         _argNested params ["_args","_lastCheckedTime",["_initialized",false,[false]],"_varName","_teamControllingvarName",["_oldOwner","UNCONTESTED",[""]],["_ownerControlCount",0,[0]],"_marker"];
-        _args params ["_logic","_zoneName","_area","_interval","_repeatable","_capArray","_timeArray","_messagesArray","_colours","_hidden","_silent","_automessages","_ratioNeeded","_cond"];
+        _args params ["_logic","_zoneName","_area","_repeatable","_capArray","_timeArray","_messagesArray","_colours","_hidden","_silent","_automessages","_ratioNeeded","_cond"];
         _area params ["_loc","_radiusX","_radiusY","_direction","_isRectangle"];
         _colours params ["_bluforcolour","_opforcolour","_indforcolour","_CIVcolour","_uncontestedcolour","_contestedcolour"];
         _messagesArray params ["_bluformessageArray","_opformessageArray","_indformessageArray","_CIVmessageArray","_contestedmessage","_uncontestedmessage"];

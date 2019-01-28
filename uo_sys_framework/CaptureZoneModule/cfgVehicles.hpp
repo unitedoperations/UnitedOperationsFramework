@@ -53,11 +53,11 @@ class UO_FW_CaptureZoneModule: OlsenModule {
         };
         class UO_FW_CaptureZone_RatioNeeded {
             displayName = "Ratio Needed";
-            tooltip = "Ratio needed to capture the zone. Larger team / team in second place. Set to 0 to make any majority capture. Default: 0.75";
+            tooltip = "Ratio needed to capture the zone. Larger team / team in second place.";
             property = "UO_FW_CaptureZone_RatioNeeded";
-            control = "EditShort";
+            control = "UO_FW_1To100Step1_Slider";
             expression = UO_FW_MODULE_EXPRESSION;
-            defaultValue = "0.75";
+            defaultValue = "75";
             validate = "NUMBER";
             typeName = "number";
         };
@@ -74,7 +74,7 @@ class UO_FW_CaptureZoneModule: OlsenModule {
             displayName = "Blufor Time";
             tooltip = "Time needed for Blufor to capture the zone in seconds. Set to 0 for instant capture";
             property = "UO_FW_CaptureZone_Time_Blufor";
-            control = "EditShort";
+            control = "UO_FW_0To120_Slider";
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "30";
             typeName = "NUMBER";
@@ -102,7 +102,7 @@ class UO_FW_CaptureZoneModule: OlsenModule {
             displayName = "Opfor Time";
             tooltip = "Time needed for Opfor to capture the zone in seconds. Set to 0 for instant capture";
             property = "UO_FW_CaptureZone_Time_Opfor";
-            control = "EditShort";
+            control = "UO_FW_0To120_Slider";
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "30";
             typeName = "NUMBER";
@@ -130,7 +130,7 @@ class UO_FW_CaptureZoneModule: OlsenModule {
             displayName = "Independent Time";
             tooltip = "Time needed for Independent to capture the zone in seconds. Set to 0 for instant capture";
             property = "UO_FW_CaptureZone_Time_INDFOR";
-            control = "EditShort";
+            control = "UO_FW_0To120_Slider";
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "30";
             typeName = "NUMBER";
@@ -158,7 +158,7 @@ class UO_FW_CaptureZoneModule: OlsenModule {
             displayName = "Civilian Time";
             tooltip = "Time needed for Civilian to capture the zone in seconds. Set to 0 for instant capture";
             property = "UO_FW_CaptureZone_Time_CIV";
-            control = "EditShort";
+            control = "UO_FW_0To120_Slider";
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "30";
             typeName = "NUMBER";
@@ -242,16 +242,6 @@ class UO_FW_CaptureZoneModule: OlsenModule {
             defaultValue = "true";
             typeName = "BOOL";
             validate = "none";
-        };
-        class UO_FW_CaptureZone_SleepInterval {
-            displayName = "Sleep Interval";
-            tooltip = "Time between checking the CaptureZone if no one is in it";
-            property = "UO_FW_CaptureZone_SleepInterval";
-            control = "EditShort";
-            expression = UO_FW_MODULE_EXPRESSION;
-            defaultValue = "15";
-            typeName = "NUMBER";
-            validate = "number";
         };
         class UO_FW_CaptureZone_Condition {
             displayName = "Custom Condition";

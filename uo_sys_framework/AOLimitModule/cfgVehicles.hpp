@@ -114,7 +114,7 @@ class UO_FW_AOLimitModule: OlsenModule {
             displayName = "Max time outside of AO";
             tooltip = "The amount of time in seconds a land based unit is allowed to stay outside the AO (-1 = Infinity)";
             property = "UO_FW_AoLimit_SoftTimeOutside";
-            control = "EditShort";
+            control = "UO_FW_30To120_Slider";
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "30";
             AOTypes[] = {"SOFT"};
@@ -125,7 +125,7 @@ class UO_FW_AOLimitModule: OlsenModule {
             displayName = "Max time outside of AO";
             tooltip = "The amount of time in seconds an air based unit is allowed to stay outside the AO (-1 = Infinity)";
             property = "UO_FW_AoLimit_SoftTimeOutsideAir";
-            control = "EditShort";
+            control = "UO_FW_120To360_Slider";
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "120";
             AOTypes[] = {"SOFT"};

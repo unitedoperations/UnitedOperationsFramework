@@ -76,6 +76,7 @@ class Slider: Title {
     class Controls {
         class Title;
         class Value;
+        class Edit;
     };
 };
 

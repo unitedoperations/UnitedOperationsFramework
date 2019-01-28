@@ -33,7 +33,7 @@ class UO_FW_TeamRespawnSettings_Blufor {
             displayName = "Respawn Delay";
             tooltip = "Delay in seconds between a player being killed and respawning. Must be more than 5 seconds.";
             respawnTypes[] = {1,2,3,4,5};
-            control = "UO_FW_RespawnDelay_Slider";
+            control = "UO_FW_5To20_Slider";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "5";
             validate = "number";
@@ -43,7 +43,7 @@ class UO_FW_TeamRespawnSettings_Blufor {
             displayName = "Individual Respawn Tickets";
             tooltip = "Number of individual respawns.";
             respawnTypes[] = {2};
-            control = "EditShort";
+            control = "UO_FW_1To10_Slider";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "2";
             validate = "number";
@@ -53,7 +53,7 @@ class UO_FW_TeamRespawnSettings_Blufor {
             displayName = "Team Respawn Tickets";
             tooltip = "Number of team respawns.";
             respawnTypes[] = {3};
-            control = "EditShort";
+            control = "UO_FW_10To100_Slider";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "30";
             validate = "number";
@@ -158,6 +158,40 @@ class UO_FW_TeamSpectateSettings_Blufor {
             control = "CheckBox";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "true";
+        };
+    };
+};
+
+class UO_FW_TeamJIPSettings_BLUFOR {
+    displayName = "BLUFOR JiP Settings";
+    collapsed = 0;
+    class Attributes {
+        class UO_FW_JIP_Type_BLUFOR {
+            property = "UO_FW_JIP_Type_BLUFOR";
+            displayName = "JiP Type";
+            tooltip = "TELEPORT: Player can teleport to his squad. TRANSPORT: Player can send a hint to all group leaders requesting transport. DENY: Player is killed and put in spectator.";
+            control = "UO_FW_JIPTypeAtt";
+            expression = UO_FW_SCENARIO_EXPRESSION;
+            validate = "number";
+            defaultValue = "0";
+        };
+        class UO_FW_JIP_Distance_BLUFOR {
+            property = "UO_FW_JIP_Distance_BLUFOR";
+            displayName = "JiP Distance";
+            tooltip = "If distance to group members upon spawn is greater than this you will be granted the defined JiP action";
+            control = "UO_FW_50To200Step50_Slider";
+            expression = UO_FW_SCENARIO_EXPRESSION;
+            validate = "number";
+            defaultValue = "200";
+        };
+        class UO_FW_JIP_SpawnDistance_BLUFOR {
+            property = "UO_FW_JIP_SpawnDistance_BLUFOR";
+            displayName = "Spawn Radius";
+            tooltip = "Exiting this radius will remove the JiP actions from the player.";
+            control = "UO_FW_50To200Step50_Slider";
+            expression = UO_FW_SCENARIO_EXPRESSION;
+            validate = "number";
+            defaultValue = "50";
         };
     };
 };

@@ -14,7 +14,7 @@ class UO_FW_EndConditions_Timelimit_Settings {
             property = "UO_FW_Timelimit";
             displayName = "Time Limit";
             tooltip = "Ends mission after this time has been reached. Time in minutes";
-            control = "EditShort";
+            control = "UO_FW_30To120_Slider";
             expression = UO_FW_SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "30";
