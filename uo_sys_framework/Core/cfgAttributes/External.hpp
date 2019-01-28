@@ -98,11 +98,11 @@ class CategoryTitle: Title {
     class Controls {
         class Title: ctrlStatic {
             style=0;
-            sizeEx="5.5 * (1 / (getResolution select 3)) * pixelGrid * 0.5";
-            x=0;
-            //x="2 * (pixelH * pixelGrid *     0.50)";
-            w="48 * (pixelW * pixelGrid *     0.50)";
-            h="5 * (pixelH * pixelGrid *     0.50)";
+            sizeEx="6.2 * (1 / (getResolution select 3)) * pixelGrid * 0.5";
+            x="2 * (pixelH * pixelGrid * 0.50)";
+            //x="2 * (pixelH * pixelGrid * 0.50)";
+            w="48 * (pixelW * pixelGrid * 0.50)";
+            h="5 * (pixelH * pixelGrid * 0.50)";
             colorBackground[]={0,0,0,0};
         };
     };
@@ -112,9 +112,9 @@ class CategoryTitleIndent: Title {
     class Controls {
         class Title: ctrlStatic {
             style=0;
-            sizeEx="5.5 * (1 / (getResolution select 3)) * pixelGrid * 0.5";
+            sizeEx="6 * (1 / (getResolution select 3)) * pixelGrid * 0.5";
             //x=0;
-            x="10 * (pixelH * pixelGrid * 0.50)";
+            x="4 * (pixelH * pixelGrid * 0.50)";
             w="48 * (pixelW * pixelGrid * 0.50)";
             h="5 * (pixelH * pixelGrid * 0.50)";
             colorBackground[]={0,0,0,0};
@@ -125,8 +125,8 @@ class CategoryTitleIndent: Title {
 class SubTitle: CategoryTitle {
     class Controls: Controls {
         class Title: Title {
-            x="4 * (pixelH * pixelGrid * 0.50)";
-            sizeEx="4.2 * (1 / (getResolution select 3)) * pixelGrid * 0.5";
+            x="2 * (pixelH * pixelGrid * 0.50)";
+            sizeEx="5.2 * (1 / (getResolution select 3)) * pixelGrid * 0.5";
         };
     };
 };
@@ -134,8 +134,8 @@ class SubTitle: CategoryTitle {
 class SubTitleIndent: SubTitle {
     class Controls: Controls {
         class Title: Title {
-            x="14 * (pixelH * pixelGrid * 0.50)";
-            sizeEx="4.2 * (1 / (getResolution select 3)) * pixelGrid * 0.5";
+            x="6 * (pixelH * pixelGrid * 0.50)";
+            sizeEx="5.2 * (1 / (getResolution select 3)) * pixelGrid * 0.5";
         };
     };
 };

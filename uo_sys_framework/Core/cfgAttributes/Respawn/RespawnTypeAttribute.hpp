@@ -170,6 +170,15 @@ diag_log format ['onsetfocus _valueVar: %1',_valueVar];\
     } foreach [0,1,2,3,4,5];\
 "
 
+#define UO_FW_RESPAWN_COMBO_ATTR_VALUES \
+class Value1: Value0 { idc=101; };\
+class Value2: Value0 { idc=102; };\
+class Value3: Value0 { idc=103; };\
+class Value4: Value0 { idc=104; };\
+class Value5: Value0 { idc=105; };\
+class Value6: Value0 { idc=106; };\
+class Value7: Value0 { idc=107; }
+
 class UO_FW_Respawn_Combo_Blufor: Combo {
     UO_FW_RESPAWN_COMBO_ATTR_LOAD(UO_FW_Respawn_Value_Blufor,UO_FW_Respawn_Combo_Cfg_Blufor);
     UO_FW_RESPAWN_COMBO_ATTR_SAVE(UO_FW_Respawn_Value_Blufor,UO_FW_Respawn_Combo_Cfg_Blufor);
@@ -185,29 +194,23 @@ class UO_FW_Respawn_Combo_Blufor: Combo {
 class UO_FW_RespawnTemplates_Blufor: Title {
     UO_FW_RESPAWN_TEMPLATES_ATTR_LOAD(UO_FW_Respawn_Value_Blufor);
     UO_FW_RESPAWN_TEMPLATES_ATTR_SAVE;
-    h="8 *     5 * (pixelH * pixelGrid *     0.50)";
+    h="8 * 5 * (pixelH * pixelGrid * 0.50)";
     class Controls: Controls {
         class Title: Title {
-            h="8 *     5 * (pixelH * pixelGrid *     0.50)";
+            h="8 * 5 * (pixelH * pixelGrid * 0.50)";
         };
         class Value0: ctrlListbox {
             idc=100;
             show=0;
-            x="48 * (pixelW * pixelGrid *     0.50)";
-            w="82 * (pixelW * pixelGrid *     0.50)";
-            h="8 *     5 * (pixelH * pixelGrid *     0.50)";
+            x="48 * (pixelW * pixelGrid * 0.50)";
+            w="82 * (pixelW * pixelGrid * 0.50)";
+            h="8 * 5 * (pixelH * pixelGrid * 0.50)";
             colorSelectBackground[]={0,0,0,0};
             colorSelectBackground2[]={0,0,0,0};
             UO_FW_RESPAWN_TEMPLATES_ATTR_ONLOAD;
             UO_FW_RESPAWN_TEMPLATES_ATTR_ONSETFOCUS(UO_FW_Respawn_Value_Blufor);
         };
-        class Value1: Value0 { idc=101; };
-        class Value2: Value0 { idc=102; };
-        class Value3: Value0 { idc=103; };
-        class Value4: Value0 { idc=104; };
-        class Value5: Value0 { idc=105; };
-        class Value6: Value0 { idc=106; };
-        class Value7: Value0 { idc=107; };
+        UO_FW_RESPAWN_COMBO_ATTR_VALUES;
     };
 };
 
@@ -232,13 +235,7 @@ class UO_FW_RespawnTemplates_Opfor: UO_FW_RespawnTemplates_Blufor {
             UO_FW_RESPAWN_TEMPLATES_ATTR_ONLOAD;
             UO_FW_RESPAWN_TEMPLATES_ATTR_ONSETFOCUS(UO_FW_Respawn_Value_Opfor);
         };
-        class Value1: Value0 { idc=101; };
-        class Value2: Value0 { idc=102; };
-        class Value3: Value0 { idc=103; };
-        class Value4: Value0 { idc=104; };
-        class Value5: Value0 { idc=105; };
-        class Value6: Value0 { idc=106; };
-        class Value7: Value0 { idc=107; };
+        UO_FW_RESPAWN_COMBO_ATTR_VALUES;
     };
 };
 
@@ -263,13 +260,7 @@ class UO_FW_RespawnTemplates_Indfor: UO_FW_RespawnTemplates_Blufor {
             UO_FW_RESPAWN_TEMPLATES_ATTR_ONLOAD;
             UO_FW_RESPAWN_TEMPLATES_ATTR_ONSETFOCUS(UO_FW_Respawn_Value_Indfor);
         };
-        class Value1: Value0 { idc=101; };
-        class Value2: Value0 { idc=102; };
-        class Value3: Value0 { idc=103; };
-        class Value4: Value0 { idc=104; };
-        class Value5: Value0 { idc=105; };
-        class Value6: Value0 { idc=106; };
-        class Value7: Value0 { idc=107; };
+        UO_FW_RESPAWN_COMBO_ATTR_VALUES;
     };
 };
 
@@ -294,12 +285,6 @@ class UO_FW_RespawnTemplates_Civ: UO_FW_RespawnTemplates_Blufor {
             UO_FW_RESPAWN_TEMPLATES_ATTR_ONLOAD;
             UO_FW_RESPAWN_TEMPLATES_ATTR_ONSETFOCUS(UO_FW_Respawn_Value_Civ);
         };
-        class Value1: Value0 { idc=101; };
-        class Value2: Value0 { idc=102; };
-        class Value3: Value0 { idc=103; };
-        class Value4: Value0 { idc=104; };
-        class Value5: Value0 { idc=105; };
-        class Value6: Value0 { idc=106; };
-        class Value7: Value0 { idc=107; };
+        UO_FW_RESPAWN_COMBO_ATTR_VALUES;
     };
 };

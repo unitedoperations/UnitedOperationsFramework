@@ -9,15 +9,13 @@ class UO_FW_CIV_NATOStyle {
             control = "CheckboxState";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "false";
-
         };
         class UO_FW_Briefing_CIV_NATO_Situation_Title {
             property = "UO_FW_Briefing_CIV_NATO_Situation_Title";
             displayName = "Situation";
-            control = "CategoryTitleIndent";
+            control = "CategoryTitle";
             expression = "true";
             defaultValue = "";
-
         };
         class UO_FW_Briefing_CIV_NATO_SIT_Main {
             property = "UO_FW_Briefing_CIV_NATO_SIT_Main";
@@ -27,7 +25,6 @@ class UO_FW_CIV_NATOStyle {
             validate = "STRING";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
-
         };
         class UO_FW_Briefing_CIV_NATO_SIT_Terrain {
             property = "UO_FW_Briefing_CIV_NATO_SIT_Terrain";
@@ -37,7 +34,6 @@ class UO_FW_CIV_NATOStyle {
             validate = "STRING";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
-
         };
         class UO_FW_Briefing_CIV_NATO_SIT_KEYTerrain {
             property = "UO_FW_Briefing_CIV_NATO_SIT_KEYTerrain";
@@ -47,7 +43,6 @@ class UO_FW_CIV_NATOStyle {
             validate = "STRING";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
-
         };
         class UO_FW_Briefing_CIV_NATO_SIT_Weather {
             property = "UO_FW_Briefing_CIV_NATO_SIT_Weather";
@@ -57,7 +52,6 @@ class UO_FW_CIV_NATOStyle {
             validate = "STRING";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
-
         };
         class UO_FW_Briefing_CIV_NATO_Enemy_Title {
             property = "UO_FW_Briefing_CIV_NATO_Enemy_Title";
@@ -65,7 +59,6 @@ class UO_FW_CIV_NATOStyle {
             control = "SubTitle";
             expression = "true";
             defaultValue = "";
-
         };
         class UO_FW_Briefing_CIV_NATO_Enemy_DIS {
             property = "UO_FW_Briefing_CIV_NATO_Enemy_DIS";
@@ -75,7 +68,6 @@ class UO_FW_CIV_NATOStyle {
             validate = "STRING";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
-
         };
         class UO_FW_Briefing_CIV_NATO_Enemy_STRENGTH {
             property = "UO_FW_Briefing_CIV_NATO_Enemy_STRENGTH";
@@ -112,7 +104,6 @@ class UO_FW_CIV_NATOStyle {
             validate = "STRING";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
-
         };
         class UO_FW_Briefing_CIV_NATO_Enemy_MDCOA {
             property = "UO_FW_Briefing_CIV_NATO_Enemy_MDCOA";
@@ -122,7 +113,6 @@ class UO_FW_CIV_NATOStyle {
             validate = "STRING";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
-
         };
         class UO_FW_Briefing_CIV_NATO_FRIENDLY_Title {
             property = "UO_FW_Briefing_CIV_NATO_FRIENDLY_Title";
@@ -130,7 +120,6 @@ class UO_FW_CIV_NATOStyle {
             control = "SubTitle";
             expression = "true";
             defaultValue = "";
-
         };
         class UO_FW_Briefing_CIV_NATO_FRIENDLY_DIS {
             property = "UO_FW_Briefing_CIV_NATO_FRIENDLY_DIS";
@@ -140,7 +129,6 @@ class UO_FW_CIV_NATOStyle {
             validate = "STRING";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
-
         };
         class UO_FW_Briefing_CIV_NATO_FRIENDLY_Higher {
             property = "UO_FW_Briefing_CIV_NATO_FRIENDLY_Higher";
@@ -150,7 +138,6 @@ class UO_FW_CIV_NATOStyle {
             validate = "STRING";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
-
         };
         class UO_FW_Briefing_CIV_NATO_FRIENDLY_STRENGTH {
             property = "UO_FW_Briefing_CIV_NATO_FRIENDLY_STRENGTH";
@@ -160,7 +147,6 @@ class UO_FW_CIV_NATOStyle {
             validate = "STRING";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
-
         };
         class UO_FW_Briefing_CIV_NATO_FRIENDLY_APPEARANCE {
             property = "UO_FW_Briefing_CIV_NATO_FRIENDLY_APPEARANCE";
@@ -170,15 +156,13 @@ class UO_FW_CIV_NATOStyle {
             validate = "STRING";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
-
         };
         class UO_FW_Briefing_CIV_NATO_Mission_Title {
             property = "UO_FW_Briefing_CIV_NATO_Mission_Title";
             displayName = "Mission";
-            control = "CategoryTitleIndent";
+            control = "CategoryTitle";
             expression = "true";
             defaultValue = "";
-
         };
         class UO_FW_Briefing_CIV_NATO_Mission {
             property = "UO_FW_Briefing_CIV_NATO_Mission";
@@ -188,17 +172,15 @@ class UO_FW_CIV_NATOStyle {
             validate = "STRING";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
-
         };
         class UO_FW_Briefing_CIV_NATO_EXECUTION_Title {
             property = "UO_FW_Briefing_CIV_NATO_EXECUTION_Title";
             displayName = "Execution";
             tooltip = "Execution";
-            control = "CategoryTitleIndent";
+            control = "CategoryTitle";
             validate = "STRING";
             expression = "true";
             defaultValue = "''";
-
         };
         class UO_FW_Briefing_CIV_NATO_EXECUTION_INTENT {
             property = "UO_FW_Briefing_CIV_NATO_EXECUTION_INTENT";
@@ -208,7 +190,6 @@ class UO_FW_CIV_NATOStyle {
             validate = "STRING";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
-
         };
         class UO_FW_Briefing_CIV_NATO_EXECUTION_MANEUVER {
             property = "UO_FW_Briefing_CIV_NATO_EXECUTION_MANEUVER";
@@ -218,7 +199,6 @@ class UO_FW_CIV_NATOStyle {
             validate = "STRING";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
-
         };
         class UO_FW_Briefing_CIV_NATO_EXECUTION_Timings {
             property = "UO_FW_Briefing_CIV_NATO_EXECUTION_Timings";
@@ -228,7 +208,6 @@ class UO_FW_CIV_NATOStyle {
             validate = "STRING";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
-
         };
         class UO_FW_Briefing_CIV_NATO_EXECUTION_Tasks {
             property = "UO_FW_Briefing_CIV_NATO_EXECUTION_Tasks";
@@ -238,16 +217,14 @@ class UO_FW_CIV_NATOStyle {
             validate = "STRING";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
-
         };
         class UO_FW_Briefing_CIV_NATO_SANDS_Title {
             property = "UO_FW_Briefing_CIV_NATO_SANDS_Title";
             displayName = "Service Support";
             tooltip = "Service Support";
-            control = "CategoryTitleIndent";
+            control = "CategoryTitle";
             expression = "true";
             defaultValue = "''";
-
         };
         class UO_FW_Briefing_CIV_NATO_SANDS_SUPPORT_Title {
             property = "UO_FW_Briefing_CIV_NATO_SANDS_SUPPORT_Title";
@@ -256,7 +233,6 @@ class UO_FW_CIV_NATOStyle {
             control = "SubTitle";
             expression = "true";
             defaultValue = "''";
-
         };
         class UO_FW_Briefing_CIV_NATO_SANDS_SUPPORT_FIRES {
             property = "UO_FW_Briefing_CIV_NATO_SANDS_SUPPORT_FIRES";
@@ -266,7 +242,6 @@ class UO_FW_CIV_NATOStyle {
             validate = "STRING";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
-
         };
         class UO_FW_Briefing_CIV_NATO_SANDS_SUPPORT_AMMO {
             property = "UO_FW_Briefing_CIV_NATO_SANDS_SUPPORT_AMMO";
@@ -276,7 +251,6 @@ class UO_FW_CIV_NATOStyle {
             validate = "STRING";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
-
         };
         class UO_FW_Briefing_CIV_NATO_SANDS_SERVICE_Title {
             property = "UO_FW_Briefing_CIV_NATO_SANDS_SERVICE_Title";
@@ -285,7 +259,6 @@ class UO_FW_CIV_NATOStyle {
             control = "SubTitle";
             expression = "true";
             defaultValue = "''";
-
         };
         class UO_FW_Briefing_CIV_NATO_SANDS_SERVICE_GENERAL {
             property = "UO_FW_Briefing_CIV_NATO_SANDS_SERVICE_GENERAL";
@@ -295,16 +268,14 @@ class UO_FW_CIV_NATOStyle {
             validate = "STRING";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
-
         };
         class UO_FW_Briefing_CIV_NATO_CANDS_Title {
             property = "UO_FW_Briefing_CIV_NATO_CANDS_Title";
             displayName = "Command and Signals";
             tooltip = "Command and Signals";
-            control = "CategoryTitleIndent";
+            control = "CategoryTitle";
             expression = "true";
             defaultValue = "''";
-
         };
         class UO_FW_Briefing_CIV_NATO_CANDS_COMMAND_Title {
             property = "UO_FW_Briefing_CIV_NATO_CANDS_COMMAND_Title";
@@ -313,7 +284,6 @@ class UO_FW_CIV_NATOStyle {
             control = "SubTitle";
             expression = "true";
             defaultValue = "''";
-
         };
         class UO_FW_Briefing_CIV_NATO_CANDS_COMMAND {
             property = "UO_FW_Briefing_CIV_NATO_CANDS_COMMAND";
@@ -323,7 +293,6 @@ class UO_FW_CIV_NATOStyle {
             validate = "STRING";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
-
         };
         class UO_FW_Briefing_CIV_NATO_CANDS_Signals_Title {
             property = "UO_FW_Briefing_CIV_NATO_CANDS_Signals_Title";
@@ -332,7 +301,6 @@ class UO_FW_CIV_NATOStyle {
             control = "SubTitle";
             expression = "true";
             defaultValue = "''";
-
         };
         class UO_FW_Briefing_CIV_NATO_CANDS_Signals_FREQ {
             property = "UO_FW_Briefing_CIV_NATO_CANDS_Signals_FREQ";
@@ -342,7 +310,6 @@ class UO_FW_CIV_NATOStyle {
             validate = "STRING";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
-
         };
         class UO_FW_Briefing_CIV_NATO_CANDS_Signals_CODEWORDS {
             property = "UO_FW_Briefing_CIV_NATO_CANDS_Signals_CODEWORDS";
@@ -352,7 +319,6 @@ class UO_FW_CIV_NATOStyle {
             validate = "STRING";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
-
         };
         class UO_FW_Briefing_CIV_NATO_CANDS_Signals_SPECIAL {
             property = "UO_FW_Briefing_CIV_NATO_CANDS_Signals_SPECIAL";
@@ -362,7 +328,6 @@ class UO_FW_CIV_NATOStyle {
             validate = "STRING";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
-
         };
         class UO_FW_Briefing_CIV_NATO_CANDS_Signals_CALLSIGNS {
             property = "UO_FW_Briefing_CIV_NATO_CANDS_Signals_CALLSIGNS";
@@ -372,7 +337,6 @@ class UO_FW_CIV_NATOStyle {
             validate = "STRING";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
-
         };
         class UO_FW_Briefing_CIV_NATO_CANDS_Signals_PASSWORDS {
             property = "UO_FW_Briefing_CIV_NATO_CANDS_Signals_PASSWORDS";
@@ -385,7 +349,6 @@ class UO_FW_CIV_NATOStyle {
         };
     };
 };
-
 class UO_FW_CIV_WPStyle {
     displayName = "Warsaw Pact Style Briefing";
     collapsed = 1;
@@ -401,7 +364,7 @@ class UO_FW_CIV_WPStyle {
         class UO_FW_Briefing_CIV_Warsaw_Preliminaries_Title {
             property = "UO_FW_Briefing_CIV_Warsaw_Preliminaries_Title";
             displayName = "Preliminaries";
-            control = "CategoryTitleIndent";
+            control = "CategoryTitle";
             expression = "true";
             defaultValue = "";
         };
@@ -426,7 +389,7 @@ class UO_FW_CIV_WPStyle {
         class UO_FW_Briefing_CIV_Warsaw_Reference_Title {
             property = "UO_FW_Briefing_CIV_Warsaw_Reference_Title";
             displayName = "Reference Points";
-            control = "CategoryTitleIndent";
+            control = "CategoryTitle";
             expression = "true";
             defaultValue = "";
         };
@@ -451,7 +414,7 @@ class UO_FW_CIV_WPStyle {
         class UO_FW_Briefing_CIV_Warsaw_Enemy_Title {
             property = "UO_FW_Briefing_CIV_Warsaw_Enemy_Title";
             displayName = "Enemy";
-            control = "CategoryTitleIndent";
+            control = "CategoryTitle";
             expression = "true";
             defaultValue = "";
         };
@@ -512,7 +475,7 @@ class UO_FW_CIV_WPStyle {
         class UO_FW_Briefing_CIV_Warsaw_Higher_Title {
             property = "UO_FW_Briefing_CIV_Warsaw_Higher_Title";
             displayName = "Higher and Adjacent Units";
-            control = "CategoryTitleIndent";
+            control = "CategoryTitle";
             expression = "true";
             defaultValue = "";
         };
@@ -546,7 +509,7 @@ class UO_FW_CIV_WPStyle {
         class UO_FW_Briefing_CIV_Warsaw_Mission_Title {
             property = "UO_FW_Briefing_CIV_Warsaw_Mission_Title";
             displayName = "Mission";
-            control = "CategoryTitleIndent";
+            control = "CategoryTitle";
             expression = "true";
             defaultValue = "";
         };
@@ -571,7 +534,7 @@ class UO_FW_CIV_WPStyle {
         class UO_FW_Briefing_CIV_Warsaw_Order_Title {
             property = "UO_FW_Briefing_CIV_Warsaw_Order_Title";
             displayName = "Order";
-            control = "CategoryTitleIndent";
+            control = "CategoryTitle";
             expression = "true";
             defaultValue = "";
         };
@@ -614,7 +577,7 @@ class UO_FW_CIV_WPStyle {
         class UO_FW_Briefing_CIV_Warsaw_COMM_Title {
             property = "UO_FW_Briefing_CIV_Warsaw_COMM_Title";
             displayName = "Location of the Commander";
-            control = "CategoryTitleIndent";
+            control = "CategoryTitle";
             expression = "true";
             defaultValue = "";
         };
@@ -630,7 +593,7 @@ class UO_FW_CIV_WPStyle {
         class UO_FW_Briefing_CIV_Warsaw_SUCC_Title {
             property = "UO_FW_Briefing_CIV_Warsaw_SUCC_Title";
             displayName = "Succession of Command";
-            control = "CategoryTitleIndent";
+            control = "CategoryTitle";
             expression = "true";
             defaultValue = "";
         };
@@ -645,7 +608,6 @@ class UO_FW_CIV_WPStyle {
         };
     };
 };
-
 class UO_FW_CIV_Custom_File {
     displayName = "Briefing File";
     collapsed = 1;
@@ -669,7 +631,6 @@ class UO_FW_CIV_Custom_File {
         };
     };
 };
-
 class UO_FW_CIV_Appendix {
     displayName = "Appendix Card File";
     collapsed = 1;
@@ -681,7 +642,6 @@ class UO_FW_CIV_Appendix {
             control = "CheckboxState";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "false";
-
         };
         class UO_FW_Briefing_CIV_Appendix_Path {
             property = "UO_FW_Briefing_CIV_Appendix_Path";
@@ -691,7 +651,6 @@ class UO_FW_CIV_Appendix {
             validate = "STRING";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
-
         };
     };
 };
