@@ -74,7 +74,7 @@ class UO_FW_CaptureZoneModule: OlsenModule {
             displayName = "Blufor Time";
             tooltip = "Time needed for Blufor to capture the zone in seconds. Set to 0 for instant capture";
             property = "UO_FW_CaptureZone_Time_Blufor";
-            control = "UO_FW_0To120_Slider";
+            control = "UO_FW_0To600_Slider";
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "30";
             typeName = "NUMBER";
@@ -102,7 +102,7 @@ class UO_FW_CaptureZoneModule: OlsenModule {
             displayName = "Opfor Time";
             tooltip = "Time needed for Opfor to capture the zone in seconds. Set to 0 for instant capture";
             property = "UO_FW_CaptureZone_Time_Opfor";
-            control = "UO_FW_0To120_Slider";
+            control = "UO_FW_0To600_Slider";
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "30";
             typeName = "NUMBER";
@@ -130,7 +130,7 @@ class UO_FW_CaptureZoneModule: OlsenModule {
             displayName = "Independent Time";
             tooltip = "Time needed for Independent to capture the zone in seconds. Set to 0 for instant capture";
             property = "UO_FW_CaptureZone_Time_INDFOR";
-            control = "UO_FW_0To120_Slider";
+            control = "UO_FW_0To600_Slider";
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "30";
             typeName = "NUMBER";
@@ -158,7 +158,7 @@ class UO_FW_CaptureZoneModule: OlsenModule {
             displayName = "Civilian Time";
             tooltip = "Time needed for Civilian to capture the zone in seconds. Set to 0 for instant capture";
             property = "UO_FW_CaptureZone_Time_CIV";
-            control = "UO_FW_0To120_Slider";
+            control = "UO_FW_0To600_Slider";
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "30";
             typeName = "NUMBER";

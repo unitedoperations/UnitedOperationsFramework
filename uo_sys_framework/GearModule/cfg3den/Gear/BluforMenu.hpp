@@ -1,6 +1,22 @@
+//class UO_FW_GearSettings_Presets_Blufor {
+//    displayName = "Blufor Gear Presets";
+//    collapsed = 0;
+//    class Attributes {
+//        class UO_FW_GearSettings_ACE_Arsenal_GearPresets_BLUFOR {
+//            property = "UO_FW_GearSettings_ACE_Arsenal_GearPresets_BLUFOR";
+//            displayName = "Gear Presets";
+//            tooltip = "";
+//            control = "UO_FW_Gear_ACE_Arsenal_PresetsCombo";
+//            typeName = "STRING";
+//            expression = UO_FW_SCENARIO_EXPRESSION;
+//            defaultValue = "'None'";
+//        };
+//    };
+//};
+
 class UO_FW_GearSettings_ACE_Arsenal_Blufor {
     displayName = "Blufor ACE Gear Settings";
-    collapsed = 0;
+    collapsed = 1;
     class Attributes {
         class UO_FW_GearSettings_ACE_Arsenal_LoadoutType_Blufor_RFL {
             property = "UO_FW_GearSettings_ACE_Arsenal_LoadoutType_Blufor_RFL";
@@ -92,6 +108,69 @@ class UO_FW_GearSettings_ACE_Arsenal_Blufor {
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "'None'";
         };
+        class UO_FW_GearSettings_ACE_Arsenal_LoadoutType_Blufor_HAT {
+            property = "UO_FW_GearSettings_ACE_Arsenal_LoadoutType_Blufor_HAT";
+            displayName = "Heavy Anti Tank Loadout";
+            tooltip = "Automatic Rifleman Loadout saved in ACE Arsenal mission loadouts";
+            control = "UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo";
+            typeName = "STRING";
+            expression = UO_FW_SCENARIO_EXPRESSION;
+            defaultValue = "'None'";
+        };
+        class UO_FW_GearSettings_ACE_Arsenal_LoadoutType_Blufor_AHAT {
+            property = "UO_FW_GearSettings_ACE_Arsenal_LoadoutType_Blufor_AHAT";
+            displayName = "Assistant Heavy AT Loadout";
+            tooltip = "Automatic Rifleman Loadout saved in ACE Arsenal mission loadouts";
+            control = "UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo";
+            typeName = "STRING";
+            expression = UO_FW_SCENARIO_EXPRESSION;
+            defaultValue = "'None'";
+        };
+        class UO_FW_GearSettings_ACE_Arsenal_LoadoutType_Blufor_MORTL {
+            property = "UO_FW_GearSettings_ACE_Arsenal_LoadoutType_Blufor_MORTL";
+            displayName = "Mortar TL Loadout";
+            tooltip = "Automatic Rifleman Loadout saved in ACE Arsenal mission loadouts";
+            control = "UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo";
+            typeName = "STRING";
+            expression = UO_FW_SCENARIO_EXPRESSION;
+            defaultValue = "'None'";
+        };
+        class UO_FW_GearSettings_ACE_Arsenal_LoadoutType_Blufor_MOR {
+            property = "UO_FW_GearSettings_ACE_Arsenal_LoadoutType_Blufor_MOR";
+            displayName = "Mortar Crewman Loadout";
+            tooltip = "Automatic Rifleman Loadout saved in ACE Arsenal mission loadouts";
+            control = "UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo";
+            typeName = "STRING";
+            expression = UO_FW_SCENARIO_EXPRESSION;
+            defaultValue = "'None'";
+        };
+        class UO_FW_GearSettings_ACE_Arsenal_LoadoutType_Blufor_EOD {
+            property = "UO_FW_GearSettings_ACE_Arsenal_LoadoutType_Blufor_EOD";
+            displayName = "Explosive Ordnance Disposal Loadout";
+            tooltip = "Automatic Rifleman Loadout saved in ACE Arsenal mission loadouts";
+            control = "UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo";
+            typeName = "STRING";
+            expression = UO_FW_SCENARIO_EXPRESSION;
+            defaultValue = "'None'";
+        };
+        class UO_FW_GearSettings_ACE_Arsenal_LoadoutType_Blufor_HEP {
+            property = "UO_FW_GearSettings_ACE_Arsenal_LoadoutType_Blufor_HEP";
+            displayName = "Helicopter Pilot Loadout";
+            tooltip = "Automatic Rifleman Loadout saved in ACE Arsenal mission loadouts";
+            control = "UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo";
+            typeName = "STRING";
+            expression = UO_FW_SCENARIO_EXPRESSION;
+            defaultValue = "'None'";
+        };
+        class UO_FW_GearSettings_ACE_Arsenal_LoadoutType_Blufor_HECRW {
+            property = "UO_FW_GearSettings_ACE_Arsenal_LoadoutType_Blufor_HECRW";
+            displayName = "Helicopter Crewman Loadout";
+            tooltip = "Automatic Rifleman Loadout saved in ACE Arsenal mission loadouts";
+            control = "UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo";
+            typeName = "STRING";
+            expression = UO_FW_SCENARIO_EXPRESSION;
+            defaultValue = "'None'";
+        };
         class UO_FW_GearSettings_ACE_Arsenal_LoadoutType_Blufor_VCRW {
             property = "UO_FW_GearSettings_ACE_Arsenal_LoadoutType_Blufor_VCRW";
             displayName = "Vehicle Crewman Loadout";
@@ -131,6 +210,15 @@ class UO_FW_GearSettings_ACE_Arsenal_Blufor {
         class UO_FW_GearSettings_ACE_Arsenal_LoadoutType_Blufor_OFF {
             property = "UO_FW_GearSettings_ACE_Arsenal_LoadoutType_Blufor_OFF";
             displayName = "Officer Loadout";
+            tooltip = "Officer Loadout saved in ACE Arsenal mission loadouts";
+            control = "UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo";
+            typeName = "STRING";
+            expression = UO_FW_SCENARIO_EXPRESSION;
+            defaultValue = "'None'";
+        };
+        class UO_FW_GearSettings_ACE_Arsenal_LoadoutType_Blufor_TWOIC {
+            property = "UO_FW_GearSettings_ACE_Arsenal_LoadoutType_Blufor_TWOIC";
+            displayName = "2IC Loadout";
             tooltip = "Officer Loadout saved in ACE Arsenal mission loadouts";
             control = "UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo";
             typeName = "STRING";
@@ -204,7 +292,7 @@ class UO_FW_GearSettings_ACE_Arsenal_Blufor {
 };
 class UO_FW_GearSettings_Olsen_Blufor {
     displayName = "Blufor Olsen Gear Settings";
-    collapsed = 0;
+    collapsed = 1;
     class Attributes {
         class UO_FW_GearSettings_Olsen_LoadoutType_Blufor_RFL {
             property = "UO_FW_GearSettings_Olsen_LoadoutType_Blufor_RFL";
@@ -296,6 +384,51 @@ class UO_FW_GearSettings_Olsen_Blufor {
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
+        class UO_FW_GearSettings_Olsen_LoadoutType_Blufor_HAT {
+            property = "UO_FW_GearSettings_Olsen_LoadoutType_Blufor_HAT";
+            displayName = "Heavy Anti Tank Loadout";
+            tooltip = "Automatic Rifleman Loadout saved in Olsen mission loadouts";
+            control = "Edit";
+            typeName = "STRING";
+            expression = UO_FW_SCENARIO_EXPRESSION;
+            defaultValue = "''";
+        };
+        class UO_FW_GearSettings_Olsen_LoadoutType_Blufor_AHAT {
+            property = "UO_FW_GearSettings_Olsen_LoadoutType_Blufor_AHAT";
+            displayName = "Assistant Heavy AT Loadout";
+            tooltip = "Automatic Rifleman Loadout saved in Olsen mission loadouts";
+            control = "Edit";
+            typeName = "STRING";
+            expression = UO_FW_SCENARIO_EXPRESSION;
+            defaultValue = "''";
+        };
+        class UO_FW_GearSettings_Olsen_LoadoutType_Blufor_MORTL {
+            property = "UO_FW_GearSettings_Olsen_LoadoutType_Blufor_MORTL";
+            displayName = "Mortar TL Loadout";
+            tooltip = "Automatic Rifleman Loadout saved in Olsen mission loadouts";
+            control = "Edit";
+            typeName = "STRING";
+            expression = UO_FW_SCENARIO_EXPRESSION;
+            defaultValue = "''";
+        };
+        class UO_FW_GearSettings_Olsen_LoadoutType_Blufor_MOR {
+            property = "UO_FW_GearSettings_Olsen_LoadoutType_Blufor_MOR";
+            displayName = "Mortar Crewman Loadout";
+            tooltip = "Automatic Rifleman Loadout saved in Olsen mission loadouts";
+            control = "Edit";
+            typeName = "STRING";
+            expression = UO_FW_SCENARIO_EXPRESSION;
+            defaultValue = "''";
+        };
+        class UO_FW_GearSettings_Olsen_LoadoutType_Blufor_EOD {
+            property = "UO_FW_GearSettings_Olsen_LoadoutType_Blufor_EOD";
+            displayName = "Explosive Ordnance Disposal Loadout";
+            tooltip = "Automatic Rifleman Loadout saved in Olsen mission loadouts";
+            control = "Edit";
+            typeName = "STRING";
+            expression = UO_FW_SCENARIO_EXPRESSION;
+            defaultValue = "''";
+        };
         class UO_FW_GearSettings_Olsen_LoadoutType_Blufor_VCRW {
             property = "UO_FW_GearSettings_Olsen_LoadoutType_Blufor_VCRW";
             displayName = "Vehicle Crewman Loadout";
@@ -340,6 +473,15 @@ class UO_FW_GearSettings_Olsen_Blufor {
             typeName = "STRING";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
+        };
+        class UO_FW_GearSettings_Olsen_LoadoutType_Blufor_TWOIC {
+            property = "UO_FW_GearSettings_Olsen_LoadoutType_Blufor_TWOIC";
+            displayName = "2IC Loadout";
+            tooltip = "Officer Loadout saved in Olsen mission loadouts";
+            control = "Edit";
+            typeName = "STRING";
+            expression = UO_FW_SCENARIO_EXPRESSION;
+            defaultValue = "'None'";
         };
         class UO_FW_GearSettings_Olsen_LoadoutType_Blufor_RTO {
             property = "UO_FW_GearSettings_Olsen_LoadoutType_Blufor_RTO";

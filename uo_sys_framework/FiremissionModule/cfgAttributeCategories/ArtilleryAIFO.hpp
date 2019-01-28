@@ -66,7 +66,7 @@ class UO_FW_ArtilleryAIFO
             displayName = "Dispersion";
             tooltip = "Dispersion of called in artillery strike. Default 200";
             property = "UO_FW_ArtilleryFOAIDispersion";
-            control = "UO_FW_50To250Step50_Slider";
+            control = "UO_FW_0To250Step10_Slider";
             expression = UO_FW_ENTITY_EXPRESSION;
             condition = "objectControllable";
             validate = "number";
@@ -112,9 +112,9 @@ class UO_FW_ArtilleryAIFO
         class UO_FW_ArtilleryFOAIMinSpottedDistance
         {
             displayName = "Spotting Round Distance";
-            tooltip = "Range in m of how close a spotting round needs to land near the target before a firemission is fired. Default 150";
+            tooltip = "Range in m of how close a spotting round needs to land near the target before a firemission is fired. Setting this to zero disables the accuracy requirement of the spotting round. Default 150";
             property = "UO_FW_ArtilleryFOAIMinSpottedDistance";
-            control = "UO_FW_50To250Step50_Slider";
+            control = "UO_FW_25To250Step5_Slider";
             expression = UO_FW_ENTITY_EXPRESSION;
             condition = "objectControllable";
             validate = "number";
@@ -138,7 +138,7 @@ class UO_FW_ArtilleryAIFO
             displayName = "Estimation Accuracy";
             tooltip = "Accuracy of location estimation of target in meters. Default 50";
             property = "UO_FW_ArtilleryFOAIAccuracy";
-            control = "UO_FW_50To250Step50_Slider";
+            control = "UO_FW_0To250Step10_Slider";
             expression = UO_FW_ENTITY_EXPRESSION;
             condition = "objectControllable";
             validate = "number";

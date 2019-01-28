@@ -1,4 +1,4 @@
-class UO_FW_Gear_ComboGearLoad: ComboPreview {
+class UO_FW_Gear_ACE_Arsenal_PresetsCombo: ComboPreview {
     //save the lbData from the selected entry upon exit
     attributeSave = "\
         _value = ((_this controlsGroupCtrl 100) lbData lbCurSel (_this controlsGroupCtrl 100));\
@@ -10,7 +10,7 @@ class UO_FW_Gear_ComboGearLoad: ComboPreview {
     attributeLoad="\
         private _control = (_this controlsGroupCtrl 100);\
         _control setvariable ['UO_FW_parentcontrolcfg',_config];\
-        _classArray = [['None','NONE'],['Rifleman','RFL'],['Rifleman AT','RFLAT'],['Automatic Rifleman','AR'],['Grenadier','GRN'],['Team Leader','TL'],['Squad Leader','SQL'],['Anti Tank','AT'],['Assistant Anti Tank','AAT'],['Machinegunner','MGA'],['Assistant Machinegunner','AMG'],['Heavy Anti Tank','HAT'],['Assistant Heavy Anti Tank','AHAT'],['Mortar Team Leader','MORTL'],['Mortar Crewman','MOR'],['Helicopter Pilot','HEP'],['Helicopter Crewman','HECRW'],['EOD','EOD'],['Vehicle Crewman','VCRW'],['Vehicle Commander','VCMD'],['Medic','MED'],['Marksman','MKS'],['Officer','OFF'],['2IC','TWOIC'],['RATELO','RTO'],['FAC','FAC'],['Custom 1','CUS1'],['Custom 2','CUS2'],['Custom 3','CUS3'],['Custom 4','CUS4'],['Custom 5','CUS5'],['Manual Define','MANUAL']];\
+        _GearPresetConfigs = [];\
         {\
             _x params ['_name','_className'];\
             private _index = _control lbadd _name;\
@@ -18,10 +18,8 @@ class UO_FW_Gear_ComboGearLoad: ComboPreview {
             _control lbsetValue [_index,_foreachIndex];\
             if (_value isEqualto (_control lbData _index)) then {\
                 _control lbSetCurSel _index;\
-                private _unit = ((get3denselected 'object') select 0);\
-                _unit setvariable ['UO_FW_Gear_UnitClass',_value,true];\
             };\
-        } foreach _classArray;\
+        } foreach _GearPresetConfigs;\
     ";
     class Controls: Controls {
         class Title: Title {};
@@ -30,8 +28,6 @@ class UO_FW_Gear_ComboGearLoad: ComboPreview {
                 _ctrlCombo = _this select 0;\
                 _cursel = _this select 1;\
                 _value = _control lbData _cursel;\
-                private _unit = ((get3denselected 'object') select 0);\
-                _unit setvariable ['UO_FW_Gear_UnitClass',_value,true];\
             ";
         };
         class Preview: Preview {
