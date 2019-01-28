@@ -19,7 +19,7 @@ UO_FW_EXEC_CHECK(SERVER);
 
 params ["_scenario"];
 
-if (CBA_missiontime > ((missionNamespace getvariable ["UO_FW_ConditionDelay",0]) + ((missionNamespace getvariable ["UO_FW_ConditionSleep",30]) * 1.5))) then {
+if (CBA_missiontime > ((missionNamespace getvariable ["UO_FW_EndConditions_ConditionSleep",0]) + ((missionNamespace getvariable ["UO_FW_EndConditions_ConditionSleep",30]) * 1.5))) then {
     UO_FW_MissionEnded = true;
     //endmission hooks for modules
     if ((missionNamespace getVariable ["UO_FW_ShotCount_Enabled",false])) then {

@@ -21,7 +21,6 @@ UO_FW_EXEC_CHECK(CLIENT);
 
 //IGNORE_PRIVATE_WARNING ["_player","_target"];
 ["UO_FW_SelfActions_CheckMapInitEvent", {
-    ["UO_FW_RegisterModuleEvent", ["Self Actions", "Allows players to check their own team color, view other's maps, launch paraflares, and cut grass.", "TinfoilHate and PiZZADOX"]] call CBA_fnc_globalEvent;
     [{!isNull player}, {
         private _shareMapAction = ["shareMap_class", "View Map", "", {
             params ["_target", "_player"];
@@ -119,6 +118,6 @@ UO_FW_EXEC_CHECK(CLIENT);
         ["UO_FW_SelfActions_ParaFlaresInitEvent", []] call CBA_fnc_localEvent;
     };
     [{!isNull player},{
-        ["UO_FW_RegisterModuleEvent", ["Self Actions", "Allows players to check their own team color, view other's maps, launch paraflares, and cut grass.", "TinfoilHate and PiZZADOX"]] call CBA_fnc_globalEvent;
+        ["UO_FW_RegisterModuleEvent", ["Self Actions", "Allows players to check their own team color, view other's maps, launch paraflares, and cut grass.", "TinfoilHate and PiZZADOX"]] call CBA_fnc_localEvent;
     }, []] call CBA_fnc_waitUntilAndExecute;
 }] call CBA_fnc_addEventHandler;

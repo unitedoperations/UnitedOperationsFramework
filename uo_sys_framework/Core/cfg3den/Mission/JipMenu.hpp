@@ -5,11 +5,11 @@ class UO_FW_JIPCategory {
         class UO_FW_JIP_DENYTIME {
             property = "UO_FW_JIP_DENYTIME";
             displayName = "Deny Time";
-            tooltip = "After how many seconds should a player be considered JIP (this only applies if you are using DENY";
+            tooltip = "After how many minutes should a player be considered JIP";
             control = "EditShort";
             expression = UO_FW_SCENARIO_EXPRESSION;
             validate = "number";
-            defaultValue = "300";
+            defaultValue = "5";
         };
         class UO_FW_JIP_EXPIRETIME {
             property = "UO_FW_JIP_EXPIRETIME";
@@ -18,7 +18,7 @@ class UO_FW_JIPCategory {
             control = "EditShort";
             expression = UO_FW_SCENARIO_EXPRESSION;
             validate = "number";
-            defaultValue = "30";
+            defaultValue = "5";
         };
         class UO_FW_JIP_EnemyDISTANCE {
             property = "UO_FW_JIP_EnemyDISTANCE";

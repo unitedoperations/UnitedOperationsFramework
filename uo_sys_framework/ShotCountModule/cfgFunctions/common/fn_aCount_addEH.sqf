@@ -13,7 +13,7 @@ UO_FW_EXEC_CHECK(ALL);
 
 if !(UO_FW_Server_ShotCountModule_Allowed) exitwith {};
 if (!(missionNamespace getVariable ["UO_FW_ShotCount_Enabled",false])) exitwith {};
-["UO_FW_RegisterModuleEvent", ["Shot Count", "Count shots fired by units", "Beta, TinfoilHate, PiZZADOX and Sacher"]] call CBA_fnc_globalEvent;
+["UO_FW_RegisterModuleEvent", ["Shot Count", "Count shots fired by units", "Beta, TinfoilHate, PiZZADOX and Sacher"]] call CBA_fnc_localEvent;
 
 params ["_obj"];
 

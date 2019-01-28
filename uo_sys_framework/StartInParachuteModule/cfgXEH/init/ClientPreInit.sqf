@@ -5,9 +5,9 @@ UO_FW_EXEC_CHECK(CLIENTHC);
 ["UO_FW_StartInParachute_PlayerEvent", {
     [{(!isNull player)}, {
         [{
-            private _parachuteType = ["NONE","NONSTEERABLE","STEERABLE"] select (UO_FW_GETPLVAR(StartInParachute, 0));
-            private _altitude = UO_FW_GETPLVAR(ParachuteAltitude, 300);
-            private _randomAltitude = UO_FW_GETPLVAR(ParachuteRandomAltitude, 100);
+            private _parachuteType = ["NONE","NONSTEERABLE","STEERABLE"] select (GETPLVAR(StartInParachute, 0));
+            private _altitude = GETPLVAR(ParachuteAltitude, 300);
+            private _randomAltitude = GETPLVAR(ParachuteRandomAltitude, 100);
             switch (_parachuteType) do {
                 case "NONE": {};
                 case "NONSTEERABLE": {

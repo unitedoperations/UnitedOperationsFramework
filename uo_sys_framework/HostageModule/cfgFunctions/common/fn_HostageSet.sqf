@@ -7,7 +7,7 @@ if (!UO_FW_Server_HostageModule_Allowed) exitWith {};
 
 params ["_unit"];
 
-private _marker = (UO_FW_GETVAR(_unit,Hostage_Rescue_Location,"hostage_rescue"));
+private _marker = (GETVAR(_unit,Hostage_Rescue_Location,"hostage_rescue"));
 
 if (getMarkerColor _marker isEqualto "") exitwith {
     ERROR_1("hostage _marker: %1 does not exist!",_marker);
@@ -24,12 +24,12 @@ _unit playMoveNow "Acts_AidlPsitMstpSsurWnonDnon04";
 
 private _EhAnimDone = _unit addEventHandler ["AnimDone", {
     if (!alive _unit) exitWith {
-        _unit removeEventHandler ["AnimDone", {(UO_FW_SETVAR(_unit,EhAnimDone,nil));}];
+        _unit removeEventHandler ["AnimDone", {(SETVAR(_unit,EhAnimDone,nil));}];
     };
     _unit playMoveNow "Acts_AidlPsitMstpSsurWnonDnon04";
 }];
 
-(UO_FW_SETVAR(_unit,EhAnimDone,_EhAnimDone));
+(SETVAR(_unit,EhAnimDone,_EhAnimDone));
 
 [{
     params ["_argNested", "_idPFH"];
@@ -45,7 +45,7 @@ private _EhAnimDone = _unit addEventHandler ["AnimDone", {
                 _this playMoveNow "AmovPsitMstpSnonWnonDnon_ground";
             }, _unit, 1] call CBA_fnc_waitAndExecute;
         };
-        (UO_FW_SETPVAR(_this,Hostage_IsRescued,true));
+        (SETPVAR(_this,Hostage_IsRescued,true));
         [_idPFH] call CBA_fnc_removePerFrameHandler;
     };
 }, 5, [_unit,_marker,CBA_missionTime]] call CBA_fnc_addPerFrameHandler;

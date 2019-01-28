@@ -15,20 +15,20 @@ private ["_type","_distance"];
 
 switch (side player) do {
     case west: {
-        _type = UO_FW_GETMVAR(JIP_Type_BLUFOR,0);
-        _distance = UO_FW_GETMVAR(JIP_Distance_BLUFOR,200);
+        _type = GETMVAR(JIP_Type_BLUFOR,0);
+        _distance = GETMVAR(JIP_Distance_BLUFOR,200);
     };
     case east: {
-        _type = UO_FW_GETMVAR(JIP_Type_OPFOR,0);
-        _distance = UO_FW_GETMVAR(JIP_Distance_OPFOR,200);
+        _type = GETMVAR(JIP_Type_OPFOR,0);
+        _distance = GETMVAR(JIP_Distance_OPFOR,200);
     };
     case independent: {
-        _type = UO_FW_GETMVAR(JIP_Type_INDFOR,0);
-        _distance = UO_FW_GETMVAR(JIP_Distance_INDFOR,200);
+        _type = GETMVAR(JIP_Type_INDFOR,0);
+        _distance = GETMVAR(JIP_Distance_INDFOR,200);
     };
     case civilian: {
-        _type = UO_FW_GETMVAR(JIP_Type_CIV,0);
-        _distance = UO_FW_GETMVAR(JIP_Distance_CIV,200);
+        _type = GETMVAR(JIP_Type_CIV,0);
+        _distance = GETMVAR(JIP_Distance_CIV,200);
     };
 };
 
@@ -38,17 +38,17 @@ switch (_type) do {
             params ["_target", "_player", "_args"];
             _args params ["_distance"];
             [_target,_args] call UO_FW_FUNC(JiPTeleport);
-        }, {(player distance (UO_FW_GETMVAR(SpawnPos,(getpos player))) > (_this select 0))}, {}, [_distance]] call ace_interact_menu_fnc_createAction;
+        }, {(player distance (GETMVAR(SpawnPos,(getpos player))) > (_this select 0))}, {}, [_distance]] call ace_interact_menu_fnc_createAction;
         [player, 1, ["ACE_SelfActions"], _teleportAction] call ace_interact_menu_fnc_addActionToObject;
         [{
             params ["_args","_idPFH"];
             _args params ["_distance","_startTime"];
-            if (CBA_missionTime > (_startTime + 120)) exitwith {
+            if (CBA_missionTime > (_startTime + ((GETMVAR(JIP_EXPIRETIME,(5))) * 60))) exitwith {
                 [player,1,["ACE_SelfActions","Jip_Teleport_Action"]] call ace_interact_menu_fnc_removeActionFromObject;
                 [_idPFH] call CBA_fnc_removePerFrameHandler;
-                ["JIP teleport option lost, it has been two minutes since you spawned."] call ace_common_fnc_displayTextStructured;
+                ["JIP teleport option lost, it has been %1 minutes since you spawned.",(GETMVAR(JIP_EXPIRETIME,(5)))] call ace_common_fnc_displayTextStructured;
             };
-            if (player distance (UO_FW_GETMVAR(SpawnPos,(getpos player))) > _distance) exitwith {
+            if (player distance (GETMVAR(SpawnPos,(getpos player))) > _distance) exitwith {
                 [player,1,["ACE_SelfActions","Jip_Teleport_Action"]] call ace_interact_menu_fnc_removeActionFromObject;
                 [_idPFH] call CBA_fnc_removePerFrameHandler;
                 [["JIP teleport option lost, you went beyond %1 meters from your spawn location",_distance]] call ace_common_fnc_displayTextStructured;
@@ -60,17 +60,17 @@ switch (_type) do {
             params ["_target", "_player", "_args"];
             _args params ["_distance"];
             [_target,_args] call UO_FW_FUNC(JiPTransport);
-        }, {(player distance (UO_FW_GETMVAR(SpawnPos,(getpos player))) > (_this select 0))}, {}, [_distance]] call ace_interact_menu_fnc_createAction;
+        }, {(player distance (GETMVAR(SpawnPos,(getpos player))) > (_this select 0))}, {}, [_distance]] call ace_interact_menu_fnc_createAction;
         [player, 1, ["ACE_SelfActions"], _transportAction] call ace_interact_menu_fnc_addActionToObject;
         [{
             params ["_args","_idPFH"];
             _args params ["_distance","_startTime"];
-            if (CBA_missionTime > (_startTime + 120)) exitwith {
+            if (CBA_missionTime > (_startTime + ((GETMVAR(JIP_EXPIRETIME,(5))) * 60))) exitwith {
                 [player,1,["ACE_SelfActions","Jip_Teleport_Action"]] call ace_interact_menu_fnc_removeActionFromObject;
                 [_idPFH] call CBA_fnc_removePerFrameHandler;
-                ["JIP teleport option lost, it has been two minutes since you spawned."] call ace_common_fnc_displayTextStructured;
+                ["JIP teleport option lost, it has been %1 minutes since you spawned.",(GETMVAR(JIP_EXPIRETIME,(5)))] call ace_common_fnc_displayTextStructured;
             };
-            if (player distance (UO_FW_GETMVAR(SpawnPos,(getpos player))) > _distance)exitwith {
+            if (player distance (GETMVAR(SpawnPos,(getpos player))) > _distance)exitwith {
                 [player,1,["ACE_SelfActions","Jip_Transport_Action"]] call ace_interact_menu_fnc_removeActionFromObject;
                 [_idPFH] call CBA_fnc_removePerFrameHandler;
                 [["JIP teleport option lost, you went beyond %1 meters from your spawn location",_distance]] call ace_common_fnc_displayTextStructured;

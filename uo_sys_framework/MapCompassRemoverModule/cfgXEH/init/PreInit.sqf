@@ -6,20 +6,20 @@ UO_FW_EXEC_CHECK(ALL);
     [{(CBA_missionTime > 1)},{
         {
             if (UO_FW_MACR_MAP_ALL) then {
-                if !(UO_FW_GETVAR(_x,KeepMapAI,false)) then {
+                if !(GETVAR(_x,KeepMapAI,false)) then {
                     _x unlinkItem "ItemMap";
                 };
             } else {
-                if (UO_FW_GETVAR(_x,RemoveMapAI,false)) then {
+                if (GETVAR(_x,RemoveMapAI,false)) then {
                     _x unlinkItem "ItemMap";
                 };
             };
             if (UO_FW_MACR_COMPASS_ALL) then {
-                if !(UO_FW_GETVAR(_x,KeepCompassAI,false)) then {
+                if !(GETVAR(_x,KeepCompassAI,false)) then {
                     _x unlinkItem "ItemCompass";
                 };
             } else {
-                if (UO_FW_GETVAR(_x,RemoveCompassAI,false)) then {
+                if (GETVAR(_x,RemoveCompassAI,false)) then {
                     _x unlinkItem "ItemCompass";
                 };
             };

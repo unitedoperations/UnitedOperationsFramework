@@ -2,7 +2,7 @@
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 UO_FW_EXEC_CHECK(CLIENT);
 
-if !(UO_FW_GETPLVAR(Spectating,false)) exitwith {};
+if !(GETPLVAR(Spectating,false)) exitwith {};
 
 player setVariable ["UO_FW_Spectating", false, true];
 player setVariable ["UO_FW_Dead", false, true];

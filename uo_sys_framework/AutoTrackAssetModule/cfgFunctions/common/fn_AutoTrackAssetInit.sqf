@@ -6,12 +6,12 @@ params ["_vehicle"];
 
 ["UO_FW_SettingsLoaded", {
     if !(UO_FW_Server_AUTOTRACKASSETMODULE_Allowed) exitwith {};
-    if !(UO_FW_GETMVAR(AutoTrackAsset_Enabled,false)) exitWith {};
+    if !(GETMVAR(AutoTrackAsset_Enabled,false)) exitWith {};
     ["UO_FW_RegisterModuleEvent", ["Auto Track Assets", "Automatically runs Asset Tracking on AI vehicles.", "Starfox64, Sacher and PiZZADOX"]] call CBA_fnc_globalEvent;
     [{(!isNull (_this select 0))},{
         params ["_vehicle"];
         if ((!isPlayer _vehicle) && {!(side _vehicle isEqualto civilian)}) then {
-            if (UO_FW_GETVAR(_vehicle,AssetName,"")) then {
+            if (GETVAR(_vehicle,AssetName,"")) then {
                 {
                     _x params ["_name", "_side", "_type", "_start", "_current", "_disabled", "_destroyed"];
                     if (_side isEqualto (side _vehicle)) exitWith {

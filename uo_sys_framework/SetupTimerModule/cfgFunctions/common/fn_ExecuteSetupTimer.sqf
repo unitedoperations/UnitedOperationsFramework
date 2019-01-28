@@ -8,7 +8,7 @@ if (!(_this call UO_FW_fnc_ValidateSetupTimer)) exitWith {
     ERROR("Setup timer failed to Validate");
 };
 
-["UO_FW_RegisterModuleEvent", ["Setup Timer", "Allows the mission maker to restrict players to an area for a set amount of time.", "Olsen, Sacher and PiZZADOX"]] call CBA_fnc_globalEvent;
+["UO_FW_RegisterModuleEvent", ["Setup Timer", "Allows the mission maker to restrict players to an area for a set amount of time.", "Olsen, Sacher and PiZZADOX"]] call CBA_fnc_localEvent;
 
 [{(!isNull player)}, {
 

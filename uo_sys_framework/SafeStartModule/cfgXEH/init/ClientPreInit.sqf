@@ -5,8 +5,8 @@ UO_FW_EXEC_CHECK(CLIENT);
 ["UO_FW_SafeStart_Event", {
     if !(UO_FW_Server_SafeStartModule_Allowed) exitWith {};
     if !(UO_FW_SafeStart_Enable) exitwith {};
-    ["UO_FW_RegisterModuleEvent", ["Safe Start", "Extra safety for mission start", "Olsen and PiZZADOX"]] call CBA_fnc_globalEvent;
-    [{(!isNull player) && {(UO_FW_GETMVAR(GearReady,false))}}, {
+    ["UO_FW_RegisterModuleEvent", ["Safe Start", "Extra safety for mission start", "Olsen and PiZZADOX"]] call CBA_fnc_localEvent;
+    [{(!isNull player) && {(GETMVAR(GearReady,false))}}, {
         if !((currentWeapon player) isEqualto "") then {
             [player, (currentWeapon player), (currentMuzzle player)] call ace_safemode_fnc_lockSafety;
         };

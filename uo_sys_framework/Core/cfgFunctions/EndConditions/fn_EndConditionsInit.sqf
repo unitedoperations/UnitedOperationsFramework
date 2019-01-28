@@ -12,10 +12,10 @@
 UO_FW_EXEC_CHECK(SERVER);
 
 if (isNil "UO_FW_MissionEnded") then {UO_FW_MissionEnded = false;};
-private _delay = (missionNamespace getvariable ["UO_FW_ConditionDelay",0]);
-private _frequency = (missionNamespace getvariable ["UO_FW_ConditionSleep",30]);
+private _delay = (missionNamespace getvariable ["UO_FW_EndConditions_ConditionDelay",0]);
+private _frequency = (missionNamespace getvariable ["UO_FW_EndConditions_ConditionSleep",30]);
 if (_frequency < 30) then {
-    missionNamespace setvariable ["UO_FW_ConditionSleep",30];
+    missionNamespace setvariable ["UO_FW_EndConditions_ConditionSleep",30];
     _frequency = 30;
 };
 

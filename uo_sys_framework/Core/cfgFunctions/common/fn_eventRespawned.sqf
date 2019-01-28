@@ -18,7 +18,7 @@ UO_FW_EXEC_CHECK(SERVER);
 
 params ["_new"];
 
-if (!(UO_FW_GETVAR(_new,Spectating,false))) then {
+if (!(GETVAR(_new,Spectating,false))) then {
     _new call UO_FW_fnc_EventSpawned;
 } else {
     _new call UO_FW_fnc_UntrackUnit;
