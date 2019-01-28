@@ -247,7 +247,7 @@ if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_2",false]) then {
                         };
                     };
                 };
-            }, 60, [(missionNamespace getvariable ["UO_FW_ConditionSleep",30]),CBA_missionTime]] call CBA_fnc_addPerFrameHandler;
+            }, 60, [(missionNamespace getvariable ["UO_FW_EndConditions_ConditionSleep",30]),CBA_missionTime]] call CBA_fnc_addPerFrameHandler;
         } else {
             ERROR("No Conditions for Category 2");
         };

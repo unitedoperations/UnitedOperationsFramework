@@ -125,7 +125,7 @@ UO_FW_EXEC_CHECK(CLIENT);
         LOG_1("Setting Netnames. Ind: %1",_UO_FW_ChannelNamesINDEPENDENT);
         LOG_1("Setting Netnames. Civ: %1",_UO_FW_ChannelNamesCIVILIAN);
 
-		[{(!isNull player) && {(!isNull acre_player)} && {([] call acre_api_fnc_isInitialized)} && {UO_FW_GETMVAR(GearReady,false)}},{
+		[{(!isNull player) && {(!isNull acre_player)} && {([] call acre_api_fnc_isInitialized)} && {GETMVAR(GearReady,false)}},{
 			private _side = side player;
 			private _customSide = (player getVariable ["UO_FW_CustomScramble", nil]);
 			UO_FW_Acre_Volume_Value = -1;
@@ -309,7 +309,7 @@ UO_FW_EXEC_CHECK(CLIENT);
 }] call CBA_fnc_addEventHandler;
 
 ["UO_FW_ACRE_AddRadio_Event",{
-	[{UO_FW_GETMVAR(GearReady,false)},{
+	[{GETMVAR(GearReady,false)},{
 		if (player getVariable ["UO_FW_ACRE_UNITSETTINGS_Enable",false]) then {
 			private ["_SRType","_LRType","_PKType"];
 			switch (side player) do {

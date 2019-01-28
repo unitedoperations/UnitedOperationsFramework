@@ -8,8 +8,8 @@ UO_FW_EXEC_CHECK(CLIENT);
     ["UO_FW_RegisterModuleEvent", ["Cover Map", "Covers map except specified area, allows switching between multiple AOs", "Blackhawk and PIZZADOX"]] call CBA_fnc_localEvent;
     [{(!isNull player)}, {
         private ["_DefaultAO"];
-        if !((UO_FW_GETPLVAR(CoverMap_UnitDefaultAO,[])) isEqualto "") then {
-            _DefaultAO = UO_FW_GETPLVAR(CoverMap_UnitDefaultAO,[]);
+        if !((GETPLVAR(CoverMap_UnitDefaultAO,[])) isEqualto "") then {
+            _DefaultAO = GETPLVAR(CoverMap_UnitDefaultAO,[]);
             //IGNORE_PRIVATE_WARNING ["_x"];
             if ((UO_FW_CoverMap_AO_Array findif {_DefaultAO isEqualto (_x select 0)}) isEqualto -1) exitwith {
                 ERROR_2("Default CoverMap for unit: %1 area: %1 does not exist!",player,_DefaultAO);
@@ -17,7 +17,7 @@ UO_FW_EXEC_CHECK(CLIENT);
         } else {
             switch (side player) do {
                 case west: {
-                    _DefaultAO = (UO_FW_GETMVAR(CoverMap_DefaultAO_BLUFOR,""));
+                    _DefaultAO = (GETMVAR(CoverMap_DefaultAO_BLUFOR,""));
                     if (_DefaultAO isEqualto "") exitwith {
                         ERROR("No Default BLUFOR Area defined for CoverMap!");
                     };
@@ -26,7 +26,7 @@ UO_FW_EXEC_CHECK(CLIENT);
                     };
                 };
                 case east: {
-                    _DefaultAO = (UO_FW_GETMVAR(CoverMap_DefaultAO_OPFOR,""));
+                    _DefaultAO = (GETMVAR(CoverMap_DefaultAO_OPFOR,""));
                     if (_DefaultAO isEqualto "") exitwith {
                         ERROR("No Default OPFOR Area defined for CoverMap!");
                     };
@@ -35,7 +35,7 @@ UO_FW_EXEC_CHECK(CLIENT);
                     };
                 };
                 case independent: {
-                    _DefaultAO = (UO_FW_GETMVAR(CoverMap_DefaultAO_Indfor,""));
+                    _DefaultAO = (GETMVAR(CoverMap_DefaultAO_Indfor,""));
                     if (_DefaultAO isEqualto "") exitwith {
                         ERROR("No Default INDFOR Area defined for CoverMap!");
                     };
@@ -44,7 +44,7 @@ UO_FW_EXEC_CHECK(CLIENT);
                     };
                 };
                 case civilian: {
-                    _DefaultAO = (UO_FW_GETMVAR(CoverMap_DefaultAO_Civ,""));
+                    _DefaultAO = (GETMVAR(CoverMap_DefaultAO_Civ,""));
                     if (_DefaultAO isEqualto "") exitwith {
                         ERROR("No Default Civilian Area defined for CoverMap!");
                     };
@@ -65,8 +65,8 @@ UO_FW_EXEC_CHECK(CLIENT);
     }] call CBA_fnc_waitUntilAndExecute;
 
     [{((!isNull player) && {CBA_missionTime > 1})}, {
-        if (UO_FW_GETMVAR(CoverMap_AllowSwitching,false)) then {
-            if !((UO_FW_GETPLVAR(CoverMap_UnitAONameArray,[])) isEqualto []) then {
+        if (GETMVAR(CoverMap_AllowSwitching,false)) then {
+            if !((GETPLVAR(CoverMap_UnitAONameArray,[])) isEqualto []) then {
                 private _MapChangeMenu = ["MapChangeMenu", "Switch Map", "", {}, {true}] call ace_interact_menu_fnc_createAction;
                 [player, 1, ["ACE_SelfActions","ACE_Equipment"], _MapChangeMenu] call ace_interact_menu_fnc_addActionToObject;
                 private ["_ActionArray"];
@@ -80,7 +80,7 @@ UO_FW_EXEC_CHECK(CLIENT);
                         if ((_AONameAllowed isEqualto _AOName) && {!(_AONameAllowed in _ActionArray)}) then {
                             private _condition = {
                                 params ["", "", "_params"];
-                                (visibleMap) && !(UO_FW_CoverMap_currentAO isEqualto (_params select 0)) && (UO_FW_GETMVAR(CoverMap_AllowSwitching,false))
+                                (visibleMap) && !(UO_FW_CoverMap_currentAO isEqualto (_params select 0)) && (GETMVAR(CoverMap_AllowSwitching,false))
                             };
                             private _statement = {
                                 params ["", "", "_params"];
@@ -92,7 +92,7 @@ UO_FW_EXEC_CHECK(CLIENT);
                             LOG_1("CoverMap action added for area: %1",_AONameAllowed);
                         };
                     } foreach UO_FW_CoverMap_AO_Array;
-                } foreach (UO_FW_GETPLVAR(CoverMap_UnitAONameArray,[]));
+                } foreach (GETPLVAR(CoverMap_UnitAONameArray,[]));
             };
         };
     }] call CBA_fnc_waitUntilAndExecute;

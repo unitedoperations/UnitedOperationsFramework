@@ -6,38 +6,38 @@ private ["_delay","_templateSettings","_teamRespawnMarker","_newSideSetting","_r
 
 switch (side player) do {
     case west: {
-        private _respawnTypeNum = UO_FW_GETMVAR(RespawnSetting_Type_BLUFOR,0);
+        private _respawnTypeNum = GETMVAR(RespawnSetting_Type_BLUFOR,0);
         _respawnType = ["ONELIFE","UNLIMITED","INDTICK","TEAMTICK"] select _respawnTypeNum;
-        _delay = UO_FW_GETMVAR(RespawnSetting_Delay_BLUFOR,5);
-        _templateSettings = UO_FW_GETMVAR(RespawnSetting_Templates_BLUFOR,[]);
-        private _newSideValue = UO_FW_GETMVAR(RespawnSetting_NewTeam_BLUFOR,0);
+        _delay = GETMVAR(RespawnSetting_Delay_BLUFOR,5);
+        _templateSettings = GETMVAR(RespawnSetting_Templates_BLUFOR,[]);
+        private _newSideValue = GETMVAR(RespawnSetting_NewTeam_BLUFOR,0);
         _newSideSetting = [blufor,opfor,independent,civilian] select _newSideValue;
         _teamRespawnMarker = "UO_FW_RESPAWN_BLUFOR";
     };
     case east: {
-        private _respawnTypeNum = UO_FW_GETMVAR(RespawnSetting_Type_OPFOR,0);
+        private _respawnTypeNum = GETMVAR(RespawnSetting_Type_OPFOR,0);
         _respawnType = ["ONELIFE","UNLIMITED","INDTICK","TEAMTICK"] select _respawnTypeNum;
-        _delay = UO_FW_GETMVAR(RespawnSetting_Delay_OPFOR,5);
-        _templateSettings = UO_FW_GETMVAR(RespawnSetting_Templates_OPFOR,[]);
-        private _newSideValue = UO_FW_GETMVAR(RespawnSetting_NewTeam_OPFOR,1);
+        _delay = GETMVAR(RespawnSetting_Delay_OPFOR,5);
+        _templateSettings = GETMVAR(RespawnSetting_Templates_OPFOR,[]);
+        private _newSideValue = GETMVAR(RespawnSetting_NewTeam_OPFOR,1);
         _newSideSetting = [blufor,opfor,independent,civilian] select _newSideValue;
         _teamRespawnMarker = "UO_FW_RESPAWN_OPFOR";
     };
     case independent: {
-        private _respawnTypeNum = UO_FW_GETMVAR(RespawnSetting_Type_INDFOR,0);
+        private _respawnTypeNum = GETMVAR(RespawnSetting_Type_INDFOR,0);
         _respawnType = ["ONELIFE","UNLIMITED","INDTICK","TEAMTICK"] select _respawnTypeNum;
-        _delay = UO_FW_GETMVAR(RespawnSetting_Delay_INDFOR,5);
-        _templateSettings = UO_FW_GETMVAR(RespawnSetting_Templates_INDFOR,[]);
-        private _newSideValue = UO_FW_GETMVAR(RespawnSetting_NewTeam_INDFOR,2);
+        _delay = GETMVAR(RespawnSetting_Delay_INDFOR,5);
+        _templateSettings = GETMVAR(RespawnSetting_Templates_INDFOR,[]);
+        private _newSideValue = GETMVAR(RespawnSetting_NewTeam_INDFOR,2);
         _newSideSetting = [blufor,opfor,independent,civilian] select _newSideValue;
         _teamRespawnMarker = "UO_FW_RESPAWN_INDFOR";
     };
     case civilian: {
-        private _respawnTypeNum = UO_FW_GETMVAR(RespawnSetting_Type_CIV,0);
+        private _respawnTypeNum = GETMVAR(RespawnSetting_Type_CIV,0);
         _respawnType = ["ONELIFE","UNLIMITED","INDTICK","TEAMTICK"] select _respawnTypeNum;
-        _delay = UO_FW_GETMVAR(RespawnSetting_Delay_CIV,5);
-        _templateSettings = UO_FW_GETMVAR(RespawnSetting_Templates_CIV,[]);
-        private _newSideValue = UO_FW_GETMVAR(RespawnSetting_NewTeam_CIV,3);
+        _delay = GETMVAR(RespawnSetting_Delay_CIV,5);
+        _templateSettings = GETMVAR(RespawnSetting_Templates_CIV,[]);
+        private _newSideValue = GETMVAR(RespawnSetting_NewTeam_CIV,3);
         _newSideSetting = [blufor,opfor,independent,civilian] select _newSideValue;
         _teamRespawnMarker = "UO_FW_RESPAWN_CIV";
     };
@@ -54,7 +54,7 @@ if ((_respawnType isEqualto "INDTICK") || (_respawnType isEqualto "TEAMTICK") ||
         ["UO_FW_PlayerInit_Event", []] call CBA_fnc_localEvent;
 
         // Remove Killed Displays
-        if (UO_FW_GETMVAR(RespawnSetting_InstantDeath,true)) then {
+        if (GETMVAR(RespawnSetting_InstantDeath,true)) then {
             "UO_FW_KilledLayer" cutText ["","BLACK IN", 5];
             ["UO_FW_death", 0, false] call ace_common_fnc_setHearingCapability;
             0 fadeSound 1;
@@ -66,7 +66,7 @@ if ((_respawnType isEqualto "INDTICK") || (_respawnType isEqualto "TEAMTICK") ||
 
         // Handle Group Join
         if ("UO_FW_RTemplatesS_JoinGroup" in _templateSettings) then {
-            private _oldGroup = UO_FW_GETMVAR(OLDGROUP,grpnull);
+            private _oldGroup = GETMVAR(OLDGROUP,grpnull);
             [player] joinSilent _oldGroup;
         } else {
             if !(_newSideSetting isEqualto (side player)) then {

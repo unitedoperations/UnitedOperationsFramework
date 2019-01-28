@@ -13,66 +13,66 @@ player call UO_FW_fnc_RemoveAllGear;
 player setPos [0, 0, 0];
 [player] joinSilent grpNull;
 
-if (UO_FW_GETPLVAR(Spectating,false)) exitwith {};
+if (GETPLVAR(Spectating,false)) exitwith {};
 
 private ["_delay","_teamSpectateList","_killCamSetting","_AISetting","_freeCamSetting","_thirdPersonSetting"];
 
 switch (side player) do {
     case west: {
-        _delay = UO_FW_GETMVAR(RespawnSetting_Delay_BLUFOR,5);
-        private _teamSpectateVarValue = UO_FW_GETMVAR(TeamSpectateSettings_EnabledTeams_Blufor,[]);
+        _delay = GETMVAR(RespawnSetting_Delay_BLUFOR,5);
+        private _teamSpectateVarValue = GETMVAR(TeamSpectateSettings_EnabledTeams_Blufor,[]);
         _teamSpectateList = [];
         if ("BLUFOR" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique BLUFOR};
         if ("OPFOR" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique OPFOR};
         if ("INDFOR" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique INDEPENDENT};
         if ("CIVILIAN" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique CIVILIAN};
-        _killCamSetting = UO_FW_GETMVAR(TeamSpectateSettings_KillCam_Blufor,true);
-        _AISetting = UO_FW_GETMVAR(TeamSpectateSettings_AIEnabled_Blufor,true);
-        _freeCamSetting = UO_FW_GETMVAR(TeamSpectateSettings_FreeCam_Blufor,true);
-        _thirdPersonSetting = UO_FW_GETMVAR(TeamSpectateSettings_3rdPerson_Blufor,true);
+        _killCamSetting = GETMVAR(TeamSpectateSettings_KillCam_Blufor,true);
+        _AISetting = GETMVAR(TeamSpectateSettings_AIEnabled_Blufor,true);
+        _freeCamSetting = GETMVAR(TeamSpectateSettings_FreeCam_Blufor,true);
+        _thirdPersonSetting = GETMVAR(TeamSpectateSettings_3rdPerson_Blufor,true);
     };
     case east: {
-        _delay = UO_FW_GETMVAR(RespawnSetting_Delay_OPFOR,5);
-        private _teamSpectateVarValue = UO_FW_GETMVAR(TeamSpectateSettings_EnabledTeams_OPFOR,[]);
+        _delay = GETMVAR(RespawnSetting_Delay_OPFOR,5);
+        private _teamSpectateVarValue = GETMVAR(TeamSpectateSettings_EnabledTeams_OPFOR,[]);
         _teamSpectateList = [];
         if ("BLUFOR" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique BLUFOR};
         if ("OPFOR" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique OPFOR};
         if ("INDFOR" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique INDEPENDENT};
         if ("CIVILIAN" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique CIVILIAN};
-        _killCamSetting = UO_FW_GETMVAR(TeamSpectateSettings_KillCam_OPFOR,true);
-        _AISetting = UO_FW_GETMVAR(TeamSpectateSettings_AIEnabled_OPFOR,true);
-        _freeCamSetting = UO_FW_GETMVAR(TeamSpectateSettings_FreeCam_OPFOR,true);
-        _thirdPersonSetting = UO_FW_GETMVAR(TeamSpectateSettings_3rdPerson_OPFOR,true);
+        _killCamSetting = GETMVAR(TeamSpectateSettings_KillCam_OPFOR,true);
+        _AISetting = GETMVAR(TeamSpectateSettings_AIEnabled_OPFOR,true);
+        _freeCamSetting = GETMVAR(TeamSpectateSettings_FreeCam_OPFOR,true);
+        _thirdPersonSetting = GETMVAR(TeamSpectateSettings_3rdPerson_OPFOR,true);
     };
     case independent: {
-        _delay = UO_FW_GETMVAR(RespawnSetting_Delay_INDFOR,5);
-        private _teamSpectateVarValue = UO_FW_GETMVAR(TeamSpectateSettings_EnabledTeams_INDFOR,[]);
+        _delay = GETMVAR(RespawnSetting_Delay_INDFOR,5);
+        private _teamSpectateVarValue = GETMVAR(TeamSpectateSettings_EnabledTeams_INDFOR,[]);
         _teamSpectateList = [];
         if ("BLUFOR" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique BLUFOR};
         if ("OPFOR" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique OPFOR};
         if ("INDFOR" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique INDEPENDENT};
         if ("CIVILIAN" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique CIVILIAN};
-        _killCamSetting = UO_FW_GETMVAR(TeamSpectateSettings_KillCam_INDFOR,true);
-        _AISetting = UO_FW_GETMVAR(TeamSpectateSettings_AIEnabled_INDFOR,true);
-        _freeCamSetting = UO_FW_GETMVAR(TeamSpectateSettings_FreeCam_INDFOR,true);
-        _thirdPersonSetting = UO_FW_GETMVAR(TeamSpectateSettings_3rdPerson_INDFOR,true);
+        _killCamSetting = GETMVAR(TeamSpectateSettings_KillCam_INDFOR,true);
+        _AISetting = GETMVAR(TeamSpectateSettings_AIEnabled_INDFOR,true);
+        _freeCamSetting = GETMVAR(TeamSpectateSettings_FreeCam_INDFOR,true);
+        _thirdPersonSetting = GETMVAR(TeamSpectateSettings_3rdPerson_INDFOR,true);
     };
     case civilian: {
-        _delay = UO_FW_GETMVAR(RespawnSetting_Delay_CIV,5);
-        private _teamSpectateVarValue = UO_FW_GETMVAR(TeamSpectateSettings_EnabledTeams_CIV,[]);
+        _delay = GETMVAR(RespawnSetting_Delay_CIV,5);
+        private _teamSpectateVarValue = GETMVAR(TeamSpectateSettings_EnabledTeams_CIV,[]);
         _teamSpectateList = [];
         if ("BLUFOR" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique BLUFOR};
         if ("OPFOR" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique OPFOR};
         if ("INDFOR" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique INDEPENDENT};
         if ("CIVILIAN" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique CIVILIAN};
-        _killCamSetting = UO_FW_GETMVAR(TeamSpectateSettings_KillCam_CIV,true);
-        _AISetting = UO_FW_GETMVAR(TeamSpectateSettings_AIEnabled_CIV,true);
-        _freeCamSetting = UO_FW_GETMVAR(TeamSpectateSettings_FreeCam_CIV,true);
-        _thirdPersonSetting = UO_FW_GETMVAR(TeamSpectateSettings_3rdPerson_CIV,true);
+        _killCamSetting = GETMVAR(TeamSpectateSettings_KillCam_CIV,true);
+        _AISetting = GETMVAR(TeamSpectateSettings_AIEnabled_CIV,true);
+        _freeCamSetting = GETMVAR(TeamSpectateSettings_FreeCam_CIV,true);
+        _thirdPersonSetting = GETMVAR(TeamSpectateSettings_3rdPerson_CIV,true);
     };
 };
 
-UO_FW_SETMVAR(EG_Killcam_active,_killCamSetting);
+SETMVAR(EG_Killcam_active,_killCamSetting);
 // Whether to show Focus Info stats widget (true/false)
 UO_FW_EG_show_Focus_Info_widget = false;
 // Whether or not to show camera buttons widget (true/false)
@@ -86,7 +86,7 @@ UO_FW_EG_show_Entities_and_locations_lists = true;
 // Define where the spectator camera starts. (add a marker with the name inside the "")
 UO_FW_EG_spectator_marker = "";
 
-if (UO_FW_GETMVAR(RespawnSetting_InstantDeath,true)) then {
+if (GETMVAR(RespawnSetting_InstantDeath,true)) then {
     [{
         params ["_teamSpectateList","_AISetting","_freeCamSetting","_thirdPersonSetting"];
         "UO_FW_KilledLayer" cutText ["","BLACK IN", 5];
@@ -130,10 +130,10 @@ if (UO_FW_GETMVAR(RespawnSetting_InstantDeath,true)) then {
     }, [_teamSpectateList,_AISetting,_freeCamSetting,_thirdPersonSetting], _delay] call CBA_fnc_WaitAndExecute;
 };
 
-UO_FW_SETMVAR(EG_keyHandler_display_hidden,false);
+SETMVAR(EG_keyHandler_display_hidden,false);
 
 //If babel is enabled, allowed spectator to hear all languages present in mission.
-if (UO_FW_GETMVAR(enable_babel,false)) then {
+if (GETMVAR(enable_babel,false)) then {
     private _missionLanguages = [];
     {
         {
@@ -150,7 +150,7 @@ private _pos = [2000, 2000, 100];
 private _dir = 0;
 
 //our function is called from Respawned EH, so select 1 is player's body
-private _body = UO_FW_GETPLVAR(Body,objnull);
+private _body = GETPLVAR(Body,objnull);
 if (getMarkerColor UO_FW_EG_spectator_marker isEqualto "") then {
     if (!isNull _body) then {
         //set camera pos on player body
@@ -177,7 +177,7 @@ if !(_cam isEqualto objNull) then {
         _cam setposATL _pos;
         _cam setDir _dir;
     } else {
-        UO_FW_SETMVAR(killcam_toggle,false);
+        SETMVAR(killcam_toggle,false);
         //this cool piece of code adds key handler to spectator display
         //it takes some time for display to create, so we have to delay it.
         [{!isNull (findDisplay 60492)}, {
@@ -203,7 +203,7 @@ if !(_cam isEqualto objNull) then {
         };
         UO_FW_killcam_drawHandle = addMissionEventHandler ["Draw3D", {
             //we don't draw hud unless we toggle it by keypress
-            if (UO_FW_GETMVAR(killcam_toggle,false)) then {
+            if (GETMVAR(killcam_toggle,false)) then {
                 if ((UO_FW_killcam_killer_pos select 0) != 0) then {
                     private _u = UO_FW_killcam_unit_pos;
                     private _k = UO_FW_killcam_killer_pos;
@@ -220,7 +220,7 @@ if !(_cam isEqualto objNull) then {
                     };
                 } else {
                     "KillCamLayer" cutText ["killer info unavailable", "PLAIN DOWN"];
-                    UO_FW_SETMVAR(killcam_toggle,false);
+                    SETMVAR(killcam_toggle,false);
                     "KillCamLayer" cutFadeout 2;
                 };
             };
@@ -237,18 +237,18 @@ if (_killCamSetting) then {
 //Spectator controls can be customized in game <t color='#FFA500'>options->controls->'Camera'</t> tab.</t>", _killcam_msg];
 
 
-UO_FW_SETPLPVAR(Spectating,true);
+SETPLPVAR(Spectating,true);
 
-[{(UO_FW_GETPLVAR(Spectating,false))},{
+[{(GETPLVAR(Spectating,false))},{
     UO_FW_Spectate_PFH = [{
         params ["","_idPFH"];
         player setOxygenRemaining 1;
         if !(["IsSpectating",[]] call BIS_fnc_EGSpectator) exitwith {
-            (UO_FW_SETPLPVAR(Spectating,false));
+            (SETPLPVAR(Spectating,false));
             ["UO_FW_Spectator_EndSpectate_Event", []] call CBA_fnc_localEvent;
             [_idPFH] call CBA_fnc_removePerFrameHandler;
         };
-        if !(UO_FW_GETPLVAR(Spectating,false)) exitwith {
+        if !(GETPLVAR(Spectating,false)) exitwith {
             ["UO_FW_Spectator_EndSpectate_Event", []] call CBA_fnc_localEvent;
             [_idPFH] call CBA_fnc_removePerFrameHandler;
         };

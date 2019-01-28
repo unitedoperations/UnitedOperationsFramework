@@ -15,22 +15,22 @@ UO_FW_EXEC_CHECK(CLIENT);
 ["UO_FW_SettingsLoaded", {
 	if (!(UO_FW_Server_AIDRIVERSMODULE_Allowed)) exitwith {};
 
-	if ((UO_FW_AIDrivers_VehClasses isEqualto "") && {!(UO_FW_GETMVAR(AIDrivers_AllVehs,false))}) exitwith {};
+	if ((UO_FW_AIDrivers_VehClasses isEqualto "") && {!(GETMVAR(AIDrivers_AllVehs,false))}) exitwith {};
 	["UO_FW_RegisterModuleEvent", ["AI Drivers", "Module for adding AI Drivers to vehicles", "BlackHawk, PiZZADOX and Sacher"]] call CBA_fnc_globalEventJIP;
-	private _allowNV = (UO_FW_GETMVAR(AIDrivers_NVEnabled,false));
-	private _allowFlip = (UO_FW_GETMVAR(AIDrivers_FlipEnabled,false));
+	private _allowNV = (GETMVAR(AIDrivers_NVEnabled,false));
+	private _allowFlip = (GETMVAR(AIDrivers_FlipEnabled,false));
 
-	if ((UO_FW_GETMVAR(AIDrivers_AllVehs,false))) then {
+	if ((GETMVAR(AIDrivers_AllVehs,false))) then {
 		[{CBA_missionTime > 1}, {
 			{
 				["UO_FW_AIDriver_Enabled_Event",[_x,_allowNV,_allowFlip]] call CBA_fnc_globalEventJIP;
 			} foreach vehicles;
 		}] call CBA_fnc_WaitUntilAndExecute;
 	} else {
-		if (!(UO_FW_GETMVAR(AIDrivers_VehClasses,"")) isEqualto "") then {
+		if (!(GETMVAR(AIDrivers_VehClasses,"")) isEqualto "") then {
 			[{CBA_missionTime > 1}, {
 				{
-					if ((typeOf _x) in (UO_FW_GETMVAR(AIDrivers_VehClasses,""))) then {["UO_FW_AIDriver_Enabled_Event",[_x,_allowNV,_allowFlip]] call CBA_fnc_globalEventJIP;};
+					if ((typeOf _x) in (GETMVAR(AIDrivers_VehClasses,""))) then {["UO_FW_AIDriver_Enabled_Event",[_x,_allowNV,_allowFlip]] call CBA_fnc_globalEventJIP;};
 				} foreach vehicles;
 			}] call CBA_fnc_WaitUntilAndExecute;
 		};

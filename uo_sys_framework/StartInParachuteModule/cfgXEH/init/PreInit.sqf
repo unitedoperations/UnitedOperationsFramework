@@ -4,9 +4,9 @@ UO_FW_EXEC_CHECK(ALL);
 
 ["UO_FW_StartInParachute_LocalEvent", {
     {
-        private _parachuteType = ["NONE","NONSTEERABLE","STEERABLE"] select (UO_FW_GETVAR(_x,StartInParachute, 0));
-        private _altitude = UO_FW_GETVAR(_x,ParachuteAltitude, 300);
-        private _randomAltitude = UO_FW_GETVAR(_x,ParachuteRandomAltitude, 100);
+        private _parachuteType = ["NONE","NONSTEERABLE","STEERABLE"] select (GETVAR(_x,StartInParachute, 0));
+        private _altitude = GETVAR(_x,ParachuteAltitude, 300);
+        private _randomAltitude = GETVAR(_x,ParachuteRandomAltitude, 100);
         switch (_parachuteType) do {
             case "NONE": {};
             case "NONSTEERABLE": {

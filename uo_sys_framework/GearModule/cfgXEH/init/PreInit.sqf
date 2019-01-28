@@ -9,9 +9,9 @@ UO_FW_EXEC_CHECK(CLIENTHC);
         [{(!isNull _this)}, {
             params ["_unit"];
             private ["_loadoutName"];
-            private _GearSystem = (UO_FW_GETVAR(_unit,Gear_UnitSystemType,"NONE"));
-            private _UnitClass = (UO_FW_GETVAR(_unit,Gear_UnitGearType,"NONE"));
-            (UO_FW_SETVAR(_unit,Gear_UnitClass,_UnitClass));
+            private _GearSystem = (GETVAR(_unit,Gear_UnitSystemType,"NONE"));
+            private _UnitClass = (GETVAR(_unit,Gear_UnitGearType,"NONE"));
+            (SETVAR(_unit,Gear_UnitClass,_UnitClass));
             if (_GearSystem isEqualto "NONE") exitwith {};
             if (_UnitClass isEqualto "NONE") exitwith {
                 ERROR_1("No loadout found for unit: %1",_unit);
@@ -20,7 +20,7 @@ UO_FW_EXEC_CHECK(CLIENTHC);
                 _unit setvariable ["UO_FW_Gear_ManualUnitClass","MANUAL"];
                 switch (_GearSystem) do {
                     case "ACEAR": {
-                        _loadoutName = (UO_FW_GETVAR(_unit,Gear_UnitGearManualType,""));
+                        _loadoutName = (GETVAR(_unit,Gear_UnitGearManualType,""));
                         if (_loadoutName isEqualto "") exitwith {
                             ERROR_1("Unit %1 is set to manual loadout but has none!, exiting gearscript.",_unit);
                         };
@@ -39,7 +39,7 @@ UO_FW_EXEC_CHECK(CLIENTHC);
                         };
                     };
                     case "OLSEN": {
-                        private _Type = (UO_FW_GETVAR(_unit,Gear_UnitGearManualType,""));
+                        private _Type = (GETVAR(_unit,Gear_UnitGearManualType,""));
                         if (_Type isEqualto "") exitwith {
                             ERROR_1("Unit %1 is set to manual loadout but has none!, exiting gearscript.",_unit);
                         };

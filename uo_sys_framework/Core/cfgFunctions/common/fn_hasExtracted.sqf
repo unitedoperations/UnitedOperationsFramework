@@ -32,43 +32,43 @@ private ["_respawnTypeNum","_result"];
 
 switch (_side) do {
     case west: {
-        _respawnTypeNum = UO_FW_GETMVAR(hasDeparted_BLUFOR,false);
+        _respawnTypeNum = GETMVAR(hasDeparted_BLUFOR,false);
         if (_count >= _ratio * ([_team, 4] call UO_FW_fnc_getTeamVariable)) then {
             if (_respawnTypeNum) then {
                 _result = true;
             };
         } else {
-            UO_FW_SETMPVAR(hasDeparted_BLUFOR,true);
+            SETMPVAR(hasDeparted_BLUFOR,true);
         };
     };
     case east: {
-        _respawnTypeNum = UO_FW_GETMVAR(hasDeparted_OPFOR,false);
+        _respawnTypeNum = GETMVAR(hasDeparted_OPFOR,false);
         if (_count >= _ratio * ([_team, 4] call UO_FW_fnc_getTeamVariable)) then {
             if (_respawnTypeNum) then {
                 _result = true;
             };
         } else {
-            UO_FW_SETMPVAR(hasDeparted_OPFOR,true);
+            SETMPVAR(hasDeparted_OPFOR,true);
         };
     };
     case independent: {
-        _respawnTypeNum = UO_FW_GETMVAR(hasDeparted_INDFOR,false);
+        _respawnTypeNum = GETMVAR(hasDeparted_INDFOR,false);
         if (_count >= _ratio * ([_team, 4] call UO_FW_fnc_getTeamVariable)) then {
             if (_respawnTypeNum) then {
                 _result = true;
             };
         } else {
-            UO_FW_SETMPVAR(hasDeparted_INDFOR,true);
+            SETMPVAR(hasDeparted_INDFOR,true);
         };
     };
     case civilian: {
-        _respawnTypeNum = UO_FW_GETMVAR(hasDeparted_CIV,false);
+        _respawnTypeNum = GETMVAR(hasDeparted_CIV,false);
         if (_count >= _ratio * ([_team, 4] call UO_FW_fnc_getTeamVariable)) then {
             if (_respawnTypeNum) then {
                 _result = true;
             };
         } else {
-            UO_FW_SETMPVAR(hasDeparted_CIV,true);
+            SETMPVAR(hasDeparted_CIV,true);
         };
     };
     default {_result = false;};

@@ -4,27 +4,27 @@ UO_FW_EXEC_CHECK(CLIENT);
 
 _this params ["_unit", "", "_instigator"];
 
-UO_FW_SETMVAR(OLDGROUP,(group player));
-UO_FW_SETPLPVAR(Dead,true);
+SETMVAR(OLDGROUP,(group player));
+SETPLPVAR(Dead,true);
 
 private ["_delay","_templateSettings"];
 
 switch (side player) do {
     case west: {
-        _delay = UO_FW_GETMVAR(RespawnSetting_Delay_BLUFOR,5);
-        _templateSettings = UO_FW_GETMVAR(RespawnSetting_Templates_BLUFOR,[]);
+        _delay = GETMVAR(RespawnSetting_Delay_BLUFOR,5);
+        _templateSettings = GETMVAR(RespawnSetting_Templates_BLUFOR,[]);
     };
     case east: {
-        _delay = UO_FW_GETMVAR(RespawnSetting_Delay_OPFOR,5);
-        _templateSettings = UO_FW_GETMVAR(RespawnSetting_Templates_OPFOR,[]);
+        _delay = GETMVAR(RespawnSetting_Delay_OPFOR,5);
+        _templateSettings = GETMVAR(RespawnSetting_Templates_OPFOR,[]);
     };
     case independent: {
-        _delay = UO_FW_GETMVAR(RespawnSetting_Delay_INDFOR,5);
-        _templateSettings = UO_FW_GETMVAR(RespawnSetting_Templates_INDFOR,[]);
+        _delay = GETMVAR(RespawnSetting_Delay_INDFOR,5);
+        _templateSettings = GETMVAR(RespawnSetting_Templates_INDFOR,[]);
     };
     case civilian: {
-        _delay = UO_FW_GETMVAR(RespawnSetting_Delay_CIV,5);
-        _templateSettings = UO_FW_GETMVAR(RespawnSetting_Templates_CIV,[]);
+        _delay = GETMVAR(RespawnSetting_Delay_CIV,5);
+        _templateSettings = GETMVAR(RespawnSetting_Templates_CIV,[]);
     };
 };
 
@@ -33,7 +33,7 @@ switch (side player) do {
     [_unit] joinSilent grpNull;
 }, [_unit], 2] call CBA_fnc_WaitAndExecute;
 
-if (UO_FW_GETMVAR(Killcam_Enabled,true)) then {
+if (GETMVAR(Killcam_Enabled,true)) then {
     //we check if player didn't kill himself or died for unknown reasons
     if ((vehicle _instigator != vehicle _unit) && {_instigator != objNull}) then {
         //this is the standard case (killed EH got triggered by getting shot)
@@ -44,7 +44,7 @@ if (UO_FW_GETMVAR(Killcam_Enabled,true)) then {
     } else {
         //we will try to retrieve info from our hit EH
         LOG("using hit EH");
-        private _last_hit_info = UO_FW_GETMVAR(Killcam_LastHit,[]);
+        private _last_hit_info = GETMVAR(Killcam_LastHit,[]);
         //hit info retrieved, now we check if it's not caused by fall damage etc.
         //also we won't use info that's over 10 seconds old
         if (_last_hit_info isEqualto []) then {
@@ -73,8 +73,8 @@ if (UO_FW_GETMVAR(Killcam_Enabled,true)) then {
     };
 };
 
-if (UO_FW_GETMVAR(RespawnSetting_InstantDeath,true)) then {
-    private _damage = UO_FW_GETMVAR(Killcam_LastHitDamage,0.5);
+if (GETMVAR(RespawnSetting_InstantDeath,true)) then {
+    private _damage = GETMVAR(Killcam_LastHitDamage,0.5);
     private _fadeInSpeed = (1.001 - _damage);
     [{
         params ["_fadeInSpeed"];

@@ -7,11 +7,11 @@ UO_FW_EXEC_CHECK(CLIENTHC);
     if (!(UO_FW_Gear_ACEAR_System_Enabled) && {!(UO_FW_Gear_Olsen_Enabled)}) exitwith {UO_FW_GearReady = true;};
     [{(!isNull player)}, {
         private ["_loadoutName"];
-        private _GearSystem = (UO_FW_GETPLVAR(Gear_UnitSystemType,"NONE"));
+        private _GearSystem = (GETPLVAR(Gear_UnitSystemType,"NONE"));
         LOG_1("_GearSystem: %1",_GearSystem);
-        private _UnitClass = (UO_FW_GETPLVAR(Gear_UnitGearType,"NONE"));
+        private _UnitClass = (GETPLVAR(Gear_UnitGearType,"NONE"));
         LOG_1("_UnitClass: %1",_UnitClass);
-        (UO_FW_SETPLVAR(Gear_UnitClass,_UnitClass));
+        (SETPLVAR(Gear_UnitClass,_UnitClass));
         if (_GearSystem isEqualto "NONE") exitwith {
             LOG_1("No gear system set for unit: %1",player);
             UO_FW_GearReady = true;
@@ -21,10 +21,10 @@ UO_FW_EXEC_CHECK(CLIENTHC);
             UO_FW_GearReady = true;
         };
         if (_UnitClass isEqualto "MANUAL") then {
-            (UO_FW_SETPLVAR(Gear_ManualUnitClass,"MANUAL"));
+            (SETPLVAR(Gear_ManualUnitClass,"MANUAL"));
             switch (_GearSystem) do {
                 case "ACEAR": {
-                    _loadoutName = (UO_FW_GETPLVAR(Gear_UnitGearManualType,""));
+                    _loadoutName = (GETPLVAR(Gear_UnitGearManualType,""));
                     if (_loadoutName isEqualto "") exitwith {
                         ERROR_1("Unit %1 is set to manual loadout but has none!, exiting gearscript.",player);
                         UO_FW_GearReady = true;
@@ -50,7 +50,7 @@ UO_FW_EXEC_CHECK(CLIENTHC);
                     };
                 };
                 case "OLSEN": {
-                    private _Type = (UO_FW_GETPLVAR(Gear_UnitGearManualType,""));
+                    private _Type = (GETPLVAR(Gear_UnitGearManualType,""));
                     if (_Type isEqualto "") exitwith {
                         ERROR_1("Unit %1 is set to manual loadout but has none!, exiting gearscript.",player);
                         UO_FW_GearReady = true;

@@ -9,16 +9,16 @@
 #include "\x\UO_FW\addons\Main\HeadlessAIModule\module_macros.hpp"
 UO_FW_AI_EXEC_CHECK(SERVERHC);
 params ["_unit","_pos","_vehicle"];
-private _unitInit = (UO_FW_GETVAR(_unit,AI_unitInit,"true"));
+private _unitInit = (GETVAR(_unit,AI_unitInit,"true"));
 if (typename _unitInit isEqualTo "STRING") then {_unitInit = compile _unitInit;};
 private _vehAssigned = if ((assignedVehicleRole _unit) isEqualTo []) then {false} else {true};
 private _unitGearType = "EDITOR";
-private _unitGearSystemType = UO_FW_GETVAR(_unit,AI_Gear_UnitSystemType,"NONE");
+private _unitGearSystemType = GETVAR(_unit,AI_Gear_UnitSystemType,"NONE");
 switch (_unitGearSystemType) do {
     case "ACEAR": {
-        private _UnitClass = (UO_FW_GETVAR(_unit,Gear_UnitGearType,"NONE"));
+        private _UnitClass = (GETVAR(_unit,Gear_UnitGearType,"NONE"));
         if (_UnitClass isEqualto "MANUAL") then {
-            private _loadoutName = (UO_FW_GETVAR(_unit,Gear_UnitGearManualType,""));
+            private _loadoutName = (GETVAR(_unit,Gear_UnitGearManualType,""));
             if (_loadoutName isEqualto "") exitwith {
                 ERROR_1("Unit %1 is set to manual loadout but has none!, exiting gearscript.",_unit);
             };
@@ -59,9 +59,9 @@ switch (_unitGearSystemType) do {
         };
     };
     case "OLSEN": {
-        private _UnitClass = (UO_FW_GETVAR(_unit,Gear_UnitGearType,"NONE"));
+        private _UnitClass = (GETVAR(_unit,Gear_UnitGearType,"NONE"));
         if (_UnitClass isEqualto "MANUAL") then {
-            private _Type = (UO_FW_GETVAR(_unit,Gear_UnitGearManualType,""));
+            private _Type = (GETVAR(_unit,Gear_UnitGearManualType,""));
             if (_Type isEqualto "") exitwith {
                 ERROR_1("Unit %1 is set to manual loadout but has none!, exiting gearscript.",_unit);
             };
@@ -105,10 +105,10 @@ assignedVehicleRole _unit,
 _vehAssigned,
 _unit getVariable ["ACE_captives_isHandcuffed",false],
 (surfaceIsWater (getposATL _unit)),
-(UO_FW_GETVAR(_unit,AI_unitPersistent,true)),
-(UO_FW_GETVAR(_unit,AI_stance,"AUTO")),
+(GETVAR(_unit,AI_unitPersistent,true)),
+(GETVAR(_unit,AI_stance,"AUTO")),
 _unitGearSystemType,
 _unitGearType,
 _unitInit,
-(UO_FW_GETVAR(_unit,AI_unitName,"")),
-(UO_FW_GETVAR(_unit,AI_unitIdentity,""))]
+(GETVAR(_unit,AI_unitName,"")),
+(GETVAR(_unit,AI_unitIdentity,""))]

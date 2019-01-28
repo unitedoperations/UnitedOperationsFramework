@@ -11,7 +11,7 @@
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 UO_FW_EXEC_CHECK(CLIENT);
 
-params ["_target", "_args"];
+params ["_target"];
 private _target = (leader player);
 if (player isEqualto _target || !(_target call UO_FW_fnc_Alive)) then {
     private _rank = -1;
@@ -92,7 +92,7 @@ if (!isNull(_target)) then {
                     player removeEventHandler ["HandleDamage", _eventhandlerdamage];
                 }, [_eventhandlerdamage], 3] call CBA_fnc_WaitAndExecute;
             } else {
-                ["Enemies too close to group leader, please try again later"] call ace_common_fnc_displayTextStructured;
+                ["Enemies are too close to group leader, please try again later"] call ace_common_fnc_displayTextStructured;
             };
         } else {
             ["Not possible to JIP teleport to group leader, please try again later"] call ace_common_fnc_displayTextStructured;
