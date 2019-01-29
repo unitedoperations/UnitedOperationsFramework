@@ -15,7 +15,7 @@ class UO_FW_StartInParachuteOptions  {
             displayName = "Parachute Altitude";
             tooltip = "Altitude at which unit is parachuted";
             property = "UO_FW_ParachuteAltitude";
-            control = "UO_FW_300To1000Step100_Slider";
+            control = "UO_FW_100To1000Step100_Slider";
             expression = UO_FW_ENTITY_EXPRESSION;
             condition = "objectControllable";
             validate = "number";
@@ -25,7 +25,7 @@ class UO_FW_StartInParachuteOptions  {
             displayName = "Parachute Randomized Altitude";
             tooltip = "Adds a random height to the normal parachute altitude";
             property = "UO_FW_ParachuteRandomAltitude";
-            control = "UO_FW_50To200Step50_Slider";
+            control = "UO_FW_100To500Step100_Slider";
             expression = UO_FW_ENTITY_EXPRESSION;
             condition = "objectControllable";
             validate = "number";

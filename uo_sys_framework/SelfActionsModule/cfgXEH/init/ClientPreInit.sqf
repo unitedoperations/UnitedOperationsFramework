@@ -83,8 +83,8 @@ UO_FW_EXEC_CHECK(CLIENT);
                             params ["_flare","_colour","_pos"];
                             ["UO_FW_SelfActions_ParaFlareCreateLightEvent", [_flare,_colour,_pos]] call CBA_fnc_globalEvent;
                         }, [_flare,_colour,_pos]] call CBA_fnc_waitUntilAndExecute;
-                    }, [_ammoType,_pos,_vectorDir,_colour], 1] call CBA_fnc_waitAndExecute;
-                }, [_ammoType,_pos,_vectorDir,_colour], 1.5] call CBA_fnc_waitAndExecute;
+                    }, [_ammoType,_pos,_vectorDir,_colour], 0.5] call CBA_fnc_waitAndExecute;
+                }, [_ammoType,_pos,_vectorDir,_colour], 0.5] call CBA_fnc_waitAndExecute;
         	}, {
         		(vehicle player isEqualto player) && {((_this select 2 select 0) in magazines player)}
         	}, {}, [_magClass,_colour,_ammoType]] call ace_interact_menu_fnc_createAction;

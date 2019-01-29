@@ -55,7 +55,7 @@ class UO_FW_CaptureZoneModule: OlsenModule {
             displayName = "Ratio Needed";
             tooltip = "Ratio needed to capture the zone. Larger team / team in second place.";
             property = "UO_FW_CaptureZone_RatioNeeded";
-            control = "UO_FW_1To100Step1_Slider";
+            control = "UO_FW_1To100Step5_Slider";
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "75";
             validate = "NUMBER";

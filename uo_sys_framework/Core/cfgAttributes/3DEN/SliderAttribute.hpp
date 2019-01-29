@@ -101,6 +101,20 @@ class UO_FW_1To5_Slider: UO_FW_Slider {
 	};
 };
 
+
+class UO_FW_1To10_Slider: UO_FW_Slider {
+    UO_FW_SLIDER_ONLOAD(1,10);
+	class Controls: Controls {
+        class Title: Title {};
+		class Value: Value {
+			sliderRange[]={1,10};
+			sliderPosition=2;
+			sliderStep=1;
+		};
+        class Edit: Edit {};
+	};
+};
+
 class UO_FW_5To20_Slider: UO_FW_Slider {
     UO_FW_SLIDER_ONLOAD(5,20);
 	class Controls: Controls {
@@ -114,14 +128,13 @@ class UO_FW_5To20_Slider: UO_FW_Slider {
 	};
 };
 
-
-class UO_FW_1To10_Slider: UO_FW_Slider {
-    UO_FW_SLIDER_ONLOAD(1,10);
+class UO_FW_1To30Step1_Slider: UO_FW_Slider {
+    UO_FW_SLIDER_ONLOAD(1,30);
 	class Controls: Controls {
         class Title: Title {};
 		class Value: Value {
-			sliderRange[]={1,10};
-			sliderPosition=2;
+			sliderRange[]={1,30};
+			sliderPosition=10;
 			sliderStep=1;
 		};
         class Edit: Edit {};
@@ -141,7 +154,7 @@ class UO_FW_15To40Step5_Slider: UO_FW_Slider {
 	};
 };
 
-class UO_FW_1To100Step1_Slider: UO_FW_Slider {
+class UO_FW_1To100Step5_Slider: UO_FW_Slider {
     UO_FW_SLIDER_ONLOAD(1,100);
 	class Controls: Controls {
         class Title: Title {};
@@ -284,6 +297,19 @@ class UO_FW_50To250Step50_Slider: UO_FW_Slider {
 	};
 };
 
+class UO_FW_100To500Step100_Slider: UO_FW_Slider {
+    UO_FW_SLIDER_ONLOAD(100,500);
+	class Controls: Controls {
+        class Title: Title {};
+		class Value: Value {
+			sliderRange[]={100,500};
+			sliderPosition=300;
+			sliderStep=100;
+		};
+        class Edit: Edit {};
+	};
+};
+
 class UO_FW_0To600_Slider: UO_FW_Slider {
     UO_FW_SLIDER_ONLOAD(0,600);
 	class Controls: Controls {
@@ -305,6 +331,19 @@ class UO_FW_30To900_Slider: UO_FW_Slider {
 			sliderRange[]={0,900};
 			sliderPosition=30;
 			sliderStep=1;
+		};
+        class Edit: Edit {};
+	};
+};
+
+class UO_FW_100To1000Step100_Slider: UO_FW_Slider {
+    UO_FW_SLIDER_ONLOAD(100,1000);
+	class Controls: Controls {
+        class Title: Title {};
+		class Value: Value {
+			sliderRange[]={100,1000};
+			sliderPosition=300;
+			sliderStep=100;
 		};
         class Edit: Edit {};
 	};
