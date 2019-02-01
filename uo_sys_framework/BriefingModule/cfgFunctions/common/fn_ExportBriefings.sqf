@@ -121,7 +121,7 @@ if (GETMVALUE(Briefing_BLUFOR_Warsaw,false)) then {
     _br +
     "NEWTAB(""V. Mission:"")" + _br +
     "<font color='#5BD527'><h1>Statement:</h1></font color><br/>" +  _br + (GETMVALUE(Briefing_BLUFOR_Warsaw_Mission_Desc,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>End State Direction:</h1></font color><br/>" +  _br + (GETMVALUE(Briefing_BLUFOR_Warsaw_Higher_Boundary,"")) + _br +
+    "<font color='#5BD527'><h1>End State Direction:</h1></font color><br/>" +  _br + (GETMVALUE(Briefing_BLUFOR_Warsaw_Mission_DIR,"")) + _br +
     "ENDTAB" +  _br +
     _br +
     "NEWTAB(""VI. Order:"")" + _br +
@@ -243,7 +243,7 @@ if (GETMVALUE(Briefing_OPFOR_Warsaw,false)) then {
     _br +
     "NEWTAB(""V. Mission:"")" + _br +
     "<font color='#5BD527'><h1>Statement:</h1></font color><br/>" +  _br + (GETMVALUE(Briefing_OPFOR_Warsaw_Mission_Desc,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>End State Direction:</h1></font color><br/>" +  _br + (GETMVALUE(Briefing_OPFOR_Warsaw_Higher_Boundary,"")) + _br +
+    "<font color='#5BD527'><h1>End State Direction:</h1></font color><br/>" +  _br + (GETMVALUE(Briefing_OPFOR_Warsaw_Mission_DIR,"")) + _br +
     "ENDTAB" +  _br +
     _br +
     "NEWTAB(""VI. Order:"")" + _br +
@@ -364,7 +364,7 @@ if (GETMVALUE(Briefing_INDFOR_Warsaw,false)) then {
     _br +
     "NEWTAB(""V. Mission:"")" + _br +
     "<font color='#5BD527'><h1>Statement:</h1></font color><br/>" +  _br + (GETMVALUE(Briefing_INDFOR_Warsaw_Mission_Desc,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>End State Direction:</h1></font color><br/>" +  _br + (GETMVALUE(Briefing_INDFOR_Warsaw_Higher_Boundary,"")) + _br +
+    "<font color='#5BD527'><h1>End State Direction:</h1></font color><br/>" +  _br + (GETMVALUE(Briefing_INDFOR_Warsaw_Mission_DIR,"")) + _br +
     "ENDTAB" +  _br +
     _br +
     "NEWTAB(""VI. Order:"")" + _br +
@@ -486,7 +486,7 @@ if (GETMVALUE(Briefing_CIV_Warsaw,false)) then {
     _br +
     "NEWTAB(""V. Mission:"")" + _br +
     "<font color='#5BD527'><h1>Statement:</h1></font color><br/>" +  _br + (GETMVALUE(Briefing_CIV_Warsaw_Mission_Desc,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>End State Direction:</h1></font color><br/>" +  _br + (GETMVALUE(Briefing_CIV_Warsaw_Higher_Boundary,"")) + _br +
+    "<font color='#5BD527'><h1>End State Direction:</h1></font color><br/>" +  _br + (GETMVALUE(Briefing_CIV_Warsaw_Mission_DIR,"")) + _br +
     "ENDTAB" +  _br +
     _br +
     "NEWTAB(""VI. Order:"")" + _br +
