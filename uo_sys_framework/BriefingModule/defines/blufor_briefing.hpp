@@ -89,7 +89,7 @@ if (UO_FW_Briefing_BLUFOR_Warsaw) then {
     ENDTAB
     NEWTAB("V. Mission:")
     "<font color='#5BD527'><h1>Statement:</h1></font color><br/>" + UO_FW_Briefing_BLUFOR_Warsaw_Mission_Desc   + "<br/><br/>" +
-    "<font color='#5BD527'><h1>End State Direction:</h1></font color><br/>" + UO_FW_Briefing_BLUFOR_Warsaw_Higher_Boundary
+    "<font color='#5BD527'><h1>End State Direction:</h1></font color><br/>" + UO_FW_Briefing_BLUFOR_Warsaw_Mission_DIR
     ENDTAB
     NEWTAB("VI. Order:")
     "<font color='#5BD527'><h1>Tasks:</h1></font color><br/>" + UO_FW_Briefing_BLUFOR_Warsaw_Order_Tasks   + "<br/><br/>" +
