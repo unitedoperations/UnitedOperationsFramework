@@ -17,7 +17,7 @@ class UO_FW_ACRE_ChannelSelect: Title {
             style=2;
             shadow=0;
             x="48 * (pixelW * pixelGrid * 0.50)";
-            w="(14) * (pixelW * pixelGrid * 0.50)";
+            w="14 * (pixelW * pixelGrid * 0.50)";
             h="5 * (pixelH * pixelGrid * 0.50)";
             colorText[]={1,1,1,1};
             colorBackground[]={0.5,0.5,0.5,1};
