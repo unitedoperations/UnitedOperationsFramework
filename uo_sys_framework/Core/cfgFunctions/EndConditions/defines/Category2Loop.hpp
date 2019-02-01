@@ -152,7 +152,7 @@ if (missionNamespace getVariable ["UO_FW_EndCondition_Enabled_2",false]) then {
                     private _captureZones_TeamSetting_2 = missionNamespace getVariable ["UO_FW_EndCondition_CaptureZoneCaptured_Team_2",1];
                     {
                         private _CaptureZoneConditionCheck = true;
-                        if !(_x in CaptureZone_Array) then {
+                        if !(_x in UO_FW_CaptureZone_Array) then {
                             LOG_1("CaptureZone %1 does not exist!",_x);
                             _CaptureZoneConditionCheck = false;
                         } else {
