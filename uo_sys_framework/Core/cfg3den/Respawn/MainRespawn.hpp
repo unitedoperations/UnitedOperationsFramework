@@ -29,7 +29,7 @@ class UO_FW_JIPCategory {
             property = "UO_FW_JIP_DENYTIME";
             displayName = "Deny Time";
             tooltip = "After how many minutes should a player be considered JIP";
-            control = "UO_FW_5To20_Slider";
+            control = "UO_FW_5To20Step1_Slider";
             expression = UO_FW_SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "5";
@@ -38,7 +38,7 @@ class UO_FW_JIPCategory {
             property = "UO_FW_JIP_EXPIRETIME";
             displayName = "Expire Time";
             tooltip = "After how many minutes JiPs will no longer have teleport or transport actions.";
-            control = "UO_FW_5To20_Slider";
+            control = "UO_FW_5To20Step1_Slider";
             expression = UO_FW_SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "5";

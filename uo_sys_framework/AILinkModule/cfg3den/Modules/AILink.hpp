@@ -15,7 +15,7 @@ class UO_FW_AILink {
             property = "UO_FW_AILink_StartDelay";
             displayName = "Start Delay";
             tooltip = "Delay in seconds when starting the mission until the first loop runs.";
-            control = "UO_FW_30To120_Slider";
+            control = "UO_FW_30To120Step1_Slider";
             expression = UO_FW_SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "30";
@@ -25,7 +25,7 @@ class UO_FW_AILink {
             property = "UO_FW_AILink_ShareDelay";
             displayName = "Share Delay";
             tooltip = "Delay in seconds between loops after the first.";
-            control = "UO_FW_10To100_Slider";
+            control = "UO_FW_10To100Step1_Slider";
             expression = UO_FW_SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "30";
@@ -35,7 +35,7 @@ class UO_FW_AILink {
             property = "UO_FW_AILink_TransDelay";
             displayName = "Trans Delay";
             tooltip = "Delay in seconds, maximum randomized, for target information to be transmitted. No effect if set higher than tin_AILink_shareDelay.";
-            control = "UO_FW_10To100_Slider";
+            control = "UO_FW_10To100Step1_Slider";
             expression = UO_FW_SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "10";

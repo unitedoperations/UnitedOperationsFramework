@@ -56,7 +56,7 @@ class UO_FW_Artillery
             displayName = "Aim Time";
             tooltip = "Time needed to calculate on where to aim. Artillery might need longer to traverse the gun (Arma limitations). Default 30";
             property = "UO_FW_ArtilleryAimTime";
-            control = "UO_FW_30To120_Slider";
+            control = "UO_FW_30To120Step1_Slider";
             expression = UO_FW_ENTITY_EXPRESSION;
             condition = "objectVehicle";
             validate = "number";
@@ -68,7 +68,7 @@ class UO_FW_Artillery
             displayName = "Calculation Time";
             tooltip = "Time needed to calculate after spotting rounds before actuall firemission. Default 30";
             property = "UO_FW_ArtilleryCalculationTime";
-            control = "UO_FW_30To120_Slider";
+            control = "UO_FW_30To120Step1_Slider";
             expression = UO_FW_ENTITY_EXPRESSION;
             condition = "objectVehicle";
             validate = "number";

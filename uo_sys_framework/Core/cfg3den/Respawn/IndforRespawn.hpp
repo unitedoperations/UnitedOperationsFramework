@@ -32,7 +32,7 @@ class UO_FW_TeamRespawnSettings_Indfor {
             displayName = "Respawn Delay";
             tooltip = "Delay in seconds between a player being killed and respawning. Must be more than 5 seconds.";
             respawnTypes[] = {1,2,3,4,5};
-            control = "UO_FW_5To20_Slider";
+            control = "UO_FW_5To20Step1_Slider";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "5";
             validate = "number";
@@ -42,7 +42,7 @@ class UO_FW_TeamRespawnSettings_Indfor {
             displayName = "Individual Respawn Tickets";
             tooltip = "Number of individual respawns.";
             respawnTypes[] = {2};
-            control = "UO_FW_1To10_Slider";
+            control = "UO_FW_1To10Step1_Slider";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "2";
             validate = "number";
@@ -52,7 +52,7 @@ class UO_FW_TeamRespawnSettings_Indfor {
             displayName = "Team Respawn Tickets";
             tooltip = "Number of team respawns.";
             respawnTypes[] = {3};
-            control = "UO_FW_10To100_Slider";
+            control = "UO_FW_10To100Step1_Slider";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "30";
             validate = "number";

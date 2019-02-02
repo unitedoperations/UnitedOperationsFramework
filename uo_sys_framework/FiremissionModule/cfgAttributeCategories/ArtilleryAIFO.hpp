@@ -78,7 +78,7 @@ class UO_FW_ArtilleryAIFO
             displayName = "Ammount Of Salvos";
             tooltip = "Number of salvos the artillery should fire. Default 3";
             property = "UO_FW_ArtilleryFOAISalvoCount";
-            control = "UO_FW_1To5_Slider";
+            control = "UO_FW_1To5Step1_Slider";
             expression = UO_FW_ENTITY_EXPRESSION;
             condition = "objectControllable";
             validate = "number";
@@ -90,7 +90,7 @@ class UO_FW_ArtilleryAIFO
             displayName = "Rounds Per Salvo";
             tooltip = "Number of rounds which should be fired per salvo. Default 5";
             property = "UO_FW_ArtilleryFOAIRoundsPerSalvo";
-            control = "UO_FW_1To10_Slider";
+            control = "UO_FW_1To10Step1_Slider";
             expression = UO_FW_ENTITY_EXPRESSION;
             condition = "objectControllable";
             validate = "number";
@@ -102,7 +102,7 @@ class UO_FW_ArtilleryAIFO
             displayName = "Time Between Salvos";
             tooltip = "Time between salvos, which should be waited in seconds. Default 30";
             property = "UO_FW_ArtilleryFOAISalvoWaitTime";
-            control = "UO_FW_30To120_Slider";
+            control = "UO_FW_30To120Step1_Slider";
             expression = UO_FW_ENTITY_EXPRESSION;
             condition = "objectControllable";
             validate = "number";
@@ -150,7 +150,7 @@ class UO_FW_ArtilleryAIFO
             displayName = "Call In Speed";
             tooltip = "Time needed for FO to calculate firemission. Default 30";
             property = "UO_FW_ArtilleryFOAISpeed";
-            control = "UO_FW_30To120_Slider";
+            control = "UO_FW_30To120Step1_Slider";
             expression = UO_FW_ENTITY_EXPRESSION;
             condition = "objectControllable";
             validate = "number";

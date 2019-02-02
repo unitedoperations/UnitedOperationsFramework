@@ -14,7 +14,7 @@ class UO_FW_Anti_ND {
             property = "UO_FW_Anti_ND_Time";
             displayName = "Time";
             tooltip = "Time in seconds after spawn after which Anti ND functionality is disabled";
-            control = "UO_FW_30To120_Slider";
+            control = "UO_FW_30To120Step1_Slider";
             validate = "number";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "30";
