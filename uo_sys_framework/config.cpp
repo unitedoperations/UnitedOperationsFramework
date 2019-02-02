@@ -117,6 +117,22 @@ class CfgUnitInsignia {
 };
 
 class Cfg3DEN {
+
+    class EventHandlers {
+        class UO_FW_3DEN_EH {
+            onMissionLoad = "\
+                if (getMissionConfigValue ['UO_FW_Enabled',false]) then {
+                    [] call UO_FW_fnc_BasicSettings3Den;
+                };
+            ";
+            OnMissionPreviewEnd = "\
+                if (getMissionConfigValue ['UO_FW_Enabled',false]) then {
+                    [] call UO_FW_fnc_BasicSettings3Den;
+                };
+            ";
+        };
+    };
+
     class Mission {
         class UO_FW_Settings {
             displayName = "Mission Settings";
