@@ -17,7 +17,7 @@ class UO_FW_MissionNotes {
             tooltip = "Mission Author";
             control = "EditShort";
             expression = UO_FW_SCENARIO_EXPRESSION;
-            defaultValue = "profileNameSteam";
+            defaultValue = "''";
 
         };
         class UO_FW_Briefing_MissionNotes_Testers {

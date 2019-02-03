@@ -19,3 +19,7 @@ UO_FW_EXEC_CHECK(ALL);
 "Multiplayer" set3DENMissionAttribute ["respawnTemplates",["Base"]];
 "Scenario" set3DENMissionAttribute ["EnableDebugConsole",1];
 "Scenario" set3DENMissionAttribute ["enableTargetDebug",1];
+
+if ((getMissionConfigValue ['UO_FW_Briefing_MissionNotes_Author',""]) isEqualTo "") then {
+    "UO_FW_MissionNotes" set3DENMissionAttribute ["UO_FW_Briefing_MissionNotes_Author",profileNameSteam];
+};
