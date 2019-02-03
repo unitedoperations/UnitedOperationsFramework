@@ -12,8 +12,8 @@ class UO_FW_FrameworkCheckbox: Checkbox {
         class Title: Title {};
         class Value: Value {
             onCheckedChanged ="\
-                params ["_control", "_checked"];\
-                if (_checked) then {[] call UO_FW_fnc_BasicSettings3Den;};\
+                params ['_control', '_checked'];\
+                if (_checked isEqualTo 1) then {[] call UO_FW_fnc_BasicSettings3Den;};\
             ";
         };
     };
