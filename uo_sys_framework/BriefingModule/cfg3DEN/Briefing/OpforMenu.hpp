@@ -13,7 +13,7 @@ class UO_FW_OPFOR_NATOStyle {
         class UO_FW_Briefing_OPFOR_NATO_Situation_Title {
             property = "UO_FW_Briefing_OPFOR_NATO_Situation_Title";
             displayName = "Situation";
-            control = "CategoryTitleIndent";
+            control = "CategoryTitle";
             expression = "true";
             defaultValue = "";
         };
@@ -167,7 +167,7 @@ class UO_FW_OPFOR_NATOStyle {
         class UO_FW_Briefing_OPFOR_NATO_Mission_Title {
             property = "UO_FW_Briefing_OPFOR_NATO_Mission_Title";
             displayName = "Mission";
-            control = "CategoryTitleIndent";
+            control = "CategoryTitle";
             expression = "true";
             defaultValue = "";
 
@@ -186,7 +186,7 @@ class UO_FW_OPFOR_NATOStyle {
             property = "UO_FW_Briefing_OPFOR_NATO_EXECUTION_Title";
             displayName = "Execution";
             tooltip = "Execution";
-            control = "CategoryTitleIndent";
+            control = "CategoryTitle";
             validate = "STRING";
             expression = "true";
             defaultValue = "''";
@@ -236,7 +236,7 @@ class UO_FW_OPFOR_NATOStyle {
             property = "UO_FW_Briefing_OPFOR_NATO_SANDS_Title";
             displayName = "Service Support";
             tooltip = "Service Support";
-            control = "CategoryTitleIndent";
+            control = "CategoryTitle";
             expression = "true";
             defaultValue = "''";
 
@@ -293,7 +293,7 @@ class UO_FW_OPFOR_NATOStyle {
             property = "UO_FW_Briefing_OPFOR_NATO_CANDS_Title";
             displayName = "Command and Signals";
             tooltip = "Command and Signals";
-            control = "CategoryTitleIndent";
+            control = "CategoryTitle";
             expression = "true";
             defaultValue = "''";
 
@@ -393,7 +393,7 @@ class UO_FW_OPFOR_WPStyle {
         class UO_FW_Briefing_OPFOR_Warsaw_Preliminaries_Title {
             property = "UO_FW_Briefing_OPFOR_Warsaw_Preliminaries_Title";
             displayName = "Preliminaries";
-            control = "CategoryTitleIndent";
+            control = "CategoryTitle";
             expression = "true";
             defaultValue = "";
         };
@@ -418,7 +418,7 @@ class UO_FW_OPFOR_WPStyle {
         class UO_FW_Briefing_OPFOR_Warsaw_Reference_Title {
             property = "UO_FW_Briefing_OPFOR_Warsaw_Reference_Title";
             displayName = "Reference Points";
-            control = "CategoryTitleIndent";
+            control = "CategoryTitle";
             expression = "true";
             defaultValue = "";
         };
@@ -443,7 +443,7 @@ class UO_FW_OPFOR_WPStyle {
         class UO_FW_Briefing_OPFOR_Warsaw_Enemy_Title {
             property = "UO_FW_Briefing_OPFOR_Warsaw_Enemy_Title";
             displayName = "Enemy";
-            control = "CategoryTitleIndent";
+            control = "CategoryTitle";
             expression = "true";
             defaultValue = "";
         };
@@ -504,7 +504,7 @@ class UO_FW_OPFOR_WPStyle {
         class UO_FW_Briefing_OPFOR_Warsaw_Higher_Title {
             property = "UO_FW_Briefing_OPFOR_Warsaw_Higher_Title";
             displayName = "Higher and Adjacent Units";
-            control = "CategoryTitleIndent";
+            control = "CategoryTitle";
             expression = "true";
             defaultValue = "";
         };
@@ -538,7 +538,7 @@ class UO_FW_OPFOR_WPStyle {
         class UO_FW_Briefing_OPFOR_Warsaw_Mission_Title {
             property = "UO_FW_Briefing_OPFOR_Warsaw_Mission_Title";
             displayName = "Mission";
-            control = "CategoryTitleIndent";
+            control = "CategoryTitle";
             expression = "true";
             defaultValue = "";
         };
@@ -563,7 +563,7 @@ class UO_FW_OPFOR_WPStyle {
         class UO_FW_Briefing_OPFOR_Warsaw_Order_Title {
             property = "UO_FW_Briefing_OPFOR_Warsaw_Order_Title";
             displayName = "Order";
-            control = "CategoryTitleIndent";
+            control = "CategoryTitle";
             expression = "true";
             defaultValue = "";
         };
@@ -606,7 +606,7 @@ class UO_FW_OPFOR_WPStyle {
         class UO_FW_Briefing_OPFOR_Warsaw_COMM_Title {
             property = "UO_FW_Briefing_OPFOR_Warsaw_COMM_Title";
             displayName = "Location of the Commander";
-            control = "CategoryTitleIndent";
+            control = "CategoryTitle";
             expression = "true";
             defaultValue = "";
         };
@@ -622,7 +622,7 @@ class UO_FW_OPFOR_WPStyle {
         class UO_FW_Briefing_OPFOR_Warsaw_SUCC_Title {
             property = "UO_FW_Briefing_OPFOR_Warsaw_SUCC_Title";
             displayName = "Succession of Command";
-            control = "CategoryTitleIndent";
+            control = "CategoryTitle";
             expression = "true";
             defaultValue = "";
         };

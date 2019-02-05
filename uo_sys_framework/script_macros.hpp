@@ -38,7 +38,7 @@ MESSAGE call UO_FW_fnc_DebugMessage
 #define SETPLPVAR(var1,var2) player SETPVAR_SYS(var1,var2)
 
 //UO_FW_Component_fnc_functionName
-#define UO_FW_FUNC(var1) TRIPLES(PREFIX,fnc,var1)
+#define FUNC(var1) TRIPLES(PREFIX,fnc,var1)
 
 //Script control
 #define UO_FW_EXEC_CHECK(ARG)\

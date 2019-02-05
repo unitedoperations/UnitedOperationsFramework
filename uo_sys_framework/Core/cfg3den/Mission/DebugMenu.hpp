@@ -1,6 +1,6 @@
 class UO_FW_DebugSettings {
     displayName = "Debug Settings";
-    collapsed = 1;
+    collapsed = 0;
     class Attributes {
         class UO_FW_Debug_Enabled {
             property = "UO_FW_Debug_Enabled";

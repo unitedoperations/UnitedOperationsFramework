@@ -37,7 +37,7 @@ switch (_type) do {
         private _teleportAction = ["Jip_Teleport_Action", "Teleport To Squad", "", {
             params ["_target", "_player", "_args"];
             _args params ["_distance"];
-            [_target,_args] call UO_FW_FUNC(JiPTeleport);
+            [_target,_args] call FUNC(JiPTeleport);
         }, {(player distance (GETMVAR(SpawnPos,(getpos player))) > (_this select 0))}, {}, [_distance]] call ace_interact_menu_fnc_createAction;
         [player, 1, ["ACE_SelfActions"], _teleportAction] call ace_interact_menu_fnc_addActionToObject;
         [{
@@ -59,7 +59,7 @@ switch (_type) do {
         private _transportAction = ["Jip_Transport_Action", "Request Transport", "", {
             params ["_target", "_player", "_args"];
             _args params ["_distance"];
-            [_target,_args] call UO_FW_FUNC(JiPTransport);
+            [_target,_args] call FUNC(JiPTransport);
         }, {(player distance (GETMVAR(SpawnPos,(getpos player))) > (_this select 0))}, {}, [_distance]] call ace_interact_menu_fnc_createAction;
         [player, 1, ["ACE_SelfActions"], _transportAction] call ace_interact_menu_fnc_addActionToObject;
         [{

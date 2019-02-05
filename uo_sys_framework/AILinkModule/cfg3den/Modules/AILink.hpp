@@ -15,7 +15,7 @@ class UO_FW_AILink {
             property = "UO_FW_AILink_StartDelay";
             displayName = "Start Delay";
             tooltip = "Delay in seconds when starting the mission until the first loop runs.";
-            control = "EditShort";
+            control = "UO_FW_30To120Step1_Slider";
             expression = UO_FW_SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "30";
@@ -24,18 +24,18 @@ class UO_FW_AILink {
         class UO_FW_AILink_ShareDelay {
             property = "UO_FW_AILink_ShareDelay";
             displayName = "Share Delay";
-            tooltip = "Delay in seconds  between loops after the first.";
-            control = "EditShort";
+            tooltip = "Delay in seconds between loops after the first.";
+            control = "UO_FW_10To100Step1_Slider";
             expression = UO_FW_SCENARIO_EXPRESSION;
             validate = "number";
-            defaultValue = "15";
+            defaultValue = "30";
             typeName = "NUMBER";
         };
         class UO_FW_AILink_TransDelay {
             property = "UO_FW_AILink_TransDelay";
             displayName = "Trans Delay";
             tooltip = "Delay in seconds, maximum randomized, for target information to be transmitted. No effect if set higher than tin_AILink_shareDelay.";
-            control = "EditShort";
+            control = "UO_FW_10To100Step1_Slider";
             expression = UO_FW_SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "10";
@@ -45,7 +45,7 @@ class UO_FW_AILink {
             property = "UO_FW_AILink_LRRange";
             displayName = "LR Range";
             tooltip = "Range if both groups have long-range radios, also used if tin_AILink_needRadio is false.";
-            control = "EditShort";
+            control = "UO_FW_500To2500Step100_Slider";
             expression = UO_FW_SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "800";
@@ -55,7 +55,7 @@ class UO_FW_AILink {
             property = "UO_FW_AILink_SRRange";
             displayName = "SR Range";
             tooltip = "Range if both groups have short-range radios.";
-            control = "EditShort";
+            control = "UO_FW_300To1000Step100_Slider";
             expression = UO_FW_SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "400";
@@ -75,7 +75,7 @@ class UO_FW_AILink {
             property = "UO_FW_AILink_MaxKnows";
             displayName = "Max Knows about";
             tooltip = "The maximum amount that knowsAbout will be set to via this script.";
-            control = "EditShort";
+            control = "UO_FW_1To4Step01_Slider";
             expression = UO_FW_SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "3.5";

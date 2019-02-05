@@ -10,8 +10,8 @@ class UO_FW_MainSettings {
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
-        class UO_FW_Type {
-            property = "UO_FW_Type";
+        class UO_FW_MissionType {
+            property = "UO_FW_MissionType";
             displayName = "Mission Type";
             tooltip = "Determines Mission Type";
             control = "MissionType";

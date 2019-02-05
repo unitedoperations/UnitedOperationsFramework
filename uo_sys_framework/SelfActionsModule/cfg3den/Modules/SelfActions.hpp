@@ -46,7 +46,7 @@ class UO_FW_SelfActions {
             property = "UO_FW_SelfActions_ParaFlare_Brightness";
             displayName = "ParaFlare Brightness";
             tooltip = "Sets the brightness of paraflares";
-            control = "UO_FW_SelfActions_ParaFlare_Brightness_Slider";
+            control = "UO_FW_15To40Step5_Slider";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "15";
         };

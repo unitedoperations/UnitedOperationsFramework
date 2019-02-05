@@ -3,6 +3,7 @@
 UO_FW_EXEC_CHECK(CLIENTHC);
 
 ["UO_FW_StartInParachute_PlayerEvent", {
+    ["UO_FW_RegisterModuleEvent", ["Start in Parachute", "Starts players in parachutes", "Briland and Sacher"]] call CBA_fnc_localEvent;
     [{(!isNull player)}, {
         [{
             private _parachuteType = ["NONE","NONSTEERABLE","STEERABLE"] select (GETPLVAR(StartInParachute, 0));

@@ -2,33 +2,30 @@
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 UO_FW_EXEC_CHECK(SERVER);
 
-//[_logic,_zoneName,_area,_interval,_repeatable,_capArray,_timeArray,_messagesArray,_colours,_hidden,_silent,_automessages,_ratioNeeded,_cond] passed array
-params ["","_zoneName","","_interval","","","","","","","","","",["_cond","true",[""]]];
+//[_logic,_zoneName,_area,_repeatable,_capArray,_timeArray,_messagesArray,_colours,_hidden,_silent,_automessages,_ratioNeeded,_cond] passed array
+//params ["","_zoneName","","","","","","","","","","",["_cond","true",[""]]];
+private _zoneName = _this select 1;
+private _cond = _this select 12;
 
 ["UO_FW_RegisterModuleEvent", ["Capture Zone", "Creates Capture Zone objectives for variable declares and end condition requirements", "Sacher and PiZZADOX"]] call CBA_fnc_globalEvent;
 
-if (!(_this call UO_FW_fnc_ValidateCaptureZone)) exitWith {
+if (!(_this call FUNC(ValidateCaptureZone))) exitWith {
     ERROR_1("CaptureZone %1 failed to Validate",_zoneName);
 };
 
-if (_interval < 5) then {
-    ERROR_1("CaptureZone %1 has too low an interval check! Setting to 5 seconds", _zoneName);
-    _interval = 5;
-};
-
-[{(call compile (_this select 1))}, {
+[{call (_this select 1)}, {
     (_this select 0) params ["_logic","_zoneName"];
     LOG_1("Activating CaptureZone %1 PFH",_zoneName);
     //define var for use in endconditions_varName = format ["%1_var",_zoneName];
     private _varName = format ["%1_var",_zoneName];
     private _teamControllingvarName = format ["%1_teamControlling",_zoneName];
-    if (isNil "CaptureZone_Array") then {CaptureZone_Array = [];};
-    CaptureZone_Array pushBack _logic;
+    if (isNil "UO_FW_CaptureZone_Array") then {UO_FW_CaptureZone_Array = [];};
+    UO_FW_CaptureZone_Array pushBack _logic;
     private _CaptureZonePFHhandle = [{
         //var redeclares
         params ["_argNested", "_idPFH"];
         _argNested params ["_args","_lastCheckedTime",["_initialized",false,[false]],"_varName","_teamControllingvarName",["_oldOwner","UNCONTESTED",[""]],["_ownerControlCount",0,[0]],"_marker"];
-        _args params ["_logic","_zoneName","_area","_interval","_repeatable","_capArray","_timeArray","_messagesArray","_colours","_hidden","_silent","_automessages","_ratioNeeded","_cond"];
+        _args params ["_logic","_zoneName","_area","_repeatable","_capArray","_timeArray","_messagesArray","_colours","_hidden","_silent","_automessages","_ratioNeeded","_cond"];
         _area params ["_loc","_radiusX","_radiusY","_direction","_isRectangle"];
         _colours params ["_bluforcolour","_opforcolour","_indforcolour","_CIVcolour","_uncontestedcolour","_contestedcolour"];
         _messagesArray params ["_bluformessageArray","_opformessageArray","_indformessageArray","_CIVmessageArray","_contestedmessage","_uncontestedmessage"];
@@ -395,4 +392,4 @@ if (_interval < 5) then {
 
 
     }, 0, [(_this select 0),CBA_missionTime,false,_varName,_teamControllingvarName]] call CBA_fnc_addPerFrameHandler;
-}, [_this, _cond]] call CBA_fnc_waitUntilAndExecute;
+}, [_this, compile _cond]] call CBA_fnc_waitUntilAndExecute;

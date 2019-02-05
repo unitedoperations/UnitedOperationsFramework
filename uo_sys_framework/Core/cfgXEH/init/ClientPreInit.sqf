@@ -158,9 +158,9 @@ LOG("Client Pre Init");
     SETPLPVAR(Dead,false);
     SETPLPVAR(Spectating,false);
     SETPLPVAR(Body,player);
-    UO_FW_PlayerHitHandle = [player, "Hit", UO_FW_FUNC(HitHandler), []] call CBA_fnc_addBISEventHandler;
-    UO_FW_PlayerKillHandle = [player, "Killed", UO_FW_FUNC(KilledHandler), []] call CBA_fnc_addBISEventHandler;
-    UO_FW_PlayerRespawnHandle = [player, "Respawn", UO_FW_FUNC(RespawnHandler), []] call CBA_fnc_addBISEventHandler;
+    UO_FW_PlayerHitHandle = [player, "Hit", FUNC(HitHandler), []] call CBA_fnc_addBISEventHandler;
+    UO_FW_PlayerKillHandle = [player, "Killed", FUNC(KilledHandler), []] call CBA_fnc_addBISEventHandler;
+    UO_FW_PlayerRespawnHandle = [player, "Respawn", FUNC(RespawnHandler), []] call CBA_fnc_addBISEventHandler;
     ["UO_FW_PlayerSpawned", player] call CBA_fnc_serverEvent;
 }] call CBA_fnc_addEventHandler;
 
@@ -178,5 +178,5 @@ LOG("Client Pre Init");
     // Player can JiP, initialize player vars and EHs
     ["UO_FW_PlayerInitEH_Event", []] call CBA_fnc_localEvent;
     ["UO_FW_PlayerInit_Event", []] call CBA_fnc_localEvent;
-    [] call UO_FW_FUNC(GiveJiPActions);
+    [] call FUNC(GiveJiPActions);
 }] call CBA_fnc_addEventHandler;

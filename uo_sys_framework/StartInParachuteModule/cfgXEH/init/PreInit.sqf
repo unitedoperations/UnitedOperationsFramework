@@ -3,6 +3,7 @@
 UO_FW_EXEC_CHECK(ALL);
 
 ["UO_FW_StartInParachute_LocalEvent", {
+    ["UO_FW_RegisterModuleEvent", ["Start in Parachute", "Starts players in parachutes", "Briland and Sacher"]] call CBA_fnc_globalEventJiP;
     {
         private _parachuteType = ["NONE","NONSTEERABLE","STEERABLE"] select (GETVAR(_x,StartInParachute, 0));
         private _altitude = GETVAR(_x,ParachuteAltitude, 300);

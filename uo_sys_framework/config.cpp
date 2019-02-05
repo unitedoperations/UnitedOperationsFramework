@@ -117,6 +117,22 @@ class CfgUnitInsignia {
 };
 
 class Cfg3DEN {
+
+    class EventHandlers {
+        class UO_FW_3DEN_EH {
+            onMissionLoad = "\
+                if (getMissionConfigValue ['UO_FW_Enabled',false]) then {\
+                    [] call UO_FW_fnc_BasicSettings3Den;\
+                };\
+            ";
+            OnMissionPreviewEnd = "\
+                if (getMissionConfigValue ['UO_FW_Enabled',false]) then {\
+                    [] call UO_FW_fnc_BasicSettings3Den;\
+                };\
+            ";
+        };
+    };
+
     class Mission {
         class UO_FW_Settings {
             displayName = "Mission Settings";
@@ -124,7 +140,6 @@ class Cfg3DEN {
                 //add Main mission settings here
                 #include "Core\cfg3den\Mission\MainMenu.hpp"
                 #include "Core\cfg3den\Mission\TeamsMenu.hpp"
-                #include "Core\cfg3den\Mission\JipMenu.hpp"
                 //debug at bottom
                 #include "Core\cfg3den\Mission\DebugMenu.hpp"
             };
@@ -234,7 +249,6 @@ class Cfg3DEN {
         #include "GearModule\CfgAttributes.hpp"
         #include "AOLimitModule\CfgAttributes.hpp"
         #include "HostageModule\CfgAttributes.hpp"
-        #include "SelfActionsModule\CfgAttributes.hpp"
     };
 };
 

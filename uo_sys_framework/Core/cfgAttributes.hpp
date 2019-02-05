@@ -3,7 +3,6 @@
 #include "cfgAttributes\Main\FrameworkCheckboxAttribute.hpp"
 #include "cfgAttributes\Main\TeamTypeAttribute.hpp"
 #include "cfgAttributes\JiP\JipTypeAttribute.hpp"
-#include "cfgAttributes\Respawn\RespawnDelayAttribute.hpp"
 #include "cfgAttributes\Respawn\RespawnTypeAttribute.hpp"
 #include "cfgAttributes\Respawn\RespawnWaveGearSystemAttribute.hpp"
 #include "cfgAttributes\Respawn\RespawnSideAttribute.hpp"
@@ -20,4 +19,5 @@
 #include "CfgAttributes\3DEN\ImportLoadoutFromProfileAttribute.hpp"
 #include "CfgAttributes\3DEN\AIOnlyCategoryAttributes.hpp"
 #include "CfgAttributes\3DEN\PlayerOnlyCategoryAttributes.hpp"
+#include "CfgAttributes\3DEN\SliderAttribute.hpp"
 #include "CfgAttributes\Spectate\SpectateTeamsAttribute.hpp"

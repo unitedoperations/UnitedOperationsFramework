@@ -10,31 +10,31 @@ class UO_FW_RespawnTemplates {
         respawnTypes[] = {1,2,3,5};
     };
     class UO_FW_RTemplatesS_SafeStart {
-        displayName = "Executes SafeStart Module Settings";
+        displayName = "Run SafeStart Module Settings on Respawn";
         respawnTypes[] = {1,2,3,4,5};
     };
     class UO_FW_RTemplatesS_CoverMap {
-        displayName = "Executes Unit CoverMap Settings";
+        displayName = "Run Unit CoverMap Settings on Respawn";
         respawnTypes[] = {1,2,3,4,5};
     };
     class UO_FW_RTemplatesS_TeamColour {
-        displayName = "Executes Unit TeamColour Settings";
+        displayName = "Run Unit TeamColour Settings on Respawn";
         respawnTypes[] = {1,2,3,4,5};
     };
     class UO_FW_RTemplatesS_StartInParachute {
-        displayName = "Executes Unit StartInParachute Settings";
+        displayName = "Run Unit StartInParachute Settings on Respawn";
         respawnTypes[] = {1,2,3,4,5};
     };
     class UO_FW_RTemplatesS_Gear {
-        displayName = "Executes Unit Gear Settings";
+        displayName = "Run Unit Gear Settings on Respawn";
         respawnTypes[] = {1,2,3,4,5};
     };
     class UO_FW_RTemplatesS_ACRE {
-        displayName = "Executes Unit ACRE Settings";
+        displayName = "Run Unit ACRE Settings on Respawn";
         respawnTypes[] = {1,2,3,4,5};
     };
     class UO_FW_RTemplatesS_MapAndCompassRemover {
-        displayName = "Executes MapAndCompassRemover Unit Settings";
+        displayName = "Run MapAndCompassRemover Unit Settings on Respawn";
         respawnTypes[] = {1,2,3,4,5};
     };
     //class UO_FW_RTemplatesS_GearHandle {

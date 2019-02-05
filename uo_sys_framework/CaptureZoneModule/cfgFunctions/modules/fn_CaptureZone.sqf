@@ -15,9 +15,8 @@ switch (_mode) do {
             private _direction = getdir _logic;
             private _isRectangle = if ((typeof _logic) isEqualTo "UO_FW_CaptureZoneModule_R") then {true} else {false};
             private _area = [_loc,_radiusX,_radiusY,_direction,_isRectangle];
-            private _interval = _logic getVariable ["UO_FW_CaptureZone_SleepInterval",15];
             private _repeatable = _logic getVariable ["UO_FW_CaptureZone_Repeatable",true];
-            private _ratioNeeded = _logic getVariable ["UO_FW_CaptureZone_RatioNeeded",0.75];
+            private _ratioNeeded = ((_logic getVariable ["UO_FW_CaptureZone_RatioNeeded",75]) / 100);
             private _BluforCap = (_logic getVariable ["UO_FW_CaptureZone_Cap_Blufor",0]);
             private _OpforCap = (_logic getVariable ["UO_FW_CaptureZone_Cap_Opfor",0]);
             private _INDFORCap = (_logic getVariable ["UO_FW_CaptureZone_Cap_INDFOR",0]);
@@ -37,7 +36,7 @@ switch (_mode) do {
             private _silent = _logic getVariable ["UO_FW_CaptureZone_Silent",false];
             private _automessages = _logic getVariable ["UO_FW_CaptureZone_AutoMessages",false];
             private _cond = _logic getVariable ["UO_FW_CaptureZone_Condition","true"];
-            [_logic,_zoneName,_area,_interval,_repeatable,[_BluforCap,_OpforCap,_INDFORCap,_CIVCap],[_BluforTime,_OpforTime,_INDFORTime,_CIVTime],[_BluforMessage,_OpforMessage,_INDFORMessage,_CIVMessage,_ContestedMessage,_UncontestedMessage],_colours,_hidden,_silent,_automessages,_ratioNeeded,_cond] call UO_FW_fnc_CaptureZoneLoop;
+            [_logic,_zoneName,_area,_repeatable,[_BluforCap,_OpforCap,_INDFORCap,_CIVCap],[_BluforTime,_OpforTime,_INDFORTime,_CIVTime],[_BluforMessage,_OpforMessage,_INDFORMessage,_CIVMessage,_ContestedMessage,_UncontestedMessage],_colours,_hidden,_silent,_automessages,_ratioNeeded,_cond] call UO_FW_fnc_CaptureZoneLoop;
         };
     };
     // When some attributes were changed (including position and rotation)
