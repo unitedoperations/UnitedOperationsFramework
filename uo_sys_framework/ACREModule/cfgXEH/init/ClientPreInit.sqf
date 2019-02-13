@@ -19,17 +19,17 @@ UO_FW_EXEC_CHECK(CLIENT);
 
 		["UO_FW_RegisterModuleEvent", ["ACRE Setup", "Module for Acre Settings", "PiZZADOX and Sacher"]] call CBA_fnc_localEvent;
 
-		private _UO_FW_Presets = ["default2", "default3", "default4", "default"];
-		private _UO_FW_Presets_BLUFOR = "default";
-		private _UO_FW_Presets_OPFOR = "default";
-		private _UO_FW_Presets_INDEPENDENT = "default";
-		private _UO_FW_Presets_CIVILIAN = "default";
+		UO_FW_ACREPRESET = ["default2", "default3", "default4", "default"];
+		UO_FW_ACREPRESET_BLUFOR = "default";
+		UO_FW_ACREPRESET_OPFOR = "default";
+		UO_FW_ACREPRESET_INDEPENDENT = "default";
+		UO_FW_ACREPRESET_CIVILIAN = "default";
 		if (UO_FW_ACRE_SCRAMBLE_Enabled) then
 		{
-			_UO_FW_Presets_BLUFOR = _UO_FW_Presets select 0;
-			_UO_FW_Presets_OPFOR = _UO_FW_Presets select 1;
-			_UO_FW_Presets_INDEPENDENT = _UO_FW_Presets select 2;
-			_UO_FW_Presets_CIVILIAN = _UO_FW_Presets select 3;
+			UO_FW_ACREPRESET_BLUFOR = UO_FW_ACREPRESET select 0;
+			UO_FW_ACREPRESET_OPFOR = UO_FW_ACREPRESET select 1;
+			UO_FW_ACREPRESET_INDEPENDENT = UO_FW_ACREPRESET select 2;
+			UO_FW_ACREPRESET_CIVILIAN = UO_FW_ACREPRESET select 3;
 		};
 		//blu,opf,indep,civ
 
@@ -50,7 +50,7 @@ UO_FW_EXEC_CHECK(CLIENT);
 				if (_name != "") then {
 					{
 						private _label = [_x, "label"] call acre_api_fnc_mapChannelFieldName;
-						[_x, _UO_FW_Presets_BLUFOR, _index, _label, _name] call acre_api_fnc_setPresetChannelField;
+						[_x, UO_FW_ACREPRESET_BLUFOR, _index, _label, _name] call acre_api_fnc_setPresetChannelField;
 					} forEach ["ACRE_PRC117F", "ACRE_PRC148", "ACRE_PRC152"];
 				};
 
@@ -71,7 +71,7 @@ UO_FW_EXEC_CHECK(CLIENT);
 				if (_name != "") then {
 					{
 						private _label = [_x, "label"] call acre_api_fnc_mapChannelFieldName;
-						[_x, _UO_FW_Presets_OPFOR, _index, _label, _name] call acre_api_fnc_setPresetChannelField;
+						[_x, UO_FW_ACREPRESET_OPFOR, _index, _label, _name] call acre_api_fnc_setPresetChannelField;
 					} forEach ["ACRE_PRC117F", "ACRE_PRC148", "ACRE_PRC152"];
 				};
 
@@ -92,7 +92,7 @@ UO_FW_EXEC_CHECK(CLIENT);
 				if (_name != "") then {
 					{
 						private _label = [_x, "label"] call acre_api_fnc_mapChannelFieldName;
-						[_x, _UO_FW_Presets_INDEPENDENT, _index, _label, _name] call acre_api_fnc_setPresetChannelField;
+						[_x, UO_FW_ACREPRESET_INDEPENDENT, _index, _label, _name] call acre_api_fnc_setPresetChannelField;
 					} forEach ["ACRE_PRC117F", "ACRE_PRC148", "ACRE_PRC152"];
 				};
 
@@ -113,7 +113,7 @@ UO_FW_EXEC_CHECK(CLIENT);
 				if (_name != "") then {
 					{
 						private _label = [_x, "label"] call acre_api_fnc_mapChannelFieldName;
-						[_x, _UO_FW_Presets_CIVILIAN, _index, _label, _name] call acre_api_fnc_setPresetChannelField;
+						[_x, UO_FW_ACREPRESET_CIVILIAN, _index, _label, _name] call acre_api_fnc_setPresetChannelField;
 					} forEach ["ACRE_PRC117F", "ACRE_PRC148", "ACRE_PRC152"];
 				};
 
@@ -154,16 +154,16 @@ UO_FW_EXEC_CHECK(CLIENT);
 			private _presetTemp = "default";
 			switch (_side) do {
 				case west: {
-					_presetTemp = _UO_FW_Presets_BLUFOR;
+					_presetTemp = UO_FW_ACREPRESET_BLUFOR;
 				};
 				case east: {
-					_presetTemp = _UO_FW_Presets_OPFOR;
+					_presetTemp = UO_FW_ACREPRESET_OPFOR;
 				};
 				case independent: {
-					_presetTemp = _UO_FW_Presets_INDEPENDENT;
+					_presetTemp = UO_FW_ACREPRESET_INDEPENDENT;
 				};
 				default {
-					_presetTemp = _UO_FW_Presets_CIVILIAN;
+					_presetTemp = UO_FW_ACREPRESET_CIVILIAN;
 				};
 			};
 
@@ -197,7 +197,7 @@ UO_FW_EXEC_CHECK(CLIENT);
                 ];
 				{
 					private _index = _forEachIndex + 1;
-					_UO_FW_CURRENTBABEL_LANGUAGES pushBack ["cl" + (str _index),(missionNamespace getVariable [_x,""])];
+					_UO_FW_CURRENTBABEL_LANGUAGES pushBack ["cl" + (str _index),((missionNamespace getVariable [_x,""]))];
 				} forEach _names;
 				private _langInfo = format ["Acre Babel Lanugages: %1",_UO_FW_CURRENTBABEL_LANGUAGES];
 				LOG_1("%1",_langInfo);
@@ -212,7 +212,7 @@ UO_FW_EXEC_CHECK(CLIENT);
 				{
 					private _language = _x;
 					{
-						if (_language select 1 isEqualTo missionNamespace getVariable [_x,""] && {missionNamespace getVariable [_x,""] != ""}) then {
+						if ((_language select 1) isEqualTo (missionNamespace getVariable [_x,""]) && {(missionNamespace getVariable [_x,""]) != ""}) then {
 							_UO_FW_ACRE_BLUFOR_BABEL_LANGUAGES pushBack (_language select 0);
 						};
 					} forEach ["UO_FW_ACRE_BLUFOR_BABEL_Custom","UO_FW_ACRE_BLUFOR_BABEL_Custom2"];
@@ -227,7 +227,7 @@ UO_FW_EXEC_CHECK(CLIENT);
 				{
 					private _language = _x;
 					{
-						if (_language select 1 isEqualTo missionNamespace getVariable [_x,""] && {missionNamespace getVariable [_x,""] != ""}) then {
+						if ((_language select 1) isEqualTo (missionNamespace getVariable [_x,""]) && {(missionNamespace getVariable [_x,""]) != ""}) then {
 							_UO_FW_ACRE_OPFOR_BABEL_LANGUAGES pushBack (_language select 0);
 						};
 					} forEach ["UO_FW_ACRE_OPFOR_BABEL_Custom","UO_FW_ACRE_OPFOR_BABEL_Custom2"];
@@ -242,7 +242,7 @@ UO_FW_EXEC_CHECK(CLIENT);
 				{
 					private _language = _x;
 					{
-						if (_language select 1 isEqualTo missionNamespace getVariable [_x,""] && {missionNamespace getVariable [_x,""] != ""}) then {
+						if ((_language select 1) isEqualTo (missionNamespace getVariable [_x,""]) && {(missionNamespace getVariable [_x,""]) != ""}) then {
 							_UO_FW_ACRE_INDEPENDENT_BABEL_LANGUAGES pushBack (_language select 0);
 						};
 					} forEach ["UO_FW_ACRE_INDEPENDENT_BABEL_Custom","UO_FW_ACRE_INDEPENDENT_BABEL_Custom2"];
@@ -257,7 +257,7 @@ UO_FW_EXEC_CHECK(CLIENT);
 				{
 					private _language = _x;
 					{
-						if (_language select 1 isEqualTo missionNamespace getVariable [_x,""] && {missionNamespace getVariable [_x,""] != ""}) then {
+						if ((_language select 1) isEqualTo (missionNamespace getVariable [_x,""]) && {(missionNamespace getVariable [_x,""]) != ""}) then {
 							_UO_FW_ACRE_CIVILIAN_BABEL_LANGUAGES pushBack (_language select 0);
 						};
 					} forEach ["UO_FW_ACRE_CIVILIAN_BABEL_Custom","UO_FW_ACRE_CIVILIAN_BABEL_Custom2"];
