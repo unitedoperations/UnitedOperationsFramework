@@ -1,16 +1,18 @@
-/*	Description: Gives actions to vehicles with AI Driver enabled
+/*	Description: Sets ACRE Presets and ACRE unit settings
  *	Arguments:
  * 		N/A
  *	Return Value:
  * 		ARRAY
  *	Author
- *		PiZZADOX
+ *		PiZZADOX & Sacher
  */
-
 
 #define COMPONENT ACRE
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 UO_FW_EXEC_CHECK(CLIENT);
+
+#define RADIONETARRAY(TEAMNAME) \
+[(GETMVAR(UO_FW_ACRE_##TEAMNAME##_RADIONET_NAME1,"")),(GETMVAR(UO_FW_ACRE_##TEAMNAME##_RADIONET_NAME2,"")),(GETMVAR(UO_FW_ACRE_##TEAMNAME##_RADIONET_NAME3,"")),(GETMVAR(UO_FW_ACRE_##TEAMNAME##_RADIONET_NAME4,"")),(GETMVAR(UO_FW_ACRE_##TEAMNAME##_RADIONET_NAME5,"")),(GETMVAR(UO_FW_ACRE_##TEAMNAME##_RADIONET_NAME6,"")),(GETMVAR(UO_FW_ACRE_##TEAMNAME##_RADIONET_NAME7,""))]
 
 ["UO_FW_SettingsLoaded", {
 	if !(UO_FW_Server_AcreModule_Allowed) exitwith {};
@@ -24,8 +26,7 @@ UO_FW_EXEC_CHECK(CLIENT);
 		UO_FW_ACREPRESET_OPFOR = "default";
 		UO_FW_ACREPRESET_INDEPENDENT = "default";
 		UO_FW_ACREPRESET_CIVILIAN = "default";
-		if (UO_FW_ACRE_SCRAMBLE_Enabled) then
-		{
+		if (UO_FW_ACRE_SCRAMBLE_Enabled) then {
 			UO_FW_ACREPRESET_BLUFOR = UO_FW_ACREPRESET select 0;
 			UO_FW_ACREPRESET_OPFOR = UO_FW_ACREPRESET select 1;
 			UO_FW_ACREPRESET_INDEPENDENT = UO_FW_ACREPRESET select 2;
@@ -35,16 +36,8 @@ UO_FW_EXEC_CHECK(CLIENT);
 
 		//Channel names stuff
 		LOG("ACRE Init");
-		private _UO_FW_ChannelNamesBLUFOR = [];
 		if (UO_FW_ACRE_BLUFOR_RADIONET_Enabled && {(side player isEqualTo west)}) then {
-			_UO_FW_ChannelNamesBLUFOR pushBack (missionNamespace getVariable ["UO_FW_ACRE_BLUFOR_RADIONET_NAME1",""]);
-			_UO_FW_ChannelNamesBLUFOR pushBack (missionNamespace getVariable ["UO_FW_ACRE_BLUFOR_RADIONET_NAME2",""]);
-			_UO_FW_ChannelNamesBLUFOR pushBack (missionNamespace getVariable ["UO_FW_ACRE_BLUFOR_RADIONET_NAME3",""]);
-			_UO_FW_ChannelNamesBLUFOR pushBack (missionNamespace getVariable ["UO_FW_ACRE_BLUFOR_RADIONET_NAME4",""]);
-			_UO_FW_ChannelNamesBLUFOR pushBack (missionNamespace getVariable ["UO_FW_ACRE_BLUFOR_RADIONET_NAME5",""]);
-			_UO_FW_ChannelNamesBLUFOR pushBack (missionNamespace getVariable ["UO_FW_ACRE_BLUFOR_RADIONET_NAME6",""]);
-			_UO_FW_ChannelNamesBLUFOR pushBack (missionNamespace getVariable ["UO_FW_ACRE_BLUFOR_RADIONET_NAME7",""]);
-			{
+            {
 				private _index = _forEachIndex + 1;
 				_x params ["_name"];
 				if (_name != "") then {
@@ -53,18 +46,9 @@ UO_FW_EXEC_CHECK(CLIENT);
 						[_x, UO_FW_ACREPRESET_BLUFOR, _index, _label, _name] call acre_api_fnc_setPresetChannelField;
 					} forEach ["ACRE_PRC117F", "ACRE_PRC148", "ACRE_PRC152"];
 				};
-
-			} foreach _UO_FW_ChannelNamesBLUFOR;
+			} foreach RADIONETARRAY(BLUFOR);
 		};
-		private _UO_FW_ChannelNamesOPFOR = [];
-		if (UO_FW_ACRE_OPFOR_RADIONET_Enabled  && {(side player isEqualTo east)}) then {
-			_UO_FW_ChannelNamesOPFOR pushBack (missionNamespace getVariable ["UO_FW_ACRE_OPFOR_RADIONET_NAME1",""]);
-			_UO_FW_ChannelNamesOPFOR pushBack (missionNamespace getVariable ["UO_FW_ACRE_OPFOR_RADIONET_NAME2",""]);
-			_UO_FW_ChannelNamesOPFOR pushBack (missionNamespace getVariable ["UO_FW_ACRE_OPFOR_RADIONET_NAME3",""]);
-			_UO_FW_ChannelNamesOPFOR pushBack (missionNamespace getVariable ["UO_FW_ACRE_OPFOR_RADIONET_NAME4",""]);
-			_UO_FW_ChannelNamesOPFOR pushBack (missionNamespace getVariable ["UO_FW_ACRE_OPFOR_RADIONET_NAME5",""]);
-			_UO_FW_ChannelNamesOPFOR pushBack (missionNamespace getVariable ["UO_FW_ACRE_OPFOR_RADIONET_NAME6",""]);
-			_UO_FW_ChannelNamesOPFOR pushBack (missionNamespace getVariable ["UO_FW_ACRE_OPFOR_RADIONET_NAME7",""]);
+		if (UO_FW_ACRE_OPFOR_RADIONET_Enabled && {(side player isEqualTo east)}) then {
 			{
 				private _index = _forEachIndex + 1;
 				_x params ["_name"];
@@ -74,18 +58,9 @@ UO_FW_EXEC_CHECK(CLIENT);
 						[_x, UO_FW_ACREPRESET_OPFOR, _index, _label, _name] call acre_api_fnc_setPresetChannelField;
 					} forEach ["ACRE_PRC117F", "ACRE_PRC148", "ACRE_PRC152"];
 				};
-
-			} foreach _UO_FW_ChannelNamesOPFOR;
+			} foreach RADIONETARRAY(OPFOR);
 		};
-		private _UO_FW_ChannelNamesINDEPENDENT = [];
 		if (UO_FW_ACRE_INDEPENDENT_RADIONET_Enabled && {(side player isEqualTo independent)}) then {
-			_UO_FW_ChannelNamesINDEPENDENT pushBack (missionNamespace getVariable ["UO_FW_ACRE_INDEPENDENT_RADIONET_NAME1",""]);
-			_UO_FW_ChannelNamesINDEPENDENT pushBack (missionNamespace getVariable ["UO_FW_ACRE_INDEPENDENT_RADIONET_NAME2",""]);
-			_UO_FW_ChannelNamesINDEPENDENT pushBack (missionNamespace getVariable ["UO_FW_ACRE_INDEPENDENT_RADIONET_NAME3",""]);
-			_UO_FW_ChannelNamesINDEPENDENT pushBack (missionNamespace getVariable ["UO_FW_ACRE_INDEPENDENT_RADIONET_NAME4",""]);
-			_UO_FW_ChannelNamesINDEPENDENT pushBack (missionNamespace getVariable ["UO_FW_ACRE_INDEPENDENT_RADIONET_NAME5",""]);
-			_UO_FW_ChannelNamesINDEPENDENT pushBack (missionNamespace getVariable ["UO_FW_ACRE_INDEPENDENT_RADIONET_NAME6",""]);
-			_UO_FW_ChannelNamesINDEPENDENT pushBack (missionNamespace getVariable ["UO_FW_ACRE_INDEPENDENT_RADIONET_NAME7",""]);
 			{
 				private _index = _forEachIndex + 1;
 				_x params ["_name"];
@@ -95,18 +70,9 @@ UO_FW_EXEC_CHECK(CLIENT);
 						[_x, UO_FW_ACREPRESET_INDEPENDENT, _index, _label, _name] call acre_api_fnc_setPresetChannelField;
 					} forEach ["ACRE_PRC117F", "ACRE_PRC148", "ACRE_PRC152"];
 				};
-
-			} foreach _UO_FW_ChannelNamesINDEPENDENT;
+			} foreach RADIONETARRAY(INDEPENDENT);
 		};
-		private _UO_FW_ChannelNamesCIVILIAN = [];
-		if (UO_FW_ACRE_CIVILIAN_RADIONET_Enabled  && {(side player isEqualTo civilian)}) then {
-			_UO_FW_ChannelNamesCIVILIAN pushBack (missionNamespace getVariable ["UO_FW_ACRE_CIVILIAN_RADIONET_NAME1",""]);
-			_UO_FW_ChannelNamesCIVILIAN pushBack (missionNamespace getVariable ["UO_FW_ACRE_CIVILIAN_RADIONET_NAME2",""]);
-			_UO_FW_ChannelNamesCIVILIAN pushBack (missionNamespace getVariable ["UO_FW_ACRE_CIVILIAN_RADIONET_NAME3",""]);
-			_UO_FW_ChannelNamesCIVILIAN pushBack (missionNamespace getVariable ["UO_FW_ACRE_CIVILIAN_RADIONET_NAME4",""]);
-			_UO_FW_ChannelNamesCIVILIAN pushBack (missionNamespace getVariable ["UO_FW_ACRE_CIVILIAN_RADIONET_NAME5",""]);
-			_UO_FW_ChannelNamesCIVILIAN pushBack (missionNamespace getVariable ["UO_FW_ACRE_CIVILIAN_RADIONET_NAME6",""]);
-			_UO_FW_ChannelNamesCIVILIAN pushBack (missionNamespace getVariable ["UO_FW_ACRE_CIVILIAN_RADIONET_NAME7",""]);
+		if (UO_FW_ACRE_CIVILIAN_RADIONET_Enabled && {(side player isEqualTo civilian)}) then {
 			{
 				private _index = _forEachIndex + 1;
 				_x params ["_name"];
@@ -116,14 +82,13 @@ UO_FW_EXEC_CHECK(CLIENT);
 						[_x, UO_FW_ACREPRESET_CIVILIAN, _index, _label, _name] call acre_api_fnc_setPresetChannelField;
 					} forEach ["ACRE_PRC117F", "ACRE_PRC148", "ACRE_PRC152"];
 				};
-
-			} foreach _UO_FW_ChannelNamesCIVILIAN;
+			} foreach RADIONETARRAY(CIVILIAN);
 		};
 
-		LOG_1("Setting Netnames. Blu: %1",_UO_FW_ChannelNamesBLUFOR);
-        LOG_1("Setting Netnames. Opf: %1",_UO_FW_ChannelNamesOPFOR);
-        LOG_1("Setting Netnames. Ind: %1",_UO_FW_ChannelNamesINDEPENDENT);
-        LOG_1("Setting Netnames. Civ: %1",_UO_FW_ChannelNamesCIVILIAN);
+		LOG_1("Setting Netnames. Blu: %1",(RADIONETARRAY(BLUFOR)));
+        LOG_1("Setting Netnames. Opf: %1",(RADIONETARRAY(OPFOR)));
+        LOG_1("Setting Netnames. Ind: %1",(RADIONETARRAY(INDEPENDENT)));
+        LOG_1("Setting Netnames. Civ: %1",(RADIONETARRAY(CIVILIAN)));
 
 		[{(!isNull player) && {(!isNull acre_player)} && {([] call acre_api_fnc_isInitialized)} && {GETMVAR(GearReady,false)}},{
 			private _side = side player;
@@ -182,7 +147,7 @@ UO_FW_EXEC_CHECK(CLIENT);
 			//BABBLE STUFF
 			if (UO_FW_ACRE_BABEL_Enabled) then {
 				LOG("Enabling Babel");
-				private _UO_FW_CURRENTBABEL_LANGUAGES = [
+				private _CURRENTBABEL_LANGUAGES = [
                     ["en", "English"],
     				["ru", "Russian"],
     				["fr", "French"],
@@ -197,75 +162,75 @@ UO_FW_EXEC_CHECK(CLIENT);
                 ];
 				{
 					private _index = _forEachIndex + 1;
-					_UO_FW_CURRENTBABEL_LANGUAGES pushBack ["cl" + (str _index),((missionNamespace getVariable [_x,""]))];
+					_CURRENTBABEL_LANGUAGES pushBack ["cl" + (str _index),((missionNamespace getVariable [_x,""]))];
 				} forEach _names;
-				private _langInfo = format ["Acre Babel Lanugages: %1",_UO_FW_CURRENTBABEL_LANGUAGES];
+				private _langInfo = format ["Acre Babel Lanugages: %1",_CURRENTBABEL_LANGUAGES];
 				LOG_1("%1",_langInfo);
-				{_x call acre_api_fnc_babelAddLanguageType;} foreach _UO_FW_CURRENTBABEL_LANGUAGES;
+				{_x call acre_api_fnc_babelAddLanguageType;} foreach _CURRENTBABEL_LANGUAGES;
 
-				private _UO_FW_ACRE_BLUFOR_BABEL_LANGUAGES = [];
-				if (UO_FW_ACRE_BLUFOR_BABEL_EN) then {_UO_FW_ACRE_BLUFOR_BABEL_LANGUAGES pushBack "en"; };
-				if (UO_FW_ACRE_BLUFOR_BABEL_RU) then {_UO_FW_ACRE_BLUFOR_BABEL_LANGUAGES pushBack "ru"; };
-				if (UO_FW_ACRE_BLUFOR_BABEL_FR) then {_UO_FW_ACRE_BLUFOR_BABEL_LANGUAGES pushBack "fr"; };
-				if (UO_FW_ACRE_BLUFOR_BABEL_AR) then {_UO_FW_ACRE_BLUFOR_BABEL_LANGUAGES pushBack "ar"; };
-				if (UO_FW_ACRE_BLUFOR_BABEL_GK) then {_UO_FW_ACRE_BLUFOR_BABEL_LANGUAGES pushBack "gk"; };
+				private _ACRE_BLUFOR_BABEL_LANGUAGES = [];
+				if (UO_FW_ACRE_BLUFOR_BABEL_EN) then {_ACRE_BLUFOR_BABEL_LANGUAGES pushBack "en"; };
+				if (UO_FW_ACRE_BLUFOR_BABEL_RU) then {_ACRE_BLUFOR_BABEL_LANGUAGES pushBack "ru"; };
+				if (UO_FW_ACRE_BLUFOR_BABEL_FR) then {_ACRE_BLUFOR_BABEL_LANGUAGES pushBack "fr"; };
+				if (UO_FW_ACRE_BLUFOR_BABEL_AR) then {_ACRE_BLUFOR_BABEL_LANGUAGES pushBack "ar"; };
+				if (UO_FW_ACRE_BLUFOR_BABEL_GK) then {_ACRE_BLUFOR_BABEL_LANGUAGES pushBack "gk"; };
 				{
 					private _language = _x;
 					{
 						if ((_language select 1) isEqualTo (missionNamespace getVariable [_x,""]) && {(missionNamespace getVariable [_x,""]) != ""}) then {
-							_UO_FW_ACRE_BLUFOR_BABEL_LANGUAGES pushBack (_language select 0);
+							_ACRE_BLUFOR_BABEL_LANGUAGES pushBack (_language select 0);
 						};
 					} forEach ["UO_FW_ACRE_BLUFOR_BABEL_Custom","UO_FW_ACRE_BLUFOR_BABEL_Custom2"];
-				} forEach _UO_FW_CURRENTBABEL_LANGUAGES;
+				} forEach _CURRENTBABEL_LANGUAGES;
 
-				private _UO_FW_ACRE_OPFOR_BABEL_LANGUAGES = [];
-				if (UO_FW_ACRE_OPFOR_BABEL_EN) then {_UO_FW_ACRE_OPFOR_BABEL_LANGUAGES pushBack "en"; };
-				if (UO_FW_ACRE_OPFOR_BABEL_RU) then {_UO_FW_ACRE_OPFOR_BABEL_LANGUAGES pushBack "ru"; };
-				if (UO_FW_ACRE_OPFOR_BABEL_FR) then {_UO_FW_ACRE_OPFOR_BABEL_LANGUAGES pushBack "fr"; };
-				if (UO_FW_ACRE_OPFOR_BABEL_AR) then {_UO_FW_ACRE_OPFOR_BABEL_LANGUAGES pushBack "ar"; };
-				if (UO_FW_ACRE_OPFOR_BABEL_GK) then {_UO_FW_ACRE_OPFOR_BABEL_LANGUAGES pushBack "gk"; };
+				private _ACRE_OPFOR_BABEL_LANGUAGES = [];
+				if (UO_FW_ACRE_OPFOR_BABEL_EN) then {_ACRE_OPFOR_BABEL_LANGUAGES pushBack "en"; };
+				if (UO_FW_ACRE_OPFOR_BABEL_RU) then {_ACRE_OPFOR_BABEL_LANGUAGES pushBack "ru"; };
+				if (UO_FW_ACRE_OPFOR_BABEL_FR) then {_ACRE_OPFOR_BABEL_LANGUAGES pushBack "fr"; };
+				if (UO_FW_ACRE_OPFOR_BABEL_AR) then {_ACRE_OPFOR_BABEL_LANGUAGES pushBack "ar"; };
+				if (UO_FW_ACRE_OPFOR_BABEL_GK) then {_ACRE_OPFOR_BABEL_LANGUAGES pushBack "gk"; };
 				{
 					private _language = _x;
 					{
 						if ((_language select 1) isEqualTo (missionNamespace getVariable [_x,""]) && {(missionNamespace getVariable [_x,""]) != ""}) then {
-							_UO_FW_ACRE_OPFOR_BABEL_LANGUAGES pushBack (_language select 0);
+							_ACRE_OPFOR_BABEL_LANGUAGES pushBack (_language select 0);
 						};
 					} forEach ["UO_FW_ACRE_OPFOR_BABEL_Custom","UO_FW_ACRE_OPFOR_BABEL_Custom2"];
-				} forEach _UO_FW_CURRENTBABEL_LANGUAGES;
+				} forEach _CURRENTBABEL_LANGUAGES;
 
-				private _UO_FW_ACRE_INDEPENDENT_BABEL_LANGUAGES = [];
-				if (UO_FW_ACRE_INDEPENDENT_BABEL_EN) then {_UO_FW_ACRE_INDEPENDENT_BABEL_LANGUAGES pushBack "en"; };
-				if (UO_FW_ACRE_INDEPENDENT_BABEL_RU) then {_UO_FW_ACRE_INDEPENDENT_BABEL_LANGUAGES pushBack "ru"; };
-				if (UO_FW_ACRE_INDEPENDENT_BABEL_FR) then {_UO_FW_ACRE_INDEPENDENT_BABEL_LANGUAGES pushBack "fr"; };
-				if (UO_FW_ACRE_INDEPENDENT_BABEL_AR) then {_UO_FW_ACRE_INDEPENDENT_BABEL_LANGUAGES pushBack "ar"; };
-				if (UO_FW_ACRE_INDEPENDENT_BABEL_GK) then {_UO_FW_ACRE_INDEPENDENT_BABEL_LANGUAGES pushBack "gk"; };
+				private _ACRE_INDEPENDENT_BABEL_LANGUAGES = [];
+				if (UO_FW_ACRE_INDEPENDENT_BABEL_EN) then {_ACRE_INDEPENDENT_BABEL_LANGUAGES pushBack "en"; };
+				if (UO_FW_ACRE_INDEPENDENT_BABEL_RU) then {_ACRE_INDEPENDENT_BABEL_LANGUAGES pushBack "ru"; };
+				if (UO_FW_ACRE_INDEPENDENT_BABEL_FR) then {_ACRE_INDEPENDENT_BABEL_LANGUAGES pushBack "fr"; };
+				if (UO_FW_ACRE_INDEPENDENT_BABEL_AR) then {_ACRE_INDEPENDENT_BABEL_LANGUAGES pushBack "ar"; };
+				if (UO_FW_ACRE_INDEPENDENT_BABEL_GK) then {_ACRE_INDEPENDENT_BABEL_LANGUAGES pushBack "gk"; };
 				{
 					private _language = _x;
 					{
 						if ((_language select 1) isEqualTo (missionNamespace getVariable [_x,""]) && {(missionNamespace getVariable [_x,""]) != ""}) then {
-							_UO_FW_ACRE_INDEPENDENT_BABEL_LANGUAGES pushBack (_language select 0);
+							_ACRE_INDEPENDENT_BABEL_LANGUAGES pushBack (_language select 0);
 						};
 					} forEach ["UO_FW_ACRE_INDEPENDENT_BABEL_Custom","UO_FW_ACRE_INDEPENDENT_BABEL_Custom2"];
-				} forEach _UO_FW_CURRENTBABEL_LANGUAGES;
+				} forEach _CURRENTBABEL_LANGUAGES;
 
-				private _UO_FW_ACRE_CIVILIAN_BABEL_LANGUAGES = [];
-				if (UO_FW_ACRE_CIVILIAN_BABEL_EN) then {_UO_FW_ACRE_CIVILIAN_BABEL_LANGUAGES pushBack "en"; };
-				if (UO_FW_ACRE_CIVILIAN_BABEL_RU) then {_UO_FW_ACRE_CIVILIAN_BABEL_LANGUAGES pushBack "ru"; };
-				if (UO_FW_ACRE_CIVILIAN_BABEL_FR) then {_UO_FW_ACRE_CIVILIAN_BABEL_LANGUAGES pushBack "fr"; };
-				if (UO_FW_ACRE_CIVILIAN_BABEL_AR) then {_UO_FW_ACRE_CIVILIAN_BABEL_LANGUAGES pushBack "ar"; };
-				if (UO_FW_ACRE_CIVILIAN_BABEL_GK) then {_UO_FW_ACRE_CIVILIAN_BABEL_LANGUAGES pushBack "gk"; };
+				private _ACRE_CIVILIAN_BABEL_LANGUAGES = [];
+				if (UO_FW_ACRE_CIVILIAN_BABEL_EN) then {_ACRE_CIVILIAN_BABEL_LANGUAGES pushBack "en"; };
+				if (UO_FW_ACRE_CIVILIAN_BABEL_RU) then {_ACRE_CIVILIAN_BABEL_LANGUAGES pushBack "ru"; };
+				if (UO_FW_ACRE_CIVILIAN_BABEL_FR) then {_ACRE_CIVILIAN_BABEL_LANGUAGES pushBack "fr"; };
+				if (UO_FW_ACRE_CIVILIAN_BABEL_AR) then {_ACRE_CIVILIAN_BABEL_LANGUAGES pushBack "ar"; };
+				if (UO_FW_ACRE_CIVILIAN_BABEL_GK) then {_ACRE_CIVILIAN_BABEL_LANGUAGES pushBack "gk"; };
 				{
 					private _language = _x;
 					{
 						if ((_language select 1) isEqualTo (missionNamespace getVariable [_x,""]) && {(missionNamespace getVariable [_x,""]) != ""}) then {
-							_UO_FW_ACRE_CIVILIAN_BABEL_LANGUAGES pushBack (_language select 0);
+							_ACRE_CIVILIAN_BABEL_LANGUAGES pushBack (_language select 0);
 						};
 					} forEach ["UO_FW_ACRE_CIVILIAN_BABEL_Custom","UO_FW_ACRE_CIVILIAN_BABEL_Custom2"];
-				} forEach _UO_FW_CURRENTBABEL_LANGUAGES;
+				} forEach _CURRENTBABEL_LANGUAGES;
 
 
 				if (UO_FW_ACRE_BLUFOR_BABEL_Enabled && {(side player isEqualTo west)}) then {
-					_UO_FW_ACRE_BLUFOR_BABEL_LANGUAGES call acre_api_fnc_babelSetSpokenLanguages;
+					_ACRE_BLUFOR_BABEL_LANGUAGES call acre_api_fnc_babelSetSpokenLanguages;
 					private _languages = player getVariable ["UO_FW_Languages", []];
 					if !(_languages isEqualTo []) then {
 						_languages call acre_api_fnc_babelSetSpokenLanguages;
@@ -273,7 +238,7 @@ UO_FW_EXEC_CHECK(CLIENT);
 				};
 
 				if (UO_FW_ACRE_OPFOR_BABEL_Enabled && {(side player isEqualTo east)}) then {
-					_UO_FW_ACRE_OPFOR_BABEL_LANGUAGES call acre_api_fnc_babelSetSpokenLanguages;
+					_ACRE_OPFOR_BABEL_LANGUAGES call acre_api_fnc_babelSetSpokenLanguages;
 					private _languages = player getVariable ["UO_FW_Languages", []];
 					if !(_languages isEqualTo []) then {
 						_languages call acre_api_fnc_babelSetSpokenLanguages;
@@ -281,7 +246,7 @@ UO_FW_EXEC_CHECK(CLIENT);
 				};
 
 				if (UO_FW_ACRE_INDEPENDENT_BABEL_Enabled && {(side player isEqualTo independent)}) then {
-					_UO_FW_ACRE_INDEPENDENT_BABEL_LANGUAGES call acre_api_fnc_babelSetSpokenLanguages;
+					_ACRE_INDEPENDENT_BABEL_LANGUAGES call acre_api_fnc_babelSetSpokenLanguages;
 					private _languages = player getVariable ["UO_FW_Languages", []];
 					if !(_languages isEqualTo []) then {
 						_languages call acre_api_fnc_babelSetSpokenLanguages;
@@ -289,7 +254,7 @@ UO_FW_EXEC_CHECK(CLIENT);
 				};
 
 				if (UO_FW_ACRE_CIVILIAN_BABEL_Enabled && {(side player isEqualTo civilian)}) then {
-					_UO_FW_ACRE_CIVILIAN_BABEL_LANGUAGES call acre_api_fnc_babelSetSpokenLanguages;
+					_ACRE_CIVILIAN_BABEL_LANGUAGES call acre_api_fnc_babelSetSpokenLanguages;
 					private _languages = player getVariable ["UO_FW_Languages", []];
 					if !(_languages isEqualTo []) then {
 						_languages call acre_api_fnc_babelSetSpokenLanguages;

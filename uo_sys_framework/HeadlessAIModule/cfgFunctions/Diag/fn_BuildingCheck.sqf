@@ -2,9 +2,9 @@
 UO_FW_AI_EXEC_CHECK(SERVERHC);
 
 private ["_Enemy", "_Offset", "_ToWorld1", "_ToWorld2", "_PointHeight", "_PointHeightC", "_LookVar", "_dgn_returnvariable"];
-params ["_Unit","_UO_FW_AI_MovedRecentlyCover","_UO_FW_AI_ActivelyClearing","_UO_FW_AI_StartedInside"];
+params ["_Unit","_MovedRecentlyCover","_ActivelyClearing","_StartedInside"];
 
-if (_UO_FW_AI_MovedRecentlyCover || {_UO_FW_AI_ActivelyClearing} || {_UO_FW_AI_StartedInside}) exitWith {false};
+if (_MovedRecentlyCover || {_ActivelyClearing} || {_StartedInside}) exitWith {false};
 private _Enemy = _Unit call UO_FW_AI_fnc_ClosestEnemy;
 if (isNil "_Enemy") exitWith {};
 if ((typeName _Enemy) isEqualTo "ARRAY") exitWith {_dgn_returnvariable = false;_dgn_returnvariable};

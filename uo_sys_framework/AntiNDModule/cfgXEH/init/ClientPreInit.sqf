@@ -7,7 +7,7 @@ UO_FW_EXEC_CHECK(CLIENT);
     if !(UO_FW_Anti_ND_Enabled) exitwith {};
     ["UO_FW_RegisterModuleEvent", ["Anti ND", "Extra Safety for mission start", "Starfox64, PiZZADOX and Sacher"]] call CBA_fnc_localEvent;
     [{(!isNull player) && {(GETMVAR(GearReady,false))}}, {
-        private _UO_FW_FiredEh = player addEventHandler ["Fired", {
+        private _FiredEh = player addEventHandler ["Fired", {
             params ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile", "_gunner"];
             if (GETMVAR(ND_Active,false)) then {
                 if (((GETMVAR(SpawnPos,(getpos player))) distance player) <= UO_FW_Anti_ND_Distance) then {
@@ -26,8 +26,8 @@ UO_FW_EXEC_CHECK(CLIENT);
                 };
             };
         }];
-        (SETPLVAR(ND_EHid,_UO_FW_FiredEh));
-        [{(CBA_missionTime > UO_FW_Anti_ND_Time)},{player removeEventHandler ["Fired", _this]; (SETPLVAR(ND_EHid,"DISABLED"));},_UO_FW_FiredEh] call CBA_fnc_waitUntilAndExecute;
+        (SETPLVAR(ND_EHid,_FiredEh));
+        [{(CBA_missionTime > UO_FW_Anti_ND_Time)},{player removeEventHandler ["Fired", _this]; (SETPLVAR(ND_EHid,"DISABLED"));},_FiredEh] call CBA_fnc_waitUntilAndExecute;
     }] call CBA_fnc_waitUntilAndExecute;
 }] call CBA_fnc_addEventHandler;
 

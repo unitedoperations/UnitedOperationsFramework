@@ -1,8 +1,8 @@
 private ["_Enemy", "_nBuilding", "_Locations"];
-params ["_Unit","_UO_FW_AI_MovedRecentlyCover","_UO_FW_AI_InCover","_UO_FW_AI_ActivelyClearing","_UO_FW_AI_StartedInside","_UO_FW_AI_GARRISONED"];
+params ["_Unit","_MovedRecentlyCover","_InCover","_ActivelyClearing","_StartedInside","_GARRISONED"];
 
 //Function to send AI to clear buildings
-if (_UO_FW_AI_MovedRecentlyCover || {_UO_FW_AI_ActivelyClearing} || {_UO_FW_AI_StartedInside} || {_UO_FW_AI_GARRISONED}) exitWith {};
+if (_MovedRecentlyCover || {_ActivelyClearing} || {_StartedInside} || {_GARRISONED}) exitWith {};
 //Find the closest enemy (This should be the one that is in a building
 
 //systemchat format ["F %1",_Unit];
@@ -20,6 +20,6 @@ _Locations = [_nBuilding] call BIS_fnc_buildingPositions;
     //Set variable to true to prevent AI clearing buildings to often
     //_x spawn UO_FW_AI_fnc_StanceModifier;
     if (_Enemy distance _x < 200) then {
-        [_Locations,_x,_UO_FW_AI_InCover,_UO_FW_AI_ActivelyClearing,_Enemy] spawn UO_FW_AI_fnc_GarrisonClearPatrol;
+        [_Locations,_x,_InCover,_ActivelyClearing,_Enemy] spawn UO_FW_AI_fnc_GarrisonClearPatrol;
     };
 } foreach units (group _Unit);

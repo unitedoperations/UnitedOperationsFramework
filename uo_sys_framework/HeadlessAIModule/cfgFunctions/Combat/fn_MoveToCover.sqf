@@ -7,10 +7,10 @@ waitUntil {UO_FW_AI_CurrentlyMoving < UO_FW_AI_CurrentlyMovingLimit};
 
     UO_FW_AI_CurrentlyMoving = UO_FW_AI_CurrentlyMoving + 1;
 
-    _UO_FW_AI_MovedRecentlyCover = _this select 1;
-    _UO_FW_AI_GRENADETHROWN = _this select 2;
-    _UO_FW_AI_InCover = _this select 3;
-    _UO_FW_AI_StartedInside = _this select 4;
+    _MovedRecentlyCover = _this select 1;
+    _GRENADETHROWN = _this select 2;
+    _InCover = _this select 3;
+    _StartedInside = _this select 4;
 
     //Let's find the nearest enemy to his unit.
     _NearestEnemy = _Unit call UO_FW_AI_fnc_ClosestEnemy;
@@ -20,8 +20,8 @@ waitUntil {UO_FW_AI_CurrentlyMoving < UO_FW_AI_CurrentlyMovingLimit};
 
 
     _MoveToPos = (getpos _Unit);
-    _UO_FW_AI_GARRISONED = _Unit getVariable ["UO_FW_AI_GARRISONED",false];
-    _CoverPos = [_Unit,_MoveToPos,_UO_FW_AI_GARRISONED,_UO_FW_AI_MovedRecentlyCover,false,_UO_FW_AI_StartedInside,_NearestEnemy] call UO_FW_AI_fnc_FindCoverPos;
+    _GARRISONED = _Unit getVariable ["UO_FW_AI_GARRISONED",false];
+    _CoverPos = [_Unit,_MoveToPos,_GARRISONED,_MovedRecentlyCover,false,_StartedInside,_NearestEnemy] call UO_FW_AI_fnc_FindCoverPos;
 
     if !(isNil "_CoverPos") then {
         //Lets us know where they were told to move!

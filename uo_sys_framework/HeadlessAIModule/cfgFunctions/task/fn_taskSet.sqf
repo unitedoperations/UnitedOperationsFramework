@@ -11,7 +11,7 @@
 UO_FW_AI_EXEC_CHECK(SERVERHC);
 params ["_grp",["_newTask",objNull,[objNull]],["_setTime",0,[0]]];
 if (!isNull _newTask) then {
-    (_newTask call UO_FW_AI_fnc_getTaskParams) params ["_newTask","_cond","_prior","_time","_onComp","_UO_FW_AI_TaskId","_radius","_task","_occupy","_wait","_behave","_combat","_speed","_form","_stance"];
+    (_newTask call UO_FW_AI_fnc_getTaskParams) params ["_newTask","_cond","_prior","_time","_onComp","_TaskId","_radius","_task","_occupy","_wait","_behave","_combat","_speed","_form","_stance"];
     if (_time isEqualTo 0) then {
         _setTime = 1E10;
     } else {

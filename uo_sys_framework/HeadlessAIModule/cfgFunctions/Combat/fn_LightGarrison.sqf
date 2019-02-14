@@ -1,7 +1,7 @@
 private ["_Group","_UnitsGroup","_SpecificUnit","_ClosestEnemy","_nBuilding","_IsEnterable","_CheckDist","_bposleft","_pcnt","_LocationArray","_AttackPoint"];
-params ["_Unit","_UO_FW_AI_MovedRecentlyCover","_UO_FW_AI_ActivelyClearing","_UO_FW_AI_StartedInside"];
+params ["_Unit","_MovedRecentlyCover","_ActivelyClearing","_StartedInside"];
 
-if (_UO_FW_AI_MovedRecentlyCover || {_UO_FW_AI_ActivelyClearing} || {_UO_FW_AI_StartedInside} || {_Unit getVariable "UO_FW_AI_GARRISONED"}) exitWith {};
+if (_MovedRecentlyCover || {_ActivelyClearing} || {_StartedInside} || {_Unit getVariable "UO_FW_AI_GARRISONED"}) exitWith {};
 _Group = (group _Unit);
 _UnitsGroup = units _Group;
 _SpecificUnit = _UnitsGroup select 0;

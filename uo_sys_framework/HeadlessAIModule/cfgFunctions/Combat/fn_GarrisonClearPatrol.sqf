@@ -1,5 +1,5 @@
-private ["_Locations", "_Unit", "_UO_FW_AI_InCover", "_Enemy", "_RefinedBuildingArray", "_UnitPosition", "_AcceptableRange", "_ClosestPos"];
-params ["_Locations","_Unit","_UO_FW_AI_InCover","_UO_FW_AI_InCover","_Enemy"];
+private ["_Locations", "_Unit", "_InCover", "_Enemy", "_RefinedBuildingArray", "_UnitPosition", "_AcceptableRange", "_ClosestPos"];
+params ["_Locations","_Unit","_InCover","_InCover","_Enemy"];
 
 sleep (random 5);
 

@@ -4,14 +4,14 @@
 #include "\x\UO_FW\addons\Main\HeadlessAIModule\module_macros.hpp"
 UO_FW_AI_EXEC_CHECK(SERVERHC);
 
-params ["_Unit","_UO_FW_AI_MovedRecently","_UO_FW_AI_VisuallyCanSee","_UO_FW_AI_MovedRecentlyCover"];
+params ["_Unit","_MovedRecently","_VisuallyCanSee","_MovedRecentlyCover"];
 private ["_NearestEnemy", "_intersections"];
 
     ////systemchat format ["M %1",_Unit];
     //_NearestEnemy = _Unit call UO_FW_AI_fnc_ClosestEnemy;
     _NearestEnemy = _Unit findNearestEnemy _Unit;
     _DistanceCheck = _NearestEnemy distance _Unit;
-    //if (isNil "_NearestEnemy" || {_UO_FW_AI_MovedRecentlyCover} || {(typeName _NearestEnemy isEqualTo "ARRAY")} || {isNil "_Unit"} || {!(alive _NearestEnemy)} || {(_NearestEnemy distance _Unit) > 5000}) exitWith {};
+    //if (isNil "_NearestEnemy" || {_MovedRecentlyCover} || {(typeName _NearestEnemy isEqualTo "ARRAY")} || {isNil "_Unit"} || {!(alive _NearestEnemy)} || {(_NearestEnemy distance _Unit) > 5000}) exitWith {};
     if (isNil "_NearestEnemy" || {(typeName _NearestEnemy isEqualTo "ARRAY")} || {isNil "_Unit"} || {!(alive _NearestEnemy)} || {(_DistanceCheck) > 2000}) exitWith {_Unit forcespeed -1;};
 
 
@@ -32,37 +32,37 @@ private ["_NearestEnemy", "_intersections"];
     //if ((count _intersections) isEqualTo 0 && ((_DistanceCheck) < 50)) exitwith
 
     if (_cansee > 0 && {(_DistanceCheck) < 25}) exitwith {
-            _UO_FW_AI_VisuallyCanSee = true;
+            _VisuallyCanSee = true;
             _Unit forceSpeed 0;
             _Unit setUnitPos "AUTO";
             _Unit doSuppressiveFire _NearestEnemy;
             LOG_1("%1 has close enemies! Fire!",_Unit);
-            _UO_FW_AI_VisuallyCanSee
+            _VisuallyCanSee
     };
 
 
-    if (_UO_FW_AI_MovedRecentlyCover) exitwith {};
+    if (_MovedRecentlyCover) exitwith {};
     if (_DistanceCheck < 100) then {_Unit forcespeed 0.7;};
 
     if (_cansee > 0 && ((_DistanceCheck) < 500)) exitwith {
-            _UO_FW_AI_VisuallyCanSee = true;
+            _VisuallyCanSee = true;
             _Unit setUnitPos "AUTO";
             _Unit doSuppressiveFire _NearestEnemy;
-            _UO_FW_AI_VisuallyCanSee
+            _VisuallyCanSee
     };
 
 
-    if (_UO_FW_AI_MovedRecently) exitWith {};
+    if (_MovedRecently) exitWith {};
 
 
     if (_cansee > 0 && ((_DistanceCheck) < 1000)) then {
-            _UO_FW_AI_VisuallyCanSee = true;
+            _VisuallyCanSee = true;
             _Unit setUnitPos "AUTO";
             _Unit doSuppressiveFire _NearestEnemy;
             //systemchat "SUPPRESSIVE!";
     }
     else {
-            _UO_FW_AI_VisuallyCanSee = false;
+            _VisuallyCanSee = false;
             //_Unit spawn {sleep 10;if !(_Unit getVariable "UO_FW_AI_VisuallyCanSee") then {_Unit forceSpeed -1;};};
     };
 //};
