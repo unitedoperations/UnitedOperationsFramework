@@ -196,7 +196,7 @@ class UO_FW_GearSettings_ACE_Arsenal_Opfor {
             control = "UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo";
             typeName = "STRING";
             expression = UO_FW_SCENARIO_EXPRESSION;
-            defaultValue = "''";
+            defaultValue = "'None'";
         };
         class UO_FW_GearSettings_ACE_Arsenal_LoadoutType_Opfor_MKS {
             property = "UO_FW_GearSettings_ACE_Arsenal_LoadoutType_Opfor_MKS";
@@ -205,7 +205,7 @@ class UO_FW_GearSettings_ACE_Arsenal_Opfor {
             control = "UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo";
             typeName = "STRING";
             expression = UO_FW_SCENARIO_EXPRESSION;
-            defaultValue = "''";
+            defaultValue = "'None'";
         };
         class UO_FW_GearSettings_ACE_Arsenal_LoadoutType_Opfor_OFF {
             property = "UO_FW_GearSettings_ACE_Arsenal_LoadoutType_Opfor_OFF";
