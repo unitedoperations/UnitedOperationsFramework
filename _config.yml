@@ -18,10 +18,10 @@ developer: "unitedoperations"
 
 title: UO Framework
 description: Documentation for the United Operation Framework
-baseurl: "UnitedOperationsFramework" # the subpath of your site, e.g. /blog
-url: "https://{{ developer }}.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-repository: "https://github.com/{{ developer }}/{{ baseurl }}/"
-branch: "gh-pages"
+baseurl: UnitedOperationsFramework # the subpath of your site, e.g. /blog
+url: https://{{ developer }}.github.io # the base hostname & protocol for your site, e.g. http://example.com
+repository: https://github.com/{{ developer }}/{{ baseurl }}/
+branch: gh-pages
 
 permalink: pretty
 exclude: ["node_modules/", "*.gemspec", "*.gem", "Gemfile", "Gemfile.lock", "package.json", "package-lock.json",  "script/", "LICENSE.txt", "lib/", "bin/", "README.md", "Rakefile"]
@@ -36,7 +36,7 @@ aux_links:
   "Slack":
       -"//uoframework.slack.com"
   "Github":
-    - "//github.com/{{ developer }}/{{ baseurl }}/"
+    - "//github.com/{{} developer }}/{{ baseurl }}/"
   "Latest Release":
     - "//github.com/unitedoperations/UnitedOperationsFramework/releases/latest"
 
