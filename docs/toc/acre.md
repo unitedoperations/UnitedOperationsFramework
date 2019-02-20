@@ -1,10 +1,11 @@
 ---
 layout: default
-title: Module (for mission makers)
+title: ACRE Module
 nav_order: 2
-parent: Users
+parent: Modules
+#permalink: /docs/
 ---
 
-# Basic Setup
+# ACRE Module
 [Edit me on Github]({{ site.repository }}/tree/master/{{ page.path }}){: .btn .fs-5 .mb-md-0 } 
 {: .fs-9 }
