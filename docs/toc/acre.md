@@ -7,5 +7,5 @@ parent: Modules
 ---
 
 # ACRE Module
-[Edit me on Github]({{ site.repository }}/tree/master/{{ page.path }}){: .btn .fs-5 .mb-md-0 } 
+[Edit me on Github]({{ site.repository }}/tree/{{ site.branch }}/{{ page.path }}){: .btn .fs-5 .mb-md-0 } 
 {: .fs-9 }
