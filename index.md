@@ -2,12 +2,12 @@
 layout: default
 title: Home
 nav_order: 1
-description: "The United Operations Framework is an extension to the Arma 3 Eden Editor."
+description: "The United Operations Framework is a innovative new extension to the Arma 3 Eden Editor offering many new features for mission makers and developers a-like."
 permalink: /
 ---
 
 # United Operations Framework Documentation
-[Edit me on Github]({{ site.repository }}/tree/master/{{ page.path }}){: .btn .fs-5 .mb-md-0 } 
+[Edit me on Github]({{ site.repository }}/tree/{{ site.branch }}/{{ page.path }}){: .btn .fs-5 .mb-md-0 } 
 
 ---
 <!--{: .fs-9 } -->
