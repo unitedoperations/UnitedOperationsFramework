@@ -1,5 +1,5 @@
 /*
- * Author: Sacher
+ * Author: Sacher & PiZZADOX
  *
  * Spawns a AI Unit
  *
@@ -13,7 +13,16 @@
  * Public: Yes
  */
 
-private _unit = (_this select 0) createUnit [(_this select 1),(_this select 2), [], 0, "NONE"];
-if(!isNil "aCount_addEH") then { ["aCount_event_addEH", _unit] call CBA_fnc_serverEvent};
-_unit call UO_FW_fnc_trackUnit;
+#define COMPONENT Core
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
+UO_FW_EXEC_CHECK(ALL);
+
+params ["_group","_class","_pos"];
+
+private _unit = _group createUnit [_class,[0,0,0], [], 0, "NONE"];
+_unit setPos _pos;
+if !(isNil "UO_FW_ShotCount_EH_Event") then {
+    ["UO_FW_ShotCount_EH_Event", _unit] call CBA_fnc_serverEvent;
+};
+["UO_FW_Track_Event", _unit] call CBA_fnc_serverEvent;
 _unit

@@ -13,13 +13,13 @@
 
 #define MILSPERROUND  6400
 
-#define VAR_SART_ARTINFIREMISSION "SARTisInAFiremission"
+#define VAR_SART_ARTINFIREMission "SARTisInAFiremission"
 #define VAR_SART_ARTFIRERATE "SArtFireRate"
 #define VAR_SART_ARTACCURACY "SArtAccuracy"
 #define VAR_SART_ARTSPOTACCURACY "SArtSpottingAccuracy"
 #define VAR_SART_ARTAIMSPEED "SArtAimSpeed"
 #define VAR_SART_ARTCALCSPEED "SArtCalcSpeed"
-#define VAR_SART_ARTCUSTOMNAME "SArtCustomName"
+#define VAR_SART_ARTCustomNAME "SArtCustomName"
 #define VAR_SART_ARTAMMO "SArtUnlimitedAmmo"
 #define VAR_SART_ARTHASEH "SArtHasEventHandler"
 #define VAR_SART_ARTFMTEXT "SArtyFiremissionText"
@@ -41,8 +41,8 @@
 
 
 
-#define ARTIWIDTHMAINSPACE  0.25
-#define ARTIHEIGHTMAINSPACE  0.15
+#define ARTIWIDTHMainSPACE  0.25
+#define ARTIHEIGHTMainSPACE  0.15
 #define ARTILAYOUTHEIGHT   0.05
 #define ARTILAYOUTHEIGHTSPACE   0.055
 #define ARTIBORDERTHICKNESS   0.01

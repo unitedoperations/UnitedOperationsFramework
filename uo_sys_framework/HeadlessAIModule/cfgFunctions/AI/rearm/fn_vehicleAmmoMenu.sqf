@@ -1,2 +1,0 @@
-[_this select 0,["Prepare Vehicles for Rearming","[] spawn UO_AI_fnc_vehiclePrepareRearm"],7,[0,0,0.5]] call UO_AI_fnc_createAction;
-[_this select 0,["Prepare Vehicles for Repair","[] spawn UO_AI_fnc_vehiclePrepareRepair"],7,[0,0,0.7]] call UO_AI_fnc_createAction;

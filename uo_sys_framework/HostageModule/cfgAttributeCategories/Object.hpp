@@ -1,58 +1,51 @@
-class UO_FW_Hostage_Attributes
-{
+class UO_FW_Hostage_Attributes {
     displayName = "Hostage Options";
     collapsed = 1;
-    class Attributes
-    {
-        class UO_FW_Hostage_State
-        {
-            displayName = "Hostage State";
-            tooltip = "Wether or not this unit is a hostage. (False by default.)";
+    class Attributes {
+        class UO_FW_Hostage_State {
+            displayName = "Hostage";
+            tooltip = "Makes this unit a hostage that starts bound/captive and must be rescued via player action.";
             property = "UO_FW_Hostage_State";
             control = "CheckboxState";
-            expression="_this setVariable ['%s', _value,true];";
-            condition = "objectBrain";
+            expression = UO_FW_ENTITY_DELAYED_FNC_EXPRESSION(HostageSet);
+            condition = "objectControllable ";
             defaultValue = "false";
         };
-        class UO_FW_Hostage_Rescue_Location
-        {
+        class UO_FW_Hostage_Rescue_Location {
             displayName = "Hostage Rescue Zone";
-            tooltip = "Location where a hostage is marked as rescued. (marker_0 by default.)";
+            tooltip = "Marker that determines the hostage rescue zone. (Default: 'hostage_rescue' marker)";
             property = "UO_FW_Hostage_Rescue_Location";
-            control = "Edit";
-            expression="_this setVariable ['%s', _value,true];";
-            condition = "objectBrain";
-            defaultValue = "'marker_0'";
+            control = "EditShort";
+            expression = UO_FW_ENTITY_EXPRESSION;
+            condition = "objectControllable ";
+            defaultValue = "'hostage_rescue'";
         };
-         class UO_FW_Hostage_Freed_JoinSquad
-        {
+         class UO_FW_Hostage_Freed_JoinSquad {
             displayName = "Hostage Joins Squad";
-            tooltip = "Determine wether the hostage will join the squad of the freeing player. (Default: true)";
+            tooltip = "Determine if the hostage will join the squad of the player who frees them. (Default: true)";
             property = "UO_FW_Hostage_Freed_JoinSquad";
             control = "Checkbox";
-            expression="_this setVariable ['%s', _value,true];";
-            condition = "objectBrain";
+            expression = UO_FW_ENTITY_EXPRESSION;
+            condition = "objectControllable ";
             defaultValue = "true";
         };
-        class UO_FW_Hostage_Freed_Modifier
-        {
-            displayName = "Hostage Freed Modifiers";
+        class UO_FW_Hostage_Freed_Behavior_Modifier {
+            displayName = "Hostage Freed Behavior Change";
             tooltip = "Enable modifiers for hostage's behavior when they are freed. (False by default.)";
-            property = "UO_FW_Hostage_Freed_Modifier";
+            property = "UO_FW_Hostage_Freed_Behavior_Modifier";
             control = "Checkbox";
-            expression="_this setVariable ['%s', _value,true];";
-            condition = "objectBrain";
+            expression = UO_FW_ENTITY_EXPRESSION;
+            condition = "objectControllable ";
             defaultValue = "false";
         };
-        class UO_FW_Hostage_Freed_Behavior
-        {
+        class UO_FW_Hostage_Freed_Behavior {
             displayName = "Hostage Freed Behavior";
             tooltip = "Determine the hostages behavior when freed by the player.\nWill not function unless 'Hostage Freed Modifiers' is enabled. (Default: CARELESS)";
             property = "UO_FW_Hostage_Freed_Behavior";
-            control = "Edit";
-            expression="_this setVariable ['%s', _value,true];";
-            condition = "objectBrain";
-            defaultValue = "'CARELESS'";
+            control = "UO_FW_HostageFreedBehaviorAttribute";
+            expression = UO_FW_ENTITY_EXPRESSION;
+            condition = "objectControllable ";
+            defaultValue = "'Careless'";
         };
     };
 };

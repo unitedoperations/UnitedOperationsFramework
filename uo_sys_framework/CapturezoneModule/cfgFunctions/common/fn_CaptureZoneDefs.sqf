@@ -1,1 +1,0 @@
-if (isNil "CZMARKERCOLLECTION") then { CZMARKERCOLLECTION = []; };

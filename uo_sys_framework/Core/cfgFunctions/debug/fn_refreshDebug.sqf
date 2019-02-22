@@ -11,12 +11,11 @@
  *
  * Public: No
  */
- 
+
 private _text = "<br></br><br></br>";
 
 {
-	_text = _text + _x + "<br></br>";
+    _text = _text + _x + "<br></br>";
 } forEach UO_FW_DebugMessages;
 
-((uiNamespace getVariable "UO_FW_Debug_Control") displayCtrl 4001) ctrlSetStructuredText parsetext _text;
-	
+((uiNamespace getVariable "UO_FW_Debug_Control") displayCtrl 4001) ctrlSetStructuredText (parsetext _text);

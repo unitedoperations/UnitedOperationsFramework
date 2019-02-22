@@ -1,38 +1,11 @@
-private ["_target", "_elev", "_rand", "_stear", "_class"];	
+params ["_target","_elev",["_rand",100,[0]],["_steer",false,[false]]];
 
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+private _class = ["NonSteerable_Parachute_F","Steerable_Parachute_F"] select _steer;
 
-_target = _this select 0;
-_elev = _this select 1;
-_rand = 100;
-_stear = false;
-_class = "NonSteerable_Parachute_F";
-_doPara = false;
-
-if (count _this > 2) then 
-{
-	
-	_rand = _this select 2;
-	
-};
-
-if (count _this > 3) then {
-	
-	_stear = _this select 3;
-	
-};
-
-if (_stear) then 
-{
-
-	_class = "Steerable_Parachute_F";
-
-};
-
-waitUntil {!isnull _target};
-_random = floor (random _rand);
-_chute = _class createVehicle [0,0,0]; 
-_chute setPosATL [getPosatl _target select 0, getPosatl _target select 1, _elev + _random]; 
-_target moveIndriver _chute;
-
-
+[{!isnull (_this select 0)}, {
+    params ["_target","_elev","_rand","_class"];
+    private _random = floor (random _rand);
+    private _chute = _class createVehicle [0,0,0];
+    _chute setPosATL [(getPosatl _target select 0), (getPosatl _target select 1), _elev + _random];
+    _target moveIndriver _chute;
+}, [_target,_elev,_rand,_class]] call CBA_fnc_waitUntilAndExecute;

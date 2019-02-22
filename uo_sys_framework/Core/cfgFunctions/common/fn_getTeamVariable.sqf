@@ -13,30 +13,22 @@
  * Public: No
  */
 
-params [
-	["_team", "", [""]],
-	["_index", 0, [0]]
-];
+#define COMPONENT Core
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
+UO_FW_EXEC_CHECK(ALL);
 
+params [["_team", "", [""]],["_index", 0, [0]]];
 private _return = 0;
 private _found = false;
-
 {
-
-	if ((_x select 0) == _team) exitWith {
-
-		_return = (_x select _index);
-		_found = true;
-
-	};
-
+    if ((_x select 0) isEqualto _team) exitWith {
+        _return = (_x select _index);
+        _found = true;
+    };
 } forEach UO_FW_Teams;
 
-if (!_found) then {
-
-	private _tempText = format ["Critical:<br></br>Team ""%1"" does not exist.", _team];
-	_tempText call UO_FW_fnc_DebugMessage;
-
+if !(_found) then {
+    ERROR_1("Critical:<br></br>Team ""%1"" does not exist.", _team)
 };
 
 _return

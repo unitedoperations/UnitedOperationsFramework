@@ -13,7 +13,7 @@ assignees: ''
 >#### Naming Convention
 >
 >Feature Requests should be named "Feature Request: Short description of new feature/change"  
->eg. "Feature Request: Make AI prefer manning CSW" 
+>eg. "Feature Request: Make AI prefer manning CSW"
 
 #### Feature Intent
 

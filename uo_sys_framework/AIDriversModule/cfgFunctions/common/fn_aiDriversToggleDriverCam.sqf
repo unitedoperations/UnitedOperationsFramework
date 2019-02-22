@@ -1,13 +1,15 @@
-/*	Description: Toggles AI Driver camera
- *	Arguments:
- * 		Bool - off or on
- *	Return Value:
- * 		ARRAY 	
- *	Author
- *		PiZZADOX
+/*    Description: Toggles AI Driver camera
+ *    Arguments:
+ *         Bool - off or on
+ *    Return Value:
+ *         ARRAY
+ *    Author
+ *        PiZZADOX
  */
 
-#include "\x\UO_FW\addons\main\script_macros.hpp"
+#define COMPONENT AIDrivers
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
+UO_FW_EXEC_CHECK(ALL);
 
 
 params ["_arg"];
@@ -19,11 +21,11 @@ if (_arg) then {
     UO_FW_driverCam camCommit 0;
 
     UO_FW_pipNvEnabled = false;
-    
-    _veh = vehicle player;
-    _mempoint = getText ( configfile >> "CfgVehicles" >> (typeOf _veh) >> "memoryPointDriverOptics" );
+
+    private _veh = vehicle player;
+    private _mempoint = getText ( configfile >> "CfgVehicles" >> (typeOf _veh) >> "memoryPointDriverOptics" );
     UO_FW_driverCam attachTo [_veh,[0,0,0], _mempoint];
-    
+
     with uiNamespace do {
         "UO_FW_pipDriver" cutRsc ["RscTitleDisplayEmpty", "PLAIN"];
         UO_FW_pipDisplay = uiNamespace getVariable "RscTitleDisplayEmpty";

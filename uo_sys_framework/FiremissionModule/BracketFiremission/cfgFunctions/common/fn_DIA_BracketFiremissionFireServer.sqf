@@ -9,6 +9,6 @@ _salvoRounds = _this select 6;
 _salvoDelay = _this select 7;
 _spotting =  _this select 8;
 
-[_selectedUnit,_requester] call UO_FW_FNC_SetArtyCaller;
-[_selectedUnit,[_startGrid,true] call CBA_fnc_mapGridToPos,[_endGrid,true] call CBA_fnc_mapGridToPos,_salvoNumber,_salvoRounds,_salvoDelay,_spotting,_selectedAmmo] call UO_FW_FNC_BracketFiremission;
+[_selectedUnit,_requester] call UO_FW_fnc_SetArtyCaller;
+[_selectedUnit,[_startGrid,true] call CBA_fnc_mapGridToPos,[_endGrid,true] call CBA_fnc_mapGridToPos,_salvoNumber,_salvoRounds,_salvoDelay,_spotting,_selectedAmmo] call UO_FW_fnc_BracketFiremission;
 

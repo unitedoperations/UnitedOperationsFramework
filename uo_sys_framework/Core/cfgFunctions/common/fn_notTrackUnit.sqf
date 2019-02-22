@@ -13,10 +13,8 @@
  * Public: Yes
  */
 
-private _unit = _this;
+#define COMPONENT Core
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
+UO_FW_EXEC_CHECK(ALL);
 
-if (isServer) then {
-
-	_unit setVariable ["UO_FW_DontTrack", true];
-
-};
+["UO_FW_NotTrack_Event", []] call CBA_fnc_serverEvent;
