@@ -120,7 +120,22 @@ class Cfg3DEN {
 
     class EventHandlers {
         class UO_FW_3DEN_EH {
+            onTerrainNew = "\
+                if (getMissionConfigValue ['UO_FW_Enabled',false]) then {\
+                    [] call UO_FW_fnc_BasicSettings3Den;\
+                };\
+            ";
             onMissionLoad = "\
+                if (getMissionConfigValue ['UO_FW_Enabled',false]) then {\
+                    [] call UO_FW_fnc_BasicSettings3Den;\
+                };\
+            ";
+            onMissionNew  = "\
+                if (getMissionConfigValue ['UO_FW_Enabled',false]) then {\
+                    [] call UO_FW_fnc_BasicSettings3Den;\
+                };\
+            ";
+            onMissionSave  = "\
                 if (getMissionConfigValue ['UO_FW_Enabled',false]) then {\
                     [] call UO_FW_fnc_BasicSettings3Den;\
                 };\
@@ -290,7 +305,6 @@ class display3DEN {
 };
 
 class CfgRemoteExec {
-
 };
 
 #include "Core\CfgUO\RespawnTemplates.hpp"
@@ -327,6 +341,11 @@ class Extended_PreInit_EventHandlers {
 class Extended_PostInit_Eventhandlers {
     #include "Core\cfgXEH\PostInit.hpp"
     //Module PostInit Activation
+};
+
+class Extended_Init_Eventhandlers {
+    class CAManBase {
+    };
 };
 
 class Extended_InitPost_Eventhandlers {

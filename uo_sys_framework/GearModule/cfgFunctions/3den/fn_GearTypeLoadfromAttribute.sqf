@@ -6,22 +6,21 @@ params ["_loadoutAttributeClass","_unit","_GearSystem"];
 private ["_loadoutvarname","_SystemTag","_Type"];
 private _loadoutName = "NONE";
 
-(SETPLVAR(Gear_UnitClass,_loadoutAttributeClass));
+(SETVAR(_unit,Gear_UnitClass,_loadoutAttributeClass));
 if (_loadoutAttributeClass isEqualto "NONE") exitwith {
     ERROR_1("No loadout found for unit: %1",_unit);
 };
 
 if (_loadoutAttributeClass isEqualto "MANUAL") then {
-    (SETPLVAR(Gear_UnitGearManualType,_loadoutAttributeClass));
+    (SETVAR(_unit,Gear_UnitGearManualType,_loadoutAttributeClass));
     switch (_GearSystem) do {
         case "ACEAR": {
-            _loadoutName = (GETPLVAR(Gear_UnitGearManualType,""));
+            _loadoutName = (GETVAR(_unit,Gear_UnitGearManualType,""));
             if (_loadoutName isEqualto "") exitwith {
                 ERROR_1("Unit %1 is set to manual loadout but has none!, exiting gearscript.",_unit);
-                UO_FW_GearReady = true;
             };
             private _found = false;
-            private _defaultloadoutsArray = missionNamespace getvariable ['ace_arsenal_defaultLoadoutsList',[]];
+            private _defaultloadoutsArray = getMissionConfigValue ["ace_arsenal_DefaultLoadoutsListAttribute",[]];
             {
                 _x params ["_name","_loadoutData"];
                 if (_loadoutName isEqualto _name) exitwith {
@@ -32,14 +31,12 @@ if (_loadoutAttributeClass isEqualto "MANUAL") then {
             } foreach _defaultloadoutsArray;
             if !(_found) exitwith {
                 ERROR_1("Could not find %1 in Default Loadouts!",_loadoutName);
-                UO_FW_GearReady = true;
             };
         };
         case "OLSEN": {
-            _Type = (GETPLVAR(Gear_UnitGearManualType,""));
+            _Type = (GETVAR(_unit,Gear_UnitGearManualType,""));
             if (_Type isEqualto "") exitwith {
                 ERROR_1("Unit %1 is set to manual loadout but has none!, exiting gearscript.",_unit);
-                UO_FW_GearReady = true;
             };
             LOG_2("Executing gear of file: %1 for unit %2",_Type,_unit);
             [_unit,_Type] call UO_FW_fnc_OlsenGearScript;
@@ -51,7 +48,7 @@ if (_loadoutAttributeClass isEqualto "MANUAL") then {
         case "OLSEN": {_SystemTag = "Olsen"};
     };
 
-    switch (side player) do {
+    switch (side _unit) do {
         case west: {
             _loadoutvarname = format ["UO_FW_GearSettings_%1_LoadoutType_Blufor_%2",_SystemTag,_loadoutAttributeClass];
         };
@@ -75,7 +72,7 @@ if (_loadoutAttributeClass isEqualto "MANUAL") then {
     switch (_GearSystem) do {
         case "ACEAR": {
             private _found = false;
-            private _defaultloadoutsArray = missionNamespace getvariable ['ace_arsenal_defaultLoadoutsList',[]];
+            private _defaultloadoutsArray = getMissionConfigValue ["ace_arsenal_DefaultLoadoutsListAttribute",[]];
             {
                 _x params ["_name","_loadoutData"];
                 if (_loadoutName isEqualto _name) exitwith {
@@ -86,7 +83,6 @@ if (_loadoutAttributeClass isEqualto "MANUAL") then {
             } foreach _defaultloadoutsArray;
             if !(_found) exitwith {
                 ERROR_1("Could not find %1 in Default Loadouts!",_loadoutName);
-                UO_FW_GearReady = true;
             };
         };
         case "OLSEN": {
