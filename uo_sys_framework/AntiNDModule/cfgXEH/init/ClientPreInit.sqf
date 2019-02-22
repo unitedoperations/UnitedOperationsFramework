@@ -6,7 +6,7 @@ UO_FW_EXEC_CHECK(CLIENT);
     if !(UO_FW_Server_ANTINDMODULE_Allowed) exitwith {};
     if !(UO_FW_Anti_ND_Enabled) exitwith {};
     ["UO_FW_RegisterModuleEvent", ["Anti ND", "Extra Safety for mission start", "Starfox64, PiZZADOX and Sacher"]] call CBA_fnc_localEvent;
-    [{(!isNull player) && {(GETMVAR(GearReady,false))}}, {
+    [{(!isNull player)}, {
         private _FiredEh = player addEventHandler ["Fired", {
             params ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile", "_gunner"];
             if (GETMVAR(ND_Active,false)) then {

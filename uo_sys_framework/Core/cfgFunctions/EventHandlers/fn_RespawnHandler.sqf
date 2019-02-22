@@ -6,7 +6,6 @@ UO_FW_EXEC_CHECK(CLIENT);
 _this params ["_unit", "_corpse"];
 
 SETPLPVAR(Body,_corpse);
-SETMVAR(GearReady,false);
 
 //handle respawn delays, Rsc, gear & module settings, location, etc
 private ["_respawnType"];

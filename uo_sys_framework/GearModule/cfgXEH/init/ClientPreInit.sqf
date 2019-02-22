@@ -3,8 +3,8 @@
 UO_FW_EXEC_CHECK(CLIENTHC);
 
 ["UO_FW_Gear_PlayerGearLoad", {
-    if !(UO_FW_Server_GearModule_Allowed) exitwith {SETPLPVAR(GearReady,true);};
-    if (!(GETMVALUE(Gear_ACEAR_System_Enabled,false)) && {!(GETMVALUE(Gear_Olsen_Enabled,false))}) exitwith {SETPLPVAR(GearReady,true);};
+    if !(UO_FW_Server_GearModule_Allowed) exitwith {};
+    if (!(GETMVALUE(Gear_ACEAR_System_Enabled,false)) && {!(GETMVALUE(Gear_Olsen_Enabled,false))}) exitwith {};
     [{(!isNull player) && {!((GETPLVAR(Gear_UnitSystemType,"")) isEqualto "")} && {!((GETPLVAR(Gear_UnitGearType,"")) isEqualto "")}}, {
         private ["_loadoutName"];
         private _GearSystem = (GETPLVAR(Gear_UnitSystemType,"NONE"));
@@ -14,11 +14,9 @@ UO_FW_EXEC_CHECK(CLIENTHC);
         (SETPLVAR(Gear_UnitClass,_UnitClass));
         if (_GearSystem isEqualto "NONE") exitwith {
             LOG_1("No gear system set for unit: %1",player);
-            SETPLPVAR(GearReady,true);
         };
         if (_UnitClass isEqualto "NONE") exitwith {
             ERROR_1("No loadout found for unit: %1",player);
-            SETPLPVAR(GearReady,true);
         };
         if (_UnitClass isEqualto "MANUAL") then {
             (SETPLVAR(Gear_ManualUnitClass,"MANUAL"));
@@ -27,34 +25,29 @@ UO_FW_EXEC_CHECK(CLIENTHC);
                     _loadoutName = (GETPLVAR(Gear_UnitGearManualType,""));
                     if (_loadoutName isEqualto "") exitwith {
                         ERROR_1("Unit %1 is set to manual loadout but has none!, exiting gearscript.",player);
-                        SETPLPVAR(GearReady,true);
                     };
                     private _found = false;
                     //private _defaultloadoutsArray = missionNamespace getvariable ['ace_arsenal_defaultLoadoutsList',[]];
                     private _defaultloadoutsArray = missionNamespace getvariable ['ace_arsenal_defaultLoadoutsList',[]];
                     if (_defaultloadoutsArray isEqualto []) exitwith {
                         LOG("ACE Arsenal DefaultLoadouts Empty!");
-                        SETPLPVAR(GearReady,true);
                     };
                     {
                         _x params ["_name","_loadoutData"];
                         if (_loadoutName isEqualto _name) exitwith {
                             player setUnitLoadout _loadoutData;
                             LOG_2("Setting ace loadout: %1 for unit %2",_loadoutName,player);
-                            SETPLPVAR(GearReady,true);
                             _found = true;
                         };
                     } foreach _defaultloadoutsArray;
                     if !(_found) exitwith {
                         ERROR_1("Could not find %1 in Default Loadouts!",_loadoutName);
-                        SETPLPVAR(GearReady,true);
                     };
                 };
                 case "OLSEN": {
                     private _Type = (GETPLVAR(Gear_UnitGearManualType,""));
                     if (_Type isEqualto "") exitwith {
                         ERROR_1("Unit %1 is set to manual loadout but has none!, exiting gearscript.",player);
-                        SETPLPVAR(GearReady,true);
                     };
                     LOG_2("Executing gear of file: %1 for unit %2",_Type,player);
                     [player,_Type] call UO_FW_fnc_OlsenGearScript;
@@ -85,7 +78,6 @@ UO_FW_EXEC_CHECK(CLIENTHC);
             _loadoutName = getMissionConfigValue [_loadoutvarname,"NONE"];
             if (_loadoutName isEqualto "NONE") exitwith {
                 ERROR_2("No loadout found for unit: %1 and var %2",player,_loadoutvarname);
-                SETPLPVAR(GearReady,true);
             };
             switch (_GearSystem) do {
                 case "ACEAR": {
@@ -94,20 +86,17 @@ UO_FW_EXEC_CHECK(CLIENTHC);
                     private _defaultloadoutsArray = missionNamespace getvariable ['ace_arsenal_defaultLoadoutsList',[]];
                     if (_defaultloadoutsArray isEqualto []) exitwith {
                         LOG("ACE Arsenal DefaultLoadouts Empty!");
-                        SETPLPVAR(GearReady,true);
                     };
                     {
                         _x params ["_name","_loadoutData"];
                         if (_loadoutName isEqualto _name) exitwith {
                             player setUnitLoadout _loadoutData;
                             LOG_2("Setting ace loadout: %1 for unit %2",_loadoutName,player);
-                            SETPLPVAR(GearReady,true);
                             _found = true;
                         };
                     } foreach _defaultloadoutsArray;
                     if !(_found) exitwith {
                         ERROR_1("Could not find %1 in Default Loadouts!",_loadoutName);
-                        SETPLPVAR(GearReady,true);
                     };
                 };
                 case "OLSEN": {
