@@ -55,6 +55,11 @@ class CfgFunctions {
 };
 
 class CfgVehicles {
+    class All {
+        class EventHandlers {
+            #include "GearModule\cfg3denEH\EH.hpp"
+        };
+    };
     class Logic;
     class Module_F: Logic {
         class EventHandlers;
@@ -119,33 +124,7 @@ class CfgUnitInsignia {
 class Cfg3DEN {
 
     class EventHandlers {
-        class UO_FW_3DEN_EH {
-            onTerrainNew = "\
-                if (getMissionConfigValue ['UO_FW_Enabled',false]) then {\
-                    [] call UO_FW_fnc_BasicSettings3Den;\
-                };\
-            ";
-            onMissionLoad = "\
-                if (getMissionConfigValue ['UO_FW_Enabled',false]) then {\
-                    [] call UO_FW_fnc_BasicSettings3Den;\
-                };\
-            ";
-            onMissionNew  = "\
-                if (getMissionConfigValue ['UO_FW_Enabled',false]) then {\
-                    [] call UO_FW_fnc_BasicSettings3Den;\
-                };\
-            ";
-            onMissionSave  = "\
-                if (getMissionConfigValue ['UO_FW_Enabled',false]) then {\
-                    [] call UO_FW_fnc_BasicSettings3Den;\
-                };\
-            ";
-            OnMissionPreviewEnd = "\
-                if (getMissionConfigValue ['UO_FW_Enabled',false]) then {\
-                    [] call UO_FW_fnc_BasicSettings3Den;\
-                };\
-            ";
-        };
+        #include "Core\cfg3denEH.hpp"
     };
 
     class Mission {

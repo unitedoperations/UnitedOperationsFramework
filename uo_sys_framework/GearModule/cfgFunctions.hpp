@@ -1,7 +1,9 @@
 class UO_FW_3DEN_GearFunctions {
     file = "\x\UO_FW\addons\Main\GearModule\cfgFunctions\3DEN";
     class GearTypeLoadfromAttribute {};
+    class GearObjectLoad {};
     class setAllEntityGear {};
+    class GearHandleEH {};
 };
 class UO_FW_OlsenGearFunctions {
     file = "\x\UO_FW\addons\Main\GearModule\cfgFunctions\Olsen";

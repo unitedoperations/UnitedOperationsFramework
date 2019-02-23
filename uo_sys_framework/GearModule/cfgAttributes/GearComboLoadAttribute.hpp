@@ -3,7 +3,7 @@ class UO_FW_Gear_ComboGearLoad: ComboPreview {
     attributeSave = "\
         _value = ((_this controlsGroupCtrl 100) lbData lbCurSel (_this controlsGroupCtrl 100));\
         private _unit = ((get3denselected 'object') select 0);\
-        _unit setvariable ['UO_FW_Gear_UnitClass',_value,true];\
+        _unit set3DENAttribute ['UO_FW_Gear_UnitClass',_value];\
         _value\
     ";
     //_this - config, _value - saved value
@@ -19,7 +19,7 @@ class UO_FW_Gear_ComboGearLoad: ComboPreview {
             if (_value isEqualto (_control lbData _index)) then {\
                 _control lbSetCurSel _index;\
                 private _unit = ((get3denselected 'object') select 0);\
-                _unit setvariable ['UO_FW_Gear_UnitClass',_value,true];\
+                _unit set3DENAttribute ['UO_FW_Gear_UnitClass',_value];\
             };\
         } foreach _classArray;\
     ";
@@ -31,19 +31,21 @@ class UO_FW_Gear_ComboGearLoad: ComboPreview {
                 _cursel = _this select 1;\
                 _value = _control lbData _cursel;\
                 private _unit = ((get3denselected 'object') select 0);\
-                _unit setvariable ['UO_FW_Gear_UnitClass',_value,true];\
+                _unit set3DENAttribute ['UO_FW_Gear_UnitClass',_value];\
             ";
         };
         class Preview: Preview {
             idc=101;
             onMouseButtonClick="\
                 _ctrlButton = _this select 0;\
-                _ctrlGroup = ctrlParentControlsGroup _ctrlButton;\
-                _ctrlCombo = _ctrlGroup controlsgroupctrl 100;\
-                _unit = ((get3denselected 'object') select 0);\
-                _GearSystem = _unit getvariable ['UO_FW_3DENATTR_GearSystem','NONE'];\
+                private _ctrlGroup = ctrlParentControlsGroup _ctrlButton;\
+                private _ctrlCombo = _ctrlGroup controlsgroupctrl 100;\
+                private _value = _ctrlCombo lbData _cursel;\
+                private _unit = ((get3denselected 'object') select 0);\
+                _unit set3DENAttribute ['UO_FW_Gear_UnitClass',_value];\
+                private _GearSystem = _unit get3DENAttribute 'UO_FW_Gear_GearSystem';\
                 if ((_GearSystem isEqualto 'ACEAR') || (_GearSystem isEqualto 'OLSEN')) then {\
-                    [(_ctrlCombo lbData lbcursel _ctrlCombo),_unit,_GearSystem] call UO_FW_fnc_GearTypeLoadfromAttribute;\
+                    [_unit,_GearSystem,(_ctrlCombo lbData lbcursel _ctrlCombo)] call UO_FW_fnc_GearTypeLoadfromAttribute;\
                 };\
             ";
         };

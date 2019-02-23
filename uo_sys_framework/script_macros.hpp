@@ -1,11 +1,11 @@
 #include "\x\UO_FW\addons\Main\script_mod.hpp"
 #ifndef COMPONENT
-#define COMPONENT Main
+    #define COMPONENT Main
 #endif
 #ifndef DEBUG_MODE_MINIMUM
-#define DEBUG_MODE_NORMAL
+    #define DEBUG_MODE_MINIMUM
 #endif
-#define DEBUG_MODE_FULL
+//#define DEBUG_MODE_FULL
 #include "\x\cba\addons\Main\script_macros_common.hpp"
 
 //CBA Error Macro Intercept
@@ -54,3 +54,8 @@ if ((_argUpper isEqualto "SERVERHC") && {(((hasinterface) && isMultiplayer) || (
 if ((_argUpper isEqualto "ALL") && {(!UO_FW_Enabled)}) exitWith {};\
 if (!UO_FW_Enabled) exitWith {};\
 if (!UO_FW_Server_Framework_Allowed) exitWith {}
+
+#define UO_FW_3DEN_CHECK if (!is3DEN) exitwith {};
+
+#define UO_FW_VERSIONNUMBER (GETMVAR(Version_UpdatedNumber,102))
+#define UO_FW_VERSION_CHECK(VERSIONCHECK) if (VERSIONCHECK < UO_FW_VERSIONNUMBER) exitwith {};

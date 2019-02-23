@@ -65,7 +65,7 @@ switch (_unitGearSystemType) do {
             if (_Type isEqualto "") exitwith {
                 ERROR_1("Unit %1 is set to manual loadout but has none!, exiting gearscript.",_unit);
             };
-            LOG_2("Executing gear of file: %1 for unit %2",_Type,_unit);
+            LOG_2("Executing gear class: %1 for unit %2",_Type,_unit);
             [_unit,_Type] call UO_FW_fnc_OlsenGearScript;
         } else {
             private ["_loadoutvarname"];

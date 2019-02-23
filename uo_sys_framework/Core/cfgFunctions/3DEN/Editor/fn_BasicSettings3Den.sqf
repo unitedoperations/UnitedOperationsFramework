@@ -10,6 +10,7 @@
 #define COMPONENT 3DEN
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 UO_FW_EXEC_CHECK(ALL);
+UO_FW_3DEN_CHECK;
 
 "Multiplayer" set3DENMissionAttribute ["respawn",3];
 "Multiplayer" set3DENMissionAttribute ["respawndelay",5];
@@ -20,6 +21,12 @@ UO_FW_EXEC_CHECK(ALL);
 "Scenario" set3DENMissionAttribute ["EnableDebugConsole",1];
 "Scenario" set3DENMissionAttribute ["enableTargetDebug",1];
 
-if ((getMissionConfigValue ['UO_FW_Briefing_MissionNotes_Author',""]) isEqualTo "") then {
-    "UO_FW_MissionNotes" set3DENMissionAttribute ["UO_FW_Briefing_MissionNotes_Author",profileNameSteam];
+if ((GETMVALUE(Briefing_MissionNotes_Author,"")) isEqualTo "") then {
+    "UO_FW_Mission_Notes" set3DENMissionAttribute ["UO_FW_Briefing_MissionNotes_Author",profileNameSteam];
 };
+
+if ((GETMVALUE(Version_Created,"")) isEqualTo "") then {
+    "UO_FW_Version_DummyCategory" set3DENMissionAttribute ["UO_FW_Version_Created",QUOTE(VERSION)];
+};
+
+"UO_FW_Version_DummyCategory" set3DENMissionAttribute ["UO_FW_Version_Updated",QUOTE(VERSION)];

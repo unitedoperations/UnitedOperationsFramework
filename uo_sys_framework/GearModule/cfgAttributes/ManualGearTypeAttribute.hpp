@@ -3,7 +3,7 @@ class UO_FW_Gear_ManualGearEditShort: EditShort {
     attributeSave = "\
         _value = ctrlText (_this controlsGroupCtrl 100);\
         private _unit = ((get3denselected 'object') select 0);\
-        _unit setvariable ['UO_FW_Gear_ManualUnitClass',_value,true];\
+        _unit set3DENAttribute ['UO_FW_Gear_ManualUnitClass',_value];\
         _value\
     ";
     //_this - config, _value - saved value
@@ -12,19 +12,18 @@ class UO_FW_Gear_ManualGearEditShort: EditShort {
             _value = str _value;\
         };\
         private _unit = ((get3denselected 'object') select 0);\
-        _unit setvariable ['UO_FW_Gear_ManualUnitClass',_value,true];\
+        _unit set3DENAttribute ['UO_FW_Gear_ManualUnitClass',_value];\
         (_this controlsGroupCtrl 100) ctrlSetText _value;\
     ";
 
-    class Controls: Controls
-    {
+    class Controls: Controls {
         class Title: Title {};
         class Value: Value {
             onKillFocus="\
                 _ctrlEdit = _this select 0;\
                 _value = ctrlText _ctrlEdit;\
                 private _unit = ((get3denselected 'object') select 0);\
-                _unit setvariable ['UO_FW_Gear_ManualUnitClass',_value,true];\
+                _unit set3DENAttribute ['UO_FW_Gear_ManualUnitClass',_value];\
             ";
         };
     };

@@ -135,7 +135,7 @@ class UO_FW_Import_Menu {
             displayName = "Import Mission Settings";
             collapsed = 0;
             class Attributes {
-                class UO_FW_IMPORT_ImportfromProfile {
+                class UO_FW_Import_ImportfromProfile {
                     property = "UO_FW_IMPORT_ImportfromProfile";
                     displayName = "Import Settings from Profile";
                     tooltip = "";
@@ -166,6 +166,34 @@ class UO_FW_Import_Menu {
                     control = "UO_FW_ImportLoadoutFromClipboardAttribute";
                     expression = "";
                     defaultValue = "[]";
+                };
+            };
+        };
+    };
+};
+
+class UO_FW_Version_DummyCategory {
+    displayName = "Dummy attribute, should never show up";
+    class AttributeCategories {
+        class UO_FW_Version_Attributes {
+            displayName = "Dummy attribute, should never show up";
+            collapsed = 0;
+            class Attributes {
+                class UO_FW_Version_Created {
+                    property = "UO_FW_Version_Created";
+                    displayName = "";
+                    tooltip = "";
+                    control = "EditShort";
+                    expression = UO_FW_SCENARIO_EXPRESSION;
+                    defaultValue = "''";
+                };
+                class UO_FW_Version_Updated {
+                    property = "UO_FW_Version_Updated";
+                    displayName = "";
+                    tooltip = "";
+                    control = "EditShort";
+                    expression = UO_FW_SCENARIO_EXPRESSION;
+                    defaultValue = "''";
                 };
             };
         };

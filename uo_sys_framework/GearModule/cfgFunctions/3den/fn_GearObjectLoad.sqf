@@ -16,12 +16,12 @@ if (_object isKindOf "CAManBase") then {
         ERROR_1("No loadout found for unit: %1",_object);
     };
     if (_objectClass isEqualto "MANUAL") then {
-        private _loadoutName = _object getVariable ["UO_FW_Gear_ManualUnitClass", ""];
-        if (_loadoutName isEqualto "") exitwith {
-            ERROR_1("Unit %1 is set to manual loadout but has none!, exiting gearscript.",_object);
-        };
         switch (_GearSystem) do {
             case "ACEAR": {
+                private _loadoutName = (_object get3DENAttribute "UO_FW_Gear_UnitGearManualType") select 0;
+                if (_loadoutName isEqualto "") exitwith {
+                    ERROR_1("Unit %1 is set to manual loadout but has none!, exiting gearscript.",_object);
+                };
                 private _found = false;
                 private _defaultloadoutsArray = getMissionConfigValue ["ace_arsenal_DefaultLoadoutsListAttribute",[]];
                 {
@@ -37,8 +37,12 @@ if (_object isKindOf "CAManBase") then {
                 };
             };
             case "OLSEN": {
-                LOG_2("Executing gear class: %1 for unit %2",_loadoutName,_object);
-                [_object,_loadoutName] call UO_FW_fnc_OlsenGearScript;
+                private _Type = (_object get3DENAttribute "UO_FW_Gear_UnitGearManualType") select 0;
+                if (_Type isEqualto "") exitwith {
+                    ERROR_1("Unit %1 is set to manual loadout but has none!, exiting gearscript.",_object);
+                };
+                LOG_2("Executing gear class: %1 for unit %2",_Type,_object);
+                [_object,_Type] call UO_FW_fnc_OlsenGearScript;
             };
         };
     } else {

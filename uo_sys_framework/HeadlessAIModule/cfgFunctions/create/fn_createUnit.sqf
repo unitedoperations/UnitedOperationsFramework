@@ -44,7 +44,7 @@ switch (_unitGearSystem) do {
         };
     };
     case "OLSEN": {
-        LOG_2("Executing gear of file: %1 for unit %2",_unitGearType,_unit);
+        LOG_2("Executing gear class: %1 for unit %2",_unitGearType,_unit);
         [_unit,_unitGearType] call UO_FW_fnc_OlsenGearScript;
     };
     default {

@@ -18,7 +18,6 @@ class UO_FW_MissionNotes {
             control = "EditShort";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
-
         };
         class UO_FW_Briefing_MissionNotes_Testers {
             property = "UO_FW_Briefing_MissionNotes_Testers";

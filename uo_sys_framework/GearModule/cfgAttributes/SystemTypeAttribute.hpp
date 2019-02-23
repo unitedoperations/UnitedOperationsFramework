@@ -5,7 +5,7 @@ class UO_FW_Gear_SystemType: Combo {
     ";
     attributeLoad ="\
         private _unit = ((get3denselected 'object') select 0);\
-        _unit setvariable ['UO_FW_3DENATTR_GearSystem',_value];\
+        _unit set3DENAttribute ['UO_FW_Gear_GearSystem',_value];\
         private _ctrlCombo = (_this controlsGroupCtrl 100);\
         private _n = 0;\
         private _gearSystem = _value;\
@@ -49,7 +49,7 @@ class UO_FW_Gear_SystemType: Combo {
                 _cursel = _this select 1;\
                 _GearSystem = _ctrlCombo lbData _cursel;\
                 private _unit = ((get3denselected 'object') select 0);\
-                _unit setvariable ['UO_FW_3DENATTR_GearSystem',_GearSystem];\
+                _unit set3DENAttribute ['UO_FW_3DENATTR_GearSystem',_GearSystem];\
                 private _n = 0;\
                 private _ctrlGroup = ctrlParentControlsGroup ctrlParentControlsGroup _ctrlCombo;\
                 private _cfgAttributes = [configFile >> 'Cfg3den' >> 'Object' >> 'AttributeCategories' >> 'UO_FW_Gear' >> 'Attributes',0] call BIS_fnc_returnChildren;\
@@ -83,7 +83,7 @@ class UO_FW_Gear_SystemTypeVehicle: Combo {
     ";
     attributeLoad ="\
         private _unit = ((get3denselected 'object') select 0);\
-        _unit setvariable ['UO_FW_3DENATTR_GearSystem',_value];\
+        _unit set3DENAttribute ['UO_FW_Gear_GearSystem',_value];\
         private _ctrlCombo = (_this controlsGroupCtrl 100);\
         private _n = 0;\
         private _gearSystem = _value;\
@@ -127,7 +127,7 @@ class UO_FW_Gear_SystemTypeVehicle: Combo {
                 _cursel = _this select 1;\
                 _GearSystem = _ctrlCombo lbData _cursel;\
                 private _unit = ((get3denselected 'object') select 0);\
-                _unit setvariable ['UO_FW_3DENATTR_GearSystem',_GearSystem];\
+                _unit set3DENAttribute ['UO_FW_Gear_GearSystem',_GearSystem];\
                 private _n = 0;\
                 private _ctrlGroup = ctrlParentControlsGroup ctrlParentControlsGroup _ctrlCombo;\
                 private _cfgAttributes = [configFile >> 'Cfg3den' >> 'Object' >> 'AttributeCategories' >> 'UO_FW_Gear' >> 'Attributes',0] call BIS_fnc_returnChildren;\
