@@ -53,12 +53,7 @@
           {% endif %}
         {% endunless %}
         <div id="main-content" class="page-content" role="main">
-			{% if page.title and page.title != "Home" %}
-			<h1> {{ page.title }} </h1>
-			<a href="{{ site.repository }}/tree/{{ site.branch }}/{{ page.path }}" target="_blank">Edit me on Github</a>
-			{% endif %}
           {{ content }}
-
           {% if page.has_children == true and page.has_toc != false %}
           <hr>
           <h2 class="text-delta">Table of contents</h2>

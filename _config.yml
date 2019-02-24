@@ -48,5 +48,7 @@ color_scheme: dark
 # e.g, UA-1234567-89
 ga_tracking:
 
+#theme: "just-the-docs"
+
 plugins:
   - jekyll-redirect-from
