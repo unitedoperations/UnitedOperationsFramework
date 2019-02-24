@@ -58,6 +58,6 @@ defaults:
         scope:
             path: ""
         values:
-            title: "Default Title"
+            title: ""
             alt_title: "Default Title"
             use_title: true
