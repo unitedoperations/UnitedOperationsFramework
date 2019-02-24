@@ -53,12 +53,28 @@
           {% endif %}
         {% endunless %}
         <div id="main-content" class="page-content" role="main">
-			{% if page.title and page.title != "Home" %}
+			{% if page.title != "Default Title "%}
+				{% if page.use_title and page.title and page.alt_title == "Default Title" %}
+				<h1> {{ page.title }} </h1>
+				<a href="{{ site.repository }}/tree/{{ site.branch }}/{{ page.path }}" target="_blank">Edit me on Github</a>
+				{% else if page.use_title and !page.title and page.alt_title != "Default Title" %}
+				<h1> {{ page.alt_title }} </h1>
+				<a href="{{ site.repository }}/tree/{{ site.branch }}/{{ page.path }}" target="_blank">Edit me on Github</a>
+				{% else if page.alt_title != "Default Title" and page.use_title != true %}
+				{% else if page.use_title and page.title != "" and page.alt_title != "Default Title" and page.title != "Home" %}
+					{% if page.alt_title == "" %} 
+					<h1> {{ page.title }} </h1>
+					<a href="{{ site.repository }}/tree/{{ site.branch }}/{{ page.path }}" target="_blank">Edit me on Github</a>
+					{% else %}
+					<h1> {{ page.alt_title }} </h1>
+					<a href="{{ site.repository }}/tree/{{ site.branch }}/{{ page.path }}" target="_blank">Edit me on Github</a>
+					{% endif %}
+				{% endif %}
+			{% else if page.use_title %}
 			<h1> {{ page.title }} </h1>
 			<a href="{{ site.repository }}/tree/{{ site.branch }}/{{ page.path }}" target="_blank">Edit me on Github</a>
 			{% endif %}
           {{ content }}
-
           {% if page.has_children == true and page.has_toc != false %}
           <hr>
           <h2 class="text-delta">Table of contents</h2>

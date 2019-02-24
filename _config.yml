@@ -52,3 +52,12 @@ ga_tracking:
 
 plugins:
   - jekyll-redirect-from
+  
+defaults:
+    -
+        scope:
+            path: ""
+        values:
+            title: "Default Title"
+            alt_title: "Default Title"
+            use_title: true
