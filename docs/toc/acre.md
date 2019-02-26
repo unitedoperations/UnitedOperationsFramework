@@ -7,7 +7,10 @@ parent: Modules
 
 ---
 
-## Functionality
+1. TOC
+{:toc}
+
+# Functionality
 
 Provides an efficient in-editor system for;
 - Adding [ACRE2](https://github.com/IDI-Systems/acre2) radios to AI units and players
@@ -19,48 +22,35 @@ Provides an efficient in-editor system for;
 
 ### Adding Radios
 
-<details open>
-<summary><button type="button" name="button" class="btn">Units and Players</button></summary><br>
+1. Open the UO Framework menu.
+	* IMAGE HERE
 
-1. Open the UO Framework menu. <br>
+2. Select ACRE settings.
+	* IMAGE HERE
 
-&emsp;IMAGE HERE <br>
+3. Select the side you want to specify radios for.
+	* IMAGE HERE
 
-2. Select ACRE settings. <br>
+4. Choose the short-range radio, long-range radio and pack radios for a specific side.
+	* IMAGE HERE
 
-&emsp;IMAGE HERE <br>
+5. Select units and open their ACRE attribute, select the type(s) of radios to give them.
+	* IMAGE HERE
 
-3. Select the side you want to specify radios for. <br>
+6. Load the mission into multiplayer.
+	* IMAGE HERE
 
-&emsp;IMAGE HERE <br>
-
-4. Choose the short-range radio, long-range radio and pack radios for a specific side. <br>
-
-&emsp;IMAGE HERE <br>
-
-5. Select the unit(s) you want to give a certain type of radio and designate what type(s) of radio(s) to give them. <br>
-
-&emsp;IMAGE HERE <br>
-
-6. Load the mission into multiplayer and playable units which you assigned specific types of radios will have radios. <br>
-
-&emsp;IMAGE HERE <br>
-
-</details>
+The playable and AI units you assigned radios will now have radios when starting your mission!
 
 ### Adding Rack Radios
 
-<details>
-<summary><button type="button" name="button" class="btn">Vehicles (WIP)</button></summary><br>
-
-&emsp;FEATURE IS WIP <br>
-
-</details>
+_**FEATURE IS WIP**_
 
 ### Radio Scrambling and Babel
 
+
 ### Channel Names
 
-## Functions and Eventhandlers
+# Functions and Eventhandlers
 
 
