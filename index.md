@@ -12,6 +12,8 @@ description: "The United Operations Framework is a innovative new extension to t
 
 ---
 
+### These docs are completely WIP and do not represent the framework's level of completion.
+
 The United Operation Framework aka the UOFW is an extension of features within the Arma 3 Eden editor not to mention numerous additions to the editor itself. 
 {: .fs-5 .fw-300 }
 
