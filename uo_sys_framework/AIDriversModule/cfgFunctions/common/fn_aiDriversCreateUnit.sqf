@@ -15,7 +15,7 @@ UO_FW_EXEC_CHECK(ALL);
 params ["_target", "_caller"];
 
 if (!isNull driver _target) exitWith {};
-private _turret = (assignedVehicleRole _player) select 1;
+private _turret = (assignedVehicleRole _caller) select 1;
 _caller moveInDriver _target;
 _caller moveInTurret [_target, _turret];
 
@@ -49,10 +49,10 @@ doStop _unit;
 UO_FW_AidriverLastTimeIn = time;
 
 [{vehicle (_this select 0) != _this select 0}, { //waiting for spawned unit to get into vehicle
-    private _pfhID = [{
-        (_this select 0) params ["_unit", "_target", "_caller"];
+    private _pfhHandle = [{
+        params ["_args","_pfhID"];
+        _args params ["_unit", "_target", "_caller"];
 
-        private _handle = _this select 1;
         if (vehicle _caller != _target) then {
             [false] call UO_FW_fnc_toggleDriverCam;
             _unit disableAI "Path";
@@ -61,11 +61,18 @@ UO_FW_AidriverLastTimeIn = time;
             _unit enableAI "Path";
             UO_FW_AidriverLastTimeIn = time;
         };
-        if (CBA_missionTime > 120 + UO_FW_AidriverLastTimeIn || !alive _target || !alive _caller || !alive _unit || (vehicle _unit) != _target || (driver _target) != _unit) then {
+        if ((CBA_missionTime > 120 + UO_FW_AidriverLastTimeIn)
+            || !alive _target
+            || !alive _caller
+            || !alive _unit
+            || (vehicle _unit != _target)
+            || (vehicle _unit != vehicle _caller)
+            || (driver _target != _unit)
+        ) then {
             [_target, _caller] call UO_FW_fnc_aidriversremoveUnit;
         };
     }, 1, _this] call CBA_fnc_addPerFrameHandler;
-    (_this select 1) setVariable ["UO_FW_aidrivers_pfhID", [(_this select 2), _pfhID], true];
+    (_this select 1) setVariable ["UO_FW_aidrivers_pfhID", [(_this select 2), _pfhHandle], true];
 }, [_unit, _target, _caller]] call CBA_fnc_WaitUntilAndExecute;
 
 UO_FW_AiDriverVehicle = _target;
