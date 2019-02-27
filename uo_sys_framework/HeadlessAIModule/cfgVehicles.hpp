@@ -97,7 +97,7 @@ class UO_FW_AI_ZoneModule : UO_FW_AI_Module {
             property = "UO_FW_AI_zoneCondition";
             control = "UO_FW_AI_moduleconditionControl";
             expression = UO_FW_MODULE_EXPRESSION;
-            defaultValue = "'false'";
+            defaultValue = "'true'";
         };
         class UO_FW_AI_zoneCode {
             displayName = "Custom Code";
@@ -105,7 +105,7 @@ class UO_FW_AI_ZoneModule : UO_FW_AI_Module {
             property = "UO_FW_AI_zoneCode";
             control = "UO_FW_AI_codeControl";
             expression = UO_FW_MODULE_EXPRESSION;
-            defaultValue = "'true'";
+            defaultValue = "''";
         };
     };
 };
