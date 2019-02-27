@@ -9,8 +9,8 @@ _unit setVariable ["BIS_enableRandomization", false];
 _unit setVariable ["UO_FW_Loadout", _Type, true];
 _unit call UO_FW_fnc_RemoveAllGear;
 
-FNC_AddItem = {([_unit, _Type] append [_this]) call UO_FW_fnc_AddItemOrg;};
-FNC_AddItemRandom = {([_unit, _Type] append [_this]) call UO_FW_fnc_AddItemRandomOrg;};
+FNC_AddItem = {([ _unit, _Type] append [_this]) call UO_FW_fnc_AddItemOrg;};
+FNC_AddItemRandom = {([ _unit, _Type] append [_this]) call UO_FW_fnc_AddItemRandomOrg;};
 
 //Other Version
 //private _path = missionNamespace getVariable ["UO_FW_Gear_PathToGear","GearScript.sqf"];
