@@ -8,8 +8,8 @@ UO_FW_EXEC_CHECK(CLIENT);
     ["UO_FW_RegisterModuleEvent", ["Cover Map", "Covers map except specified area, allows switching between multiple AOs", "Blackhawk and PIZZADOX"]] call CBA_fnc_localEvent;
     [{(!isNull player)}, {
         private ["_DefaultAO"];
-        if !((GETPLVAR(CoverMap_UnitDefaultAO,[])) isEqualto "") then {
-            _DefaultAO = GETPLVAR(CoverMap_UnitDefaultAO,[]);
+        if !((GETPLVAR(CoverMap_UnitDefaultAO,"")) isEqualto "") then {
+            _DefaultAO = GETPLVAR(CoverMap_UnitDefaultAO,"");
             //IGNORE_PRIVATE_WARNING ["_x"];
             if ((UO_FW_CoverMap_AO_Array findif {_DefaultAO isEqualto (_x select 0)}) isEqualto -1) exitwith {
                 ERROR_2("Default CoverMap for unit: %1 area: %1 does not exist!",player,_DefaultAO);
