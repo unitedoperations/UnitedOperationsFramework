@@ -5,15 +5,10 @@ UO_FW_3DEN_CHECK;
 
 params ["_object"];
 LOG_1("_object: %1",_object);
-LOG_1("_object UnitSystemType: %1",((_object get3DENAttribute "UO_FW_Gear_UnitSystemType") select 0));
-LOG_1("_object UnitGearType: %1",((_object get3DENAttribute "UO_FW_Gear_UnitGearType") select 0));
+LOG_1("_object UnitSystemType: %1",GETVAR(_object,Gear_UnitSystemType,"NONE"));
+LOG_1("_object UnitGearType: %1",GETVAR(_object,Gear_UnitGearType,"NONE"));
 
-if (_object isKindOf "CAManBase") then {
-    if (!((_object get3DENAttribute "UO_FW_Gear_UnitSystemType") isEqualto []) && {!((_object get3DENAttribute "UO_FW_Gear_UnitGearType") isEqualto [])}) then {
-        [_object] call UO_FW_fnc_GearTypeLoadFromAttribute;
-    };
-} else {
-    if (!((_object get3DENAttribute "UO_FW_Gear_VehicleSystemType") isEqualto []) && {!((_object get3DENAttribute "UO_FW_Gear_VehicleGearManualType") isEqualto [])}) then {
-        [_object] call UO_FW_fnc_GearTypeLoadFromAttribute;
-    };
-};
+if (GETVAR(_object,Gear_UnitSystemType,"NONE") isEqualto "NONE") exitwith {};
+if (GETVAR(_object,Gear_UnitGearType,"NONE") isEqualto "NONE") exitwith {};
+
+[_object] call UO_FW_fnc_GearTypeLoad3DEN;

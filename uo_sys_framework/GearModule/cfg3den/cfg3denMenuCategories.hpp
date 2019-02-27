@@ -56,6 +56,28 @@ class UO_FW_Gear_Settings {
     };
 };
 
+#define UO_FW_GEAR_TYPECONFIG_OLSEN(TEAMNAME,SHORTNAME)  \
+class UO_FW_GearSettings_Olsen_LoadoutType_##TEAMNAME##_##SHORTNAME {\
+    property = QUOTE(TRIPLES(UO_FW_GearSettings_Olsen_LoadoutType,TEAMNAME,SHORTNAME));\
+    displayName = CSTRING_2(Gear_DisplayName,SHORTNAME);\
+    tooltip = CSTRING_2(Gear_ToolTip_Olsen,SHORTNAME);\
+    control = QUOTE(Edit);\
+    typeName = QUOTE(STRING);\
+    expression = UO_FW_SCENARIO_EXPRESSION;\
+    defaultValue = QUOTE('');\
+}
+
+#define UO_FW_GEAR_TYPECONFIG_ACEAR(TEAMNAME,SHORTNAME) \
+class UO_FW_GearSettings_ACE_Arsenal_LoadoutType_##TEAMNAME##_##SHORTNAME {\
+    property = QUOTE(TRIPLES(UO_FW_GearSettings_ACE_Arsenal_LoadoutType,TEAMNAME,SHORTNAME));\
+    displayName = CSTRING_2(Gear_DisplayName,SHORTNAME);\
+    tooltip = CSTRING_2(Gear_ToolTip_ACEAR,SHORTNAME);\
+    control = QUOTE(UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo);\
+    typeName = QUOTE(STRING);\
+    expression = UO_FW_SCENARIO_EXPRESSION;\
+    defaultValue = QUOTE('NONE');\
+}
+
 class UO_FW_GearSettings_Blufor {
     displayName = "Blufor Gear Settings";
     class AttributeCategories {

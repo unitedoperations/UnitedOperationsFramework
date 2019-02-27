@@ -5,7 +5,7 @@
 #ifndef DEBUG_MODE_MINIMUM
     #define DEBUG_MODE_MINIMUM
 #endif
-//#define DEBUG_MODE_FULL
+#define DEBUG_MODE_FULL
 #include "\x\cba\addons\Main\script_macros_common.hpp"
 
 //CBA Error Macro Intercept
@@ -40,6 +40,8 @@ MESSAGE call UO_FW_fnc_DebugMessage
 //UO_FW_Component_fnc_functionName
 #define FUNC(var1) TRIPLES(PREFIX,fnc,var1)
 
+#define CSTRING_2(var1,var2) QUOTE(DOUBLES($STR_UO_FW,DOUBLES(var1,var2)))
+
 //Script control
 #define UO_FW_EXEC_CHECK(ARG)\
 _argUpper = toUpper(#ARG);\
@@ -55,7 +57,7 @@ if ((_argUpper isEqualto "ALL") && {(!UO_FW_Enabled)}) exitWith {};\
 if (!UO_FW_Enabled) exitWith {};\
 if (!UO_FW_Server_Framework_Allowed) exitWith {}
 
-#define UO_FW_3DEN_CHECK if (!is3DEN) exitwith {};
+#define UO_FW_3DEN_CHECK if !(is3DEN) exitwith {};
 
 #define UO_FW_VERSIONNUMBER (GETMVAR(Version_UpdatedNumber,102))
-#define UO_FW_VERSION_CHECK(VERSIONCHECK) if (VERSIONCHECK < UO_FW_VERSIONNUMBER) exitwith {};
+#define UO_FW_VERSION_CHECK(VERSIONNUM) if (VERSIONNUM < UO_FW_VERSIONNUMBER) exitwith {};

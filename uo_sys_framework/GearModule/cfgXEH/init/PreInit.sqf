@@ -9,75 +9,75 @@ UO_FW_EXEC_CHECK(ALL);
         [{(!isNull _this)}, {
             params ["_unit"];
             private ["_loadoutName"];
-            private _GearSystem = (GETVAR(_unit,Gear_UnitSystemType,"NONE"));
-            private _UnitClass = (GETVAR(_unit,Gear_UnitGearType,"NONE"));
-            (SETVAR(_unit,Gear_UnitClass,_UnitClass));
-            if (_GearSystem isEqualto "NONE") exitwith {};
-            if (_UnitClass isEqualto "NONE") exitwith {
+            private _systemType = (GETVAR(_unit,Gear_UnitSystemType,"NONE"));
+            private _gearType = (GETVAR(_unit,Gear_UnitGearType,"NONE"));
+            SETVAR(_unit,Gear_gearType,_gearType);
+            if (_systemType isEqualto "NONE") exitwith {};
+            if (_gearType isEqualto "NONE") exitwith {
                 ERROR_1("No loadout found for unit: %1",_unit);
             };
-            if (_UnitClass isEqualto "MANUAL") then {
+            if (_gearType isEqualto "MANUAL") then {
                 _unit setvariable ["UO_FW_Gear_ManualUnitClass","MANUAL"];
-                switch (_GearSystem) do {
+                private _manualClass = GETVAR(_unit,Gear_ManualUnitClass,"");
+                if (_manualClass isEqualto "") exitwith {
+                    ERROR_1("Unit %1 is set to manual loadout but has none!, exiting gearscript.",_unit);
+                };
+                switch (_systemType) do {
                     case "ACEAR": {
-                        _loadoutName = (GETVAR(_unit,Gear_UnitGearManualType,""));
-                        if (_loadoutName isEqualto "") exitwith {
-                            ERROR_1("Unit %1 is set to manual loadout but has none!, exiting gearscript.",_unit);
-                        };
                         private _found = false;
                         private _defaultloadoutsArray = missionNamespace getvariable ['ace_arsenal_defaultLoadoutsList',[]];
                         {
                             _x params ["_name","_loadoutData"];
-                            if (_loadoutName isEqualto _name) exitwith {
+                            if (_manualClass == _name) exitwith {
                                 _unit setUnitLoadout _loadoutData;
-                                LOG_2("Setting ace loadout: %1 for unit %2",_loadoutName,_unit);
+                                LOG_2("Setting ace loadout: %1 for unit %2",_manualClass,_unit);
                                 _found = true;
                             };
                         } foreach _defaultloadoutsArray;
                         if !(_found) exitwith {
-                            ERROR_1("Could not find %1 in Default Loadouts!",_loadoutName);
+                            ERROR_1("Could not find %1 in Default Loadouts!",_manualClass);
                         };
                     };
                     case "OLSEN": {
-                        private _Type = (GETVAR(_unit,Gear_UnitGearManualType,""));
-                        if (_Type isEqualto "") exitwith {
+                        private _manualClass = (GETVAR(_unit,Gear_UnitGearManualType,""));
+                        if (_manualClass isEqualto "") exitwith {
                             ERROR_1("Unit %1 is set to manual loadout but has none!, exiting gearscript.",_unit);
                         };
-                        LOG_2("Executing gear of file: %1 for unit %2",_Type,_unit);
-                        [_unit,_Type] call UO_FW_fnc_OlsenGearScript;
+                        LOG_2("Executing gear of file: %1 for unit %2",_manualClass,_unit);
+                        [_unit,_manualClass] call UO_FW_fnc_OlsenGearScript;
                     };
                 };
             } else {
                 private ["_SystemTag","_loadoutvarname"];
-                switch (_GearSystem) do {
+                switch (_systemType) do {
                     case "ACEAR": {_SystemTag = "ACE_Arsenal"};
                     case "OLSEN": {_SystemTag = "Olsen"};
                 };
                 switch (side _unit) do {
                     case west: {
-                        _loadoutvarname = format ["UO_FW_GearSettings_%1_LoadoutType_Blufor_%2",_SystemTag,_UnitClass];
+                        _loadoutvarname = format ["UO_FW_GearSettings_%1_LoadoutType_Blufor_%2",_SystemTag,_gearType];
                     };
                     case east: {
-                        _loadoutvarname = format ["UO_FW_GearSettings_%1_LoadoutType_Opfor_%2",_SystemTag,_UnitClass];
+                        _loadoutvarname = format ["UO_FW_GearSettings_%1_LoadoutType_Opfor_%2",_SystemTag,_gearType];
                     };
                     case independent: {
-                        _loadoutvarname = format ["UO_FW_GearSettings_%1_LoadoutType_Indfor_%2",_SystemTag,_UnitClass];
+                        _loadoutvarname = format ["UO_FW_GearSettings_%1_LoadoutType_Indfor_%2",_SystemTag,_gearType];
                     };
                     case civilian: {
-                        _loadoutvarname = format ["UO_FW_GearSettings_%1_LoadoutType_CIV_%2",_SystemTag,_UnitClass];
+                        _loadoutvarname = format ["UO_FW_GearSettings_%1_LoadoutType_CIV_%2",_SystemTag,_gearType];
                     };
                 };
                 _loadoutName = missionNamespace getvariable [_loadoutvarname,"NONE"];
                 if (_loadoutName isEqualto "NONE") exitwith {
                     ERROR_2("No loadout found for unit: %1 and var %2",_unit,_loadoutvarname);
                 };
-                switch (_GearSystem) do {
+                switch (_systemType) do {
                     case "ACEAR": {
                         private _found = false;
                         private _defaultloadoutsArray = missionNamespace getvariable ['ace_arsenal_defaultLoadoutsList',[]];
                         {
                             _x params ["_name","_loadoutData"];
-                            if (_loadoutName isEqualto _name) exitwith {
+                            if (_loadoutName == _name) exitwith {
                                 _unit setUnitLoadout _loadoutData;
                                 LOG_2("Setting ace loadout: %1 for unit %2",_loadoutName,_unit);
                                 _found = true;
@@ -99,10 +99,10 @@ UO_FW_EXEC_CHECK(ALL);
         [{(!isNull _this)}, {
             params ["_vehicle"];
             private ["_loadoutName"];
-            private _GearSystem = _vehicle getvariable ["UO_FW_Gear_VehicleSystemType","NONE"];
+            private _systemType = _vehicle getvariable ["UO_FW_Gear_VehicleSystemType","NONE"];
             private _loadoutName = _vehicle getvariable ["UO_FW_Gear_VehicleGearManualType",""];
-            if (_GearSystem isEqualto "NONE") exitwith {};
-            switch (_GearSystem) do {
+            if (_systemType isEqualto "NONE") exitwith {};
+            switch (_systemType) do {
                 case "ACEAR": {
                     if (_loadoutName isEqualto "") exitwith {
                         ERROR_1("Vehicle %1 is set to manual loadout but has none!, exiting gearscript.",_vehicle);
@@ -111,7 +111,7 @@ UO_FW_EXEC_CHECK(ALL);
                     private _defaultloadoutsArray = missionNamespace getvariable ['ace_arsenal_defaultLoadoutsList',[]];
                     {
                         _x params ["_name","_loadoutData"];
-                        if (_loadoutName isEqualto _name) exitwith {
+                        if (_loadoutName == _name) exitwith {
                             _vehicle setUnitLoadout _loadoutData;
                             LOG_2("Setting ace loadout: %1 for vehicle %2",_loadoutName,_vehicle);
                             _found = true;
@@ -145,68 +145,68 @@ UO_FW_EXEC_CHECK(ALL);
     [{(!isNull _this)}, {
         params ["_unit"];
         private ["_loadoutName"];
-        private _GearSystem = (GETVAR(_unit,Gear_UnitSystemType,"NONE"));
-        private _UnitClass = (GETVAR(_unit,Gear_UnitGearType,"NONE"));
-        (SETVAR(_unit,Gear_UnitClass,_UnitClass));
-        if (_GearSystem isEqualto "NONE") exitwith {};
-        if (_UnitClass isEqualto "NONE") exitwith {
+        private _systemType = (GETVAR(_unit,Gear_UnitSystemType,"NONE"));
+        private _gearType = (GETVAR(_unit,Gear_UnitGearType,"NONE"));
+        (SETVAR(_unit,Gear_gearType,_gearType));
+        if (_systemType isEqualto "NONE") exitwith {};
+        if (_gearType isEqualto "NONE") exitwith {
             ERROR_1("No loadout found for unit: %1",_unit);
             SETPVAR(_unit,GearReady,true);
         };
-        if (_UnitClass isEqualto "MANUAL") then {
+        if (_gearType isEqualto "MANUAL") then {
             _unit setvariable ["UO_FW_Gear_ManualUnitClass","MANUAL"];
-            switch (_GearSystem) do {
+            private _manualClass = (GETVAR(_unit,Gear_UnitGearManualType,""));
+            if (_manualClass isEqualto "") exitwith {
+                ERROR_1("Unit %1 is set to manual loadout but has none!, exiting gearscript.",_unit);
+                SETPVAR(_unit,GearReady,true);
+            };
+            switch (_systemType) do {
                 case "ACEAR": {
-                    _loadoutName = (GETVAR(_unit,Gear_UnitGearManualType,""));
-                    if (_loadoutName isEqualto "") exitwith {
-                        ERROR_1("Unit %1 is set to manual loadout but has none!, exiting gearscript.",_unit);
-                        SETPVAR(_unit,GearReady,true);
-                    };
                     private _found = false;
                     private _defaultloadoutsArray = missionNamespace getvariable ['ace_arsenal_defaultLoadoutsList',[]];
                     {
                         _x params ["_name","_loadoutData"];
-                        if (_loadoutName isEqualto _name) exitwith {
+                        if (_manualClass isEqualto _name) exitwith {
                             _unit setUnitLoadout _loadoutData;
-                            LOG_2("Setting ace loadout: %1 for unit %2",_loadoutName,_unit);
+                            LOG_2("Setting ace loadout: %1 for unit %2",_manualClass,_unit);
                             SETPVAR(_unit,GearReady,true);
                             _found = true;
                         };
                     } foreach _defaultloadoutsArray;
                     if !(_found) exitwith {
-                        ERROR_1("Could not find %1 in Default Loadouts!",_loadoutName);
+                        ERROR_1("Could not find %1 in Default Loadouts!",_manualClass);
                         SETPVAR(_unit,GearReady,true);
                     };
                 };
                 case "OLSEN": {
-                    private _Type = (GETVAR(_unit,Gear_UnitGearManualType,""));
-                    if (_Type isEqualto "") exitwith {
+                    private _manualClass = (GETVAR(_unit,Gear_UnitGearManualType,""));
+                    if (_manualClass isEqualto "") exitwith {
                         ERROR_1("Unit %1 is set to manual loadout but has none!, exiting gearscript.",_unit);
                         SETPVAR(_unit,GearReady,true);
                     };
-                    LOG_2("Executing gear class: %1 for unit %2",_Type,_unit);
-                    [_unit,_Type] call UO_FW_fnc_OlsenGearScript;
+                    LOG_2("Executing gear class: %1 for unit %2",_manualClass,_unit);
+                    [_unit,_manualClass] call UO_FW_fnc_OlsenGearScript;
                     SETPVAR(_unit,GearReady,true);
                 };
             };
         } else {
             private ["_SystemTag","_loadoutvarname"];
-            switch (_GearSystem) do {
+            switch (_systemType) do {
                 case "ACEAR": {_SystemTag = "ACE_Arsenal"};
                 case "OLSEN": {_SystemTag = "Olsen"};
             };
             switch (side _unit) do {
                 case west: {
-                    _loadoutvarname = format ["UO_FW_GearSettings_%1_LoadoutType_Blufor_%2",_SystemTag,_UnitClass];
+                    _loadoutvarname = format ["UO_FW_GearSettings_%1_LoadoutType_Blufor_%2",_SystemTag,_gearType];
                 };
                 case east: {
-                    _loadoutvarname = format ["UO_FW_GearSettings_%1_LoadoutType_Opfor_%2",_SystemTag,_UnitClass];
+                    _loadoutvarname = format ["UO_FW_GearSettings_%1_LoadoutType_Opfor_%2",_SystemTag,_gearType];
                 };
                 case independent: {
-                    _loadoutvarname = format ["UO_FW_GearSettings_%1_LoadoutType_Indfor_%2",_SystemTag,_UnitClass];
+                    _loadoutvarname = format ["UO_FW_GearSettings_%1_LoadoutType_Indfor_%2",_SystemTag,_gearType];
                 };
                 case civilian: {
-                    _loadoutvarname = format ["UO_FW_GearSettings_%1_LoadoutType_CIV_%2",_SystemTag,_UnitClass];
+                    _loadoutvarname = format ["UO_FW_GearSettings_%1_LoadoutType_CIV_%2",_SystemTag,_gearType];
                 };
             };
             _loadoutName = missionNamespace getvariable [_loadoutvarname,"NONE"];
@@ -214,13 +214,13 @@ UO_FW_EXEC_CHECK(ALL);
                 ERROR_2("No loadout found for unit: %1 and var %2",_unit,_loadoutvarname);
                 SETPVAR(_unit,GearReady,true);
             };
-            switch (_GearSystem) do {
+            switch (_systemType) do {
                 case "ACEAR": {
                     private _found = false;
                     private _defaultloadoutsArray = missionNamespace getvariable ['ace_arsenal_defaultLoadoutsList',[]];
                     {
                         _x params ["_name","_loadoutData"];
-                        if (_loadoutName isEqualto _name) exitwith {
+                        if (_loadoutName == _name) exitwith {
                             _unit setUnitLoadout _loadoutData;
                             LOG_2("Setting ace loadout: %1 for unit %2",_loadoutName,_unit);
                             SETPVAR(_unit,GearReady,true);
@@ -243,7 +243,7 @@ UO_FW_EXEC_CHECK(ALL);
 }] call CBA_fnc_addEventHandler;
 
 ["UO_FW_Gear_ForceUnitLoad", {
-    params ["_unit",["_gearSystem","ACEAR",[""]],["_forcedClass","NONE",[""]],["_forcedSide",(side (_this select 0))]];
+    params ["_unit",["_systemType","ACEAR",[""]],["_forcedClass","NONE",[""]],["_forcedSide",(side (_this select 0))]];
     if !(UO_FW_Server_GearModule_Allowed) exitwith {
         SETPVAR(_unit,GearReady,true);
     };
@@ -252,10 +252,10 @@ UO_FW_EXEC_CHECK(ALL);
     };
     if (_forcedClass isEqualto "NONE") exitwith {ERROR_1("Invalid forcedclass for unit:%1",_unit)};
     [{(!isNull (_this select 0))}, {
-        params ["_unit","_gearSystem","_forcedClass","_forcedSide"];
+        params ["_unit","_systemType","_forcedClass","_forcedSide"];
         private ["_loadoutName","_SystemTag","_loadoutvarname"];
-        (SETVAR(_unit,Gear_UnitClass,_forcedClass));
-        switch (_GearSystem) do {
+        (SETVAR(_unit,Gear_gearType,_forcedClass));
+        switch (_systemType) do {
             case "ACEAR": {_SystemTag = "ACE_Arsenal"};
             case "OLSEN": {_SystemTag = "Olsen"};
         };
@@ -278,13 +278,13 @@ UO_FW_EXEC_CHECK(ALL);
             ERROR_2("No loadout found for unit: %1 and var %2",_unit,_loadoutvarname);
                 SETPVAR(_unit,GearReady,true);
         };
-        switch (_GearSystem) do {
+        switch (_systemType) do {
             case "ACEAR": {
                 private _found = false;
                 private _defaultloadoutsArray = missionNamespace getvariable ['ace_arsenal_defaultLoadoutsList',[]];
                 {
                     _x params ["_name","_loadoutData"];
-                    if (_loadoutName isEqualto _name) exitwith {
+                    if (_loadoutName == _name) exitwith {
                         _unit setUnitLoadout _loadoutData;
                         LOG_2("Setting ace loadout: %1 for unit %2",_loadoutName,_unit);
                         SETPVAR(_unit,GearReady,true);
@@ -302,7 +302,7 @@ UO_FW_EXEC_CHECK(ALL);
                 SETPVAR(_unit,GearReady,true);
             };
         };
-    },[_unit,_gearSystem,_forcedClass,_forcedSide]] call CBA_fnc_waitUntilandExecute;
+    },[_unit,_systemType,_forcedClass,_forcedSide]] call CBA_fnc_waitUntilandExecute;
 }] call CBA_fnc_addEventHandler;
 
 ["UO_FW_Gear_VehicleLoad", {
@@ -311,10 +311,10 @@ UO_FW_EXEC_CHECK(ALL);
     params ["_vehicle"];
     [{(!isNull _this)}, {
         params ["_vehicle"];
-        private _GearSystem = _vehicle getvariable ["UO_FW_Gear_VehicleSystemType","NONE"];
+        private _systemType = _vehicle getvariable ["UO_FW_Gear_VehicleSystemType","NONE"];
         private _loadoutName = _vehicle getvariable ["UO_FW_Gear_VehicleGearManualType",""];
-        if (_GearSystem isEqualto "NONE") exitwith {};
-        switch (_GearSystem) do {
+        if (_systemType isEqualto "NONE") exitwith {};
+        switch (_systemType) do {
             case "OLSEN": {
                 if (_loadoutName isEqualto "") exitwith {
                     ERROR_1("Vehicle %1 is set to manual loadout but has none!, exiting gearscript.",_vehicle);
@@ -329,12 +329,12 @@ UO_FW_EXEC_CHECK(ALL);
 ["UO_FW_Gear_ForceVehicleLoad", {
     if !(UO_FW_Server_GearModule_Allowed) exitwith {};
     if !(UO_FW_Gear_Olsen_Enabled) exitwith {};
-    params ["_vehicle",["_gearSystem","NONE",[""]],["_forcedClass","NONE",[""]]];
+    params ["_vehicle",["_systemType","NONE",[""]],["_forcedClass","NONE",[""]]];
     if (_forcedClass isEqualto "NONE") exitwith {ERROR_1("Invalid forcedclass for vehicle:%1",_vehicle)};
     [{(!isNull (_this select 0))}, {
-        params ["_vehicle",["_gearSystem","OLSEN",[""]],["_forcedClass","NONE",[""]]];
-        if (_GearSystem isEqualto "NONE") exitwith {};
-        switch (_GearSystem) do {
+        params ["_vehicle",["_systemType","OLSEN",[""]],["_forcedClass","NONE",[""]]];
+        if (_systemType isEqualto "NONE") exitwith {};
+        switch (_systemType) do {
             case "OLSEN": {
                 if (_forcedClass isEqualto "") exitwith {
                     ERROR_1("Vehicle %1 is set to manual loadout but has none!, exiting gearscript.",_vehicle);
@@ -343,5 +343,5 @@ UO_FW_EXEC_CHECK(ALL);
                 [_vehicle,_forcedClass] call UO_FW_fnc_OlsenGearScript;
             };
         };
-    },[_vehicle,_gearSystem,_forcedClass]] call CBA_fnc_waitUntilandExecute;
+    },[_vehicle,_systemType,_forcedClass]] call CBA_fnc_waitUntilandExecute;
 }] call CBA_fnc_addEventHandler;

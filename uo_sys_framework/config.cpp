@@ -288,6 +288,8 @@ class CfgRemoteExec {
 
 #include "Core\CfgUO\RespawnTemplates.hpp"
 
+#include "GearModule\CfgUO\GearPresets.hpp"
+
 class Params {
     #define DAYTIMEHOUR_DEFAULT 12
     #include "\a3\functions_f\Params\paramDaytimeHour.hpp"
