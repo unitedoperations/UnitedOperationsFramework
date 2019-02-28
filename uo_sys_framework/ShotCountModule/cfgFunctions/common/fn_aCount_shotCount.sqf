@@ -39,5 +39,6 @@ if (_foundClass isEqualto -1) then {
     _teamvar pushBack [_class,1];
 } else {
     private _index = (_teamvar select _foundClass);
-    _index set [1,(_index select 1) + 1];
+    _index params ["_name","_count"];
+    _teamvar set [_foundClass,[_name,(_count + 1)]];
 };

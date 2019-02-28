@@ -22,21 +22,21 @@ _obj setVariable ["UO_FW_ShotCount_originalSide",side _obj];
 
 if (_obj isKindOf "Man") then {
     private _firedEHhandle = _obj addEventHandler ["fired", {
-        if ((isPlayer (_this select 0)) && {missionNamespace getvariable ["UO_FW_ND_Active",false]}) then {
-            if (((_this select 0) getvariable ["UO_FW_ND_EHid",""]) isEqualto "DISABLED") then {
-                ["UO_FW_ShotCount_EH_Event", [side (_this select 0),(_this select 5)]] call CBA_fnc_serverEvent;
-            } else {
-                false;
+        params ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile", "_gunner"];
+        if (isPlayer _unit) then {
+            if !(GETPLVAR(ND_Active,false)) then {
+                ["UO_FW_ShotCount_EH_Event", [side _unit,_magazine]] call CBA_fnc_serverEvent;
             };
         } else {
-            ["UO_FW_ShotCount_EH_Event", [side (_this select 0),(_this select 5)]] call CBA_fnc_serverEvent;
+            ["UO_FW_ShotCount_EH_Event", [side _unit,_magazine]] call CBA_fnc_serverEvent;
         };
     }];
     _obj setVariable ["UO_FW_ShotCount_firedEh", _firedEHhandle];
 };
 if (!(_obj isKindOf "Man") && {(_obj isKindOf "LandVehicle") || (_obj isKindOf "Air") || (_obj isKindOf "Ship_F")}) then {
     private _firedEHhandle = _obj addEventHandler ["fired",  {
-        ["UO_FW_ShotCount_EH_Event", [side (_this select 0),(_this select 5)]] call CBA_fnc_serverEvent;
+        params ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile", "_gunner"];
+        ["UO_FW_ShotCount_EH_Event", [side _unit,_magazine]] call CBA_fnc_serverEvent;
     }];
     if !(count crew _obj isEqualto 0) then {
         {
