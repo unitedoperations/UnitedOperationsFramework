@@ -141,34 +141,40 @@ class SubTitleIndent: SubTitle {
 };
 
 class CheckboxStateReversed: CheckboxState {
+    attributeLoad="\
+        private _ctrlCheckbox = (_this controlsGroupCtrl 100);\
+        _ctrlCheckbox cbSetChecked _value;\
+        private _fade = [0.75,0] select _value;\
+        private _ctrlGroup = ctrlParentControlsGroup ctrlParentControlsGroup _ctrlCheckbox;\
+        {\
+            if (ctrlParentControlsGroup _x isEqualto _ctrlGroup) then {\
+                _x ctrlenable _value;\
+                _x ctrlsetfade _fade;\
+                _x ctrlcommit 0;\
+            };\
+        } foreach ((allcontrols (ctrlparent _ctrlCheckbox)) - [ctrlParentControlsGroup _ctrlCheckbox]);\
+    ";
+    attributeSave="\
+        private _ctrlCheckbox = (_this controlsGroupCtrl 100);\
+        _value = cbChecked _ctrlCheckbox;\
+        _value\
+    ";
     class Controls: Controls {
         class Title: Title {};
         class Value: Value {
+            idc = 100;
             onCheckedChanged="\
-                _ctrlCheckbox = _this select 0;\
-                _state = [true,false] select (cbChecked _ctrlCheckbox);\
-                _fade = [0.75,0] select _state;\
-                _ctrlGroup = ctrlParentControlsGroup ctrlParentControlsGroup _ctrlCheckbox;\
+                private _ctrlCheckbox = _this select 0;\
+                private _state = [true,false] select (cbChecked _ctrlCheckbox);\
+                private _fade = [0.75,0] select _state;\
+                private _ctrlGroup = ctrlParentControlsGroup ctrlParentControlsGroup _ctrlCheckbox;\
                 {\
                     if (ctrlParentControlsGroup _x isEqualto _ctrlGroup) then {\
                         _x ctrlenable _state;\
                         _x ctrlsetfade _fade;\
                         _x ctrlcommit 0;\
                     };\
-                } foreach (allcontrols (ctrlparent _ctrlCheckbox) - [ctrlParentControlsGroup _ctrlCheckbox]);\
-            ";
-            onLoad="\
-                _ctrlCheckbox = _this select 0;\
-                _state = [true,false] select (cbChecked _ctrlCheckbox);\
-                _fade = [0.75,0] select _state;\
-                _ctrlGroup = ctrlParentControlsGroup ctrlParentControlsGroup _ctrlCheckbox;\
-                {\
-                    if (ctrlParentControlsGroup _x isEqualto _ctrlGroup) then {\
-                        _x ctrlenable _state;\
-                        _x ctrlsetfade _fade;\
-                        _x ctrlcommit 0;\
-                    };\
-                } foreach (allcontrols (ctrlparent _ctrlCheckbox) - [ctrlParentControlsGroup _ctrlCheckbox]);\
+                } foreach ((allcontrols (ctrlparent _ctrlCheckbox) )- [ctrlParentControlsGroup _ctrlCheckbox]);\
             ";
         };
     };
