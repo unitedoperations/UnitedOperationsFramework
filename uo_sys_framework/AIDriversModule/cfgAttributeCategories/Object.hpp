@@ -7,7 +7,16 @@ class UO_FW_AIDrivers_Options {
             tooltip = "Enable AI driver for this vehicle";
             property = "UO_FW_AIDriverVeh_Enabled";
             control = "CheckBox";
-            expression = UO_FW_ENTITY_DELAYED_FNC_EXPRESSION(aiDriversVehInit);
+            expression = "\
+                private _propertyName = '%s';\
+                _this setVariable [_propertyName, _value];\
+                [{CBA_missionTime > 1},{\
+                	params ['_object','_propertyName','_value','_fncName'];\
+                	if (local _object) then {\
+                		[_object,_value] call UO_FW_fnc_aiDriversVehInit;\
+                	}\
+                },[_this,_propertyName,_value,_fncName]] call CBA_fnc_WaitUntilAndExecute;\
+            ";
             condition = "objectVehicle";
             defaultValue = "false";
         };

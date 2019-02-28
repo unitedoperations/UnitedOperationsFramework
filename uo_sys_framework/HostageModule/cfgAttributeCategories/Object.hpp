@@ -7,7 +7,18 @@ class UO_FW_Hostage_Attributes {
             tooltip = "Makes this unit a hostage that starts bound/captive and must be rescued via player action.";
             property = "UO_FW_Hostage_State";
             control = "CheckboxState";
-            expression = UO_FW_ENTITY_DELAYED_FNC_EXPRESSION(HostageSet);
+            expression = "\
+                private _propertyName = '%s';\
+                _this setVariable [_propertyName, _value];\
+                diag_log format ['queued _fncName: %1','UO_FW_fnc_HostageSet'];\
+                [{CBA_missionTime > 1},{\
+                	params ['_object','_propertyName','_value','_fncName'];\
+                	if (local _object) then {\
+                        diag_log format ['_object: %1 calling %2',_object,_fncName];\
+                		[_object,_value] call UO_FW_fnc_HostageSet;\
+                	}\
+                },[_this,_propertyName,_value,_fncName]] call CBA_fnc_WaitUntilAndExecute;\
+            ";
             condition = "objectControllable ";
             defaultValue = "false";
         };
