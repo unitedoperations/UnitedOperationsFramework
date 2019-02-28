@@ -50,6 +50,9 @@ ga_tracking:
 
 #theme: "just-the-docs"
 
+include:
+    - "resources"
+
 markdown: kramdown
 kramdown:
     parse_block_html: true

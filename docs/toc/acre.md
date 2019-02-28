@@ -23,18 +23,18 @@ Provides an efficient in-editor system for;
 ### Adding Radios
 
 1. Open the UO Framework menu.
-	* IMAGE HERE
+* ![image-title-here]({{ site.baseurl }}/resources/images/acre/acre_radios_1.png){:class="img-responsive"}
 
 2. Select ACRE settings.
-	* IMAGE HERE
+* ![image-title-here]({{ site.baseurl }}/resources/images/acre/acre_radios_2.png){:class="img-responsive"}
 
 3. Select the side you want to specify radios for.
-	* IMAGE HERE
+* ![image-title-here]({{ site.baseurl }}/resources/images/acre/acre_radios_3.png){:class="img-responsive"}
 
 4. Choose the short-range radio, long-range radio and pack radios for a specific side.
-	* IMAGE HERE
+* ![image-title-here]({{ site.baseurl }}/resources/images/acre/acre_radios_4.png){:class="img-responsive"}
 
-5. Select units and open their ACRE attribute, select the type(s) of radios to give them.
+5. Select units and open their ACRE attribute and choose what radio(s) to give them.
 	* IMAGE HERE
 
 6. Load the mission into multiplayer.
