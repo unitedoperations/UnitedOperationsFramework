@@ -7,10 +7,10 @@
  *        PiZZADOX
  */
 
-//#define DEBUG_MODE_NORMAL
+#define DEBUG_MODE_NORMAL
 #define COMPONENT SetDefaults
-#include "\x\UO_FW\addons\Main\script_macros.hpp"
-//#include "\x\cba\addons\Main\script_macros_common.hpp"
+//#include "\x\UO_FW\addons\Main\script_macros.hpp"
+#include "\x\cba\addons\Main\script_macros_common.hpp"
 
 LOG("setDefaultsCalled");
 
