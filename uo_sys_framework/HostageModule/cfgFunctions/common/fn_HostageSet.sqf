@@ -5,7 +5,9 @@ UO_FW_EXEC_CHECK(ALL);
 if (!UO_FW_Server_HostageModule_Allowed) exitWith {};
 ["UO_FW_RegisterModuleEvent", ["Hostage Control", "Allows the mission maker to easily add hostages to their missions.", "Starfox64, TrainDoctor and PiZZADOX"]] call CBA_fnc_globalEventJiP;
 
-params ["_unit"];
+params ["_unit","_enabled"];
+
+if !(_enabled) exitWith {};
 
 private _marker = (GETVAR(_unit,Hostage_Rescue_Location,"hostage_rescue"));
 
@@ -15,7 +17,7 @@ if (getMarkerColor _marker isEqualto "") exitwith {
 
 _marker setMarkerAlpha 0;
 
-["UO_FW_Hostage_ACEActions_GlobalEvent", [_unit], "HostageJiPID"] call CBA_fnc_globalEventJiP;
+["UO_FW_Hostage_ACEActions_GlobalEvent", [_unit]] call CBA_fnc_globalEventJiP;
 
 _unit setBehaviour "CARELESS";
 _unit allowFleeing 0;
