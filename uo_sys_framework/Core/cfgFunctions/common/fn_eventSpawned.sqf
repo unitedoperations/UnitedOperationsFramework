@@ -22,7 +22,7 @@ if (GETVAR(_unit,Tracked,false)) then {
     SETVAR(_unit,HasDied,false); //we will use this variable to make sure killed eventHandler doesn't fire twice
     {
         _x params ["", "_side", "_Type", "_total", "_current"];
-        if (GETVAR(_unit,Side,"") isEqualto _side && {((_Type isEqualto "player" && isPlayer _unit) || (_Type isEqualto "ai" && !(isPlayer _unit)) || (_Type isEqualto "both"))}) exitWith {
+        if (GETVAR(_unit,Side,"") isEqualto _side && {((_Type isEqualto "player" && {isPlayer _unit}) || (_Type isEqualto "ai" && {!(isPlayer _unit)}) || (_Type isEqualto "both"))}) exitWith {
             _x set [3, (_total + 1)];
             if (_unit call UO_FW_fnc_Alive) then {
                 _x set [4, (_current + 1)];
