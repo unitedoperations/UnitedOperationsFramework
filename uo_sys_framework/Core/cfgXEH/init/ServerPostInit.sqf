@@ -16,7 +16,7 @@ SETMPVAR(MissionEnded,false);
 SETMPVAR(ServerInitialized,true);
 
 [{CBA_missionTime > 1}, {
-    [] call UO_FW_EndConditionsInit;
+    [] call UO_FW_fnc_EndConditionsInit;
     SETMVAR(TeamTicketsRemaining_Blufor,(GETMVAR(RespawnSetting_TeamTickets_Blufor,30)));
     SETMVAR(TeamTicketsRemaining_Opfor,(GETMVAR(RespawnSetting_TeamTickets_Opfor,30)));
     SETMVAR(TeamTicketsRemaining_Indfor,(GETMVAR(RespawnSetting_TeamTickets_Indfor,30)));
