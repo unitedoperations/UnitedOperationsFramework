@@ -11,6 +11,8 @@
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 UO_FW_EXEC_CHECK(SERVER);
 
+LOG("EndConditions Init");
+
 if (isNil "UO_FW_MissionEnded") then {UO_FW_MissionEnded = false;};
 private _delay = (missionNamespace getvariable ["UO_FW_EndConditions_ConditionDelay",0]);
 private _frequency = (missionNamespace getvariable ["UO_FW_EndConditions_ConditionSleep",30]);
