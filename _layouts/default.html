@@ -13,6 +13,8 @@
       </div>
       <footer role="contentinfo" class="site-footer">
         <p class="text-small text-grey-dk-000 mb-0">This site uses <a href="https://github.com/pmarsceill/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.</p>
+		<br>
+		<p class="text-medium text-grey-dk-000 mb-0">&emsp;&emsp;&ensp;<a href="{{ site.url }}{{ site.baseurl }}/{{ page.dir }}">Back to top</a></p>
       </footer>
     </div>
     <div class="main-content-wrap js-main-content" tabindex="0">
@@ -53,12 +55,23 @@
           {% endif %}
         {% endunless %}
         <div id="main-content" class="page-content" role="main">
-			{% if page.title and page.title != "Home" %}
+			{% if page.use_title and page.title and page.alt_title == "Default Title" %}
 			<h1> {{ page.title }} </h1>
-			<a href="{{ site.repository }}/tree/{{ site.branch }}/{{ page.path }}" target="_blank">Edit me on Github</a>
+			<a href="{{ site.repository }}/tree/{{ site.branch }}/{{ page.path }}" target="_blank"><button type="button" name="button" class="btn">Edit me on Github</button></a>
+			{% else if page.use_title and !page.title and page.alt_title != "Default Title" %}
+			<h1> {{ page.alt_title }} </h1>
+			<a href="{{ site.repository }}/tree/{{ site.branch }}/{{ page.path }}" target="_blank"><button type="button" name="button" class="btn">Edit me on Github</button></a>
+			{% else if page.alt_title != "Default Title" and page.use_title != true %}
+			{% else if page.use_title and page.title != "" and page.alt_title != "Default Title" and page.title != "Home" %}
+				{% if page.alt_title == "" %} 
+				<h1> {{ page.title }} </h1>
+				<a href="{{ site.repository }}/tree/{{ site.branch }}/{{ page.path }}" target="_blank"><button type="button" name="button" class="btn">Edit me on Github</button></a>
+				{% else %}
+				<h1> {{ page.alt_title }} </h1>
+				<a href="{{ site.repository }}/tree/{{ site.branch }}/{{ page.path }}" target="_blank"><button type="button" name="button" class="btn">Edit me on Github</button></a>
+				{% endif %}
 			{% endif %}
           {{ content }}
-
           {% if page.has_children == true and page.has_toc != false %}
           <hr>
           <h2 class="text-delta">Table of contents</h2>

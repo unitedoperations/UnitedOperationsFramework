@@ -50,5 +50,17 @@ ga_tracking:
 
 #theme: "just-the-docs"
 
+markdown: kramdown
+kramdown:
+    parse_block_html: true
+    
 plugins:
   - jekyll-redirect-from
+  
+defaults:
+    -
+        scope:
+            path: ""
+        values:
+            alt_title: "Default Title"
+            use_title: true
