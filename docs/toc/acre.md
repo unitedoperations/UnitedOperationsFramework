@@ -20,27 +20,33 @@ Provides an efficient in-editor system for;
 
 ## Usage
 
+### Special Note
+Adding radios through the ACRE module can only be done on playable units!
+
 ### Adding Radios
+
+---
 
 1. Open the UO Framework menu.
 * ![image-title-here]({{ site.baseurl }}/resources/images/acre/acre_radios_1.png){:class="img-responsive"}
 
-2. Select ACRE settings.
+2. Select Configure ACRE.
 * ![image-title-here]({{ site.baseurl }}/resources/images/acre/acre_radios_2.png){:class="img-responsive"}
 
-3. Select the side you want to specify radios for.
-* ![image-title-here]({{ site.baseurl }}/resources/images/acre/acre_radios_3.png){:class="img-responsive"}
+3. Select "Configure ACRE Settings" and check the "Enable ACRE Framework checkbox".
 
-4. Choose the short-range radio, long-range radio and pack radios for a specific side.
-* ![image-title-here]({{ site.baseurl }}/resources/images/acre/acre_radios_4.png){:class="img-responsive"}
+4. Select the side you want to specify radios for.
+* ![image-title-here]({{ site.baseurl }}/resources/images/acre/acre_radios_sides.png){:class="img-responsive"}
 
-5. Select units and open their ACRE attribute and choose what radio(s) to give them.
-	* IMAGE HERE
+5. Choose the short-range radio, long-range radio and pack radios for a specific side.
+* ![image-title-here]({{ site.baseurl }}/resources/images/acre/acre_radios_blufor_radios.png){:class="img-responsive"}
+
+6. Select units and open their ACRE attribute and choose what radio(s) to give them.
+* ![image-title-here]({{ site.baseurl }}/resources/images/acre/acre_radios_5.png){:class="img-responsive"}
 
 6. Load the mission into multiplayer.
-	* IMAGE HERE
 
-The playable and AI units you assigned radios will now have radios when starting your mission!
+The playable and AI units you assigned radios will now have	 radios when starting your mission!
 
 ### Adding Rack Radios
 
@@ -48,7 +54,13 @@ _**FEATURE IS WIP**_
 
 ### Radio Scrambling and Babel
 
+1. Open the UO Framework menu.
 
+2. Select ACRE settings.
+
+3. Select "Configure ACRE Settings"
+
+3. 
 
 ### Channel Names
 
