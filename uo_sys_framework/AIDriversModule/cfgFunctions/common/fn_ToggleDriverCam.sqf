@@ -35,7 +35,7 @@ if (_arg) then {
     };
 
 } else {
-    if (!isNil "GVAR(DriverCam)" && {!isNull GVAR(DriverCam)}) then {
+    if (!(isNil GVAR(DriverCam)) && {!isNull GVAR(DriverCam)}) then {
         with uiNamespace do {
             GVAR(pipDisplay) closeDisplay 2;
         };

@@ -55,7 +55,7 @@ private _pipNvAction = ["ai_driver_pip_nv","Enable/Disable NV in driver's view",
 },{
     (vehicle _player == _target) &&
     {((assignedVehicleRole _player) select 0) == "Turret"} &&
-    {(!isNil "GVAR(DriverCam)" && {!isNull GVAR(DriverCam)})}
+    {(!isNil QGVAR(DriverCam) && {!isNull GVAR(DriverCam)})}
 }] call ace_interact_menu_fnc_createAction;
 
 [_veh, 1, ["ACE_SelfActions"], _action] call ace_interact_menu_fnc_addActionToObject;
@@ -70,4 +70,4 @@ if (_enableNV ) then {
     [_veh, 1, ["ACE_SelfActions"], _pipNvAction] call ace_interact_menu_fnc_addActionToObject;
 };
 
-_veh setvariable ["UO_FW_hasAIDriverActions",true,true];
+SETPVAR(_veh,hasAIDriverActions,true);

@@ -18,7 +18,7 @@ if (!GETMVAR(Enabled,false)) exitwith {};
 params ["_obj"];
 
 if !((_obj getVariable [QGVAR(firedEh), ""]) isEqualto "") exitWith {};
-_obj setVariable [QGVAR(originalSide),side _obj];
+SETVAR(_obj,originalSide,side _obj);
 
 if (_obj isKindOf "Man") then {
     private _firedEHhandle = _obj addEventHandler ["fired", {
@@ -31,7 +31,7 @@ if (_obj isKindOf "Man") then {
             [QGVAR(EH_Event), [side _unit,_magazine]] call CBA_fnc_serverEvent;
         };
     }];
-    _obj setVariable [QGVAR(firedEh), _firedEHhandle];
+    SETVAR(_obj,firedEh,_firedEHhandle);
 };
 if (!(_obj isKindOf "Man") && {(_obj isKindOf "LandVehicle") || (_obj isKindOf "Air") || (_obj isKindOf "Ship_F")}) then {
     private _firedEHhandle = _obj addEventHandler ["fired",  {
@@ -40,9 +40,9 @@ if (!(_obj isKindOf "Man") && {(_obj isKindOf "LandVehicle") || (_obj isKindOf "
     }];
     if !(count crew _obj isEqualto 0) then {
         {
-            _x setVariable [QGVAR(firedEh), _firedEHhandle];
-            _x setVariable [QGVAR(originalSide),(side _obj)];
+            SETVAR(_x,firedEh,_firedEHhandle);
+            SETVAR(_x,originalSide,(side _obj));
         } forEach crew _obj;
     };
-    _obj setVariable [QGVAR(firedEh), _firedEHhandle];
+    SETVAR(_obj,firedEh,_firedEHhandle);
 };

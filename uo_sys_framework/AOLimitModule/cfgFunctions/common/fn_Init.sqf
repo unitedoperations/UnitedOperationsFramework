@@ -94,7 +94,7 @@ UO_FW_EXEC_CHECK(CLIENT);
                         _pos = getPosATL (vehicle _unit);
                         _argNested set [8,_pos];
                     } else {
-                        missionNamespace setVariable ["UO_FW_AOL_Display", _outSide];
+                        SETMVAR(Display,_outSide);
                     };
                 } else {
                     LOG("unit outside area");
@@ -106,17 +106,17 @@ UO_FW_EXEC_CHECK(CLIENT);
                             (vehicle _unit) setVelocity [0,0,0];
                             (vehicle _unit) setPos _pos;
                         } else {
-                            if !(missionNamespace getVariable ["UO_FW_AOL_DisplayOpen", false]) then {
+                            if !(GETMVAR(DisplayOpen,false)) then {
                                 private _timeLeft = if (_air) then {_softAOtimeAir} else {_softAOtime};
-                                missionNamespace setVariable ["UO_FW_AOL_Display", _outSide];
-                                missionNamespace setVariable ["UO_FW_AOL_TimeLeft", _timeLeft];
+                                SETMVAR(Display,_outSide);
+                                SETMVAR(TimeLeft,_timeLeft);
                                 ("UO_FW_AOLimit_Layer" call BIS_fnc_rscLayer) cutRsc ["RscAOLimit", "PLAIN", 0.5, false];
                             };
                         };
                     };
                 };
             } else {
-                if (({(vehicle _unit) inArea _x} count ((missionNamespace getvariable _arrayname))) > 0) then {
+                if (({(vehicle _unit) inArea _x} count (missionNamespace getvariable _arrayname)) > 0) then {
                     LOG("unit in area b");
                     _enteredZone = true;
                     _argNested set [4,_enteredZone];
@@ -126,7 +126,7 @@ UO_FW_EXEC_CHECK(CLIENT);
                         _pos = getPosATL (vehicle _unit);
                         _argNested set [8,_pos];
                     } else {
-                        missionNamespace setVariable ["UO_FW_AOL_Display", _outSide];
+                        SETMVAR(Display,_outSide);
                     };
                 } else {
                     LOG("unit outside area b");
@@ -138,10 +138,10 @@ UO_FW_EXEC_CHECK(CLIENT);
                             (vehicle _unit) setVelocity [0,0,0];
                             (vehicle _unit) setPos _pos;
                         } else {
-                            if !(missionNamespace getVariable ["UO_FW_AOL_DisplayOpen", false]) then {
+                            if !(GETMVAR(DisplayOpen,false)) then {
                                 private _timeLeft = if (_air) then {_softAOtimeAir} else {_softAOtime};
-                                missionNamespace setVariable ["UO_FW_AOL_Display", _outSide];
-                                missionNamespace setVariable ["UO_FW_AOL_TimeLeft", _timeLeft];
+                                SETMVAR(Display,_outSide);
+                                SETMVAR(TimeLeft,_timeLeft);
                                 ("UO_FW_AOLimit_Layer" call BIS_fnc_rscLayer) cutRsc ["RscAOLimit", "PLAIN", 0.5, false];
                             };
                         };
@@ -149,7 +149,7 @@ UO_FW_EXEC_CHECK(CLIENT);
                 };
             };
 
-            missionNamespace setVariable ["UO_FW_AOL_Display", _outSide];
+            SETMVAR(Display,_outSide);
             LOG_1("_outSide: %1",_outSide);
 
             if ((count (missionNamespace getvariable _arrayname)) == 1) then {

@@ -10,20 +10,19 @@ switch _mode do {
             if (!UO_FW_CoverMap_Enable) exitWith {};
             _input params ["_logic",["_isActivated",true,[true]]];
             if !(_isActivated) exitWith {};
-
-                private _AOName = GETVAR(_logic,AOName,"Area0");
-                private _AOZoom = GETVAR(_logic,ZoomLevel,0.4);
-                private _loc = getPosATL _logic;
-                private _radiusX = GETVAR(_logic,RadiusX,100);
-                private _radiusY = GETVAR(_logic,RadiusY,100);
-                private _direction = getdir _logic;
-                //_isRectangle = if ((typeof _logic) isEqualTo "UO_FW_CoverMapModule_R") then {true} else {false};
-                private _area = [_loc,_radiusX,_radiusY,_direction,true];
-
-                if (isNil QGVAR(AOArray)) then {GVAR(AOArray) = [];};
+            private _AOName = GETVAR(_logic,AOName,"Area0");
+            private _AOZoom = GETVAR(_logic,ZoomLevel,0.4);
+            private _loc = getPosATL _logic;
+            private _radiusX = GETVAR(_logic,RadiusX,100);
+            private _radiusY = GETVAR(_logic,RadiusY,100);
+            private _direction = getdir _logic;
+            private _area = [_loc,_radiusX,_radiusY,_direction,true];
+            if (isNil QGVAR(AOArray)) then {
+                GVAR(AOArray) = [[_AOName,_area,_AOZoom,_logic]];
+            } else {
                 GVAR(AOArray) pushback [_AOName,_area,_AOZoom,_logic];
-                publicvariable QGVAR(AOArray);
-
+            };
+            publicvariable QGVAR(AOArray);
         };
     };
     case "attributesChanged3DEN": {

@@ -19,7 +19,7 @@ if (isNil "UO_FW_MissionEnded") then {
 private _delay = (GETMVAR(ConditionDelay,0));
 private _frequency = (GETMVAR(ConditionSleep,30));
 if (_frequency < 30) then {
-    missionNamespace setvariable ["UO_FW_EndConditions_ConditionSleep",30];
+    SETMVAR(ConditionSleep,30);
     _frequency = 30;
 };
 

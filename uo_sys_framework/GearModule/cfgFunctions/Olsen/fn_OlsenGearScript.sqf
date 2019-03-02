@@ -18,7 +18,7 @@ params ["_unit","_Type"];
 
 if (!local _unit) exitWith {};
 _unit setVariable ["BIS_enableRandomization", false];
-_unit setVariable ["UO_FW_Loadout", _Type, true];
+SETPVAR(_unit,Loadout,_Type);
 _unit call FUNC(RemoveAllGear);
 
 FNC_AddItem = {([_unit, _Type] append [_this]) call FUNC(AddItemOrg);};

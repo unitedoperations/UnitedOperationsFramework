@@ -33,8 +33,7 @@ private _sections = "!(((str(configname _x)) find 'UO_FW') isEqualto -1)" config
                 _attributeName = getText (_x >> "property");
                 _attributeValue = _section get3DENMissionAttribute _attributeName;
             };
-        };
-        if !(isNil "_attributeValue") then {
+        } else {
             _attributeValues pushBack [_section,_attributeName,_attributeValue];
         };
     } foreach _children;

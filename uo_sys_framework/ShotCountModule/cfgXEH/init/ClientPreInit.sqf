@@ -5,7 +5,7 @@ UO_FW_EXEC_CHECK(CLIENT);
 [QGVAR(Display_Event), {
     if !(UO_FW_Server_ShotCountModule_Allowed) exitwith {};
     if !(GETMVARUO(ShotCount_Enabled,false)) exitwith {};
-    LOG_1("GVAR(Display_Event) published with: %1",_this);
+    LOG_1("Display_Event published with: %1",_this);
     [{!((uiNamespace getVariable ["UO_FW_EndScreen",""]) isEqualto "")}, {
         _this params ["_textBLU","_textOPF","_textIND","_textCIV"];
         private _endscreenDiag = (uiNamespace getVariable "UO_FW_EndScreen");

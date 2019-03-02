@@ -90,7 +90,7 @@ UO_FW_EXEC_CHECK(CLIENT);
             private _side = side player;
             private _customSide = (GETPLVAR(CustomScramble,nil));
             GVAR(Volume_Value) = -1;
-            if (!isNil "GVAR(Volume_Value)") then {
+            if (!isNil QGVAR(Volume_Value)) then {
                 if ((abs GVAR(Volume_Value)) > 2) then {
                 GVAR(Volume_Value) = 0;
                 };

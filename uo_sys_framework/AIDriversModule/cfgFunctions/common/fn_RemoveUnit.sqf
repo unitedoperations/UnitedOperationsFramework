@@ -16,8 +16,8 @@ private _driver = GETVAR(_target,driver,objnull);
 
 if (!isNull _driver) then {
     deleteVehicle _driver;
-    private _handle = _target getVariable ["UO_FW_aidrivers_pfhID", []];
-    if ((count _handle) != 0) then {
+    private _handle = GETVAR(_target,pfhID,[]);
+    if !(_handle isEqualTo []) then {
         [_handle select 1] remoteExec ["CBA_fnc_removePerFrameHandler", _handle select 0];
     };
 };

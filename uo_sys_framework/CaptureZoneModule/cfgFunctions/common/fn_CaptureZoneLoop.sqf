@@ -18,7 +18,7 @@ if (!(_this call FUNC(ValidateCaptureZone))) exitWith {
     //define var for use in endconditions_varName = format ["%1_var",_zoneName];
     private _varName = format ["%1_var",_zoneName];
     private _teamControllingvarName = format ["%1_teamControlling",_zoneName];
-    if (isNil "GVAR(ListArray)") then {GVAR(ListArray) = [];};
+    if (isNil QGVAR(ListArray)) then {GVAR(ListArray) = [];};
     GVAR(ListArray) pushBack _logic;
     GVAR(DOUBLES(PFHhandle,_zoneName)) = [{
         //var redeclares

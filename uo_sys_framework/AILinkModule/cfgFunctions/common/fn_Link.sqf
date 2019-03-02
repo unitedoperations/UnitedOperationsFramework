@@ -5,7 +5,9 @@ UO_FW_EXEC_CHECK(ALL);
 private ["_groups","_thisGroup","_thatGroup","_thisLR","_thisSR","_thatLR","_thatSR","_range"];
 
 if (isNil QGVAR(debug)) then {GVAR(debug) = false};
-if (GVAR(transDelay) > GVAR(shareDelay)) then {GVAR(transDelay) = GVAR(shareDelay)};
+if (GVAR(transDelay) > GVAR(shareDelay)) then {
+    GVAR(transDelay) = GVAR(shareDelay)
+};
 
 private _allLinkGroups = [];
 {    //Remove player controlled groups
@@ -14,7 +16,9 @@ private _allLinkGroups = [];
     };
 } forEach allGroups;
 
-if (GVAR(debug)) then {diag_log format["Link Groups: %1",_allLinkGroups];};
+if (GVAR(debug)) then {
+    LOG_1("Link Groups: %1",_allLinkGroups);
+};
 
 {    //Share that sweet, sweet info
     _thisGroup = _x;

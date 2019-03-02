@@ -34,22 +34,19 @@ if (!_result) then {
     };
     [_class, {
         params ["_class"];
-        private _msg = "Framework has detected an invalid classname - " + str _class + "! Mission will continue but some parts of gear will be missing.";
-        if (!isNil "GVAR(MissingGear)_found") then {
-            if !(_class in GVAR(MissingGear)_found) then {
-                systemChat _msg;
-                diag_log _msg;
-                GVAR(MissingGear)_found pushBackUnique _class;
+        if (!isNil QGVAR(MissingGear_found)) then {
+            if !(_class in GVAR(MissingGear_found)) then {
+                ERROR_1("Framework has detected an invalid classname - %1! Mission will continue but some parts of gear will be missing.",(str _class));
+                GVAR(MissingGear_found) pushBackUnique _class;
             };
         } else {
-            systemChat _msg;
-            diag_log _msg;
-            GVAR(MissingGear)_found = [_class];
+            ERROR_1("Framework has detected an invalid classname - %1! Mission will continue but some parts of gear will be missing.",(str _class));
+            GVAR(MissingGear_found) = [_class];
         };
     }] remoteExec ["BIS_fnc_call", 0, true];
 
     if (!isNull _unit) then {
-        [_class, _unit] remoteExecCall ["FUNC(makeUnitsList)", 2, false];
+        [_class, _unit] remoteExecCall [QFUNC(makeUnitsList), 2, false];
     };
 };
 

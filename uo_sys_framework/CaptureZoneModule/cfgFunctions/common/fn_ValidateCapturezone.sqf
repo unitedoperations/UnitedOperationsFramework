@@ -6,7 +6,7 @@ UO_FW_EXEC_CHECK(ALL);
 params ["_logic","_zoneName","_area","_repeatable","_capArray","_timeArray","_messagesArray","_colours","_hidden","_silent","_automessages","_ratioNeeded","_cond"];
 private _isValid = true;
 
-if (isNil "GVAR(ListArray)") then {
+if (isNil QGVAR(ListArray)) then {
     GVAR(ListArray) = [];
 };
 

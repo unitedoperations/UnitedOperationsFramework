@@ -14,7 +14,6 @@ UO_FW_EXEC_CHECK(CLIENT);
 
 ["UO_FW_SettingsLoaded", {
 	if (!(UO_FW_Server_AIDRIVERSMODULE_Allowed)) exitwith {};
-
 	if (((GETMVAR(VehClasses,[])) isEqualto []) && {!(GETMVAR(AllVehs,false))}) exitwith {};
 	["UO_FW_RegisterModuleEvent", ["AI Drivers", "Module for adding AI Drivers to vehicles", "BlackHawk, PiZZADOX and Sacher"]] call CBA_fnc_globalEventJIP;
 	private _allowNV = (GETMVAR(NVEnabled,false));

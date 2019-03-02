@@ -39,7 +39,7 @@ _unit forceAddUniform uniform _caller;
 _unit addVest vest _caller;
 _unit addHeadGear headGear _caller;
 
-_target setVariable ["UO_FW_aidrivers_driver", _unit, true];
+SETPVAR(_target,driver,_unit);
 
 _unit moveInDriver _target;
 _unit setBehaviour "COMBAT";

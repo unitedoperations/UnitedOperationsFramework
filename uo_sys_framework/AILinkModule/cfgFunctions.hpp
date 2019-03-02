@@ -1,4 +1,3 @@
 CFGFUNCFOLDER(AILink,common);
-    CFGFUNC(AILink,EvalRadio);
     CFGFUNC(AILink,Link);
 CFGFUNCFOLDEREND;
