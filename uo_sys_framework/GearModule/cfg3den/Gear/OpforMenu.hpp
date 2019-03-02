@@ -1,9 +1,9 @@
-class UO_FW_GearSettings_Presets_Opfor {
+class EGVAR(Gear,Presets_Opfor) {
     displayName = "Opfor Gear Presets";
     collapsed = 0;
     class Attributes {
-        class UO_FW_GearSettings_ACE_Arsenal_GearPresets_Opfor {
-            property = "UO_FW_GearSettings_ACE_Arsenal_GearPresets_Opfor";
+        class EGVAR(Gear,ACE_Arsenal_GearPresets_Opfor) {
+            property = QEGVAR(Gear,ACE_Arsenal_GearPresets_Opfor);
             displayName = "Gear Presets";
             tooltip = "";
             control = "UO_FW_Gear_PresetsCombo_OPFOR";
@@ -14,7 +14,7 @@ class UO_FW_GearSettings_Presets_Opfor {
     };
 };
 
-class UO_FW_GearSettings_ACE_Arsenal_Opfor {
+class EGVAR(Gear,ACE_Arsenal_Opfor) {
     displayName = "Opfor ACE Gear Settings";
     collapsed = 1;
     class Attributes {
@@ -52,7 +52,7 @@ class UO_FW_GearSettings_ACE_Arsenal_Opfor {
         UO_FW_GEAR_TYPECONFIG_ACEAR(OPFOR,CUS5);
     };
 };
-class UO_FW_GearSettings_Olsen_Opfor {
+class EGVAR(Gear,Olsen_Opfor) {
     displayName = "Opfor Olsen Gear Settings";
     collapsed = 1;
     class Attributes {

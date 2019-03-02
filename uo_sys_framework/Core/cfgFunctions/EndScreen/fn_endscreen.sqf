@@ -41,12 +41,12 @@ private _textSide = 0;
     };
 } forEach UO_FW_Teams;
 private _endTitleText = _scenario;
-if !(UO_FW_TimeLimit isEqualto 0) then {
+if !((EGETMVAR(EndConditions,Timelimit,60)) isEqualto 0) then {
     private _time = ceil(CBA_missiontime / 60);
-    if (_time >= UO_FW_TimeLimit) then {
-        _time = UO_FW_TimeLimit;
+    if (_time >= (EGETMVAR(EndConditions,Timelimit,60))) then {
+        _time = (EGETMVAR(EndConditions,Timelimit,60));
     };
-    private _timeLimitText = format ["Mission duration: %1 out of %2 minutes", _time, UO_FW_TimeLimit];
+    private _timeLimitText = format ["Mission duration: %1 out of %2 minutes", _time, (EGETMVAR(EndConditions,Timelimit,60))];
     _endTitleText = format ["%1<br />%2", _scenario, _timeLimitText];
 };
 private _dia = uiNamespace getVariable "UO_FW_EndScreen";

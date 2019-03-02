@@ -26,7 +26,7 @@ params [["_mode","",[""]],["_input",[],[[]]]];
         };
         case "attributesChanged3DEN": {
             private _logic = _input param [0,objNull,[objNull]];
-            private _radius = (_logic getVariable ["UO_FW_AI_taskRadius",100]);
+            private _radius = (GETVAR(_logic,taskRadius,100));
             set3DENAttributes [[[_logic],"size2",[_radius,_radius]]];
         };
     };

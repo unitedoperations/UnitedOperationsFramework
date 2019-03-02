@@ -1,0 +1,46 @@
+/*    Description: Toggles AI Driver camera
+ *    Arguments:
+ *         Bool - off or on
+ *    Return Value:
+ *         ARRAY
+ *    Author
+ *        PiZZADOX
+ */
+
+#define COMPONENT AIDrivers
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
+UO_FW_EXEC_CHECK(ALL);
+
+params ["_arg"];
+
+if (_arg) then {
+    GVAR(DriverCam) = "camera" camCreate [0,0,0];
+    GVAR(DriverCam) cameraEffect ["INTERNAL", "BACK","UO_FW_rtt"];
+    GVAR(DriverCam) camSetFov 0.9;
+    GVAR(DriverCam) camCommit 0;
+
+    SETMVAR(pipNvEnabled,true);
+
+    private _veh = vehicle player;
+    private _mempoint = getText ( configfile >> "CfgVehicles" >> (typeOf _veh) >> "memoryPointDriverOptics" );
+    GVAR(DriverCam) attachTo [_veh,[0,0,0], _mempoint];
+
+    with uiNamespace do {
+        "UO_FW_pipDriver" cutRsc ["RscTitleDisplayEmpty", "PLAIN"];
+        GVAR(pipDisplay) = uiNamespace getVariable "RscTitleDisplayEmpty";
+        GVAR(driverPipDisplay) = GVAR(pipDisplay) ctrlCreate ["RscPicture", -1];
+        GVAR(driverPipDisplay) ctrlSetPosition [0.1,1,0.75,0.5];
+        GVAR(driverPipDisplay) ctrlCommit 0;
+        GVAR(driverPipDisplay) ctrlSetText "#(argb,512,512,1)r2t(UO_FW_rtt,1.0)";
+    };
+
+} else {
+    if (!isNil "GVAR(DriverCam)" && {!isNull GVAR(DriverCam)}) then {
+        with uiNamespace do {
+            GVAR(pipDisplay) closeDisplay 2;
+        };
+        detach GVAR(DriverCam);
+        GVAR(DriverCam) cameraEffect ["terminate", "back", "UO_FW_rtt"];
+        camDestroy GVAR(DriverCam);
+    };
+};

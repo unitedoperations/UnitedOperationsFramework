@@ -1,3 +1,3 @@
-class UO_FW_DisconnectControl_PreInit {
+class EGVAR(DisconnectControl,PreInit) {
     serverInit = "call compile preProcessFileLineNumbers '\x\UO_FW\addons\Main\DisconnectControlModule\cfgXEH\init\ServerPreInit.sqf';";
 };

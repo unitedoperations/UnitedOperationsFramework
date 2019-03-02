@@ -5,43 +5,43 @@ class UO_FW_RespawnTemplates {
     respawnTemplatesTeamTick[] = {"UO_FW_RTemplatesS_JoinGroup","UO_FW_RTemplatesS_SafeStart","UO_FW_RTemplatesS_ACRE","UO_FW_RTemplatesS_Gear","UO_FW_RTemplatesS_CoverMap","UO_FW_RTemplatesS_MapAndCompassRemover"};
     respawnTemplatesWave[] = {"UO_FW_RTemplatesS_JoinGroup","UO_FW_RTemplatesS_SafeStart","UO_FW_RTemplatesS_ACRE","UO_FW_RTemplatesS_Gear","UO_FW_RTemplatesS_CoverMap","UO_FW_RTemplatesS_MapAndCompassRemover"};
     respawnTemplatesTriggered[] = {"UO_FW_RTemplatesS_JoinGroup","UO_FW_RTemplatesS_SafeStart","UO_FW_RTemplatesS_ACRE","UO_FW_RTemplatesS_Gear","UO_FW_RTemplatesS_CoverMap","UO_FW_RTemplatesS_MapAndCompassRemover"};
-    class UO_FW_RTemplatesS_JoinGroup {
+    class EGVAR(RTemplatesS,JoinGroup) {
         displayName = "Rejoin Group on Respawn";
         respawnTypes[] = {1,2,3,5};
     };
-    class UO_FW_RTemplatesS_SafeStart {
+    class EGVAR(RTemplatesS,SafeStart) {
         displayName = "Run SafeStart Module Settings on Respawn";
         respawnTypes[] = {1,2,3,4,5};
     };
-    class UO_FW_RTemplatesS_CoverMap {
+    class EGVAR(RTemplatesS,CoverMap) {
         displayName = "Run Unit CoverMap Settings on Respawn";
         respawnTypes[] = {1,2,3,4,5};
     };
-    class UO_FW_RTemplatesS_TeamColour {
+    class EGVAR(RTemplatesS,TeamColour) {
         displayName = "Run Unit TeamColour Settings on Respawn";
         respawnTypes[] = {1,2,3,4,5};
     };
-    class UO_FW_RTemplatesS_StartInParachute {
+    class EGVAR(RTemplatesS,StartInParachute) {
         displayName = "Run Unit StartInParachute Settings on Respawn";
         respawnTypes[] = {1,2,3,4,5};
     };
-    class UO_FW_RTemplatesS_Gear {
+    class EGVAR(RTemplatesS,Gear) {
         displayName = "Run Unit Gear Settings on Respawn";
         respawnTypes[] = {1,2,3,4,5};
     };
-    class UO_FW_RTemplatesS_ACRE {
+    class EGVAR(RTemplatesS,ACRE) {
         displayName = "Run Unit ACRE Settings on Respawn";
         respawnTypes[] = {1,2,3,4,5};
     };
-    class UO_FW_RTemplatesS_MapAndCompassRemover {
+    class EGVAR(RTemplatesS,MapAndCompassRemover) {
         displayName = "Run MapAndCompassRemover Unit Settings on Respawn";
         respawnTypes[] = {1,2,3,4,5};
     };
-    //class UO_FW_RTemplatesS_GearHandle {
+    //class EGVAR(RTemplatesS,GearHandle) {
     //    displayName = "Handle Gear Classes for Wave Respawns";
     //    respawnTypes[] = {4};
     //};
-    //class UO_FW_RTemplatesS_TriggerReset {
+    //class EGVAR(RTemplatesS,TriggerReset) {
     //    displayName = "Reset Trigger Variable after Spawning a Wave/Queue of Players";
     //    respawnTypes[] = {5};
     //};

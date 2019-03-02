@@ -1,9 +1,8 @@
-class UO_FW_AOLimitFunctions {
-    file = "\x\UO_FW\addons\Main\AOLimitModule\cfgFunctions\common";
-    class AOLimitInit    {};
-    class DisplayAOLimitWarning {};
-};
-class UO_FW_AOLimitModuleFunctions {
-    file = "\x\UO_FW\addons\Main\AOLimitModule\cfgFunctions\modules";
-    class AOLimit {};
-};
+CFGFUNCFOLDER(AOLimit,common);
+    CFGFUNC(AOLimit,Init);
+    CFGFUNC(AOLimit,DisplayWarning);
+CFGFUNCFOLDEREND;
+
+CFGFUNCFOLDER(AOLimit,modules);
+    CFGFUNC(AOLimit,AOLimit);
+CFGFUNCFOLDEREND;

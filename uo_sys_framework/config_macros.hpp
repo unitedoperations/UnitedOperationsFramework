@@ -15,3 +15,27 @@ private _fncName = 'UO_FW_fnc_##FNCNAME##';\
 },[_this,_propertyName,_value,_fncName]] call CBA_fnc_WaitUntilAndExecute;"
 
 #define UO_FW_MODULE_EXPRESSION "_this setVariable ['%s', _value, true];"
+
+#define CFGFUNCFOLDERCORE(FolderName)\
+__EXEC(_TEMPMODULE = "Core")\
+__EXEC(_MODULESTR = "")\
+__EXEC(_TEMPFOLDER = #FolderName)\
+class DOUBLES(Core,FolderName) {\
+    file = QUOTE(\x\UO_FW\addons\Main\Core\cfgFunctions\FolderName)
+
+#define CFGFUNCFOLDER(ModuleName,FolderName)\
+__EXEC(_TEMPMODULE = #ModuleName)\
+__EXEC(_MODULESTR = "Module")\
+__EXEC(_TEMPFOLDER = #FolderName)\
+class DOUBLES(ModuleName,FolderName) {\
+    file = QUOTE(\x\UO_FW\addons\Main\ModuleName##Module\cfgFunctions\FolderName)
+
+#define CFGFUNC(ModuleName,FunctionName)\
+    __EXEC(_TEMPFNC = #FunctionName)\
+    class DOUBLES(ModuleName,FunctionName) {\
+    	scope = 1;\
+    	file = __EVAL("\x\UO_FW\addons\Main\" + _TEMPMODULE + _MODULESTR + "\cfgFunctions\" + _TEMPFOLDER + "\fn_" + #FunctionName + ".sqf");\
+    }
+
+#define CFGFUNCFOLDEREND\
+}

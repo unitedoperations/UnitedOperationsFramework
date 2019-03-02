@@ -8,9 +8,9 @@
  */
 #include "\x\UO_FW\addons\Main\HeadlessAIModule\module_macros.hpp"
 UO_FW_AI_EXEC_CHECK(SERVERHC);
-params ["_unit","_pos","_veh"];
+params ["_unit",["_pos",[],[[]]]];
 private _group = (group _unit);
-private _groupInit = _group getVariable ["UO_FW_AI_groupInit","true"];
+private _groupInit = _group getVariable ["UO_FW_AI_groupInit",""];
 private _occupy = _group getVariable ['UO_FW_AI_occupyOption',0];
 if (_occupy isEqualTo 1) then {_occupy = floor(random [2,5,7])};
 if (typename _groupInit isEqualTo "STRING") then {_groupInit = compile _groupInit;};

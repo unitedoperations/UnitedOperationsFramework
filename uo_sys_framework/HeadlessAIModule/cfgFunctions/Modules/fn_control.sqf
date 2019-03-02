@@ -22,7 +22,7 @@ params [["_mode","",[""]],["_input",[],[[]]]];
                 sleep 1;
                 UO_FW_AI_EXEC_CHECK(SERVERHC);
                 //Check if should disable/enable linked zones or do nothing. default: do nothing
-                switch (_logic getVariable ["UO_FW_AI_ControlInitAction",0]) do {
+                switch (GETVAR(_logic,ControlInitAction,0)) do {
                     case 1 : {
                         // Disable Linked Zones
                         [([_logic,["UO_FW_AI_ZoneModule","UO_FW_AI_ZoneModule_R"]] call UO_FW_AI_fnc_getSyncedModules),1] call UO_FW_AI_fnc_setZone;
@@ -42,17 +42,18 @@ params [["_mode","",[""]],["_input",[],[[]]]];
                 UO_FW_AI_Zones pushBack [
                     _logic,
                     (getPosATL _logic),
-                    (_logic getVariable ["UO_FW_AI_ControlRadiusX",200]),
-                    (_logic getVariable ["UO_FW_AI_controlOn",0]),
-                    ([_logic getVariable ["UO_FW_AI_ControlSide",0]] call UO_FW_AI_fnc_getSide),
-                    (UO_FW_AI_zoneTypes select (_logic getVariable ["UO_FW_AI_ControlType",1])),
+                    (GETVAR(_logic,ControlRadiusX,200)),
+                    (GETVAR(_logic,controlOn,0)),
+                    ([GETVAR(_logic,ControlSide,0)] call UO_FW_AI_fnc_getSide),
+                    (UO_FW_AI_zoneTypes select (GETVAR(_logic,ControlType,1))),
                     _cond,
-                    (_logic getVariable ["UO_FW_AI_ControlDelay",0]),
+                    (GETVAR(_logic,ControlDelay,0)),
                     _code,
-                    (_logic getVariable ["UO_FW_AI_ControlRadiusY",200]),
+                    (GETVAR(_logic,ControlRadiusY,200)),
                     _isRectangle,
                     (getDir _logic),
-                    (_logic getVariable ["UO_FW_AI_ZoneHazard",false])
+                    (GETVAR(_logic,ZoneHazard,false)),
+                    (GETVAR(_logic,zoneSuspend,0))
                 ];
                 private _entities = [_logic] call UO_FW_AI_fnc_getSyncedObjects;
                 UO_FW_AI_entities pushBack [_logic,_entities];

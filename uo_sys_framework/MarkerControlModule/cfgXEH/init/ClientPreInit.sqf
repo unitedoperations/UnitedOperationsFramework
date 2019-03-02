@@ -2,9 +2,9 @@
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 UO_FW_EXEC_CHECK(CLIENT);
 
-["UO_FW_SettingsLoaded", {
+["UO_FW_MarkerControlEvent", {
     if !(UO_FW_Server_MarkerControlModule_Allowed) exitWith {};
-    if !(GETMVAR(MarkerControl_Enabled,false)) exitWith {};
+    if !(GETMVAR(Enabled,false)) exitWith {};
     ["UO_FW_RegisterModuleEvent", ["Marker Control", "Allows the mission maker to create markers visible to a single side and per briefing.", "Olsen, Sacher and PiZZADOX"]] call CBA_fnc_localEvent;
     private _markers = [];
     private _markersBriefing = [];
@@ -16,7 +16,7 @@ UO_FW_EXEC_CHECK(CLIENT);
         } else {
             _markers pushBack [west, _x];
         };
-    } forEach (GETMVAR(MarkerControl_BluforMarkers,[]));
+    } forEach (GETMVAR(BluforMarkers,[]));
     {
         if !((getMissionLayerEntities _x) isEqualTo []) then {
             if !(((getMissionLayerEntities _x) select 1) isEqualto []) then {
@@ -25,7 +25,7 @@ UO_FW_EXEC_CHECK(CLIENT);
         } else {
             _markersBriefing pushBack [west, _x];
         };
-    } forEach (GETMVAR(MarkerControl_BluforBriefingMarkers,[]));
+    } forEach (GETMVAR(BluforBriefingMarkers,[]));
     {
         if !((getMissionLayerEntities _x) isEqualTo []) then {
             if !(((getMissionLayerEntities _x) select 1) isEqualto []) then {
@@ -34,7 +34,7 @@ UO_FW_EXEC_CHECK(CLIENT);
         } else {
             _markers pushBack [east, _x];
         };
-    } forEach (GETMVAR(MarkerControl_OpforBriefing,[]));
+    } forEach (GETMVAR(OpforBriefing,[]));
     {
         if !((getMissionLayerEntities _x) isEqualTo []) then {
             if !(((getMissionLayerEntities _x) select 1) isEqualto []) then {
@@ -43,7 +43,7 @@ UO_FW_EXEC_CHECK(CLIENT);
         } else {
             _markersBriefing pushBack [east, _x];
         };
-    } forEach (GETMVAR(MarkerControl_OpforBriefingMarkers,[]));
+    } forEach (GETMVAR(OpforBriefingMarkers,[]));
     {
         if !((getMissionLayerEntities _x) isEqualTo []) then {
             if !(((getMissionLayerEntities _x) select 1) isEqualto []) then {
@@ -52,7 +52,7 @@ UO_FW_EXEC_CHECK(CLIENT);
         } else {
             _markers pushBack [independent, _x];
         };
-    } forEach (GETMVAR(MarkerControl_INDFORBriefing,[]));
+    } forEach (GETMVAR(INDFORBriefing,[]));
     {
         if !((getMissionLayerEntities _x) isEqualTo []) then {
             if !(((getMissionLayerEntities _x) select 1) isEqualto []) then {
@@ -61,7 +61,7 @@ UO_FW_EXEC_CHECK(CLIENT);
         } else {
             _markersBriefing pushBack [independent, _x];
         };
-    } forEach (GETMVAR(MarkerControl_INDFORBriefingMarkers,[]));
+    } forEach (GETMVAR(INDFORBriefingMarkers,[]));
     {
         if !((getMissionLayerEntities _x) isEqualTo []) then {
             if !(((getMissionLayerEntities _x) select 1) isEqualto []) then {
@@ -70,7 +70,7 @@ UO_FW_EXEC_CHECK(CLIENT);
         } else {
             _markers pushBack [civilian, _x];
         };
-    } forEach (GETMVAR(MarkerControl_CIVBriefing,[]));
+    } forEach (GETMVAR(CIVBriefing,[]));
     {
         if !((getMissionLayerEntities _x) isEqualTo []) then {
             if !(((getMissionLayerEntities _x) select 1) isEqualto []) then {
@@ -79,7 +79,7 @@ UO_FW_EXEC_CHECK(CLIENT);
         } else {
             _markersBriefing pushBack [civilian, _x];
         };
-    } forEach (GETMVAR(MarkerControl_CIVBriefingMarkers,[]));
+    } forEach (GETMVAR(CIVBriefingMarkers,[]));
     {
         if !((getMissionLayerEntities _x) isEqualTo []) then {
             if !(((getMissionLayerEntities _x) select 1) isEqualto []) then {
@@ -88,15 +88,19 @@ UO_FW_EXEC_CHECK(CLIENT);
         } else {
             _markers pushBack [sideLogic, _x];
         };
-    } forEach (GETMVAR(MarkerControl_SystemMarkers,[]));
+    } forEach (GETMVAR(SystemMarkers,[]));
+    LOG_1("_markers: %1",_markers);
     {
         _x params ["_side","_marker"];
+        LOG_2("_side: %1 _marker: %2",_side,_marker);
         if !(_side isEqualto (side player)) then {
             _marker setMarkerAlphaLocal 0;
         };
     } forEach _markers;
+    LOG_1("_markersBriefing: %1",_markersBriefing);
     {
         _x params ["_side","_marker"];
+        LOG_2("_side: %1 _marker: %2",_side,_marker);
         if !(_side isEqualto (side player)) then {
             _marker setMarkerAlphaLocal 0;
         };
@@ -108,4 +112,8 @@ UO_FW_EXEC_CHECK(CLIENT);
             _marker setMarkerAlphaLocal 0;
         } forEach _markersBriefing;
     }, [_markersBriefing]] call CBA_fnc_WaitUntilAndExecute;
+}] call CBA_fnc_addEventHandler;
+
+["UO_FW_SettingsLoaded", {
+    ["UO_FW_MarkerControlEvent", []] call CBA_fnc_localEvent;
 }] call CBA_fnc_addEventHandler;

@@ -1,4 +1,4 @@
-class UO_FW_MainSettings {
+class EGVAR(Core,MainSettings) {
     displayName = "Main Settings";
     collapsed = 0;
     class Attributes {
@@ -10,7 +10,7 @@ class UO_FW_MainSettings {
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
-        class UO_FW_MissionType {
+        class EGVAR(Core,MissionType) {
             property = "UO_FW_MissionType";
             displayName = "Mission Type";
             tooltip = "Determines Mission Type";

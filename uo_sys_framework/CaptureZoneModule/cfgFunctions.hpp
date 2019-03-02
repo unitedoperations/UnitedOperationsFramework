@@ -1,9 +1,8 @@
-class UO_FW_CaptureZoneFunctions {
-    file = "\x\UO_FW\addons\Main\CaptureZoneModule\cfgFunctions\common";
-    class CaptureZoneLoop {};
-    class ValidateCaptureZone {};
-};
-class UO_FW_CaptureZoneModuleFunctions {
-    file = "\x\UO_FW\addons\Main\CaptureZoneModule\cfgFunctions\modules";
-    class CaptureZone {};
-};
+CFGFUNCFOLDER(CaptureZone,modules);
+    CFGFUNC(CaptureZone,CaptureZone);
+CFGFUNCFOLDEREND;
+
+CFGFUNCFOLDER(CaptureZone,common);
+    CFGFUNC(CaptureZone,CaptureZoneLoop);
+    CFGFUNC(CaptureZone,ValidateCaptureZone);
+CFGFUNCFOLDEREND;

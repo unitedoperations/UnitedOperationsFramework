@@ -1,7 +1,7 @@
 #include "\x\UO_FW\addons\Main\HeadlessAIModule\module_macros.hpp"
 UO_FW_AI_EXEC_CHECK(HC);
 
-if (!(getMissionConfigValue ["UO_FW_AI_Enabled",false])) exitWith {};
+if !(GETMVALUEUO(AI_Enabled,false)) exitWith {};
 
 LOG("running fn_initMain");
 

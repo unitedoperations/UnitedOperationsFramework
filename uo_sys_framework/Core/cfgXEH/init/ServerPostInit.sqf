@@ -8,8 +8,8 @@ UO_FW_EventRespawnedHandle = addMissionEventHandler ["EntityRespawned", {_this c
 UO_FW_EventKilledHandle = addMissionEventHandler ["EntityKilled", {_this call UO_FW_fnc_EventKilled;}];
 UO_FW_EventDisconnectHandle = addMissionEventHandler ["HandleDisconnect", {_this call UO_FW_fnc_EventDisconnect;}];
 
-if (GETMVAR(AI_ViewDistance_Enforce,false)) then {
-    setViewDistance GETMVAR(AI_ViewDistance,2500);
+if (EGETMVAR(AI,ViewDistance_Enforce,false)) then {
+    setViewDistance EGETMVAR(AI,ViewDistance,2500);
 };
 
 SETMPVAR(MissionEnded,false);
@@ -17,12 +17,12 @@ SETMPVAR(ServerInitialized,true);
 
 [{CBA_missionTime > 1}, {
     [] call UO_FW_fnc_EndConditionsInit;
-    SETMVAR(TeamTicketsRemaining_Blufor,(GETMVAR(RespawnSetting_TeamTickets_Blufor,30)));
-    SETMVAR(TeamTicketsRemaining_Opfor,(GETMVAR(RespawnSetting_TeamTickets_Opfor,30)));
-    SETMVAR(TeamTicketsRemaining_Indfor,(GETMVAR(RespawnSetting_TeamTickets_Indfor,30)));
-    SETMVAR(TeamTicketsRemaining_Civ,(GETMVAR(RespawnSetting_TeamTickets_Civ,30)));
+    ESETMVAR(Respawn,TeamTicketsRemaining_Blufor,(EGETMVAR(Respawn,TeamTickets_Blufor,30)));
+    ESETMVAR(Respawn,TeamTicketsRemaining_Opfor,(EGETMVAR(Respawn,TeamTickets_Opfor,30)));
+    ESETMVAR(Respawn,TeamTicketsRemaining_Indfor,(EGETMVAR(Respawn,TeamTickets_Indfor,30)));
+    ESETMVAR(Respawn,TeamTicketsRemaining_Civilian,(EGETMVAR(Respawn,TeamTickets_Civ,30)));
 }] call CBA_fnc_WaitUntilAndExecute;
 
-if (UO_FW_DisconnectControl_Enabled) then {
+if (EGETMVAR(DisconnectControl,Enabled,false)) then {
     ace_respawn_RemoveDeadBodiesDisconnected = false;
 };

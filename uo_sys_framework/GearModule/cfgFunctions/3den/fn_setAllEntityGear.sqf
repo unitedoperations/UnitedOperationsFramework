@@ -4,5 +4,5 @@ UO_FW_EXEC_CHECK(ALL);
 UO_FW_3DEN_CHECK;
 
 {
-    _x call UO_FW_fnc_GearHandleEH;
+    _x call FUNC(GearHandleEH);
 } foreach (all3DENEntities select 0);

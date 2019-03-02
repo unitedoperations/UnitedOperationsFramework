@@ -1,9 +1,10 @@
-#define COMPONENT AutoTrack
+#define COMPONENT AutoTrackAsset
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 UO_FW_EXEC_CHECK(SERVER);
 
 if !(UO_FW_Server_AUTOTRACKASSETMODULE_Allowed) exitwith {};
-if !(GETMVAR(AutoTrackAsset_Enabled,false)) exitWith {};
+if !(GETMVAR(Enabled,false)) exitWith {};
+
 ["UO_FW_RegisterModuleEvent", ["Auto Track Assets", "Automatically runs Asset Tracking on AI vehicles.", "Starfox64, Sacher and PiZZADOX"]] call CBA_fnc_globalEvent;
 params ["_marker", "_team"];
 {

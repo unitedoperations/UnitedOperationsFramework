@@ -522,9 +522,9 @@ class UO_FW_AI_zoneDelayControl : Edit {
         };
     };
 };
-class UO_FW_AI_zoneOnControl : Title {
-    attributeLoad = "missionNamespace setvariable ['UO_FW_AI_zoneOn_value',_value]; (_this controlsGroupCtrl 129) lbsetcursel _value;";
-    attributeSave = "missionNamespace getvariable ['UO_FW_AI_zoneOn_value',0];";
+class UO_FW_AI_zoneSuspendControl : Title {
+    attributeLoad = "missionNamespace setvariable ['UO_FW_AI_zoneSuspend_value',_value]; (_this controlsGroupCtrl 129) lbsetcursel _value;";
+    attributeSave = "missionNamespace getvariable ['UO_FW_AI_zoneSuspend_value',0];";
     class Controls: Controls {
         class Title: Title {};
         class Value: ctrlToolbox {
@@ -536,8 +536,8 @@ class UO_FW_AI_zoneOnControl : Title {
             rows = 1;
             columns = 2;
             values[] = {0,1};
-            strings[] = {"EnableD","SUSPENDED"};
-            onToolboxSelChanged = "missionNamespace setvariable ['UO_FW_AI_zoneOn_value',_this select 1];";
+            strings[] = {"Enabled","Suspended"};
+            onToolboxSelChanged = "missionNamespace setvariable ['UO_FW_AI_zoneSuspend_value',_this select 1];";
         };
     };
 };

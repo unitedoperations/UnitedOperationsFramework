@@ -23,7 +23,7 @@ class UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo: Combo {
             _control lbSetCurSel _indexNone;\
             missionNamespace setvariable [_attProperty,'NONE'];\
         };\
-        [_control,_attProperty,_value] call UO_FW_fnc_ACEGearClassAttributeLoad;\
+        [_control,_attProperty,_value] call FUNC(ACEGearClassAttributeLoad);\
     ";
     class Controls: Controls {
         class Title: Title {};

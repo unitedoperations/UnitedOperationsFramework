@@ -45,7 +45,6 @@ class CfgFunctions {
 		#include "AutoTrackAssetModule\cfgFunctions.hpp"
 		#include "CaptureZoneModule\cfgFunctions.hpp"
 		#include "StartInParachuteModule\cfgFunctions.hpp"
-		#include "MapCompassRemoverModule\cfgFunctions.hpp"
 		#include "FiremissionModule\cfgFunctions.hpp"
 		#include "HostageModule\cfgFunctions.hpp"
 		#include "CoverMapModule\cfgFunctions.hpp"
@@ -105,21 +104,21 @@ class CfgDebriefingSections {
     #include "Core\cfgDebriefingSections.hpp"
 };
 
-class CfgSounds {
-    #include "SelfActionsModule\cfgSounds.hpp"
-};
+//class CfgSounds {
+//    #include "SelfActionsModule\cfgSounds.hpp"
+//};
 
-class CfgAmmo {
-    #include "SelfActionsModule\cfgAmmo.hpp"
-};
+//class CfgAmmo {
+//    #include "SelfActionsModule\cfgAmmo.hpp"
+//};
 
 class CfgMagazines {
     #include "SelfActionsModule\cfgMagazines.hpp"
 };
 
-class CfgUnitInsignia {
-
-};
+//class CfgUnitInsignia {
+//
+//};
 
 class Cfg3DEN {
 
@@ -283,9 +282,6 @@ class display3DEN {
     };
 };
 
-class CfgRemoteExec {
-};
-
 #include "Core\CfgUO\RespawnTemplates.hpp"
 
 #include "GearModule\CfgUO\GearPresets.hpp"
@@ -324,14 +320,13 @@ class Extended_PostInit_Eventhandlers {
     //Module PostInit Activation
 };
 
-class Extended_Init_Eventhandlers {
-    class CAManBase {
-    };
-};
+//class Extended_Init_Eventhandlers {
+//};
 
 class Extended_InitPost_Eventhandlers {
     //Module InitPost Activation
     class CAManBase {
+        #include "Core\cfgXEH\InitPost.hpp"
         #include "ShotCountModule\cfgXEH\InitPost.hpp"
         #include "HeadlessAIModule\cfgXEH\InitPost.hpp"
     };
@@ -350,5 +345,17 @@ class Extended_InitPost_Eventhandlers {
     class Ship_F {
         #include "ShotCountModule\cfgXEH\InitPost.hpp"
         #include "AutoTrackAssetModule\cfgXEH\InitPost.hpp"
+    };
+};
+
+class Extended_Killed_Eventhandlers {
+    class CAManBase {
+        #include "Core\cfgXEH\onKilled.hpp"
+    };
+};
+
+class Extended_Respawn_Eventhandlers {
+    class CAManBase {
+        #include "Core\cfgXEH\onRespawn.hpp"
     };
 };

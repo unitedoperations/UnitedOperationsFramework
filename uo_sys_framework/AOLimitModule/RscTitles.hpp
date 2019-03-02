@@ -1,6 +1,6 @@
 class RscAOLimit
 {
-    onLoad="_this call UO_FW_fnc_DisplayAOLimitWarning;";
+    onLoad="_this call FUNC(DisplayWarning);";
     idd=-1;
     duration=1200;
     movingEnable=0;

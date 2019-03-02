@@ -1,4 +1,5 @@
 class USMC_1980s_Wood {
+    authors[] = {"PiZZADOX"};
     displayName = "USMC 1980s Woodland";
     classPrefix = "USMC_1980s_Wood_";
     namePrefix = "USMC 80s (Woodland)";

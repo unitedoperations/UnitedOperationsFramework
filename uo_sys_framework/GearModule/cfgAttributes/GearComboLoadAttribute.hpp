@@ -80,7 +80,7 @@ class UO_FW_Gear_ComboGearLoad: ComboPreview {
                 private _GearSystem = _unit getvariable ['UO_FW_Gear_UnitGearType','NONE'];\
                 private _UnitClass = _unit getvariable ['UO_FW_Gear_UnitSystemType','NONE'];\
                 if (!(_GearSystem isEqualto 'NONE') || !(_UnitClass isEqualto 'NONE')) then {\
-                    [_unit,_GearSystem,_UnitClass] call UO_FW_fnc_GearTypeLoad3DEN;\
+                    [_unit,_GearSystem,_UnitClass] call FUNC(GearTypeLoad3DEN);\
                 };\
             ";
         };

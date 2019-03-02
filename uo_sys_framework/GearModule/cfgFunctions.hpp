@@ -1,21 +1,20 @@
-class UO_FW_3DEN_GearFunctions {
-    file = "\x\UO_FW\addons\Main\GearModule\cfgFunctions\3DEN";
-    class GearTypeLoad3DEN {};
-    class setAllEntityGear {};
-    class GearHandleEH {};
-    class GearLoadPreset {};
-    class ACEGearClassAttributeLoad {};
-};
-class UO_FW_OlsenGearFunctions {
-    file = "\x\UO_FW\addons\Main\GearModule\cfgFunctions\Olsen";
-    class OlsenGearScript {};
-    class addItemOrg {};
-    class addItemRandomOrg {};
-    class addItemVehicleOrg {};
-    class addItemVehicleRandomOrg {};
-    class canAttachItem {};
-    class canLinkItem {};
-    class checkClassname {};
-    class removeAllGear {};
-    class removeAllVehicleGear {};
-};
+CFGFUNCFOLDER(Gear,Olsen);
+    CFGFUNC(Gear,OlsenGearScript);
+    CFGFUNC(Gear,addItemOrg);
+    CFGFUNC(Gear,addItemRandomOrg);
+    CFGFUNC(Gear,addItemVehicleOrg);
+    CFGFUNC(Gear,addItemVehicleRandomOrg);
+    CFGFUNC(Gear,canAttachItem);
+    CFGFUNC(Gear,canLinkItem);
+    CFGFUNC(Gear,checkClassname);
+    CFGFUNC(Gear,removeAllGear);
+    CFGFUNC(Gear,removeAllVehicleGear);
+CFGFUNCFOLDEREND;
+
+CFGFUNCFOLDER(Gear,3DEN);
+    CFGFUNC(Gear,GearTypeLoad3DEN);
+    CFGFUNC(Gear,setAllEntityGear);
+    CFGFUNC(Gear,GearHandleEH);
+    CFGFUNC(Gear,GearLoadPreset);
+    CFGFUNC(Gear,ACEGearClassAttributeLoad);
+CFGFUNCFOLDEREND;

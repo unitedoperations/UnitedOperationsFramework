@@ -1,9 +1,9 @@
-class UO_FW_GearSettings_Presets_BLUFOR {
+class EGVAR(Gear,Presets_BLUFOR) {
     displayName = "Blufor Gear Presets";
     collapsed = 1;
     class Attributes {
-        class UO_FW_GearSettings_ACE_Arsenal_GearPresets_BLUFOR {
-            property = "UO_FW_GearSettings_ACE_Arsenal_GearPresets_BLUFOR";
+        class EGVAR(Gear,ACE_Arsenal_GearPresets_BLUFOR) {
+            property = QEGVAR(Gear,ACE_Arsenal_GearPresets_BLUFOR);
             displayName = "Gear Presets";
             tooltip = "";
             control = "UO_FW_Gear_PresetsCombo_BLUFOR";
@@ -14,7 +14,7 @@ class UO_FW_GearSettings_Presets_BLUFOR {
     };
 };
 
-class UO_FW_GearSettings_ACE_Arsenal_Blufor {
+class EGVAR(Gear,ACE_Arsenal_Blufor) {
     displayName = "Blufor ACE Gear Settings";
     collapsed = 1;
     class Attributes {
@@ -52,7 +52,7 @@ class UO_FW_GearSettings_ACE_Arsenal_Blufor {
         UO_FW_GEAR_TYPECONFIG_ACEAR(Blufor,CUS5);
     };
 };
-class UO_FW_GearSettings_Olsen_Blufor {
+class EGVAR(Gear,Olsen_Blufor) {
     displayName = "Blufor Olsen Gear Settings";
     collapsed = 1;
     class Attributes {

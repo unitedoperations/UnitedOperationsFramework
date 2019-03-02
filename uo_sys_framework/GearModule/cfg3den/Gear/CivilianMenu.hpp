@@ -1,9 +1,9 @@
-class UO_FW_GearSettings_Presets_CIVILIAN {
+class EGVAR(Gear,Presets_CIVILIAN) {
     displayName = "Civilian Gear Presets";
     collapsed = 0;
     class Attributes {
-        class UO_FW_GearSettings_ACE_Arsenal_GearPresets_CIVILIAN {
-            property = "UO_FW_GearSettings_ACE_Arsenal_GearPresets_CIVILIAN";
+        class EGVAR(Gear,ACE_Arsenal_GearPresets_CIVILIAN) {
+            property = QEGVAR(Gear,ACE_Arsenal_GearPresets_CIVILIAN);
             displayName = "Gear Presets";
             tooltip = "";
             control = "UO_FW_Gear_PresetsCombo_CIVILIAN";
@@ -14,7 +14,7 @@ class UO_FW_GearSettings_Presets_CIVILIAN {
     };
 };
 
-class UO_FW_GearSettings_ACE_Arsenal_CIVILIAN {
+class EGVAR(Gear,ACE_Arsenal_CIVILIAN) {
     displayName = "Civilian ACE Gear Settings";
     collapsed = 1;
     class Attributes {
@@ -52,7 +52,7 @@ class UO_FW_GearSettings_ACE_Arsenal_CIVILIAN {
         UO_FW_GEAR_TYPECONFIG_ACEAR(CIVILIAN,CUS5);
     };
 };
-class UO_FW_GearSettings_Olsen_CIVILIAN {
+class EGVAR(Gear,Olsen_CIVILIAN) {
     displayName = "Civilian Olsen Gear Settings";
     collapsed = 1;
     class Attributes {

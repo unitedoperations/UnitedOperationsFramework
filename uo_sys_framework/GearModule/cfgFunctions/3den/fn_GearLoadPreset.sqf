@@ -96,7 +96,7 @@ LOG_2("_ctrlGroup: %1 _ctrlButton: %2",_ctrlGroup,_ctrlButton);
                 };
                 LOG_1("_found %1",_found);
                 if !(_found) then {
-                    [_newcontrol,_attProperty,_missionVarValue] call UO_FW_fnc_ACEGearClassAttributeLoad;
+                    [_newcontrol,_attProperty,_missionVarValue] call FUNC(ACEGearClassAttributeLoad);
                 };
             };
             ctrlsetfocus _ctrlButton;

@@ -2,7 +2,7 @@ class UO_FW_SetupTimerModule: OlsenModule {
     displayName = "Setup Timer Module"; // Name displayed in the menu
     scope = 2; // Editor visibility; 2 will show it in the menu, 1 will hide it.
     // Name of function triggered once conditions are met
-    function = "UO_FW_fnc_SetupTimer";
+    function = QEFUNC(SetupTimer,moduleSetupTimer);
     // Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
     isGlobal = 1;
     isTriggerActivated = 0;
@@ -21,12 +21,12 @@ class UO_FW_SetupTimerModule: OlsenModule {
     // Categories collapsible in "Edit Attributes" window
     // Category class, can be anything
     class Attributes {
-        class UO_FW_SetupTimer_SideSelect {
+        class EGVAR(SetupTimer,SideSelect) {
             displayName = "Side";
             tooltip = "Side restricted to the setup area.";
             control = "Combo";
             typeName = "NUMBER";
-            property = "UO_FW_SetupTimer_SideSelect";
+            property = QEGVAR(SetupTimer,SideSelect);
             expression = UO_FW_MODULE_EXPRESSION;
             validate = "none";
             class values {
@@ -37,32 +37,32 @@ class UO_FW_SetupTimerModule: OlsenModule {
             };
             defaultValue = "0";
         };
-        class UO_FW_SetupTimer_RadiusX {
+        class EGVAR(SetupTimer,RadiusX) {
             displayName = "Radius X";
             tooltip = "The size of the X value of the setup zone. Default: 100";
-            property = "UO_FW_SetupTimer_RadiusX";
+            property = QEGVAR(SetupTimer,RadiusX);
             control = "UO_FW_AI_moduleradiusControl";
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "100";
             typeName = "NUMBER";
             validate = "number";
         };
-        class UO_FW_SetupTimer_RadiusY {
+        class EGVAR(SetupTimer,RadiusY) {
             displayName = "Radius Y";
             tooltip = "The size of the Y value of the setup zone. Default: 100";
-            property = "UO_FW_SetupTimer_RadiusY";
+            property = QEGVAR(SetupTimer,RadiusY);
             control = "UO_FW_AI_moduleradiusControl2";
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "100";
             typeName = "NUMBER";
             validate = "number";
         };
-        class UO_FW_SetupTimer_Time {
+        class EGVAR(SetupTimer,Time) {
             // Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
             displayName = "Time"; // Attribute label
             tooltip = "Time in seconds";
             control = "UO_FW_30To900Step1_Slider";
-            property = "UO_FW_SetupTimer_Time";
+            property = QEGVAR(SetupTimer,Time);
             defaultValue = "30"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
             typeName = "NUMBER"; // Value type, can be "NUMBER", "STRING" or "BOOL"
             expression = UO_FW_MODULE_EXPRESSION;

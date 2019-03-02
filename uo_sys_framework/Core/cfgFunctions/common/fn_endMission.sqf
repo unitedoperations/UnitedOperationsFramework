@@ -19,18 +19,18 @@ UO_FW_EXEC_CHECK(SERVER);
 
 params ["_scenario"];
 
-if (CBA_missiontime > ((missionNamespace getvariable ["UO_FW_EndConditions_ConditionSleep",0]) + ((missionNamespace getvariable ["UO_FW_EndConditions_ConditionSleep",30]) * 1.5))) then {
-    UO_FW_MissionEnded = true;
+if (CBA_missiontime > ((EGETMVAR(EndConditions,ConditionSleep,0)) + (EGETMVAR(EndConditions,ConditionSleep,0)))) then {
+    SETMPVAR(MissionEnded,true);
     //endmission hooks for modules
-    if ((missionNamespace getVariable ["UO_FW_ShotCount_Enabled",false])) then {
+    if (EGETMVAR(ShotCount,Enabled,0)) then {
         LOG("Sending ShotcountData");
-        [] call UO_FW_fnc_aCount_endCount;
+        [] call EFUNC(ShotCount,endCount);
     };
     {
         private _team = (_x select 0);
-        private _assets = _team call UO_FW_fnc_GetDamagedAssets;
-        [_team, 5, _assets select 0] call UO_FW_fnc_SetTeamVariable;
-        [_team, 6, _assets select 1] call UO_FW_fnc_SetTeamVariable;
+        private _assets = _team call FUNC(GetDamagedAssets);
+        [_team, 5, _assets select 0] call FUNC(SetTeamVariable);
+        [_team, 6, _assets select 1] call FUNC(SetTeamVariable);
     } forEach UO_FW_Teams;
     ["UO_FW_EndMission_Event", [_scenario]] call CBA_fnc_globalEvent;
 } else {

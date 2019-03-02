@@ -27,9 +27,7 @@ params [
 _assignedItems = [];
 
 {
-
     _assignedItems pushBack (([_x] call BIS_fnc_itemType) select 1);
-
 } forEach (assignedItems _unit);
 
 _result = _Type in _assignedItems;

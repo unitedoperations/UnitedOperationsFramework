@@ -1,19 +1,19 @@
 class UO_Framework_AI {
     tag = "UO_FW_AI";
-    class UO_FW_AI_Check {
+    class EGVAR(AI,Check) {
         file = "x\UO_FW\addons\Main\HeadlessAIModule\cfgFunctions\check";
         class checkManualPos {scope = 1;};
         class checkNearbyAll {scope = 1;};
         class checkNearbyPlayer {scope = 1;};
         class checkStance {scope = 1;};
     };
-    class UO_FW_AI_Common {
+    class EGVAR(AI,Common) {
         file = "x\UO_FW\addons\Main\HeadlessAIModule\cfgFunctions\common";
         class deleteVehicles {scope = 1;};
         class enableZones {scope = 1;};
         class removeKit {scope = 1;};
     };
-    class UO_FW_AI_Combat {
+    class EGVAR(AI,Combat) {
         file = "x\UO_FW\addons\Main\HeadlessAIModule\cfgFunctions\combat";
         class ArmEmptyStatic {scope = 1;};
         class CombatAttack {scope = 1;};
@@ -41,7 +41,7 @@ class UO_Framework_AI {
         class ThrowGrenade {scope = 1;};
         class WatchEnemy {scope = 1;};
     };
-    class UO_FW_AI_Create {
+    class EGVAR(AI,Create) {
         file = "x\UO_FW\addons\Main\HeadlessAIModule\cfgFunctions\create";
         class createFunctions {scope = 1;};
         class createGroup {scope = 1;};
@@ -54,7 +54,7 @@ class UO_Framework_AI {
         class createZone {scope = 1;};
         class setupZone {scope = 1;};
     };
-    class UO_FW_AI_Danger {
+    class EGVAR(AI,Danger) {
         file = "x\UO_FW\addons\Main\HeadlessAIModule\cfgFunctions\dangercauses";
         class CombatMovement {scope = 1;};
         class CurrentStance {scope = 1;};
@@ -66,12 +66,12 @@ class UO_Framework_AI {
         class stopToShoot {scope = 1;};
         class VehicleHandleDanger {scope = 1;};
     };
-    class UO_FW_AI_Debug {
+    class EGVAR(AI,Debug) {
         file = "x\UO_FW\addons\Main\HeadlessAIModule\cfgFunctions\debug";
         class debugSyncedModules {scope = 1;};
         class debugCreateMarker {scope = 1;};
     };
-    class UO_FW_AI_Diag {
+    class EGVAR(AI,Diag) {
         file = "x\UO_FW\addons\Main\HeadlessAIModule\cfgFunctions\Diag";
         class AttachPosition {scope = 1;};
         class BuildingCheck {scope = 1;};
@@ -92,13 +92,13 @@ class UO_Framework_AI {
         class Waypointcheck {scope = 1;};
         class WepSupCheck {scope = 1;};
     };
-    class UO_FW_AI_Eventhandlers {
+    class EGVAR(AI,Eventhandlers) {
         file = "x\UO_FW\addons\Main\HeadlessAIModule\cfgFunctions\Eventhandlers";
         class onAIHit {scope = 1;};
         class playerInit {scope = 1;};
         class onInit {scope = 1;};
     };
-    class UO_FW_AI_Get {
+    class EGVAR(AI,Get) {
         file = "x\UO_FW\addons\Main\HeadlessAIModule\cfgFunctions\get";
         class getBuildingList {scope = 1;};
         class getBuildings {scope = 1;};
@@ -119,7 +119,7 @@ class UO_Framework_AI {
         class getWaypointDetails {scope = 1;};
         class getVehicleRoles {scope = 1;};
     };
-    class UO_FW_AI_GetInfo {
+    class EGVAR(AI,GetInfo) {
         file = "x\UO_FW\addons\Main\HeadlessAIModule\cfgFunctions\GetInfo";
         class getDetails {scope = 1;};
         class getDetailsArray {scope = 1;};
@@ -135,7 +135,7 @@ class UO_Framework_AI {
         class getSyncedObjectsTemplate {scope = 1;};
         class getSyncedRespawns {scope = 1;};
     };
-    class UO_FW_AI_Main {
+    class EGVAR(AI,Main) {
         file = "x\UO_FW\addons\Main\HeadlessAIModule\cfgFunctions\Main";
         class ActiveHandler {scope = 1;};
         class GroupHandler {scope = 1;};
@@ -145,7 +145,7 @@ class UO_Framework_AI {
         class QueueHandle {scope = 1;};
         class checkifHC { scope = 1;};
     };
-    class UO_FW_AI_Modules {
+    class EGVAR(AI,Modules) {
         file = "x\UO_FW\addons\Main\HeadlessAIModule\cfgFunctions\modules";
         class control {scope = 1;};
         class module {scope = 1;};
@@ -156,7 +156,7 @@ class UO_Framework_AI {
         class zone {scope = 1;};
         class enablezone {scope = 1;};
     };
-    class UO_FW_AI_Set {
+    class EGVAR(AI,Set) {
         file = "x\UO_FW\addons\Main\HeadlessAIModule\cfgFunctions\set";
         class setAssignedVehicle {scope = 1;};
         class setBuildingPos {scope = 1;};
@@ -175,7 +175,7 @@ class UO_Framework_AI {
         class setVehicle {scope = 1;};
         class setZone {scope = 1;};
     };
-    class UO_FW_AI_Task {
+    class EGVAR(AI,Task) {
         file = "x\UO_FW\addons\Main\HeadlessAIModule\cfgFunctions\task";
         class taskActivate {scope = 1;};
         class taskAssign {scope = 1;};

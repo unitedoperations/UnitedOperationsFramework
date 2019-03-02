@@ -103,18 +103,18 @@ UO_FW_EXEC_CHECK(CLIENT);
 }] call CBA_fnc_addEventHandler;
 
 ["UO_FW_SettingsLoaded", {
-    if (!UO_FW_SelfActions_Enable) exitwith {};
+    if (!GETMVAR(Enable)) exitwith {};
     if (!UO_FW_Server_SelfActionsModule_Allowed) exitwith {};
-    if (UO_FW_SelfActions_CheckColour_Enabled) then {
+    if (GETMVAR(CheckColour_Enabled)) then {
         ["UO_FW_SelfActions_ColourCheckInitEvent", []] call CBA_fnc_localEvent;
     };
-    if (UO_FW_SelfActions_CheckMap_Enabled) then {
+    if (GETMVAR(CheckMap_Enabled)) then {
         ["UO_FW_SelfActions_CheckMapInitEvent", []] call CBA_fnc_localEvent;
     };
-    if (UO_FW_SelfActions_CutGrass_Enabled) then {
+    if (GETMVAR(CutGrass_Enabled)) then {
         ["UO_FW_SelfActions_CutGrassInitEvent", []] call CBA_fnc_localEvent;
     };
-    if (UO_FW_SelfActions_ParaFlares_Enabled) then {
+    if (GETMVAR(ParaFlares_Enabled)) then {
         ["UO_FW_SelfActions_ParaFlaresInitEvent", []] call CBA_fnc_localEvent;
     };
     [{!isNull player},{

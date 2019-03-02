@@ -22,7 +22,7 @@ params [["_side", sideUnknown, [sideUnknown]],["_radius", 0, [0]],["_logic", obj
 private _count = 0;
 
 {
-    if ((side _x isEqualto _side) && {(!(_x getVariable ["UO_FW_DontTrack", false]) || !_noUntracked)} && {((_x distance _logic) < _radius)} && {(_x call UO_FW_fnc_Alive)}) then {
+    if ((side _x isEqualto _side) && {(!(GETVAR(_x,DontTrack,false)) || !_noUntracked)} && {((_x distance _logic) < _radius)} && {(_x call FUNC(Alive))}) then {
         _count = _count + 1;
     };
 } forEach allUnits;

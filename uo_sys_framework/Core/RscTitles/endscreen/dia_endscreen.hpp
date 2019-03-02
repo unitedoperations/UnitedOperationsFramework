@@ -1,4 +1,4 @@
-class UO_FW_DIA_ENDSCREEN {
+class EGVAR(DIA,ENDSCREEN) {
     idd = 300;
     fadeout = 0;
     fadein = 0;

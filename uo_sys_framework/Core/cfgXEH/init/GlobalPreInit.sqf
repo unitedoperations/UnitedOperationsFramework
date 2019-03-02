@@ -9,14 +9,14 @@ if (!UO_FW_Server_Framework_Allowed) exitWith {
     INFO("Framework is disabled in Server settings, exiting");
 };
 
-if !(GETMVALUE(Enabled,false)) exitWith {
+if !(GETMVALUEUO(Enabled,false)) exitWith {
     INFO("Framework is disabled in Mission settings... exiting");
 };
 
 INFO("Initializing Framework");
 LOG("Global Pre Init");
 UO_FW_Framework_Initialized = false;
-[] call UO_FW_fnc_setDefaults;
+[] call EFUNC(3DEN,setDefaults);
 
 private _missionFrameworkVersionCreatedStr = (GETMVALUE(Version_Created,""));
 if (_missionFrameworkVersionCreatedStr isEqualto "") then {

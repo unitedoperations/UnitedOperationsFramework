@@ -1,25 +1,25 @@
-class UO_FW_INDFOR_ACRE_RadioTypes_CAT {
+class EGVAR(Acre,RadioTypes_CAT_INDFOR) {
     displayName = "Radio Configuration";
     collapsed = 0;
     class Attributes {
-        class UO_FW_ACRE_INDFOR_SR_Type {
-            property = "UO_FW_ACRE_INDFOR_SR_Type";
+        class EGVAR(Acre,SR_Type_INDFOR) {
+            property = QEGVAR(SR_Type_INDFOR);
             displayName = "Short Range Radio Type";
             tooltip = "Sets the short range radio type for the side";
             control = "UO_FW_ACRE_SR_Select";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "0";
         };
-        class UO_FW_ACRE_INDFOR_LR_Type {
-            property = "UO_FW_ACRE_INDFOR_LR_Type";
+        class EGVAR(Acre,LR_Type_INDFOR) {
+            property = QEGVAR(LR_Type_INDFOR);
             displayName = "Long Range Radio Type";
             tooltip = "Sets the long range radio type for the side";
             control = "UO_FW_ACRE_LR_Select";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "0";
         };
-        class UO_FW_ACRE_INDFOR_PK_Type {
-            property = "UO_FW_ACRE_INDFOR_PK_Type";
+        class EGVAR(Acre,PK_Type_INDFOR) {
+            property = QEGVAR(PK_Type_INDFOR);
             displayName = "Long Range Pack Radio Type";
             tooltip = "Sets the long range pack radio type for the side";
             control = "UO_FW_ACRE_PK_Select";
@@ -29,67 +29,67 @@ class UO_FW_INDFOR_ACRE_RadioTypes_CAT {
     };
 };
 
-class UO_FW_INDFOR_ACRE_SETTINGS_RADIONET_CAT {
+class EGVAR(Acre,SETTINGS_RADIONET_CAT_INDFOR) {
     displayName = "Radio Net Configuration";
     collapsed = 0;
     class Attributes {
-        class UO_FW_ACRE_INDFOR_RADIONET_Enabled {
-            property = "UO_FW_ACRE_INDFOR_RADIONET_Enabled";
+        class EGVAR(Acre,RADIONET_Enabled_INDFOR) {
+            property = QEGVAR(RADIONET_Enabled_INDFOR);
             displayName = "Enable Radio Net Channel Names";
             control = "CheckBoxState";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
-        class UO_FW_ACRE_INDFOR_RADIONET_NAME1 {
-            property = "UO_FW_ACRE_INDFOR_RADIONET_NAME1";
+        class EGVAR(Acre,RADIONET_NAME1_INDFOR) {
+            property = QEGVAR(RADIONET_NAME1_INDFOR);
             displayName = "Channel 1 Name";
             tooltip = "Sets the name of the channel";
             control = "EditShort";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "'PLTNET 1'";
         };
-        class UO_FW_ACRE_INDFOR_RADIONET_NAME2 {
-            property = "UO_FW_ACRE_INDFOR_RADIONET_NAME2";
+        class EGVAR(Acre,RADIONET_NAME2_INDFOR) {
+            property = QEGVAR(RADIONET_NAME2_INDFOR);
             displayName = "Channel 2 Name";
             tooltip = "Sets the name of the channel";
             control = "EditShort";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "'PLTNET 2'";
         };
-        class UO_FW_ACRE_INDFOR_RADIONET_NAME3 {
-            property = "UO_FW_ACRE_INDFOR_RADIONET_NAME3";
+        class EGVAR(Acre,RADIONET_NAME3_INDFOR) {
+            property = QEGVAR(RADIONET_NAME3_INDFOR);
             displayName = "Channel 3 Name";
             tooltip = "Sets the name of the channel";
             control = "EditShort";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "'PLTNET 3'";
         };
-        class UO_FW_ACRE_INDFOR_RADIONET_NAME4 {
-            property = "UO_FW_ACRE_INDFOR_RADIONET_NAME4";
+        class EGVAR(Acre,RADIONET_NAME4_INDFOR) {
+            property = QEGVAR(RADIONET_NAME4_INDFOR);
             displayName = "Channel 4 Name";
             tooltip = "Sets the name of the channel";
             control = "EditShort";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "'PLTNET 4'";
         };
-        class UO_FW_ACRE_INDFOR_RADIONET_NAME5 {
-            property = "UO_FW_ACRE_INDFOR_RADIONET_NAME5";
+        class EGVAR(Acre,RADIONET_NAME5_INDFOR) {
+            property = QEGVAR(RADIONET_NAME5_INDFOR);
             displayName = "Channel 5 Name";
             tooltip = "Sets the name of the channel";
             control = "EditShort";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "'COY'";
         };
-        class UO_FW_ACRE_INDFOR_RADIONET_NAME6 {
-            property = "UO_FW_ACRE_INDFOR_RADIONET_NAME6";
+        class EGVAR(Acre,RADIONET_NAME6_INDFOR) {
+            property = QEGVAR(RADIONET_NAME6_INDFOR);
             displayName = "Channel 6 Name";
             tooltip = "Sets the name of the channel";
             control = "EditShort";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "'CAS'";
         };
-        class UO_FW_ACRE_INDFOR_RADIONET_NAME7 {
-            property = "UO_FW_ACRE_INDFOR_RADIONET_NAME7";
+        class EGVAR(Acre,RADIONET_NAME7_INDFOR) {
+            property = QEGVAR(RADIONET_NAME7_INDFOR);
             displayName = "Channel 7 Name";
             tooltip = "Sets the name of the channel";
             control = "EditShort";
@@ -99,67 +99,67 @@ class UO_FW_INDFOR_ACRE_SETTINGS_RADIONET_CAT {
     };
 };
 
-class UO_FW_INDFOR_ACRE_SETTINGS_BABEL_CAT {
+class EGVAR(Acre,SETTINGS_BABEL_CAT_INDFOR) {
     displayName = "Babel Configuration";
     collapsed = 1;
     class Attributes {
-        class UO_FW_ACRE_INDFOR_BABEL_Enabled {
-            property = "UO_FW_ACRE_INDFOR_BABEL_Enabled";
+        class EGVAR(Acre,BABEL_Enabled_INDFOR) {
+            property = QEGVAR(Acre,Babel_Enabled_INDFOR);
             displayName = "Enable Babel Languages";
             control = "CheckBoxState";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
-        class UO_FW_ACRE_INDFOR_BABEL_EN {
-            property = "UO_FW_ACRE_INDFOR_BABEL_EN";
+        class EGVAR(Acre,BABEL_EN_INDFOR) {
+            property = QEGVAR(Acre,Babel_EN_INDFOR);
             displayName = "English";
             tooltip = "Enables the language for this side";
             control = "CheckBox";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "true";
         };
-        class UO_FW_ACRE_INDFOR_BABEL_RU {
-            property = "UO_FW_ACRE_INDFOR_BABEL_RU";
+        class EGVAR(Acre,BABEL_RU_INDFOR) {
+            property = QEGVAR(Acre,Babel_RU_INDFOR);
             displayName = "Russian";
             tooltip = "Enables the language for this side";
             control = "CheckBox";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
-        class UO_FW_ACRE_INDFOR_BABEL_FR {
-            property = "UO_FW_ACRE_INDFOR_BABEL_FR";
+        class EGVAR(Acre,BABEL_FR_INDFOR) {
+            property = QEGVAR(Acre,Babel_FR_INDFOR);
             displayName = "French";
             tooltip = "Enables the language for this side";
             control = "CheckBox";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
-        class UO_FW_ACRE_INDFOR_BABEL_AR {
-            property = "UO_FW_ACRE_INDFOR_BABEL_AR";
+        class EGVAR(Acre,BABEL_AR_INDFOR) {
+            property = QEGVAR(Acre,Babel_AR_INDFOR);
             displayName = "Arabic";
             tooltip = "Enables the language for this side";
             control = "CheckBox";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
-        class UO_FW_ACRE_INDFOR_BABEL_GK {
-            property = "UO_FW_ACRE_INDFOR_BABEL_GK";
+        class EGVAR(Acre,BABEL_GK_INDFOR) {
+            property = QEGVAR(Acre,Babel_GK_INDFOR);
             displayName = "Greek";
             tooltip = "Enables the language for this side";
             control = "CheckBox";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
-        class UO_FW_ACRE_INDFOR_BABEL_Custom {
-            property = "UO_FW_ACRE_INDFOR_BABEL_Custom";
+        class EGVAR(Acre,BABEL_Custom_INDFOR) {
+            property = QEGVAR(Acre,Babel_Custom_INDFOR);
             displayName = "Custom Language";
             tooltip = "Define a custom language for this side";
             control = "EditShort";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
-        class UO_FW_ACRE_INDFOR_BABEL_Custom2 {
-            property = "UO_FW_ACRE_INDFOR_BABEL_Custom2";
+        class EGVAR(Acre,BABEL_Custom2_INDFOR) {
+            property = QEGVAR(Acre,Babel_Custom2_INDFOR);
             displayName = "Custom Language 2";
             tooltip = "Define a custom language for this side";
             control = "EditShort";

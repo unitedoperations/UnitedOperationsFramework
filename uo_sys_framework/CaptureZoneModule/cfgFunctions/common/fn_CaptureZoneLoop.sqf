@@ -4,7 +4,6 @@ UO_FW_EXEC_CHECK(SERVER);
 
 //[_logic,_zoneName,_area,_repeatable,_capArray,_timeArray,_messagesArray,_colours,_hidden,_silent,_automessages,_ratioNeeded,_cond] passed array
 //params ["","_zoneName","","","","","","","","","","",["_cond","true",[""]]];
-private _zoneName = _this select 1;
 private _cond = _this select 12;
 
 ["UO_FW_RegisterModuleEvent", ["Capture Zone", "Creates Capture Zone objectives for variable declares and end condition requirements", "Sacher and PiZZADOX"]] call CBA_fnc_globalEvent;
@@ -19,13 +18,13 @@ if (!(_this call FUNC(ValidateCaptureZone))) exitWith {
     //define var for use in endconditions_varName = format ["%1_var",_zoneName];
     private _varName = format ["%1_var",_zoneName];
     private _teamControllingvarName = format ["%1_teamControlling",_zoneName];
-    if (isNil "UO_FW_CaptureZone_Array") then {UO_FW_CaptureZone_Array = [];};
-    UO_FW_CaptureZone_Array pushBack _logic;
-    private _CaptureZonePFHhandle = [{
+    if (isNil "GVAR(ListArray)") then {GVAR(ListArray) = [];};
+    GVAR(ListArray) pushBack _logic;
+    GVAR(DOUBLES(PFHhandle,_zoneName)) = [{
         //var redeclares
         params ["_argNested", "_idPFH"];
         _argNested params ["_args","_lastCheckedTime",["_initialized",false,[false]],"_varName","_teamControllingvarName",["_oldOwner","UNCONTESTED",[""]],["_ownerControlCount",0,[0]],"_marker"];
-        _args params ["_logic","_zoneName","_area","_repeatable","_capArray","_timeArray","_messagesArray","_colours","_hidden","_silent","_automessages","_ratioNeeded","_cond"];
+        _args params ["","_zoneName","_area","_repeatable","_capArray","_timeArray","_messagesArray","_colours","_hidden","_silent","_automessages","_ratioNeeded"];
         _area params ["_loc","_radiusX","_radiusY","_direction","_isRectangle"];
         _colours params ["_bluforcolour","_opforcolour","_indforcolour","_CIVcolour","_uncontestedcolour","_contestedcolour"];
         _messagesArray params ["_bluformessageArray","_opformessageArray","_indformessageArray","_CIVmessageArray","_contestedmessage","_uncontestedmessage"];
@@ -67,7 +66,7 @@ if (!(_this call FUNC(ValidateCaptureZone))) exitWith {
         private _indCount = 0;
         private _civCount = 0;
 
-        private _playersInArea = ([] call UO_FW_fnc_alivePlayers) select {(_x inArea _area) && {(!captive _x)}};
+        private _playersInArea = (([] call EFUNC(Core,AlivePlayers)) select {(_x inArea _area) && {(!captive _x)}});
 
         if (_playersInArea isEqualTo []) exitwith {
             _owner = "UNCONTESTED";
@@ -158,7 +157,7 @@ if (!(_this call FUNC(ValidateCaptureZone))) exitWith {
             };
             if (_ratio > _ratioNeeded) then {
                 //a team has enough ratio for control!
-                _owner = ["BLUFOR","OPFOR","INDFOR","CIV"] select _maxindex;
+                _owner = ["BLUFOR","OPFOR","INDFOR","CIVILIAN"] select _maxindex;
 
                 switch (_owner) do {
                     case "BLUFOR": {
@@ -173,7 +172,7 @@ if (!(_this call FUNC(ValidateCaptureZone))) exitWith {
                                     };
                                     if !(_silent) then {
                                         if (_automessages) then {
-                                            private _msg = format ["%1 has captured %2!",UO_FW_TeamSetting_TeamName_Blufor,_zoneName];
+                                            private _msg = format ["%1 has captured %2!",EGVAR(Core,TeamName_Blufor),_zoneName];
                                             _msg remoteExec ["hint"];
                                         } else {
                                             (_bluformessageArray select 1) remoteExec ["hint"];
@@ -200,7 +199,7 @@ if (!(_this call FUNC(ValidateCaptureZone))) exitWith {
                             };
                             if !(_silent) then {
                                 if (_automessages) then {
-                                    private _msg = format ["%1 is capturing %2!",UO_FW_TeamSetting_TeamName_Blufor,_zoneName];
+                                    private _msg = format ["%1 is capturing %2!",EGVAR(Core,TeamName_Blufor),_zoneName];
                                     _msg remoteExec ["hint"];
                                 } else {
                                     (_bluformessageArray select 0) remoteExec ["hint"];
@@ -220,7 +219,7 @@ if (!(_this call FUNC(ValidateCaptureZone))) exitWith {
                                     };
                                     if !(_silent) then {
                                         if (_automessages) then {
-                                            private _msg = format ["%1 has captured %2!",UO_FW_TeamSetting_TeamName_Opfor,_zoneName];
+                                            private _msg = format ["%1 has captured %2!",EGVAR(Core,TeamName_Opfor),_zoneName];
                                             _msg remoteExec ["hint"];
                                         } else {
                                             (_opformessageArray select 1) remoteExec ["hint"];
@@ -247,7 +246,7 @@ if (!(_this call FUNC(ValidateCaptureZone))) exitWith {
                             };
                             if !(_silent) then {
                                 if (_automessages) then {
-                                    private _msg = format ["%1 is capturing %2!",UO_FW_TeamSetting_TeamName_Opfor,_zoneName];
+                                    private _msg = format ["%1 is capturing %2!",EGVAR(Core,TeamName_Opfor),_zoneName];
                                     _msg remoteExec ["hint"];
                                 } else {
                                     (_opformessageArray select 0) remoteExec ["hint"];
@@ -267,7 +266,7 @@ if (!(_this call FUNC(ValidateCaptureZone))) exitWith {
                                     };
                                     if !(_silent) then {
                                         if (_automessages) then {
-                                            private _msg = format ["%1 has captured %2!",UO_FW_TeamSetting_TeamName_Indfor,_zoneName];
+                                            private _msg = format ["%1 has captured %2!",EGVAR(Core,TeamName_Indfor),_zoneName];
                                             _msg remoteExec ["hint"];
                                         } else {
                                             (_indformessageArray select 1) remoteExec ["hint"];
@@ -294,7 +293,7 @@ if (!(_this call FUNC(ValidateCaptureZone))) exitWith {
                             };
                             if !(_silent) then {
                                 if (_automessages) then {
-                                    private _msg = format ["%1 is capturing %2!",UO_FW_TeamSetting_TeamName_Indfor,_zoneName];
+                                    private _msg = format ["%1 is capturing %2!",EGVAR(Core,TeamName_Indfor),_zoneName];
                                     _msg remoteExec ["hint"];
                                 } else {
                                     (_indformessageArray select 0) remoteExec ["hint"];
@@ -302,7 +301,7 @@ if (!(_this call FUNC(ValidateCaptureZone))) exitWith {
                             };
                         };
                     };
-                    case "CIV": {
+                    case "CIVILIAN": {
                         if (_owner isEqualto _oldOwner) then {
                             if (_civCapMode isEqualTo 0) then {
                                 _argNested set [6,(_ownerControlCount + 1)];
@@ -314,14 +313,14 @@ if (!(_this call FUNC(ValidateCaptureZone))) exitWith {
                                     };
                                     if !(_silent) then {
                                         if (_automessages) then {
-                                            private _msg = format ["%1 has captured %2!",UO_FW_TeamSetting_TeamName_Civ,_zoneName];
+                                            private _msg = format ["%1 has captured %2!",EGVAR(Core,TeamName_Civilian),_zoneName];
                                             _msg remoteExec ["hint"];
                                         } else {
                                             (_CIVmessageArray select 1) remoteExec ["hint"];
                                         };
                                     };
                                     missionNamespace setVariable [_varName,true,true];
-                                    missionNamespace setVariable [_teamControllingvarName,"CIV",true];
+                                    missionNamespace setVariable [_teamControllingvarName,"CIVILIAN",true];
                                     if !(_repeatable) exitWith {
                                         if !(_hidden) then {
                                             _marker setMarkerAlpha 0.5;
@@ -340,7 +339,7 @@ if (!(_this call FUNC(ValidateCaptureZone))) exitWith {
                             };
                             if !(_silent) then {
                                 if (_automessages) then {
-                                    private _msg = format ["%1 is capturing %2!",UO_FW_TeamSetting_TeamName_Civ,_zoneName];
+                                    private _msg = format ["%1 is capturing %2!",EGVAR(Core,TeamName_Civilian),_zoneName];
                                     _msg remoteExec ["hint"];
                                 } else {
                                     (_CIVmessageArray select 0) remoteExec ["hint"];

@@ -5,7 +5,7 @@ UO_FW_EXEC_CHECK(ALL);
 ["UO_FW_MapRemover_LocalEvent", {
     [{(CBA_missionTime > 1)},{
         {
-            if (UO_FW_MACR_MAP_ALL) then {
+            if (GETMVAR(MAP_ALL)) then {
                 if !(GETVAR(_x,KeepMapAI,false)) then {
                     _x unlinkItem "ItemMap";
                 };
@@ -14,7 +14,7 @@ UO_FW_EXEC_CHECK(ALL);
                     _x unlinkItem "ItemMap";
                 };
             };
-            if (UO_FW_MACR_COMPASS_ALL) then {
+            if (GETMVAR(COMPASS_ALL)) then {
                 if !(GETVAR(_x,KeepCompassAI,false)) then {
                     _x unlinkItem "ItemCompass";
                 };

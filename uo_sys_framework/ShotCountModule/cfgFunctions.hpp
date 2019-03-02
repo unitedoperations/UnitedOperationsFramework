@@ -1,7 +1,6 @@
-class UO_FW_ShotCount {
-    file = "x\UO_FW\addons\Main\ShotCountModule\cfgFunctions\common";
-    class aCount_getDisplayName {};
-    class aCount_addEH {};
-    class aCount_shotCount {};
-    class aCount_endCount {};
-};
+CFGFUNCFOLDER(ShotCount,common);
+    CFGFUNC(ShotCount,getDisplayName);
+    CFGFUNC(ShotCount,addEH);
+    CFGFUNC(ShotCount,shotCount);
+    CFGFUNC(ShotCount,endCount);
+CFGFUNCFOLDEREND;

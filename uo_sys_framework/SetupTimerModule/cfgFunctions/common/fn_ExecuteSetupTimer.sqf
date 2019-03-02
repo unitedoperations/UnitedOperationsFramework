@@ -4,10 +4,6 @@ UO_FW_EXEC_CHECK(CLIENT);
 
 //[_logic,_area,_selectedSide,_time] passed array
 
-if (!(_this call UO_FW_fnc_ValidateSetupTimer)) exitWith {
-    ERROR("Setup timer failed to Validate");
-};
-
 ["UO_FW_RegisterModuleEvent", ["Setup Timer", "Allows the mission maker to restrict players to an area for a set amount of time.", "Olsen, Sacher and PiZZADOX"]] call CBA_fnc_localEvent;
 
 [{(!isNull player)}, {
@@ -19,18 +15,18 @@ if (!(_this call UO_FW_fnc_ValidateSetupTimer)) exitWith {
 
     if (!((side player) isEqualto _selectedSide) || !((vehicle player) inArea _area)) exitwith {};
 
-    private _alreadyInATimer = missionNamespace getvariable ["UO_FW_SetupTimer_InSetupTimer",false];
+    private _alreadyInATimer = GETMVAR(InSetupTimer,false);
     if (_alreadyInATimer) exitwith {};
     if !(_alreadyInATimer) then {
-        missionNamespace setvariable ["UO_FW_SetupTimer_InSetupTimer",true];
+        SETMVAR(InSetupTimer,true);
     };
 
     "UO_FW_SetupTimer_Layer" cutRsc ["UO_FW_RscSetupTimer", "PLAIN", 0.5, false];
-    missionNamespace setVariable ["UO_FW_SetupTimer_WaitTime", _waittime];
+    SETMVAR(WaitTime,_waittime);
 
     LOG("Starting Setup Timer");
 
-    private _SetupTimerPFHhandle = [{
+    GVAR(PFHhandle) = [{
         params ["_argNested", "_idPFH"];
         _argNested params ["_unit","_area","_endTime","_pos"];
 

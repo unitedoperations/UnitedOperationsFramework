@@ -1,9 +1,12 @@
+#define COMPONENT SetupTimer
+#include "\x\UO_FW\addons\Main\HeadlessAIModule\module_macros.hpp"
+UO_FW_EXEC_CHECK(ALL);
 #include "\A3\ui_f\hpp\defineResinclDesign.inc"
 
 params ["_display"];
 
 [{!(displayNull isEqualto _this)}, {
-    private _SetupTimerPFHhandle = [{
+    GVAR(PFHhandle) = [{
         params ["_argNested", "_idPFH"];
         _argNested params ["_endTime","_nextBeep","_colorSet","_display"];
         private _ctrlTime = _display displayCtrl 1003;
@@ -37,5 +40,5 @@ params ["_display"];
         _ctrlTime ctrlSetTextColor _color;
         _ctrlTime ctrlSetText ([_timeLeft,"MM:SS.MS"] call bis_fnc_secondsToString);
 
-    }, 0, [(CBA_missionTime + (missionNamespace getVariable ["UO_FW_SetupTimer_WaitTime", 30])),((CBA_missionTime + _endTime) - 10),["IGUI","TEXT_RGB"],_this]] call CBA_fnc_addPerFrameHandler;
+    }, 0, [(CBA_missionTime + ((GETMVAR(WaitTime,30)))),((CBA_missionTime + _endTime) - 10),["IGUI","TEXT_RGB"],_this]] call CBA_fnc_addPerFrameHandler;
 }, _display] call CBA_fnc_waitUntilAndExecute;

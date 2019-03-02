@@ -1,4 +1,4 @@
-#define COMPONENT Spectator
+#define COMPONENT Respawn
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 UO_FW_EXEC_CHECK(CLIENT);
 
@@ -6,38 +6,38 @@ private ["_delay","_templateSettings","_teamRespawnMarker","_newSideSetting","_r
 
 switch (side player) do {
     case west: {
-        private _respawnTypeNum = GETMVAR(RespawnSetting_Type_BLUFOR,0);
+        private _respawnTypeNum = GETMVAR(Type_BLUFOR,0);
         _respawnType = ["ONELIFE","UNLIMITED","INDTICK","TEAMTICK"] select _respawnTypeNum;
-        _delay = GETMVAR(RespawnSetting_Delay_BLUFOR,5);
-        _templateSettings = GETMVAR(RespawnSetting_Templates_BLUFOR,[]);
-        private _newSideValue = GETMVAR(RespawnSetting_NewTeam_BLUFOR,0);
+        _delay = GETMVAR(Delay_BLUFOR,5);
+        _templateSettings = GETMVAR(Templates_BLUFOR,[]);
+        private _newSideValue = GETMVAR(NewTeam_BLUFOR,0);
         _newSideSetting = [blufor,opfor,independent,civilian] select _newSideValue;
         _teamRespawnMarker = "UO_FW_RESPAWN_BLUFOR";
     };
     case east: {
-        private _respawnTypeNum = GETMVAR(RespawnSetting_Type_OPFOR,0);
+        private _respawnTypeNum = GETMVAR(Type_OPFOR,0);
         _respawnType = ["ONELIFE","UNLIMITED","INDTICK","TEAMTICK"] select _respawnTypeNum;
-        _delay = GETMVAR(RespawnSetting_Delay_OPFOR,5);
-        _templateSettings = GETMVAR(RespawnSetting_Templates_OPFOR,[]);
-        private _newSideValue = GETMVAR(RespawnSetting_NewTeam_OPFOR,1);
+        _delay = GETMVAR(Delay_OPFOR,5);
+        _templateSettings = GETMVAR(Templates_OPFOR,[]);
+        private _newSideValue = GETMVAR(NewTeam_OPFOR,1);
         _newSideSetting = [blufor,opfor,independent,civilian] select _newSideValue;
         _teamRespawnMarker = "UO_FW_RESPAWN_OPFOR";
     };
     case independent: {
-        private _respawnTypeNum = GETMVAR(RespawnSetting_Type_INDFOR,0);
+        private _respawnTypeNum = GETMVAR(Type_INDFOR,0);
         _respawnType = ["ONELIFE","UNLIMITED","INDTICK","TEAMTICK"] select _respawnTypeNum;
-        _delay = GETMVAR(RespawnSetting_Delay_INDFOR,5);
-        _templateSettings = GETMVAR(RespawnSetting_Templates_INDFOR,[]);
-        private _newSideValue = GETMVAR(RespawnSetting_NewTeam_INDFOR,2);
+        _delay = GETMVAR(Delay_INDFOR,5);
+        _templateSettings = GETMVAR(Templates_INDFOR,[]);
+        private _newSideValue = GETMVAR(NewTeam_INDFOR,2);
         _newSideSetting = [blufor,opfor,independent,civilian] select _newSideValue;
         _teamRespawnMarker = "UO_FW_RESPAWN_INDFOR";
     };
     case civilian: {
-        private _respawnTypeNum = GETMVAR(RespawnSetting_Type_CIV,0);
+        private _respawnTypeNum = GETMVAR(Type_CIV,0);
         _respawnType = ["ONELIFE","UNLIMITED","INDTICK","TEAMTICK"] select _respawnTypeNum;
-        _delay = GETMVAR(RespawnSetting_Delay_CIV,5);
-        _templateSettings = GETMVAR(RespawnSetting_Templates_CIV,[]);
-        private _newSideValue = GETMVAR(RespawnSetting_NewTeam_CIV,3);
+        _delay = GETMVAR(Delay_CIV,5);
+        _templateSettings = GETMVAR(Templates_CIV,[]);
+        private _newSideValue = GETMVAR(NewTeam_CIV,3);
         _newSideSetting = [blufor,opfor,independent,civilian] select _newSideValue;
         _teamRespawnMarker = "UO_FW_RESPAWN_CIV";
     };
@@ -54,7 +54,7 @@ if ((_respawnType isEqualto "INDTICK") || (_respawnType isEqualto "TEAMTICK") ||
         ["UO_FW_PlayerInit_Event", []] call CBA_fnc_localEvent;
 
         // Remove Killed Displays
-        if (GETMVAR(RespawnSetting_InstantDeath,true)) then {
+        if (GETMVAR(InstantDeath,true)) then {
             "UO_FW_KilledLayer" cutText ["","BLACK IN", 5];
             ["UO_FW_death", 0, false] call ace_common_fnc_setHearingCapability;
             0 fadeSound 1;

@@ -1,9 +1,9 @@
-class UO_FW_GearSettings_Presets_Indfor {
+class EGVAR(Gear,Presets_Indfor) {
     displayName = "Indfor Gear Presets";
     collapsed = 0;
     class Attributes {
-        class UO_FW_GearSettings_ACE_Arsenal_GearPresets_Indfor {
-            property = "UO_FW_GearSettings_ACE_Arsenal_GearPresets_Indfor";
+        class EGVAR(Gear,ACE_Arsenal_GearPresets_Indfor) {
+            property = QEGVAR(Gear,ACE_Arsenal_GearPresets_Indfor);
             displayName = "Gear Presets";
             tooltip = "";
             control = "UO_FW_Gear_PresetsCombo_INDFOR";
@@ -14,7 +14,7 @@ class UO_FW_GearSettings_Presets_Indfor {
     };
 };
 
-class UO_FW_GearSettings_ACE_Arsenal_Indfor {
+class EGVAR(Gear,ACE_Arsenal_Indfor) {
     displayName = "Indfor ACE Gear Settings";
     collapsed = 1;
     class Attributes {
@@ -52,7 +52,7 @@ class UO_FW_GearSettings_ACE_Arsenal_Indfor {
         UO_FW_GEAR_TYPECONFIG_ACEAR(INDFOR,CUS5);
     };
 };
-class UO_FW_GearSettings_Olsen_Indfor {
+class EGVAR(Gear,Olsen_Indfor) {
     displayName = "Indfor Olsen Gear Settings";
     collapsed = 1;
     class Attributes {

@@ -6,16 +6,16 @@ UO_FW_EXEC_CHECK(CLIENTHC);
     ["UO_FW_RegisterModuleEvent", ["Start in Parachute", "Starts players in parachutes", "Briland and Sacher"]] call CBA_fnc_localEvent;
     [{(!isNull player)}, {
         [{
-            private _parachuteType = ["NONE","NONSTEERABLE","STEERABLE"] select (GETPLVAR(StartInParachute, 0));
-            private _altitude = GETPLVAR(ParachuteAltitude, 300);
-            private _randomAltitude = GETPLVAR(ParachuteRandomAltitude, 100);
+            private _parachuteType = ["NONE","NONSTEERABLE","STEERABLE"] select (GETPLVAR(Type, 0));
+            private _altitude = GETPLVAR(Altitude, 300);
+            private _randomAltitude = GETPLVAR(RandomAltitude, 100);
             switch (_parachuteType) do {
                 case "NONE": {};
                 case "NONSTEERABLE": {
-                    [player,_altitude,_randomAltitude,false] call UO_FW_fnc_DoParachute;
+                    [player,_altitude,_randomAltitude,false] call FUNC(DoParachute);
                 };
                 case "STEERABLE": {
-                    [player,_altitude,_randomAltitude,true] call UO_FW_fnc_DoParachute;
+                    [player,_altitude,_randomAltitude,true] call FUNC(DoParachute);
                 };
             };
         }] call CBA_fnc_ExecNextFrame;

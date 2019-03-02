@@ -1,7 +1,7 @@
 //Do not edit unless you know what you are doing
 //because you are on the highway to the danger zone!
 
-class UO_FW_DIA_DEBUG {
+class EGVAR(DIA,DEBUG) {
     idd = 400;
     fadeout = 0;
     fadein = 0;

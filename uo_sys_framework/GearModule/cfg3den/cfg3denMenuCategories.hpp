@@ -1,12 +1,12 @@
-class UO_FW_Gear_Settings {
+class EGVAR(Gear,Settings) {
     displayName = "Gear Settings";
     class AttributeCategories {
-        class UO_FW_Gear_Ace_Arsenal {
+        class EGVAR(Gear,Ace_Arsenal) {
             displayName = "Ace Arsenal Gear Settings";
             collapsed = 0;
             class Attributes {
-                class UO_FW_Gear_ACEAR_System_Enabled {
-                    property = "UO_FW_Gear_ACEAR_System_Enabled";
+                class EGVAR(Gear,ACEAR_System_Enabled) {
+                    property = QEGVAR(Gear,ACEAR_System_Enabled);
                     displayName = "Enable ACE Arsenal System";
                     tooltip = "Should Gear System be enabled";
                     control = "CheckboxState";
@@ -15,36 +15,36 @@ class UO_FW_Gear_Settings {
                 };
             };
         };
-        class UO_FW_Gear_Olsen {
+        class EGVAR(Gear,Olsen) {
             displayName = "Olsen Gear Settings";
             collapsed = 0;
             class Attributes {
-                class UO_FW_Gear_Olsen_Enabled {
-                    property = "UO_FW_Gear_Olsen_Enabled";
+                class EGVAR(Gear,Olsen_Enabled) {
+                    property = QEGVAR(Gear,Olsen_Enabled);
                     displayName = "Enable Olsen System";
                     tooltip = "Should Olsen Gear be enabled";
                     control = "CheckboxState";
                     expression = UO_FW_SCENARIO_EXPRESSION;
                     defaultValue = "false";
                 };
-                class UO_FW_Gear_Olsen_OverfillEnabled {
-                    property = "UO_FW_Gear_Olsen_OverfillEnabled";
+                class EGVAR(Gear,Olsen_OverfillEnabled) {
+                    property = QEGVAR(Gear,Olsen_OverfillEnabled);
                     displayName = "Enable Gear overfill";
                     tooltip = "Forces adding an item to inventory. Works only if container is specified!";
                     control = "Checkbox";
                     expression = UO_FW_SCENARIO_EXPRESSION;
                     defaultValue = "false";
                 };
-                class UO_FW_Gear_Olsen_FaceRemovalEnabled {
-                    property = "UO_FW_Gear_Olsen_FaceRemovalEnabled";
+                class EGVAR(Gear,Olsen_FaceRemovalEnabled) {
+                    property = QEGVAR(Gear,Olsen_FaceRemovalEnabled);
                     displayName = "Force remove facewear";
                     tooltip = "When set to false, facewear types that are whitelisted will not be removed";
                     control = "Checkbox";
                     expression = UO_FW_SCENARIO_EXPRESSION;
                     defaultValue = "false";
                 };
-                class UO_FW_Gear_Olsen_PathToGear {
-                    property = "UO_FW_Gear_Olsen_PathToGear";
+                class EGVAR(Gear,Olsen_PathToGear) {
+                    property = QEGVAR(Gear,Olsen_PathToGear);
                     displayName = "Path to Gearscript";
                     tooltip = "Path to the gearscript file in your mission folder";
                     control = "EditShort";
@@ -57,8 +57,8 @@ class UO_FW_Gear_Settings {
 };
 
 #define UO_FW_GEAR_TYPECONFIG_OLSEN(TEAMNAME,SHORTNAME)  \
-class UO_FW_GearSettings_Olsen_LoadoutType_##TEAMNAME##_##SHORTNAME {\
-    property = QUOTE(TRIPLES(UO_FW_GearSettings_Olsen_LoadoutType,TEAMNAME,SHORTNAME));\
+class UO_FW_Gear_Olsen_LoadoutType_##TEAMNAME##_##SHORTNAME {\
+    property = QUOTE(TRIPLES(UO_FW_Gear_Olsen_LoadoutType,TEAMNAME,SHORTNAME));\
     displayName = CSTRING_2(Gear_DisplayName,SHORTNAME);\
     tooltip = CSTRING_2(Gear_ToolTip_Olsen,SHORTNAME);\
     control = QUOTE(Edit);\
@@ -68,8 +68,8 @@ class UO_FW_GearSettings_Olsen_LoadoutType_##TEAMNAME##_##SHORTNAME {\
 }
 
 #define UO_FW_GEAR_TYPECONFIG_ACEAR(TEAMNAME,SHORTNAME) \
-class UO_FW_GearSettings_ACE_Arsenal_LoadoutType_##TEAMNAME##_##SHORTNAME {\
-    property = QUOTE(TRIPLES(UO_FW_GearSettings_ACE_Arsenal_LoadoutType,TEAMNAME,SHORTNAME));\
+class UO_FW_Gear_ACE_Arsenal_LoadoutType_##TEAMNAME##_##SHORTNAME {\
+    property = QUOTE(TRIPLES(UO_FW_Gear_ACE_Arsenal_LoadoutType,TEAMNAME,SHORTNAME));\
     displayName = CSTRING_2(Gear_DisplayName,SHORTNAME);\
     tooltip = CSTRING_2(Gear_ToolTip_ACEAR,SHORTNAME);\
     control = QUOTE(UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo);\
@@ -78,28 +78,28 @@ class UO_FW_GearSettings_ACE_Arsenal_LoadoutType_##TEAMNAME##_##SHORTNAME {\
     defaultValue = QUOTE('NONE');\
 }
 
-class UO_FW_GearSettings_Blufor {
+class EGVAR(Gear,Blufor) {
     displayName = "Blufor Gear Settings";
     class AttributeCategories {
         #include "Gear\BluforMenu.hpp"
     };
 };
 
-class UO_FW_GearSettings_Opfor {
+class EGVAR(Gear,Opfor) {
     displayName = "Opfor Gear Settings";
     class AttributeCategories {
         #include "Gear\OpforMenu.hpp"
     };
 };
 
-class UO_FW_GearSettings_Indfor {
+class EGVAR(Gear,Indfor) {
     displayName = "Indfor Gear Settings";
     class AttributeCategories {
         #include "Gear\IndforMenu.hpp"
     };
 };
 
-class UO_FW_GearSettings_CIV {
+class EGVAR(Gear,Civilian) {
     displayName = "Civilian Gear Settings";
     class AttributeCategories {
         #include "Gear\CivilianMenu.hpp"

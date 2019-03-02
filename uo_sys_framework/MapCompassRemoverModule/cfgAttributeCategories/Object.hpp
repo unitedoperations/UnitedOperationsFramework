@@ -1,38 +1,38 @@
-class UO_FW_MapCompassRemoverOptions_AI {
+class EGVAR(MapCompassRemover,Options_AI) {
     displayName = "Remove Compass and Map Options";
     collapsed = 1;
     class Attributes {
-        class UO_FW_KeepMapAI {
+        class EGVAR(MapCompassRemover,KeepMapAI) {
             displayName = "Keep map after briefing";
             tooltip = "If ticked the map for the unit will be kept even if the module setting to remove all AI maps is enabled";
-            property = "UO_FW_KeepMapAI";
+            property = QEGVAR(MapCompassRemover,KeepMapAI);
             control = "UO_FW_CheckBoxAIOnlyCategory";
             expression = UO_FW_ENTITY_EXPRESSION;
             condition = "objectControllable";
             defaultValue = "false";
         };
-        class UO_FW_KeepCompassAI {
+        class EGVAR(MapCompassRemover,KeepCompassAI) {
             displayName = "Keep compass after briefing";
             tooltip = "If ticked the compass for the unit will be kept even if the module setting to remove all AI compasses is enabled";
-            property = "UO_FW_KeepCompassAI";
+            property = QEGVAR(MapCompassRemover,KeepCompassAI);
             control = "Checkbox";
             expression = UO_FW_ENTITY_EXPRESSION;
             condition = "objectControllable";
             defaultValue = "false";
         };
-        class UO_FW_RemoveMapAI {
+        class EGVAR(MapCompassRemover,RemoveMapAI) {
             displayName = "Remove map after briefing";
             tooltip = "If ticked the map for the unit will be removed after the briefing is done!";
-            property = "UO_FW_RemoveMapAI";
+            property = QEGVAR(MapCompassRemover,RemoveMapAI);
             control = "Checkbox";
             expression = UO_FW_ENTITY_EXPRESSION;
             condition = "objectControllable";
             defaultValue = "false";
         };
-        class UO_FW_RemoveCompassAI {
+        class EGVAR(MapCompassRemover,RemoveCompassAI) {
             displayName = "Remove compass after briefing";
             tooltip = "If ticked the compass for the unit will be removed after the briefing is done!";
-            property = "UO_FW_RemoveCompassAI";
+            property = QEGVAR(MapCompassRemover,RemoveCompassAI);
             control = "Checkbox";
             expression = UO_FW_ENTITY_EXPRESSION;
             condition = "objectControllable";
@@ -42,23 +42,23 @@ class UO_FW_MapCompassRemoverOptions_AI {
 };
 
 
-class UO_FW_MapCompassRemoverOptions_Player {
+class EGVAR(MapCompassRemover,Options_Player) {
     displayName = "Remove Compass and Map Options";
     collapsed = 1;
     class Attributes {
-        class UO_FW_RemoveMap {
+        class EGVAR(MapCompassRemover,RemoveMap) {
             displayName = "Remove map after briefing";
             tooltip = "If ticked the map for the unit will be removed after the briefing is done!";
-            property = "UO_FW_RemoveMap";
+            property = QEGVAR(MapCompassRemover,RemoveMap);
             control = "UO_FW_CheckBoxPlayerOnlyCategory";
             expression = UO_FW_ENTITY_EXPRESSION;
             condition = "objectControllable";
             defaultValue = "false";
         };
-        class UO_FW_RemoveCompass {
+        class EGVAR(MapCompassRemover,RemoveCompass) {
             displayName = "Remove compass after briefing";
             tooltip = "If ticked the compass for the unit will be removed after the briefing is done!";
-            property = "UO_FW_RemoveCompass";
+            property = QEGVAR(MapCompassRemover,RemoveCompass);
             control = "Checkbox";
             expression = UO_FW_ENTITY_EXPRESSION;
             condition = "objectControllable";

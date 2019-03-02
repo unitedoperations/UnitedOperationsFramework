@@ -1,32 +1,32 @@
-class UO_FW_ACRE_Folder {
+class EGVAR(ACRE,Folder) {
     text = "Configure ACRE";
-    //items[] = {"UO_FW_Blufor_ACRE_Configure","UO_FW_Opfor_ACRE_Configure","UO_FW_Indfor_ACRE_Configure","UO_FW_CIV_ACRE_Configure","UO_FW_ACRE_MainSettings_Configure"};
-    items[] = {"UO_FW_Blufor_ACRE_Configure","UO_FW_Opfor_ACRE_Configure","UO_FW_Indfor_ACRE_Configure","UO_FW_CIV_ACRE_Configure","UO_FW_ACRE_MainSettings_Configure"};
+    //items[] = {QEGVAR(Configure_Blufor),QEGVAR(Configure_Opfor),QEGVAR(Configure_Indfor),"UO_FW_ACRE_Configure_CIV","UO_FW_ACRE_MainSettings_Configure"};
+    items[] = {QEGVAR(Configure_Blufor),QEGVAR(Configure_Opfor),QEGVAR(Configure_Indfor),"UO_FW_ACRE_Configure_CIV","UO_FW_ACRE_MainSettings_Configure"};
     //picture = "\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\talk_ca.paa";
     picture = "x\UO_FW\addons\Main\ACREModule\resources\RadioIcon_Radio.paa";
 };
 
-class UO_FW_Blufor_ACRE_Configure {
+class EGVAR(Acre,Configure_Blufor) {
     text = "Configure Blufor ACRE";
-    action = "edit3DENMissionAttributes 'UO_FW_Blufor_ACRE';";
+    action = "edit3DENMissionAttributes 'UO_FW_ACRE_Blufor';";
 };
 
-class UO_FW_Opfor_ACRE_Configure {
+class EGVAR(Acre,Configure_Opfor) {
     text = "Configure Opfor ACRE";
-    action = "edit3DENMissionAttributes 'UO_FW_Opfor_ACRE';";
+    action = "edit3DENMissionAttributes 'UO_FW_ACRE_Opfor';";
 };
 
-class UO_FW_Indfor_ACRE_Configure {
+class EGVAR(Acre,Configure_Indfor) {
     text = "Configure Indfor ACRE";
-    action = "edit3DENMissionAttributes 'UO_FW_Indfor_ACRE';";
+    action = "edit3DENMissionAttributes 'UO_FW_ACRE_Indfor';";
 };
 
-class UO_FW_CIV_ACRE_Configure {
+class EGVAR(ACRE,Configure_Civilian) {
     text = "Configure Civilian ACRE";
-    action = "edit3DENMissionAttributes 'UO_FW_CIV_ACRE';";
+    action = "edit3DENMissionAttributes 'UO_FW_ACRE_Civilian';";
 };
 
-class UO_FW_ACRE_MainSettings_Configure {
+class EGVAR(ACRE,MainSettings_Configure) {
     text = "Configure ACRE Settings";
     action = "edit3DENMissionAttributes 'UO_FW_ACRE_MainSettings';";
 };

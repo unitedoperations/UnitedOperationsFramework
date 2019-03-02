@@ -2,8 +2,8 @@ class UO_FW_DisconnectControl {
     displayName = "Disconnect Control Settings";
     collapsed = 1;
     class Attributes {
-        class UO_FW_DisconnectControl_Enabled {
-            property = "UO_FW_DisconnectControl_Enabled";
+        class EGVAR(DisconnectControl,Enabled) {
+            property = QEGVAR(DisconnectControl,Enabled);
             displayName = "Disconnect Control";
             tooltip = "Enables Disconnect Control";
             control = "CheckboxState";
@@ -11,8 +11,8 @@ class UO_FW_DisconnectControl {
             defaultValue = "true";
             typeName = "BOOL";
         };
-        class UO_FW_DisconnectControl_Time {
-            property = "UO_FW_DisconnectControl_Time";
+        class EGVAR(DisconnectControl,Time) {
+            property = QEGVAR(DisconnectControl,Time);
             displayName = "Time since start";
             tooltip = "Time for how long disconnected players should be deleted since mission start (in minutes)";
             control = "EditShort";
@@ -21,8 +21,8 @@ class UO_FW_DisconnectControl {
             defaultValue = "2";
             typeName = "NUMBER";
         };
-        class UO_FW_DisconnectControl_BluforDelete {
-            property = "UO_FW_DisconnectControl_BluforDelete";
+        class EGVAR(DisconnectControl,BluforDelete) {
+            property = QEGVAR(DisconnectControl,BluforDelete);
             displayName = "Delete Blufor?";
             tooltip = "Should Blufor units be deleted";
             control = "Checkbox";
@@ -31,8 +31,8 @@ class UO_FW_DisconnectControl {
             defaultValue = "true";
             typeName = "BOOL";
         };
-        class UO_FW_DisconnectControl_OpforDelete {
-            property = "UO_FW_DisconnectControl_OpforDelete";
+        class EGVAR(DisconnectControl,OpforDelete) {
+            property = QEGVAR(DisconnectControl,OpforDelete);
             displayName = "Delete Opfor?";
             tooltip = "Should Opfor units be deleted";
             control = "Checkbox";
@@ -41,8 +41,8 @@ class UO_FW_DisconnectControl {
             defaultValue = "true";
             typeName = "BOOL";
         };
-        class UO_FW_DisconnectControl_INDFORDelete {
-            property = "UO_FW_DisconnectControl_INDFORDelete";
+        class EGVAR(DisconnectControl,INDFORDelete) {
+            property = QEGVAR(DisconnectControl,INDFORDelete);
             displayName = "Delete Independent?";
             tooltip = "Should Independent units be deleted";
             control = "Checkbox";
@@ -51,8 +51,8 @@ class UO_FW_DisconnectControl {
             defaultValue = "true";
             typeName = "BOOL";
         };
-        class UO_FW_DisconnectControl_CIVDelete {
-            property = "UO_FW_DisconnectControl_CIVDelete";
+        class EGVAR(DisconnectControl,CIVDelete) {
+            property = QEGVAR(DisconnectControl,CIVDelete);
             displayName = "Delete Civilian?";
             tooltip = "Should Civilian units be deleted";
             control = "Checkbox";

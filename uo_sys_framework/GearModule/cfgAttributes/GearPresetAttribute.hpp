@@ -25,10 +25,20 @@ class UO_FW_Gear_PresetsCombo_BLUFOR: ComboPreview {
                 private _cfg = _x;\
                 private _displayName = getText(_cfg >> 'displayName');\
                 private _displayDesc = getText(_cfg >> 'displayDesc');\
+                private _author = '';\
+                if (isArray (_entry >> 'authors')) then {\
+                    private _authors = getArray (_entry >> 'authors');\
+                    {\
+                        if (_x isEqualType '') then {\
+                            _author = format ['%1, %2', _author, _x];\
+                        };\
+                    } forEach _authors;\
+                };\
+                private _displayTooltip = format ['%1, Authors: %2', _displayDesc, _author];\
                 private _index = _control lbadd _displayName;\
                 _control lbsetdata [_index,_displayName];\
                 _control lbsetValue [_index,_forEachIndex];\
-                _control lbSetTooltip [_index,_displayDesc];\
+                _control lbSetTooltip [_index,_displayTooltip];\
             } foreach _cfgEntries;\
         };\
     ";
@@ -46,7 +56,7 @@ class UO_FW_Gear_PresetsCombo_BLUFOR: ComboPreview {
                 private _value = (_ctrlCombo lbData lbCurSel _ctrlCombo);\
                 diag_log format ['GearLoadPreset started, _value: %1',_value];\
                 if !(_value isEqualto 'NONE') then {\
-                    [_value,'BLUFOR',_ctrlButton] call UO_FW_fnc_GearLoadPreset;\
+                    [_value,'BLUFOR',_ctrlButton] call FUNC(GearLoadPreset);\
                 };\
             ";
         };
@@ -68,7 +78,7 @@ class UO_FW_Gear_PresetsCombo_OPFOR: UO_FW_Gear_PresetsCombo_BLUFOR {
                 private _value = (_ctrlCombo lbData lbCurSel _ctrlCombo);\
                 diag_log format ['GearLoadPreset started, _value: %1',_value];\
                 if !(_value isEqualto 'NONE') then {\
-                    [_value,'OPFOR',_ctrlButton] call UO_FW_fnc_GearLoadPreset;\
+                    [_value,'OPFOR',_ctrlButton] call FUNC(GearLoadPreset);\
                 };\
             ";
         };
@@ -90,7 +100,7 @@ class UO_FW_Gear_PresetsCombo_INDFOR: UO_FW_Gear_PresetsCombo_BLUFOR {
                 private _value = (_ctrlCombo lbData lbCurSel _ctrlCombo);\
                 diag_log format ['GearLoadPreset started, _value: %1',_value];\
                 if !(_value isEqualto 'NONE') then {\
-                    [_value,'INDFOR',_ctrlButton] call UO_FW_fnc_GearLoadPreset;\
+                    [_value,'INDFOR',_ctrlButton] call FUNC(GearLoadPreset);\
                 };\
             ";
         };
@@ -112,7 +122,7 @@ class UO_FW_Gear_PresetsCombo_CIVILIAN: UO_FW_Gear_PresetsCombo_BLUFOR {
                 private _value = (_ctrlCombo lbData lbCurSel _ctrlCombo);\
                 diag_log format ['GearLoadPreset started, _value: %1',_value];\
                 if !(_value isEqualto 'NONE') then {\
-                    [_value,'CIVILIAN',_ctrlButton] call UO_FW_fnc_GearLoadPreset;\
+                    [_value,'CIVILIAN',_ctrlButton] call FUNC(GearLoadPreset);\
                 };\
             ";
         };

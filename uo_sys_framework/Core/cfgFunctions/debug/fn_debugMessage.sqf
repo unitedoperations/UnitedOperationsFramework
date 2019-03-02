@@ -37,10 +37,10 @@ if (isNull (uiNamespace getVariable ["UO_FW_Debug_Control",displaynull])) then {
     params ["_message"];
     [{!(isNull (uiNamespace getVariable ["UO_FW_Debug_Control",displaynull]))}, {
         params ["_message"];
-        [] call UO_FW_fnc_refreshDebug;
+        [] call FUNC(refreshDebug);
         [{
             UO_FW_DebugMessages = UO_FW_DebugMessages - [_message];
-            [] call UO_FW_fnc_refreshDebug;
+            [] call FUNC(refreshDebug);
         }, [_message], 30] call CBA_fnc_waitAndExecute;
     }, [_message]] call CBA_fnc_waitUntilAndExecute;
 }, [_message]] call CBA_fnc_execNextFrame;

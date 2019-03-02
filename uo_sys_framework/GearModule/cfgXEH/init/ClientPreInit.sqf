@@ -8,16 +8,16 @@ UO_FW_EXEC_CHECK(CLIENTHC);
     if !(UO_FW_Server_GearModule_Allowed) exitwith {
         SETPLPVAR(GearReady,true);
     };
-    if (!(GETMVALUE(Gear_ACEAR_System_Enabled,false)) && {!(GETMVALUE(Gear_Olsen_Enabled,false))}) exitwith {
+    if (!(GETMVALUE(ACEAR_System_Enabled,false)) && {!(GETMVALUE(Olsen_Enabled,false))}) exitwith {
         SETPLPVAR(GearReady,true);
     };
-    [{(!isNull player) && {!((GETPLVAR(Gear_UnitSystemType,"")) isEqualto "")} && {!((GETPLVAR(Gear_UnitGearType,"")) isEqualto "")}}, {
+    [{(!isNull player) && {!((GETPLVAR(UnitSystemType,"")) isEqualto "")} && {!((GETPLVAR(UnitGearType,"")) isEqualto "")}}, {
         private ["_loadoutName"];
-        private _systemType = (GETPLVAR(Gear_UnitSystemType,"NONE"));
+        private _systemType = (GETPLVAR(UnitSystemType,"NONE"));
         LOG_1("_systemType: %1",_systemType);
-        private _gearType = (GETPLVAR(Gear_UnitGearType,"NONE"));
+        private _gearType = (GETPLVAR(UnitGearType,"NONE"));
         LOG_1("_gearType: %1",_gearType);
-        (SETPLVAR(Gear_gearType,_gearType));
+        (SETPLVAR(gearType,_gearType));
         if (_systemType isEqualto "NONE") exitwith {
             LOG_1("No gear system set for unit: %1",player);
             SETPLPVAR(GearReady,true);
@@ -27,8 +27,8 @@ UO_FW_EXEC_CHECK(CLIENTHC);
             SETPLPVAR(GearReady,true);
         };
         if (_gearType isEqualto "MANUAL") then {
-            (SETPLVAR(Gear_ManualUnitClass,"MANUAL"));
-            private _manualClass = (GETPLVAR(Gear_UnitGearManualType,""));
+            (SETPLVAR(ManualUnitClass,"MANUAL"));
+            private _manualClass = (GETPLVAR(UnitGearManualType,""));
             if (_manualClass isEqualto "") exitwith {
                 ERROR_1("Unit %1 is set to manual loadout but has none!, exiting gearscript.",player);
                 SETPLPVAR(GearReady,true);
@@ -58,7 +58,7 @@ UO_FW_EXEC_CHECK(CLIENTHC);
                 };
                 case "OLSEN": {
                     LOG_2("Executing gear class: %1 for unit %2",_manualClass,player);
-                    [player,_manualClass] call UO_FW_fnc_OlsenGearScript;
+                    [player,_manualClass] call FUNC(OlsenGearScript);
                     SETPLPVAR(GearReady,true);
                 };
             };
@@ -114,7 +114,7 @@ UO_FW_EXEC_CHECK(CLIENTHC);
                 };
                 case "OLSEN": {
                     LOG_2("Executing gear class: %1 for unit %2",_loadoutName,player);
-                    [player,_loadoutName] call UO_FW_fnc_OlsenGearScript;
+                    [player,_loadoutName] call FUNC(OlsenGearScript);
                     SETPLPVAR(GearReady,true);
                 };
             };
