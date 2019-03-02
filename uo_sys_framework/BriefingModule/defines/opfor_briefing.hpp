@@ -107,7 +107,7 @@ if (GVAR(Warsaw_OPFOR)) then {
 
 if (GVAR(Appendix_OPFOR)) then {
     if !(GVAR(Appendix_Path_OPFOR) isEqualto "") then {
-        "" call (compile preprocessFileLineNumbers GVAR(Appendix_Path_OPFOR));
+        "" call (compile preprocessFileLineNumbers (GVAR(Appendix_Path_OPFOR)));
     } else {
         ERROR("No appendix found for OPFOR!");
     };

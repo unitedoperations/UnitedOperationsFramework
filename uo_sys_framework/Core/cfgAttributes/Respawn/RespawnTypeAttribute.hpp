@@ -265,25 +265,25 @@ class UO_FW_RespawnTemplates_Indfor: UO_FW_RespawnTemplates_Blufor {
 };
 
 class UO_FW_Respawn_Combo_Civ: UO_FW_Respawn_Combo_Blufor {
-    UO_FW_RESPAWN_COMBO_ATTR_LOAD(UO_FW_Respawn_Value_Civ,UO_FW_Respawn_Combo_Cfg_Civ);
-    UO_FW_RESPAWN_COMBO_ATTR_SAVE(UO_FW_Respawn_Value_Civ,UO_FW_Respawn_Combo_Cfg_Civ);
+    UO_FW_RESPAWN_COMBO_ATTR_LOAD(UO_FW_Respawn_Value_Civilian,UO_FW_Respawn_Combo_Cfg_Civilian);
+    UO_FW_RESPAWN_COMBO_ATTR_SAVE(UO_FW_Respawn_Value_Civilian,UO_FW_Respawn_Combo_Cfg_Civilian);
     class Controls: Controls {
         class Title: Title {};
         class Value: Value {
-            UO_FW_RESPAWN_COMBO_ONLOAD(UO_FW_Respawn_Value_Civ,UO_FW_Respawn_Combo_Cfg_Civ);
-            UO_FW_RESPAWN_COMBO_ONLBSELCHANGED(UO_FW_Respawn_Value_Civ,UO_FW_Respawn_Combo_Cfg_Civ);
+            UO_FW_RESPAWN_COMBO_ONLOAD(UO_FW_Respawn_Value_Civilian,UO_FW_Respawn_Combo_Cfg_Civilian);
+            UO_FW_RESPAWN_COMBO_ONLBSELCHANGED(UO_FW_Respawn_Value_Civilian,UO_FW_Respawn_Combo_Cfg_Civilian);
         };
     };
 };
 
 class UO_FW_RespawnTemplates_Civ: UO_FW_RespawnTemplates_Blufor {
-    UO_FW_RESPAWN_TEMPLATES_ATTR_LOAD(UO_FW_Respawn_Value_Civ);
+    UO_FW_RESPAWN_TEMPLATES_ATTR_LOAD(UO_FW_Respawn_Value_Civilian);
     UO_FW_RESPAWN_TEMPLATES_ATTR_SAVE;
     class Controls: Controls {
         class Title: Title {};
         class Value0: Value0 {
             UO_FW_RESPAWN_TEMPLATES_ATTR_ONLOAD;
-            UO_FW_RESPAWN_TEMPLATES_ATTR_ONSETFOCUS(UO_FW_Respawn_Value_Civ);
+            UO_FW_RESPAWN_TEMPLATES_ATTR_ONSETFOCUS(UO_FW_Respawn_Value_Civilian);
         };
         UO_FW_RESPAWN_COMBO_ATTR_VALUES;
     };

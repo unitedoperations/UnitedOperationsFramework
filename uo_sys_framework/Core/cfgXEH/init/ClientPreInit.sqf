@@ -56,7 +56,7 @@ LOG("Client Pre Init");
     switch (side player) do {
         case WEST: {SETMVAR(TeamTag,"BLUFOR");};
         case EAST: {SETMVAR(TeamTag,"OPFOR");};
-        case INDEPENDENT: {SETMVAR(TeamTag,"INDFOR");};
+        case INDEPENDENT: {SETMVAR(TeamTag,"Indfor");};
         case CIVILIAN: {SETMVAR(TeamTag,"CIVILIAN");};
         default {SETMVAR(TeamTag,"BLUFOR");};
     };
@@ -95,10 +95,10 @@ LOG("Client Pre Init");
             _delay = GETMVARUO(Respawn_Delay_OPFOR,5);
         };
         case independent: {
-            _delay = GETMVARUO(Respawn_Delay_INDFOR,5);
+            _delay = GETMVARUO(Respawn_Delay_Indfor,5);
         };
         case civilian: {
-            _delay = GETMVARUO(Respawn_Delay_CIV,5);
+            _delay = GETMVARUO(Respawn_Delay_Civilian,5);
         };
     };
     [{
@@ -165,7 +165,7 @@ LOG("Client Pre Init");
 ["UO_FW_JIP_PlayerEvent", {
     if (((UO_FW_JIP_Type_BLUFOR isEqualto 2) && {(side player isEqualto west)})
         || ((UO_FW_JIP_Type_OPFOR isEqualto 2) && {(side player isEqualto east)})
-        || ((UO_FW_JIP_Type_INDFOR isEqualto 2) && {(side player isEqualto independent)})
+        || ((UO_FW_JIP_Type_Indfor isEqualto 2) && {(side player isEqualto independent)})
         || ((UO_FW_JIP_Type_Civilian isEqualto 2) && {(side player isEqualto civilian)})
     ) exitwith {
         ["This mission does not support JIP for your team, enabling spectator"] call EFUNC(Core,parsedTextDisplay);

@@ -85,7 +85,7 @@ class UO_FW_Gear_PresetsCombo_OPFOR: UO_FW_Gear_PresetsCombo_BLUFOR {
     };
 };
 
-class UO_FW_Gear_PresetsCombo_INDFOR: UO_FW_Gear_PresetsCombo_BLUFOR {
+class UO_FW_Gear_PresetsCombo_Indfor: UO_FW_Gear_PresetsCombo_BLUFOR {
     class Controls: Controls {
         class Title: Title {};
         class Value: Value {
@@ -100,7 +100,7 @@ class UO_FW_Gear_PresetsCombo_INDFOR: UO_FW_Gear_PresetsCombo_BLUFOR {
                 private _value = (_ctrlCombo lbData lbCurSel _ctrlCombo);\
                 diag_log format ['GearLoadPreset started, _value: %1',_value];\
                 if !(_value isEqualto 'NONE') then {\
-                    [_value,'INDFOR',_ctrlButton] call FUNC(GearLoadPreset);\
+                    [_value,'Indfor',_ctrlButton] call FUNC(GearLoadPreset);\
                 };\
             ";
         };

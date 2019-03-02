@@ -20,7 +20,7 @@ SETMPVAR(ServerInitialized,true);
     ESETMVAR(Respawn,TeamTicketsRemaining_Blufor,(EGETMVAR(Respawn,TeamTickets_Blufor,30)));
     ESETMVAR(Respawn,TeamTicketsRemaining_Opfor,(EGETMVAR(Respawn,TeamTickets_Opfor,30)));
     ESETMVAR(Respawn,TeamTicketsRemaining_Indfor,(EGETMVAR(Respawn,TeamTickets_Indfor,30)));
-    ESETMVAR(Respawn,TeamTicketsRemaining_Civilian,(EGETMVAR(Respawn,TeamTickets_Civ,30)));
+    ESETMVAR(Respawn,TeamTicketsRemaining_Civilian,(EGETMVAR(Respawn,TeamTickets_Civilian,30)));
 }] call CBA_fnc_WaitUntilAndExecute;
 
 if (EGETMVAR(DisconnectControl,Enabled,false)) then {

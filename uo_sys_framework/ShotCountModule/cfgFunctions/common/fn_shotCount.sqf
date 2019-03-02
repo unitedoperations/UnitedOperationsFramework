@@ -24,12 +24,12 @@ switch (_side) do {
         _teamvar = GVAR(ExpendedAmmunition_OPFOR);
     };
     case independent: {
-        if (isNil QGVAR(ExpendedAmmunition_INDFOR)) then {GVAR(ExpendedAmmunition_INDFOR) = [];};
-        _teamvar = GVAR(ExpendedAmmunition_INDFOR);
+        if (isNil QGVAR(ExpendedAmmunition_Indfor)) then {GVAR(ExpendedAmmunition_Indfor) = [];};
+        _teamvar = GVAR(ExpendedAmmunition_Indfor);
     };
     case civilian: {
-        if (isNil QGVAR(ExpendedAmmunition_CIV)) then {GVAR(ExpendedAmmunition_Civilian) = [];};
-        _teamvar = GVAR(ExpendedAmmunition_CIV);
+        if (isNil QGVAR(ExpendedAmmunition_Civilian)) then {GVAR(ExpendedAmmunition_Civilian) = [];};
+        _teamvar = GVAR(ExpendedAmmunition_Civilian);
     };
 };
 

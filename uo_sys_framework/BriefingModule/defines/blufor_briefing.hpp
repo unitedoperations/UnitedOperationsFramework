@@ -107,7 +107,7 @@ if (GVAR(Warsaw_BLUFOR)) then {
 
 if (GVAR(Appendix_BLUFOR)) then {
     if !(GVAR(Appendix_Path_BLUFOR) isEqualto "") then {
-        "" call (compile preprocessFileLineNumbers GVAR(Appendix_Path_BLUFOR));
+        "" call (compile preprocessFileLineNumbers (GVAR(Appendix_Path_BLUFOR)));
     } else {
         ERROR("No appendix found for BLUFOR!");
     };

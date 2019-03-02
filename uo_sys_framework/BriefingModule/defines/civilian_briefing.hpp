@@ -107,7 +107,7 @@ if (GVAR(Warsaw_Civilian)) then {
 
 if (GVAR(Appendix_Civilian)) then {
     if !(GVAR(Appendix_Path_Civilian) isEqualto "") then {
-        "" call (compile preprocessFileLineNumbers GVAR(Appendix_Path_Civilian));
+        "" call (compile preprocessFileLineNumbers (GVAR(Appendix_Path_Civilian)));
     } else {
         ERROR("No appendix found for CIVILIAN!");
     };

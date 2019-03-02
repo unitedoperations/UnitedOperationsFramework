@@ -20,15 +20,15 @@ switch (_mode) do {
             private _ratioNeeded = ((GETVAR(_logic,RatioNeeded,75)) / 100);
             private _BluforCap = (GETVAR(_logic,Blufor,0));
             private _OpforCap = (GETVAR(_logic,Opfor,0));
-            private _INDFORCap = (GETVAR(_logic,INDFOR,0));
-            private _CIVCap = (GETVAR(_logic,CIV,0));
+            private _IndforCap = (GETVAR(_logic,Indfor,0));
+            private _CIVCap = (GETVAR(_logic,Civilian,0));
             private _BluforTime = (GETVAR(_logic,Blufor,30));
             private _OpforTime = (GETVAR(_logic,Opfor,30));
-            private _INDFORTime = (GETVAR(_logic,INDFOR,30));
-            private _CIVTime = (GETVAR(_logic,CIV,30));
+            private _IndforTime = (GETVAR(_logic,Indfor,30));
+            private _CIVTime = (GETVAR(_logic,Civilian,30));
             private _BluforMessage = GETVAR(_logic,Message_Blufor,ARR_2("BLUFOR is capturing the zone!","BLUFOR has captured the zone!"));
             private _OpforMessage = GETVAR(_logic,Message_Opfor,ARR_2("OPFOR is capturing the zone!","OPFOR has captured the zone!"));
-            private _INDFORMessage = GETVAR(_logic,Message_INDFOR,ARR_2("Independent is capturing the zone!","Independent has captured the zone!"));
+            private _IndforMessage = GETVAR(_logic,Message_Indfor,ARR_2("Independent is capturing the zone!","Independent has captured the zone!"));
             private _CIVMessage = GETVAR(_logic,Message_Civilian,ARR_2("Civilian is capturing the zone!","Civilian has captured the zone!"));
             private _ContestedMessage = GETVAR(_logic,ContestedMessage,"The zone is contested!");
             private _UncontestedMessage = GETVAR(_logic,UncontestedMessage,"The zone is uncontested!");
@@ -37,7 +37,7 @@ switch (_mode) do {
             private _silent = GETVAR(_logic,Silent,false);
             private _automessages = GETVAR(_logic,AutoMessages,false);
             private _cond = GETVAR(_logic,Condition,true);
-            [_logic,_zoneName,_area,_repeatable,[_BluforCap,_OpforCap,_INDFORCap,_CIVCap],[_BluforTime,_OpforTime,_INDFORTime,_CIVTime],[_BluforMessage,_OpforMessage,_INDFORMessage,_CIVMessage,_ContestedMessage,_UncontestedMessage],_colours,_hidden,_silent,_automessages,_ratioNeeded,_cond] call FUNC(CaptureZoneLoop);
+            [_logic,_zoneName,_area,_repeatable,[_BluforCap,_OpforCap,_IndforCap,_CIVCap],[_BluforTime,_OpforTime,_IndforTime,_CIVTime],[_BluforMessage,_OpforMessage,_IndforMessage,_CIVMessage,_ContestedMessage,_UncontestedMessage],_colours,_hidden,_silent,_automessages,_ratioNeeded,_cond] call FUNC(CaptureZoneLoop);
         };
     };
     // When some attributes were changed (including position and rotation)

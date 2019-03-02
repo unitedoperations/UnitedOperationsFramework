@@ -48,7 +48,7 @@ class EGVAR(Core,TeamsSettings) {
             tooltip = "Set team name";
             control = "EditShort";
             expression = UO_FW_SCENARIO_EXPRESSION;
-            defaultValue = "'INDFOR TEAM'";
+            defaultValue = "'Indfor TEAM'";
         };
         class EGVAR(Core,TeamType_Civilian) {
             property = QEGVAR(Core,Civ_TeamType);
@@ -59,7 +59,7 @@ class EGVAR(Core,TeamsSettings) {
             defaultValue = "0";
         };
         class EGVAR(Core,TeamName_Civilian) {
-            property = QEGVAR(Core,TeamName_Civ);
+            property = QEGVAR(Core,TeamName_Civilian);
             displayName = "Name";
             tooltip = "Set team name";
             control = "EditShort";

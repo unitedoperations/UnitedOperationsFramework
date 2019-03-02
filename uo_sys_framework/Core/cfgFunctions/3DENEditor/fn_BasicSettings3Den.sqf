@@ -25,7 +25,7 @@ if ((EGETMVALUE(Briefing,MissionNotes_Author,"")) isEqualTo "") then {
     "UO_FW_Mission_Notes" set3DENMissionAttribute ["UO_FW_Briefing_MissionNotes_Author",profileNameSteam];
 };
 
-if ((GETMVALUEUO(Version_Created,"")) isEqualTo "") then {
+if ((EGETMVALUE(Core,Version_Created,"")) isEqualTo "") then {
     "UO_FW_Core_Version_DummyCategory" set3DENMissionAttribute ["UO_FW_Core_Version_Created",QUOTE(VERSION)];
 };
 

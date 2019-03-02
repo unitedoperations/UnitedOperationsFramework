@@ -38,15 +38,15 @@ class UO_FW_CoverMap {
         };
         class EGVAR(CoverMap,DefaultAO_Indfor) {
             property = QEGVAR(CoverMap,DefaultAO_Indfor);
-            displayName = "INDFOR Starting AO";
-            tooltip = "Set the INDFOR Map area to corresponding CoverMap AO name.";
+            displayName = "Indfor Starting AO";
+            tooltip = "Set the Indfor Map area to corresponding CoverMap AO name.";
             control = "EditShort";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "'Area0'";
             validate = "STRING";
         };
         class EGVAR(CoverMap,DefaultAO_Civilian) {
-            property = QEGVAR(CoverMap,DefaultAO_Civ);
+            property = QEGVAR(CoverMap,DefaultAO_Civilian);
             displayName = "Civilian Starting AO";
             tooltip = "Set the Civilian Map area to corresponding CoverMap AO name.";
             control = "EditShort";

@@ -1,7 +1,7 @@
 class EGVAR(ACRE,Folder) {
     text = "Configure ACRE";
-    //items[] = {QEGVAR(Configure_Blufor),QEGVAR(Configure_Opfor),QEGVAR(Configure_Indfor),"UO_FW_ACRE_Configure_CIV","UO_FW_ACRE_MainSettings_Configure"};
-    items[] = {QEGVAR(Configure_Blufor),QEGVAR(Configure_Opfor),QEGVAR(Configure_Indfor),"UO_FW_ACRE_Configure_CIV","UO_FW_ACRE_MainSettings_Configure"};
+    //items[] = {QEGVAR(Configure_Blufor),QEGVAR(Configure_Opfor),QEGVAR(Configure_Indfor),"UO_FW_ACRE_Configure_Civilian","UO_FW_ACRE_MainSettings_Configure"};
+    items[] = {QEGVAR(Acre,Configure_Blufor),QEGVAR(Acre,Configure_Opfor),QEGVAR(Acre,Configure_Indfor),QEGVAR(Acre,Configure_Civilian),QEGVAR(Acre,Configure_MainSettings)};
     //picture = "\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\talk_ca.paa";
     picture = "x\UO_FW\addons\Main\ACREModule\resources\RadioIcon_Radio.paa";
 };
@@ -26,7 +26,7 @@ class EGVAR(ACRE,Configure_Civilian) {
     action = "edit3DENMissionAttributes 'UO_FW_ACRE_Civilian';";
 };
 
-class EGVAR(ACRE,MainSettings_Configure) {
+class EGVAR(ACRE,Configure_MainSettings) {
     text = "Configure ACRE Settings";
     action = "edit3DENMissionAttributes 'UO_FW_ACRE_MainSettings';";
 };

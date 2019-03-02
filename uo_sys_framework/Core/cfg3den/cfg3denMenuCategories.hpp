@@ -12,8 +12,8 @@ class EGVAR(Respawn,Settings_OPFOR) {
     };
 };
 
-class EGVAR(Respawn,Settings_INDFOR) {
-    displayName = "INDFOR Respawn Settings";
+class EGVAR(Respawn,Settings_Indfor) {
+    displayName = "Indfor Respawn Settings";
     class AttributeCategories {
         #include "Respawn\IndforRespawn.hpp"
     };

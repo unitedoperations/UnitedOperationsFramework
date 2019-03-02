@@ -10,7 +10,7 @@ class UO_FW_RespawnSide_Combo: Combo {
     attributeLoad="\
         private _control = (_this controlsGroupCtrl 100);\
         private _name = gettext (_config >> 'property');\
-        _respawnSideArray = [['BLUFOR','a3\ui_f\data\map\diary\icons\playerwest_ca.paa'],['OPFOR','a3\ui_f\data\map\diary\icons\playereast_ca.paa'],['INDFOR','a3\ui_f\data\map\diary\icons\playerguer_ca.paa'],['Civilian','a3\ui_f\data\map\diary\icons\playerciv_ca.paa']];\
+        _respawnSideArray = [['BLUFOR','a3\ui_f\data\map\diary\icons\playerwest_ca.paa'],['OPFOR','a3\ui_f\data\map\diary\icons\playereast_ca.paa'],['Indfor','a3\ui_f\data\map\diary\icons\playerguer_ca.paa'],['Civilian','a3\ui_f\data\map\diary\icons\playerciv_ca.paa']];\
         {\
             _x params ['_sidename','_picture'];\
             private _index = _control lbadd _sidename;\

@@ -24,7 +24,7 @@ switch (side player) do {
         _teamSpectateList = [];
         if ("BLUFOR" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique BLUFOR};
         if ("OPFOR" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique OPFOR};
-        if ("INDFOR" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique INDEPENDENT};
+        if ("Indfor" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique INDEPENDENT};
         if ("CIVILIAN" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique CIVILIAN};
         _killCamSetting = GETMVAR(KillCam_Blufor,true);
         _AISetting = GETMVAR(AIEnabled_Blufor,true);
@@ -37,7 +37,7 @@ switch (side player) do {
         _teamSpectateList = [];
         if ("BLUFOR" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique BLUFOR};
         if ("OPFOR" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique OPFOR};
-        if ("INDFOR" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique INDEPENDENT};
+        if ("Indfor" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique INDEPENDENT};
         if ("CIVILIAN" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique CIVILIAN};
         _killCamSetting = GETMVAR(KillCam_OPFOR,true);
         _AISetting = GETMVAR(AIEnabled_OPFOR,true);
@@ -45,30 +45,30 @@ switch (side player) do {
         _thirdPersonSetting = GETMVAR(3rdPerson_OPFOR,true);
     };
     case independent: {
-        _delay = EGETMVAR(Respawn,Delay_INDFOR,5);
-        private _teamSpectateVarValue = GETMVAR(EnabledTeams_INDFOR,[]);
+        _delay = EGETMVAR(Respawn,Delay_Indfor,5);
+        private _teamSpectateVarValue = GETMVAR(EnabledTeams_Indfor,[]);
         _teamSpectateList = [];
         if ("BLUFOR" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique BLUFOR};
         if ("OPFOR" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique OPFOR};
-        if ("INDFOR" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique INDEPENDENT};
+        if ("Indfor" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique INDEPENDENT};
         if ("CIVILIAN" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique CIVILIAN};
-        _killCamSetting = GETMVAR(KillCam_INDFOR,true);
-        _AISetting = GETMVAR(AIEnabled_INDFOR,true);
-        _freeCamSetting = GETMVAR(FreeCam_INDFOR,true);
-        _thirdPersonSetting = GETMVAR(3rdPerson_INDFOR,true);
+        _killCamSetting = GETMVAR(KillCam_Indfor,true);
+        _AISetting = GETMVAR(AIEnabled_Indfor,true);
+        _freeCamSetting = GETMVAR(FreeCam_Indfor,true);
+        _thirdPersonSetting = GETMVAR(3rdPerson_Indfor,true);
     };
     case civilian: {
-        _delay = EGETMVAR(Respawn,Delay_CIV,5);
-        private _teamSpectateVarValue = GETMVAR(EnabledTeams_CIV,[]);
+        _delay = EGETMVAR(Respawn,Delay_Civilian,5);
+        private _teamSpectateVarValue = GETMVAR(EnabledTeams_Civilian,[]);
         _teamSpectateList = [];
         if ("BLUFOR" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique BLUFOR};
         if ("OPFOR" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique OPFOR};
-        if ("INDFOR" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique INDEPENDENT};
+        if ("Indfor" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique INDEPENDENT};
         if ("CIVILIAN" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique CIVILIAN};
-        _killCamSetting = GETMVAR(KillCam_CIV,true);
-        _AISetting = GETMVAR(AIEnabled_CIV,true);
-        _freeCamSetting = GETMVAR(FreeCam_CIV,true);
-        _thirdPersonSetting = GETMVAR(3rdPerson_CIV,true);
+        _killCamSetting = GETMVAR(KillCam_Civilian,true);
+        _AISetting = GETMVAR(AIEnabled_Civilian,true);
+        _freeCamSetting = GETMVAR(FreeCam_Civilian,true);
+        _thirdPersonSetting = GETMVAR(3rdPerson_Civilian,true);
     };
 };
 

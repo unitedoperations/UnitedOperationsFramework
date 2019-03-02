@@ -35,16 +35,16 @@ class EGVAR(EndConditions,CasualtySettings_Category4) {
     displayName = "Casualty Settings";
     collapsed = 0;
     class Attributes {
-        class EGVAR(EndConditions,CasualtyCount_BLUFOR_Enabled_4) {
-            property = QEGVAR(EndConditions,CasualtyCount_BLUFOR_Enabled_4);
+        class EGVAR(EndConditions,CasualtyCount_Enabled_BLUFOR_4) {
+            property = QEGVAR(EndConditions,CasualtyCount_Enabled_BLUFOR_4);
             displayName = "BLUFOR Casualty";
             tooltip = "Enables casualty limit for this team";
             control = "CheckBox";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
-        class EGVAR(EndConditions,CasualtyCount_BLUFOR_Percentage_4) {
-            property = QEGVAR(EndConditions,CasualtyCount_BLUFOR_Percentage_4);
+        class EGVAR(EndConditions,CasualtyCount_Percentage_BLUFOR_4) {
+            property = QEGVAR(EndConditions,CasualtyCount_Percentage_BLUFOR_4);
             displayName = "Casualty Percentage";
             tooltip = "End condition fires when team casualty percentage is over this number";
             control = "UO_FW_5To100Step5_Slider";
@@ -52,16 +52,16 @@ class EGVAR(EndConditions,CasualtySettings_Category4) {
             validate = "number";
             defaultValue = "75";
         };
-        class EGVAR(EndConditions,CasualtyCount_OPFOR_Enabled_4) {
-            property = QEGVAR(EndConditions,CasualtyCount_OPFOR_Enabled_4);
+        class EGVAR(EndConditions,CasualtyCount_Enabled_OPFOR_4) {
+            property = QEGVAR(EndConditions,CasualtyCount_Enabled_OPFOR_4);
             displayName = "OPFOR Casualty";
             tooltip = "Enables casualty limit for this team";
             control = "CheckBox";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
-        class EGVAR(EndConditions,CasualtyCount_OPFOR_Percentage_4) {
-            property = QEGVAR(EndConditions,CasualtyCount_OPFOR_Percentage_4);
+        class EGVAR(EndConditions,CasualtyCount_Percentage_OPFOR_4) {
+            property = QEGVAR(EndConditions,CasualtyCount_Percentage_OPFOR_4);
             displayName = "Casualty Percentage";
             tooltip = "End condition fires when team casualty percentage is over this number";
             control = "UO_FW_5To100Step5_Slider";
@@ -69,16 +69,16 @@ class EGVAR(EndConditions,CasualtySettings_Category4) {
             validate = "number";
             defaultValue = "75";
         };
-        class EGVAR(EndConditions,CasualtyCount_INDFOR_Enabled_4) {
-            property = QEGVAR(EndConditions,CasualtyCount_INDFOR_Enabled_4);
-            displayName = "INDFOR Casualty";
+        class EGVAR(EndConditions,CasualtyCount_Enabled_Indfor_4) {
+            property = QEGVAR(EndConditions,CasualtyCount_Enabled_Indfor_4);
+            displayName = "Indfor Casualty";
             tooltip = "Enables casualty limit for this team";
             control = "CheckBox";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
-        class EGVAR(EndConditions,CasualtyCount_INDFOR_Percentage_4) {
-            property = QEGVAR(EndConditions,CasualtyCount_INDFOR_Percentage_4);
+        class EGVAR(EndConditions,CasualtyCount_Percentage_Indfor_4) {
+            property = QEGVAR(EndConditions,CasualtyCount_Percentage_Indfor_4);
             displayName = "Casualty Percentage";
             tooltip = "End condition fires when team casualty percentage is over this number";
             control = "UO_FW_5To100Step5_Slider";
@@ -86,16 +86,16 @@ class EGVAR(EndConditions,CasualtySettings_Category4) {
             validate = "number";
             defaultValue = "75";
         };
-        class EGVAR(EndConditions,CasualtyCount_CIV_Enabled_4) {
-            property = QEGVAR(EndConditions,CasualtyCount_CIV_Enabled_4);
+        class EGVAR(EndConditions,CasualtyCount_Enabled_Civilian_4) {
+            property = QEGVAR(EndConditions,CasualtyCount_Enabled_Civilian_4);
             displayName = "CIVILIAN Casualty";
             tooltip = "Enables casualty limit for this team";
             control = "CheckBox";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
-        class EGVAR(EndConditions,CasualtyCount_CIV_Percentage_4) {
-            property = QEGVAR(EndConditions,CasualtyCount_CIV_Percentage_4);
+        class EGVAR(EndConditions,CasualtyCount_Percentage_Civilian_4) {
+            property = QEGVAR(EndConditions,CasualtyCount_Percentage_Civilian_4);
             displayName = "Casualty Percentage";
             tooltip = "End condition fires when team casualty percentage is over this number";
             control = "UO_FW_5To100Step5_Slider";

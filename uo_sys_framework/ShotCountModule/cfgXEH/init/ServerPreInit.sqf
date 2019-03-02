@@ -14,7 +14,7 @@ UO_FW_EXEC_CHECK(SERVER);
     if !(UO_FW_Server_ShotCountModule_Allowed) exitwith {};
     if !(GETMVARUO(ShotCount_Enabled,false)) exitwith {};
     GVAR(ExpendedAmmunition_BLUFOR) = [];
-    GVAR(ExpendedAmmunition_INDFOR) = [];
+    GVAR(ExpendedAmmunition_Indfor) = [];
     GVAR(ExpendedAmmunition_OPFOR) = [];
     GVAR(ExpendedAmmunition_Civilian) = [];
     GVAR(classNames) = [];

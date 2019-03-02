@@ -12,7 +12,7 @@
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 UO_FW_3DEN_CHECK;
 
-[] call EFUNC(3DEN,BasicSettings3Den);
+[] call FUNC(BasicSettings3DEN);
 params [["_name",""],["_clipBoardMode",false]];
 
 if (_clipBoardMode) then {

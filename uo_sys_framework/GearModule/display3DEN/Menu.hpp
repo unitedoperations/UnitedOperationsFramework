@@ -25,11 +25,11 @@ class EGVAR(Indfor,Gear_Configure) {
 
 class EGVAR(CIV,Gear_Configure) {
     text = "Configure Civilian Gear";
-    action = "edit3DENMissionAttributes 'UO_FW_GearSettings_CIV';";
+    action = "edit3DENMissionAttributes 'UO_FW_GearSettings_Civilian';";
 };
 
 class EGVAR(Gear,Folder) {
     text = "Configure Gear";
-    items[] = {"UO_FW_Gear_Settings","UO_FW_Gear_LoadOnAll","UO_FW_Blufor_Gear_Configure","UO_FW_Opfor_Gear_Configure","UO_FW_Indfor_Gear_Configure","UO_FW_CIV_Gear_Configure"};
+    items[] = {"UO_FW_Gear_Settings","UO_FW_Gear_LoadOnAll","UO_FW_Blufor_Gear_Configure","UO_FW_Opfor_Gear_Configure","UO_FW_Indfor_Gear_Configure","UO_FW_Civilian_Gear_Configure"};
     picture = "\a3\3DEN\Data\Displays\Display3DEN\EntityMenu\arsenal_ca.paa";
 };

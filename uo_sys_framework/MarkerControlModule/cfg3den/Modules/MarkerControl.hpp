@@ -51,22 +51,22 @@ class UO_FW_MarkerControl {
             validate = "none";
             defaultValue = "[]";
         };
-        class EGVAR(MarkerControl,INDFORMarkers) {
+        class EGVAR(MarkerControl,IndforMarkers) {
             displayName = "Independent Markers";
             tooltip = "Markers which are only visible by Independent. Marker names or 3DEN layer names without quotes and seperated by ,";
             control = "EditArray";
             typeName = "STRING";
-            property = QEGVAR(MarkerControl,INDFORMarkers);
+            property = QEGVAR(MarkerControl,IndforMarkers);
             expression = UO_FW_SCENARIO_EXPRESSION;
             validate = "none";
             defaultValue = "[]";
         };
-        class EGVAR(MarkerControl,INDFORBriefingMarkers) {
+        class EGVAR(MarkerControl,IndforBriefingMarkers) {
             displayName = "Independent briefing Markers";
             tooltip = "Markers which are only visible by Independent during the briefing. Marker names or 3DEN layer names without quotes and seperated by ,";
             control = "EditArray";
             typeName = "STRING";
-            property = QEGVAR(MarkerControl,INDFORBriefingMarkers);
+            property = QEGVAR(MarkerControl,IndforBriefingMarkers);
             expression = UO_FW_SCENARIO_EXPRESSION;
             validate = "none";
             defaultValue = "[]";

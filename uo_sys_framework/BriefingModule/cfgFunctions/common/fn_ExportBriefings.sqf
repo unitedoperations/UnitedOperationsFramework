@@ -1,26 +1,15 @@
 #define COMPONENT Briefing
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 UO_FW_EXEC_CHECK(ALL);
+UO_FW_3DEN_CHECK;
 
-if !(is3DEN) exitwith {};
 startLoadingScreen ["Exporting Briefing to clipboard..."];
 
 LOG("Exporting Briefing");
-_br = toString [13,10];//(carriage return & line feed)
 
-_export = "_briefing = [];" + _br +
+private _br = (toString [13,10]);//(carriage return & line feed)
 
-"#define NEWTAB(NAME) _briefing set [count _briefing, [""Diary"",[NAME,""" + _br +
-"#define ENDTAB ""]]];" + _br +
-
-"#define DISPLAYBRIEFING() \" + _br +
-"_size = count _briefing - 1; \" + _br +
-"for '_i' from 0 to _size do \" + _br +
-"{ \" + _br +
-"    player createDiaryRecord (_briefing select _size - _i); \" + _br +
-"};" + _br + _br +
-
-
+private _export = "_briefing = [];" + _br +
  "switch (side player) do " + _br +
 "{" + _br +
 "case west:" + _br +
@@ -267,68 +256,68 @@ progressLoadingScreen 0.5;
 
 _export = _export + "case independent:" + _br +
 "{" + _br;
-if (GETMVALUE(NATO_INDFOR,false)) then {
+if (GETMVALUE(NATO_Indfor,false)) then {
     //Situation
     _export = _export + "NEWTAB(""I. Situation:"")" + _br +
-    "<font color='#5BD527'><h1>Situation:</h1></font color><br/>" + _br + (GETMVALUE(NATO_SIT_Main_INDFOR,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Terrain:</h1></font color><br/>" + _br + (GETMVALUE(NATO_SIT_Terrain_INDFOR,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Key Terrain:</h1></font color><br/>" + _br + (GETMVALUE(NATO_SIT_KEYTerrain_INDFOR,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Weather:</h1></font color><br/>" + _br + (GETMVALUE(NATO_SIT_Weather_INDFOR,"")) + _br +
+    "<font color='#5BD527'><h1>Situation:</h1></font color><br/>" + _br + (GETMVALUE(NATO_SIT_Main_Indfor,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>Terrain:</h1></font color><br/>" + _br + (GETMVALUE(NATO_SIT_Terrain_Indfor,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>Key Terrain:</h1></font color><br/>" + _br + (GETMVALUE(NATO_SIT_KEYTerrain_Indfor,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>Weather:</h1></font color><br/>" + _br + (GETMVALUE(NATO_SIT_Weather_Indfor,"")) + _br +
     "ENDTAB" +  _br +
     _br +
     //Enemy
     "NEWTAB(""   A. Enemy Forces:"")" + _br +
-    "<font color='#5BD527'><h1>Disposition:</h1></font color><br/>" + _br + (GETMVALUE(NATO_Enemy_DIS_INDFOR,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Strength:</h1></font color><br/>" + _br + (GETMVALUE(NATO_Enemy_STRENGTH_INDFOR,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Equipment:</h1></font color><br/>" + _br + (GETMVALUE(NATO_Enemy_EQUIPMENT_INDFOR,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Appearance:</h1></font color><br/>" + _br + (GETMVALUE(NATO_Enemy_APPEARANCE_INDFOR,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>MLCOA:</h1></font color><br/>" + _br + (GETMVALUE(NATO_Enemy_MLCOA_INDFOR,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>MDCOA:</h1></font color><br/>" + _br + (GETMVALUE(NATO_Enemy_MDCOA_INDFOR,"")) + _br +
+    "<font color='#5BD527'><h1>Disposition:</h1></font color><br/>" + _br + (GETMVALUE(NATO_Enemy_DIS_Indfor,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>Strength:</h1></font color><br/>" + _br + (GETMVALUE(NATO_Enemy_STRENGTH_Indfor,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>Equipment:</h1></font color><br/>" + _br + (GETMVALUE(NATO_Enemy_EQUIPMENT_Indfor,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>Appearance:</h1></font color><br/>" + _br + (GETMVALUE(NATO_Enemy_APPEARANCE_Indfor,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>MLCOA:</h1></font color><br/>" + _br + (GETMVALUE(NATO_Enemy_MLCOA_Indfor,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>MDCOA:</h1></font color><br/>" + _br + (GETMVALUE(NATO_Enemy_MDCOA_Indfor,"")) + _br +
     "ENDTAB" +  _br +
     _br +
     //Friendly
     "NEWTAB(""   B. Friendly Forces:"")" + _br +
-    "<font color='#5BD527'><h1>Disposition:</h1></font color><br/>" + (GETMVALUE(NATO_FRIENDLY_DIS_INDFOR,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Higher Units:</h1></font color><br/>" + (GETMVALUE(NATO_FRIENDLY_Higher_INDFOR,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Strength:</h1></font color><br/>" + (GETMVALUE(NATO_Enemy_STRENGTH_INDFOR,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Appearance:</h1></font color><br/>" + (GETMVALUE(NATO_Enemy_APPEARANCE_INDFOR,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>Disposition:</h1></font color><br/>" + (GETMVALUE(NATO_FRIENDLY_DIS_Indfor,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>Higher Units:</h1></font color><br/>" + (GETMVALUE(NATO_FRIENDLY_Higher_Indfor,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>Strength:</h1></font color><br/>" + (GETMVALUE(NATO_Enemy_STRENGTH_Indfor,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>Appearance:</h1></font color><br/>" + (GETMVALUE(NATO_Enemy_APPEARANCE_Indfor,"")) + "<br/><br/>" + _br +
     "ENDTAB" +  _br +
     _br +
     //Mission
     "NEWTAB(""II. Mission:"")" +  _br +
-    "<font color='#5BD527'><h1>Mission:</h1></font color><br/>" + _br + (GETMVALUE(NATO_Mission_INDFOR,"")) + _br +
+    "<font color='#5BD527'><h1>Mission:</h1></font color><br/>" + _br + (GETMVALUE(NATO_Mission_Indfor,"")) + _br +
     "ENDTAB" +  _br +
     _br +
     "NEWTAB(""III. Execution:"")" + _br +
-    "<font color='#5BD527'><h1>Commanders Intent:</h1></font color><br/>" + _br + (GETMVALUE(NATO_EXECUTION_INTENT_INDFOR,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Maneuver:</h1></font color><br/>" + _br + (GETMVALUE(NATO_EXECUTION_MANEUVER_INDFOR,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Timings:</h1></font color><br/>" + _br + (GETMVALUE(NATO_EXECUTION_Timings_INDFOR,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Tasks:</h1></font color><br/>" + _br + (GETMVALUE(NATO_EXECUTION_Tasks_INDFOR,"")) +  _br +
+    "<font color='#5BD527'><h1>Commanders Intent:</h1></font color><br/>" + _br + (GETMVALUE(NATO_EXECUTION_INTENT_Indfor,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>Maneuver:</h1></font color><br/>" + _br + (GETMVALUE(NATO_EXECUTION_MANEUVER_Indfor,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>Timings:</h1></font color><br/>" + _br + (GETMVALUE(NATO_EXECUTION_Timings_Indfor,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>Tasks:</h1></font color><br/>" + _br + (GETMVALUE(NATO_EXECUTION_Tasks_Indfor,"")) +  _br +
     "ENDTAB" +  _br +
     _br +
     "NEWTAB(""IV. Service Support:"")" +  _br +
     " "   + _br +
     "ENDTAB" +  _br +
     "NEWTAB(""   A. Support:"")" +  _br +
-    "<font color='#5BD527'><h1>Fires:</h1></font color><br/>" +  _br + (GETMVALUE(NATO_SANDS_SUPPORT_FIRES_INDFOR,"")) + "<br/><br/>" +  _br +
-    "<font color='#5BD527'><h1>Ammo:</h1></font color><br/>" +  _br + (GETMVALUE(NATO_SANDS_SUPPORT_AMMO_INDFOR,"")) +   _br +
+    "<font color='#5BD527'><h1>Fires:</h1></font color><br/>" +  _br + (GETMVALUE(NATO_SANDS_SUPPORT_FIRES_Indfor,"")) + "<br/><br/>" +  _br +
+    "<font color='#5BD527'><h1>Ammo:</h1></font color><br/>" +  _br + (GETMVALUE(NATO_SANDS_SUPPORT_AMMO_Indfor,"")) +   _br +
     "ENDTAB" +  _br +
     _br +
     "NEWTAB(""   B. Support: "")" +  _br +
-    "<font color='#5BD527'><h1>General:</h1></font color><br/>" + _br + (GETMVALUE(NATO_SANDS_SERVICE_GENERAL_INDFOR,"")) +  _br +
+    "<font color='#5BD527'><h1>General:</h1></font color><br/>" + _br + (GETMVALUE(NATO_SANDS_SERVICE_GENERAL_Indfor,"")) +  _br +
     "ENDTAB" +  _br +
     "NEWTAB(""V. Command & Signal:"")" +  _br +
     "" + _br +
     "ENDTAB" +  _br +
     "NEWTAB(""   A. Command:"")" + _br +
-    "<font color='#5BD527'><h1>General:</h1></font color><br/>" +  _br + (GETMVALUE(NATO_CANDS_COMMAND_INDFOR,"")) +   _br +
+    "<font color='#5BD527'><h1>General:</h1></font color><br/>" +  _br + (GETMVALUE(NATO_CANDS_COMMAND_Indfor,"")) +   _br +
     "ENDTAB" +  _br +
     "NEWTAB(""   B. Signals:"")" +  _br +
-    "<font color='#5BD527'><h1>Frequencies:</h1></font color><br/>" +  _br + (GETMVALUE(NATO_CANDS_Signals_FREQ_INDFOR,"")) + "<br/><br/>" +  _br +
-    "<font color='#5BD527'><h1>Codewords:</h1></font color><br/>" +  _br + (GETMVALUE(NATO_CANDS_Signals_CODEWORDS_INDFOR,"")) + "<br/><br/>" +  _br +
-    "<font color='#5BD527'><h1>Special Signals:</h1></font color><br/>" +  _br + (GETMVALUE(NATO_CANDS_Signals_SPECIAL_INDFOR,"")) + "<br/><br/>" +  _br +
-    "<font color='#5BD527'><h1>Callsigns:</h1></font color><br/>" +  _br + (GETMVALUE(NATO_CANDS_Signals_CALLSIGNS_INDFOR,"")) + "<br/><br/>" +  _br +
-    "<font color='#5BD527'><h1>Passwords:</h1></font color><br/>" +  _br + (GETMVALUE(NATO_CANDS_Signals_PASSWORDS_INDFOR,"")) +  _br +
+    "<font color='#5BD527'><h1>Frequencies:</h1></font color><br/>" +  _br + (GETMVALUE(NATO_CANDS_Signals_FREQ_Indfor,"")) + "<br/><br/>" +  _br +
+    "<font color='#5BD527'><h1>Codewords:</h1></font color><br/>" +  _br + (GETMVALUE(NATO_CANDS_Signals_CODEWORDS_Indfor,"")) + "<br/><br/>" +  _br +
+    "<font color='#5BD527'><h1>Special Signals:</h1></font color><br/>" +  _br + (GETMVALUE(NATO_CANDS_Signals_SPECIAL_Indfor,"")) + "<br/><br/>" +  _br +
+    "<font color='#5BD527'><h1>Callsigns:</h1></font color><br/>" +  _br + (GETMVALUE(NATO_CANDS_Signals_CALLSIGNS_Indfor,"")) + "<br/><br/>" +  _br +
+    "<font color='#5BD527'><h1>Passwords:</h1></font color><br/>" +  _br + (GETMVALUE(NATO_CANDS_Signals_PASSWORDS_Indfor,"")) +  _br +
     "ENDTAB" +  _br;
 };
 
@@ -339,47 +328,47 @@ _br +
 _br +
 _br +
 _br;
-if (GETMVALUE(Warsaw_INDFOR,false)) then {
+if (GETMVALUE(Warsaw_Indfor,false)) then {
     _export = _export + "NEWTAB(""I. Preliminaries:"")" +  _br +
-    "<font color='#5BD527'><h1>Weather:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Preliminaries_Weather_INDFOR,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Terrain:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Preliminaries_Terrain_INDFOR,"")) +  _br +
+    "<font color='#5BD527'><h1>Weather:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Preliminaries_Weather_Indfor,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>Terrain:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Preliminaries_Terrain_Indfor,"")) +  _br +
     "ENDTAB" +  _br +
     "NEWTAB(""II. Reference Points:"")" + _br +
-    "<font color='#5BD527'><h1>Deployment Reference Points:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Reference_DeploymentPoints_INDFOR,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Subsequent Reference Points:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Reference_SubsequentPoints_INDFOR,"")) +  _br +
+    "<font color='#5BD527'><h1>Deployment Reference Points:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Reference_DeploymentPoints_Indfor,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>Subsequent Reference Points:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Reference_SubsequentPoints_Indfor,"")) +  _br +
     "ENDTAB" +  _br +
     "NEWTAB(""III. Enemy:"")" + _br +
-    "<font color='#5BD527'><h1>Enemy Disposition:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Disp_INDFOR,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Enemy Equipment:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Equip_INDFOR,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Probable Enemy HQ Location:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Prob_HQ_INDFOR,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Probable Enemy Main Element Location:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Prob_Line_INDFOR,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Probable Enemy Direction of Attack:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Prob_Dir_Attack_INDFOR,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Probable Enemy Artillery Positions & Capability:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Prob_Arty_INDFOR,"")) + _br +
+    "<font color='#5BD527'><h1>Enemy Disposition:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Disp_Indfor,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>Enemy Equipment:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Equip_Indfor,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>Probable Enemy HQ Location:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Prob_HQ_Indfor,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>Probable Enemy Main Element Location:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Prob_Line_Indfor,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>Probable Enemy Direction of Attack:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Prob_Dir_Attack_Indfor,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>Probable Enemy Artillery Positions & Capability:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Prob_Arty_Indfor,"")) + _br +
     "ENDTAB" +  _br +
     "NEWTAB(""IV. Higher and Adjacent Units:"")" + _br +
-    "<font color='#5BD527'><h1>Description:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Higher_Disp_INDFOR,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Boundaries:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Higher_Boundary_INDFOR,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Location and Capability of Artillery:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Higher_Arty_INDFOR,"")) + _br +
+    "<font color='#5BD527'><h1>Description:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Higher_Disp_Indfor,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>Boundaries:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Higher_Boundary_Indfor,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>Location and Capability of Artillery:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Higher_Arty_Indfor,"")) + _br +
     "ENDTAB" +  _br +
     _br +
     "NEWTAB(""V. Mission:"")" + _br +
-    "<font color='#5BD527'><h1>Statement:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Mission_Desc_INDFOR,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>End State Direction:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Mission_DIR_INDFOR,"")) + _br +
+    "<font color='#5BD527'><h1>Statement:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Mission_Desc_Indfor,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>End State Direction:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Mission_DIR_Indfor,"")) + _br +
     "ENDTAB" +  _br +
     _br +
     "NEWTAB(""VI. Order:"")" + _br +
-    "<font color='#5BD527'><h1>Tasks:</h1></font color><br/>" + _br + (GETMVALUE(Warsaw_Order_Tasks_INDFOR,"")) + "<br/><br/>" +
-    "<font color='#5BD527'><h1>Tasks for Artillery Elements:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Order_Tasks_Arty_INDFOR,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Readiness Timings:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Order_Timings_INDFOR,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Signals:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Order_Signals_INDFOR,"")) + _br +
+    "<font color='#5BD527'><h1>Tasks:</h1></font color><br/>" + _br + (GETMVALUE(Warsaw_Order_Tasks_Indfor,"")) + "<br/><br/>" +
+    "<font color='#5BD527'><h1>Tasks for Artillery Elements:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Order_Tasks_Arty_Indfor,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>Readiness Timings:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Order_Timings_Indfor,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>Signals:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Order_Signals_Indfor,"")) + _br +
     "ENDTAB" +  _br +
     _br +
     "NEWTAB(""VII. Location of the Commander:"")" + _br +
-    "<font color='#5BD527'><h1>Location of the Commander:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_COMM_LOC_INDFOR,"")) +  _br +
+    "<font color='#5BD527'><h1>Location of the Commander:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_COMM_LOC_Indfor,"")) +  _br +
     "ENDTAB" +  _br +
     _br +
     "NEWTAB(""VIII. Succession of Command:"")" + _br +
-    "<font color='#5BD527'><h1>Succession of Command:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_SUCC_DESC_INDFOR,"")) + _br +
+    "<font color='#5BD527'><h1>Succession of Command:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_SUCC_DESC_Indfor,"")) + _br +
     "ENDTAB" +  _br;
 };
 
@@ -389,68 +378,68 @@ progressLoadingScreen 0.75;
 
 _export = _export + "case civilian:" + _br +
 "{" + _br;
-if (GETMVALUE(NATO_CIV,false)) then {
+if (GETMVALUE(NATO_Civilian,false)) then {
     //Situation
     _export = _export + "NEWTAB(""I. Situation:"")" + _br +
-    "<font color='#5BD527'><h1>Situation:</h1></font color><br/>" + _br + (GETMVALUE(NATO_SIT_Main_CIV,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Terrain:</h1></font color><br/>" + _br + (GETMVALUE(NATO_SIT_Terrain_CIV,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Key Terrain:</h1></font color><br/>" + _br + (GETMVALUE(NATO_SIT_KEYTerrain_CIV,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Weather:</h1></font color><br/>" + _br + (GETMVALUE(NATO_SIT_Weather_CIV,"")) + _br +
+    "<font color='#5BD527'><h1>Situation:</h1></font color><br/>" + _br + (GETMVALUE(NATO_SIT_Main_Civilian,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>Terrain:</h1></font color><br/>" + _br + (GETMVALUE(NATO_SIT_Terrain_Civilian,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>Key Terrain:</h1></font color><br/>" + _br + (GETMVALUE(NATO_SIT_KEYTerrain_Civilian,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>Weather:</h1></font color><br/>" + _br + (GETMVALUE(NATO_SIT_Weather_Civilian,"")) + _br +
     "ENDTAB" +  _br +
     _br +
     //Enemy
     "NEWTAB(""   A. Enemy Forces:"")" + _br +
-    "<font color='#5BD527'><h1>Disposition:</h1></font color><br/>" + _br + (GETMVALUE(NATO_Enemy_DIS_CIV,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Strength:</h1></font color><br/>" + _br + (GETMVALUE(NATO_Enemy_STRENGTH_CIV,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Equipment:</h1></font color><br/>" + _br + (GETMVALUE(NATO_Enemy_EQUIPMENT_CIV,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Appearance:</h1></font color><br/>" + _br + (GETMVALUE(NATO_Enemy_APPEARANCE_CIV,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>MLCOA:</h1></font color><br/>" + _br + (GETMVALUE(NATO_Enemy_MLCOA_CIV,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>MDCOA:</h1></font color><br/>" + _br + (GETMVALUE(NATO_Enemy_MDCOA_CIV,"")) + _br +
+    "<font color='#5BD527'><h1>Disposition:</h1></font color><br/>" + _br + (GETMVALUE(NATO_Enemy_DIS_Civilian,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>Strength:</h1></font color><br/>" + _br + (GETMVALUE(NATO_Enemy_STRENGTH_Civilian,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>Equipment:</h1></font color><br/>" + _br + (GETMVALUE(NATO_Enemy_EQUIPMENT_Civilian,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>Appearance:</h1></font color><br/>" + _br + (GETMVALUE(NATO_Enemy_APPEARANCE_Civilian,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>MLCOA:</h1></font color><br/>" + _br + (GETMVALUE(NATO_Enemy_MLCOA_Civilian,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>MDCOA:</h1></font color><br/>" + _br + (GETMVALUE(NATO_Enemy_MDCOA_Civilian,"")) + _br +
     "ENDTAB" +  _br +
     _br +
     //Friendly
     "NEWTAB(""   B. Friendly Forces:"")" + _br +
-    "<font color='#5BD527'><h1>Disposition:</h1></font color><br/>" + (GETMVALUE(NATO_FRIENDLY_DIS_CIV,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Higher Units:</h1></font color><br/>" + (GETMVALUE(NATO_FRIENDLY_Higher_CIV,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Strength:</h1></font color><br/>" + (GETMVALUE(NATO_Enemy_STRENGTH_CIV,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Appearance:</h1></font color><br/>" + (GETMVALUE(NATO_Enemy_APPEARANCE_CIV,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>Disposition:</h1></font color><br/>" + (GETMVALUE(NATO_FRIENDLY_DIS_Civilian,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>Higher Units:</h1></font color><br/>" + (GETMVALUE(NATO_FRIENDLY_Higher_Civilian,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>Strength:</h1></font color><br/>" + (GETMVALUE(NATO_Enemy_STRENGTH_Civilian,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>Appearance:</h1></font color><br/>" + (GETMVALUE(NATO_Enemy_APPEARANCE_Civilian,"")) + "<br/><br/>" + _br +
     "ENDTAB" +  _br +
     _br +
     //Mission
     "NEWTAB(""II. Mission:"")" +  _br +
-    "<font color='#5BD527'><h1>Mission:</h1></font color><br/>" + _br + (GETMVALUE(NATO_Mission_CIV,"")) + _br +
+    "<font color='#5BD527'><h1>Mission:</h1></font color><br/>" + _br + (GETMVALUE(NATO_Mission_Civilian,"")) + _br +
     "ENDTAB" +  _br +
     _br +
     "NEWTAB(""III. Execution:"")" + _br +
-    "<font color='#5BD527'><h1>Commanders Intent:</h1></font color><br/>" + _br + (GETMVALUE(NATO_EXECUTION_INTENT_CIV,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Maneuver:</h1></font color><br/>" + _br + (GETMVALUE(NATO_EXECUTION_MANEUVER_CIV,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Timings:</h1></font color><br/>" + _br + (GETMVALUE(NATO_EXECUTION_Timings_CIV,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Tasks:</h1></font color><br/>" + _br + (GETMVALUE(NATO_EXECUTION_Tasks_CIV,"")) +  _br +
+    "<font color='#5BD527'><h1>Commanders Intent:</h1></font color><br/>" + _br + (GETMVALUE(NATO_EXECUTION_INTENT_Civilian,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>Maneuver:</h1></font color><br/>" + _br + (GETMVALUE(NATO_EXECUTION_MANEUVER_Civilian,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>Timings:</h1></font color><br/>" + _br + (GETMVALUE(NATO_EXECUTION_Timings_Civilian,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>Tasks:</h1></font color><br/>" + _br + (GETMVALUE(NATO_EXECUTION_Tasks_Civilian,"")) +  _br +
     "ENDTAB" +  _br +
     _br +
     "NEWTAB(""IV. Service Support:"")" +  _br +
     " "   + _br +
     "ENDTAB" +  _br +
     "NEWTAB(""   A. Support:"")" +  _br +
-    "<font color='#5BD527'><h1>Fires:</h1></font color><br/>" +  _br + (GETMVALUE(NATO_SANDS_SUPPORT_FIRES_CIV,"")) + "<br/><br/>" +  _br +
-    "<font color='#5BD527'><h1>Ammo:</h1></font color><br/>" +  _br + (GETMVALUE(NATO_SANDS_SUPPORT_AMMO_CIV,"")) +   _br +
+    "<font color='#5BD527'><h1>Fires:</h1></font color><br/>" +  _br + (GETMVALUE(NATO_SANDS_SUPPORT_FIRES_Civilian,"")) + "<br/><br/>" +  _br +
+    "<font color='#5BD527'><h1>Ammo:</h1></font color><br/>" +  _br + (GETMVALUE(NATO_SANDS_SUPPORT_AMMO_Civilian,"")) +   _br +
     "ENDTAB" +  _br +
     _br +
     "NEWTAB(""   B. Support: "")" +  _br +
-    "<font color='#5BD527'><h1>General:</h1></font color><br/>" + _br + (GETMVALUE(NATO_SANDS_SERVICE_GENERAL_CIV,"")) +  _br +
+    "<font color='#5BD527'><h1>General:</h1></font color><br/>" + _br + (GETMVALUE(NATO_SANDS_SERVICE_GENERAL_Civilian,"")) +  _br +
     "ENDTAB" +  _br +
     "NEWTAB(""V. Command & Signal:"")" +  _br +
     "" + _br +
     "ENDTAB" +  _br +
     "NEWTAB(""   A. Command:"")" + _br +
-    "<font color='#5BD527'><h1>General:</h1></font color><br/>" +  _br + (GETMVALUE(NATO_CANDS_COMMAND_CIV,"")) +   _br +
+    "<font color='#5BD527'><h1>General:</h1></font color><br/>" +  _br + (GETMVALUE(NATO_CANDS_COMMAND_Civilian,"")) +   _br +
     "ENDTAB" +  _br +
     "NEWTAB(""   B. Signals:"")" +  _br +
-    "<font color='#5BD527'><h1>Frequencies:</h1></font color><br/>" +  _br + (GETMVALUE(NATO_CANDS_Signals_FREQ_CIV,"")) + "<br/><br/>" +  _br +
-    "<font color='#5BD527'><h1>Codewords:</h1></font color><br/>" +  _br + (GETMVALUE(NATO_CANDS_Signals_CODEWORDS_CIV,"")) + "<br/><br/>" +  _br +
-    "<font color='#5BD527'><h1>Special Signals:</h1></font color><br/>" +  _br + (GETMVALUE(NATO_CANDS_Signals_SPECIAL_CIV,"")) + "<br/><br/>" +  _br +
-    "<font color='#5BD527'><h1>Callsigns:</h1></font color><br/>" +  _br + (GETMVALUE(NATO_CANDS_Signals_CALLSIGNS_CIV,"")) + "<br/><br/>" +  _br +
-    "<font color='#5BD527'><h1>Passwords:</h1></font color><br/>" +  _br + (GETMVALUE(NATO_CANDS_Signals_PASSWORDS_CIV,"")) +  _br +
+    "<font color='#5BD527'><h1>Frequencies:</h1></font color><br/>" +  _br + (GETMVALUE(NATO_CANDS_Signals_FREQ_Civilian,"")) + "<br/><br/>" +  _br +
+    "<font color='#5BD527'><h1>Codewords:</h1></font color><br/>" +  _br + (GETMVALUE(NATO_CANDS_Signals_CODEWORDS_Civilian,"")) + "<br/><br/>" +  _br +
+    "<font color='#5BD527'><h1>Special Signals:</h1></font color><br/>" +  _br + (GETMVALUE(NATO_CANDS_Signals_SPECIAL_Civilian,"")) + "<br/><br/>" +  _br +
+    "<font color='#5BD527'><h1>Callsigns:</h1></font color><br/>" +  _br + (GETMVALUE(NATO_CANDS_Signals_CALLSIGNS_Civilian,"")) + "<br/><br/>" +  _br +
+    "<font color='#5BD527'><h1>Passwords:</h1></font color><br/>" +  _br + (GETMVALUE(NATO_CANDS_Signals_PASSWORDS_Civilian,"")) +  _br +
     "ENDTAB" +  _br;
 };
 
@@ -461,47 +450,47 @@ _br +
 _br +
 _br +
 _br;
-if (GETMVALUE(Warsaw_CIV,false)) then {
+if (GETMVALUE(Warsaw_Civilian,false)) then {
     _export = _export + "NEWTAB(""I. Preliminaries:"")" +  _br +
-    "<font color='#5BD527'><h1>Weather:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Preliminaries_Weather_CIV,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Terrain:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Preliminaries_Terrain_CIV,"")) +  _br +
+    "<font color='#5BD527'><h1>Weather:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Preliminaries_Weather_Civilian,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>Terrain:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Preliminaries_Terrain_Civilian,"")) +  _br +
     "ENDTAB" +  _br +
     "NEWTAB(""II. Reference Points:"")" + _br +
-    "<font color='#5BD527'><h1>Deployment Reference Points:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Reference_DeploymentPoints_CIV,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Subsequent Reference Points:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Reference_SubsequentPoints_CIV,"")) +  _br +
+    "<font color='#5BD527'><h1>Deployment Reference Points:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Reference_DeploymentPoints_Civilian,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>Subsequent Reference Points:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Reference_SubsequentPoints_Civilian,"")) +  _br +
     "ENDTAB" +  _br +
     "NEWTAB(""III. Enemy:"")" + _br +
-    "<font color='#5BD527'><h1>Enemy Disposition:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Disp_CIV,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Enemy Equipment:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Equip_CIV,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Probable Enemy HQ Location:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Prob_HQ_CIV,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Probable Enemy Main Element Location:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Prob_Line_CIV,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Probable Enemy Direction of Attack:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Prob_Dir_Attack_CIV,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Probable Enemy Artillery Positions & Capability:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Prob_Arty_CIV,"")) + _br +
+    "<font color='#5BD527'><h1>Enemy Disposition:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Disp_Civilian,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>Enemy Equipment:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Equip_Civilian,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>Probable Enemy HQ Location:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Prob_HQ_Civilian,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>Probable Enemy Main Element Location:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Prob_Line_Civilian,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>Probable Enemy Direction of Attack:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Prob_Dir_Attack_Civilian,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>Probable Enemy Artillery Positions & Capability:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Prob_Arty_Civilian,"")) + _br +
     "ENDTAB" +  _br +
     "NEWTAB(""IV. Higher and Adjacent Units:"")" + _br +
-    "<font color='#5BD527'><h1>Description:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Higher_Disp_CIV,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Boundaries:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Higher_Boundary_CIV,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Location and Capability of Artillery:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Higher_Arty_CIV,"")) + _br +
+    "<font color='#5BD527'><h1>Description:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Higher_Disp_Civilian,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>Boundaries:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Higher_Boundary_Civilian,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>Location and Capability of Artillery:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Higher_Arty_Civilian,"")) + _br +
     "ENDTAB" +  _br +
     _br +
     "NEWTAB(""V. Mission:"")" + _br +
-    "<font color='#5BD527'><h1>Statement:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Mission_Desc_CIV,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>End State Direction:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Mission_DIR_CIV,"")) + _br +
+    "<font color='#5BD527'><h1>Statement:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Mission_Desc_Civilian,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>End State Direction:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Mission_DIR_Civilian,"")) + _br +
     "ENDTAB" +  _br +
     _br +
     "NEWTAB(""VI. Order:"")" + _br +
-    "<font color='#5BD527'><h1>Tasks:</h1></font color><br/>" + _br + (GETMVALUE(Warsaw_Order_Tasks_CIV,"")) + "<br/><br/>" +
-    "<font color='#5BD527'><h1>Tasks for Artillery Elements:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Order_Tasks_Arty_CIV,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Readiness Timings:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Order_Timings_CIV,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Signals:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Order_Signals_CIV,"")) + _br +
+    "<font color='#5BD527'><h1>Tasks:</h1></font color><br/>" + _br + (GETMVALUE(Warsaw_Order_Tasks_Civilian,"")) + "<br/><br/>" +
+    "<font color='#5BD527'><h1>Tasks for Artillery Elements:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Order_Tasks_Arty_Civilian,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>Readiness Timings:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Order_Timings_Civilian,"")) + "<br/><br/>" + _br +
+    "<font color='#5BD527'><h1>Signals:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Order_Signals_Civilian,"")) + _br +
     "ENDTAB" +  _br +
     _br +
     "NEWTAB(""VII. Location of the Commander:"")" + _br +
-    "<font color='#5BD527'><h1>Location of the Commander:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_COMM_LOC_CIV,"")) +  _br +
+    "<font color='#5BD527'><h1>Location of the Commander:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_COMM_LOC_Civilian,"")) +  _br +
     "ENDTAB" +  _br +
     _br +
     "NEWTAB(""VIII. Succession of Command:"")" + _br +
-    "<font color='#5BD527'><h1>Succession of Command:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_SUCC_DESC_CIV,"")) + _br +
+    "<font color='#5BD527'><h1>Succession of Command:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_SUCC_DESC_Civilian,"")) + _br +
     "ENDTAB" +  _br;
 };
 

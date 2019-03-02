@@ -37,14 +37,14 @@ UO_FW_EXEC_CHECK(CLIENT);
                 case independent: {
                     _DefaultAO = (GETMVAR(DefaultAO_Indfor,""));
                     if (_DefaultAO isEqualto "") exitwith {
-                        ERROR("No Default INDFOR Area defined for CoverMap!");
+                        ERROR("No Default Indfor Area defined for CoverMap!");
                     };
                     if ((GVAR(AOArray) findif {_DefaultAO isEqualto (_x select 0)}) isEqualto -1) exitwith {
-                        ERROR_1("Default CoverMap INDFOR area: %1 does not exist!",_DefaultAO);
+                        ERROR_1("Default CoverMap Indfor area: %1 does not exist!",_DefaultAO);
                     };
                 };
                 case civilian: {
-                    _DefaultAO = (GETMVAR(DefaultAO_Civ,""));
+                    _DefaultAO = (GETMVAR(DefaultAO_Civilian,""));
                     if (_DefaultAO isEqualto "") exitwith {
                         ERROR("No Default Civilian Area defined for CoverMap!");
                     };

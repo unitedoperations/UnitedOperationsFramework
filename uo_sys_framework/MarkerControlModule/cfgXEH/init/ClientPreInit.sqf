@@ -52,7 +52,7 @@ UO_FW_EXEC_CHECK(CLIENT);
         } else {
             _markers pushBack [independent, _x];
         };
-    } forEach (GETMVAR(INDFORBriefing,[]));
+    } forEach (GETMVAR(IndforBriefing,[]));
     {
         if !((getMissionLayerEntities _x) isEqualTo []) then {
             if !(((getMissionLayerEntities _x) select 1) isEqualto []) then {
@@ -61,7 +61,7 @@ UO_FW_EXEC_CHECK(CLIENT);
         } else {
             _markersBriefing pushBack [independent, _x];
         };
-    } forEach (GETMVAR(INDFORBriefingMarkers,[]));
+    } forEach (GETMVAR(IndforBriefingMarkers,[]));
     {
         if !((getMissionLayerEntities _x) isEqualTo []) then {
             if !(((getMissionLayerEntities _x) select 1) isEqualto []) then {

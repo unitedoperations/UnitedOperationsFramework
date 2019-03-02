@@ -53,23 +53,23 @@ switch (_side) do {
         };
     };
     case independent: {
-        _respawnTypeNum = GETMVARUO(hasDeparted_INDFOR,false);
+        _respawnTypeNum = GETMVARUO(hasDeparted_Indfor,false);
         if (_count >= _ratio * ([_team, 4] call EFUNC(Core,getTeamVariable))) then {
             if (_respawnTypeNum) then {
                 _result = true;
             };
         } else {
-            SETMPVAR(hasDeparted_INDFOR,true);
+            SETMPVAR(hasDeparted_Indfor,true);
         };
     };
     case civilian: {
-        _respawnTypeNum = GETMVARUO(hasDeparted_CIV,false);
+        _respawnTypeNum = GETMVARUO(hasDeparted_Civilian,false);
         if (_count >= _ratio * ([_team, 4] call EFUNC(Core,getTeamVariable))) then {
             if (_respawnTypeNum) then {
                 _result = true;
             };
         } else {
-            SETMPVAR(hasDeparted_CIV,true);
+            SETMPVAR(hasDeparted_Civilian,true);
         };
     };
     default {_result = false;};

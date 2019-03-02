@@ -20,11 +20,11 @@ switch (side player) do {
         _respawnType = ["ONELIFE","UNLIMITED","INDTICK","TEAMTICK"] select _respawnTypeNum;
     };
     case independent: {
-        private _respawnTypeNum = GETMVARUO(Respawn_Type_INDFOR,0);
+        private _respawnTypeNum = GETMVARUO(Respawn_Type_Indfor,0);
         _respawnType = ["ONELIFE","UNLIMITED","INDTICK","TEAMTICK"] select _respawnTypeNum;
     };
     case civilian: {
-        private _respawnTypeNum = GETMVARUO(Respawn_Type_CIV,0);
+        private _respawnTypeNum = GETMVARUO(Respawn_Type_Civilian,0);
         _respawnType = ["ONELIFE","UNLIMITED","INDTICK","TEAMTICK"] select _respawnTypeNum;
     };
 };

@@ -33,12 +33,12 @@ if !(GVAR(ExpendedAmmunition_OPFOR) isEqualto []) then {
     _ShotCount_textOPF = "";
 };
 
-if !(GVAR(ExpendedAmmunition_INDFOR) isEqualto []) then {
+if !(GVAR(ExpendedAmmunition_Indfor) isEqualto []) then {
     _ShotCount_textIND = "INDEPENDENT Munitions Expended:<br/>";
     {
         _x params ["_label","_count"];
         _ShotCount_textIND = _ShotCount_textIND + _label + ": " + str(_count) + " Rounds" + "<br/>";
-    } foreach GVAR(ExpendedAmmunition_INDFOR);
+    } foreach GVAR(ExpendedAmmunition_Indfor);
 } else {
     _ShotCount_textIND = "";
 };
@@ -48,7 +48,7 @@ if !(GVAR(ExpendedAmmunition_Civilian) isEqualto []) then {
     {
         _x params ["_label","_count"];
         _ShotCount_textCIV = _ShotCount_textCIV + _label + ": " + str(_count) + " Rounds" + "<br/>";
-    } foreach GVAR(ExpendedAmmunition_CIV);
+    } foreach GVAR(ExpendedAmmunition_Civilian);
 } else {
     _ShotCount_textCIV = "";
 };

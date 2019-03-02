@@ -8,6 +8,6 @@ UO_FW_EXEC_CHECK(SERVER);
     GVAR(Sides) = [];
     if (GETMVAR(BluforDelete,true)) then {GVAR(Sides) pushBack WEST;};
     if (GETMVAR(OpforDelete,true)) then {GVAR(Sides) pushBack EAST;};
-    if (GETMVAR(INDFORDelete,true)) then {GVAR(Sides) pushBack INDEPENDENT;};
+    if (GETMVAR(IndforDelete,true)) then {GVAR(Sides) pushBack INDEPENDENT;};
     if (GETMVAR(CIVDelete,true)) then {GVAR(Sides) pushBack CIVILIAN;};
 }] call CBA_fnc_addEventHandler;

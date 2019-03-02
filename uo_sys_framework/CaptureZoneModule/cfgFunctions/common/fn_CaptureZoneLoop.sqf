@@ -157,7 +157,7 @@ if (!(_this call FUNC(ValidateCaptureZone))) exitWith {
             };
             if (_ratio > _ratioNeeded) then {
                 //a team has enough ratio for control!
-                _owner = ["BLUFOR","OPFOR","INDFOR","CIVILIAN"] select _maxindex;
+                _owner = ["BLUFOR","OPFOR","Indfor","CIVILIAN"] select _maxindex;
 
                 switch (_owner) do {
                     case "BLUFOR": {
@@ -254,7 +254,7 @@ if (!(_this call FUNC(ValidateCaptureZone))) exitWith {
                             };
                         };
                     };
-                    case "INDFOR": {
+                    case "Indfor": {
                         if (_owner isEqualto _oldOwner) then {
                             if (_indforCapMode isEqualTo 0) then {
                                 _argNested set [6,(_ownerControlCount + 1)];
@@ -273,7 +273,7 @@ if (!(_this call FUNC(ValidateCaptureZone))) exitWith {
                                         };
                                     };
                                     missionNamespace setVariable [_varName,true,true];
-                                    missionNamespace setVariable [_teamControllingvarName,"INDFOR",true];
+                                    missionNamespace setVariable [_teamControllingvarName,"Indfor",true];
                                     if !(_repeatable) exitWith {
                                         if !(_hidden) then {
                                             _marker setMarkerAlpha 0.5;

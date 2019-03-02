@@ -7,8 +7,8 @@ if (GETMVAR(Enabled_6,false)) then {
         private _conditionsCountCategory6 = 0;
         if (GETMVAR(CasualtyCount_BLUFOR_6,false)) then {_conditionsCountCategory6 = _conditionsCountCategory6 + 1;};
         if (GETMVAR(CasualtyCount_OPFOR_6,false)) then {_conditionsCountCategory6 = _conditionsCountCategory6 + 1;};
-        if (GETMVAR(CasualtyCount_INDFOR_6,false)) then {_conditionsCountCategory6 = _conditionsCountCategory6 + 1;};
-        if (GETMVAR(CasualtyCount_CIV_6,false)) then {_conditionsCountCategory6 = _conditionsCountCategory6 + 1;};
+        if (GETMVAR(CasualtyCount_Indfor_6,false)) then {_conditionsCountCategory6 = _conditionsCountCategory6 + 1;};
+        if (GETMVAR(CasualtyCount_Civilian_6,false)) then {_conditionsCountCategory6 = _conditionsCountCategory6 + 1;};
 
         if (!(GETMVAR(EntitiesAlive_Array_6,[]) isEqualto [])) then {_conditionsCountCategory6 = _conditionsCountCategory6 + 1;};
         if (!(GETMVAR(EntitiesDead_Array_6,[]) isEqualto [])) then {_conditionsCountCategory6 = _conditionsCountCategory6 + 1;};
@@ -29,36 +29,36 @@ if (GETMVAR(Enabled_6,false)) then {
                 private _ConditionCheckList = [];
 
                 //Casualty Checks
-                private _BluforCasConditionCheck = false;
+                private _CasConditionCheck_Blufor = false;
 
                 if (GETMVAR(CasualtyCount_BLUFOR_6,false)) then {
                     private _westCasualty = EGVAR(Core,TeamName_Blufor) call EFUNC(Core,CasualtyPercentage);
-                    if (_westCasualty >= GETMVAR(CasualtyCount_BLUFOR_Percentage_6,75)) then {_BluforCasConditionCheck = true;} else {_BluforCasConditionCheck = false;};
-                    _ConditionCheckList pushback ["BLUFOR Cas Check",_BluforCasConditionCheck];
+                    if (_westCasualty >= GETMVAR(CasualtyCount_Percentage_BLUFOR_6,75)) then {_CasConditionCheck_Blufor = true;} else {_CasConditionCheck_Blufor = false;};
+                    _ConditionCheckList pushback ["BLUFOR Cas Check",_CasConditionCheck_Blufor];
                 };
 
-                private _OpforCasConditionCheck = false;
+                private _CasConditionCheck_Opfor = false;
 
                 if (GETMVAR(CasualtyCount_OPFOR_6,false)) then {
                     private _eastCasualty = EGVAR(Core,TeamName_Opfor) call EFUNC(Core,CasualtyPercentage);
-                    if (_eastCasualty >= GETMVAR(CasualtyCount_OPFOR_Percentage_6,75)) then {_OpforCasConditionCheck = true;} else {_OpforCasConditionCheck = false;};
-                    _ConditionCheckList pushback ["OPFOR Cas Check",_OpforCasConditionCheck];
+                    if (_eastCasualty >= GETMVAR(CasualtyCount_Percentage_OPFOR_6,75)) then {_CasConditionCheck_Opfor = true;} else {_CasConditionCheck_Opfor = false;};
+                    _ConditionCheckList pushback ["OPFOR Cas Check",_CasConditionCheck_Opfor];
                 };
 
-                private _IndforCasConditionCheck = false;
+                private _CasConditionCheck_Indfor = false;
 
-                if (GETMVAR(CasualtyCount_INDFOR_6,false)) then {
+                if (GETMVAR(CasualtyCount_Indfor_6,false)) then {
                     private _resCasualty = EGVAR(Core,TeamName_Indfor) call EFUNC(Core,CasualtyPercentage);
-                    if (_resCasualty >= GETMVAR(CasualtyCount_INDFOR_Percentage_6,75)) then {_IndforCasConditionCheck = true;} else {_IndforCasConditionCheck = false;};
-                    _ConditionCheckList pushback ["INDFOR Cas Check",_IndforCasConditionCheck];
+                    if (_resCasualty >= GETMVAR(CasualtyCount_Percentage_Indfor_6,75)) then {_CasConditionCheck_Indfor = true;} else {_CasConditionCheck_Indfor = false;};
+                    _ConditionCheckList pushback ["Indfor Cas Check",_CasConditionCheck_Indfor];
                 };
 
-                private _CIVCasConditionCheck = false;
+                private _CasConditionCheck_Civilian = false;
 
-                if (GETMVAR(CasualtyCount_CIV_6,false)) then {
+                if (GETMVAR(CasualtyCount_Civilian_6,false)) then {
                     private _civCasualty = EGVAR(Core,TeamName_Civilian) call EFUNC(Core,CasualtyPercentage);
-                    if (_civCasualty >= GETMVAR(CasualtyCount_CIV_Percentage_6,75)) then {_CIVCasConditionCheck = true;} else {_CIVCasConditionCheck = false;};
-                    _ConditionCheckList pushback ["CIVILIAN Cas Check",_CIVCasConditionCheck];
+                    if (_civCasualty >= GETMVAR(CasualtyCount_Percentage_Civilian_6,75)) then {_CasConditionCheck_Civilian = true;} else {_CasConditionCheck_Civilian = false;};
+                    _ConditionCheckList pushback ["CIVILIAN Cas Check",_CasConditionCheck_Civilian];
                 };
 
                 //alive entity block
@@ -182,7 +182,7 @@ if (GETMVAR(Enabled_6,false)) then {
                                     };
                                 };
                                 case 3: {
-                                    if ((missionNamespace getVariable [_teamControllingvarName,false]) isEqualto "INDFOR") then {
+                                    if ((missionNamespace getVariable [_teamControllingvarName,false]) isEqualto "Indfor") then {
                                         _CaptureZoneConditionCheck = true;
                                     } else {
                                         _CaptureZoneConditionCheck = false;

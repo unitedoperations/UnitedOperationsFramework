@@ -285,9 +285,9 @@ UO_FW_EXEC_CHECK(CLIENT);
                     _PKType = ["NONE","ACRE_PRC117F","ACRE_PRC77","ACRE_SEM70"] select GVAR(PK_Type_OPFOR);
                 };
                 case independent: {
-                    _SRType = ["NONE","ACRE_PRC343","ACRE_SEM52SL"] select GVAR(SR_Type_INDFOR);
-                    _LRType = ["NONE","ACRE_PRC148","ACRE_PRC152"] select GVAR(LR_Type_INDFOR);
-                    _PKType = ["NONE","ACRE_PRC117F","ACRE_PRC77","ACRE_SEM70"] select GVAR(PK_Type_INDFOR);
+                    _SRType = ["NONE","ACRE_PRC343","ACRE_SEM52SL"] select GVAR(SR_Type_Indfor);
+                    _LRType = ["NONE","ACRE_PRC148","ACRE_PRC152"] select GVAR(LR_Type_Indfor);
+                    _PKType = ["NONE","ACRE_PRC117F","ACRE_PRC77","ACRE_SEM70"] select GVAR(PK_Type_Indfor);
                 };
                 case civilian: {
                     _SRType = ["NONE","ACRE_PRC343","ACRE_SEM52SL"] select GVAR(SR_Type_CIVILIAN);

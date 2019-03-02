@@ -23,12 +23,12 @@ switch (side player) do {
         _distance = GETMVAR(Distance_OPFOR,200);
     };
     case independent: {
-        _type = GETMVAR(Type_INDFOR,0);
-        _distance = GETMVAR(Distance_INDFOR,200);
+        _type = GETMVAR(Type_Indfor,0);
+        _distance = GETMVAR(Distance_Indfor,200);
     };
     case civilian: {
-        _type = GETMVAR(Type_CIV,0);
-        _distance = GETMVAR(Distance_CIV,200);
+        _type = GETMVAR(Type_Civilian,0);
+        _distance = GETMVAR(Distance_Civilian,200);
     };
 };
 

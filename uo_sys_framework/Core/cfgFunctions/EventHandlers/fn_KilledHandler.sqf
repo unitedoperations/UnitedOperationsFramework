@@ -19,12 +19,12 @@ switch (side player) do {
         _templateSettings = EGETMVAR(Respawn,Templates_OPFOR,[]);
     };
     case independent: {
-        _delay = EGETMVAR(Respawn,Delay_INDFOR,5);
-        _templateSettings = EGETMVAR(Respawn,Templates_INDFOR,[]);
+        _delay = EGETMVAR(Respawn,Delay_Indfor,5);
+        _templateSettings = EGETMVAR(Respawn,Templates_Indfor,[]);
     };
     case civilian: {
-        _delay = EGETMVAR(Respawn,Delay_CIV,5);
-        _templateSettings = EGETMVAR(Respawn,Templates_CIV,[]);
+        _delay = EGETMVAR(Respawn,Delay_Civilian,5);
+        _templateSettings = EGETMVAR(Respawn,Templates_Civilian,[]);
     };
 };
 

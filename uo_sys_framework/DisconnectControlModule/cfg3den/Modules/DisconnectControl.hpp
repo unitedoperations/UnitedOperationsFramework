@@ -41,8 +41,8 @@ class UO_FW_DisconnectControl {
             defaultValue = "true";
             typeName = "BOOL";
         };
-        class EGVAR(DisconnectControl,INDFORDelete) {
-            property = QEGVAR(DisconnectControl,INDFORDelete);
+        class EGVAR(DisconnectControl,IndforDelete) {
+            property = QEGVAR(DisconnectControl,IndforDelete);
             displayName = "Delete Independent?";
             tooltip = "Should Independent units be deleted";
             control = "Checkbox";

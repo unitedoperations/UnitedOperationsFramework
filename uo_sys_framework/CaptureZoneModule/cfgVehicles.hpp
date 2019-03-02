@@ -117,29 +117,29 @@ class UO_FW_CaptureZoneModule: OlsenModule {
             defaultValue = "['OPFOR is capturing the zone!','OPFOR has captured the zone!']";
             validate = "none";
         };
-        class EGVAR(CaptureZone,Cap_INDFOR) {
+        class EGVAR(CaptureZone,Cap_Indfor) {
             displayName = "Independent";
             tooltip = "Whether or not the team can capture the zone, and whether they are checked in the player count.";
-            property = QEGVAR(CaptureZone,Cap_INDFOR);
+            property = QEGVAR(CaptureZone,Cap_Indfor);
             control = "UO_FW_CaptureZone_TeamAttribute";
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "0";
             typeName = "number";
         };
-        class EGVAR(CaptureZone,Time_INDFOR) {
+        class EGVAR(CaptureZone,Time_Indfor) {
             displayName = "Independent Time";
             tooltip = "Time needed for Independent to capture the zone in seconds. Set to 0 for instant capture";
-            property = QEGVAR(CaptureZone,Time_INDFOR);
+            property = QEGVAR(CaptureZone,Time_Indfor);
             control = "UO_FW_0To600Step1_Slider";
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "30";
             typeName = "NUMBER";
             validate = "number";
         };
-        class EGVAR(CaptureZone,Message_INDFOR) {
+        class EGVAR(CaptureZone,Message_Indfor) {
             displayName = "Independent Message";
             tooltip = "Message to display when Independent is capturing the zone and when they capture the zone. Leave empty to disable this hint";
-            property = QEGVAR(CaptureZone,Message_INDFOR);
+            property = QEGVAR(CaptureZone,Message_Indfor);
             control = "EditStringArray";
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "['Independent is capturing the zone!','Independent has captured the zone!']";
@@ -148,7 +148,7 @@ class UO_FW_CaptureZoneModule: OlsenModule {
         class EGVAR(CaptureZone,Cap_Civilian) {
             displayName = "Civilian";
             tooltip = "Whether or not the team can capture the zone, and whether they are checked in the player count.";
-            property = QEGVAR(CaptureZone,Cap_CIV);
+            property = QEGVAR(CaptureZone,Cap_Civilian);
             control = "UO_FW_CaptureZone_TeamAttribute";
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "0";
@@ -157,7 +157,7 @@ class UO_FW_CaptureZoneModule: OlsenModule {
         class EGVAR(CaptureZone,Time_Civilian) {
             displayName = "Civilian Time";
             tooltip = "Time needed for Civilian to capture the zone in seconds. Set to 0 for instant capture";
-            property = QEGVAR(CaptureZone,Time_CIV);
+            property = QEGVAR(CaptureZone,Time_Civilian);
             control = "UO_FW_0To600Step1_Slider";
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "30";
@@ -167,7 +167,7 @@ class UO_FW_CaptureZoneModule: OlsenModule {
         class EGVAR(CaptureZone,Message_Civilian) {
             displayName = "Civilian Message";
             tooltip = "Message to display when Civilian is capturing the zone and when they capture the zone. Leave empty to disable this hint";
-            property = QEGVAR(CaptureZone,Message_CIV);
+            property = QEGVAR(CaptureZone,Message_Civilian);
             control = "EditStringArray";
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "['Civilian is capturing the zone!','Civilian has captured the zone!']";
@@ -205,7 +205,7 @@ class UO_FW_CaptureZoneModule: OlsenModule {
         };
         class EGVAR(CaptureZone,Colours) {
             displayName = "Colours";
-            tooltip = "Array of colours used for the map markers when zone status changes. Colours are respective with BLUFOR, OPFOR, INDFOR, Civilian, Uncontrolled, and Contested.";
+            tooltip = "Array of colours used for the map markers when zone status changes. Colours are respective with BLUFOR, OPFOR, Indfor, Civilian, Uncontrolled, and Contested.";
             property = QEGVAR(CaptureZone,Colours);
             control = "EditStringArray";
             expression = UO_FW_MODULE_EXPRESSION;

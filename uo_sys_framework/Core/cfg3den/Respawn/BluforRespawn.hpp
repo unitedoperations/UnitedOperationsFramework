@@ -124,7 +124,7 @@ class EGVAR(Spectator,Blufor) {
             displayName = "Spectate Teams";
             tooltip = "Teams that this team can spectate.";
             control = "UO_FW_SpectateTeams_Attribute";
-            defaultValue = "['BLUFOR','OPFOR','INDFOR','CIVILIAN']";
+            defaultValue = "['BLUFOR','OPFOR','Indfor','CIVILIAN']";
             expression = UO_FW_SCENARIO_EXPRESSION;
         };
         class EGVAR(Spectator,KillCam_Blufor) {
