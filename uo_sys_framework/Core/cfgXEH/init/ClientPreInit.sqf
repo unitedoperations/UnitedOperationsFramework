@@ -11,7 +11,7 @@ LOG("Client Pre Init");
     if !(local _playerUnit) exitwith {};
     {
         _x params ["_propertyName","_value"];
-        SETPLVAR(_propertyName,_value);
+        player setvariable [_propertyName,_value];
     } foreach _varArray;
     ["UO_FW_SettingsLoaded", []] call CBA_fnc_localEvent;
 }] call CBA_fnc_addEventHandler;
@@ -176,5 +176,5 @@ LOG("Client Pre Init");
     // Player can JiP, initialize player vars and EHs
     ["UO_FW_PlayerInitEH_Event", []] call CBA_fnc_localEvent;
     ["UO_FW_PlayerInit_Event", []] call CBA_fnc_localEvent;
-    [] call FUNC(JiP,GiveActions);
+    [] call EFUNC(JiP,GiveActions);
 }] call CBA_fnc_addEventHandler;

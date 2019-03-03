@@ -54,12 +54,16 @@ MESSAGE call EFUNC(Core,DebugMessage)
 
 #define SETVAR(var1,var2,var3) var1 SETVAR_SYS(var2,var3)
 #define ESETVAR(var1,var2,var3,var4) var1 ESETVAR_SYS(var2,var3,var4)
-#define SETMVAR(var1,var2) missionNamespace SETVAR_SYS(var1,var2)
-#define ESETMVAR(var1,var2,var3) missionNamespace ESETVAR_SYS(var2,var3,var4)
-#define SETMPVAR(var1,var2) missionNamespace SETPVAR_SYS(var1,var2)
-#define ESETMPVAR(var1,var2,var3) missionNamespace ESETPVAR_SYS(var2,var3,var4)
-#define SETPVAR(var1,var2,var3y) var1 SETPVAR_SYS(var2,var3)
+#define SETPVAR(var1,var2,var3) var1 SETPVAR_SYS(var2,var3)
 #define ESETPVAR(var1,var2,var3,var4) var1 ESETPVAR_SYS(var2,var3,var4)
+
+#define SETMVAR(var1,var2) missionNamespace SETVAR_SYS(var1,var2)
+#define ESETMVAR(var1,var2,var3) missionNamespace ESETVAR_SYS(var1,var2,var3)
+#define SETMPVAR(var1,var2) missionNamespace SETPVAR_SYS(var1,var2)
+#define ESETMPVAR(var1,var2,var3) missionNamespace ESETPVAR_SYS(var1,var2,var3)
+
+#define SETPLVAR(var1,var2) player SETVAR_SYS(var1,var2)
+#define ESETPLVAR(var1,var2,var3) player ESETVAR_SYS(var1,var2,var3)
 #define SETPLPVAR(var1,var2) player SETPVAR_SYS(var1,var2)
 #define ESETPLPVAR(var1,var2,var3) player ESETPVAR_SYS(var1,var2,var3)
 

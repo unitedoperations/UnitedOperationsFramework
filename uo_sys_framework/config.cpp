@@ -1,4 +1,4 @@
-#include "script_macros.hpp"
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
 #include "\x\UO_FW\addons\Main\config_macros.hpp"
 
 class CfgPatches {

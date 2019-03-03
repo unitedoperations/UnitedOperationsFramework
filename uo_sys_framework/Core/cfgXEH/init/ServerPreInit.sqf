@@ -134,40 +134,40 @@ LOG("Server Pre Init");
             //Team Tickets
             switch (side _unit) do {
                 case west: {
-                    private _ticketsRemaining = GETMVARUO(TeamTicketsRemaining_Blufor,30);
+                    private _ticketsRemaining = EGETMVAR(Respawn,TeamTicketsRemaining_Blufor,30);
                     if (_ticketsRemaining > 0) then {
                         DEC(_ticketsRemaining);
-                        SETMVARUO(TeamTicketsRemaining_Blufor,_ticketsRemaining);
+                        ESETMVAR(Respawn,TeamTicketsRemaining_Blufor,_ticketsRemaining);
                         ["UO_FW_PlayerRespawn_RecieveTicketEvent", [_unit,true,"TEAM",_ticketsRemaining], [_unit]] call CBA_fnc_targetEvent;
                     } else {
                         ["UO_FW_PlayerRespawn_RecieveTicketEvent", [_unit,false,"TEAM",_ticketsRemaining], [_unit]] call CBA_fnc_targetEvent;
                     };
                 };
                 case east: {
-                    private _ticketsRemaining = GETMVARUO(TeamTicketsRemaining_Opfor,30);
+                    private _ticketsRemaining = EGETMVAR(Respawn,TeamTicketsRemaining_Opfor,30);
                     if (_ticketsRemaining > 0) then {
                         DEC(_ticketsRemaining);
-                        SETMVARUO(TeamTicketsRemaining_Opfor,_ticketsRemaining);
+                        ESETMVAR(Respawn,TeamTicketsRemaining_Opfor,_ticketsRemaining);
                         ["UO_FW_PlayerRespawn_RecieveTicketEvent", [_unit,true,"TEAM",_ticketsRemaining], [_unit]] call CBA_fnc_targetEvent;
                     } else {
                         ["UO_FW_PlayerRespawn_RecieveTicketEvent", [_unit,false,"TEAM",_ticketsRemaining], [_unit]] call CBA_fnc_targetEvent;
                     };
                 };
                 case independent: {
-                    private _ticketsRemaining = GETMVARUO(TeamTicketsRemaining_Indfor,30);
+                    private _ticketsRemaining = EGETMVAR(Respawn,TeamTicketsRemaining_Indfor,30);
                     if (_ticketsRemaining > 0) then {
                         DEC(_ticketsRemaining);
-                        SETMVARUO(TeamTicketsRemaining_Indfor,_ticketsRemaining);
+                        ESETMVAR(Respawn,TeamTicketsRemaining_Indfor,_ticketsRemaining);
                         ["UO_FW_PlayerRespawn_RecieveTicketEvent", [_unit,true,"TEAM",_ticketsRemaining], [_unit]] call CBA_fnc_targetEvent;
                     } else {
                         ["UO_FW_PlayerRespawn_RecieveTicketEvent", [_unit,false,"TEAM",_ticketsRemaining], [_unit]] call CBA_fnc_targetEvent;
                     };
                 };
                 case civilian: {
-                    private _ticketsRemaining = GETMVARUO(TeamTicketsRemaining_Civilian,30);
+                    private _ticketsRemaining = EGETMVAR(Respawn,TeamTicketsRemaining_Civilian,30);
                     if (_ticketsRemaining > 0) then {
                         DEC(_ticketsRemaining);
-                        SETMVARUO(TeamTicketsRemaining_Civilian,_ticketsRemaining);
+                        ESETMVAR(Respawn,TeamTicketsRemaining_Civilian,_ticketsRemaining);
                         ["UO_FW_PlayerRespawn_RecieveTicketEvent", [_unit,true,"TEAM",_ticketsRemaining], [_unit]] call CBA_fnc_targetEvent;
                     } else {
                         ["UO_FW_PlayerRespawn_RecieveTicketEvent", [_unit,false,"TEAM",_ticketsRemaining], [_unit]] call CBA_fnc_targetEvent;

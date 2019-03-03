@@ -23,7 +23,7 @@ class EGVAR(Gear,Configure_Indfor) {
     action = "edit3DENMissionAttributes 'UO_FW_GearSettings_Indfor';";
 };
 
-class EGVAR(Gear,_Configure_Civilian) {
+class EGVAR(Gear,Configure_Civilian) {
     text = "Configure Civilian Gear";
     action = "edit3DENMissionAttributes 'UO_FW_GearSettings_Civilian';";
 };
@@ -36,7 +36,7 @@ class EGVAR(Gear,Folder) {
         QEGVAR(Gear,Configure_Blufor),
         QEGVAR(Gear,Configure_Opfor),
         QEGVAR(Gear,Configure_Indfor),
-        QEGVAR(Gear,_Configure_Civilian)
+        QEGVAR(Gear,Configure_Civilian)
     };
     picture = "\a3\3DEN\Data\Displays\Display3DEN\EntityMenu\arsenal_ca.paa";
 };
