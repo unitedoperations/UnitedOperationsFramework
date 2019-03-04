@@ -44,9 +44,10 @@ Adding radios through the ACRE module can only be done on playable units!
 6. Select units and open their ACRE attribute and choose what radio(s) to give them.
 * ![image-title-here]({{ site.baseurl }}/resources/images/acre/acre_radios_6.png){:class="img-responsive"}
 
-6. Load the mission into multiplayer.
+7. Load the mission into multiplayer.
 
 The playable units you assigned radios will now have radios when starting your mission!
+
 
 ### Adding Rack Radios
 

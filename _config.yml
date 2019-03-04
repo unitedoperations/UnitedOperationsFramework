@@ -19,9 +19,9 @@
 
 title: UO Framework
 description: Documentation for the United Operation Framework
-baseurl: /UnitedOperationsFramework # the subpath of your site, e.g. /blog
-url: https://thecogdoctor.github.io # the base hostname & protocol for your site, e.g. http://example.com
-repository: https://github.com/thecogdoctor/UnitedOperationsFramework
+baseurl: UnitedOperationsFramework # the subpath of your site, e.g. /blog
+url: https://unitedoperations.github.io # the base hostname & protocol for your site, e.g. http://example.com
+repository: https://github.com/unitedoperations/UnitedOperationsFramework
 branch: gh-pages
 
 permalink: pretty
@@ -49,7 +49,6 @@ color_scheme: dark
 ga_tracking:
 
 #theme: "just-the-docs"
-
 include:
     - "resources"
 
