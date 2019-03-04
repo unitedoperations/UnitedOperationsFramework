@@ -42,11 +42,11 @@ Adding radios through the ACRE module can only be done on playable units!
 * ![image-title-here]({{ site.baseurl }}/resources/images/acre/acre_radios_blufor_radios.png){:class="img-responsive"}
 
 6. Select units and open their ACRE attribute and choose what radio(s) to give them.
-* ![image-title-here]({{ site.baseurl }}/resources/images/acre/acre_radios_5.png){:class="img-responsive"}
+* ![image-title-here]({{ site.baseurl }}/resources/images/acre/acre_radios_6.png){:class="img-responsive"}
 
 6. Load the mission into multiplayer.
 
-The playable and AI units you assigned radios will now have	 radios when starting your mission!
+The playable units you assigned radios will now have radios when starting your mission!
 
 ### Adding Rack Radios
 
@@ -60,12 +60,12 @@ _**FEATURE IS WIP**_
 
 3. Select "Configure ACRE Settings"
 
-3. 
+TODO
 
 ### Channel Names
 
-
+TODO
 
 # Functions and Eventhandlers
 
-
+TODO

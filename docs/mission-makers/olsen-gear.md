@@ -2,14 +2,24 @@
 layout: default
 title: Using Olsen Gear Scripts
 nav_order: 2
-parent: Modules
+parent: Users
 ---
+
+---
+
+EXAMPLE/TUTORIAL VIDEO FOR THIS PAGE
+
+
+<!-- Should video be at the top or the bottom of the page(s) ? -->
+	
+1. TOC
+{:toc}
 
 # Olsen Gear Scripts via the UO Framework
 
-GearScript.sqf
-
-```sqf
+## Step 1
+```
+//GearScript.sqf
 #define random(MIN, MAX) \
 ([MIN, MAX] call UO_FW_FNC_RandomRange)
 _temp = "";
@@ -34,9 +44,12 @@ _unit call UO_FW_FNC_RemoveAllGear;
 
 If you're porting gear scripts from the olsen framework you need to include this at the top of your GearScript.sqf file.
 
+## Step 2
+
 Next, if your gear scripts are not going solely within GearScript.sqf, add you must add a file called **``GearDef.hpp``** and add this code to it;
 
-```sqf
+```
+//GearDef.hpp
 #define random(MIN, MAX) \
 ([MIN, MAX] call FNC_RandomRange)
 
@@ -64,3 +77,25 @@ Place this in a folder with your gear scripts such as ``loadouts``.
 
 The path to your file would then be ``loadouts/GearDef.hpp``
 
+## Step 3
+
+Select the UO Framework button at the top of the editor and select "Configure Gear", followed by "Configure Gear Settings" where you need to check the "Enable Olsen System" checkbox.
+
+EXAMPLE IMAGE(S) OF ENABLING THE OLSEN GEAR SYSTEM
+
+After selecting the Olsen gear system, add whatever gearscripts (.sqf files) you want in the folder alongside ``GearDef.hpp``.
+
+You will need to specify the varnames for certain roles in the UOFW available rules. (These also include a few custom slots if needed.)
+
+EXAMPLE IMAGE(S) OF UNIT ROLES USING OLSEN VARNAMES
+
+Next select the units you want to assign loadouts to through the UOFW system by going into the unit(s) attributes. Here you can specify what loadout the unit should be using or you can just directly call the var-name of the loadout you want the unit to use.
+
+EXAMPLE IMAGES OF UNIT ATTRIBUTE SETTINGS
+
+Load your mission into multiplayer and your gear will be added to all AI and playable units you specified.
+
+EXAMPLE IMAGES OF UNIT(S) LOADED IN WITH UOFW BASED GEAR
+
+# Important Note
+Mission-makers, you can always use the UOFW ACE3 based loadouts system in conjunction with the Olsen Loadout system at the same time!

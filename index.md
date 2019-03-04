@@ -39,7 +39,9 @@ You should always feel-free to report any issues you encounter with the framewor
 
 ## About the project
 
-The United Operations Framework is a project originally made @PiZZAD0X and @Reyfin for the [United Operations](https://unitedoperations.net) Arma 3 community.
+The United Operations Framework is a project originally made by [@PiZZAD0X](https://github.com/PiZZAD0X) and [@ChrSacher](https//github.com/ChrSacher/) for the [United Operations](https://unitedoperations.net) community.
+
+These docs are maintained primarily by [@TheTrainDoctor](https://github.com/thecogdoctor/).
 
 ### License
 
