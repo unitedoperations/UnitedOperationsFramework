@@ -1,8 +1,9 @@
 ---
 layout: default
 title: ACRE Module
-nav_order: 2
-parent: Modules
+nav_order: 1
+parent: Core Modules
+grand_parent: Modules
 ---
 
 ---
