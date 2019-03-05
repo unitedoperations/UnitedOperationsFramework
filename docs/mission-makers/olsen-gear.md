@@ -53,9 +53,13 @@ switch (_type) do {
 };
 ```
 
-Ensure that your main gear file is called ``gear.sqf``, that it is located in your misson root and lastly, that it includes all the relevant loadouts you want to use.
+Ensure that your main gear file is called ``gear.sqf`` and that it is located in your mission root folder.
 
-All Olsen framework function calls will automatically be converted to UO Framework calls so long as everything is properly included.
+Ex: ``MissionNameExample.IslandName/gear.sqf`` and ``MissionNameExample.IslandName/loadouts/``. 
+
+It also must include all the relevant loadouts you want to use within your ``loadouts`` folder.
+
+**All Olsen framework function calls will automatically be converted to UO Framework calls so long as everything is properly included.**
 
 Now, select the UO Framework button at the top of the editor and select "Configure Gear", followed by "Configure Gear Settings" where you need to check the "Enable Olsen System" checkbox.
 
@@ -72,6 +76,8 @@ EXAMPLE IMAGES OF UNIT ATTRIBUTE SETTINGS
 Load your mission into multiplayer and your gear will be added to all AI and playable units you specified.
 
 EXAMPLE IMAGES OF UNIT(S) LOADED IN WITH UOFW BASED GEAR
+
+---
 
 # Important Note
 Mission-makers, you can always use the UOFW ACE3 based loadouts system in conjunction with the Olsen Loadout system at the same time!

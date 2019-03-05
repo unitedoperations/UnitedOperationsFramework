@@ -3,8 +3,7 @@ layout: default
 title: Core Modules
 alt_title: Core Modules Index
 use_title: true
-parent: Modules
-nav_order: 1
+nav_order: 3
 has_children: true
 permalink: /docs/toc/core/core-modules/
 ---

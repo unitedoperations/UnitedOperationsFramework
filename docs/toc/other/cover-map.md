@@ -3,5 +3,5 @@ layout: default
 title: Cover-map Module
 nav_order: 3
 parent: Other Modules
-grand_parent: Modules
+# grand_parent: Modules
 ---

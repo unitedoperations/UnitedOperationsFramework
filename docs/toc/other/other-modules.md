@@ -3,8 +3,7 @@ layout: default
 title: Other Modules
 alt_title: Misc. Modules Index
 use_title: true
-parent: Modules
-nav_order: 3
+nav_order: 5
 has_children: true
 permalink: /docs/toc/other/other-modules/
 ---

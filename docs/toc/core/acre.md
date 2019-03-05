@@ -3,7 +3,7 @@ layout: default
 title: ACRE Module
 nav_order: 1
 parent: Core Modules
-grand_parent: Modules
+# grand_parent: Modules
 ---
 
 ---
@@ -13,7 +13,7 @@ grand_parent: Modules
 
 ---
 
-# Functionality
+# Users
 
 Provides an efficient in-editor system for:
 - Adding [ACRE2](https://github.com/IDI-Systems/acre2) radios to players
@@ -26,7 +26,7 @@ Adding radios through the ACRE module can only be done on playable units!
 
 ---
 
-### Adding Radios
+## Adding Radios
 
 1. Open the UO Framework menu.
 * ![image-title-here]({{ site.baseurl }}/resources/images/acre/acre_radios_1.png){:class="img-responsive"}
@@ -51,13 +51,13 @@ The playable units you assigned radios will now have radios when starting your m
 
 ---
 
-### Adding Rack Radios
+## Adding Vehicle Racks
 
-_**FEATURE IS WIP**_
+_**WIP**_
 
 ---
 
-### Radio Scrambling, Babel and Channel Names
+## Radio Scrambling, Babel and Channel Names
 
 1. Open the UO Framework menu.
 * ![image-title-here]({{ site.baseurl }}/resources/images/acre/acre_radios_1.png){:class="img-responsive"}
@@ -68,8 +68,24 @@ _**FEATURE IS WIP**_
 3. Check the "Enable Scramble" and "Enable Babel" checkboxes as desired.
 * ![image-title-here]({{ site.baseurl }}/resources/images/acre/acre_scramble_babel.png){:class="img-responsive"}
 
+4. Customize what languages each side uses. Each side must be customized individually.
+* ![image-title-here]({{ site.baseurl }}/resources/images/acre/acre_radios_sides.png){:class="img-responsive"}
+
 You will now have per-side scrambling and babel.
 
-In order to customize what languages each side uses, configure the side of your choosing through ACRE settings.
-
 ---
+
+# Developers
+
+## WIP
+This subsection will contain explanations of the functions created for the framework.
+It should not contain explanations of CBA function calls etc.
+Major event-handlers that developers can use themselves for certain tasks should also be documented and explained here.
+
+## Functions
+
+_**WIP**_
+
+## Eventhandlers
+
+_**WIP**_
