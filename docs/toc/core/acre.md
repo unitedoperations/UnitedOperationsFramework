@@ -34,7 +34,7 @@ Adding radios through the ACRE module can only be done on playable units!
 2. Select Configure ACRE.
 * ![image-title-here]({{ site.baseurl }}/resources/images/acre/acre_radios_2.png){:class="img-responsive"}
 
-3. Select "Configure ACRE Settings" and check the "Enable ACRE Framework checkbox".
+3. Select "Configure ACRE Settings" and check the "Enable ACRE Framework" checkbox.
 
 4. Select the side you want to specify radios for.
 * ![image-title-here]({{ site.baseurl }}/resources/images/acre/acre_radios_sides.png){:class="img-responsive"}
@@ -54,20 +54,20 @@ The playable units you assigned radios will now have radios when starting your m
 
 _**FEATURE IS WIP**_
 
-### Radio Scrambling and Babel
+### Radio Scrambling, Babel and Channel Names
 
 1. Open the UO Framework menu.
+* ![image-title-here]({{ site.baseurl }}/resources/images/acre/acre_radios_1.png){:class="img-responsive"}
 
-2. Select ACRE settings.
+2. Select "Configure ACRE".
 
 3. Select "Configure ACRE Settings"
+* ![image-title-here]({{ site.baseurl }}/resources/images/acre/acre_radios_2.png){:class="img-responsive"}
 
-TODO
+4. Check the "Enable Scramble" and "Enable Babel" checkboxes as desired.
+* ![image-title-here]({{ site.baseurl }}/resources/images/acre/acre_scramble_babel.png){:class="img-responsive"}
 
-### Channel Names
+You will now have per-side scrambling and babel.
 
-TODO
+In order to customize what languages each side uses, configure the side of your choosing through ACRE settings.
 
-# Functions and Eventhandlers
-
-TODO
