@@ -10,13 +10,13 @@ class EGVAR(Hostage,Attributes) {
             expression = "\
                 private _propertyName = '%s';\
                 _this setVariable [_propertyName, _value];\
-                diag_log format ['queued _fncName: %1','UO_FW_fnc_HostageSet'];\
+                diag_log format ['queued _fncName: %1','UO_FW_fnc_Hostage_Set'];\
                 [{CBA_missionTime > 1},{\
                 	params ['_object','_propertyName','_value','_fncName'];\
                 	if (local _object) then {\
-                        diag_log format ['_object: %1 calling %2',_object,'UO_FW_fnc_HostageSet'];\
-                		[_object,_value] call EFUNC(Hostage,Set);\
-                	}\
+                        diag_log format ['_object: %1 calling %2',_object,'UO_FW_fnc_Hostage_Set'];\
+                		[_object,_value] call UO_FW_fnc_Hostage_Set;\
+                	};\
                 },[_this,_propertyName,_value]] call CBA_fnc_WaitUntilAndExecute;\
             ";
             condition = "objectControllable ";

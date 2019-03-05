@@ -3,6 +3,10 @@
 UO_FW_EXEC_CHECK(ALL);
 UO_FW_3DEN_CHECK;
 
+if (!(EGETMVALUE(Gear,ACEAR_System_Enabled,false)) && {!(EGETMVALUE(Gear,Olsen_Enabled,false))}) exitwith {
+    ESETPLPVAR(Gear,GearReady,true);
+};
+
 params ["_object"];
 LOG_1("_object: %1",_object);
 LOG_1("_object UnitSystemType: %1",GETVAR(_object,UnitSystemType,"NONE"));

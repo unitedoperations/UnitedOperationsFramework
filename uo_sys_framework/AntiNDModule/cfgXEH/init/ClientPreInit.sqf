@@ -3,7 +3,7 @@
 UO_FW_EXEC_CHECK(CLIENT);
 
 ["UO_FW_AntiND_Event", {
-    if !(UO_FW_Server_ANTINDMODULE_Allowed) exitwith {};
+    if !(UO_FW_Server_AntiNDModule_Allowed) exitwith {};
     if !(GVAR(Enabled)) exitwith {};
     ["UO_FW_RegisterModuleEvent", ["Anti ND", "Extra Safety for mission start", "Starfox64, PiZZADOX and Sacher"]] call CBA_fnc_localEvent;
     [{(!isNull player)}, {
@@ -23,8 +23,10 @@ UO_FW_EXEC_CHECK(CLIENT);
                 };
             };
         }];
-        player setvariable [QEGVAR(AntiND,ND_EHid),_FiredEh];
-        player setvariable [QEGVAR(AntiND,ND_Active),true];
+        SETPLVAR(ND_EHid,_FiredEh);
+        SETPLVAR(ND_Active,true);
+        //player setvariable [QEGVAR(AntiND,),];
+        //player setvariable [QEGVAR(AntiND,ND_Active),true];
         [{(CBA_missionTime > GVAR(Time))},{player removeEventHandler ["Fired", _this]; SETPLVAR(ND_EHid,"DISABLED"); SETPLVAR(ND_Active,false);},_FiredEh] call CBA_fnc_waitUntilAndExecute;
     }] call CBA_fnc_waitUntilAndExecute;
 }] call CBA_fnc_addEventHandler;

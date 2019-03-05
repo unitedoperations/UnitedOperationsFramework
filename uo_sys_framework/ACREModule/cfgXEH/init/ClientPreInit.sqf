@@ -306,7 +306,8 @@ UO_FW_EXEC_CHECK(CLIENT);
 
 ["UO_FW_ACRE_SetChannelAndEar_Event",{
     [{(CBA_missionTime > 1) &&  {[] call acre_api_fnc_isInitialized}},{
-        if (player getVariable ["UO_FW_ACRE_UNITSETTINGS_Enable", false]) then {
+        //if (player getVariable ["UO_FW_ACRE_UNITSETTINGS_Enable", false]) then {
+        if (GETPLVAR(UnitSettings_Enable,false)) then {
             {
                 private _radioID = [_x] call acre_api_fnc_getRadioByType;
                 if (!isNil "_radioID") then {

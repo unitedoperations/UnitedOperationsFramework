@@ -1,3 +1,3 @@
 class EGVAR(Gear,Handler) {
-    attributesChanged3DEN = "_this call EFUNC(Gear,GearHandleEH);";
+    attributesChanged3DEN = QUOTE(_this call EFUNC(Gear,GearHandleEH););
 };

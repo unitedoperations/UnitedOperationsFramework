@@ -17,7 +17,8 @@ UO_FW_EXEC_CHECK(CLIENTHC);
         LOG_1("_systemType: %1",_systemType);
         private _gearType = (GETPLVAR(UnitGearType,"NONE"));
         LOG_1("_gearType: %1",_gearType);
-        player setvariable [QGVAR(GearClass),_gearType,true];
+        SETPLPVAR(GearClass,_gearType);
+        //player setvariable [QGVAR(GearClass),_gearType,true];
         if (_systemType isEqualto "NONE") exitwith {
             LOG_1("No gear system set for unit: %1",player);
             SETPLPVAR(GearReady,true);

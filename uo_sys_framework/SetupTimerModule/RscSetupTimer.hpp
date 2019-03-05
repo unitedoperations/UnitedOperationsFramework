@@ -1,5 +1,5 @@
 class UO_FW_RscSetupTimer {
-    onLoad="_this call EFUNC(SetupTimer,SetupTimerInit);";
+    onLoad= QUOTE(_this call EFUNC(SetupTimer,SetupTimerInit););
     idd=-1;
     duration=1200;
     movingEnable=0;
