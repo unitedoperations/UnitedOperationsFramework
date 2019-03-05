@@ -39,16 +39,16 @@ _unit forceAddUniform uniform _caller;
 _unit addVest vest _caller;
 _unit addHeadGear headGear _caller;
 
-SETPVAR(_target,driver,_unit);
-
 _unit moveInDriver _target;
 _unit setBehaviour "COMBAT";
 
+SETPVAR(_target,driver,_unit);
+
 doStop _unit;
 
-GVAR(LastTimeIn) = time;
+GVAR(LastTimeIn) = CBA_missionTime;
 
-[{vehicle (_this select 0) != _this select 0}, { //waiting for spawned unit to get into vehicle
+[{(vehicle (_this select 0)) != (_this select 0)}, { //waiting for spawned unit to get into vehicle
     private _pfhHandle = [{
         params ["_args","_pfhID"];
         _args params ["_unit", "_target", "_caller"];
@@ -59,20 +59,21 @@ GVAR(LastTimeIn) = time;
             doStop _unit;
         } else {
             _unit enableAI "Path";
-            GVAR(LastTimeIn) = time;
+            GVAR(LastTimeIn) = CBA_missionTime;
         };
-        if ((CBA_missionTime > 120 + (GVAR(LastTimeIn)))
+        if ((CBA_missionTime > 30 + (GETMVAR(LastTimeIn,CBA_missionTime)))
             || !alive _target
             || !alive _caller
             || !alive _unit
             || (vehicle _unit != _target)
-            || (vehicle _unit != vehicle _caller)
             || (driver _target != _unit)
-        ) then {
+            || ((GETVAR(_target,driver,objNull)) isEqualTo objNull)
+        ) exitwith {
             [_target, _caller] call FUNC(removeUnit);
+            [_pfhID] call CBA_fnc_removePerFrameHandler;
         };
     }, 1, _this] call CBA_fnc_addPerFrameHandler;
-    SETPVAR((_this select 1),pfhID,[(_this select 2), _pfhHandle]);
+    SETPVAR((_this select 1),pfhID,[ARR_2((_this select 2), _pfhHandle)]);
 }, [_unit, _target, _caller]] call CBA_fnc_WaitUntilAndExecute;
 
 GVAR(Vehicle) = _target;

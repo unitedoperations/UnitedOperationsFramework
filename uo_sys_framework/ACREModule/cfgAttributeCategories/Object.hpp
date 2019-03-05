@@ -24,7 +24,7 @@ class EGVAR(ACRE,UnitOptions) {
             property = QEGVAR(ACRE,SR_RADIO_CHANNEL);
             displayName = "Short Range Radio Channel";
             tooltip = "Sets the short range radio channel of this unit";
-            control = "UO_FW_ACRE_ChannelSelect";
+            control = QEGVAR(Acre,ChannelSelect);
             expression = UO_FW_ENTITY_EXPRESSION;
             condition = "objectControllable";
             defaultValue = "1";
@@ -51,7 +51,7 @@ class EGVAR(ACRE,UnitOptions) {
             property = QEGVAR(ACRE,LR_RADIO_CHANNEL);
             displayName = "Long Range Radio Channel";
             tooltip = "Sets the long range radio channel of this unit";
-            control = "UO_FW_ACRE_ChannelSelect";
+            control = QEGVAR(Acre,ChannelSelect);
             expression = UO_FW_ENTITY_EXPRESSION;
             condition = "objectControllable";
             defaultValue = "1";
@@ -78,7 +78,7 @@ class EGVAR(ACRE,UnitOptions) {
             property = QEGVAR(ACRE,PK_RADIO_CHANNEL);
             displayName = "Pack Radio Channel";
             tooltip = "Sets the long range pack radio channel of this unit";
-            control = "UO_FW_ACRE_ChannelSelect";
+            control = QEGVAR(Acre,ChannelSelect);
             expression = UO_FW_ENTITY_EXPRESSION;
             condition = "objectControllable";
             defaultValue = "1";
@@ -87,7 +87,7 @@ class EGVAR(ACRE,UnitOptions) {
             property = QEGVAR(ACRE,PK_RADIO_EAR);
             displayName = "Pack Radio Ear";
             tooltip = "Sets the long range pack radio earpiece setting";
-            control = "UO_FW_ACRE_EarSetting";
+            control = QEGVAR(Acre,ChannelSelect);
             expression = UO_FW_ENTITY_EXPRESSION;
             condition = "objectControllable";
             defaultValue = "0";

@@ -1,4 +1,4 @@
-class UO_FW_ACRE_SR_SELECT: Toolbox {
+class EGVAR(Acre,SR_SELECT): Toolbox {
     attributeLoad ="\
         private _name = gettext (_config >> 'property');\
         missionNamespace setvariable [_name,_value];\
@@ -34,7 +34,7 @@ class UO_FW_ACRE_SR_SELECT: Toolbox {
     };
 };
 
-class UO_FW_ACRE_LR_SELECT: Toolbox {
+class EGVAR(Acre,LR_SELECT): Toolbox {
     attributeLoad ="\
         private _name = gettext (_config >> 'property');\
         missionNamespace setvariable [_name,_value];\
@@ -57,9 +57,9 @@ class UO_FW_ACRE_LR_SELECT: Toolbox {
             w = "82 * (pixelW * pixelGrid * 0.50)";
             h = "6 * (pixelH * pixelGrid * 0.50)";
             rows = 1;
-            columns = 3;
-            strings[] = {"NONE","PRC-148","PRC-152"};
-            values[] = {0,1,2};
+            columns = 4;
+            strings[] = {"NONE","PRC-343","PRC-148","PRC-152"};
+            values[] = {0,1,2,3};
             onToolboxSelChanged ="\
                 params ['_control','_value'];\
                 private _config = _control getvariable ['UO_FW_ParentCfg',''];\
@@ -70,7 +70,7 @@ class UO_FW_ACRE_LR_SELECT: Toolbox {
     };
 };
 
-class UO_FW_ACRE_PK_SELECT: Toolbox {
+class EGVAR(Acre,PK_SELECT): Toolbox {
     attributeLoad ="\
         private _name = gettext (_config >> 'property');\
         missionNamespace setvariable [_name,_value];\

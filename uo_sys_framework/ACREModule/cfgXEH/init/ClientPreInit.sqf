@@ -276,22 +276,22 @@ UO_FW_EXEC_CHECK(CLIENT);
             switch (side player) do {
                 case west: {
                     _SRType = ["NONE","ACRE_PRC343","ACRE_SEM52SL"] select GVAR(SR_Type_BLUFOR);
-                    _LRType = ["NONE","ACRE_PRC148","ACRE_PRC152"] select GVAR(LR_Type_BLUFOR);
+                    _LRType = ["NONE","ACRE_PRC343","ACRE_PRC148","ACRE_PRC152"] select GVAR(LR_Type_BLUFOR);
                     _PKType = ["NONE","ACRE_PRC117F","ACRE_PRC77","ACRE_SEM70"] select GVAR(PK_Type_BLUFOR);
                 };
                 case east: {
                     _SRType = ["NONE","ACRE_PRC343","ACRE_SEM52SL"] select GVAR(SR_Type_OPFOR);
-                    _LRType = ["NONE","ACRE_PRC148","ACRE_PRC152"] select GVAR(LR_Type_OPFOR);
+                    _LRType = ["NONE","ACRE_PRC343","ACRE_PRC148","ACRE_PRC152"] select GVAR(LR_Type_OPFOR);
                     _PKType = ["NONE","ACRE_PRC117F","ACRE_PRC77","ACRE_SEM70"] select GVAR(PK_Type_OPFOR);
                 };
                 case independent: {
                     _SRType = ["NONE","ACRE_PRC343","ACRE_SEM52SL"] select GVAR(SR_Type_Indfor);
-                    _LRType = ["NONE","ACRE_PRC148","ACRE_PRC152"] select GVAR(LR_Type_Indfor);
+                    _LRType = ["NONE","ACRE_PRC343","ACRE_PRC148","ACRE_PRC152"] select GVAR(LR_Type_Indfor);
                     _PKType = ["NONE","ACRE_PRC117F","ACRE_PRC77","ACRE_SEM70"] select GVAR(PK_Type_Indfor);
                 };
                 case civilian: {
                     _SRType = ["NONE","ACRE_PRC343","ACRE_SEM52SL"] select GVAR(SR_Type_CIVILIAN);
-                    _LRType = ["NONE","ACRE_PRC148","ACRE_PRC152"] select GVAR(LR_Type_CIVILIAN);
+                    _LRType = ["NONE","ACRE_PRC343","ACRE_PRC148","ACRE_PRC152"] select GVAR(LR_Type_CIVILIAN);
                     _PKType = ["NONE","ACRE_PRC117F","ACRE_PRC77","ACRE_SEM70"] select GVAR(PK_Type_CIVILIAN);
                 };
                 default {};
@@ -333,7 +333,7 @@ UO_FW_EXEC_CHECK(CLIENT);
                     };
                     [_radioID, (["CENTER", "LEFT", "RIGHT"] select (GETPLVAR(LR_RADIO_EAR,0)))] call acre_api_fnc_setRadioSpatial;
                 };
-            } forEach ["ACRE_PRC148", "ACRE_PRC152"];
+            } forEach ["ACRE_PRC343", "ACRE_PRC148", "ACRE_PRC152"];
 
             {
                 private _radioID = [_x] call acre_api_fnc_getRadioByType;

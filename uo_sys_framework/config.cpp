@@ -312,6 +312,7 @@ class Extended_PreInit_EventHandlers {
 	#include "ACREModule\cfgXEH\PreInit.hpp"
 	#include "AIDriversModule\cfgXEH\PreInit.hpp"
 	#include "AILinkModule\cfgXEH\PreInit.hpp"
+	#include "HostageModule\cfgXEH\PreInit.hpp"
 	#include "HeadlessAIModule\cfgXEH\PreInit.hpp"
 };
 

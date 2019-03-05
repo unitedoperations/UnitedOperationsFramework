@@ -1,4 +1,4 @@
-class UO_FW_ACRE_EarSetting: Title {
+class EGVAR(Acre,EarSetting): Title {
     attributeLoad = "\
         private _unit = ((get3denselected 'object') select 0);\
         private _name = gettext (_config >> 'property');\

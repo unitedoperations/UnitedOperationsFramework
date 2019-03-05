@@ -1,6 +1,6 @@
 
 
-class UO_FW_AOLimitModule: OlsenModule {
+class EGVAR(AOLimit,AOLimitModule): OlsenModule {
     displayName = "AO Limit Module"; // Name displayed in the menu
     scope = 2; // Editor visibility; 2 will show it in the menu, 1 will hide it.
     // Name of function triggered once conditions are met
@@ -135,18 +135,11 @@ class UO_FW_AOLimitModule: OlsenModule {
     };
 };
 
-class UO_AOLimitModule : UO_FW_AOLimitModule {
-    scope = 0;
-};
 
-class UO_FW_AOLimitModule_R : UO_FW_AOLimitModule {
+class EGVAR(AOLimit,AOLimitModule_R) : EGVAR(AOLimit,AOLimitModule) {
     displayName = "AO Limit Module (Rectangle)"; // Name displayed in the menu
     class AttributeValues {
         size2[] = {100,100};
         IsRectangle = 1;
     };
-};
-
-class UO_AOLimitModule_R : UO_FW_AOLimitModule_R {
-    scope = 0;
 };

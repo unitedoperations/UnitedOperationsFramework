@@ -15,10 +15,7 @@ if (getMarkerColor _marker isEqualto "") exitwith {
     ERROR_1("hostage _marker: %1 does not exist!",_marker);
 };
 
-_marker setMarkerAlpha 0;
-
 ["UO_FW_Hostage_ACEActions_GlobalEvent", [_unit]] call CBA_fnc_globalEventJiP;
-
 _unit setBehaviour "CARELESS";
 _unit allowFleeing 0;
 _unit setCaptive true;

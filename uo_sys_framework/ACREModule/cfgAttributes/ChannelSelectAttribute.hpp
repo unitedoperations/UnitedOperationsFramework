@@ -1,4 +1,4 @@
-class UO_FW_ACRE_ChannelSelect: Title {
+class EGVAR(Acre,ChannelSelect): Title {
     attributeLoad = "\
         private _valuestr = str _value;\
         (_this controlsGroupCtrl 100) ctrlSetText _valuestr;\

@@ -6,7 +6,7 @@ class EGVAR(ACRE,RadioTypes_CAT_Civilian) {
             property = QEGVAR(ACRE,SR_Type_Civilian);
             displayName = "Short Range Radio Type";
             tooltip = "Sets the short range radio type for the side";
-            control = "UO_FW_ACRE_SR_Select";
+            control = QEGVAR(Acre,SR_SELECT);
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "0";
         };
@@ -14,7 +14,7 @@ class EGVAR(ACRE,RadioTypes_CAT_Civilian) {
             property = QEGVAR(ACRE,LR_Type_Civilian);
             displayName = "Long Range Radio Type";
             tooltip = "Sets the long range radio type for the side";
-            control = "UO_FW_ACRE_LR_Select";
+            control = QEGVAR(Acre,LR_SELECT);
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "0";
         };
@@ -22,7 +22,7 @@ class EGVAR(ACRE,RadioTypes_CAT_Civilian) {
             property = QEGVAR(ACRE,PK_Type_Civilian);
             displayName = "Long Range Pack Radio Type";
             tooltip = "Sets the long range pack radio type for the side";
-            control = "UO_FW_ACRE_PK_Select";
+            control = QEGVAR(Acre,PK_SELECT);
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "0";
         };

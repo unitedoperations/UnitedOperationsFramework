@@ -80,13 +80,31 @@ class UO_FW_CaptureZoneModule: OlsenModule {
             typeName = "NUMBER";
             validate = "number";
         };
-        class EGVAR(CaptureZone,Message_Blufor) {
-            displayName = "Blufor Message";
-            tooltip = "Message to display when Blufor is capturing the zone and when they capture the zone. Leave empty to disable this hint";
-            property = QEGVAR(CaptureZone,Message_Blufor);
-            control = "EditStringArray";
+        class EGVAR(CaptureZone,MessageCapturing_Blufor) {
+            displayName = "Blufor Capturing Message";
+            tooltip = "Message to display when Blufor is capturing the zone. Leave empty to disable this hint";
+            property = QEGVAR(CaptureZone,MessageCapturing_Blufor);
+            control = "Edit";
             expression = UO_FW_MODULE_EXPRESSION;
-            defaultValue = "['BLUFOR is capturing the zone!','BLUFOR has captured the zone!']";
+            defaultValue = "'BLUFOR is capturing the zone!'";
+            validate = "none";
+        };
+        class EGVAR(CaptureZone,MessageCaptured_Blufor) {
+            displayName = "Blufor Capturing Message";
+            tooltip = "Message to display when Blufor captures the zone. Leave empty to disable this hint";
+            property = QEGVAR(CaptureZone,MessageCaptured_Blufor);
+            control = "Edit";
+            expression = UO_FW_MODULE_EXPRESSION;
+            defaultValue = "'BLUFOR has captured the zone!'";
+            validate = "none";
+        };
+        class EGVAR(CaptureZone,Colour_Blufor) {
+            displayName = "Blufor Colour";
+            tooltip = "Blufor Colour";
+            property = QEGVAR(CaptureZone,Colour_Blufor);
+            control = QEGVAR(CaptureZone,ColourCombo);
+            expression = UO_FW_MODULE_EXPRESSION;
+            defaultValue = "'colorBLUFOR'";
             validate = "none";
         };
         class EGVAR(CaptureZone,Cap_Opfor) {
@@ -108,13 +126,31 @@ class UO_FW_CaptureZoneModule: OlsenModule {
             typeName = "NUMBER";
             validate = "number";
         };
-        class EGVAR(CaptureZone,Message_Opfor) {
-            displayName = "Opfor Message";
-            tooltip = "Message to display when Opfor is capturing the zone and when they capture the zone. Leave empty to disable this hint";
-            property = QEGVAR(CaptureZone,Message_Opfor);
-            control = "EditStringArray";
+        class EGVAR(CaptureZone,MessageCapturing_Opfor) {
+            displayName = "Opfor Capturing Message";
+            tooltip = "Message to display when Opfor is capturing the zone. Leave empty to disable this hint";
+            property = QEGVAR(CaptureZone,MessageCapturing_Opfor);
+            control = "Edit";
             expression = UO_FW_MODULE_EXPRESSION;
-            defaultValue = "['OPFOR is capturing the zone!','OPFOR has captured the zone!']";
+            defaultValue = "'Opfor is capturing the zone!'";
+            validate = "none";
+        };
+        class EGVAR(CaptureZone,MessageCaptured_Opfor) {
+            displayName = "Opfor Captured Message";
+            tooltip = "Message to display when Opfor captures the zone. Leave empty to disable this hint";
+            property = QEGVAR(CaptureZone,MessageCaptured_Opfor);
+            control = "Edit";
+            expression = UO_FW_MODULE_EXPRESSION;
+            defaultValue = "'Opfor has captured the zone!'";
+            validate = "none";
+        };
+        class EGVAR(CaptureZone,Colour_Opfor) {
+            displayName = "Opfor Colour";
+            tooltip = "Opfor Colour";
+            property = QEGVAR(CaptureZone,Colour_Opfor);
+            control = QEGVAR(CaptureZone,ColourCombo);
+            expression = UO_FW_MODULE_EXPRESSION;
+            defaultValue = "'colorOPFOR'";
             validate = "none";
         };
         class EGVAR(CaptureZone,Cap_Indfor) {
@@ -136,13 +172,31 @@ class UO_FW_CaptureZoneModule: OlsenModule {
             typeName = "NUMBER";
             validate = "number";
         };
-        class EGVAR(CaptureZone,Message_Indfor) {
-            displayName = "Independent Message";
-            tooltip = "Message to display when Independent is capturing the zone and when they capture the zone. Leave empty to disable this hint";
-            property = QEGVAR(CaptureZone,Message_Indfor);
-            control = "EditStringArray";
+        class EGVAR(CaptureZone,MessageCapturing_Indfor) {
+            displayName = "Indfor Capturing Message";
+            tooltip = "Message to display when Indfor is capturing the zone. Leave empty to disable this hint";
+            property = QEGVAR(CaptureZone,MessageCapturing_Indfor);
+            control = "Edit";
             expression = UO_FW_MODULE_EXPRESSION;
-            defaultValue = "['Independent is capturing the zone!','Independent has captured the zone!']";
+            defaultValue = "'Indfor is capturing the zone!'";
+            validate = "none";
+        };
+        class EGVAR(CaptureZone,MessageCaptured_Indfor) {
+            displayName = "Indfor Captured Message";
+            tooltip = "Message to display when Indfor captures the zone. Leave empty to disable this hint";
+            property = QEGVAR(CaptureZone,MessageCaptured_Indfor);
+            control = "Edit";
+            expression = UO_FW_MODULE_EXPRESSION;
+            defaultValue = "'Indfor has captured the zone!'";
+            validate = "none";
+        };
+        class EGVAR(CaptureZone,Colour_Indfor) {
+            displayName = "Indfor Colour";
+            tooltip = "Indfor Colour";
+            property = QEGVAR(CaptureZone,Colour_Indfor);
+            control = QEGVAR(CaptureZone,ColourCombo);
+            expression = UO_FW_MODULE_EXPRESSION;
+            defaultValue = "'colorIndependent'";
             validate = "none";
         };
         class EGVAR(CaptureZone,Cap_Civilian) {
@@ -164,13 +218,31 @@ class UO_FW_CaptureZoneModule: OlsenModule {
             typeName = "NUMBER";
             validate = "number";
         };
-        class EGVAR(CaptureZone,Message_Civilian) {
-            displayName = "Civilian Message";
-            tooltip = "Message to display when Civilian is capturing the zone and when they capture the zone. Leave empty to disable this hint";
-            property = QEGVAR(CaptureZone,Message_Civilian);
-            control = "EditStringArray";
+        class EGVAR(CaptureZone,MessageCapturing_Civilian) {
+            displayName = "Civilian Capturing Message";
+            tooltip = "Message to display when Civilian is capturing the zone. Leave empty to disable this hint";
+            property = QEGVAR(CaptureZone,MessageCapturing_Civilian);
+            control = "Edit";
             expression = UO_FW_MODULE_EXPRESSION;
-            defaultValue = "['Civilian is capturing the zone!','Civilian has captured the zone!']";
+            defaultValue = "'Civilian is capturing the zone!'";
+            validate = "none";
+        };
+        class EGVAR(CaptureZone,MessageCaptured_Civilian) {
+            displayName = "Civilian Captured Message";
+            tooltip = "Message to display when Civilian captures the zone. Leave empty to disable this hint";
+            property = QEGVAR(CaptureZone,MessageCaptured_Civilian);
+            control = "Edit";
+            expression = UO_FW_MODULE_EXPRESSION;
+            defaultValue = "'Civilian has captured the zone!'";
+            validate = "none";
+        };
+        class EGVAR(CaptureZone,Colour_Civilian) {
+            displayName = "Civilian Colour";
+            tooltip = "Civilian Colour";
+            property = QEGVAR(CaptureZone,Colour_Civilian);
+            control = QEGVAR(CaptureZone,ColourCombo);
+            expression = UO_FW_MODULE_EXPRESSION;
+            defaultValue = "'colorCivilian'";
             validate = "none";
         };
         class EGVAR(CaptureZone,ContestedMessage) {
@@ -183,6 +255,15 @@ class UO_FW_CaptureZoneModule: OlsenModule {
             typeName = "STRING";
             validate = "none";
         };
+        class EGVAR(CaptureZone,Colour_Contested) {
+            displayName = "Contested Colour";
+            tooltip = "Contested Colour";
+            property = QEGVAR(CaptureZone,Colour_Contested);
+            control = QEGVAR(CaptureZone,ColourCombo);
+            expression = UO_FW_MODULE_EXPRESSION;
+            defaultValue = "'ColorYellow'";
+            validate = "none";
+        };
         class EGVAR(CaptureZone,UncontestedMessage) {
             displayName = "Uncontested Message";
             tooltip = "Message to display when the zone is uncontested. Leave empty to disable this hint";
@@ -191,6 +272,15 @@ class UO_FW_CaptureZoneModule: OlsenModule {
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "'The zone is uncontested!'";
             typeName = "STRING";
+            validate = "none";
+        };
+        class EGVAR(CaptureZone,Colour_Uncontested) {
+            displayName = "Uncontested Colour";
+            tooltip = "Uncontested Colour";
+            property = QEGVAR(CaptureZone,Colour_Uncontested);
+            control = QEGVAR(CaptureZone,ColourCombo);
+            expression = UO_FW_MODULE_EXPRESSION;
+            defaultValue = "'ColorGrey'";
             validate = "none";
         };
         class EGVAR(CaptureZone,AutoMessages) {
@@ -203,16 +293,16 @@ class UO_FW_CaptureZoneModule: OlsenModule {
             typeName = "BOOL";
             validate = "none";
         };
-        class EGVAR(CaptureZone,Colours) {
-            displayName = "Colours";
-            tooltip = "Array of colours used for the map markers when zone status changes. Colours are respective with BLUFOR, OPFOR, Indfor, Civilian, Uncontrolled, and Contested.";
-            property = QEGVAR(CaptureZone,Colours);
-            control = "EditStringArray";
-            expression = UO_FW_MODULE_EXPRESSION;
-            defaultValue = "['ColorBlue','ColorRed','ColorGreen','ColorYellow','ColorWhite','ColorKhaki']";
-            typeName = "STRING";
-            validate = "none";
-        };
+        //class EGVAR(CaptureZone,Colours) {
+        //    displayName = "Colours";
+        //    tooltip = "Array of colours used for the map markers when zone status changes. Colours are respective with BLUFOR, OPFOR, Indfor, Civilian, Uncontrolled, and Contested.";
+        //    property = QEGVAR(CaptureZone,Colours);
+        //    control = "EditStringArray";
+        //    expression = UO_FW_MODULE_EXPRESSION;
+        //    defaultValue = "['ColorBlue','ColorRed','ColorGreen','ColorYellow','ColorWhite','ColorKhaki']";
+        //    typeName = "STRING";
+        //    validate = "none";
+        //};
         class EGVAR(CaptureZone,Hidden) {
             displayName = "Hidden";
             tooltip = "Hides the CaptureZone on the map. No markers are displayed if setting is enabled.";

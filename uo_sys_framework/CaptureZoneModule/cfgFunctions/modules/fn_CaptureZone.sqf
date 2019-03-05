@@ -28,15 +28,35 @@ switch (_mode) do {
             private _IndforTime = (GETVAR(_logic,Time_Indfor,30));
             private _CivilianTime = (GETVAR(_logic,Time_Civilian,30));
             private _timeArray = [_BluforTime,_OpforTime,_IndforTime,_CivilianTime];
-            private _BluforMessage = _logic getVariable [QGVAR(Message_Blufor), ["BLUFOR is capturing the zone!","BLUFOR has captured the zone!"]];
-            private _OpforMessage = _logic getVariable [QGVAR(Message_Opfor), ["OPFOR is capturing the zone!","OPFOR has captured the zone!"]];
-            private _IndforMessage = _logic getVariable [QGVAR(Message_Indfor), ["Independent is capturing the zone!","Independent has captured the zone!"]];
-            private _CivilianMessage = _logic getVariable [QGVAR(Message_Civilian), ["Civilian is capturing the zone!","Civilian has captured the zone!"]];
+            private _BluforMessageCapturing = GETVAR(_logic,MessageCapturing_Blufor,"BLUFOR is capturing the zone!");
+            private _BluforMessageCaptured = GETVAR(_logic,MessageCaptured_Blufor,"BLUFOR has captured the zone!");
+            private _OpforMessageCapturing = GETVAR(_logic,MessageCapturing_Opfor,"Opfor is capturing the zone!");
+            private _OpforMessageCaptured = GETVAR(_logic,MessageCaptured_Opfor,"Opfor has captured the zone!");
+            private _IndforMessageCapturing = GETVAR(_logic,MessageCapturing_Indfor,"Indfor is capturing the zone!");
+            private _IndforMessageCaptured = GETVAR(_logic,MessageCaptured_Indfor,"Indfor has captured the zone!");
+            private _CivilianMessageCapturing = GETVAR(_logic,MessageCapturing_Civilian,"Civilian is capturing the zone!");
+            private _CivilianMessageCaptured = GETVAR(_logic,MessageCaptured_Civilian,"Civilian has captured the zone!");
             private _ContestedMessage = GETVAR(_logic,ContestedMessage,"The zone is contested!");
             private _UncontestedMessage = GETVAR(_logic,UncontestedMessage,"The zone is uncontested!");
-            private _messagesArray = [_BluforMessage,_OpforMessage,_IndforMessage,_CivilianMessage,_ContestedMessage,_UncontestedMessage];
-            //private _colours = GETVAR(_logic,Colours,["ColorBlue","ColorRed","ColorGreen","ColorYellow","ColorWhite","ColorKhaki"]);
-            private _colours = _logic getVariable [QGVAR(Colours), ["ColorBlue","ColorRed","ColorGreen","ColorYellow","ColorWhite","ColorKhaki"]];
+            private _messagesArray = [[_BluforMessageCapturing,_BluforMessageCaptured],
+                                        [_OpforMessageCapturing,_OpforMessageCaptured],
+                                        [_IndforMessageCapturing,_IndforMessageCaptured],
+                                        [_CivilianMessageCapturing,_CivilianMessageCaptured],
+                                        _ContestedMessage,
+                                        _UncontestedMessage];
+            private _BluforColour = GETVAR(_logic,Colour_Blufor,"colorBLUFOR");
+            private _OpforColour = GETVAR(_logic,Colour_Opfor,"colorOPFOR");
+            private _IndforColour = GETVAR(_logic,Colour_Indfor,"colorIndependent");
+            private _CivilianColour = GETVAR(_logic,Colour_Civilian,"colorCivilian");
+            private _ContestedColour = GETVAR(_logic,Colour_Uncontested,"ColorYellow");
+            private _UncontestedColour = GETVAR(_logic,Colour_Contested,"ColorGrey");
+            private _colours = [_BluforColour,
+                                _OpforColour,
+                                _IndforColour,
+                                _CivilianColour,
+                                _ContestedColour,
+                                _UncontestedColour
+                                ];
             private _hidden = GETVAR(_logic,Hidden,false);
             private _silent = GETVAR(_logic,Silent,false);
             private _automessages = GETVAR(_logic,AutoMessages,false);

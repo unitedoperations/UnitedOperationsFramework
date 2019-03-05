@@ -120,7 +120,7 @@ if (GETMVAR(Enabled_4,false)) then {
                     {
                         private _unit = missionNamespace getVariable [_x,objNull];
                         if (!(_unit isEqualto objNull) && {(_unit call EFUNC(Core,alive))}) then {
-                            _rescued = _rescued && (_unit call EFUNC(Hostage,IsRescued));
+                            _rescued = _rescued && (EGETVAR(_unit,Hostage,IsRescued,false));
                         } else {
                             _rescued = false;
                             LOG_1("Unit %1 not found!",_x);

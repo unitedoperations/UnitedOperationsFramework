@@ -16,12 +16,9 @@ private _driver = GETVAR(_target,driver,objnull);
 
 if (!isNull _driver) then {
     deleteVehicle _driver;
-    private _handle = GETVAR(_target,pfhID,[]);
-    if !(_handle isEqualTo []) then {
-        [_handle select 1] remoteExec ["CBA_fnc_removePerFrameHandler", _handle select 0];
-    };
 };
 
+SETPVAR(_target,driver,objnull);
 GVAR(Vehicle) = objNull;
 [false] call FUNC(ToggleDriverCam);
 hint "Driver removed";
