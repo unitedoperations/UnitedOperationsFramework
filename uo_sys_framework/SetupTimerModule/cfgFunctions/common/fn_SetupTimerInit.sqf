@@ -1,5 +1,5 @@
 #define COMPONENT SetupTimer
-#include "\x\UO_FW\addons\Main\HeadlessAIModule\module_macros.hpp"
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
 UO_FW_EXEC_CHECK(ALL);
 #include "\A3\ui_f\hpp\defineResinclDesign.inc"
 

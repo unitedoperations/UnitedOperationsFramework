@@ -43,8 +43,8 @@ switch (_mode) do {
     // When some attributes were changed (including position and rotation)
     case "attributesChanged3DEN": {
         private _logic = _input param [0,objNull,[objNull]];
-        private _radiusX = GETVAR(_logic,RadiusX,GETVAR(_logic,RadiusX,100));
-        private _radiusY = GETVAR(_logic,RadiusY,GETVAR(_logic,RadiusY,100));;
+        private _radiusX = GETVAR(_logic,RadiusX,100);
+        private _radiusY = GETVAR(_logic,RadiusY,100);
         set3DENAttributes [[[_logic],"size2",[_radiusX,_radiusY]]];
     };
     default {};

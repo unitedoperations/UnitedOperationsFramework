@@ -1,5 +1,5 @@
 #define COMPONENT SetupTimer
-#include "\x\UO_FW\addons\Main\HeadlessAIModule\module_macros.hpp"
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
 UO_FW_EXEC_CHECK(ALL);
 
 params [["_mode","",[""]],["_input",[],[[]]]];
@@ -23,8 +23,8 @@ switch _mode do {
     };
     case "attributesChanged3DEN": {
         private _logic = _input param [0,objNull,[objNull]];
-        private _radiusX = GETVAR(_logic,RadiusX,GETVAR(_logic,RadiusX,100));
-        private _radiusY = GETVAR(_logic,RadiusY,GETVAR(_logic,RadiusY,100));
+        private _radiusX = GETVAR(_logic,RadiusX,100);
+        private _radiusY = GETVAR(_logic,RadiusY,100);
         set3DENAttributes [[[_logic],"size2",[_radiusX,_radiusY]]];
     };
     default {};
