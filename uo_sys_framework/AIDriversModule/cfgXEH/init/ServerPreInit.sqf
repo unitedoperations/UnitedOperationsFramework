@@ -22,14 +22,14 @@ UO_FW_EXEC_CHECK(CLIENT);
 	if ((GETMVAR(AllVehs,false))) then {
 		[{CBA_missionTime > 1}, {
 			{
-				["UO_FW_AIDriver_Enabled_Event",[_x,_allowNV,_allowFlip]] call CBA_fnc_globalEventJIP;
+				[QGVAR(Enabled_Event),[_x,_allowNV,_allowFlip]] call CBA_fnc_globalEventJIP;
 			} foreach vehicles;
 		}] call CBA_fnc_WaitUntilAndExecute;
 	} else {
 		if (!(GETMVAR(AIDrivers_VehClasses,[])) isEqualto []) then {
 			[{CBA_missionTime > 1}, {
 				{
-					if ((typeOf _x) in (GETMVAR(VehClasses,[]))) then {["UO_FW_AIDriver_Enabled_Event",[_x,_allowNV,_allowFlip]] call CBA_fnc_globalEventJIP;};
+					if ((typeOf _x) in (GETMVAR(VehClasses,[]))) then {["UO_FW_AIDrivers_Enabled_Event",[_x,_allowNV,_allowFlip]] call CBA_fnc_globalEventJIP;};
 				} foreach vehicles;
 			}] call CBA_fnc_WaitUntilAndExecute;
 		};

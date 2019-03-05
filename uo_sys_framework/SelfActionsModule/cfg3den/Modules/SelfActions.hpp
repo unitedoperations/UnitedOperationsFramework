@@ -1,4 +1,4 @@
-class UO_FW_SelfActions {
+class EGVAR(SelfActions,Settings) {
     displayName = "Self Action Settings";
     collapsed = 1;
     class Attributes {

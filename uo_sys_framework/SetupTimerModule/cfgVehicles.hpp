@@ -41,7 +41,7 @@ class UO_FW_SetupTimerModule: OlsenModule {
             displayName = "Radius X";
             tooltip = "The size of the X value of the setup zone. Default: 100";
             property = QEGVAR(SetupTimer,RadiusX);
-            control = "UO_FW_AI_moduleradiusControl";
+            control = QMGVAR(RadiusAttribute);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "100";
             typeName = "NUMBER";
@@ -51,7 +51,7 @@ class UO_FW_SetupTimerModule: OlsenModule {
             displayName = "Radius Y";
             tooltip = "The size of the Y value of the setup zone. Default: 100";
             property = QEGVAR(SetupTimer,RadiusY);
-            control = "UO_FW_AI_moduleradiusControl2";
+            control = QMGVAR(RadiusAttribute);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "100";
             typeName = "NUMBER";
@@ -77,12 +77,4 @@ class UO_FW_SetupTimerModule_R : UO_FW_SetupTimerModule {
         size2[] = {100,100};
         IsRectangle = 1;
     };
-};
-
-class UO_SetupTimerModule_R : UO_FW_SetupTimerModule_R {
-    scope = 0;
-};
-
-class UO_SetupTimerModule : UO_FW_SetupTimerModule {
-    scope = 0;
 };

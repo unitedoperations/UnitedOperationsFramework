@@ -10,23 +10,26 @@ UO_FW_EXEC_CHECK(CLIENT);
         private ["_DefaultAO"];
         if !((GETPLVAR(UnitDefaultAO,"")) isEqualto "") then {
             _DefaultAO = GETPLVAR(UnitDefaultAO,"");
+            _DefaultAO = toLower(_DefaultAO);
             //IGNORE_PRIVATE_WARNING ["_x"];
             if ((GVAR(AOArray) findif {_DefaultAO isEqualto (_x select 0)}) isEqualto -1) exitwith {
-                ERROR_2("Default CoverMap for unit: %1 area: %1 does not exist!",player,_DefaultAO);
+                ERROR_2("Default CoverMap for unit: %1 area: %2 does not exist!",player,_DefaultAO);
             };
         } else {
             switch (side player) do {
                 case west: {
                     _DefaultAO = (GETMVAR(DefaultAO_BLUFOR,""));
+                    _DefaultAO = toLower(_DefaultAO);
                     if (_DefaultAO isEqualto "") exitwith {
                         ERROR("No Default BLUFOR Area defined for CoverMap!");
                     };
-                    if ((GVAR(AOArray) findif {_DefaultAO isEqualto (_x select 0)}) isEqualto -1) exitwith {
+                    if (((GVAR(AOArray)) findif {_DefaultAO isEqualto (_x select 0)}) isEqualto -1) exitwith {
                         ERROR_1("Default CoverMap BLUFOR area: %1 does not exist!",_DefaultAO);
                     };
                 };
                 case east: {
                     _DefaultAO = (GETMVAR(DefaultAO_OPFOR,""));
+                    _DefaultAO = toLower(_DefaultAO);
                     if (_DefaultAO isEqualto "") exitwith {
                         ERROR("No Default OPFOR Area defined for CoverMap!");
                     };
@@ -36,6 +39,7 @@ UO_FW_EXEC_CHECK(CLIENT);
                 };
                 case independent: {
                     _DefaultAO = (GETMVAR(DefaultAO_Indfor,""));
+                    _DefaultAO = toLower(_DefaultAO);
                     if (_DefaultAO isEqualto "") exitwith {
                         ERROR("No Default Indfor Area defined for CoverMap!");
                     };
@@ -45,6 +49,7 @@ UO_FW_EXEC_CHECK(CLIENT);
                 };
                 case civilian: {
                     _DefaultAO = (GETMVAR(DefaultAO_Civilian,""));
+                    _DefaultAO = toLower(_DefaultAO);
                     if (_DefaultAO isEqualto "") exitwith {
                         ERROR("No Default Civilian Area defined for CoverMap!");
                     };
@@ -74,7 +79,7 @@ UO_FW_EXEC_CHECK(CLIENT);
                     _ActionArray = [];
                 };
                 {
-                    private _AONameAllowed = _x;
+                    private _AONameAllowed = toLower(_x);
                     {
                         _x params ["_AOName"];
                         if ((_AONameAllowed isEqualto _AOName) && {!(_AONameAllowed in _ActionArray)}) then {

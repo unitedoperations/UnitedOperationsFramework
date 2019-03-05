@@ -105,19 +105,19 @@ UO_FW_EXEC_CHECK(CLIENT);
 ["UO_FW_SettingsLoaded", {
     if !(UO_FW_Server_SelfActionsModule_Allowed) exitwith {};
     if !(GETMVAR(Enable,false)) exitwith {};
-    if (GETMVAR(CheckColour_Enabled,false)) then {
-        ["UO_FW_SelfActions_ColourCheckInitEvent", []] call CBA_fnc_localEvent;
-    };
-    if (GETMVAR(CheckMap_Enabled,false)) then {
-        ["UO_FW_SelfActions_CheckMapInitEvent", []] call CBA_fnc_localEvent;
-    };
-    if (GETMVAR(CutGrass_Enabled,false)) then {
-        ["UO_FW_SelfActions_CutGrassInitEvent", []] call CBA_fnc_localEvent;
-    };
-    if (GETMVAR(ParaFlares_Enabled,false)) then {
-        ["UO_FW_SelfActions_ParaFlaresInitEvent", []] call CBA_fnc_localEvent;
-    };
     [{!isNull player},{
+        if (GETMVAR(CheckColour_Enabled,false)) then {
+            ["UO_FW_SelfActions_ColourCheckInitEvent", []] call CBA_fnc_localEvent;
+        };
+        if (GETMVAR(CheckMap_Enabled,false)) then {
+            ["UO_FW_SelfActions_CheckMapInitEvent", []] call CBA_fnc_localEvent;
+        };
+        if (GETMVAR(CutGrass_Enabled,false)) then {
+            ["UO_FW_SelfActions_CutGrassInitEvent", []] call CBA_fnc_localEvent;
+        };
+        if (GETMVAR(ParaFlares_Enabled,false)) then {
+            ["UO_FW_SelfActions_ParaFlaresInitEvent", []] call CBA_fnc_localEvent;
+        };
         ["UO_FW_RegisterModuleEvent", ["Self Actions", "Allows players to check their own team color, view other's maps, launch paraflares, and cut grass.", "TinfoilHate and PiZZADOX"]] call CBA_fnc_localEvent;
     }, []] call CBA_fnc_waitUntilAndExecute;
 }] call CBA_fnc_addEventHandler;

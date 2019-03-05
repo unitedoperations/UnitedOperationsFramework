@@ -3,7 +3,7 @@ class EGVAR(Acre,RadioTypes_CAT_Indfor) {
     collapsed = 0;
     class Attributes {
         class EGVAR(Acre,SR_Type_Indfor) {
-            property = QEGVAR(SR_Type_Indfor);
+            property = QEGVAR(Acre,SR_Type_Indfor);
             displayName = "Short Range Radio Type";
             tooltip = "Sets the short range radio type for the side";
             control = "UO_FW_ACRE_SR_Select";
@@ -11,7 +11,7 @@ class EGVAR(Acre,RadioTypes_CAT_Indfor) {
             defaultValue = "0";
         };
         class EGVAR(Acre,LR_Type_Indfor) {
-            property = QEGVAR(LR_Type_Indfor);
+            property = QEGVAR(Acre,LR_Type_Indfor);
             displayName = "Long Range Radio Type";
             tooltip = "Sets the long range radio type for the side";
             control = "UO_FW_ACRE_LR_Select";
@@ -19,7 +19,7 @@ class EGVAR(Acre,RadioTypes_CAT_Indfor) {
             defaultValue = "0";
         };
         class EGVAR(Acre,PK_Type_Indfor) {
-            property = QEGVAR(PK_Type_Indfor);
+            property = QEGVAR(Acre,PK_Type_Indfor);
             displayName = "Long Range Pack Radio Type";
             tooltip = "Sets the long range pack radio type for the side";
             control = "UO_FW_ACRE_PK_Select";
@@ -29,19 +29,19 @@ class EGVAR(Acre,RadioTypes_CAT_Indfor) {
     };
 };
 
-class EGVAR(Acre,SETTINGS_RADIONET_CAT_Indfor) {
+class EGVAR(Acre,RADIONET_CAT_Indfor) {
     displayName = "Radio Net Configuration";
     collapsed = 0;
     class Attributes {
         class EGVAR(Acre,RADIONET_Enabled_Indfor) {
-            property = QEGVAR(RADIONET_Enabled_Indfor);
+            property = QEGVAR(Acre,RADIONET_Enabled_Indfor);
             displayName = "Enable Radio Net Channel Names";
             control = "CheckBoxState";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
         class EGVAR(Acre,RADIONET_NAME1_Indfor) {
-            property = QEGVAR(RADIONET_NAME1_Indfor);
+            property = QEGVAR(Acre,RADIONET_NAME1_Indfor);
             displayName = "Channel 1 Name";
             tooltip = "Sets the name of the channel";
             control = "EditShort";
@@ -49,7 +49,7 @@ class EGVAR(Acre,SETTINGS_RADIONET_CAT_Indfor) {
             defaultValue = "'PLTNET 1'";
         };
         class EGVAR(Acre,RADIONET_NAME2_Indfor) {
-            property = QEGVAR(RADIONET_NAME2_Indfor);
+            property = QEGVAR(Acre,RADIONET_NAME2_Indfor);
             displayName = "Channel 2 Name";
             tooltip = "Sets the name of the channel";
             control = "EditShort";
@@ -57,7 +57,7 @@ class EGVAR(Acre,SETTINGS_RADIONET_CAT_Indfor) {
             defaultValue = "'PLTNET 2'";
         };
         class EGVAR(Acre,RADIONET_NAME3_Indfor) {
-            property = QEGVAR(RADIONET_NAME3_Indfor);
+            property = QEGVAR(Acre,RADIONET_NAME3_Indfor);
             displayName = "Channel 3 Name";
             tooltip = "Sets the name of the channel";
             control = "EditShort";
@@ -65,7 +65,7 @@ class EGVAR(Acre,SETTINGS_RADIONET_CAT_Indfor) {
             defaultValue = "'PLTNET 3'";
         };
         class EGVAR(Acre,RADIONET_NAME4_Indfor) {
-            property = QEGVAR(RADIONET_NAME4_Indfor);
+            property = QEGVAR(Acre,RADIONET_NAME4_Indfor);
             displayName = "Channel 4 Name";
             tooltip = "Sets the name of the channel";
             control = "EditShort";
@@ -73,7 +73,7 @@ class EGVAR(Acre,SETTINGS_RADIONET_CAT_Indfor) {
             defaultValue = "'PLTNET 4'";
         };
         class EGVAR(Acre,RADIONET_NAME5_Indfor) {
-            property = QEGVAR(RADIONET_NAME5_Indfor);
+            property = QEGVAR(Acre,RADIONET_NAME5_Indfor);
             displayName = "Channel 5 Name";
             tooltip = "Sets the name of the channel";
             control = "EditShort";
@@ -81,7 +81,7 @@ class EGVAR(Acre,SETTINGS_RADIONET_CAT_Indfor) {
             defaultValue = "'COY'";
         };
         class EGVAR(Acre,RADIONET_NAME6_Indfor) {
-            property = QEGVAR(RADIONET_NAME6_Indfor);
+            property = QEGVAR(Acre,RADIONET_NAME6_Indfor);
             displayName = "Channel 6 Name";
             tooltip = "Sets the name of the channel";
             control = "EditShort";
@@ -89,7 +89,7 @@ class EGVAR(Acre,SETTINGS_RADIONET_CAT_Indfor) {
             defaultValue = "'CAS'";
         };
         class EGVAR(Acre,RADIONET_NAME7_Indfor) {
-            property = QEGVAR(RADIONET_NAME7_Indfor);
+            property = QEGVAR(Acre,RADIONET_NAME7_Indfor);
             displayName = "Channel 7 Name";
             tooltip = "Sets the name of the channel";
             control = "EditShort";
@@ -99,7 +99,7 @@ class EGVAR(Acre,SETTINGS_RADIONET_CAT_Indfor) {
     };
 };
 
-class EGVAR(Acre,SETTINGS_BABEL_CAT_Indfor) {
+class EGVAR(Acre,BABEL_CAT_Indfor) {
     displayName = "Babel Configuration";
     collapsed = 1;
     class Attributes {

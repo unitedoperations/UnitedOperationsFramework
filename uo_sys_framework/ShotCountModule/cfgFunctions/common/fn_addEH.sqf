@@ -21,8 +21,8 @@ if !((_obj getVariable [QGVAR(firedEh), ""]) isEqualto "") exitWith {};
 SETVAR(_obj,originalSide,side _obj);
 
 if (_obj isKindOf "Man") then {
-    private _firedEHhandle = _obj addEventHandler ["fired", {
-        params ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile", "_gunner"];
+    GVAR(firedEHhandle) = _obj addEventHandler ["FiredMan", {
+        params ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile", "_vehicle"];
         if (isPlayer _unit) then {
             if !(GETPLVAR(ND_Active,false)) then {
                 [QGVAR(EH_Event), [side _unit,_magazine]] call CBA_fnc_serverEvent;
@@ -32,10 +32,9 @@ if (_obj isKindOf "Man") then {
         };
     }];
     SETVAR(_obj,firedEh,_firedEHhandle);
-};
-if (!(_obj isKindOf "Man") && {(_obj isKindOf "LandVehicle") || (_obj isKindOf "Air") || (_obj isKindOf "Ship_F")}) then {
-    private _firedEHhandle = _obj addEventHandler ["fired",  {
-        params ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile", "_gunner"];
+} else {
+    GVAR(firedEHhandle) = _obj addEventHandler ["FiredMan",  {
+        params ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile", "_vehicle"];
         [QGVAR(EH_Event), [side _unit,_magazine]] call CBA_fnc_serverEvent;
     }];
     if !(count crew _obj isEqualto 0) then {

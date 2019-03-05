@@ -29,7 +29,7 @@ class EGVAR(Acre,RadioTypes_CAT_BLUFOR) {
     };
 };
 
-class EGVAR(Acre,SETTINGS_RADIONET_CAT_BLUFOR) {
+class EGVAR(Acre,RADIONET_CAT_BLUFOR) {
     displayName = "Radio Net Configuration";
     collapsed = 0;
     class Attributes {
@@ -99,19 +99,19 @@ class EGVAR(Acre,SETTINGS_RADIONET_CAT_BLUFOR) {
     };
 };
 
-class EGVAR(Acre,SETTINGS_BABEL_CAT_BLUFOR) {
+class EGVAR(Acre,BABEL_CAT_BLUFOR) {
     displayName = "Babel Configuration";
     collapsed = 1;
     class Attributes {
         class EGVAR(Acre,BABEL_Enabled_BLUFOR) {
-            property = QEGVAR(Acre,Acre,Babel_Enabled_BLUFOR);
+            property = QEGVAR(Acre,Babel_Enabled_BLUFOR);
             displayName = "Enable Babel Languages";
             control = "CheckBoxState";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
         class EGVAR(Acre,BABEL_EN_BLUFOR) {
-            property = QEGVAR(Acre,Acre,Babel_EN_BLUFOR);
+            property = QEGVAR(Acre,Babel_EN_BLUFOR);
             displayName = "English";
             tooltip = "Enables the language for this side";
             control = "CheckBox";
@@ -119,7 +119,7 @@ class EGVAR(Acre,SETTINGS_BABEL_CAT_BLUFOR) {
             defaultValue = "true";
         };
         class EGVAR(Acre,BABEL_RU_BLUFOR) {
-            property = QEGVAR(Acre,Acre,Babel_RU_BLUFOR);
+            property = QEGVAR(Acre,Babel_RU_BLUFOR);
             displayName = "Russian";
             tooltip = "Enables the language for this side";
             control = "CheckBox";
@@ -127,7 +127,7 @@ class EGVAR(Acre,SETTINGS_BABEL_CAT_BLUFOR) {
             defaultValue = "false";
         };
         class EGVAR(Acre,BABEL_FR_BLUFOR) {
-            property = QEGVAR(Acre,Acre,Babel_FR_BLUFOR);
+            property = QEGVAR(Acre,Babel_FR_BLUFOR);
             displayName = "French";
             tooltip = "Enables the language for this side";
             control = "CheckBox";
@@ -135,7 +135,7 @@ class EGVAR(Acre,SETTINGS_BABEL_CAT_BLUFOR) {
             defaultValue = "false";
         };
         class EGVAR(Acre,BABEL_AR_BLUFOR) {
-            property = QEGVAR(Acre,Acre,Babel_AR_BLUFOR);
+            property = QEGVAR(Acre,Babel_AR_BLUFOR);
             displayName = "Arabic";
             tooltip = "Enables the language for this side";
             control = "CheckBox";
@@ -143,7 +143,7 @@ class EGVAR(Acre,SETTINGS_BABEL_CAT_BLUFOR) {
             defaultValue = "false";
         };
         class EGVAR(Acre,BABEL_GK_BLUFOR) {
-            property = QEGVAR(Acre,Acre,Babel_GK_BLUFOR);
+            property = QEGVAR(Acre,Babel_GK_BLUFOR);
             displayName = "Greek";
             tooltip = "Enables the language for this side";
             control = "CheckBox";
@@ -151,7 +151,7 @@ class EGVAR(Acre,SETTINGS_BABEL_CAT_BLUFOR) {
             defaultValue = "false";
         };
         class EGVAR(Acre,BABEL_Custom_BLUFOR) {
-            property = QEGVAR(Acre,Acre,Babel_Custom_BLUFOR);
+            property = QEGVAR(Acre,Babel_Custom_BLUFOR);
             displayName = "Custom Language";
             tooltip = "Define a custom language for this side";
             control = "EditShort";
@@ -159,7 +159,7 @@ class EGVAR(Acre,SETTINGS_BABEL_CAT_BLUFOR) {
             defaultValue = "''";
         };
         class EGVAR(Acre,BABEL_Custom2_BLUFOR) {
-            property = QEGVAR(Acre,Acre,Babel_Custom2_BLUFOR);
+            property = QEGVAR(Acre,Babel_Custom2_BLUFOR);
             displayName = "Custom Language 2";
             tooltip = "Define a custom language for this side";
             control = "EditShort";

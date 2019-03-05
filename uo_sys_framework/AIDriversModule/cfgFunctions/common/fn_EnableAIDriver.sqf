@@ -14,7 +14,7 @@ UO_FW_EXEC_CHECK(ALL);
 params ["_veh","_enableNV","_enableFlip"];
 if (isNil QGVAR(Vehicle)) then {GVAR(Vehicle) = objNull;};
 
-if (_veh getvariable ["UO_FW_hasAIDriverActions",false]) exitwith {};
+if (_veh getvariable ["UO_FW_hasAIDriversActions",false]) exitwith {};
 
 //AI driver action
 private _action = ["ai_driver","Add/Remove AI driver","",{
@@ -70,4 +70,4 @@ if (_enableNV ) then {
     [_veh, 1, ["ACE_SelfActions"], _pipNvAction] call ace_interact_menu_fnc_addActionToObject;
 };
 
-SETPVAR(_veh,hasAIDriverActions,true);
+SETPVAR(_veh,hasAIDriversActions,true);

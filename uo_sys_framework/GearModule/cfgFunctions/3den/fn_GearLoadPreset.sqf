@@ -52,9 +52,9 @@ private _defaultloadoutsArray = missionNamespace getvariable ["ace_arsenal_defau
             missionNamespace setvariable ["ace_arsenal_defaultLoadoutsList",_defaultloadoutsArray];
             "ace_arsenal_DummyCategory" set3DENMissionAttribute ["ace_arsenal_DefaultLoadoutsListAttribute",_defaultloadoutsArray];
         };
-        private _varName = format ["UO_FW_GearSettings_ACE_Arsenal_LoadoutType_%1_%2",_teamTag,_gearType];
+        private _varName = format ["UO_FW_Gear_ACE_Arsenal_LoadoutType_%1_%2",_teamTag,_gearType];
         LOG_1("_varName: %1",_varName);
-        private _attrSection = format ["UO_FW_GearSettings_%1",_teamTag];
+        private _attrSection = format ["UO_FW_Gear_%1",_teamTag];
         missionNamespace setVariable [_varName, _loadoutName];
         LOG_1("_attrSection: %1",_attrSection);
         _attrSection set3DENMissionAttribute [_varName,_loadoutName];

@@ -8,6 +8,7 @@ if ((CBA_missionTime > 0 || getClientState isEqualTo "Briefing READ")) exitwith 
 params ["_AONameCalled"];
 private ["_areaCalled","_logicCalled","_zoomlevelCalled","_index"];
 
+_AONameCalled = toLower(_AONameCalled);
 private _found = false;
 {
     _x params ["_AOName","_area","_AOZoom","_logic"];

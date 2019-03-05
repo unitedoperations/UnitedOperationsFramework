@@ -1,31 +1,31 @@
 class EGVAR(Gear,Settings) {
     text = "Configure Gear Settings";
-    action = "edit3DENMissionAttributes 'UO_FW_Gear_Settings';";
+    action = QUOTE(edit3DENMissionAttributes QN(EGVAR(Gear,Settings)););
 };
 
 class EGVAR(Gear,LoadOnAll) {
     text = "Load Gear On All Entities";
-    action = "[] call FUNC(setAllEntityGear);";
+    action = QUOTE([] call EFUNC(Gear,setAllEntityGear););
 };
 
 class EGVAR(Gear,Configure_Blufor) {
     text = "Configure Blufor Gear";
-    action = "edit3DENMissionAttributes 'UO_FW_GearSettings_Blufor';";
+    action = QUOTE(edit3DENMissionAttributes QN(EGVAR(Gear,Menu_Blufor)));
 };
 
 class EGVAR(Gear,Configure_Opfor) {
     text = "Configure Opfor Gear";
-    action = "edit3DENMissionAttributes 'UO_FW_GearSettings_Opfor';";
+    action = QUOTE(edit3DENMissionAttributes QN(EGVAR(Gear,Menu_Opfor)));
 };
 
 class EGVAR(Gear,Configure_Indfor) {
     text = "Configure Indfor Gear";
-    action = "edit3DENMissionAttributes 'UO_FW_GearSettings_Indfor';";
+    action = QUOTE(edit3DENMissionAttributes QN(EGVAR(Gear,Menu_Indfor)));
 };
 
 class EGVAR(Gear,Configure_Civilian) {
     text = "Configure Civilian Gear";
-    action = "edit3DENMissionAttributes 'UO_FW_GearSettings_Civilian';";
+    action = QUOTE(edit3DENMissionAttributes QN(EGVAR(Gear,Menu_Civilian)));
 };
 
 class EGVAR(Gear,Folder) {

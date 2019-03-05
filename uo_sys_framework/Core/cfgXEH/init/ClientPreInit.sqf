@@ -89,16 +89,16 @@ LOG("Client Pre Init");
     private ["_delay"];
     switch (side player) do {
         case west: {
-            _delay = GETMVARUO(Respawn_Delay_BLUFOR,5);
+            _delay = MGETMVAR(Respawn_Delay_BLUFOR,5);
         };
         case east: {
-            _delay = GETMVARUO(Respawn_Delay_OPFOR,5);
+            _delay = MGETMVAR(Respawn_Delay_OPFOR,5);
         };
         case independent: {
-            _delay = GETMVARUO(Respawn_Delay_Indfor,5);
+            _delay = MGETMVAR(Respawn_Delay_Indfor,5);
         };
         case civilian: {
-            _delay = GETMVARUO(Respawn_Delay_Civilian,5);
+            _delay = MGETMVAR(Respawn_Delay_Civilian,5);
         };
     };
     [{

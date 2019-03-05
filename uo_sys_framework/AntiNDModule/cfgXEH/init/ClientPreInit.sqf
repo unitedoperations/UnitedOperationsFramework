@@ -7,8 +7,8 @@ UO_FW_EXEC_CHECK(CLIENT);
     if !(GVAR(Enabled)) exitwith {};
     ["UO_FW_RegisterModuleEvent", ["Anti ND", "Extra Safety for mission start", "Starfox64, PiZZADOX and Sacher"]] call CBA_fnc_localEvent;
     [{(!isNull player)}, {
-        private _FiredEh = player addEventHandler ["Fired", {
-            params ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile", "_gunner"];
+        private _FiredEh = player addEventHandler ["FiredMan", {
+            params ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile", "_vehicle"];
             if (((EGETMVAR(Core,SpawnPos,(getpos player))) distance player) <= GVAR(Distance)) then {
                 deleteVehicle _projectile;
                 if (_magazine call BIS_fnc_isThrowable) then {
@@ -27,7 +27,7 @@ UO_FW_EXEC_CHECK(CLIENT);
         SETPLVAR(ND_Active,true);
         //player setvariable [QEGVAR(AntiND,),];
         //player setvariable [QEGVAR(AntiND,ND_Active),true];
-        [{(CBA_missionTime > GVAR(Time))},{player removeEventHandler ["Fired", _this]; SETPLVAR(ND_EHid,"DISABLED"); SETPLVAR(ND_Active,false);},_FiredEh] call CBA_fnc_waitUntilAndExecute;
+        [{(CBA_missionTime > GVAR(Time))},{player removeEventHandler ["FiredMan", _this]; SETPLVAR(ND_EHid,"DISABLED"); SETPLVAR(ND_Active,false);},_FiredEh] call CBA_fnc_waitUntilAndExecute;
     }] call CBA_fnc_waitUntilAndExecute;
 }] call CBA_fnc_addEventHandler;
 

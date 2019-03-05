@@ -1,4 +1,4 @@
-class UO_FW_SetupTimerEnded {
+class EGVAR(SetupTimer,Notification_Ended) {
     Title = "SETUP TIMER";
     iconPicture = "\a3\Ui_f\data\GUI\Cfg\Notifications\tridentEnemy_ca.paa";
     description = "<t>Setup Timer Over, Fight!</t>";

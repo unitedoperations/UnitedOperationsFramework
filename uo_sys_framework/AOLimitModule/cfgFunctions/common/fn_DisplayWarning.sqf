@@ -1,7 +1,6 @@
 #define COMPONENT AOLimit
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 UO_FW_EXEC_CHECK(CLIENT);
-#include "\A3\ui_f\hpp\defineResinclDesign.inc"
 
 params ["_display"];
 
@@ -11,7 +10,7 @@ params ["_display"];
     private _endTime = (CBA_missionTime + (GETMVAR(TimeLeft,30)));
     private _nextBeep = _endTime - 10;
 
-    ["AOLimitWarning"] call BIS_fnc_showNotification;
+    [QGVAR(SetupTimer,Notification_Ended)] call BIS_fnc_showNotification;
 
     SETMVAR(DisplayOpen,true);
 

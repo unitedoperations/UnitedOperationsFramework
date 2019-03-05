@@ -35,7 +35,7 @@ class UO_FW_CaptureZoneModule: OlsenModule {
             displayName = "Activation Radius X";
             tooltip = "The size of the X value of the capture zone. Default: 100";
             property = QEGVAR(CaptureZone,RadiusX);
-            control = "UO_FW_AI_moduleradiusControl";
+            control = QMGVAR(RadiusAttribute);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "100";
             typeName = "NUMBER";
@@ -45,7 +45,7 @@ class UO_FW_CaptureZoneModule: OlsenModule {
             displayName = "Activation Radius Y";
             tooltip = "The size of the Y value of the capture zone. Default: 100";
             property = QEGVAR(CaptureZone,RadiusY);
-            control = "UO_FW_AI_moduleradiusControl2";
+            control = QMGVAR(RadiusAttribute);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "100";
             typeName = "NUMBER";

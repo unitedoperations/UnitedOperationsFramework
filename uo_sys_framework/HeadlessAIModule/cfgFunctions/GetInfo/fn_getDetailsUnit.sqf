@@ -9,7 +9,7 @@
 #include "\x\UO_FW\addons\Main\HeadlessAIModule\module_macros.hpp"
 UO_FW_AI_EXEC_CHECK(SERVERHC);
 params ["_unit",["_pos",[],[[]]],"_vehicle"];
-private _unitInit = (GETVARUO(_unit,AI_unitInit,""));
+private _unitInit = (MGETVAR(_unit,AI_unitInit,""));
 if (typename _unitInit isEqualTo "STRING") then {_unitInit = compile _unitInit;};
 private _vehAssigned = if ((assignedVehicleRole _unit) isEqualTo []) then {false} else {true};
 [true,
@@ -24,8 +24,8 @@ assignedVehicleRole _unit,
 _vehAssigned,
 _unit getVariable ["ACE_captives_isHandcuffed",false],
 (surfaceIsWater (getposATL _unit)),
-(GETVARUO(_unit,AI_unitPersistent,true)),
-(GETVARUO(_unit,AI_stance,"AUTO")),
+(MGETVAR(_unit,AI_unitPersistent,true)),
+(MGETVAR(_unit,AI_stance,"AUTO")),
 _unitInit,
-(GETVARUO(_unit,AI_unitName,"")),
-(GETVARUO(_unit,AI_unitIdentity,""))]
+(MGETVAR(_unit,AI_unitName,"")),
+(MGETVAR(_unit,AI_unitIdentity,""))]

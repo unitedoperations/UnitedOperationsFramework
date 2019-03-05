@@ -4,7 +4,7 @@ UO_FW_EXEC_CHECK(CLIENT);
 
 _this params ["_unit", "", "_instigator"];
 
-SETMVARUO(OldGroup,(group player));
+MSETMVAR(OldGroup,(group player));
 SETPLPVAR(Dead,true);
 
 private ["_delay","_templateSettings"];

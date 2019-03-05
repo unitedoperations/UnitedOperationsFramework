@@ -49,7 +49,7 @@ class EGVAR(Gear,Settings) {
                     tooltip = "Path to the gearscript file in your mission folder";
                     control = "EditShort";
                     expression = UO_FW_SCENARIO_EXPRESSION;
-                    defaultValue = "'GearScript.sqf'";
+                    defaultValue = "'Gear.sqf'";
                 };
             };
         };
@@ -78,28 +78,28 @@ class UO_FW_Gear_ACE_Arsenal_LoadoutType_##TEAMNAME##_##SHORTNAME {\
     defaultValue = QUOTE('NONE');\
 }
 
-class EGVAR(Gear,Blufor) {
+class EGVAR(Gear,Menu_Blufor) {
     displayName = "Blufor Gear Settings";
     class AttributeCategories {
         #include "Gear\BluforMenu.hpp"
     };
 };
 
-class EGVAR(Gear,Opfor) {
+class EGVAR(Gear,Menu_Opfor) {
     displayName = "Opfor Gear Settings";
     class AttributeCategories {
         #include "Gear\OpforMenu.hpp"
     };
 };
 
-class EGVAR(Gear,Indfor) {
+class EGVAR(Gear,Menu_Indfor) {
     displayName = "Indfor Gear Settings";
     class AttributeCategories {
         #include "Gear\IndforMenu.hpp"
     };
 };
 
-class EGVAR(Gear,Civilian) {
+class EGVAR(Gear,Menu_Civilian) {
     displayName = "Civilian Gear Settings";
     class AttributeCategories {
         #include "Gear\CivilianMenu.hpp"

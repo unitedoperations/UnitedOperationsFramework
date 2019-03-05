@@ -29,7 +29,7 @@ class EGVAR(ACRE,RadioTypes_CAT_Civilian) {
     };
 };
 
-class EGVAR(ACRE,SETTINGS_RADIONET_CAT_Civilian) {
+class EGVAR(Acre,RADIONET_CAT_Civilian) {
     displayName = "Radio Net Configuration";
     collapsed = 0;
     class Attributes {
@@ -99,7 +99,7 @@ class EGVAR(ACRE,SETTINGS_RADIONET_CAT_Civilian) {
     };
 };
 
-class EGVAR(ACRE,SETTINGS_BABEL_CAT_Civilian) {
+class EGVAR(Acre,BABEL_CAT_Civilian) {
     displayName = "Babel Configuration";
     collapsed = 1;
     class Attributes {

@@ -9,7 +9,7 @@ UO_FW_EXEC_CHECK(CLIENT);
 [{(!isNull player)}, {
 
     //params ["_logic","_area","_selectedSide","_waittime"];
-    _this params ["","_area","_selectedSide","_waittime"];
+    _this params ["_logic","_area","_selectedSide",["_waittime",30,[30]]];
 
     if (CBA_missionTime > _waittime) exitwith {};
 
@@ -17,21 +17,20 @@ UO_FW_EXEC_CHECK(CLIENT);
 
     private _alreadyInATimer = GETMVAR(InSetupTimer,false);
     if (_alreadyInATimer) exitwith {};
-    if !(_alreadyInATimer) then {
-        SETMVAR(InSetupTimer,true);
-    };
-
-    "UO_FW_SetupTimer_Layer" cutRsc ["UO_FW_RscSetupTimer", "PLAIN", 0.5, false];
+    SETMVAR(InSetupTimer,true);
     SETMVAR(WaitTime,_waittime);
+
+    QGVAR(Layer) cutRsc [QGVAR(DisplayRsc), "PLAIN", 0.5, false];
 
     LOG("Starting Setup Timer");
 
-    GVAR(PFHhandle) = [{
+    GVAR(PFHhandle_Main) = [{
         params ["_argNested", "_idPFH"];
         _argNested params ["_unit","_area","_endTime","_pos"];
 
         private _timeLeft = (_endTime - CBA_missionTime);
         if (_timeLeft <= 0) exitwith {
+            LOG_1("%1 exited SetupTimer PFHandle Main",_unit);
             [_idPFH] call CBA_fnc_removePerFrameHandler;
         };
 

@@ -3,7 +3,7 @@
 UO_FW_EXEC_CHECK(CLIENTHC);
 
 ["UO_FW_SettingsLoaded",{
-    if (GETPLVARUO(ArtilleryFOPlayerEnabled,false)) then {
+    if (MGETPLVAR(ArtilleryFOPlayerEnabled,false)) then {
         ["Event_ArtyReceiveHint", {hint _this;}] call CBA_fnc_addEventHandler;
         private _guns = [];
         {
@@ -12,15 +12,15 @@ UO_FW_EXEC_CHECK(CLIENTHC);
                 LOG_1("Firemission module:<br></br>Warning Unit ""%1"" does not exist.", _x);
             };
             _guns pushBackUnique _tempUnit;
-        } forEach (GETPLVARUO(ArtilleryFOPlayerGuns,[]));
-        private _allowBracket = GETPLVARUO(ArtilleryFOPlayerAllowBracketFiremission,false);
-        private _allowDonut = GETPLVARUO(ArtilleryFOPlayerAllowDonutFiremission,false);
-        private _allowGridSpotting = GETPLVARUO(ArtilleryFOPlayerAllowGridspottingFiremission,false);
-        private _allowLine = GETPLVARUO(ArtilleryFOPlayerAllowLineFiremission,false);
-        private _allowMarker = GETPLVARUO(ArtilleryFOPlayerAllowMarkerFiremission,false);
-        private _allowPoint = GETPLVARUO(ArtilleryFOPlayerAllowPointFiremission,false);
-        private _allowPolar = GETPLVARUO(ArtilleryFOPlayerAllowPolarFiremission,false);
-        private _allowPolarspotting = GETPLVARUO(ArtilleryFOPlayerAllowPolarspottingFiremission,false);
+        } forEach (MGETPLVAR(ArtilleryFOPlayerGuns,[]));
+        private _allowBracket = MGETPLVAR(ArtilleryFOPlayerAllowBracketFiremission,false);
+        private _allowDonut = MGETPLVAR(ArtilleryFOPlayerAllowDonutFiremission,false);
+        private _allowGridSpotting = MGETPLVAR(ArtilleryFOPlayerAllowGridspottingFiremission,false);
+        private _allowLine = MGETPLVAR(ArtilleryFOPlayerAllowLineFiremission,false);
+        private _allowMarker = MGETPLVAR(ArtilleryFOPlayerAllowMarkerFiremission,false);
+        private _allowPoint = MGETPLVAR(ArtilleryFOPlayerAllowPointFiremission,false);
+        private _allowPolar = MGETPLVAR(ArtilleryFOPlayerAllowPolarFiremission,false);
+        private _allowPolarspotting = MGETPLVAR(ArtilleryFOPlayerAllowPolarspottingFiremission,false);
         [_guns,_allowBracket,_allowDonut,_allowGridSpotting,_allowLine,_allowMarker,_allowPoint,_allowPolar,_allowPolarspotting] call UO_FW_fnc_initPlayerFO;
     };
 }] call CBA_fnc_addEventHandler;

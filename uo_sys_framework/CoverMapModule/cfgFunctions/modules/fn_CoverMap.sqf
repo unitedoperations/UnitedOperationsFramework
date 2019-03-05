@@ -7,10 +7,11 @@ switch _mode do {
     case "init": {
         if !is3DEN then {
             if (!UO_FW_Server_CoverMapModule_Allowed) exitWith {};
-            if (!UO_FW_CoverMap_Enable) exitWith {};
+            if !(GVAR(Enable)) exitWith {};
             _input params ["_logic",["_isActivated",true,[true]]];
             if !(_isActivated) exitWith {};
             private _AOName = GETVAR(_logic,AOName,"Area0");
+            _AOName = toLower(_AOName);
             private _AOZoom = GETVAR(_logic,ZoomLevel,0.4);
             private _loc = getPosATL _logic;
             private _radiusX = GETVAR(_logic,RadiusX,100);

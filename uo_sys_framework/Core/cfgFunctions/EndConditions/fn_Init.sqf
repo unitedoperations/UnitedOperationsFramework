@@ -13,7 +13,7 @@ UO_FW_EXEC_CHECK(SERVER);
 
 LOG("EndConditions Init");
 
-if (isNil "UO_FW_MissionEnded") then {
+if (isNil QEGVAR(Core,MissionEnded)) then {
     ESETMPVAR(Core,MissionEnded,false);
 };
 private _delay = (GETMVAR(ConditionDelay,0));
@@ -25,7 +25,7 @@ if (_frequency < 30) then {
 
 [{
     //timelimit loop
-    if ((GETMVAR(Timelimit_Enabled,60))) then {
+    if ((GETMVAR(Timelimit_Enabled,true))) then {
         if ((GETMVAR(Timelimit,60)) > 0) then {
             LOG_1("checking timelimit: %1",(GETMVAR(Timelimit,60)));
             LOG_1("checking timelimit message: %1",(GETMVAR(Timelimit_Message,60)));

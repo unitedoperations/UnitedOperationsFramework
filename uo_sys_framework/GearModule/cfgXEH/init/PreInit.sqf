@@ -55,16 +55,16 @@ UO_FW_EXEC_CHECK(ALL);
                 };
                 switch (side _unit) do {
                     case west: {
-                        _loadoutvarname = format ["UO_FW_GearSettings_%1_LoadoutType_Blufor_%2",_SystemTag,_gearType];
+                        _loadoutvarname = format ["UO_FW_Gear_%1_LoadoutType_Blufor_%2",_SystemTag,_gearType];
                     };
                     case east: {
-                        _loadoutvarname = format ["UO_FW_GearSettings_%1_LoadoutType_Opfor_%2",_SystemTag,_gearType];
+                        _loadoutvarname = format ["UO_FW_Gear_%1_LoadoutType_Opfor_%2",_SystemTag,_gearType];
                     };
                     case independent: {
-                        _loadoutvarname = format ["UO_FW_GearSettings_%1_LoadoutType_Indfor_%2",_SystemTag,_gearType];
+                        _loadoutvarname = format ["UO_FW_Gear_%1_LoadoutType_Indfor_%2",_SystemTag,_gearType];
                     };
                     case civilian: {
-                        _loadoutvarname = format ["UO_FW_GearSettings_%1_LoadoutType_Civilian_%2",_SystemTag,_gearType];
+                        _loadoutvarname = format ["UO_FW_Gear_%1_LoadoutType_Civilian_%2",_SystemTag,_gearType];
                     };
                 };
                 _loadoutName = missionNamespace getvariable [_loadoutvarname,"NONE"];
@@ -197,16 +197,16 @@ UO_FW_EXEC_CHECK(ALL);
             };
             switch (side _unit) do {
                 case west: {
-                    _loadoutvarname = format ["UO_FW_GearSettings_%1_LoadoutType_Blufor_%2",_SystemTag,_gearType];
+                    _loadoutvarname = format ["UO_FW_Gear_%1_LoadoutType_Blufor_%2",_SystemTag,_gearType];
                 };
                 case east: {
-                    _loadoutvarname = format ["UO_FW_GearSettings_%1_LoadoutType_Opfor_%2",_SystemTag,_gearType];
+                    _loadoutvarname = format ["UO_FW_Gear_%1_LoadoutType_Opfor_%2",_SystemTag,_gearType];
                 };
                 case independent: {
-                    _loadoutvarname = format ["UO_FW_GearSettings_%1_LoadoutType_Indfor_%2",_SystemTag,_gearType];
+                    _loadoutvarname = format ["UO_FW_Gear_%1_LoadoutType_Indfor_%2",_SystemTag,_gearType];
                 };
                 case civilian: {
-                    _loadoutvarname = format ["UO_FW_GearSettings_%1_LoadoutType_Civilian_%2",_SystemTag,_gearType];
+                    _loadoutvarname = format ["UO_FW_Gear_%1_LoadoutType_Civilian_%2",_SystemTag,_gearType];
                 };
             };
             _loadoutName = missionNamespace getvariable [_loadoutvarname,"NONE"];
@@ -261,16 +261,16 @@ UO_FW_EXEC_CHECK(ALL);
         };
         switch (_forcedSide) do {
             case west: {
-                _loadoutvarname = format ["UO_FW_GearSettings_%1_LoadoutType_Blufor_%2",_SystemTag,_forcedClass];
+                _loadoutvarname = format ["UO_FW_Gear_%1_LoadoutType_Blufor_%2",_SystemTag,_forcedClass];
             };
             case east: {
-                _loadoutvarname = format ["UO_FW_GearSettings_%1_LoadoutType_Opfor_%2",_SystemTag,_forcedClass];
+                _loadoutvarname = format ["UO_FW_Gear_%1_LoadoutType_Opfor_%2",_SystemTag,_forcedClass];
             };
             case independent: {
-                _loadoutvarname = format ["UO_FW_GearSettings_%1_LoadoutType_Indfor_%2",_SystemTag,_forcedClass];
+                _loadoutvarname = format ["UO_FW_Gear_%1_LoadoutType_Indfor_%2",_SystemTag,_forcedClass];
             };
             case civilian: {
-                _loadoutvarname = format ["UO_FW_GearSettings_%1_LoadoutType_Civilian_%2",_SystemTag,_forcedClass];
+                _loadoutvarname = format ["UO_FW_Gear_%1_LoadoutType_Civilian_%2",_SystemTag,_forcedClass];
             };
         };
         _loadoutName = missionNamespace getvariable [_loadoutvarname,"NONE"];

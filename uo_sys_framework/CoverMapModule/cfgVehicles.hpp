@@ -34,7 +34,7 @@ class UO_FW_CoverMapModule: OlsenModule {
                 displayName = "Radius X";
                 tooltip = "The size of the X value of the setup zone. Default: 100";
                 property = QEGVAR(CoverMap,RadiusX);
-                control = "UO_FW_AI_moduleradiusControl";
+                control = QMGVAR(RadiusAttribute);
                 expression = UO_FW_MODULE_EXPRESSION;
                 defaultValue = "100";
                 typeName = "NUMBER";
@@ -44,7 +44,7 @@ class UO_FW_CoverMapModule: OlsenModule {
                 displayName = "Radius Y";
                 tooltip = "The size of the Y value of the setup zone. Default: 100";
                 property = QEGVAR(CoverMap,RadiusY);
-                control = "UO_FW_AI_moduleradiusControl2";
+                control = QMGVAR(RadiusAttribute);
                 expression = UO_FW_MODULE_EXPRESSION;
                 defaultValue = "100";
                 typeName = "NUMBER";

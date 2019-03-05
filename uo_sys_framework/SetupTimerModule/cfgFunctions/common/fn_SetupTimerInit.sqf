@@ -1,12 +1,12 @@
 #define COMPONENT SetupTimer
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 UO_FW_EXEC_CHECK(ALL);
-#include "\A3\ui_f\hpp\defineResinclDesign.inc"
 
 params ["_display"];
 
 [{!(displayNull isEqualto _this)}, {
-    GVAR(PFHhandle) = [{
+    params ["_display"];
+    EGVAR(SetupTimer,PFHhandleDisplay)= [{
         params ["_argNested", "_idPFH"];
         _argNested params ["_endTime","_nextBeep","_colorSet","_display"];
         private _ctrlTime = _display displayCtrl 1003;
@@ -14,7 +14,7 @@ params ["_display"];
 
         if (_timeLeft <= 0) exitWith {
             _ctrlTime ctrlSetText "00:00.000";
-            ["UO_FW_SetupTimerEnded"] call BIS_fnc_showNotification;
+            [QEGVAR(SetupTimer,Notification_Ended)] call BIS_fnc_showNotification;
             [_idPFH] call CBA_fnc_removePerFrameHandler;
             [{
                 params ["_display"];
@@ -40,5 +40,5 @@ params ["_display"];
         _ctrlTime ctrlSetTextColor _color;
         _ctrlTime ctrlSetText ([_timeLeft,"MM:SS.MS"] call bis_fnc_secondsToString);
 
-    }, 0, [(CBA_missionTime + ((GETMVAR(WaitTime,30)))),((CBA_missionTime + _endTime) - 10),["IGUI","TEXT_RGB"],_this]] call CBA_fnc_addPerFrameHandler;
+    }, 0, [(CBA_missionTime + ((EGETMVAR(SetupTimer,WaitTime,30)))),((CBA_missionTime + ((EGETMVAR(SetupTimer,WaitTime,30)))) - 10),["IGUI","TEXT_RGB"],_display]] call CBA_fnc_addPerFrameHandler;
 }, _display] call CBA_fnc_waitUntilAndExecute;

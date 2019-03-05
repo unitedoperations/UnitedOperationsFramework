@@ -4,7 +4,7 @@ UO_FW_EXEC_CHECK(SERVER);
 
 [QGVAR(EH_Event), {
     if !(UO_FW_Server_ShotCountModule_Allowed) exitwith {};
-    if !(GETMVARUO(ShotCount_Enabled,false)) exitwith {};
+    if !(MGETMVAR(ShotCount_Enabled,false)) exitwith {};
     params [["_side",sideUnknown,[sideUnknown]],["_className","",[""]]];
     private _classDisplay = [_className] call UO_FW_fnc_ShotCount_getDisplayName;
     [_side,_classDisplay] call UO_FW_fnc_ShotCount_shotCount;
@@ -12,7 +12,7 @@ UO_FW_EXEC_CHECK(SERVER);
 
 ["UO_FW_SettingsLoaded", {
     if !(UO_FW_Server_ShotCountModule_Allowed) exitwith {};
-    if !(GETMVARUO(ShotCount_Enabled,false)) exitwith {};
+    if !(MGETMVAR(ShotCount_Enabled,false)) exitwith {};
     GVAR(ExpendedAmmunition_BLUFOR) = [];
     GVAR(ExpendedAmmunition_Indfor) = [];
     GVAR(ExpendedAmmunition_OPFOR) = [];

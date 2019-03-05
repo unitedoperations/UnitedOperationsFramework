@@ -41,7 +41,7 @@ class UO_FW_AI_ZoneModule : UO_FW_AI_Module {
             displayName = "Activation Radius X";
             tooltip = "The size of the X value of the area the player will initiate this zone at in metres. Default: 100";
             property = QEGVAR(AI,zoneRadiusX);
-            control = "UO_FW_AI_moduleradiusControl";
+            control = QMGVAR(RadiusAttribute);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "100";
             typeName = "NUMBER";
@@ -51,7 +51,7 @@ class UO_FW_AI_ZoneModule : UO_FW_AI_Module {
             displayName = "Activation Radius Y";
             tooltip = "The size of the Y value of the area the player will initiate this zone at in metres. Default: 100";
             property = QEGVAR(AI,zoneRadiusY);
-            control = "UO_FW_AI_moduleradiusControl2";
+            control = QMGVAR(RadiusAttribute);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "100";
             typeName = "NUMBER";
@@ -139,7 +139,7 @@ class UO_FW_AI_ControlModule : UO_FW_AI_Module {
             displayName = "Activation Radius X";
             tooltip = "The size of the X value of the area the player will initiate the control zone at in metres. Default: 100";
             property = QEGVAR(AI,ControlRadiusX);
-            control = "UO_FW_AI_moduleradiusControl";
+            control = QMGVAR(RadiusAttribute);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "100";
             typeName = "NUMBER";
@@ -149,7 +149,7 @@ class UO_FW_AI_ControlModule : UO_FW_AI_Module {
             displayName = "Activation Radius Y";
             tooltip = "The size of the Y value of the area the player will initiate the control zone at in metres. Default: 100";
             property = QEGVAR(AI,ControlRadiusY);
-            control = "UO_FW_AI_moduleradiusControl2";
+            control = QMGVAR(RadiusAttribute);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "100";
             typeName = "NUMBER";
@@ -252,7 +252,7 @@ class UO_FW_AI_TaskModule : UO_FW_AI_Module {
             displayName = "Radius";
             tooltip = "The range the group will attempt to conduct the set task in. Default: 100";
             property = QEGVAR(AI,taskRadius);
-            control = "UO_FW_AI_moduleradiusControl";
+            control = QMGVAR(RadiusAttribute);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "100";
             typeName = "NUMBER";
@@ -402,7 +402,7 @@ class UO_FW_AI_PositionModule : UO_FW_AI_Module {
             displayName = "Radius X";
             tooltip = "The X radius the position will use to generate a random position. Default: 0";
             property = QEGVAR(AI,positionRadiusX);
-            control = "UO_FW_AI_moduleradiusControl";
+            control = QMGVAR(RadiusAttribute);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "0";
             typeName = "NUMBER";
@@ -412,7 +412,7 @@ class UO_FW_AI_PositionModule : UO_FW_AI_Module {
             displayName = "Radius Y";
             tooltip = "The Y radius the position will use to generate a random position. Default: 0";
             property = QEGVAR(AI,positionRadiusY);
-            control = "UO_FW_AI_moduleradiusControl2";
+            control = QMGVAR(RadiusAttribute);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "0";
             typeName = "NUMBER";

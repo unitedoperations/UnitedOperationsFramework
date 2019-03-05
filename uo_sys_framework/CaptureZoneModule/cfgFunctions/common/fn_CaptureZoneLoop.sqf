@@ -8,6 +8,7 @@ private _cond = _this select 12;
 
 ["UO_FW_RegisterModuleEvent", ["Capture Zone", "Creates Capture Zone objectives for variable declares and end condition requirements", "Sacher and PiZZADOX"]] call CBA_fnc_globalEvent;
 
+LOG_1("CaptureZone Loop called with this: %1",_this);
 if (!(_this call FUNC(ValidateCaptureZone))) exitWith {
     ERROR_1("CaptureZone %1 failed to Validate",_zoneName);
 };
@@ -24,9 +25,9 @@ if (!(_this call FUNC(ValidateCaptureZone))) exitWith {
         //var redeclares
         params ["_argNested", "_idPFH"];
         _argNested params ["_args","_lastCheckedTime",["_initialized",false,[false]],"_varName","_teamControllingvarName",["_oldOwner","UNCONTESTED",[""]],["_ownerControlCount",0,[0]],"_marker"];
-        _args params ["","_zoneName","_area","_repeatable","_capArray","_timeArray","_messagesArray","_colours","_hidden","_silent","_automessages","_ratioNeeded"];
+        _args params ["_logic","_zoneName","_area","_repeatable","_capArray","_timeArray","_messagesArray","_colours","_hidden","_silent","_automessages","_ratioNeeded"];
         _area params ["_loc","_radiusX","_radiusY","_direction","_isRectangle"];
-        _colours params ["_bluforcolour","_opforcolour","_indforcolour","_CIVcolour","_uncontestedcolour","_contestedcolour"];
+        _colours params ["_bluforcolour","_opforcolour","_indforcolour","_civcolour","_uncontestedcolour","_contestedcolour"];
         _messagesArray params ["_bluformessageArray","_opformessageArray","_indformessageArray","_CIVmessageArray","_contestedmessage","_uncontestedmessage"];
         _capArray params ["_bluforCapMode","_opforCapMode","_indforCapMode","_civCapMode"];
         private ["_owner","_markername"];

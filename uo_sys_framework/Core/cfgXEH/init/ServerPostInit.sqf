@@ -20,7 +20,7 @@ SETMPVAR(ServerInitialized,true);
     ESETMVAR(Respawn,TeamTicketsRemaining_Opfor,(EGETMVAR(Respawn,TeamTickets_Opfor,30)));
     ESETMVAR(Respawn,TeamTicketsRemaining_Indfor,(EGETMVAR(Respawn,TeamTickets_Indfor,30)));
     ESETMVAR(Respawn,TeamTicketsRemaining_Civilian,(EGETMVAR(Respawn,TeamTickets_Civilian,30)));
-    [] call UO_FW_fnc_EndConditionsInit;
+    [] call EFUNC(EndConditions,Init);
 }] call CBA_fnc_WaitUntilAndExecute;
 
 if (EGETMVAR(DisconnectControl,Enabled,false)) then {
