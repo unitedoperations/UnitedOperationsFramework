@@ -18,12 +18,6 @@ UO_FW_EXEC_CHECK(SERVER);
 
 params ["_unit"];
 
-if (UO_FW_Server_DisconnectModule_Allowed) then {
-    if (EGETMVAR(DisconnectControl,Enabled,false)) then {
-        [_unit] call EFUNC(DisconnectControl,EventDisconnect_BodyCleanup);
-    };
-};
-
 if (GETVAR(_unit,Tracked,false)) then {
     {
         _x params ["", "_side", "_Type", "_total", "_current"];

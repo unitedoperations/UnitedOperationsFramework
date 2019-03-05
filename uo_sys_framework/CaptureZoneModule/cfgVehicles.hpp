@@ -1,4 +1,4 @@
-class UO_FW_CaptureZoneModule: OlsenModule {
+class EGVAR(CaptureZone,CaptureZoneModule): EGVAR(Core,BaseModule) {
     displayName = "Capture Zone (Circle)"; // Name displayed in the menu
     // Name of function triggered once conditions are met
     function = QEFUNC(CaptureZone,CaptureZone);
@@ -344,7 +344,7 @@ class UO_FW_CaptureZoneModule: OlsenModule {
     };
 };
 
-class UO_FW_CaptureZoneModule_R : UO_FW_CaptureZoneModule {
+class EGVAR(CaptureZone,CaptureZoneModule_R) : EGVAR(CaptureZone,CaptureZoneModule) {
     displayName = "Capture Zone (Rectangle)";
     class AttributeValues {
         size2[] = {100,100};

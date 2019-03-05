@@ -14,13 +14,3 @@ UO_FW_EXEC_CHECK(CLIENT);
         };
     }] call CBA_fnc_waitUntilAndExecute;
 }] call CBA_fnc_addEventHandler;
-
-if !(hasInterface) then {
-    ["UO_FW_SettingsLoaded", {
-        ["UO_FW_MapRemover_LocalEvent", []] call CBA_fnc_localEvent;
-    }] call CBA_fnc_addEventHandler;
-} else {
-    ["UO_FW_SettingsLoaded", {
-        ["UO_FW_MapRemover_PlayerEvent", []] call CBA_fnc_localEvent;
-    }] call CBA_fnc_addEventHandler;
-};

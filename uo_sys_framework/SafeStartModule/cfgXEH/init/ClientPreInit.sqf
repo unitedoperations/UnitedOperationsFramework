@@ -4,16 +4,16 @@ UO_FW_EXEC_CHECK(CLIENT);
 
 ["UO_FW_SafeStart_Event", {
     if !(UO_FW_Server_SafeStartModule_Allowed) exitWith {};
-    if !(GETMVAR(Enable)) exitwith {};
+    if !(GETMVAR(Enable,false)) exitwith {};
     ["UO_FW_RegisterModuleEvent", ["Safe Start", "Extra safety for mission start", "Olsen and PiZZADOX"]] call CBA_fnc_localEvent;
     [{(!isNull player) && {(EGETPLVAR(Gear,GearReady,false))}}, {
         if !((currentWeapon player) isEqualto "") then {
             [player, (currentWeapon player), (currentMuzzle player)] call ace_safemode_fnc_lockSafety;
         };
-        if (GETMVAR(Lowered)) then {
+        if (GETMVAR(Lowered,true)) then {
             player action ["WeaponOnBack", player];
         };
-        if (GETMVAR(Unloaded)) then {
+        if (GETMVAR(Unloaded,true)) then {
             private _magazineClass = currentMagazine player;
             player setAmmo [currentWeapon player, 0];
             player addMagazines [_magazineClass, 1];

@@ -1,4 +1,4 @@
-class UO_FW_SafeStart {
+class EGVAR(SafeStart,Category) {
     displayName = "Safe Start Settings";
     collapsed = 1;
     class Attributes {

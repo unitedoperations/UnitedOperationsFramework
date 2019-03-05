@@ -29,69 +29,48 @@ MESSAGE call EFUNC(Core,DebugMessage)
 
 //UO_FW_ Vars
 #define GETVARM_SYS(var1,var2) getVariable [ARR_2(QUOTE(DOUBLES(PREFIX,var1)),var2)]
-#define CGETVARM_SYS(var1,var2) getVariable [ARR_2(QN(DOUBLES(PREFIX,var1)),var2)]
 #define SETVARM_SYS(var1,var2) setVariable [ARR_2(QUOTE(DOUBLES(PREFIX,var1)),var2)]
-#define CSETVARM_SYS(var1,var2) setVariable [ARR_2(QN(DOUBLES(PREFIX,var1)),var2)]
 #define SETPVARM_SYS(var1,var2) setVariable [ARR_3(QUOTE(DOUBLES(PREFIX,var1)),var2,true)]
-#define CSETPVARM_SYS(var1,var2) setVariable [ARR_3(QN(DOUBLES(PREFIX,var1)),var2,true)]
 
 #define GETVAR_SYS(var1,var2) getVariable [ARR_2(QUOTE(TRIPLES(PREFIX,COMPONENT,var1)),var2)]
 #define EGETVAR_SYS(var1,var2,var3) getVariable [ARR_2(QUOTE(TRIPLES(PREFIX,var1,var2)),var3)]
-#define CEGETVAR_SYS(var1,var2,var3) getVariable [ARR_2(QN(TRIPLES(PREFIX,var1,var2)),var3)]
 
 #define SETVAR_SYS(var1,var2) setVariable [ARR_2(QUOTE(TRIPLES(PREFIX,COMPONENT,var1)),var2)]
 #define ESETVAR_SYS(var1,var2,var3) setVariable [ARR_2(QUOTE(TRIPLES(PREFIX,var1,var2)),var3)]
-#define CESETVAR_SYS(var1,var2,var3) setVariable [ARR_2(QN(TRIPLES(PREFIX,var1,var2)),var3)]
 
 #define SETPVAR_SYS(var1,var2) setVariable [ARR_3(QUOTE(TRIPLES(PREFIX,COMPONENT,var1)),var2,true)]
 #define ESETPVAR_SYS(var1,var2,var3) setVariable [ARR_3(QUOTE(TRIPLES(PREFIX,var1,var2)),var3,true)]
-#define CESETPVAR_SYS(var1,var2,var3) setVariable [ARR_3(QN(TRIPLES(PREFIX,var1,var2)),var3,true)]
 
 #define MGETVAR(var1,var2,var3) var1 GETVARM_SYS(var2,var3)
-#define CMGETVAR(var1,var2,var3) var1 CGETVARM_SYS(var2,var3)
 #define MGETPLVAR(var1,var2) player GETVARM_SYS(var1,var2)
-#define CMGETPLVAR(var1,var2) player CGETVARM_SYS(var1,var2)
 #define MGETMVAR(var1,var2) missionNamespace GETVARM_SYS(var1,var2)
-#define CMGETMVAR(var1,var2) missionNamespace CGETVARM_SYS(var1,var2)
 
 #define GETVAR(var1,var2,var3) var1 GETVAR_SYS(var2,var3)
 #define EGETVAR(var1,var2,var3,var4) var1 EGETVAR_SYS(var2,var3,var4)
-#define CEGETVAR(var1,var2,var3,var4) var1 CEGETVAR_SYS(var2,var3,var4)
 
 #define GETPLVAR(var1,var2) player GETVAR_SYS(var1,var2)
 #define EGETPLVAR(var1,var2,var3) player EGETVAR_SYS(var1,var2,var3)
-#define CEGETPLVAR(var1,var2,var3) player CEGETVAR_SYS(var1,var2,var3)
 
 #define GETMVAR(var1,var2) missionNamespace GETVAR_SYS(var1,var2)
 #define EGETMVAR(var1,var2,var3) missionNamespace EGETVAR_SYS(var1,var2,var3)
-#define CEGETMVAR(var1,var2,var3) missionNamespace CEGETVAR_SYS(var1,var2,var3)
 
 #define MSETVAR(var1,var2,var3) var1 SETVARM_SYS(var2,var3)
-#define CMSETVAR(var1,var2,var3) var1 CSETVARM_SYS(var2,var3)
 #define MSETMVAR(var1,var2) missionNamespace SETVARM_SYS(var1,var2)
-#define CMSETMVAR(var1,var2) missionNamespace CSETVARM_SYS(var1,var2)
 #define MSETMPVAR(var1,var2) missionNamespace SETPVARM_SYS(var1,var2)
-#define CMSETMPVAR(var1,var2) missionNamespace CSETPVARM_SYS(var1,var2)
 #define MSETPVAR(var1,var2,var3) var1 SETPVARM_SYS(var2,var3)
-#define CMSETPVAR(var1,var2,var3) var1 CSETPVARM_SYS(var2,var3)
 #define MSETPLPVAR(var1,var2) player SETPVARM_SYS(var1,var2)
-#define CMSETPLPVAR(var1,var2) player CSETPVARM_SYS(var1,var2)
 
 #define SETVAR(var1,var2,var3) var1 SETVAR_SYS(var2,var3)
 #define ESETVAR(var1,var2,var3,var4) var1 ESETVAR_SYS(var2,var3,var4)
-#define CESETVAR(var1,var2,var3,var4) var1 CESETVAR_SYS(var2,var3,var4)
 
 #define SETPVAR(var1,var2,var3) var1 SETPVAR_SYS(var2,var3)
 #define ESETPVAR(var1,var2,var3,var4) var1 ESETPVAR_SYS(var2,var3,var4)
-#define CESETPVAR(var1,var2,var3,var4) var1 CESETPVAR_SYS(var2,var3,var4)
 
 #define SETMVAR(var1,var2) missionNamespace SETVAR_SYS(var1,var2)
 #define ESETMVAR(var1,var2,var3) missionNamespace ESETVAR_SYS(var1,var2,var3)
-#define CESETMVAR(var1,var2,var3) missionNamespace CESETVAR_SYS(var1,var2,var3)
 
 #define SETMPVAR(var1,var2) missionNamespace SETPVAR_SYS(var1,var2)
 #define ESETMPVAR(var1,var2,var3) missionNamespace ESETPVAR_SYS(var1,var2,var3)
-#define CESETMPVAR(var1,var2,var3) missionNamespace CESETPVAR_SYS(var1,var2,var3)
 
 #define SETPLVAR(var1,var2) player SETVAR_SYS(var1,var2)
 #define ESETPLVAR(var1,var2,var3) player ESETVAR_SYS(var1,var2,var3)

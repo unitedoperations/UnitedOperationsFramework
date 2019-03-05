@@ -22,7 +22,3 @@ SETMPVAR(ServerInitialized,true);
     ESETMVAR(Respawn,TeamTicketsRemaining_Civilian,(EGETMVAR(Respawn,TeamTickets_Civilian,30)));
     [] call EFUNC(EndConditions,Init);
 }] call CBA_fnc_WaitUntilAndExecute;
-
-if (EGETMVAR(DisconnectControl,Enabled,false)) then {
-    ace_respawn_RemoveDeadBodiesDisconnected = false;
-};

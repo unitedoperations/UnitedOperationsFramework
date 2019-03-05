@@ -80,24 +80,6 @@
 ] call CBA_Settings_fnc_init;
 
 [
-    "UO_FW_Server_DisconnectModule_Allowed", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
-    "CHECKBOX", // setting type
-    "Allow Disconnect Module", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
-    "UO Framework Settings", // Pretty name of the category where the setting can be found. Can be stringtable entry.
-    true, // data for this setting: [min, max, default, number of shown trailing decimals]
-    1 // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
-] call CBA_Settings_fnc_init;
-
-[
-    "UO_FW_Server_EndConditionModule_Allowed", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
-    "CHECKBOX", // setting type
-    "Allow Endcondition Module", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
-    "UO Framework Settings", // Pretty name of the category where the setting can be found. Can be stringtable entry.
-    true, // data for this setting: [min, max, default, number of shown trailing decimals]
-    1 // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
-] call CBA_Settings_fnc_init;
-
-[
     "UO_FW_Server_FireMissionModule_Allowed", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "CHECKBOX", // setting type
     "Allow Firemission Module", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
@@ -200,15 +182,6 @@
     "UO_FW_Server_TeamColourModule_Allowed", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "CHECKBOX", // setting type
     "Allow Team Colour Module", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
-    "UO Framework Settings", // Pretty name of the category where the setting can be found. Can be stringtable entry.
-    true, // data for this setting: [min, max, default, number of shown trailing decimals]
-    1 // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
-] call CBA_Settings_fnc_init;
-
-[
-    "UO_FW_Server_DEBUG_Allowed", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
-    "CHECKBOX", // setting type
-    "Allow Advanced Debug", // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
     "UO Framework Settings", // Pretty name of the category where the setting can be found. Can be stringtable entry.
     true, // data for this setting: [min, max, default, number of shown trailing decimals]
     1 // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer

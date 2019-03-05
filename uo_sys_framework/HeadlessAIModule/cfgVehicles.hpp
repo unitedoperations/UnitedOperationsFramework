@@ -1,7 +1,7 @@
 
 #include "cfgFSM.hpp"
 
-class UO_FW_AI_Module : OlsenModule {
+class UO_FW_AI_Module : EGVAR(Core,BaseModule) {
     scope = 1;
     category = "UO_FrameworkCategory_AI";
     icon = "\a3\3DEN\Data\CfgWaypoints\scripted_ca.paa";

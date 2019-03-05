@@ -40,7 +40,6 @@ class CfgFunctions {
 		#include "AOLimitModule\cfgFunctions.hpp"
 		#include "SetupTimerModule\cfgFunctions.hpp"
 		#include "AILinkModule\cfgFunctions.hpp"
-		#include "DisconnectControlModule\cfgFunctions.hpp"
 		#include "StartTextModule\cfgFunctions.hpp"
 		#include "AutoTrackAssetModule\cfgFunctions.hpp"
 		#include "CaptureZoneModule\cfgFunctions.hpp"
@@ -48,6 +47,7 @@ class CfgFunctions {
 		#include "FiremissionModule\cfgFunctions.hpp"
 		#include "HostageModule\cfgFunctions.hpp"
 		#include "CoverMapModule\cfgFunctions.hpp"
+		#include "MapAndCompassRemoverModule\cfgFunctions.hpp"
 	};
 	//Add Custom Function Categories with a Different Tag
 	#include "HeadlessAIModule\cfgFunctions.hpp"
@@ -69,7 +69,7 @@ class CfgVehicles {
             class AnyBrain;
         };
     };
-    class OlsenModule: Module_F {
+    class EGVAR(Core,BaseModule): Module_F {
         category = "UO_FrameworkCategory";
         isGlobal = 2;
         isTriggerActivated = 0;
@@ -149,8 +149,7 @@ class Cfg3DEN {
                 #include "AILinkModule\cfg3den\Modules\AILink.hpp"
                 #include "AntiNDModule\cfg3den\Modules\AntiND.hpp"
                 #include "AutoTrackAssetModule\cfg3den\Modules\AutoTrackAsset.hpp"
-                #include "MapCompassRemoverModule\cfg3den\Modules\MapAndCompass.hpp"
-                #include "DisconnectControlModule\cfg3den\Modules\DisconnectControl.hpp"
+                #include "MapAndCompassRemoverModule\cfg3den\Modules\MapAndCompass.hpp"
                 #include "MarkerControlModule\cfg3den\Modules\MarkerControl.hpp"
                 #include "SafeStartModule\cfg3den\Modules\SafeStart.hpp"
                 #include "SelfActionsModule\cfg3den\Modules\SelfActions.hpp"
@@ -181,7 +180,7 @@ class Cfg3DEN {
             #include "ACREModule\cfgAttributeCategories\Object.hpp"
             #include "AIDriversModule\cfgAttributeCategories\Object.hpp"
             #include "StartInParachuteModule\cfgAttributeCategories\Object.hpp"
-            #include "MapCompassRemoverModule\cfgAttributeCategories\Object.hpp"
+            #include "MapAndCompassRemoverModule\cfgAttributeCategories\Object.hpp"
             #include "FiremissionModule\cfgAttributeCategories\Object.hpp"
             #include "HostageModule\cfgAttributeCategories\Object.hpp"
             #include "CoverMapModule\cfgAttributeCategories\Object.hpp"
@@ -309,6 +308,7 @@ class Extended_PreInit_EventHandlers {
 	#include "FiremissionModule\cfgXEH\PreInit.hpp"
 	#include "StartInParachuteModule\cfgXEH\PreInit.hpp"
 	#include "StartTextModule\cfgXEH\PreInit.hpp"
+	#include "SafeStartModule\cfgXEH\PreInit.hpp"
 	#include "ACREModule\cfgXEH\PreInit.hpp"
 	#include "AIDriversModule\cfgXEH\PreInit.hpp"
 	#include "AILinkModule\cfgXEH\PreInit.hpp"
@@ -330,6 +330,7 @@ class Extended_InitPost_Eventhandlers {
         #include "Core\cfgXEH\InitPost.hpp"
         #include "ShotCountModule\cfgXEH\InitPost.hpp"
         #include "HeadlessAIModule\cfgXEH\InitPost.hpp"
+        #include "MapAndCompassRemoverModule\cfgXEH\InitPost.hpp"
     };
     class LandVehicle {
         #include "ShotCountModule\cfgXEH\InitPost.hpp"

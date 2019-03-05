@@ -1,6 +1,4 @@
-
-
-class EGVAR(AOLimit,AOLimitModule): OlsenModule {
+class EGVAR(AOLimit,AOLimitModule): EGVAR(Core,BaseModule) {
     displayName = "AO Limit Module"; // Name displayed in the menu
     scope = 2; // Editor visibility; 2 will show it in the menu, 1 will hide it.
     // Name of function triggered once conditions are met
