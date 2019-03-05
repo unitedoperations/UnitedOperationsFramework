@@ -1,6 +1,5 @@
 class EGVAR(Gear,Types) {
     typesArray[] = {\
-        "NONE",\
         "SQL",\
         "TL",\
         "RFL",\
@@ -32,8 +31,7 @@ class EGVAR(Gear,Types) {
         "CUS2",\
         "CUS3",\
         "CUS4",\
-        "CUS5",\
-        "MANUAL"\
+        "CUS5"\
     };
 };
 
