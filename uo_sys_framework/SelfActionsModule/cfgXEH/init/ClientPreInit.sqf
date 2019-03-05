@@ -104,7 +104,7 @@ UO_FW_EXEC_CHECK(CLIENT);
 
 ["UO_FW_SettingsLoaded", {
     if !(UO_FW_Server_SelfActionsModule_Allowed) exitwith {};
-    if (!GETMVAR(Enable,false)) exitwith {};
+    if !(GETMVAR(Enable,false)) exitwith {};
     if (GETMVAR(CheckColour_Enabled,false)) then {
         ["UO_FW_SelfActions_ColourCheckInitEvent", []] call CBA_fnc_localEvent;
     };
