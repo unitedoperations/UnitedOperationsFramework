@@ -11,22 +11,22 @@ grand_parent: Modules
 1. TOC
 {:toc}
 
+---
+
 # Functionality
 
-Provides an efficient in-editor system for;
-- Adding [ACRE2](https://github.com/IDI-Systems/acre2) radios to AI units and players
+Provides an efficient in-editor system for:
+- Adding [ACRE2](https://github.com/IDI-Systems/acre2) radios to players
 - Enable and disable automatic radio scrambling on a per-side basis
 - Change channel names on a per-side basis
 - Enable/disable ACRE2 babel settings 
 
-## Usage
-
 ### Special Note
 Adding radios through the ACRE module can only be done on playable units!
 
-### Adding Radios
-
 ---
+
+### Adding Radios
 
 1. Open the UO Framework menu.
 * ![image-title-here]({{ site.baseurl }}/resources/images/acre/acre_radios_1.png){:class="img-responsive"}
@@ -49,25 +49,27 @@ Adding radios through the ACRE module can only be done on playable units!
 
 The playable units you assigned radios will now have radios when starting your mission!
 
+---
 
 ### Adding Rack Radios
 
 _**FEATURE IS WIP**_
+
+---
 
 ### Radio Scrambling, Babel and Channel Names
 
 1. Open the UO Framework menu.
 * ![image-title-here]({{ site.baseurl }}/resources/images/acre/acre_radios_1.png){:class="img-responsive"}
 
-2. Select "Configure ACRE".
-
-3. Select "Configure ACRE Settings"
+2. Select "Configure ACRE" and "Configure ACRE Settings".
 * ![image-title-here]({{ site.baseurl }}/resources/images/acre/acre_radios_2.png){:class="img-responsive"}
 
-4. Check the "Enable Scramble" and "Enable Babel" checkboxes as desired.
+3. Check the "Enable Scramble" and "Enable Babel" checkboxes as desired.
 * ![image-title-here]({{ site.baseurl }}/resources/images/acre/acre_scramble_babel.png){:class="img-responsive"}
 
 You will now have per-side scrambling and babel.
 
 In order to customize what languages each side uses, configure the side of your choosing through ACRE settings.
 
+---
