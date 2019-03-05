@@ -4,7 +4,7 @@ UO_FW_EXEC_CHECK(ALL);
 
 params ["_unit", "_caller"];
 
-LOG_2("Hostage Rescue called with: _unit: %1 _caller: %2"_unit,_caller);
+LOG_2("Hostage Rescue called with: _unit: %1 _caller: %2",_unit,_caller);
 
 if (GETVAR(_unit,IsRescued,false)) exitWith {};
 if !((animationState _unit find "acts_aidlpsitmstpssurwnondnon") isEqualto -1) then {
