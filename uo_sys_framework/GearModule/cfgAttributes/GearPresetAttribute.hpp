@@ -1,4 +1,4 @@
-class UO_FW_Gear_PresetsCombo_BLUFOR: ComboPreview {
+class EGVAR(Gear,PresetsCombo_BLUFOR): ComboPreview {
     //save the lbData from the selected entry upon exit
     attributeSave = "\
         private _control = (_this controlsGroupCtrl 100);\
@@ -19,7 +19,7 @@ class UO_FW_Gear_PresetsCombo_BLUFOR: ComboPreview {
     };
 };
 
-class UO_FW_Gear_PresetsCombo_OPFOR: UO_FW_Gear_PresetsCombo_BLUFOR {
+class EGVAR(Gear,PresetsCombo_OPFOR): EGVAR(Gear,PresetsCombo_BLUFOR) {
     class Controls: Controls {
         class Title: Title {};
         class Value: Value {
@@ -32,7 +32,7 @@ class UO_FW_Gear_PresetsCombo_OPFOR: UO_FW_Gear_PresetsCombo_BLUFOR {
     };
 };
 
-class UO_FW_Gear_PresetsCombo_Indfor: UO_FW_Gear_PresetsCombo_BLUFOR {
+class EGVAR(Gear,PresetsCombo_Indfor): EGVAR(Gear,PresetsCombo_BLUFOR) {
     class Controls: Controls {
         class Title: Title {};
         class Value: Value {
@@ -45,7 +45,7 @@ class UO_FW_Gear_PresetsCombo_Indfor: UO_FW_Gear_PresetsCombo_BLUFOR {
     };
 };
 
-class UO_FW_Gear_PresetsCombo_CIVILIAN: UO_FW_Gear_PresetsCombo_BLUFOR {
+class EGVAR(Gear,PresetsCombo_CIVILIAN): EGVAR(Gear,PresetsCombo_BLUFOR) {
     class Controls: Controls {
         class Title: Title {};
         class Value: Value {

@@ -4,7 +4,12 @@ UO_FW_3DEN_CHECK;
 
 LOG("ACEGearClassAttributeLoad started");
 
-private _control = (_this controlsGroupCtrl 100);
+_this params ["_this", "_config", ["_value","NONE",[""]], ["_manualMode",false,[false]]];
+
+private _control = _this;
+if !(_manualMode) then {
+    _control = (_this controlsGroupCtrl 100);
+};
 MSETVAR(_control,parentcontrolcfg,_config);
 private _attProperty = getText (_config >> "property");
 diag_log format ["attributeLoad started, _value: %1",_value];

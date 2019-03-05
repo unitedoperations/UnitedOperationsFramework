@@ -57,7 +57,7 @@ class EGVAR(Gear,Settings) {
 };
 
 #define UO_FW_GEAR_TYPECONFIG_OLSEN(TEAMNAME,SHORTNAME)  \
-class UO_FW_Gear_Olsen_LoadoutType_##TEAMNAME##_##SHORTNAME {\
+class PREFIX##_Gear_Olsen_LoadoutType_##TEAMNAME##_##SHORTNAME {\
     property = QUOTE(TRIPLES(UO_FW_Gear_Olsen_LoadoutType,TEAMNAME,SHORTNAME));\
     displayName = CSTRING_2(Gear_DisplayName,SHORTNAME);\
     tooltip = CSTRING_2(Gear_ToolTip_Olsen,SHORTNAME);\
@@ -68,7 +68,7 @@ class UO_FW_Gear_Olsen_LoadoutType_##TEAMNAME##_##SHORTNAME {\
 }
 
 #define UO_FW_GEAR_TYPECONFIG_ACEAR(TEAMNAME,SHORTNAME) \
-class UO_FW_Gear_ACE_Arsenal_LoadoutType_##TEAMNAME##_##SHORTNAME {\
+class PREFIX##_Gear_ACE_Arsenal_LoadoutType_##TEAMNAME##_##SHORTNAME {\
     property = QUOTE(TRIPLES(UO_FW_Gear_ACE_Arsenal_LoadoutType,TEAMNAME,SHORTNAME));\
     displayName = CSTRING_2(Gear_DisplayName,SHORTNAME);\
     tooltip = CSTRING_2(Gear_ToolTip_ACEAR,SHORTNAME);\

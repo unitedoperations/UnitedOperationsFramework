@@ -6,7 +6,7 @@ LOG("GearComboLoadAttribute_AttrLoad started");
 
 private _control = (_this controlsGroupCtrl 100);
 MSETVAR(_control,parentcontrolcfg,_config);
-private _classArray = getArray(configFile >> "UO_FW_Gear_Types" >> "typesArray");
+private _classArray = getArray(configFile >> QGVAR(Types) >> "typesArray");
 private _name = "None";
 private _className = "NONE";
 private _index = (_control lbadd _name);

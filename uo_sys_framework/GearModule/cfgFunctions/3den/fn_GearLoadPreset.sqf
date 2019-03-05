@@ -80,25 +80,21 @@ LOG_2("_ctrlGroup: %1 _ctrlButton: %2",_ctrlGroup,_ctrlButton);
             LOG_1("_attProperty %1",_attProperty);
             private _missionVarValue = missionNamespace getvariable [_attProperty,"NONE"];
             LOG_1("_missionVarValue %1",_missionVarValue);
-            if !(_missionVarValue isEqualTo _lbValue) then {
-                private _size = lbSize _newcontrol;
-                private _found = false;
-                LOG_1("_size %1",_size);
-                for "_i" from 0 to _size step 1 do {
-                    private _indexValue = _newcontrol lbData _i;
-                    LOG_1("_i %1",_i);
-                    LOG_1("_indexValue %1",_indexValue);
-                    if (_indexValue isEqualto _missionVarValue) exitwith {
-                        _newcontrol lbSetCurSel _i;
-                        _found = true;
-                        _newcontrol ctrlCommit 0;
-                    };
-                };
-                LOG_1("_found %1",_found);
-                if !(_found) then {
-                    [_newcontrol,_attProperty,_missionVarValue] call FUNC(ACEGearClassAttributeLoad);
+            [_newcontrol,_config,_missionVarValue,true] call FUNC(ACEGearClassAttribute_AttrLoad);
+            private _size = lbSize _newcontrol;
+            private _found = false;
+            LOG_1("_size %1",_size);
+            for "_i" from 0 to _size step 1 do {
+                private _indexValue = _newcontrol lbData _i;
+                LOG_1("_i %1",_i);
+                LOG_1("_indexValue %1",_indexValue);
+                if (_indexValue isEqualto _missionVarValue) exitwith {
+                    _newcontrol lbSetCurSel _i;
+                    _found = true;
+                    _newcontrol ctrlCommit 0;
                 };
             };
+            LOG_1("_found %1",_found);
             ctrlsetfocus _ctrlButton;
         };
     };

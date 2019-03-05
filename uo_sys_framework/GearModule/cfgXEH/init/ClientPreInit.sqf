@@ -123,44 +123,9 @@ UO_FW_EXEC_CHECK(CLIENTHC);
     }] call CBA_fnc_waitUntilandExecute;
 }] call CBA_fnc_addEventHandler;
 
-switch (true) do {
-    case (UO_FW_VERSIONNUMBER >= 103): {
-        ["UO_FW_SettingsLoaded", {
-            [{!isNull player},{
-                [] call UO_loadoutIndex;
-                SETPLPVAR(GearReady,true);
-            }] call CBA_fnc_waitUntilandExecute;
-        }] call CBA_fnc_addEventHandler;
-    };
-    case (UO_FW_VERSIONNUMBER <= 102): {
-        ["UO_FW_SettingsLoaded", {
-            if !(hasInterface) then {
-                ["UO_FW_Gear_LocalObjectsGearLoad", []] call CBA_fnc_localEvent;
-            } else {
-                ["UO_FW_Gear_PlayerGearLoad", []] call CBA_fnc_localEvent;
-            };
-        }] call CBA_fnc_addEventHandler;
-        if (isMultiplayer) then {
-            [{(!isNull player) && {((!(isNull findDisplay 53)) && {(GETPLVAR(GearReady,false))}) || (getClientStateNumber >= 10)}},{
-                if (getClientStateNumber >= 10) exitwith {SETPLPVAR(ClientContinued,true);};
-                LOG_1("findDisplay wait passed, control: %1",(findDisplay 53 displayCtrl 1));
-                LOG_1("findDisplay wait passed, ADMIN: %1",ISADMIN);
-                if !(ISADMIN) then {
-                    [{
-                        ctrlActivate (findDisplay 53 displayCtrl 1);
-                        [{(!(ctrlEnabled (findDisplay 53 displayCtrl 1)))},{
-                            SETPLPVAR(ClientContinued,true);
-                        }] call CBA_fnc_waitUntilandExecute;
-                    }] call CBA_fnc_execNextFrame;
-                } else {
-                    SETPLPVAR(ClientContinued,true);
-                };
-            }] call CBA_fnc_waitUntilandExecute;
-        };
-        [{!isNull player},{
-            [{(GETPLVAR(GearReady,false)) && {!isMultiplayer || (((call BIS_fnc_listPlayers) findIf {(GETVAR(_x,GearReady,false)) && {(GETVAR(_x,ClientContinued,false))}}) != -1)}},{
-                [] call UO_loadoutIndex;
-            }] call CBA_fnc_waitUntilandExecute;
-        }] call CBA_fnc_waitUntilandExecute;
-    };
-};
+["UO_FW_SettingsLoaded", {
+    [{!isNull player},{
+        [] call UO_loadoutIndex;
+        SETPLPVAR(GearReady,true);
+    }] call CBA_fnc_waitUntilandExecute;
+}] call CBA_fnc_addEventHandler;

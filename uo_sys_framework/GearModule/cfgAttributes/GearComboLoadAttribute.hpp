@@ -1,4 +1,4 @@
-class UO_FW_Gear_ComboGearLoad: ComboPreview {
+class EGVAR(Gear,ComboGearLoad): ComboPreview {
     //save the lbData from the selected entry upon exit
     attributeSave = QUOTE(_this call EFUNC(Gear,GearComboLoadAttribute_AttrSave));
     //_this - config, _value - saved value

@@ -1,4 +1,4 @@
-class UO_FW_Gear_ManualGearEditShort: EditShort {
+class EGVAR(Gear,ManualGearEditShort): EditShort {
     //save the lbData from the selected entry upon exit
     attributeSave = "\
         private _value = ctrlText (_this controlsGroupCtrl 100);\
