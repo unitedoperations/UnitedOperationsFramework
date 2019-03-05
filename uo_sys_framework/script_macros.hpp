@@ -76,7 +76,7 @@ MESSAGE call EFUNC(Core,DebugMessage)
 
 //UO_FW_Component_fnc_functionName
 #define FUNCUO(var1) TRIPLES(PREFIX,fnc,var1)
-#define FUNC(var1) TRIPLES(PREFIX,fnc,DOUBLES(COMPONENT,var2))
+#define FUNC(var1) TRIPLES(PREFIX,fnc,DOUBLES(COMPONENT,var1))
 #define QFUNC(var1) QUOTE(FUNC(var1))
 #define EFUNC(var1,var2) TRIPLES(PREFIX,fnc,DOUBLES(var1,var2))
 #define QEFUNC(var1,var2) QUOTE(EFUNC(var1,var2))
