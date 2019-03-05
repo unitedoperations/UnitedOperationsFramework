@@ -1,4 +1,4 @@
-class UO_FW_SetupTimerModule: OlsenModule {
+class EGVAR(SetupTimer,SetupTimerModule): OlsenModule {
     displayName = "Setup Timer Module"; // Name displayed in the menu
     scope = 2; // Editor visibility; 2 will show it in the menu, 1 will hide it.
     // Name of function triggered once conditions are met
@@ -71,7 +71,7 @@ class UO_FW_SetupTimerModule: OlsenModule {
     };
 };
 
-class UO_FW_SetupTimerModule_R : UO_FW_SetupTimerModule {
+class EGVAR(SetupTimer,SetupTimerModule_R): EGVAR(SetupTimer,SetupTimerModule) {
     displayName = "Setup Timer Module (Rectangle)"; // Name displayed in the menu
     class AttributeValues {
         size2[] = {100,100};

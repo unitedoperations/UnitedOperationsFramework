@@ -3,9 +3,11 @@
 UO_FW_EXEC_CHECK(ALL);
 
 params ["_display"];
+LOG("called Setup init");
 
 [{!(displayNull isEqualto _this)}, {
     params ["_display"];
+    LOG("Starting Setup waituntil");
     EGVAR(SetupTimer,PFHhandleDisplay)= [{
         params ["_argNested", "_idPFH"];
         _argNested params ["_endTime","_nextBeep","_colorSet","_display"];
