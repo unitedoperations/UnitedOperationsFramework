@@ -4,26 +4,34 @@ UO_FW_EXEC_CHECK(CLIENT);
 
 ["UO_FW_MarkerControlEvent", {
     if !(UO_FW_Server_MarkerControlModule_Allowed) exitWith {};
-    if !(GETMVAR(Enabled,false)) exitWith {};
+    if !(GETMVAR(Enabled,true)) exitWith {};
     ["UO_FW_RegisterModuleEvent", ["Marker Control", "Allows the mission maker to create markers visible to a single side and per briefing.", "Olsen, Sacher and PiZZADOX"]] call CBA_fnc_localEvent;
     private _markers = [];
     private _markersBriefing = [];
     {
+        LOG_1("Checking %1 Marker in BluforMarkers",_x);
         if !((getMissionLayerEntities _x) isEqualTo []) then {
+            LOG_1("Checking %1 Marker in getMissionLayerEntities",_x);
             if !(((getMissionLayerEntities _x) select 1) isEqualto []) then {
+                LOG_1("%1 Marker in getMissionLayerEntities",_x);
                 {_markers pushBack [west, _x];} foreach ((getMissionLayerEntities _x) select 1);
             };
         } else {
             _markers pushBack [west, _x];
+            LOG_1("%1 Marker pushedback in BluforMarkers",_x);
         };
     } forEach (GETMVAR(BluforMarkers,[]));
     {
+        LOG_1("Checking %1 Marker in BluforMarkers",_x);
         if !((getMissionLayerEntities _x) isEqualTo []) then {
+            LOG_1("Checking %1 Marker in getMissionLayerEntities",_x);
             if !(((getMissionLayerEntities _x) select 1) isEqualto []) then {
+                LOG_1("%1 Marker in getMissionLayerEntities",_x);
                 {_markersBriefing pushBack [west, _x];} foreach ((getMissionLayerEntities _x) select 1);
             };
         } else {
             _markersBriefing pushBack [west, _x];
+            LOG_1("%1 Marker pushedback in BluforMarkers",_x);
         };
     } forEach (GETMVAR(BluforBriefingMarkers,[]));
     {
@@ -34,7 +42,7 @@ UO_FW_EXEC_CHECK(CLIENT);
         } else {
             _markers pushBack [east, _x];
         };
-    } forEach (GETMVAR(OpforBriefing,[]));
+    } forEach (GETMVAR(OpforMarkers,[]));
     {
         if !((getMissionLayerEntities _x) isEqualTo []) then {
             if !(((getMissionLayerEntities _x) select 1) isEqualto []) then {
@@ -52,7 +60,7 @@ UO_FW_EXEC_CHECK(CLIENT);
         } else {
             _markers pushBack [independent, _x];
         };
-    } forEach (GETMVAR(IndforBriefing,[]));
+    } forEach (GETMVAR(IndforMarkers,[]));
     {
         if !((getMissionLayerEntities _x) isEqualTo []) then {
             if !(((getMissionLayerEntities _x) select 1) isEqualto []) then {
@@ -70,7 +78,7 @@ UO_FW_EXEC_CHECK(CLIENT);
         } else {
             _markers pushBack [civilian, _x];
         };
-    } forEach (GETMVAR(CIVBriefing,[]));
+    } forEach (GETMVAR(CIVMarkers,[]));
     {
         if !((getMissionLayerEntities _x) isEqualTo []) then {
             if !(((getMissionLayerEntities _x) select 1) isEqualto []) then {

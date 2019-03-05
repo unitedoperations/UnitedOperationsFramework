@@ -1,4 +1,4 @@
-class UO_FW_MarkerControl {
+class EGVAR(MarkerControl,Category) {
     displayName = "Marker Control Settings";
     collapsed = 1;
     class Attributes {
