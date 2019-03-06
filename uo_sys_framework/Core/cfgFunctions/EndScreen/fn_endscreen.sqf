@@ -6,7 +6,7 @@ params ["_scenario"];
 
 player enableSimulation false;
 removeAllWeapons player;
-"UO_FW_EndScreen_Layer" cutRsc ["UO_FW_DIA_ENDSCREEN", "PLAIN"];
+QGVAR(EndScreenLayer) cutRsc ["UO_FW_DIA_ENDSCREEN", "PLAIN"];
 private _bg = 3000;
 private _endTitle = 3001;
 private _left = 3002;

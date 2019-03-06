@@ -55,7 +55,7 @@ class EGVAR(CaptureZone,CaptureZoneModule): EGVAR(Core,BaseModule) {
             displayName = "Ratio Needed";
             tooltip = "Ratio needed to capture the zone. Larger team / team in second place.";
             property = QEGVAR(CaptureZone,RatioNeeded);
-            control = "UO_FW_1To100Step5_Slider";
+            control = QMGVAR(1To100Step5_Slider);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "75";
             validate = "NUMBER";
@@ -65,7 +65,7 @@ class EGVAR(CaptureZone,CaptureZoneModule): EGVAR(Core,BaseModule) {
             displayName = "Blufor";
             tooltip = "Whether or not the team can capture the zone, and whether they are checked in the player count.";
             property = QEGVAR(CaptureZone,Cap_Blufor);
-            control = "UO_FW_CaptureZone_TeamAttribute";
+            control = QEGVAR(CaptureZone,TeamAttribute);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "0";
             typeName = "number";
@@ -74,7 +74,7 @@ class EGVAR(CaptureZone,CaptureZoneModule): EGVAR(Core,BaseModule) {
             displayName = "Blufor Time";
             tooltip = "Time needed for Blufor to capture the zone in seconds. Set to 0 for instant capture";
             property = QEGVAR(CaptureZone,Time_Blufor);
-            control = "UO_FW_0To600Step1_Slider";
+            control = QMGVAR(0To600Step1_Slider);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "30";
             typeName = "NUMBER";
@@ -111,7 +111,7 @@ class EGVAR(CaptureZone,CaptureZoneModule): EGVAR(Core,BaseModule) {
             displayName = "Opfor";
             tooltip = "Whether or not the team can capture the zone, and whether they are checked in the player count.";
             property = QEGVAR(CaptureZone,Cap_Opfor);
-            control = "UO_FW_CaptureZone_TeamAttribute";
+            control = QEGVAR(CaptureZone,TeamAttribute);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "0";
             typeName = "number";
@@ -120,7 +120,7 @@ class EGVAR(CaptureZone,CaptureZoneModule): EGVAR(Core,BaseModule) {
             displayName = "Opfor Time";
             tooltip = "Time needed for Opfor to capture the zone in seconds. Set to 0 for instant capture";
             property = QEGVAR(CaptureZone,Time_Opfor);
-            control = "UO_FW_0To600Step1_Slider";
+            control = QMGVAR(0To600Step1_Slider);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "30";
             typeName = "NUMBER";
@@ -157,7 +157,7 @@ class EGVAR(CaptureZone,CaptureZoneModule): EGVAR(Core,BaseModule) {
             displayName = "Independent";
             tooltip = "Whether or not the team can capture the zone, and whether they are checked in the player count.";
             property = QEGVAR(CaptureZone,Cap_Indfor);
-            control = "UO_FW_CaptureZone_TeamAttribute";
+            control = QEGVAR(CaptureZone,TeamAttribute);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "0";
             typeName = "number";
@@ -166,7 +166,7 @@ class EGVAR(CaptureZone,CaptureZoneModule): EGVAR(Core,BaseModule) {
             displayName = "Independent Time";
             tooltip = "Time needed for Independent to capture the zone in seconds. Set to 0 for instant capture";
             property = QEGVAR(CaptureZone,Time_Indfor);
-            control = "UO_FW_0To600Step1_Slider";
+            control = QMGVAR(0To600Step1_Slider);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "30";
             typeName = "NUMBER";
@@ -203,7 +203,7 @@ class EGVAR(CaptureZone,CaptureZoneModule): EGVAR(Core,BaseModule) {
             displayName = "Civilian";
             tooltip = "Whether or not the team can capture the zone, and whether they are checked in the player count.";
             property = QEGVAR(CaptureZone,Cap_Civilian);
-            control = "UO_FW_CaptureZone_TeamAttribute";
+            control = QEGVAR(CaptureZone,TeamAttribute);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "0";
             typeName = "number";
@@ -212,7 +212,7 @@ class EGVAR(CaptureZone,CaptureZoneModule): EGVAR(Core,BaseModule) {
             displayName = "Civilian Time";
             tooltip = "Time needed for Civilian to capture the zone in seconds. Set to 0 for instant capture";
             property = QEGVAR(CaptureZone,Time_Civilian);
-            control = "UO_FW_0To600Step1_Slider";
+            control = QMGVAR(0To600Step1_Slider);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "30";
             typeName = "NUMBER";
@@ -337,7 +337,7 @@ class EGVAR(CaptureZone,CaptureZoneModule): EGVAR(Core,BaseModule) {
             displayName = "Custom Condition";
             tooltip = "Enter a custom condition that must be met for this zone to be captured. Default: true";
             property = QEGVAR(CaptureZone,Condition);
-            control = "UO_FW_AI_codeControl";
+            control = "EditCode";
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "'true'";
         };

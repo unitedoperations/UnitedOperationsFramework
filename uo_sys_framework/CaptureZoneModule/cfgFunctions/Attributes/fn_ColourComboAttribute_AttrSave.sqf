@@ -5,8 +5,8 @@ UO_FW_3DEN_CHECK;
 LOG("CaptueZoneAttribute Save started");
 
 private _control = (_this controlsGroupCtrl 100);
-private _config = MGETVAR(_control,parentcontrolcfg,"");
+private _config = _control getvariable [QMGVAR(parentcontrolcfg),""];
 private _attProperty = getText (_config >> "property");
 private _value = (_control lbData lbCurSel _control);
-MSETMVAR(_attProperty,_value);
+missionNamespace setvariable [_attProperty,_value];
 _value

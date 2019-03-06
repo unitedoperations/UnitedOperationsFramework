@@ -14,7 +14,7 @@ class EGVAR(EndConditions,MainSettings_Category4) {
             property = QEGVAR(EndConditions,Mode_4);
             displayName = "Category Mode";
             tooltip = "Whether or not the condition fires if any condition is true, or if all conditions are true. Extract condition must be true in both cases.";
-            control = "UO_FW_EndConditions_ModeAttribute";
+            control = QEGVAR(EndConditions,ModeAttribute);
             expression = UO_FW_SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "0";
@@ -47,7 +47,7 @@ class EGVAR(EndConditions,CasualtySettings_Category4) {
             property = QEGVAR(EndConditions,CasualtyCount_Percentage_BLUFOR_4);
             displayName = "Casualty Percentage";
             tooltip = "End condition fires when team casualty percentage is over this number";
-            control = "UO_FW_5To100Step5_Slider";
+            control = QMGVAR(5To100Step5_Slider);
             expression = UO_FW_SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "75";
@@ -64,7 +64,7 @@ class EGVAR(EndConditions,CasualtySettings_Category4) {
             property = QEGVAR(EndConditions,CasualtyCount_Percentage_OPFOR_4);
             displayName = "Casualty Percentage";
             tooltip = "End condition fires when team casualty percentage is over this number";
-            control = "UO_FW_5To100Step5_Slider";
+            control = QMGVAR(5To100Step5_Slider);
             expression = UO_FW_SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "75";
@@ -81,7 +81,7 @@ class EGVAR(EndConditions,CasualtySettings_Category4) {
             property = QEGVAR(EndConditions,CasualtyCount_Percentage_Indfor_4);
             displayName = "Casualty Percentage";
             tooltip = "End condition fires when team casualty percentage is over this number";
-            control = "UO_FW_5To100Step5_Slider";
+            control = QMGVAR(5To100Step5_Slider);
             expression = UO_FW_SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "75";
@@ -98,7 +98,7 @@ class EGVAR(EndConditions,CasualtySettings_Category4) {
             property = QEGVAR(EndConditions,CasualtyCount_Percentage_Civilian_4);
             displayName = "Casualty Percentage";
             tooltip = "End condition fires when team casualty percentage is over this number";
-            control = "UO_FW_5To100Step5_Slider";
+            control = QMGVAR(5To100Step5_Slider);
             expression = UO_FW_SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "75";
@@ -183,7 +183,7 @@ class EGVAR(EndConditions,ExtractionSettings_Category4) {
             property = QEGVAR(EndConditions,ExtractionTeam_4);
             displayName = "Team";
             tooltip = "Team required to be in extract area.";
-            control = "UO_FW_EndConditions_ExtractTeam";
+            control = QEGVAR(EndConditions,ExtractTeam);
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "0";
         };
@@ -199,7 +199,7 @@ class EGVAR(EndConditions,ExtractionSettings_Category4) {
             property = QEGVAR(EndConditions,ExtractionRatio_4);
             displayName = "Ratio";
             tooltip = "Percentage of alive personnel inside the marker to be considered extracted. Default 75";
-            control = "UO_FW_5To100Step5_Slider";
+            control = QMGVAR(5To100Step5_Slider);
             expression = UO_FW_SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "75";
@@ -223,7 +223,7 @@ class EGVAR(EndConditions,CaptureZoneSettings_Category4) {
             property = QEGVAR(EndConditions,CaptureZoneCaptured_Team_4);
             displayName = "CaptureZone Team";
             tooltip = "Team that must activate the CaptureZones for the condition to fire.";
-            control = "UO_FW_EndConditions_CaptureZoneTeam";
+            control = QEGVAR(EndConditions,CaptureZoneTeam);
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "1";
         };

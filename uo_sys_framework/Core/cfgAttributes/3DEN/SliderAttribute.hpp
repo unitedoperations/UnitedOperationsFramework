@@ -1,4 +1,4 @@
-class UO_FW_Slider: Slider {
+class MGVAR(Slider): Slider {
     attributeLoad = "\
         params ['_ctrlGroup'];\
         private _slider = _ctrlGroup controlsGroupCtrl 100;\
@@ -22,7 +22,7 @@ class UO_FW_Slider: Slider {
 };
 
 #define UO_FW_SLIDERCONFIG_DECIMAL(MINVAL,MAXVAL,STEPSIZE)\
-class UO_FW_##MINVAL##To##MAXVAL##Step0##STEPSIZE##_Slider: UO_FW_Slider {\
+class PREFIX##_##MINVAL##To##MAXVAL##Step0##STEPSIZE##_Slider: MGVAR(Slider) {\
     attributeLoad = "\
         params ['_ctrlGroup'];\
         private _slider = _ctrlGroup controlsGroupCtrl 100;\
@@ -59,7 +59,7 @@ class UO_FW_##MINVAL##To##MAXVAL##Step0##STEPSIZE##_Slider: UO_FW_Slider {\
 }
 
 #define UO_FW_SLIDERCONFIG(MINVAL,MAXVAL,STEPSIZE)\
-class UO_FW_##MINVAL##To##MAXVAL##Step##STEPSIZE##_Slider: UO_FW_Slider {\
+class PREFIX##_##MINVAL##To##MAXVAL##Step##STEPSIZE##_Slider: MGVAR(Slider) {\
     attributeLoad = "\
         params ['_ctrlGroup'];\
         private _slider = _ctrlGroup controlsGroupCtrl 100;\

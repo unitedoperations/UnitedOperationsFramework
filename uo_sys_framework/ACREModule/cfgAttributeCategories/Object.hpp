@@ -33,7 +33,7 @@ class EGVAR(ACRE,UnitOptions) {
             property = QEGVAR(ACRE,SR_RADIO_EAR);
             displayName = "Short Range Radio Ear";
             tooltip = "Sets the short range radio earpiece setting";
-            control = "UO_FW_ACRE_EarSetting";
+            control = QEGVAR(Acre,EarSetting);
             expression = UO_FW_ENTITY_EXPRESSION;
             condition = "objectControllable";
             defaultValue = "0";
@@ -60,7 +60,7 @@ class EGVAR(ACRE,UnitOptions) {
             property = QEGVAR(ACRE,LR_RADIO_EAR);
             displayName = "Long Range Radio Ear";
             tooltip = "Sets the long range radio earpiece setting";
-            control = "UO_FW_ACRE_EarSetting";
+            control = QEGVAR(Acre,EarSetting);
             expression = UO_FW_ENTITY_EXPRESSION;
             condition = "objectControllable";
             defaultValue = "0";

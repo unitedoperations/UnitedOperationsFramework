@@ -15,7 +15,7 @@ class UO_FW_StartInParachute  {
             displayName = "Parachute Altitude";
             tooltip = "Altitude at which unit is parachuted";
             property = QEGVAR(StartInParachute,Altitude);
-            control = "UO_FW_100To1000Step100_Slider";
+            control = QMGVAR(100To1000Step100_Slider);
             expression = UO_FW_ENTITY_EXPRESSION;
             condition = "objectControllable";
             validate = "number";
@@ -25,7 +25,7 @@ class UO_FW_StartInParachute  {
             displayName = "Parachute Randomized Altitude";
             tooltip = "Adds a random height to the normal parachute altitude";
             property = QEGVAR(StartInParachute,RandomAltitude);
-            control = "UO_FW_100To500Step100_Slider";
+            control = QMGVAR(100To500Step100_Slider);
             expression = UO_FW_ENTITY_EXPRESSION;
             condition = "objectControllable";
             validate = "number";

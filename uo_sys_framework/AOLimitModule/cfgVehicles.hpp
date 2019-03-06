@@ -112,7 +112,7 @@ class EGVAR(AOLimit,AOLimitModule): EGVAR(Core,BaseModule) {
             displayName = "Max time outside of AO";
             tooltip = "The amount of time in seconds a land based unit is allowed to stay outside the AO";
             property = QEGVAR(AoLimit,SoftTimeOutside);
-            control = "UO_FW_30To120Step1_Slider";
+            control = QMGVAR(30To120Step1_Slider);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "30";
             AOTypes[] = {"SOFT"};
@@ -123,7 +123,7 @@ class EGVAR(AOLimit,AOLimitModule): EGVAR(Core,BaseModule) {
             displayName = "Max time outside of AO";
             tooltip = "The amount of time in seconds an air based unit is allowed to stay outside the AO";
             property = QEGVAR(AoLimit,SoftTimeOutsideAir);
-            control = "UO_FW_120To360Step1_Slider";
+            control = QMGVAR(120To360Step1_Slider);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "120";
             AOTypes[] = {"SOFT"};

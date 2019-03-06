@@ -46,7 +46,7 @@ class EGVAR(SelfActions,Settings) {
             property = QEGVAR(SelfActions,ParaFlare_Brightness);
             displayName = "ParaFlare Brightness";
             tooltip = "Sets the brightness of paraflares";
-            control = "UO_FW_15To40Step5_Slider";
+            control = QMGVAR(15To40Step5_Slider);
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "15";
         };

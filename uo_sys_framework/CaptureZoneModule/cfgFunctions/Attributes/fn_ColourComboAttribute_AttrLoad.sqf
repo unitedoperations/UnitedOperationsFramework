@@ -7,9 +7,9 @@ LOG("CaptueZoneAttribute Load started");
 _this params ["_this", "_config"];
 
 private _control = (_this controlsGroupCtrl 100);
-MSETVAR(_control,parentcontrolcfg,_config);
+_control setvariable [QMGVAR(parentcontrolcfg),_config];
 private _attProperty = getText (_config >> "property");
-MSETMVAR(_attProperty,_value);
+missionNamespace setvariable [_attProperty,_value];
 lbClear _control;
 {
 	private _colour = getArray (_x >> "color") call BIS_fnc_colorConfigToRGBA;

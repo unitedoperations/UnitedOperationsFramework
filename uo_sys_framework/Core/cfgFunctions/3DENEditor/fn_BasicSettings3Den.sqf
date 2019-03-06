@@ -23,11 +23,11 @@ LOG("BasicSettings3Den called");
 "Scenario" set3DENMissionAttribute ["enableTargetDebug",1];
 
 if ((EGETMVALUE(Briefing,MissionNotes_Author,"")) isEqualTo "") then {
-    "UO_FW_Mission_Notes" set3DENMissionAttribute ["UO_FW_Briefing_MissionNotes_Author",profileNameSteam];
+    QEGVAR(Briefing,MissionNotes) set3DENMissionAttribute [QEGVAR(Briefing,MissionNotes_Author),profileNameSteam];
 };
 
 if ((EGETMVALUE(Core,Version_Created,"")) isEqualTo "") then {
-    "UO_FW_Core_Version_DummyCategory" set3DENMissionAttribute ["UO_FW_Core_Version_Created",QUOTE(VERSION)];
+    QEGVAR(Core,Version_DummyCategory) set3DENMissionAttribute [QEGVAR(Core,Version_Created),QUOTE(VERSION)];
 };
 
-"UO_FW_Core_Version_DummyCategory" set3DENMissionAttribute ["UO_FW_Core_Version_Updated",QUOTE(VERSION)];
+QEGVAR(Core,Version_DummyCategory)  set3DENMissionAttribute [QEGVAR(Core,Version_Updated),QUOTE(VERSION)];

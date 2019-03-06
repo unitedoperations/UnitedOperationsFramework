@@ -14,7 +14,7 @@ class UO_FW_AntiND {
             property = QEGVAR(AntiND,Time);
             displayName = "Time";
             tooltip = "Time in seconds after spawn after which Anti ND functionality is disabled";
-            control = "UO_FW_30To120Step1_Slider";
+            control = QMGVAR(30To120Step1_Slider);
             validate = "number";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "30";
@@ -23,7 +23,7 @@ class UO_FW_AntiND {
             property = QEGVAR(AntiND,Distance);
             displayName = "Distance";
             tooltip = "Distance in meters at which Anti ND functionality is disabled";
-            control = "UO_FW_50To250Step50_Slider";
+            control = QMGVAR(50To250Step50_Slider);
             validate = "number";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "200";

@@ -22,16 +22,18 @@ if (_cfgEntries isEqualto []) then {
         private _cfg = _x;
         private _displayName = getText(_cfg >> "displayName");
         private _displayDesc = getText(_cfg >> "displayDesc");
-        private _author = "";
-        if (isArray (_cfg >> "authors")) then {
-            private _authors = getArray (_cfg >> "authors");
-            {
-                if (_x isEqualType "") then {\
-                    _author = format ["%1, %2", _author, _x];
+        private _authors = getArray (_cfg >> "authors");
+        private _authorstr = "";
+        {
+            if (_x isEqualType "") then {
+                if (_forEachIndex isEqualto 0) then {
+                    _authorstr = _x;
+                } else {
+                    _authorstr = format ["%1, %2", _authorstr, _x];
                 };
-            } forEach _authors;
-        };
-        private _displayTooltip = format ["%1, Authors: %2", _displayDesc, _author];
+            };
+        } forEach _authors;
+        private _displayTooltip = format ["%1 Authors: %2", _displayDesc, _authorstr];
         private _index = _control lbadd _displayName;
         _control lbsetdata [_index,_displayName];
         _control lbsetValue [_index,_forEachIndex];

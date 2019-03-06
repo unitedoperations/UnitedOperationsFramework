@@ -22,15 +22,15 @@ class CfgPatches {
 
 class CfgFactionClasses {
     class NO_CATEGORY;
-    class UO_FrameworkCategory: NO_CATEGORY {
+    class MGVAR(FrameworkCategory): NO_CATEGORY {
         displayName = " United Operations Framework";
     };
     //#include "HeadlessAIModule\cfgFactionClasses.hpp"
 };
 
 class CfgFunctions {
-	class UO_Framework {
-		tag = "UO_FW";
+	class MGVAR(Framework) {
+		tag = QUOTE(PREFIX);
 		#include "Core\cfgFunctions.hpp"
 		//Add Custom Functions
 		#include "BriefingModule\cfgFunctions.hpp"
@@ -70,15 +70,15 @@ class CfgVehicles {
         };
     };
     class EGVAR(Core,BaseModule): Module_F {
-        category = "UO_FrameworkCategory";
+        category = QMGVAR(FrameworkCategory);
         isGlobal = 2;
         isTriggerActivated = 0;
         isDisposable = 0;
         is3DEN = 0;
         scope = 1;
         icon = "\a3\3DEN\Data\CfgWaypoints\scripted_ca.paa";
-        editorCategory = "UO_FW_Category";
-        editorSubCategory = "UO_FW_SubCategory";
+        editorCategory = QMGVAR(Category);
+        editorSubCategory = QMGVAR(SubCategory);
     };
     //add custom cfgVehicles
     //#include "HeadlessAIModule\cfgVehicles.hpp"
@@ -141,7 +141,7 @@ class Cfg3DEN {
         //Additional Core cfg3denMenu defines
         #include "Core\cfg3den\cfg3denMenuCategories.hpp"
 
-        class UO_FW_Module_Settings {
+        class EGVAR(Module,Settings) {
             displayName = "Module Settings";
             class AttributeCategories {
                 //add module settings here
@@ -272,29 +272,28 @@ class display3DEN {
                 class UO_FW_Folder {
                     text = "UO Framework";
                     //items[] = {
-                    //    "UO_FW_Settings",
+                    //    QMGVAR(Settings),
                     //    QEGVAR(Briefing,Folder),
                     //    QEGVAR(Respawn,Folder),
-                    //    "UO_FW_Module_Settings",
+                    //    QEGVAR(Module,Settings),
                     //    QEGVAR(EndConditions,Folder),
                     //    QEGVAR(ACRE,Folder),
                     //    QEGVAR(Gear,Folder),
-                    //    "UO_FW_AI_Settings",
-                    //    "UO_FW_ExportImport_Folder",
-                    //    "UO_FW_Documentation"
+                    //    QEGVAR(AI,Settings),
+                    //    QEGVAR(ExportImport,Folder),
+                    //    QMGVAR(Documentation)
                     //};
                     items[] = {
-                        "UO_FW_Settings",
+                        QMGVAR(Settings),
                         QEGVAR(Briefing,Folder),
                         QEGVAR(Respawn,Folder),
-                        "UO_FW_Module_Settings",
+                        QEGVAR(Module,Settings),
                         QEGVAR(EndConditions,Folder),
                         QEGVAR(ACRE,Folder),
                         QEGVAR(Gear,Folder),
-                        "UO_FW_ExportImport_Folder",
-                        "UO_FW_Documentation"
+                        QEGVAR(ExportImport,Folder),
+                        QMGVAR(Documentation)
                     };
-                    //items[] = {"UO_FW_Settings","UO_FW_Module_Settings","UO_FW_Gear_Settings","UO_FW_EndConditions_Folder","UO_FW_ACRE_Folder","UO_FW_Briefing_Folder","UO_FW_Documentation"};
                 };
                 //Compile Main Menu
                 items[] += {"UO_FW_Folder"};

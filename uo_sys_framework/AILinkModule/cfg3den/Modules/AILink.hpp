@@ -15,7 +15,7 @@ class UO_FW_AILink {
             property = QEGVAR(AILink,StartDelay);
             displayName = "Start Delay";
             tooltip = "Delay in seconds when starting the mission until the first loop runs.";
-            control = "UO_FW_30To120Step1_Slider";
+            control = QMGVAR(30To120Step1_Slider);
             expression = UO_FW_SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "30";
@@ -25,7 +25,7 @@ class UO_FW_AILink {
             property = QEGVAR(AILink,ShareDelay);
             displayName = "Share Delay";
             tooltip = "Delay in seconds between loops after the first.";
-            control = "UO_FW_10To100Step1_Slider";
+            control = QMGVAR(10To100Step1_Slider);
             expression = UO_FW_SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "30";
@@ -35,7 +35,7 @@ class UO_FW_AILink {
             property = QEGVAR(AILink,TransDelay);
             displayName = "Trans Delay";
             tooltip = "Delay in seconds, maximum randomized, for target information to be transmitted. No effect if set higher than tin_AILink_shareDelay.";
-            control = "UO_FW_10To100Step1_Slider";
+            control = QMGVAR(10To100Step1_Slider);
             expression = UO_FW_SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "10";
@@ -45,7 +45,7 @@ class UO_FW_AILink {
             property = QEGVAR(AILink,LRRange);
             displayName = "LR Range";
             tooltip = "Range if both groups have long-range radios, also used if tin_AILink_needRadio is false.";
-            control = "UO_FW_500To2500Step100_Slider";
+            control = QMGVAR(500To2500Step100_Slider);
             expression = UO_FW_SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "800";
@@ -55,7 +55,7 @@ class UO_FW_AILink {
             property = QEGVAR(AILink,SRRange);
             displayName = "SR Range";
             tooltip = "Range if both groups have short-range radios.";
-            control = "UO_FW_300To1000Step100_Slider";
+            control = QMGVAR(300To1000Step100_Slider);
             expression = UO_FW_SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "400";
@@ -75,7 +75,7 @@ class UO_FW_AILink {
             property = QEGVAR(AILink,MaxKnows);
             displayName = "Max Knows about";
             tooltip = "The maximum amount that knowsAbout will be set to via this script.";
-            control = "UO_FW_1To4Step01_Slider";
+            control = QMGVAR(1To4Step01_Slider);
             expression = UO_FW_SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "3.5";

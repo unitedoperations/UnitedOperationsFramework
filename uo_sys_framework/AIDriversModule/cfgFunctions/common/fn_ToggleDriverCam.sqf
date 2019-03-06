@@ -26,7 +26,7 @@ if (_arg) then {
     GVAR(DriverCam) attachTo [_veh,[0,0,0], _mempoint];
 
     with uiNamespace do {
-        "UO_FW_pipDriver" cutRsc ["RscTitleDisplayEmpty", "PLAIN"];
+        QGVAR(PiPDriverLayer) cutRsc ["RscTitleDisplayEmpty", "PLAIN"];
         GVAR(pipDisplay) = uiNamespace getVariable "RscTitleDisplayEmpty";
         GVAR(driverPipDisplay) = GVAR(pipDisplay) ctrlCreate ["RscPicture", -1];
         GVAR(driverPipDisplay) ctrlSetPosition [0.1,1,0.75,0.5];

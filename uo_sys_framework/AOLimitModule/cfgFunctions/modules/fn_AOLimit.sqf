@@ -24,7 +24,7 @@ switch _mode do {
             private _radiusX = (GETVAR(_logic,RadiusX,100));
             private _radiusY = (GETVAR(_logic,RadiusY,100));
             private _direction = getdir _logic;
-            private _isRectangle = if ((typeof _logic) isEqualTo "UO_FW_AOLimitModule_R") then {true} else {false};
+            private _isRectangle = if ((typeof _logic) isEqualTo QGVAR(AOLimitModule_R)) then {true} else {false};
             private _area = [_loc,_radiusX,_radiusY,_direction,_isRectangle];
 
             [_logic,_area,_selectedSides,_entryMode,_airsetting,_AOMode,_softAOtime,_softAOtimeAir] call FUNC(Init);

@@ -61,7 +61,7 @@ class EGVAR(SetupTimer,SetupTimerModule): EGVAR(Core,BaseModule) {
             // Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
             displayName = "Time"; // Attribute label
             tooltip = "Time in seconds";
-            control = "UO_FW_30To900Step1_Slider";
+            control = QMGVAR(30To900Step1_Slider);
             property = QEGVAR(SetupTimer,Time);
             defaultValue = "30"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
             typeName = "NUMBER"; // Value type, can be "NUMBER", "STRING" or "BOOL"

@@ -80,7 +80,7 @@ LOG_2("_ctrlGroup: %1 _ctrlButton: %2",_ctrlGroup,_ctrlButton);
             LOG_1("_attProperty %1",_attProperty);
             private _missionVarValue = missionNamespace getvariable [_attProperty,"NONE"];
             LOG_1("_missionVarValue %1",_missionVarValue);
-            [_newcontrol,_config,_missionVarValue,true] call FUNC(ACEGearClassAttribute_AttrLoad);
+            [_newcontrol,_config,_missionVarValue] call FUNC(ACEGearClassAttribute_AttrReLoad);
             private _size = lbSize _newcontrol;
             private _found = false;
             LOG_1("_size %1",_size);
@@ -88,7 +88,7 @@ LOG_2("_ctrlGroup: %1 _ctrlButton: %2",_ctrlGroup,_ctrlButton);
                 private _indexValue = _newcontrol lbData _i;
                 LOG_1("_i %1",_i);
                 LOG_1("_indexValue %1",_indexValue);
-                if (_indexValue isEqualto _missionVarValue) exitwith {
+                if (_indexValue == _missionVarValue) exitwith {
                     _newcontrol lbSetCurSel _i;
                     _found = true;
                     _newcontrol ctrlCommit 0;

@@ -14,16 +14,16 @@
             <English>Squad Leader loadout defined in the ACE Arsenal mission loadouts</English>
         </Key>
         <Key ID="STR_UO_FW_Gear_DisplayName_TL">
-            <Original>Grenadier</Original>
-            <English>Grenadier</English>
+            <Original>Team Leader </Original>
+            <English>Team Leader </English>
         </Key>
         <Key ID="STR_UO_FW_Gear_ToolTip_Olsen_TL">
-            <Original>Grenadier loadout defined in the Olsen gear script</Original>
-            <English>Grenadier loadout defined in the Olsen gear script</English>
+            <Original>Team Leader  loadout defined in the Olsen gear script</Original>
+            <English>Team Leader  loadout defined in the Olsen gear script</English>
         </Key>
         <Key ID="STR_UO_FW_Gear_ToolTip_ACEAR_TL">
-            <Original>Grenadier loadout defined in the ACE Arsenal mission loadouts</Original>
-            <English>Grenadier loadout defined in the ACE Arsenal mission loadouts</English>
+            <Original>Team Leader loadout defined in the ACE Arsenal mission loadouts</Original>
+            <English>Team Leader  loadout defined in the ACE Arsenal mission loadouts</English>
         </Key>
         <Key ID="STR_UO_FW_Gear_DisplayName_RFL">
             <Original>Rifleman</Original>

@@ -1,12 +1,12 @@
 class EGVAR(EndConditions,Folder) {
     text = "Configure End Conditions";
-    items[] = {    "UO_FW_EndConditions_Settings",
-        "UO_FW_EndConditions_Settings_Category1",
-        "UO_FW_EndConditions_Settings_Category2",
-        "UO_FW_EndConditions_Settings_Category3",
-        "UO_FW_EndConditions_Settings_Category4",
-        "UO_FW_EndConditions_Settings_Category5",
-        "UO_FW_EndConditions_Settings_Category6"
+    items[] = {    EGVAR(EndConditions,Settings),
+        EGVAR(EndConditions,Settings_Category1),
+        EGVAR(EndConditions,Settings_Category2),
+        EGVAR(EndConditions,Settings_Category3),
+        EGVAR(EndConditions,Settings_Category4),
+        EGVAR(EndConditions,Settings_Category5),
+        EGVAR(EndConditions,Settings_Category6)
     };
     picture = "\a3\ui_f\data\IGUI\RscTitles\MPProgress\timer_ca.paa";
 };

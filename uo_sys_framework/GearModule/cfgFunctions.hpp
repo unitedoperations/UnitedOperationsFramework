@@ -20,6 +20,7 @@ CFGFUNCFOLDEREND;
 
 CFGFUNCFOLDER(Gear,Attributes);
     CFGFUNC(Gear,ACEGearClassAttribute_AttrLoad);
+    CFGFUNC(Gear,ACEGearClassAttribute_AttrReLoad);
     CFGFUNC(Gear,ACEGearClassAttribute_AttrSave);
     CFGFUNC(Gear,ACEGearClassAttribute_onSelChange);
     CFGFUNC(Gear,GearComboLoadAttribute_AttrLoad);

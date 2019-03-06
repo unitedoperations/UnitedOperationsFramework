@@ -14,7 +14,7 @@ class EGVAR(EndConditions,Timelimit_Settings) {
             property = "UO_FW_Timelimit";
             displayName = "Time Limit";
             tooltip = "Ends mission after this time has been reached. Time in minutes";
-            control = "UO_FW_30To120Step1_Slider";
+            control = QMGVAR(30To120Step1_Slider);
             expression = UO_FW_SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "30";

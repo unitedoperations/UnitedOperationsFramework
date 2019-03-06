@@ -32,7 +32,7 @@ class UO_FW_Artillery
             displayName = "Accuracy";
             tooltip = "Accuracy of the artillery gun in meters. Default 50";
             property = "UO_FW_ArtilleryAccuracy";
-            control = "UO_FW_25To250Step5_Slider";
+            control = QMGVAR(25To250Step5_Slider);
             expression = UO_FW_ENTITY_EXPRESSION;
             condition = "objectVehicle";
             validate = "number";
@@ -44,7 +44,7 @@ class UO_FW_Artillery
             displayName = "Spotting Round Accuracy";
             tooltip = "Accuracy of spotting rounds in meters. Default 50";
             property = "UO_FW_ArtillerySpottingAccuracy";
-            control = "UO_FW_25To250Step5_Slider";
+            control = QMGVAR(25To250Step5_Slider);
             expression = UO_FW_ENTITY_EXPRESSION;
             condition = "objectVehicle";
             validate = "number";
@@ -56,7 +56,7 @@ class UO_FW_Artillery
             displayName = "Aim Time";
             tooltip = "Time needed to calculate on where to aim. Artillery might need longer to traverse the gun (Arma limitations). Default 30";
             property = "UO_FW_ArtilleryAimTime";
-            control = "UO_FW_30To120Step1_Slider";
+            control = QMGVAR(30To120Step1_Slider);
             expression = UO_FW_ENTITY_EXPRESSION;
             condition = "objectVehicle";
             validate = "number";
@@ -68,7 +68,7 @@ class UO_FW_Artillery
             displayName = "Calculation Time";
             tooltip = "Time needed to calculate after spotting rounds before actuall firemission. Default 30";
             property = "UO_FW_ArtilleryCalculationTime";
-            control = "UO_FW_30To120Step1_Slider";
+            control = QMGVAR(30To120Step1_Slider);
             expression = UO_FW_ENTITY_EXPRESSION;
             condition = "objectVehicle";
             validate = "number";
