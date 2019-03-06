@@ -7,7 +7,7 @@ parent: Users
 
 ---
 
-EXAMPLE/TUTORIAL VIDEO FOR THIS PAGE
+<!-- EXAMPLE/TUTORIAL VIDEO FOR THIS PAGE -->
 
 <!-- Should video be at the top or the bottom of the page(s) ? -->
 
