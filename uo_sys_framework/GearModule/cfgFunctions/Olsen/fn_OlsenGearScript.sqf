@@ -25,8 +25,8 @@ FNC_AddItem = {([_unit, _Type] append [_this]) call FUNC(AddItemOrg);};
 FNC_AddItemRandom = {([_unit, _Type] append [_this]) call FUNC(AddItemRandomOrg);};
 
 //Other Version
-//private _path = missionNamespace getVariable ["UO_FW_Gear_PathToGear","GearScript.sqf"];
-private _path = GETMVALUE(PathToGear,"GearScript.sqf");
+//private _path = missionNamespace getVariable ["UO_FW_Gear_Olsen_PathToGear","GearScript.sqf"];
+private _path = GETMVALUE(Olsen_PathToGear,"Gear.sqf");
 if !(_path isEqualto "") then {
     [_unit, _Type] call (compile (preprocessFileLineNumbers _path));
 };
