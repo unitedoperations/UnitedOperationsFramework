@@ -5,7 +5,7 @@ private ["_Enemy", "_Offset", "_ToWorld1", "_ToWorld2", "_PointHeight", "_PointH
 params ["_Unit","_MovedRecentlyCover","_ActivelyClearing","_StartedInside"];
 
 if (_MovedRecentlyCover || {_ActivelyClearing} || {_StartedInside}) exitWith {false};
-private _Enemy = _Unit call UO_FW_AI_fnc_ClosestEnemy;
+private _Enemy = _Unit call EFUNC(AI,ClosestEnemy);
 if (isNil "_Enemy") exitWith {};
 if ((typeName _Enemy) isEqualTo "ARRAY") exitWith {_dgn_returnvariable = false;_dgn_returnvariable};
 _dgn_returnvariable = false;

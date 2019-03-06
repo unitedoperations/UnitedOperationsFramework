@@ -4,11 +4,11 @@ params ["_Unit","_DiagLastCheck","_TargetPosition"];
 _DiagLastCheck = diag_ticktime;
 if (_TargetPosition isEqualTo [0,0,0]) then {
     //_target = assignedTarget _unit;
-    _target = _Unit call UO_FW_AI_fnc_ClosestEnemy;if (_target isEqualTo [0,0,0]) exitwith {};
+    _target = _Unit call EFUNC(AI,ClosestEnemy);if (_target isEqualTo [0,0,0]) exitwith {};
     _TargetPosition = getpos _target;
 } else {
     //_target = assignedTarget _unit;
-    _target = _Unit call UO_FW_AI_fnc_ClosestEnemy;if (_target isEqualTo [0,0,0]) exitwith {};
+    _target = _Unit call EFUNC(AI,ClosestEnemy);if (_target isEqualTo [0,0,0]) exitwith {};
     _NewPosition = getpos _Target;
 
 

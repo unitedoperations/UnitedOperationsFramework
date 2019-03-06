@@ -13,16 +13,16 @@ params ["_args",["_initmode",false,[false]]];
 _args params ["","_grpSet","_grpMem",["_blds",[],[[]]],["_bldPos",[],[[]]],["_uBld",objNull,[objNull]]];
 _grpSet params ["_side","_gpos","_behave","_combat","_speed","_formation","","","","_taskRadius","_wait","_startBld","_task","_taskTimer","","_occupyOption","","","","_tasks",""];
 private _spos = _gpos;
-_blds = [_spos,_taskRadius,_occupyOption,(count _grpMem)] call UO_FW_AI_fnc_getBuildingList;
+_blds = [_spos,_taskRadius,_occupyOption,(count _grpMem)] call EFUNC(AI,getBuildingList);
 _blds params [["_bld",[],[[]]],["_bldPos",[],[[]]]];
 private _ngrp = createGroup _side;
 {
     if !(_bld isEqualto []) then {
-        private _setBldPos = [_occupyOption,_foreachIndex,_bld,_bldPos] call UO_FW_AI_fnc_setBuildingPos;
+        private _setBldPos = [_occupyOption,_foreachIndex,_bld,_bldPos] call EFUNC(AI,setBuildingPos);
         _setBldPos params [["_hpos",[],[[]]]];
         _spos = _hpos;
     };
-    private _u = [true,_ngrp,_spos,_startBld,_foreachIndex,_x,_taskRadius] call UO_FW_AI_fnc_createUnit;
+    private _u = [true,_ngrp,_spos,_startBld,_foreachIndex,_x,_taskRadius] call EFUNC(AI,createUnit);
     if ((count (units _ngrp)) isEqualTo 1) then { _gpos = _spos; };
     _u enableAI "Path";
     if (_task isEqualTo 2 || _task isEqualTo 4 || _task isEqualTo 5) then {
@@ -33,21 +33,21 @@ private _ngrp = createGroup _side;
         sleep 0.25;
     };
 } foreach _grpMem;
-[_ngrp,_gpos,_grpSet] call UO_FW_AI_fnc_setGroupVariables;
+[_ngrp,_gpos,_grpSet] call EFUNC(AI,setGroupVariables);
 if !(_tasks isEqualTo []) then {
-    [_ngrp,_tasks] call UO_FW_AI_fnc_taskRegister;
-    _tasks = _tasks call UO_FW_AI_fnc_taskRemoveZoneActivated;
+    [_ngrp,_tasks] call EFUNC(AI,taskRegister);
+    _tasks = _tasks call EFUNC(AI,taskRemoveZoneActivated);
 };
 if !(_tasks isEqualTo []) then {UO_FW_AI_taskedGroups pushBack [_ngrp];};
 if (!(_tasks isEqualTo []) && {_taskTimer isEqualTo 0}) then {
-    [_ngrp,_tasks] call UO_FW_AI_fnc_taskInit;
+    [_ngrp,_tasks] call EFUNC(AI,taskInit);
 } else {
     if (_task isEqualTo 0 || _task isEqualTo 1 || _task isEqualTo 3) then {
         {_x setvariable["UO_FW_AI_Occupy",true]} forEach (units _ngrp);
         _ngrp setVariable["UO_FW_AI_CurrentTaskEndTime",(CBA_MissionTime + _taskTimer)];
         private _passarray = [_task,_ngrp,_spos,_taskRadius,_wait,_behave,_combat,_speed,_formation];
         [{!((count waypoints (_this select 1)) isEqualto 0)},{
-            _this call UO_FW_AI_fnc_taskAssign;
+            _this call EFUNC(AI,taskAssign);
         },_passarray] call CBA_fnc_waitUntilAndExecute;
     };
 };

@@ -35,7 +35,7 @@ params [
     ["_speed","LIMITED",[""]],
     ["_formation","WEDGE",[""]],
     ["_Type","MOVE",[""]],
-    ["_oncomplete","this call UO_FW_AI_fnc_taskSearchNearby",[""]],
+    ["_oncomplete","this call EFUNC(AI,taskSearchNearby)",[""]],
     ["_compradius",0,[0]],
     ["_wpcount",10,[0]],
     "_i"
@@ -55,13 +55,13 @@ _poswp3 = _poswp4 vectorAdd _forwards;
     _this1 =+ _this;
     _this1 set [1,_x];
     _this1 set [2,0];
-    _this1 call UO_FW_AI_fnc_createWaypoint;
+    _this1 call EFUNC(AI,createWaypoint);
 } foreach [_poswp1,_poswp2,_poswp3,_poswp4];
 _this2 =+ _this;
 _this2 set [1,_poswp1];
 _this2 set [2,0];
 _this2 set [8, "CYCLE"];
-_this2 call UO_FW_AI_fnc_createWaypoint;
+_this2 call EFUNC(AI,createWaypoint);
 deleteWaypoint ((waypoints _grp) select 0);
 _grp setvariable ["InitialWPSet",true];
 _grp setVariable ["UO_FW_AI_Mission","PATROLLING PERIMETER"];

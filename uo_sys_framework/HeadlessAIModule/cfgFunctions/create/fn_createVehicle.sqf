@@ -52,7 +52,7 @@ if (UO_FW_AutoTrackAsset_Enabled) then {
         };
     };
 };
-[_vehicle,_persistent] call UO_FW_AI_fnc_setPersistent;
+[_vehicle,_persistent] call EFUNC(AI,setPersistent);
 if (_initmode) then {
     _vehicle call _vehInit;
 } else {

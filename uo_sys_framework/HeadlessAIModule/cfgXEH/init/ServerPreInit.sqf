@@ -10,5 +10,5 @@ UO_FW_EXEC_CHECK(SERVER);
 }] call CBA_fnc_addEventHandler;
 
 if (isNil "UO_FW_var_HC_ID") then {
-    [] call UO_FW_AI_fnc_initMain;
+    [] call EFUNC(AI,initMain);
 };

@@ -8,7 +8,7 @@ params ["_Unit","_MovedRecently","_VisuallyCanSee","_MovedRecentlyCover"];
 private ["_NearestEnemy", "_intersections"];
 
     ////systemchat format ["M %1",_Unit];
-    //_NearestEnemy = _Unit call UO_FW_AI_fnc_ClosestEnemy;
+    //_NearestEnemy = _Unit call EFUNC(AI,ClosestEnemy);
     _NearestEnemy = _Unit findNearestEnemy _Unit;
     _DistanceCheck = _NearestEnemy distance _Unit;
     //if (isNil "_NearestEnemy" || {_MovedRecentlyCover} || {(typeName _NearestEnemy isEqualTo "ARRAY")} || {isNil "_Unit"} || {!(alive _NearestEnemy)} || {(_NearestEnemy distance _Unit) > 5000}) exitWith {};
@@ -16,7 +16,7 @@ private ["_NearestEnemy", "_intersections"];
 
 
         //This will tell the AI to regroup if they have wandered too far.
-        _ReturnedFriendly = [units (group _Unit),_Unit] call UO_FW_AI_fnc_ClosestObject;
+        _ReturnedFriendly = [units (group _Unit),_Unit] call EFUNC(AI,ClosestObject);
         if (isNil "_ReturnedFriendly") then {_ReturnedFriendly = [0,0,0]};
         if (_ReturnedFriendly distance _Unit > 30 && !(_ReturnedFriendly isEqualTo [0,0,0])) then {
             _Unit doMove (getpos _ReturnedFriendly);

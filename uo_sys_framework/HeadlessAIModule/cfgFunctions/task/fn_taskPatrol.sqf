@@ -34,7 +34,7 @@ params [
       ["_speed", "UNCHANGED", [""]],
     ["_formation", "NO CHANGE", [""]],
     ["_Type","MOVE",[""]],
-    ["_oncomplete","this call UO_FW_AI_fnc_taskSearchNearby",[""]],
+    ["_oncomplete","this call EFUNC(AI,taskSearchNearby)",[""]],
     ["_compradius",0,[0]],
     ["_wpcount",10,[0]]
 ];
@@ -58,11 +58,11 @@ private _timeout = [(_wait*0.5),_wait,(_wait*1.5)];
 //_pos = [_pos,_grp] select (_pos isEqualTo []);
 //_pos = _pos call CBA_fnc_getPos;
 //for [{_i=0},{(_i < _wpcount)},{_i = _i + 1}] do {
-//    _wp = _this call UO_FW_AI_fnc_createWaypoint;
+//    _wp = _this call EFUNC(AI,createWaypoint);
 //};
 //_this2 =+ _this;
 //_this2 set [(count _this2), "CYCLE"];
-//_this2 call UO_FW_AI_fnc_createWaypoint;
+//_this2 call EFUNC(AI,createWaypoint);
 //deleteWaypoint ((waypoints _grp) select 0);
 
 _pos = [_pos, _grp] select (_pos isEqualTo []);

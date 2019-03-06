@@ -3,7 +3,7 @@ private ["_CraterList","_Enemy"];
 _CraterList = position _this nearObjects ["#crater",100];
 
 //Check if an enemy is close to the AI or not.
-_Enemy = _this call UO_FW_AI_fnc_ClosestEnemy;
+_Enemy = _this call EFUNC(AI,ClosestEnemy);
 if (isNil "_Enemy") then {_Enemy = [0,0,0]};
 
 if (_Enemy distance _this > 1000) then {_CraterList = [];};

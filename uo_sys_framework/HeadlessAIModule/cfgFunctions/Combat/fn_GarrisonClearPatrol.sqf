@@ -18,7 +18,7 @@ sleep (random 5);
 
 
             //Define the closest position to be edited
-            if (_RefinedBuildingArray isEqualTo []) then {_ClosestPos = [_Locations,_Enemy] call UO_FW_AI_fnc_ClosestObject;} else {_ClosestPos = [_RefinedBuildingArray,_Enemy] call UO_FW_AI_fnc_ClosestObject;};
+            if (_RefinedBuildingArray isEqualTo []) then {_ClosestPos = [_Locations,_Enemy] call EFUNC(AI,ClosestObject);} else {_ClosestPos = [_RefinedBuildingArray,_Enemy] call EFUNC(AI,ClosestObject);};
 
 
 if (isNil "_closestpos") exitWith {};
@@ -42,7 +42,7 @@ while {(_Unit distance _ClosestPos) > 3 && alive _Unit} do {
 
 
             //Define the closest position to be edited
-            if (_RefinedBuildingArray isEqualTo []) then {_ClosestPos = [_Locations,_Enemy] call UO_FW_AI_fnc_ClosestObject;} else {_ClosestPos = [_RefinedBuildingArray,_Enemy] call UO_FW_AI_fnc_ClosestObject;};
+            if (_RefinedBuildingArray isEqualTo []) then {_ClosestPos = [_Locations,_Enemy] call EFUNC(AI,ClosestObject);} else {_ClosestPos = [_RefinedBuildingArray,_Enemy] call EFUNC(AI,ClosestObject);};
 
 
 };

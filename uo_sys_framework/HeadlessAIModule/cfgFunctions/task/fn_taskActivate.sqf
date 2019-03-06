@@ -15,7 +15,7 @@
         private _grp = _x;
         _grp setVariable["UO_FW_AI_isNotZoneActivated",false];
         _grp setVariable["UO_FW_AI_CurrentTaskEndTime",CBA_missionTime - 1];
-        [_grp,_task] call UO_FW_AI_fnc_taskSet;
+        [_grp,_task] call EFUNC(AI,taskSet);
     } forEach (_task getVariable ["UO_FW_AI_taskGroups", []]);
 } forEach _this;
 true

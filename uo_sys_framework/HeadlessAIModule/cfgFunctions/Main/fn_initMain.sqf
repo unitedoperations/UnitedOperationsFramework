@@ -112,11 +112,11 @@ UO_FW_AI_FORCETIME_TIME = 12;
 
 //Lets gets the queue handler going
 [{CBA_MissionTime > 0},{
-    [] call UO_FW_AI_fnc_QueueHandle;
-    [] call UO_FW_AI_fnc_ActiveHandler;
-    [] call UO_FW_AI_fnc_GroupHandler;
-    [] call UO_FW_AI_fnc_MapMarkers;
-    [] call UO_FW_AI_fnc_zoneMonitor;
+    [] call EFUNC(AI,QueueHandle);
+    [] call EFUNC(AI,ActiveHandler);
+    [] call EFUNC(AI,GroupHandler);
+    [] call EFUNC(AI,MapMarkers);
+    [] call EFUNC(AI,zoneMonitor);
 }] call CBA_fnc_waitUntilAndExecute;
 
 //leader/group behavior handling loop

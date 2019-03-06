@@ -1,4 +1,4 @@
-class UO_FW_MainAI {
+class EGVAR(AI,MainCategory) {
     displayName = "AI Settings";
     collapsed = 0;
     class Attributes {

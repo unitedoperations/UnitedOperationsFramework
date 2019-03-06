@@ -4,7 +4,7 @@ UO_FW_AI_EXEC_CHECK(SERVERHC);
 //params ["_Unit","_AttachObject","_GRENADETHROWN"];
 params ["_Unit","_GRENADETHROWN"];
 
-//private _NearestEnemy = _Unit call UO_FW_AI_fnc_ClosestEnemy;
+//private _NearestEnemy = _Unit call EFUNC(AI,ClosestEnemy);
 //private _GuessLocation = _Unit getHideFrom _NearestEnemy;
 
 //if (isNull _NearestEnemy) exitWith

@@ -13,7 +13,7 @@ waitUntil {UO_FW_AI_CurrentlyMoving < UO_FW_AI_CurrentlyMovingLimit};
     _StartedInside = _this select 4;
 
     //Let's find the nearest enemy to his unit.
-    _NearestEnemy = _Unit call UO_FW_AI_fnc_ClosestEnemy;
+    _NearestEnemy = _Unit call EFUNC(AI,ClosestEnemy);
     _DistanceCheck = _NearestEnemy distance _Unit;
     if (isNil "_NearestEnemy" || {(typeName _NearestEnemy isEqualTo "ARRAY")} || {isNil "_Unit"} || {!(alive _NearestEnemy)} || {(_DistanceCheck) > 2000}) exitWith {_Unit forcespeed -1;UO_FW_AI_CurrentlyMoving = UO_FW_AI_CurrentlyMoving - 1;};
 
@@ -21,7 +21,7 @@ waitUntil {UO_FW_AI_CurrentlyMoving < UO_FW_AI_CurrentlyMovingLimit};
 
     _MoveToPos = (getpos _Unit);
     _GARRISONED = _Unit getVariable ["UO_FW_AI_GARRISONED",false];
-    _CoverPos = [_Unit,_MoveToPos,_GARRISONED,_MovedRecentlyCover,false,_StartedInside,_NearestEnemy] call UO_FW_AI_fnc_FindCoverPos;
+    _CoverPos = [_Unit,_MoveToPos,_GARRISONED,_MovedRecentlyCover,false,_StartedInside,_NearestEnemy] call EFUNC(AI,FindCoverPos);
 
     if !(isNil "_CoverPos") then {
         //Lets us know where they were told to move!

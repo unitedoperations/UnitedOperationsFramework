@@ -19,5 +19,5 @@ if ((_array select _s) isEqualType _t ) then {
 };
 _array set [_a,_var];
 _array set [2,0];
-private _wp = _array call UO_FW_AI_fnc_createWaypoint;
+private _wp = _array call EFUNC(AI,createWaypoint);
 true

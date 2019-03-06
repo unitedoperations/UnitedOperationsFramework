@@ -16,12 +16,12 @@ params [["_mode","",[""]],["_input",[],[[]]]];
 switch _mode do {
     case "init": {
         if !(is3DEN) then {
-            if (isNil "UO_FW_AI_initialised") then {[] call UO_FW_AI_fnc_init;};
+            if (isNil "UO_FW_AI_initialised") then {[] call EFUNC(AI,init);};
             _input params ["_logic",["_isActivated",true,[true]]];
             if !(_isActivated) exitWith {};
             {
                 UO_FW_AI_respawns pushBack _x;
-            } forEach ([_logic,["UO_FW_AI_RespawnModule"]] call UO_FW_AI_fnc_getSyncedModules);
+            } forEach ([_logic,["UO_FW_AI_RespawnModule"]] call EFUNC(AI,getSyncedModules));
 
             private _initial = GETVAR(_logic,zoneInitial,false);
             private _code = _logic getVariable ["UO_FW_AI_zoneCode",""];
@@ -29,11 +29,11 @@ switch _mode do {
             private _cond = _logic getVariable ["UO_FW_AI_zoneCondition",""];
             if (!(_cond isEqualTo "") && {_cond isEqualType "STRING"}) then {_cond = compile _cond;};
             private _isRectangle = if ((typeof _logic) isEqualTo "UO_FW_AI_ZoneModule_R") then {true} else {false};
-            private _entities = [_logic] call UO_FW_AI_fnc_getSyncedObjects;
+            private _entities = [_logic] call EFUNC(AI,getSyncedObjects);
             LOG_1("_entities: %1",_entities);
 
             if (_initial) then {
-                [_logic,0,_code,_initial,_entities] call UO_FW_AI_fnc_setupZone;
+                [_logic,0,_code,_initial,_entities] call EFUNC(AI,setupZone);
                 _logic setVariable ["UO_FW_AI_zone_activated",true];
                 LOG_1("_zone: %1 initially activated",_logic);
             } else {
@@ -42,7 +42,7 @@ switch _mode do {
                     (getPosATL _logic),
                     (GETVAR(_logic,zoneRadiusX,100)),
                     false,
-                    ([GETVAR(_logic,Zoneside,4)] call UO_FW_AI_fnc_getSide),
+                    ([GETVAR(_logic,Zoneside,4)] call EFUNC(AI,getSide)),
                     (UO_FW_AI_zoneTypes select (GETVAR(_logic,zoneType,1))),
                     _cond,
                     (GETVAR(_logic,zoneDelay,0)),
@@ -60,12 +60,12 @@ switch _mode do {
                 UO_FW_AI_zoneInit pushBack _logic;
                 if ((count UO_FW_AI_zoneInit) >= (count (entities [["UO_FW_AI_ZoneModule_R","UO_FW_AI_ZoneModule"],[]])) && {!UO_FW_AI_templateCleanup}) then {
                     UO_FW_AI_templatesyncedObjects = UO_FW_AI_templatesyncedObjects arrayIntersect UO_FW_AI_templatesyncedObjects;
-                    [UO_FW_AI_templatesyncedObjects] call UO_FW_AI_fnc_deleteVehicles;
+                    [UO_FW_AI_templatesyncedObjects] call EFUNC(AI,deleteVehicles);
                     UO_FW_AI_templateCleanup = true;
                 };
 
                 if (UO_FW_AI_DEBUG) then {
-                    private _syncedModules = [_logic,[]] call UO_FW_AI_fnc_getSyncedModules;
+                    private _syncedModules = [_logic,[]] call EFUNC(AI,getSyncedModules);
                     _entities params [["_grps",[],[[]]],["_emptyvehs",[],[[]]],["_objs",[],[[]]]];
                     if ((_syncedModules isEqualto [])
                         && {({(count _x) > 0 } count _grps) == 0}

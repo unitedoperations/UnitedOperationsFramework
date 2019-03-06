@@ -25,7 +25,7 @@ _grp call CBA_fnc_clearWaypoints;
 {_x forcespeed -1; _x enableAI "Path";} foreach units _grp;
 private _bpos = _pos;
 if (count _blds < 1) then {
-    _blds = [_pos,_radius,(count (units _grp))] call UO_FW_AI_fnc_getNearestBuildings;
+    _blds = [_pos,_radius,(count (units _grp))] call EFUNC(AI,getNearestBuildings);
     if (count _blds < 1) then {
         _bpos = _pos;
         _patrol = true;
@@ -37,7 +37,7 @@ if (_patrol) then {
     if (_radius < 1) then {_radius = 30;};
     [_grp,_bpos,_radius,_wait,_behave,_combat,_speed,_formation] spawn UO_FW_AI_fnc_taskPatrol;
 } else {
-    [0,"ARRAY",1,_bpos,_this] call UO_FW_AI_fnc_createWaypointModified;
+    [0,"ARRAY",1,_bpos,_this] call EFUNC(AI,createWaypointModified);
     deleteWaypoint ((waypoints _grp) select 0);
     while {{alive _x} count (units _grp) <= ((count (units _grp)) * 0.5) || (((getPosATL leader _grp) distance _pos) > 30)} do { sleep 5; };
     {
@@ -49,10 +49,10 @@ if (_patrol) then {
 };
 if (UO_FW_AI_DEBUG) then {
     if (_patrol) then {
-        [_grp,_bpos,"BLD ERROR PATROL","ColorOPFOR"] call UO_FW_AI_fnc_debugCreateMarker;
+        [_grp,_bpos,"BLD ERROR PATROL","ColorOPFOR"] call EFUNC(AI,debugCreateMarker);
     } else {
         {
-            [_grp,(getPosATL _x),format["gBldP%1",_forEachIndex]] call UO_FW_AI_fnc_debugCreateMarker;
+            [_grp,(getPosATL _x),format["gBldP%1",_forEachIndex]] call EFUNC(AI,debugCreateMarker);
         } forEach _blds;
     };
 };

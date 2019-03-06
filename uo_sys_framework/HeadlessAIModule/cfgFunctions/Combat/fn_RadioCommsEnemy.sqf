@@ -23,7 +23,7 @@ if (UO_FW_AI_DEBUG) then {
                     private _distanceToUnit = _enemycaller distance _leader;
                     if (_distanceToUnit < UO_FW_AI_Radio_Distance) then {
                         //_leader reveal [_target,3.5];
-                        [_Group,_enemycaller,true] call UO_FW_AI_fnc_CombatResponse;
+                        [_Group,_enemycaller,true] call EFUNC(AI,CombatResponse);
                         if (UO_FW_AI_DEBUG) then {
                             LOG_1("_group: %1 called combatresponse",_group);
                         };

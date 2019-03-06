@@ -4,7 +4,7 @@ params ["_Unit","_SatchelArray"];
 private _SatchelObj = _SatchelArray select 0;
 private _SatchelMag = _SatchelArray select 1;
 
-private _Point = _Unit call UO_FW_AI_fnc_ClosestEnemy;
+private _Point = _Unit call EFUNC(AI,ClosestEnemy);
 if (_Point isEqualTo [] || {isNil "_Point"}) exitWith {};
 
 if ((_Unit distance _Point) < 200) then {
@@ -50,7 +50,7 @@ if ((_Unit distance _Point) < 200) then {
                 {
                     _Array1 pushback _x;
                 } foreach (allUnits select {(side _x) isEqualTo _UnitSide && (alive _x)});
-                private _ClosestFriendly = [_Array1,_PlantPosition] call UO_FW_AI_fnc_ClosestObject;
+                private _ClosestFriendly = [_Array1,_PlantPosition] call EFUNC(AI,ClosestObject);
                 if (_ClosestFriendly distance _PlantPosition > 15) then {_NotSafe = false;};
                 sleep 5;
             };

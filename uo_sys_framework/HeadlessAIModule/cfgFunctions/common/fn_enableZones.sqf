@@ -16,6 +16,6 @@ if ((_this select 0) isEqualType []) then {
     _zones = _this;
 };
 {
-    ([_x,UO_FW_AI_Zones] call UO_FW_AI_fnc_getDetails) set [3, 0];
+    ([_x,UO_FW_AI_Zones] call EFUNC(AI,getDetails)) set [3, 0];
 } forEach _zones;
 true

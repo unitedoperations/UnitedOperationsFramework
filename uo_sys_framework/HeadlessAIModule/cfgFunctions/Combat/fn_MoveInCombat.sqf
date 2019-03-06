@@ -1,8 +1,8 @@
 private ["_Unit", "_index", "_NearestEnemy", "_unit","_MovedRecently","_MovedRecentlyCover","_ReturnVariable","_MovedRecentlyRETURN","_MovedRecentlyCoverRETURN","_InCoverRETURN"];
 params ["_Unit","_GARRISONED","_MovedRecently","_MovedRecentlyCover","_VisuallyCanSee","_ActivelyClearing","_StartedInside"];
 
-//systemchat format ["%1",((group _Unit) call UO_FW_AI_fnc_Waypointcheck)];
-//if ((count ((group _Unit) call UO_FW_AI_fnc_Waypointcheck)) > 0) exitwith {};
+//systemchat format ["%1",((group _Unit) call EFUNC(AI,Waypointcheck))];
+//if ((count ((group _Unit) call EFUNC(AI,Waypointcheck))) > 0) exitwith {};
 if (UO_FW_AI_CurrentlyMoving < UO_FW_AI_CurrentlyMovingLimit) then {
     private _FiredRecently = _unit getVariable ["UO_FW_AI_FiredTime",diag_ticktime];
 
@@ -25,7 +25,7 @@ if (UO_FW_AI_CurrentlyMoving < UO_FW_AI_CurrentlyMovingLimit) then {
         if !(_WPPosition isEqualTo [0,0,0]) then {
             if (_Unit isEqualTo (leader _Unit)) then {
                 private _GroupDudes = units (group _Unit);
-                _NearestEnemy = _Unit call UO_FW_AI_fnc_ClosestEnemy;
+                _NearestEnemy = _Unit call EFUNC(AI,ClosestEnemy);
                 if (isNil "_NearestEnemy" || _NearestEnemy isEqualTo [0,0,0]) then {_NearestEnemy = _WPPosition;};
                 //systemchat format ["_NearestEnemy: %1",_NearestEnemy];
                 _MovedRecentlyRETURN = true;
@@ -41,13 +41,13 @@ if (UO_FW_AI_CurrentlyMoving < UO_FW_AI_CurrentlyMovingLimit) then {
                         sleep (random 10);
 
 
-                        private _MoveToPos = [_Unit,_Pos,_NearestEnemy] call UO_FW_AI_fnc_FragmentMove;
+                        private _MoveToPos = [_Unit,_Pos,_NearestEnemy] call EFUNC(AI,FragmentMove);
                         //systemchat format ["_MoveToPos: %1",_MoveToPos];
                         if !((vehicle _Unit) isEqualTo _Unit) exitWith {
                             _Unit forceSpeed -1;
                             _Unit doMove _Pos;
                         };
-                        private _CoverPos = [_Unit,_MoveToPos,_GARRISONED,_MovedRecentlyCover,_ActivelyClearing,_StartedInside,_NearestEnemy] call UO_FW_AI_fnc_FindCoverPos;
+                        private _CoverPos = [_Unit,_MoveToPos,_GARRISONED,_MovedRecentlyCover,_ActivelyClearing,_StartedInside,_NearestEnemy] call EFUNC(AI,FindCoverPos);
                         //systemchat format ["_CoverPos: %1",_CoverPos];
 
                         if !(isNil "_CoverPos") then {

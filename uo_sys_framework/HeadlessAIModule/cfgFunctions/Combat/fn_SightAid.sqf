@@ -4,7 +4,7 @@ UO_FW_AI_EXEC_CHECK(SERVERHC);
 UO_FW_SIGHTAID_DEBUG = false;
 params ["_unit"];
 
-private _MyNearestEnemySight = _Unit call UO_FW_AI_fnc_ClosestEnemy;
+private _MyNearestEnemySight = _Unit call EFUNC(AI,ClosestEnemy);
 private _distance = _unit distance2d _MyNearestEnemySight;
 if (_distance > UO_FW_AI_SIGHTAID_DISTANCE) exitwith {};
 private _knowsabouttarget = _unit knowsabout _MyNearestEnemySight;

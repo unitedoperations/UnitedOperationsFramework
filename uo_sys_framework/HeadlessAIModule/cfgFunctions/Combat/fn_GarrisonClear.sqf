@@ -6,7 +6,7 @@ if (_MovedRecentlyCover || {_ActivelyClearing} || {_StartedInside} || {_GARRISON
 //Find the closest enemy (This should be the one that is in a building
 
 //systemchat format ["F %1",_Unit];
-_Enemy = _Unit call UO_FW_AI_fnc_ClosestEnemy;
+_Enemy = _Unit call EFUNC(AI,ClosestEnemy);
 if (isNil "_Enemy" || {(typeName _Enemy) isEqualTo "ARRAY"}) exitWith {};
 
 //Find nearest building to the enemy

@@ -11,7 +11,7 @@
 UO_FW_AI_EXEC_CHECK(SERVERHC);
 params ["_grp",["_newTask",objNull,[objNull]],["_setTime",0,[0]]];
 if (!isNull _newTask) then {
-    (_newTask call UO_FW_AI_fnc_getTaskParams) params ["_newTask","_cond","_prior","_time","_onComp","_TaskId","_radius","_task","_occupy","_wait","_behave","_combat","_speed","_form","_stance"];
+    (_newTask call EFUNC(AI,getTaskParams)) params ["_newTask","_cond","_prior","_time","_onComp","_TaskId","_radius","_task","_occupy","_wait","_behave","_combat","_speed","_form","_stance"];
     if (_time isEqualTo 0) then {
         _setTime = 1E10;
     } else {
@@ -19,7 +19,7 @@ if (!isNull _newTask) then {
     };
     _grp setVariable["UO_FW_AI_CurrentTaskEndTime",(CBA_MissionTime + _setTime)];
     if (!isNull (_grp getVariable["UO_FW_AI_CurrentTask",objNull])) then {
-        [_grp,(_grp getVariable["UO_FW_AI_CurrentTask",objNull])] call UO_FW_AI_fnc_taskComplete;
+        [_grp,(_grp getVariable["UO_FW_AI_CurrentTask",objNull])] call EFUNC(AI,taskComplete);
     };
     _grp setVariable["UO_FW_AI_CurrentTask",_newTask];
     _grp call CBA_fnc_clearWaypoints;
@@ -34,7 +34,7 @@ if (!isNull _newTask) then {
     private _newForm = if (_form isEqualTo "unchanged") then {(formation _grp)} else {_form};
     _passarray = [_task,_grp,(getPosATL _newTask),_radius,_wait,_newBehave,_newCombat,_newSpeed,_newForm,_occupy];
     [{!((count waypoints (_this select 1)) isEqualto 0)},{
-        _this call UO_FW_AI_fnc_taskAssign;
+        _this call EFUNC(AI,taskAssign);
     },_passarray] call CBA_fnc_waitUntilAndExecute;
 };
 true

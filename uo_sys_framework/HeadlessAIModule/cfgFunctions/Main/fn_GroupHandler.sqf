@@ -22,7 +22,7 @@ private _HCGroupHandlerPFH = [{
         if (UO_FW_AI_GroupArray isEqualTo []) then {
             UO_FW_AI_GroupArray pushback _groupArray;
         } else {
-            private _index = [UO_FW_AI_GroupArray, _group, 1] call UO_FW_AI_fnc_searchNestedArray;
+            private _index = [UO_FW_AI_GroupArray, _group, 1] call EFUNC(AI,searchNestedArray);
             if (_index != -1) then {
                 UO_FW_AI_GroupArray set [_index,_groupArray];
             } else {

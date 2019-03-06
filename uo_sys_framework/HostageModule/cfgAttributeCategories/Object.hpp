@@ -55,7 +55,7 @@ class EGVAR(Hostage,Attributes) {
             displayName = "Hostage Freed Behavior";
             tooltip = "Determine the hostages behavior when freed by the player.\nWill not function unless 'Hostage Freed Modifiers' is enabled. (Default: CARELESS)";
             property = QEGVAR(Hostage,Freed_Behavior);
-            control = "UO_FW_HostageFreedBehaviorAttribute";
+            control = QEGVAR(Hostage,FreedBehaviorAttribute);
             expression = UO_FW_ENTITY_EXPRESSION;
             condition = "objectControllable ";
             defaultValue = "'Careless'";

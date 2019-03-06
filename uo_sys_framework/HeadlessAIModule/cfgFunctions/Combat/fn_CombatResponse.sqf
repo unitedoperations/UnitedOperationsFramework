@@ -24,30 +24,30 @@ switch (_currentmission) do {
     case "DEFAULT PATROLLING": {
             if (_enemydist < 150) then {
                 if (((floor random 1) > 0) || _reinforcementcall) then {
-                    [_Group,_currenttarget,_enemydir] call UO_FW_AI_fnc_CombatAttack;
+                    [_Group,_currenttarget,_enemydir] call EFUNC(AI,CombatAttack);
                 } else {
-                    [_Group,_currenttarget,_enemydir] call UO_FW_AI_fnc_CombatDefend;
+                    [_Group,_currenttarget,_enemydir] call EFUNC(AI,CombatDefend);
                 };
             } else {
                 if (((floor random 1) > 0) || _reinforcementcall) then {
-                    [_Group,_currenttarget,_enemydir] call UO_FW_AI_fnc_CombatMoveTo;
+                    [_Group,_currenttarget,_enemydir] call EFUNC(AI,CombatMoveTo);
                 } else {
-                    [_Group,_currenttarget,_enemydir] call UO_FW_AI_fnc_CombatDefend;
+                    [_Group,_currenttarget,_enemydir] call EFUNC(AI,CombatDefend);
                 };
             };
         };
     case "PATROLLING": {
             if (_enemydist < 150) then {
                 if (((floor random 1) > 0) || _reinforcementcall) then {
-                    [_Group,_currenttarget,_enemydir] call UO_FW_AI_fnc_CombatAttack;
+                    [_Group,_currenttarget,_enemydir] call EFUNC(AI,CombatAttack);
                 } else {
-                    [_Group,_currenttarget,_enemydir] call UO_FW_AI_fnc_CombatDefend;
+                    [_Group,_currenttarget,_enemydir] call EFUNC(AI,CombatDefend);
                 };
             } else {
                 if (((floor random 1) > 0) || _reinforcementcall) then {
-                    [_Group,_currenttarget,_enemydir] call UO_FW_AI_fnc_CombatMoveTo;
+                    [_Group,_currenttarget,_enemydir] call EFUNC(AI,CombatMoveTo);
                 } else {
-                    [_Group,_currenttarget,_enemydir] call UO_FW_AI_fnc_CombatDefend;
+                    [_Group,_currenttarget,_enemydir] call EFUNC(AI,CombatDefend);
                 };
             };
         };
@@ -55,38 +55,38 @@ switch (_currentmission) do {
             _group setSpeedMode "FULL";
             {_x setUnitPos "AUTO";} foreach (units _group);
             if (((floor random 1) > 0)|| _reinforcementcall) then {
-                [_Group,_currenttarget,_enemydir] call UO_FW_AI_fnc_CombatAttack;
+                [_Group,_currenttarget,_enemydir] call EFUNC(AI,CombatAttack);
             } else {
-                [_Group,_currenttarget,_enemydir] call UO_FW_AI_fnc_CombatDefend;
+                [_Group,_currenttarget,_enemydir] call EFUNC(AI,CombatDefend);
             };
         }; //regroups unit via a different function
     case "IDLE": {
             if (_enemydist < 150) then {
                 if (((floor random 1) > 0) || _reinforcementcall) then {
-                    [_Group,_currenttarget,_enemydir] call UO_FW_AI_fnc_CombatAttack;
+                    [_Group,_currenttarget,_enemydir] call EFUNC(AI,CombatAttack);
                 } else {
-                    [_Group,_currenttarget,_enemydir] call UO_FW_AI_fnc_CombatDefend;
+                    [_Group,_currenttarget,_enemydir] call EFUNC(AI,CombatDefend);
                 };
             } else {
                 if (((floor random 1) > 0)|| _reinforcementcall) then {
-                    [_Group,_currenttarget,_enemydir] call UO_FW_AI_fnc_CombatMoveTo;
+                    [_Group,_currenttarget,_enemydir] call EFUNC(AI,CombatMoveTo);
                 } else {
-                    [_Group,_currenttarget,_enemydir] call UO_FW_AI_fnc_CombatDefend;
+                    [_Group,_currenttarget,_enemydir] call EFUNC(AI,CombatDefend);
                 };
             };
         };
     case "NONE": {
             if (_enemydist < 150) then {
                 if (((floor random 1) > 0)|| _reinforcementcall) then {
-                    [_Group,_currenttarget,_enemydir] call UO_FW_AI_fnc_CombatAttack;
+                    [_Group,_currenttarget,_enemydir] call EFUNC(AI,CombatAttack);
                 } else {
-                    [_Group,_currenttarget,_enemydir] call UO_FW_AI_fnc_CombatDefend;
+                    [_Group,_currenttarget,_enemydir] call EFUNC(AI,CombatDefend);
                 };
             } else {
                 if (((floor random 1) > 0)|| _reinforcementcall) then {
-                    [_Group,_currenttarget,_enemydir] call UO_FW_AI_fnc_CombatMoveTo;
+                    [_Group,_currenttarget,_enemydir] call EFUNC(AI,CombatMoveTo);
                 } else {
-                    [_Group,_currenttarget,_enemydir] call UO_FW_AI_fnc_CombatDefend;
+                    [_Group,_currenttarget,_enemydir] call EFUNC(AI,CombatDefend);
                 };
             };
         };

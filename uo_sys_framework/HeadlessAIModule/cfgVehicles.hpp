@@ -1,17 +1,17 @@
 
 #include "cfgFSM.hpp"
 
-class UO_FW_AI_Module : EGVAR(Core,BaseModule) {
+class EGVAR(AI,Module) : EGVAR(Core,BaseModule) {
     scope = 1;
     category = "UO_FrameworkCategory_AI";
     icon = "\a3\3DEN\Data\CfgWaypoints\scripted_ca.paa";
 };
 
-class UO_FW_AI_ZoneModule : UO_FW_AI_Module {
+class EGVAR(AI,ZoneModule) : EGVAR(AI,Module) {
     scope = 2;
     displayName = "AI Zone (Circle)";
     //icon = "\UO_FW\Resources\Icons\zonemodule_ca.paa";
-    function = "UO_FW_AI_fnc_zone";
+    function = QEFUNC(AI,zone);
     functionPriority = 0;
     isGlobal = 1;
     isTriggerActivated = 0;
@@ -61,7 +61,7 @@ class UO_FW_AI_ZoneModule : UO_FW_AI_Module {
             displayName = "Delay";
             tooltip = "Delay after zone is activated that actual spawning occurs. Default 0 secs";
             property = QEGVAR(AI,zoneDelay);
-            control = "UO_FW_AI_zoneDelayControl";
+            control = QEGVAR(AI,zoneDelayControl);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "0";
             typeName = "NUMBER";
@@ -71,7 +71,7 @@ class UO_FW_AI_ZoneModule : UO_FW_AI_Module {
             displayName = "Suspension";
             tooltip = "Suspending the zone to be enabled later, suspended zones will not detect player is with in radius or that a custom condition is met until zone is enabled. Default: Enabled";
             property = QEGVAR(AI,zoneSuspend);
-            control = "UO_FW_AI_zoneSuspendControl";
+            control = QEGVAR(AI,zoneSuspendControl);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "0";
         };
@@ -79,7 +79,7 @@ class UO_FW_AI_ZoneModule : UO_FW_AI_Module {
             displayName = "Activating Unit Side";
             tooltip = "Side of the unit that activates the zone. Default: ANY";
             property = QEGVAR(AI,Zoneside);
-            control = "UO_FW_AI_ZonesideControl";
+            control = QEGVAR(AI,ZonesideControl);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "4";
         };
@@ -87,7 +87,7 @@ class UO_FW_AI_ZoneModule : UO_FW_AI_Module {
             displayName = "Activating Unit Type";
             tooltip = "Type of unit the player is that activates the zone. Default all Units";
             property = QEGVAR(AI,zoneType);
-            control = "UO_FW_AI_zoneTypeControl";
+            control = QEGVAR(AI,zoneTypeControl);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "0";
         };
@@ -95,7 +95,7 @@ class UO_FW_AI_ZoneModule : UO_FW_AI_Module {
             displayName = "Custom Condition";
             tooltip = "Enter a custom condition that must be met for this zone to be activated, condition true will spawn the zone. Default: Nil";
             property = QEGVAR(AI,zoneCondition);
-            control = "UO_FW_AI_moduleconditionControl";
+            control = QEGVAR(AI,moduleconditionControl);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "'true'";
         };
@@ -103,13 +103,13 @@ class UO_FW_AI_ZoneModule : UO_FW_AI_Module {
             displayName = "Custom Code";
             tooltip = "Pass custom code to be executed when zone is activated. Default: Nil";
             property = QEGVAR(AI,zoneCode);
-            control = "UO_FW_AI_codeControl";
+            control = QEGVAR(AI,codeControl);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "''";
         };
     };
 };
-class UO_FW_AI_ZoneModule_R : UO_FW_AI_ZoneModule {
+class EGVAR(AI,ZoneModule_R) : UO_FW_AI_ZoneModule {
     displayName = "AI Zone (Square)";
     class AttributeValues {
         size2[] = {100,100};
@@ -117,11 +117,11 @@ class UO_FW_AI_ZoneModule_R : UO_FW_AI_ZoneModule {
     };
 };
 
-class UO_FW_AI_ControlModule : UO_FW_AI_Module {
+class EGVAR(AI,ControlModule) : EGVAR(AI,Module) {
     scope = 2;
     displayName = "AI Control (Circle)";
     //icon = "\UO_FW\Resources\Icons\controlmodule_ca.paa";
-    function = "UO_FW_AI_fnc_control";
+    function = QEFUNC(AI,control);
     functionPriority = 0;
     isGlobal = 1;
     isTriggerActivated = 0;
@@ -159,7 +159,7 @@ class UO_FW_AI_ControlModule : UO_FW_AI_Module {
             displayName = "Suspension";
             tooltip = "Suspending the control module to be enabled later, suspended control modules will not detect player is with in radius or that a custom condition is met until enabled. Default: Enabled";
             property = QEGVAR(AI,controlSuspend);
-            control = "UO_FW_AI_zoneSuspendControl";
+            control = QEGVAR(AI,zoneSuspendControl);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "0";
         };
@@ -167,7 +167,7 @@ class UO_FW_AI_ControlModule : UO_FW_AI_Module {
             displayName = "Initiate Action";
             tooltip = "The action the control module performs to linked zones when initiated, toggle Enable,Disable or Do Nothing. Default: Do Nothing";
             property = QEGVAR(AI,ControlInitAction);
-            control = "UO_FW_AI_initActionControl";
+            control = QEGVAR(AI,initActionControl);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "0";
         };
@@ -175,7 +175,7 @@ class UO_FW_AI_ControlModule : UO_FW_AI_Module {
             displayName = "Activate Action";
             tooltip = "The action the control module performs to linked zones when activated, toggle Enable or Disable. Default: Enable";
             property = QEGVAR(AI,ControlAction);
-            control = "UO_FW_AI_actionControl";
+            control = QEGVAR(AI,actionControl);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "0";
         };
@@ -183,7 +183,7 @@ class UO_FW_AI_ControlModule : UO_FW_AI_Module {
             displayName = "Delay";
             tooltip = "Delay after control module is activated that actual toggle of linked zones occurs. Default: 0secs";
             property = QEGVAR(AI,ControlDelay);
-            control = "UO_FW_AI_zoneDelayControl";
+            control = QEGVAR(AI,zoneDelayControl);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "0";
             typeName = "NUMBER";
@@ -193,7 +193,7 @@ class UO_FW_AI_ControlModule : UO_FW_AI_Module {
             displayName = "Activating Player Side";
             tooltip = "Side of the player that activates the control module. Default: WEST";
             property = QEGVAR(AI,ControlSide);
-            control = "UO_FW_AI_ZonesideControl";
+            control = QEGVAR(AI,ZonesideControl);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "0";
         };
@@ -201,7 +201,7 @@ class UO_FW_AI_ControlModule : UO_FW_AI_Module {
             displayName = "Activating Player Type";
             tooltip = "Type of unit the player is that activates the control module. Default: All Units";
             property = QEGVAR(AI,ControlType);
-            control = "UO_FW_AI_zoneTypeControl";
+            control = QEGVAR(AI,zoneTypeControl);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "0";
         };
@@ -209,7 +209,7 @@ class UO_FW_AI_ControlModule : UO_FW_AI_Module {
             displayName = "Custom Condition";
             tooltip = "Enter a custom condition that must be met for this control module to be activated, condition true will initiate the control module. Default: Nil";
             property = QEGVAR(AI,ControlCondition);
-            control = "UO_FW_AI_moduleconditionControl";
+            control = QEGVAR(AI,moduleconditionControl);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "'false'";
             validate = "condition";
@@ -218,13 +218,13 @@ class UO_FW_AI_ControlModule : UO_FW_AI_Module {
             displayName = "Custom Code";
             tooltip = "Pass custom code to be executed when the control module is activated. Default: Nil";
             property = QEGVAR(AI,ControlCode);
-            control = "UO_FW_AI_codeControl";
+            control = QEGVAR(AI,codeControl);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "'true'";
         };
     };
 };
-class UO_FW_AI_ControlModule_R : UO_FW_AI_ControlModule {
+class EGVAR(AI,ControlModule_R) : UO_FW_AI_ControlModule {
     displayName = "AI Control (Square)";
     class AttributeValues {
         size2[] = {100,100};
@@ -232,11 +232,11 @@ class UO_FW_AI_ControlModule_R : UO_FW_AI_ControlModule {
     };
 };
 
-class UO_FW_AI_TaskModule : UO_FW_AI_Module {
+class EGVAR(AI,TaskModule) : EGVAR(AI,Module) {
     scope = 2;
     displayName = "AI Task";
     //icon = "\UO_FW\Resources\Icons\taskmodule_ca.paa";
-    function = "UO_FW_AI_fnc_task";
+    function = QEFUNC(AI,task);
     functionPriority = 0;
     isGlobal = 1;
     isTriggerActivated = 0;
@@ -262,7 +262,7 @@ class UO_FW_AI_TaskModule : UO_FW_AI_Module {
             displayName = "Time";
             tooltip = "How long the linked units will perform this task. Default: 0 (forever).";
             property = QEGVAR(AI,TaskTime);
-            control = "UO_FW_AI_standardNumberControl";
+            control = QEGVAR(AI,standardNumberControl);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "0";
             typeName = "NUMBER";
@@ -272,7 +272,7 @@ class UO_FW_AI_TaskModule : UO_FW_AI_Module {
             displayName = "Task ID";
             tooltip = "The order that the linked units will perform this task in when multiple tasks used. To use a priority order leave off. Default: OFF.";
             property = QEGVAR(AI,TaskId);
-            control = "UO_FW_AI_numberSelect1Control";
+            control = QEGVAR(AI,numberSelect1Control);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "0";
             typeName = "NUMBER";
@@ -282,7 +282,7 @@ class UO_FW_AI_TaskModule : UO_FW_AI_Module {
             displayName = "Task";
             tooltip = "Task the unit or group will conduct on activation. Default: Hold Until";
             property = QEGVAR(AI,taskSet);
-            control = "UO_FW_AI_taskControl";
+            control = QEGVAR(AI,taskControl);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "4";
         };
@@ -290,7 +290,7 @@ class UO_FW_AI_TaskModule : UO_FW_AI_Module {
             displayName = "Occupy Building Options";
             tooltip = "Should the group occupy a building or buildings. Default: OFF";
             property = QEGVAR(AI,occupyOptionSet);
-            control = "UO_FW_AI_occupyoptionControl";
+            control = QEGVAR(AI,occupyoptionControl);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "0";
         };
@@ -298,7 +298,7 @@ class UO_FW_AI_TaskModule : UO_FW_AI_Module {
             displayName = "Waypoint Wait Time";
             tooltip = "Time unit or group will wait at each auto generated waypoint. Default: 3 secs.";
             property = QEGVAR(AI,changeWaypointWait);
-            control = "UO_FW_AI_waypointwaitControl";
+            control = QEGVAR(AI,waypointwaitControl);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "3";
             typeName = "NUMBER";
@@ -308,7 +308,7 @@ class UO_FW_AI_TaskModule : UO_FW_AI_Module {
             displayName = "Change Behaviour";
             tooltip = "Behaviour of the group or unit on activation. Default: SAFE";
             property = QEGVAR(AI,behaviourChange);
-            control = "UO_FW_AI_behaviourchangeControl";
+            control = QEGVAR(AI,behaviourchangeControl);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "'unchanged'";
         };
@@ -316,7 +316,7 @@ class UO_FW_AI_TaskModule : UO_FW_AI_Module {
             displayName = "Change CombatMode";
             tooltip = "Combat Mode of the group or unit on activation. Default: Fire at Will, Engage at Will";
             property = QEGVAR(AI,combatMode);
-            control = "UO_FW_AI_combatmodechangeControl";
+            control = QEGVAR(AI,combatmodechangeControl);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "'unchanged'";
         };
@@ -324,7 +324,7 @@ class UO_FW_AI_TaskModule : UO_FW_AI_Module {
             displayName = "Change Speed";
             tooltip = "Speed of the group or unit on activation. Default: Limited";
             property = QEGVAR(AI,speed);
-            control = "UO_FW_AI_speedchangeControl";
+            control = QEGVAR(AI,speedchangeControl);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "'unchanged'";
         };
@@ -332,7 +332,7 @@ class UO_FW_AI_TaskModule : UO_FW_AI_Module {
             displayName = "Change Formation";
             tooltip = "Formation of the group or unit on activation. Default: WEDGE";
             property = QEGVAR(AI,formation);
-            control = "UO_FW_AI_formationchangeControl";
+            control = QEGVAR(AI,formationchangeControl);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "'unchanged'";
         };
@@ -340,7 +340,7 @@ class UO_FW_AI_TaskModule : UO_FW_AI_Module {
             displayName = "Change Group Stance";
             tooltip = "Force the stance of the group. Default: AUTO";
             property = QEGVAR(AI,groupStance);
-            control = "UO_FW_AI_stancechangeControl";
+            control = QEGVAR(AI,stancechangeControl);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "'unchanged'";
         };
@@ -348,7 +348,7 @@ class UO_FW_AI_TaskModule : UO_FW_AI_Module {
             displayName = "Condition";
             tooltip = "Activate this task with a condition. Default: True";
             property = QEGVAR(AI,taskCondition);
-            control = "UO_FW_AI_moduleconditionControl";
+            control = QEGVAR(AI,moduleconditionControl);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "";
             validate = "condition";
@@ -357,7 +357,7 @@ class UO_FW_AI_TaskModule : UO_FW_AI_Module {
             displayName = "On Completion";
             tooltip = "Pass custom parameters or code when the group completes this task. (_this = [GROUP,TASK Module]) Default: Nil";
             property = QEGVAR(AI,taskOnComplete);
-            control = "UO_FW_AI_codeControl";
+            control = QEGVAR(AI,codeControl);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "(true)";
         };
@@ -365,7 +365,7 @@ class UO_FW_AI_TaskModule : UO_FW_AI_Module {
             displayName = "Priority";
             tooltip = "Task priority allows the group to choose between two assigned tasks. Default: Medium";
             property = QEGVAR(AI,TaskPriority);
-            control = "UO_FW_AI_taskpriorityControl";
+            control = QEGVAR(AI,taskpriorityControl);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "1";
             typeName = "NUMBER";
@@ -373,11 +373,11 @@ class UO_FW_AI_TaskModule : UO_FW_AI_Module {
         };
     };
 };
-class UO_FW_AI_PositionModule : UO_FW_AI_Module {
+class EGVAR(AI,PositionModule) : EGVAR(AI,Module) {
     scope = 2;
     displayName = "AI Position (Circle)";
     //icon = "\UO_FW\Resources\Icons\posmodule_ca.paa";
-    function = "UO_FW_AI_fnc_position";
+    function = QEFUNC(AI,position);
     functionPriority = 0;
     isGlobal = 1;
     isTriggerActivated = 0;
@@ -394,7 +394,7 @@ class UO_FW_AI_PositionModule : UO_FW_AI_Module {
             displayName = "Type of Position";
             tooltip = "Sets the type of position other modules will identify this position as. Default: Standard";
             property = QEGVAR(AI,positionType);
-            control = "UO_FW_AI_positiontypeControl";
+            control = QEGVAR(AI,positiontypeControl);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "0";
         };
@@ -422,7 +422,7 @@ class UO_FW_AI_PositionModule : UO_FW_AI_Module {
             displayName = "Warn Area Radius";
             tooltip = "Distance for player to be warned before entering area. Default: 20.";
             property = QEGVAR(AI,positionWarnRadius);
-            control = "UO_FW_AI_standardNumberControl";
+            control = QEGVAR(AI,standardNumberControl);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "20";
             typeName = "NUMBER";
@@ -430,18 +430,18 @@ class UO_FW_AI_PositionModule : UO_FW_AI_Module {
         };
     };
 };
-class UO_FW_AI_PositionModule_R : UO_FW_AI_PositionModule {
+class EGVAR(AI,PositionModule_R) : EGVAR(AI,PositionModule) {
     displayName = "AI Position (Square)";
     class AttributeValues {
         size2[] = {0,0};
         IsRectangle = 1;
     };
 };
-class UO_FW_AI_RespawnModule : UO_FW_AI_Module {
+class EGVAR(AI,RespawnModule) : EGVAR(AI,Module)  {
     scope = 2;
     displayName = "AI Respawn";
     //icon = "\UO_FW\Resources\Icons\respawnmodule_ca.paa";
-    function = "UO_FW_AI_fnc_respawn";
+    function = QEFUNC(AI,respawn);
     functionPriority = 1;
     isGlobal = 2;
     isTriggerActivated = 0;
@@ -452,7 +452,7 @@ class UO_FW_AI_RespawnModule : UO_FW_AI_Module {
             displayName = "Respawn Side";
             tooltip = "Side of the unit that will respawn at the new location. Default: WEST";
             property = QEGVAR(AI,respawnside);
-            control = "UO_FW_AI_ZonesideControl";
+            control = QEGVAR(AI,ZonesideControl);
             expression = UO_FW_MODULE_EXPRESSION;
             defaultValue = "0";
             typeName = "NUMBER";
@@ -460,11 +460,11 @@ class UO_FW_AI_RespawnModule : UO_FW_AI_Module {
         };
     };
 };
-class UO_FW_AI_TemplateModule : UO_FW_AI_Module {
+class EGVAR(AI,TemplateModule) : EGVAR(AI,Module) {
     scope = 2;
     displayName = "AI Group Template";
     //icon = "\UO_FW\Resources\Icons\templatemodule_ca.paa";
-    function = "UO_FW_AI_fnc_temp";
+    function = QEFUNC(AI,temp);
     functionPriority = 1;
     isGlobal = 2;
     isTriggerActivated = 0;

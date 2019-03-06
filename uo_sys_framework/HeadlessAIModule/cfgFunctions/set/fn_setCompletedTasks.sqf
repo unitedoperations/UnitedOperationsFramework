@@ -10,7 +10,7 @@
 UO_FW_AI_EXEC_CHECK(SERVERHC);
 params ["_grp",["_compTask",objNull,[objNull]]];
 private _completedTasks = _grp getVariable["UO_FW_AI_CompletedTasks",[]];
-private _taskSet = _compTask call UO_FW_AI_fnc_getTaskParams;
+private _taskSet = _compTask call EFUNC(AI,getTaskParams);
 _taskSet params ["_task","_cond","_prior","_time","_onComp","_taskId"];
 private _completedTask = [_taskId,_prior,_task];
 if ( !(_completedTask IN _completedTasks)) then {

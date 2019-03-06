@@ -6,7 +6,7 @@ class EGVAR(AI,GroupBehaviour) {
             displayName = "Behaviour";
             tooltip = "Behaviour of the group or unit on activation. Default: SAFE";
             property = QEGVAR(AI,behaviour);
-            control = "UO_FW_AI_behaviourControl";
+            control = QEGVAR(AI,behaviourControl);
             expression = UO_FW_ENTITY_EXPRESSION;
             defaultValue = "'safe'";
         };
@@ -14,7 +14,7 @@ class EGVAR(AI,GroupBehaviour) {
             displayName = "CombatMode";
             tooltip = "Combat Mode of the group or unit on activation. Default: Fire at Will, Engage at Will";
             property = QEGVAR(AI,combatMode);
-            control = "UO_FW_AI_combatModeControl";
+            control = QEGVAR(AI,combatModeControl);
             expression = UO_FW_ENTITY_EXPRESSION;
             defaultValue = "'red'";
         };
@@ -22,7 +22,7 @@ class EGVAR(AI,GroupBehaviour) {
             displayName = "Speed";
             tooltip = "Speed of the group or unit on activation. Default: Limited";
             property = QEGVAR(AI,speed);
-            control = "UO_FW_AI_speedControl";
+            control = QEGVAR(AI,speedControl);
             expression = UO_FW_ENTITY_EXPRESSION;
             defaultValue = "'limited'";
         };
@@ -30,7 +30,7 @@ class EGVAR(AI,GroupBehaviour) {
             displayName = "Formation";
             tooltip = "Formation of the group or unit on activation. Default: WEDGE";
             property = QEGVAR(AI,formation);
-            control = "UO_FW_AI_formationControl";
+            control = QEGVAR(AI,formationControl);
             expression = UO_FW_ENTITY_EXPRESSION;
             defaultValue = "'wedge'";
         };
@@ -38,7 +38,7 @@ class EGVAR(AI,GroupBehaviour) {
             displayName = "Group Stance";
             tooltip = "Force the stance of the group. Default: AUTO";
             property = QEGVAR(AI,groupStance);
-            control = "UO_FW_AI_stanceControl";
+            control = QEGVAR(AI,stanceControl);
             expression = UO_FW_ENTITY_EXPRESSION;
             defaultValue = "'auto'";
         };
@@ -46,7 +46,7 @@ class EGVAR(AI,GroupBehaviour) {
             displayName = "Force Flashlights";
             tooltip = "Force group to use flashlights if dark. Removes NVG Goggles. Default: Off";
             property = QEGVAR(AI,forceLights);
-            control = "UO_FW_AI_forcelightsControl";
+            control = QEGVAR(AI,forcelightsControl);
             expression = UO_FW_ENTITY_EXPRESSION;
             defaultValue = "false";
             typeName = "BOOL";
@@ -55,7 +55,7 @@ class EGVAR(AI,GroupBehaviour) {
             displayName = "Will Surrender";
             tooltip = "This group will surrender if there team leader dies or they take greater than 50% casualties. Default: False";
             property = QEGVAR(AI,surrender);
-            control = "UO_FW_AI_boolControl";
+            control = QEGVAR(AI,boolControl);
             expression = UO_FW_ENTITY_EXPRESSION;
             defaultValue = "false";
             typeName = "BOOL";
@@ -64,7 +64,7 @@ class EGVAR(AI,GroupBehaviour) {
             displayName = "Group Init";
             tooltip = "Pass custom parameters or code to the group of units. ( _this = GROUP ) Default: Nil";
             property = QEGVAR(AI,groupInit);
-            control = "UO_FW_AI_codeControl";
+            control = QEGVAR(AI,codeControl);
             expression = UO_FW_ENTITY_EXPRESSION;
             defaultValue = "'true'";
         };
@@ -78,7 +78,7 @@ class EGVAR(AI,GroupTask) {
             displayName = "Creation Radius";
             tooltip = "Radius that Group will be randomly created in when activated. Default: 0";
             property = QEGVAR(AI,createRadius);
-            control = "UO_FW_AI_standardNumberControl";
+            control = QEGVAR(AI,standardNumberControl);
             expression = UO_FW_ENTITY_EXPRESSION;
             defaultValue = "0";
             typeName = "NUMBER";
@@ -88,7 +88,7 @@ class EGVAR(AI,GroupTask) {
             displayName = "Task Radius";
             tooltip = "Radius that Group will conduct the assigned task in. Default: 30m";
             property = QEGVAR(AI,patrolRadius);
-            control = "UO_FW_AI_patrolradiusControl";
+            control = QEGVAR(AI,patrolradiusControl);
             expression = UO_FW_ENTITY_EXPRESSION;
             defaultValue = "30";
             typeName = "NUMBER";
@@ -98,7 +98,7 @@ class EGVAR(AI,GroupTask) {
             displayName = "Waypoint Wait Time";
             tooltip = "Time unit or group will wait at each auto generated waypoint. Default: 3 secs.";
             property = QEGVAR(AI,waypointWait);
-            control = "UO_FW_AI_waypointwaitControl";
+            control = QEGVAR(AI,waypointwaitControl);
             expression = UO_FW_ENTITY_EXPRESSION;
             defaultValue = "3";
             typeName = "NUMBER";
@@ -108,7 +108,7 @@ class EGVAR(AI,GroupTask) {
             displayName = "Start in Building";
             tooltip = "Group will start inside nearest building then move out to conduct set task. Building Occupy tasks overide this setting. Default: Off";
             property = QEGVAR(AI,startBuilding);
-            control = "UO_FW_AI_startbuildingControl";
+            control = QEGVAR(AI,startbuildingControl);
             expression = UO_FW_ENTITY_EXPRESSION;
             defaultValue = "false";
             typeName = "BOOL";
@@ -117,7 +117,7 @@ class EGVAR(AI,GroupTask) {
             displayName = "Task";
             tooltip = "Task the unit or group will conduct on activation. Default: Patrol";
             property = QEGVAR(AI,task);
-            control = "UO_FW_AI_taskControl";
+            control = QEGVAR(AI,taskControl);
             expression = UO_FW_ENTITY_EXPRESSION;
             defaultValue = "4";
         };
@@ -125,7 +125,7 @@ class EGVAR(AI,GroupTask) {
             displayName = "Time";
             tooltip = "How long the group will perform this task before continuing to another. Default: 0 (forever).";
             property = QEGVAR(AI,TaskTimer);
-            control = "UO_FW_AI_standardNumberAltControl";
+            control = QEGVAR(AI,standardNumberAltControl);
             expression = UO_FW_ENTITY_EXPRESSION;
             defaultValue = "0";
             typeName = "NUMBER";
@@ -141,7 +141,7 @@ class EGVAR(AI,GroupPopulate) {
             displayName = "Group Multiplier";
             tooltip = "Duplicates the group into multiple groups with same settings. Use Creation Radius to populate large areas randomly. Default: 1 (this group only)";
             property = QEGVAR(AI,multiplier);
-            control = "UO_FW_AI_multiplierControl";
+            control = QEGVAR(AI,multiplierControl);
             expression = UO_FW_ENTITY_EXPRESSION;
             defaultValue = "1";
             typeName = "NUMBER";
@@ -151,7 +151,7 @@ class EGVAR(AI,GroupPopulate) {
             displayName = "Multiplied Groups Occupy Options";
             tooltip = "How many generated groups from the group muliplier will use the occupy options below. Default: NO CHANGE";
             property = QEGVAR(AI,multiOccupy);
-            control = "UO_FW_AI_multioccupyControl";
+            control = QEGVAR(AI,multioccupyControl);
             expression = UO_FW_ENTITY_EXPRESSION;
             defaultValue = "0";
         };
@@ -159,11 +159,11 @@ class EGVAR(AI,GroupPopulate) {
             displayName = "Occupy Building Options";
             tooltip = "Should the group occupy a building or buildings. Default: OFF";
             property = QEGVAR(AI,occupyOption);
-            control = "UO_FW_AI_occupyoptionControl";
+            control = QEGVAR(AI,occupyoptionControl);
             expression = UO_FW_ENTITY_EXPRESSION;
             defaultValue = "0";
         };
     };
 };
-//class Init : Init {collapsed = 1;};
-//class State : State {collapsed = 1;};
+class Init : Init {collapsed = 1;};
+class State : State {collapsed = 1;};

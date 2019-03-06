@@ -8,7 +8,7 @@ _SpecificUnit = _UnitsGroup select 0;
 
 
 //systemchat format ["G %1",_Unit];
-_ClosestEnemy = _Unit call UO_FW_AI_fnc_ClosestEnemy;
+_ClosestEnemy = _Unit call EFUNC(AI,ClosestEnemy);
 if (isNil "_ClosestEnemy" || {_ClosestEnemy isEqualTo []}) exitWith {};
 
 _nBuilding = nearestBuilding _ClosestEnemy;

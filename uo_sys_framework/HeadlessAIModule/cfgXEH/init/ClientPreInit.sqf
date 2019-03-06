@@ -6,5 +6,5 @@ UO_FW_EXEC_CHECK(CLIENTHC);
 }] call CBA_fnc_addEventHandler;
 
 if !(hasInterface) then {
-    [] call UO_FW_AI_fnc_initMain;
+    [] call EFUNC(AI,initMain);
 };

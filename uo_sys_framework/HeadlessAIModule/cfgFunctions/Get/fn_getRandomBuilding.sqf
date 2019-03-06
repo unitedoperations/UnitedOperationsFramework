@@ -11,5 +11,5 @@
 #include "\x\UO_FW\addons\Main\HeadlessAIModule\module_macros.hpp"
 UO_FW_AI_EXEC_CHECK(SERVERHC);
 params ["_pos",["_radius",500,[0]],["_rbld",objNull,[objNull]]];
-_rbld = selectRandom ([_pos,_radius] call UO_FW_AI_fnc_getBuildings);
+_rbld = selectRandom ([_pos,_radius] call EFUNC(AI,getBuildings));
 _rbld

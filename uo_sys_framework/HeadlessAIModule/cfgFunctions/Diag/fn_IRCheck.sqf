@@ -22,7 +22,7 @@ while {alive _this} do {
                 private _ChunkN = 0;
                 while {_Chunks > _ChunkN} do {
                     private _StartPos = [_StartPos,100,_DirPlayer] call BIS_fnc_relPos;
-                    private _NE = [_Enemies,_StartPos] call UO_FW_AI_fnc_ClosestObject;
+                    private _NE = [_Enemies,_StartPos] call EFUNC(AI,ClosestObject);
                     if (_NE distance2D _Startpos < 65) then {_NE setBehaviour "COMBAT";};
                     _ChunkN = _ChunkN + 1;
                     sleep 0.1;

@@ -23,7 +23,7 @@ While {_Unit getVariable ["UO_FW_AI_LOITERING",true] && alive _Unit} do {
             };
             case 2: {
                 _Unit setVariable ["UO_FW_AI_LOITERINGACT",2];
-                _ClosestUnit = [(_UnitGroup - [_Unit]),_Unit] call UO_FW_AI_fnc_ClosestObject;
+                _ClosestUnit = [(_UnitGroup - [_Unit]),_Unit] call EFUNC(AI,ClosestObject);
                 _ClosestUnit setVariable ["UO_FW_AI_LOITERINGACT",2];
 
                 _rnd = random 10;
@@ -57,7 +57,7 @@ While {_Unit getVariable ["UO_FW_AI_LOITERING",true] && alive _Unit} do {
             };
             case 3: {
                 _Unit setVariable ["UO_FW_AI_LOITERINGACT",3];
-                _ClosestUnit = [(_UnitGroup - [_Unit]),_Unit] call UO_FW_AI_fnc_ClosestObject;
+                _ClosestUnit = [(_UnitGroup - [_Unit]),_Unit] call EFUNC(AI,ClosestObject);
                 _ClosestUnit setVariable ["UO_FW_AI_LOITERINGACT",3];
 
                 _rnd = random 10;

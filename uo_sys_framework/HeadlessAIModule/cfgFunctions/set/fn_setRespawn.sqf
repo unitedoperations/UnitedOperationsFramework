@@ -19,5 +19,5 @@ params [["_logic",objNull,[objNull]],["_marker","respawn_west",[""]]];
     {
         private _unit = _x;
     } forEach (allUnits select {side _x isEqualTo _side});
-} forEach ([GETVAR(_logic,respawnside,0)] call UO_FW_AI_fnc_getSide);
+} forEach ([GETVAR(_logic,respawnside,0)] call EFUNC(AI,getSide));
 true

@@ -12,13 +12,13 @@ _Unit = leader _group;
 //if ((count (waypoints (group _Unit))) >= 3 && !(((velocityModelSpace _Unit) select 1) isEqualTo 0) ) exitWith {};
 if ((count (waypoints (group _Unit))) >= 3) exitWith {};
 
-private _WaypointCheck = _group call UO_FW_AI_fnc_Waypointcheck;
+private _WaypointCheck = _group call EFUNC(AI,Waypointcheck);
 if (count _WaypointCheck > 0) exitWith {};
 
 _NoFlanking = _group getVariable ["UO_FW_AI_REINFORCE",false];
 if (_NoFlanking) exitWith {};
 
-//_myNearestEnemy = _Unit call UO_FW_AI_fnc_ClosestEnemy;
+//_myNearestEnemy = _Unit call EFUNC(AI,ClosestEnemy);
 _myNearestEnemy = _Unit findNearestEnemy _Unit;
 
 if (isNull _myNearestEnemy) exitWith {

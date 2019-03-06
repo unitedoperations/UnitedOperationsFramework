@@ -39,7 +39,7 @@ private _Roads = _MovePosition nearRoads 30;
 
 
 if (_TypeListFinal isEqualTo [] && _WeakListFinal isEqualTo []) exitWith {};
-//_ClosestCover = [_TypeListFinal,_this] call UO_FW_AI_fnc_ClosestObject;
+//_ClosestCover = [_TypeListFinal,_this] call EFUNC(AI,ClosestObject);
 if !(_TypeListFinal isEqualTo []) then {_ClosestCover = _TypeListFinal call BIS_fnc_selectRandom;} else {_ClosestCover = _WeakListFinal call BIS_fnc_selectRandom;};
 
 

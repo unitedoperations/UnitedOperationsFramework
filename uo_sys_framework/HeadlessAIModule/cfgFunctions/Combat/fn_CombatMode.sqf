@@ -3,7 +3,7 @@
 params ["_unit","_LastCStance"];
 private ["_NearestEnemy","_TimeShot"];
 
-_NearestEnemy = _Unit call UO_FW_AI_fnc_ClosestEnemy;
+_NearestEnemy = _Unit call EFUNC(AI,ClosestEnemy);
 if (isNil "_NearestEnemy") exitwith {};
 
 _TimeShot = _Unit getVariable ["UO_FW_AI_FiredTime",0];

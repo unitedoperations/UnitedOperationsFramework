@@ -18,7 +18,7 @@ if (_occupy) then {
     _unitPos = _gpos;
 } else {
     if (_startBld && {!_vehicleAssigned}) then {
-        _unitPos = [_gpos,_taskRadius,_i] call UO_FW_AI_fnc_getStartBuilding;
+        _unitPos = [_gpos,_taskRadius,_i] call EFUNC(AI,getStartBuilding);
     };
 };
 private _unit = _grp createUnit [_unitClass,_unitPos,[],0,"NONE"];
@@ -32,7 +32,7 @@ if !(_name isEqualTo "") then {
     missionNamespace setVariable[_name, _unit];
 };
 _unit setVariable["UO_FW_AI_unitIdentity",_identity,true];
-[_unit,_unitIsPersistent] call UO_FW_AI_fnc_setPersistent;
+[_unit,_unitIsPersistent] call EFUNC(AI,setPersistent);
 if (_initmode) then {
     _unit call _unitInit;
 } else {
@@ -45,10 +45,10 @@ if (isNil "UO_FW_AI_ActiveList") then {
 };
 _unit setUnitPos _unitStance;
 [_unit, "Hit", {
-    _this call UO_FW_AI_fnc_onAIHit;
+    _this call EFUNC(AI,onAIHit);
 }] call CBA_fnc_addBISEventHandler;
 if (_vehicleAssigned && {!isNull _currentVeh}) then {
-    [_unit,_vr,_currentVeh] call UO_FW_AI_fnc_setAssignedVehicle;
+    [_unit,_vr,_currentVeh] call EFUNC(AI,setAssignedVehicle);
 };
 
 if (UO_FW_MACR_MAP_ALL) then {

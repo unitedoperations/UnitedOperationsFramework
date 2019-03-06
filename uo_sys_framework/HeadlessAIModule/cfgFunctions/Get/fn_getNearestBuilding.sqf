@@ -12,9 +12,9 @@
 UO_FW_AI_EXEC_CHECK(SERVERHC);
 params ["_pos",["_radius",500,[0]]];
 private ["_nbld"];
-private _blds = [_pos,_radius] call UO_FW_AI_fnc_getBuildings;
+private _blds = [_pos,_radius] call EFUNC(AI,getBuildings);
 if (_blds isEqualTo []) then {
-    _blds = [_pos,(_radius + 500)] call UO_FW_AI_fnc_getBuildings;
+    _blds = [_pos,(_radius + 500)] call EFUNC(AI,getBuildings);
     if !(_blds isEqualTo []) then {
         _nbld = _blds select 0;
     };
