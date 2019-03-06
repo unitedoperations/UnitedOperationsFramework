@@ -12,7 +12,6 @@
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 UO_FW_3DEN_CHECK;
 
-[] call FUNC(BasicSettings3DEN);
 params [["_name",""],["_clipBoardMode",false]];
 
 if (_clipBoardMode) then {
@@ -41,3 +40,4 @@ if (_clipBoardMode) then {
         ERROR_1("%1 Settings Preset not found in Profile!",_name);
     };
 };
+[] call FUNC(BasicSettings3DEN);

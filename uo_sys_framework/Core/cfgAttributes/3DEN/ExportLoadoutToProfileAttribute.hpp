@@ -15,13 +15,13 @@ class UO_FW_ExportLoadoutToProfileAttribute: ComboPreview {
 			w="0.99 * 	5 * (pixelW * pixelGrid * 	0.50)";
 			h="5 * (pixelH * pixelGrid * 	0.50)";
 			text="\a3\3DEN\Data\Attributes\ComboPreview\play_ca.paa";
-			onMouseButtonClick="\
+			onMouseButtonClick= QUOTE(\
 				_ctrlButton = _this select 0;\
 				_ctrlGroup = ctrlParentControlsGroup _ctrlButton;\
 				_ctrlEdit = _ctrlGroup controlsgroupctrl 100;\
 				_name = ctrlText _ctrlEdit;\
-				[_name,false] call UO_FW_fnc_ExportLoadoutSettings;\
-			";
+				[ARR_2(_name,false)] call EFUNC(3DEN,ExportLoadoutSettings);\
+			);
 		};
 	};
 };

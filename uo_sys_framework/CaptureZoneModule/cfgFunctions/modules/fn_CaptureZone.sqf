@@ -45,11 +45,17 @@ switch (_mode) do {
                                         _ContestedMessage,
                                         _UncontestedMessage];
             private _BluforColour = GETVAR(_logic,Colour_Blufor,"colorBLUFOR");
+            if (_BluforColour isEqualTo 'NONE') then {_BluforColour = "colorBLUFOR"};
             private _OpforColour = GETVAR(_logic,Colour_Opfor,"colorOPFOR");
+            if (_OpforColour isEqualTo 'NONE') then {_OpforColour = "colorOPFOR"};
             private _IndforColour = GETVAR(_logic,Colour_Indfor,"colorIndependent");
+            if (_IndforColour isEqualTo 'NONE') then {_IndforColour = "colorIndependent"};
             private _CivilianColour = GETVAR(_logic,Colour_Civilian,"colorCivilian");
+            if (_CivilianColour isEqualTo 'NONE') then {_CivilianColour = "colorCivilian"};
             private _ContestedColour = GETVAR(_logic,Colour_Uncontested,"ColorYellow");
+            if (_ContestedColour isEqualTo 'NONE') then {_ContestedColour = "ColorYellow"};
             private _UncontestedColour = GETVAR(_logic,Colour_Contested,"ColorGrey");
+            if (_UncontestedColour isEqualTo 'NONE') then {_UncontestedColour = "ColorGrey"};
             private _colours = [_BluforColour,
                                 _OpforColour,
                                 _IndforColour,

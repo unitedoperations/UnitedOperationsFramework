@@ -27,7 +27,7 @@ class EGVAR(CaptureZone,CaptureZoneModule): EGVAR(Core,BaseModule) {
             property = QEGVAR(CaptureZone,ZoneName);
             control = "Edit";
             expression = UO_FW_MODULE_EXPRESSION;
-            defaultValue = "''";
+            defaultValue = "'CaptureZone'";
             typeName = "STRING";
             validate = "none";
         };

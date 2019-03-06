@@ -7,7 +7,7 @@ class UO_FW_ImportLoadoutFromClipboardAttribute: Title {
             w="0.99 * 5 * (pixelW * pixelGrid * 0.50)";
             h="5 * (pixelH * pixelGrid * 0.50)";
             text="\a3\3DEN\Data\Attributes\ComboPreview\play_ca.paa";
-            onMouseButtonClick="['',true] call UO_FW_fnc_ImportLoadoutSettings;";
+            onMouseButtonClick=QUOTE([ARR_2('',true)] call EFUNC(3DEN,ImportLoadoutSettings););
         };
     };
 };

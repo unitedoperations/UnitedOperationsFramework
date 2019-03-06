@@ -4,7 +4,7 @@ UO_FW_EXEC_CHECK(CLIENT);
 
 ["UO_FW_CoverMapInit_Event", {
     if (!UO_FW_Server_CoverMapModule_Allowed) exitWith {};
-    if (!GVAR(Enable)) exitWith {};
+    if !(GETMVAR(Enable,false)) exitWith {};
     ["UO_FW_RegisterModuleEvent", ["Cover Map", "Covers map except specified area, allows switching between multiple AOs", "Blackhawk and PIZZADOX"]] call CBA_fnc_localEvent;
     [{(!isNull player)}, {
         private ["_DefaultAO"];
@@ -62,10 +62,10 @@ UO_FW_EXEC_CHECK(CLIENT);
         };
 
         GVAR(currentAO) = _DefaultAO;
-        [_DefaultAO] call FUNC(CoverMapBriefing);
+        [_DefaultAO] call FUNC(Briefing);
 
         [{(visibleMap)},{
-            _this call FUNC(CoverMapLive);
+            _this call FUNC(Live);
         },_DefaultAO] call CBA_fnc_waitUntilAndExecute;
     }] call CBA_fnc_waitUntilAndExecute;
 
@@ -89,7 +89,7 @@ UO_FW_EXEC_CHECK(CLIENT);
                             };
                             private _statement = {
                                 params ["", "", "_params"];
-                                [(_params select 0)] call FUNC(CoverMapLive);
+                                [(_params select 0)] call FUNC(Live);
                             };
                             private _tempAction = ["switch_MapAO", ("Switch Map to " + _AONameAllowed), "", _statement, _condition, {}, [_AONameAllowed]] call ace_interact_menu_fnc_createAction;
                             [player, 1, ["ACE_SelfActions","ACE_Equipment","MapChangeMenu"], _tempAction] call ace_interact_menu_fnc_addActionToObject;

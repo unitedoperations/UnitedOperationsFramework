@@ -12,7 +12,6 @@ if !(_manualMode) then {
 };
 MSETVAR(_control,parentcontrolcfg,_config);
 private _attProperty = getText (_config >> "property");
-diag_log format ["attributeLoad started, _value: %1",_value];
 MSETMVAR(_attProperty,_value);
 lbClear _control;
 private _indexNone = _control lbadd "None";
