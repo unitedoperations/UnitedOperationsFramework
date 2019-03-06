@@ -80,4 +80,4 @@ EXAMPLE IMAGES OF UNIT(S) LOADED IN WITH UOFW BASED GEAR
 ---
 
 # Important Note
-Mission-makers, you can always use the UOFW ACE3 based loadouts system in conjunction with the Olsen Loadout system at the same time!
+Mission-makers, you can always use the UO Framework ACE3 based loadouts system in conjunction with the Olsen Loadout system at the same time!
