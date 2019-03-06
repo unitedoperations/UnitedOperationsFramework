@@ -271,7 +271,29 @@ class display3DEN {
                 //Add Custom Items with an Additional Entry in Items[]
                 class UO_FW_Folder {
                     text = "UO Framework";
-                    items[] = {"UO_FW_Settings",QEGVAR(Briefing,Folder),QEGVAR(Respawn,Folder),"UO_FW_Module_Settings",QEGVAR(EndConditions,Folder),QEGVAR(ACRE,Folder),QEGVAR(Gear,Folder),"UO_FW_AI_Settings","UO_FW_ExportImport_Folder","UO_FW_Documentation"};
+                    //items[] = {
+                    //    "UO_FW_Settings",
+                    //    QEGVAR(Briefing,Folder),
+                    //    QEGVAR(Respawn,Folder),
+                    //    "UO_FW_Module_Settings",
+                    //    QEGVAR(EndConditions,Folder),
+                    //    QEGVAR(ACRE,Folder),
+                    //    QEGVAR(Gear,Folder),
+                    //    "UO_FW_AI_Settings",
+                    //    "UO_FW_ExportImport_Folder",
+                    //    "UO_FW_Documentation"
+                    //};
+                    items[] = {
+                        "UO_FW_Settings",
+                        QEGVAR(Briefing,Folder),
+                        QEGVAR(Respawn,Folder),
+                        "UO_FW_Module_Settings",
+                        QEGVAR(EndConditions,Folder),
+                        QEGVAR(ACRE,Folder),
+                        QEGVAR(Gear,Folder),
+                        "UO_FW_ExportImport_Folder",
+                        "UO_FW_Documentation"
+                    };
                     //items[] = {"UO_FW_Settings","UO_FW_Module_Settings","UO_FW_Gear_Settings","UO_FW_EndConditions_Folder","UO_FW_ACRE_Folder","UO_FW_Briefing_Folder","UO_FW_Documentation"};
                 };
                 //Compile Main Menu
