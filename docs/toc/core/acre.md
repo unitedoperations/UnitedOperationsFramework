@@ -15,6 +15,8 @@ parent: Core Modules
 
 # Users
 
+## Features
+
 Provides an efficient in-editor system for:
 - Adding [ACRE2](https://github.com/IDI-Systems/acre2) radios to players
 - Enable and disable automatic radio scrambling on a per-side basis
