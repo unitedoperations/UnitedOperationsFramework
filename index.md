@@ -25,6 +25,10 @@ The United Operation Framework aka the UOFW is an extension of features within t
 
 The UOFW is a modification to the Arma 3 editor originally developed for the United Operations community. 
 
+## First-Time Setup
+
+Please refer to the [basic setup guide]({{ site.baseurl }}/docs/mission-makers/basic-setup/)
+
 ### Dependencies
 
 The UOFW requires the latest releases of [CBA](https://github.com/CBATeam/CBA_A3/releases/latest) and [ACE3](https://github.com/acemod/ACE3/releases/latest) respectively.
@@ -34,6 +38,9 @@ The UOFW requires the latest releases of [CBA](https://github.com/CBATeam/CBA_A3
 You should always feel-free to report any issues you encounter with the framework but do keep in mind that if an issue that occurs within the framework is caused by issues within another addon, we cannot promise support to fix the issue as;
 
 - **We are likely unable to resolve the issue within the scope of the UOFW**
+ - "The scope of the UOFW" is:
+ 1. Editor based modules to improve the mission making process
+ 2. Editor based modules for limited mission mastering by logged in admins
 - **Mods that are not compatible with CBA and ACE3 are given no support unless the issue reporter submits a relevant pull-request to fix the issue or is able to provide detailed logs of what led up to the error.** 
   <!-- - (If this issue crashed a server, player client or headless client, please let us know within your issue report as crashing related issues will be ) -->
 
