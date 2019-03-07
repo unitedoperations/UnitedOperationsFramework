@@ -18,9 +18,7 @@ UO_FW_EXEC_CHECK(SERVER);
 
 params ["_unit"];
 
-if (GETVAR(_unit,Side,"") isEqualTo "") then {
-    SETPVAR(_unit,Side,(side _unit));
-};
+SETPVAR(_unit,Side,(side _unit));
 
 if ((isPlayer _unit) || !(GETVAR(_unit,DontTrack,false))) then {
     if !(GETVAR(_unit,Tracked,false)) then {
@@ -34,6 +32,6 @@ if ((isPlayer _unit) || !(GETVAR(_unit,DontTrack,false))) then {
                     _x set [4, (_current + 1)];
                 };
             };
-        } forEach UO_FW_Teams;
+        } forEach MGVAR(Teams);
     };
 };

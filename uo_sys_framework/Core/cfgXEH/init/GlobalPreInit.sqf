@@ -60,6 +60,7 @@ if (_missionFrameworkVersionStr isEqualto "") then {
 
 if (!(hasInterface) || !(isMultiplayer)) then {
     ["UO_FW_EndMission_Event", {
+        params ["_scenario"];
         ["UO_FW_EndMission_LocalObjectsEvent", []] call CBA_fnc_localEvent;
     }] call CBA_fnc_addEventHandler;
 };

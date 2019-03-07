@@ -21,7 +21,7 @@ UO_FW_EXEC_CHECK(SERVER);
 params [["_side", sideUnknown, [sideUnknown]],["_name", "Unknown", [""]],["_Type", "both", [""]]];
 
 if (isMultiplayer) then {
-    UO_FW_Teams set [count UO_FW_Teams, [_name, _side, _Type,  0, 0, [], []]];
+    MGVAR(Teams) set [count MGVAR(Teams), [_name, _side, _Type,  0, 0, [], []]];
 } else {
-    UO_FW_Teams set [count UO_FW_Teams, [_name, _side, "both",  0, 0, [], []]];
+    MGVAR(Teams) set [count MGVAR(Teams), [_name, _side, "both",  0, 0, [], []]];
 };

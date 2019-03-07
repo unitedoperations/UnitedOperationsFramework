@@ -22,9 +22,10 @@ if (GETMVAR(Enabled_1,false)) then {
             private _endConditionsCategory1PFHhandle = [{
                 params ["_argNested", "_idPFH"];
                 _argNested params ["_checkFrequency","_lastCheckedTime"];
-
                 private _timeDifference = (CBA_missionTime - _lastCheckedTime);
-                if (_timeDifference <= _checkFrequency) exitwith {};
+                if (_timeDifference <= _checkFrequency) exitwith {
+                };
+                LOG_1("Category Check with _lastCheckedTime: %1",_lastCheckedTime);
                 _argNested set [1,CBA_missionTime];
                 private _ConditionCheckList = [];
 
@@ -69,7 +70,7 @@ if (GETMVAR(Enabled_1,false)) then {
                     {
                         private _unit = missionNamespace getVariable [_x,objNull];
                         if ((_unit isEqualType "OBJECT") && {!(_unit isEqualto objNull)}) then {
-                            _alive = _alive && {(_unit call EFUNC(Core,alive))};
+                            _alive = _alive && (_unit call EFUNC(Core,alive));
                         } else {
                             _alive = false;
                             ["Unit " + _x + " not found!","Unit " + _x + " not found!"] call EFUNC(Core,DebugMessageDetailed);
@@ -85,11 +86,13 @@ if (GETMVAR(Enabled_1,false)) then {
                     private _dead = true;
                     {
                         private _unit = missionNamespace getVariable [_x,objNull];
-                        if ((_unit isEqualType "OBJECT") && {!(_unit isEqualto objNull)}) then {
-                            _dead = _dead && (!(_unit call EFUNC(Core,alive)));
-                        } else {
+                        if (isNull _unit) then {
                             _dead = false;
-                            LOG_1("Unit %1 not found!",_x);
+                            LOG_1("Unit %1 not found!",_unit);
+                        } else {
+                            private _unitDeadCheck = (!(_unit call EFUNC(Core,alive)));
+                            LOG_2("Unit %1 check: %2",_unit,_unitDeadCheck);
+                            _dead = _dead && _unitDeadCheck;
                         };
                     } forEach _deadUnitArray;
                     _ConditionCheckList pushback ["Dead Check",_dead];
@@ -132,18 +135,13 @@ if (GETMVAR(Enabled_1,false)) then {
                 //custom variables block
                 private _customVariablesArray = GETMVAR(CustomVariables_Array_1,[]);
                 if (!(_customVariablesArray isEqualto [])) then {
-                    LOG_1("Var Array 1:%1",GETMVAR(CustomVariables_1,[]));
+                    LOG_1("Var Array 1:%1",_customVariablesArray);
                     private _custom = true;
                     {
-                        if (isNil _x) then {
-                            LOG_1("Variable %1 does not exist!",_x);
-                            _custom = false;
-                        } else {
-                            private _Var = missionNamespace getVariable _x;
-                            _custom = _custom && _Var;
-                            private _checklisttext = format ["Custom Var Check: %1", _x];
-                            _ConditionCheckList pushback [_checklisttext,_custom];
-                        };
+                        private _VarCheck = missionNamespace getVariable [_x,false];
+                        _custom = _custom && _VarCheck;
+                        private _checklisttext = format ["Custom Var Check: %1", _x];
+                        _ConditionCheckList pushback [_checklisttext,_custom];
                     } forEach _customVariablesArray;
                 };
 
@@ -229,7 +227,7 @@ if (GETMVAR(Enabled_1,false)) then {
                             _x params ["_name","_value"];
                             if (_value) exitwith {
                                 LOG_1("Category 1 Ending due to :%1",_value);
-                                GVAR(Message_1) call EFUNC(Core,EndMission);
+                                [GVAR(Message_1) ]call EFUNC(Core,EndMission);
                                 [_idPFH] call CBA_fnc_removePerFrameHandler;
                             };
                         } foreach _ConditionCheckList;
@@ -242,12 +240,12 @@ if (GETMVAR(Enabled_1,false)) then {
                         } foreach _ConditionCheckList;
                         if (_fullcheck) then {
                             LOG("Category 1 Ending due to all conditions met!");
-                            GVAR(Message_1) call EFUNC(Core,EndMission);
+                            [GVAR(Message_1)] call EFUNC(Core,EndMission);
                             [_idPFH] call CBA_fnc_removePerFrameHandler;
                         };
                     };
                 };
-            }, 60, [(GETMVAR(ConditionSleep,30)),CBA_missionTime]] call CBA_fnc_addPerFrameHandler;
+            }, 1, [(GETMVAR(ConditionSleep,30)),CBA_missionTime]] call CBA_fnc_addPerFrameHandler;
         } else {
             ERROR("No Conditions for Category 1");
         };

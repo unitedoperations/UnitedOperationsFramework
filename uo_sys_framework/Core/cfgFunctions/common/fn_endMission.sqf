@@ -17,7 +17,7 @@
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 UO_FW_EXEC_CHECK(SERVER);
 
-params ["_scenario"];
+params ["_message"];
 
 if (CBA_missiontime > ((EGETMVAR(EndConditions,ConditionSleep,0)) + (EGETMVAR(EndConditions,ConditionSleep,0)))) then {
     SETMPVAR(MissionEnded,true);
@@ -31,8 +31,8 @@ if (CBA_missiontime > ((EGETMVAR(EndConditions,ConditionSleep,0)) + (EGETMVAR(En
         private _assets = _team call FUNC(GetDamagedAssets);
         [_team, 5, _assets select 0] call FUNC(SetTeamVariable);
         [_team, 6, _assets select 1] call FUNC(SetTeamVariable);
-    } forEach UO_FW_Teams;
-    ["UO_FW_EndMission_Event", [_scenario]] call CBA_fnc_globalEvent;
+    } forEach MGVAR(Teams);
+    ["UO_FW_EndMission_Event", [_message]] call CBA_fnc_globalEvent;
 } else {
     ERROR("End Conditions have just been triggered. Mission might need to be ended manually!");
 };

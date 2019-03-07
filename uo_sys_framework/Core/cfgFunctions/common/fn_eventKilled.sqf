@@ -24,7 +24,8 @@ if (GETVAR(_unit,Tracked,false)) then {
         _x params ["", "_side", "_Type", "", "_current"];
         if (!(GETVAR(_unit,HasDied,false)) && {!(GETVAR(_unit,Dead,false))} && {(GETVAR(_unit,Side,sideUnknown) isEqualto _side)} && {((_Type isEqualto "player" && {isPlayer _unit}) || (_Type isEqualto "ai" && !(isPlayer _unit)) || (_Type isEqualto "both"))}) exitWith {
             SETPVAR(_unit,HasDied,true);
+            SETPVAR(_unit,Dead,true);
             _x set [4, (_current - 1)];
         };
-    } forEach UO_FW_Teams;
+    } forEach MGVAR(Teams);
 };

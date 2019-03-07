@@ -3,7 +3,7 @@ class EGVAR(DIA,ENDSCREEN) {
     fadeout = 0;
     fadein = 0;
     duration = 30;
-    onLoad = "uiNamespace setVariable ['UO_FW_EndScreen', (_this select 0)];";
+    onLoad = "uiNamespace setVariable [QN(MGVAR(EndScreen)), (_this select 0)];";
     controlsBackground[] = {BACKGROUND};
     objects[] = {};
     controls[] = {TEXT_Title, TEXT_LEFT, TEXT_RIGHT, TEXT_BOTTOM_LEFT,TEXT_BOTTOM_MIDDLE_LEFT, TEXT_BOTTOM_MIDDLE_RIGHT, TEXT_BOTTOM_RIGHT};

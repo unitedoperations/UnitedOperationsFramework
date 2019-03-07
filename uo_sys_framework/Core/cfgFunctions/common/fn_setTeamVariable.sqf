@@ -30,6 +30,6 @@ private _return = false;
         _x set [_index, _value];
         _return = true;
     };
-} forEach UO_FW_Teams;
+} forEach MGVAR(Teams);
 
 _return

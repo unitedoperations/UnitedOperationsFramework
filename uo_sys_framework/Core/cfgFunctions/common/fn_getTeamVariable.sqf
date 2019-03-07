@@ -25,7 +25,7 @@ private _found = false;
         _return = (_x select _index);
         _found = true;
     };
-} forEach UO_FW_Teams;
+} forEach MGVAR(Teams);
 
 if !(_found) then {
     ERROR_1("Critical:<br></br>Team ""%1"" does not exist.", _team)

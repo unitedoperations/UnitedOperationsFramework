@@ -39,7 +39,7 @@ private _textSide = 0;
             _rightText = _rightText + _temp;
         };
     };
-} forEach UO_FW_Teams;
+} forEach MGVAR(Teams);
 private _endTitleText = _scenario;
 if !((EGETMVAR(EndConditions,Timelimit,60)) isEqualto 0) then {
     private _time = ceil(CBA_missiontime / 60);
@@ -49,7 +49,7 @@ if !((EGETMVAR(EndConditions,Timelimit,60)) isEqualto 0) then {
     private _timeLimitText = format ["Mission duration: %1 out of %2 minutes", _time, (EGETMVAR(EndConditions,Timelimit,60))];
     _endTitleText = format ["%1<br />%2", _scenario, _timeLimitText];
 };
-private _dia = uiNamespace getVariable "UO_FW_EndScreen";
+private _dia = uiNamespace getVariable QMGVAR(EndScreen);
 (_dia displayCtrl _endTitle) ctrlSetStructuredText parseText _endTitleText;
 (_dia displayCtrl _left) ctrlSetStructuredText parseText _leftText;
 (_dia displayCtrl _right) ctrlSetStructuredText parseText _rightText;

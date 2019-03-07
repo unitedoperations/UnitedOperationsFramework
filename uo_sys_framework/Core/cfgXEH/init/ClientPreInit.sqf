@@ -68,7 +68,8 @@ LOG("Client Pre Init");
 }] call CBA_fnc_addEventHandler;
 
 ["UO_FW_EndMission_Event", {
-    ["UO_FW_EndMission_PlayerEvent", []] call CBA_fnc_localEvent;
+    params ["_scenario"];
+    ["UO_FW_EndMission_PlayerEvent", [_scenario]] call CBA_fnc_localEvent;
 }] call CBA_fnc_addEventHandler;
 
 ["UO_FW_Spectator_StartSpectate_Event", {
