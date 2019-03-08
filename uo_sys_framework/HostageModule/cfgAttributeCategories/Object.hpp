@@ -9,8 +9,9 @@ class EGVAR(Hostage,Attributes) {
             control = "CheckboxState";
             expression = QUOTE(\
                 private _propertyName = '%s';\
-                _this setVariable [_propertyName, _value];\
-                [ARR_2(_this,_value)] call EFUNC(Hostage,Set);\
+                SETVAR(_this,_propertyName, _value);\
+                LOG_2('%1 calling hostage function with %2 value',_this,_value);\
+                [_this,_value] call EFUNC(Hostage,Set);\
             );
             condition = "objectControllable ";
             defaultValue = "false";

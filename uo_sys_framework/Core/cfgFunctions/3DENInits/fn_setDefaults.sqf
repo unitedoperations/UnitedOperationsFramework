@@ -7,16 +7,13 @@
  *        PiZZADOX
  */
 
-#define DEBUG_MODE_NORMAL
+#define DEBUG_MODE_FULL
 //#define DEBUG_MODE_FULL
 #define COMPONENT SetDefaults
 //#include "\x\UO_FW\addons\Main\script_macros.hpp"
 #include "\x\cba\addons\Main\script_macros_common.hpp"
 
 LOG("setDefaultsCalled");
-
-if !(getMissionConfigValue ["EGVAR(Core,Enabled)",false]) exitWith {};
-if (!UO_FW_Server_Framework_Allowed) exitWith {};
 
 private _sections = "!(((str(configname _x)) find 'UO_FW') isEqualto -1)" configClasses (Configfile >> "Cfg3DEN" >> "Mission");
 {
