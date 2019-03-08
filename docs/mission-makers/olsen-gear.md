@@ -18,7 +18,7 @@ parent: Users
 This page covers the basics of using Olsen gear-scripts through the UO Framework.
 
 ### Important Note
-{: .fs-6 .text-blue-100 }
+{: .fs-6 .text-blue-000 }
 Mission-makers, you can always use the UO Framework ACE3 based loadouts system in conjunction with the Olsen Loadout system at the same time!
 
 ## Copying and Modifying Gear.sqf
@@ -63,7 +63,7 @@ switch (_type) do {
 **All Olsen framework function calls will automatically be converted to UO Framework calls so long as everything is properly included.**
 
 ### Settings
-{: .text-blue-100 }
+{: .text-blue-000 }
 
 If you haven't already done so, select the UO Framework button at the top of the editor and select "Configure Gear".
 
@@ -73,7 +73,7 @@ Within the previous menu, open "Configure Gear Settings" where you need to check
 <!-- ![ENABLE OLSEN FRAMEWORK IMAGE]({{ site.baseurl }}/resources/images/olsen/gear_enable.png){:class="img-responsive"} -->
 
 ### Olsen Loadouts as UO Framework Loadouts
-{: .text-blue-100 }
+{: .text-blue-000 }
 
 You will need to specify the varnames for certain roles in the UOFW available rules. (These also include a few custom slots if needed.)
 <!-- ![IMAGE OF VARNAMES FROM GEARSCRIPT IN FILE]({{ site.baseurl }}/resources/images/olsen/gear_varnames.png){:class="img-responsive"} -->

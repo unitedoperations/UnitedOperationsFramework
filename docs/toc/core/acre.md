@@ -14,8 +14,10 @@ parent: Core Modules
 ---
 
 # Users
+{: .text-blue-100 }
 
 ## Features
+{: .text-blue-100 }
 
 Provides an efficient in-editor system for:
 - Adding [ACRE2](https://github.com/IDI-Systems/acre2) radios to players
@@ -24,11 +26,14 @@ Provides an efficient in-editor system for:
 - Enable/disable ACRE2 babel settings 
 
 ### Special Note
+{: .text-blue-100 }
+
 Adding radios through the ACRE module can only be done on playable units!
 
 ---
 
 ## Adding Radios
+{: .text-blue-100 }
 
 1. Open the UO Framework menu.
 * ![image-title-here]({{ site.baseurl }}/resources/images/acre/acre_radios_1.png){:class="img-responsive"}
@@ -54,12 +59,14 @@ The playable units you assigned radios will now have radios when starting your m
 ---
 
 ## Adding Vehicle Racks
+{: .text-blue-100 }
 
 _**WIP**_
 
 ---
 
 ## Radio Scrambling, Babel and Channel Names
+{: .text-blue-100 }
 
 1. Open the UO Framework menu.
 * ![image-title-here]({{ site.baseurl }}/resources/images/acre/acre_radios_1.png){:class="img-responsive"}
@@ -78,16 +85,21 @@ You will now have per-side scrambling and babel.
 ---
 
 # Developers
+{: .text-blue-100 }
 
 ## WIP
+{: .text-blue-100 }
+
 This subsection will contain explanations of the functions created for the framework.
 It should not contain explanations of CBA function calls etc.
 Major event-handlers that developers can use themselves for certain tasks should also be documented and explained here.
 
 ## Functions
+{: .text-blue-100 }
 
 _**WIP**_
 
 ## Eventhandlers
+{: .text-blue-100 }
 
 _**WIP**_
