@@ -13,7 +13,7 @@
 #define COMPONENT 3DEN
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 EXEC_CHECK(ALL);
-3DEN_CHECK;
+EDEN_CHECK;
 
 params ["_ctrl","_config"];
 private _value = _ctrl lbData lbCurSel _ctrl;

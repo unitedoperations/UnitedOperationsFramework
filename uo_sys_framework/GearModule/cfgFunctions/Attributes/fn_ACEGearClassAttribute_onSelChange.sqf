@@ -1,6 +1,6 @@
 #define COMPONENT Gear
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-3DEN_CHECK;
+EDEN_CHECK;
 
 LOG("ACEGearClassAttributeonSel started");
 

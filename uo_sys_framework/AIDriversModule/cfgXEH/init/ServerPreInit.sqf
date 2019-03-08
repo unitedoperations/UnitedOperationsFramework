@@ -26,7 +26,7 @@ EXEC_CHECK(CLIENT);
 			} foreach vehicles;
 		}] call CBA_fnc_WaitUntilAndExecute;
 	} else {
-		if (!(GETMVAR(VehClasses,[])) isEqualto []) then {
+		if !((GETMVAR(VehClasses,[])) isEqualto []) then {
 			[{CBA_missionTime > 1}, {
 				{
 					if ((typeOf _x) in (GETMVAR(VehClasses,[]))) then {[QGVAR(Enabled_Event),[_x,_allowNV,_allowFlip]] call CBA_fnc_globalEventJIP;};

@@ -9,7 +9,7 @@ The date refers to the date when changes have been merged into DEV branch.
 - Gear System CBA Events for loading 3den attribute unit and vehicle loadouts, as well as forcing specific loadouts to units and vehicles.
 - stringtable.xml and corresponding macros
 - Gear System gear type config macro for later editing and addition of gear types
-- `3DEN_CHECK` macro to exit on !is3den state
+- `EDEN_CHECK` macro to exit on !is3den state
 - `VERSION_CHECK(VERSIONNUM)` macro to exit on below `VERSIONNUM` input: eg. `VERSION_CHECK(103)` exits script if version is 102 or below.
 - Added Gear Preset selection system
 - Added `USMC 1980s Woodland` gear preset

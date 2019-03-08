@@ -7,15 +7,15 @@
  *        PiZZADOX
  */
 
+//#define DEBUG_MODE_NORMAL
 #define DEBUG_MODE_FULL
-//#define DEBUG_MODE_FULL
 #define COMPONENT SetDefaults
 //#include "\x\UO_FW\addons\Main\script_macros.hpp"
 #include "\x\cba\addons\Main\script_macros_common.hpp"
 
 LOG("setDefaultsCalled");
 
-private _sections = "!(((str(configname _x)) find 'UO_FW') isEqualto -1)" configClasses (Configfile >> "Cfg3DEN" >> "Mission");
+private _sections = QUOTE(!(((str(configname _x)) find QN(PREFIX)) isEqualto -1) )configClasses (Configfile >> "Cfg3DEN" >> "Mission");
 {
     private _section = configName _x;
     LOG_1("foreach _section: %1",_section);
@@ -52,5 +52,5 @@ private _sections = "!(((str(configname _x)) find 'UO_FW') isEqualto -1)" config
 } foreach _sections;
 
 //SETMVAR(Initialized,true);
-missionNamespace setVariable ["UO_FW_Core_Initialized", true];
+missionNamespace setVariable [QEGVAR(Core,Initialized), true];
 [QEGVAR(Core,SettingsLoaded), []] call CBA_fnc_localEvent;

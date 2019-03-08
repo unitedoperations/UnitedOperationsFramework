@@ -1,6 +1,6 @@
 #define COMPONENT Gear
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-3DEN_CHECK;
+EDEN_CHECK;
 
 LOG("GearPresetAttribute_onMouseClick started");
 LOG_1("GearPresetAttribute_onMouseClick started, this: %1",_this);
