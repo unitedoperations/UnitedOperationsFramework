@@ -1,8 +1,8 @@
 #define COMPONENT ShotCount
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(CLIENT);
+EXEC_CHECK(CLIENT);
 
-[QGVAR(Display_Event), {
+[QGVAR(DisplayEvent), {
     if !(UO_FW_Server_ShotCountModule_Allowed) exitwith {};
     if !(MGETMVAR(ShotCount_Enabled,false)) exitwith {};
     LOG_1("Display_Event published with: %1",_this);

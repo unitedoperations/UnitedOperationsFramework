@@ -1,8 +1,8 @@
 #define COMPONENT AOLimit
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(CLIENT);
+EXEC_CHECK(CLIENT);
 
-["UO_FW_RegisterModuleEvent", ["AO Limit", "Allows the mission maker to set AO limits to specific sides.", "Olsen, Sacher and PiZZADOX"]] call CBA_fnc_localEvent;
+[QEGVAR(Core,RegisterModuleEvent), ["AO Limit", "Allows the mission maker to set AO limits to specific sides.", "Olsen, Sacher and PiZZADOX"]] call CBA_fnc_localEvent;
 //[_logic,_area,_selectedSides,_entryMode,_airsetting,_AOMode,_softAOtime,_softAOtimeAir] passed array
 
 [{(!(isNull player)) && {(CBA_missionTime > 1)}}, {

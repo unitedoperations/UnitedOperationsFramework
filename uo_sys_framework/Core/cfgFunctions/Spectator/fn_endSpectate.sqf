@@ -1,6 +1,6 @@
 #define COMPONENT Spectator
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(CLIENT);
+EXEC_CHECK(CLIENT);
 
 if !(GETPLVAR(Spectating,false)) exitwith {};
 
@@ -33,4 +33,4 @@ switch (side player) do {
 };
 
 player setPos (getMarkerPos _marker);
-["UO_FW_Gear_PlayerGearLoad", []] call CBA_fnc_localEvent;
+[QEGVAR(Gear,PlayerGearLoad), []] call CBA_fnc_localEvent;

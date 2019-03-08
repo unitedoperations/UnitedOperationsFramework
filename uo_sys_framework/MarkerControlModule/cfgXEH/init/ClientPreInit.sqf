@@ -1,11 +1,11 @@
 #define COMPONENT MarkerControl
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(CLIENT);
+EXEC_CHECK(CLIENT);
+if !(UO_FW_Server_MarkerControlModule_Allowed) exitWith {};
 
-["UO_FW_MarkerControlEvent", {
-    if !(UO_FW_Server_MarkerControlModule_Allowed) exitWith {};
+[QGVAR(Event), {
     if !(GETMVAR(Enabled,true)) exitWith {};
-    ["UO_FW_RegisterModuleEvent", ["Marker Control", "Allows the mission maker to create markers visible to a single side and per briefing.", "Olsen, Sacher and PiZZADOX"]] call CBA_fnc_localEvent;
+    [QEGVAR(Core,RegisterModuleEvent), ["Marker Control", "Allows the mission maker to create markers visible to a single side and per briefing.", "Olsen, Sacher and PiZZADOX"]] call CBA_fnc_localEvent;
     private _markers = [];
     private _markersBriefing = [];
     {
@@ -78,7 +78,7 @@ UO_FW_EXEC_CHECK(CLIENT);
         } else {
             _markers pushBack [civilian, _x];
         };
-    } forEach (GETMVAR(CIVMarkers,[]));
+    } forEach (GETMVAR(CivilianMarkers,[]));
     {
         if !((getMissionLayerEntities _x) isEqualTo []) then {
             if !(((getMissionLayerEntities _x) select 1) isEqualto []) then {
@@ -87,7 +87,7 @@ UO_FW_EXEC_CHECK(CLIENT);
         } else {
             _markersBriefing pushBack [civilian, _x];
         };
-    } forEach (GETMVAR(CIVBriefingMarkers,[]));
+    } forEach (GETMVAR(CivilianBriefingMarkers,[]));
     {
         if !((getMissionLayerEntities _x) isEqualTo []) then {
             if !(((getMissionLayerEntities _x) select 1) isEqualto []) then {
@@ -122,6 +122,6 @@ UO_FW_EXEC_CHECK(CLIENT);
     }, [_markersBriefing]] call CBA_fnc_WaitUntilAndExecute;
 }] call CBA_fnc_addEventHandler;
 
-["UO_FW_SettingsLoaded", {
-    ["UO_FW_MarkerControlEvent", []] call CBA_fnc_localEvent;
+[QEGVAR(Core,SettingsLoaded), {
+    [QGVAR(Event), []] call CBA_fnc_localEvent;
 }] call CBA_fnc_addEventHandler;

@@ -6,7 +6,7 @@ class EGVAR(Gear,Presets_CIVILIAN) {
             property = QEGVAR(Gear,ACE_Arsenal_GearPresets_CIVILIAN);
             displayName = "Gear Presets";
             tooltip = "";
-            control = "UO_FW_Gear_PresetsCombo_CIVILIAN";
+            control = QEGVAR(Gear,PresetsCombo_CIVILIAN);
             typeName = "STRING";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "'None'";

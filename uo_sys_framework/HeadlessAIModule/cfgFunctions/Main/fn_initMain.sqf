@@ -5,7 +5,7 @@ if !(MGETMVALUE(AI_Enabled,false)) exitWith {};
 
 LOG("running fn_initMain");
 
-["UO_FW_RegisterModuleEvent", ["Headless AI", "Custom AI Scripts and spawning modules for AI", "PiZZADOX"]] call CBA_fnc_globalEvent;
+[QEGVAR(Core,RegisterModuleEvent), ["Headless AI", "Custom AI Scripts and spawning modules for AI", "PiZZADOX"]] call CBA_fnc_globalEvent;
 
 UO_FW_AI_Zones = [];
 UO_FW_AI_entities = [];

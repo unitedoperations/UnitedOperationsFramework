@@ -1,10 +1,10 @@
 #define COMPONENT Gear
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(CLIENTHC);
+EXEC_CHECK(CLIENTHC);
 
 //IGNORE_PRIVATE_WARNING ["_x"];
 
-["UO_FW_Gear_PlayerGearLoad", {
+[QGVAR(PlayerGearLoad), {
     if !(UO_FW_Server_GearModule_Allowed) exitwith {
         SETPLPVAR(GearReady,true);
     };
@@ -123,7 +123,7 @@ UO_FW_EXEC_CHECK(CLIENTHC);
     }] call CBA_fnc_waitUntilandExecute;
 }] call CBA_fnc_addEventHandler;
 
-["UO_FW_SettingsLoaded", {
+[QEGVAR(Core,SettingsLoaded), {
     [{!isNull player},{
         [] call UO_loadoutIndex;
         SETPLPVAR(GearReady,true);

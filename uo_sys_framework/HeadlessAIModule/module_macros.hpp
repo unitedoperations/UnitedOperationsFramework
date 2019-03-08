@@ -7,7 +7,7 @@ _argUpper = toUpper(#ARG);\
 if (!UO_FW_Server_HCModule_Allowed) exitWith {};\
 if !(getMissionConfigValue ["UO_FW_AI_Enabled",false]) exitwith {};\
 if (isNil "UO_FW_var_HC_ID") then {_nul = [] call EFUNC(AI,checkifHC);};\
-UO_FW_EXEC_CHECK(_argUpper)
+EXEC_CHECK(_argUpper)
 
 // Locality Check and Redirect
 #define UO_FW_AI_LOC_CHECK(ARG1)\

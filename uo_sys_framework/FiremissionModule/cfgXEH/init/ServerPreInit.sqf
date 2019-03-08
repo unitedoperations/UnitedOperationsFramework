@@ -1,8 +1,8 @@
 #define COMPONENT Firemission
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(SERVER);
+EXEC_CHECK(SERVER);
 
-["UO_FW_SettingsLoaded", {
+[QEGVAR(Core,SettingsLoaded), {
     {
         if ((MGETVAR(_x,ArtilleryFOAIEnabled,false))) then {
             private _guns = (MGETVAR(_x,ArtilleryFOAIGuns,[]));

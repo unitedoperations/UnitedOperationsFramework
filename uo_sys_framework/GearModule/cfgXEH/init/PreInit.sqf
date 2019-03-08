@@ -1,8 +1,8 @@
 #define COMPONENT Gear
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(ALL);
+EXEC_CHECK(ALL);
 
-["UO_FW_Gear_LocalObjectsGearLoad", {
+[QGVAR(LocalObjectsGearLoad), {
     if !(UO_FW_Server_GearModule_Allowed) exitwith {};
     if (!(UO_FW_Gear_ACEAR_System_Enabled) && {!(UO_FW_Gear_Olsen_Enabled)}) exitwith {};
     {

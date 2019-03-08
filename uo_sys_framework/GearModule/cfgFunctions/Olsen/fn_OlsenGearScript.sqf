@@ -1,6 +1,6 @@
 #define COMPONENT Gear
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(ALL);
+EXEC_CHECK(ALL);
 
 #define random(MIN, MAX) \
 ([MIN, MAX] call FNC_RandomRange)
@@ -21,8 +21,21 @@ _unit setVariable ["BIS_enableRandomization", false];
 SETPVAR(_unit,Loadout,_Type);
 _unit call FUNC(RemoveAllGear);
 
-FNC_AddItem = {([_unit, _Type] append [_this]) call FUNC(AddItemOrg);};
-FNC_AddItemRandom = {([_unit, _Type] append [_this]) call FUNC(AddItemRandomOrg);};
+FNC_AddItem = {
+    private _args = [_unit, _Type];
+    TRACE_4("addItem Parameters:",_unit,_Type,_args,_this);
+    _args append _this;
+    TRACE_1("addItem parameters after append:",_args);
+    _args call FUNC(AddItemOrg);
+};
+
+FNC_AddItemRandom = {
+    private _args = [_unit, _Type];
+    TRACE_4("addItem Parameters:",_unit,_Type,_args,_this);
+    _args append _this;
+    TRACE_1("addItem parameters after append:",_args);
+    _args call FUNC(AddItemRandomOrg);
+};
 
 //Other Version
 //private _path = missionNamespace getVariable ["UO_FW_Gear_Olsen_PathToGear","GearScript.sqf"];

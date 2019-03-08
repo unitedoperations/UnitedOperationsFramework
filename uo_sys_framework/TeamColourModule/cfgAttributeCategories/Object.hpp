@@ -6,7 +6,7 @@ class UO_FW_TeamColourOptions {
             displayName = "Team Colour";
             tooltip = "Set Player Colour";
             property = QEGVAR(TeamColour,Colour);
-            control = "UO_FW_TeamColourAttribute";
+            control = QEGVAR(TeamColour,ColourAttribute);
             typeName = "STRING";
             expression = UO_FW_ENTITY_EXPRESSION;
             condition = "objectControllable";

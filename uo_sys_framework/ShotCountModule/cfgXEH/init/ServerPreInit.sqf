@@ -1,8 +1,8 @@
 #define COMPONENT ShotCount
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(SERVER);
+EXEC_CHECK(SERVER);
 
-[QGVAR(EH_Event), {
+[QGVAR(EHEvent), {
     if !(UO_FW_Server_ShotCountModule_Allowed) exitwith {};
     if !(MGETMVAR(ShotCount_Enabled,false)) exitwith {};
     params [["_side",sideUnknown,[sideUnknown]],["_className","",[""]]];
@@ -10,7 +10,7 @@ UO_FW_EXEC_CHECK(SERVER);
     [_side,_classDisplay] call UO_FW_fnc_ShotCount_shotCount;
 }] call CBA_fnc_addEventHandler;
 
-["UO_FW_SettingsLoaded", {
+[QEGVAR(Core,SettingsLoaded), {
     if !(UO_FW_Server_ShotCountModule_Allowed) exitwith {};
     if !(MGETMVAR(ShotCount_Enabled,false)) exitwith {};
     GVAR(ExpendedAmmunition_BLUFOR) = [];

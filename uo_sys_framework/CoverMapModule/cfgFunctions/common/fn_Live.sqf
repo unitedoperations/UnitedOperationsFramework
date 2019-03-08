@@ -1,6 +1,6 @@
 #define COMPONENT CoverMap
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(CLIENT);
+EXEC_CHECK(CLIENT);
 //Covers Map outside marker and centers map on marker center in game map
 
 //params ["_area",["_centered",true],["_zoomlevel",0.4],"_name",["_AOName",1]];

@@ -1,8 +1,8 @@
 #define COMPONENT Firemission
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(CLIENTHC);
+EXEC_CHECK(CLIENTHC);
 
-["UO_FW_SettingsLoaded",{
+[QEGVAR(Core,SettingsLoaded),{
     if (MGETPLVAR(ArtilleryFOPlayerEnabled,false)) then {
         ["Event_ArtyReceiveHint", {hint _this;}] call CBA_fnc_addEventHandler;
         private _guns = [];

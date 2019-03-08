@@ -10,7 +10,7 @@
 
 #define COMPONENT 3DEN
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(ALL);
+EXEC_CHECK(ALL);
 UO_FW_3DEN_CHECK;
 
 params [["_name",""],["_clipBoardMode",false]];

@@ -1,6 +1,6 @@
 #define COMPONENT SetupTimer
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(ALL);
+EXEC_CHECK(ALL);
 
 params ["_display"];
 LOG("called Setup init");
@@ -13,7 +13,6 @@ LOG("called Setup init");
         _argNested params ["_endTime","_nextBeep","_colorSet","_display"];
         private _ctrlTime = _display displayCtrl 1003;
         private _timeLeft = (_endTime - CBA_missionTime);
-
         if (_timeLeft <= 0) exitWith {
             _ctrlTime ctrlSetText "00:00.000";
             [QEGVAR(SetupTimer,Notification_Ended)] call BIS_fnc_showNotification;
@@ -23,13 +22,11 @@ LOG("called Setup init");
                 _display closeDisplay 1;
             }, [_display], 3] call CBA_fnc_waitAndExecute;
         };
-
         if (CBA_missionTime >= _nextBeep) then {
             playSound "Beep_Target";
             _nextBeep = (_nextBeep + 1);
             _argNested set [1,_nextBeep];
         };
-
         if (_timeLeft <= 30) then {
             if (_timeLeft <= 10) then {
                 _argNested set [2,["IGUI","ERROR_RGB"]];
@@ -37,10 +34,8 @@ LOG("called Setup init");
                 _argNested set [2,["IGUI","WARNING_RGB"]];
             }
         };
-
         private _color = _colorSet call bis_fnc_displaycolorget;
         _ctrlTime ctrlSetTextColor _color;
         _ctrlTime ctrlSetText ([_timeLeft,"MM:SS.MS"] call bis_fnc_secondsToString);
-
     }, 0, [(CBA_missionTime + ((EGETMVAR(SetupTimer,WaitTime,30)))),((CBA_missionTime + ((EGETMVAR(SetupTimer,WaitTime,30)))) - 10),["IGUI","TEXT_RGB"],_display]] call CBA_fnc_addPerFrameHandler;
 }, _display] call CBA_fnc_waitUntilAndExecute;

@@ -1,4 +1,4 @@
-class UO_FW_ShotCount {
+class EGVAR(ShotCount,Category) {
     displayName = "Shot Count Settings";
     collapsed = 1;
     class Attributes {

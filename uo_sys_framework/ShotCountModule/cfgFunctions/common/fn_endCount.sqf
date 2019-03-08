@@ -9,7 +9,7 @@
 
 #define COMPONENT ShotCount
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(SERVER);
+EXEC_CHECK(SERVER);
 
 private ["_ShotCount_textBLU","_ShotCount_textOPF","_ShotCount_textIND","_ShotCount_textCIV"];
 
@@ -53,4 +53,4 @@ if !(GVAR(ExpendedAmmunition_Civilian) isEqualto []) then {
     _ShotCount_textCIV = "";
 };
 
-[QGVAR(Display_Event), [_ShotCount_textBLU,_ShotCount_textOPF,_ShotCount_textIND,_ShotCount_textCIV]] call CBA_fnc_globalEvent;
+[QGVAR(DisplayEvent), [_ShotCount_textBLU,_ShotCount_textOPF,_ShotCount_textIND,_ShotCount_textCIV]] call CBA_fnc_globalEvent;

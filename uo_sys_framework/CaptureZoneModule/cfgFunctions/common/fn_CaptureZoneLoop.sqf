@@ -1,12 +1,12 @@
 #define COMPONENT CaptureZone
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(SERVER);
+EXEC_CHECK(SERVER);
 
 //[_logic,_zoneName,_area,_repeatable,_capArray,_timeArray,_messagesArray,_colours,_hidden,_silent,_automessages,_ratioNeeded,_cond] passed array
 //params ["","_zoneName","","","","","","","","","","",["_cond","true",[""]]];
 private _cond = _this select 12;
 
-["UO_FW_RegisterModuleEvent", ["Capture Zone", "Creates Capture Zone objectives for variable declares and end condition requirements", "Sacher and PiZZADOX"]] call CBA_fnc_globalEvent;
+[QEGVAR(Core,RegisterModuleEvent), ["Capture Zone", "Creates Capture Zone objectives for variable declares and end condition requirements", "Sacher and PiZZADOX"]] call CBA_fnc_globalEvent;
 
 LOG_1("CaptureZone Loop called with this: %1",_this);
 if (!(_this call FUNC(ValidateCaptureZone))) exitWith {

@@ -71,22 +71,22 @@ class EGVAR(MarkerControl,Category) {
             validate = "none";
             defaultValue = "[]";
         };
-        class EGVAR(MarkerControl,CIVMarkers) {
+        class EGVAR(MarkerControl,CivilianMarkers) {
             displayName = "Civilian Markers";
             tooltip = "Markers which are only visible by Civilian. Marker names or 3DEN layer names without quotes and seperated by ,";
             control = "EditArray";
             typeName = "STRING";
-            property = QEGVAR(MarkerControl,CIVMarkers);
+            property = QEGVAR(MarkerControl,CivilianMarkers);
             expression = UO_FW_SCENARIO_EXPRESSION;
             validate = "none";
             defaultValue = "[]";
         };
-        class EGVAR(MarkerControl,CIVBriefingMarkers) {
+        class EGVAR(MarkerControl,CivilianBriefingMarkers) {
             displayName = "Civilian briefing Markers";
             tooltip = "Markers which are only visible by Civilian during the briefing. Marker names or 3DEN layer names without quotes and seperated by ,";
             control = "EditArray";
             typeName = "STRING";
-            property = QEGVAR(MarkerControl,CIVBriefingMarkers);
+            property = QEGVAR(MarkerControl,CivilianBriefingMarkers);
             expression = UO_FW_SCENARIO_EXPRESSION;
             validate = "none";
             defaultValue = "[]";

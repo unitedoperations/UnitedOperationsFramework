@@ -1,6 +1,6 @@
 #define COMPONENT Spectator
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(CLIENT);
+EXEC_CHECK(CLIENT);
 
 SETPLPVAR(Dead,true);
 [player,true] remoteExecCall ["hideObject", 0];

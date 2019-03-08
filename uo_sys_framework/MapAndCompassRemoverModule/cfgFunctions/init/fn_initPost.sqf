@@ -1,14 +1,13 @@
 #define COMPONENT MapAndCompassRemover
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(ALL);
-
+EXEC_CHECK(ALL);
 if !(UO_FW_Server_MapAndCompassRemover_Allowed) exitwith {};
 if !(GETMVAR(Enabled,false)) exitwith {};
-["UO_FW_RegisterModuleEvent", ["Map and Compass Remover", "Removes Map and Compass after briefing", "TinfoilHate, Sacher and PiZZADOX"]] call CBA_fnc_localEvent;
 
 params ["_obj"];
-
 if !(_obj isKindOf "Man") exitwith {};
+
+[QEGVAR(Core,RegisterModuleEvent), ["Map and Compass Remover", "Removes Map and Compass after briefing", "TinfoilHate, Sacher and PiZZADOX"]] call CBA_fnc_localEvent;
 
 if (GETMVAR(GivePlayersEquipment,false)) then {
     if (isPlayer _obj) then {
@@ -26,7 +25,6 @@ if (GETMVAR(GivePlayersEquipment,false)) then {
     if (GETVAR(_obj,RemoveMap,false)) then {
         _obj unlinkItem "ItemMap";
     };
-
     if !(isPlayer _obj) then {
         if (GETMVAR(RemoveAllCompass,false)) then {
             if (GETMVAR(AI_LeadersKeepCompass,false)) then {

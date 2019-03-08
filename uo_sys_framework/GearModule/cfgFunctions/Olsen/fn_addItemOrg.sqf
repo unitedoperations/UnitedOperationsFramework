@@ -18,7 +18,7 @@
 
 #define COMPONENT Gear
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(ALL);
+EXEC_CHECK(ALL);
 
 params ["_unit", "_loadoutType", "_item",  ["_amount",1,[1]], ["_position", "NONE", [""]]];
 private ["_success", "_parents", "_Type"];

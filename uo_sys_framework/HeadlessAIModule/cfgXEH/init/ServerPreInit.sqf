@@ -1,11 +1,11 @@
 #include "\x\UO_FW\addons\Main\HeadlessAIModule\module_macros.hpp"
-UO_FW_EXEC_CHECK(SERVER);
+EXEC_CHECK(SERVER);
 
 ["UO_FW_AI_EH_Event", {
 
 }] call CBA_fnc_addEventHandler;
 
-["UO_FW_SettingsLoaded", {
+[QEGVAR(Core,SettingsLoaded), {
 
 }] call CBA_fnc_addEventHandler;
 

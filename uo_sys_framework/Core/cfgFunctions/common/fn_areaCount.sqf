@@ -16,7 +16,7 @@
 
 #define COMPONENT Core
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(ALL);
+EXEC_CHECK(ALL);
 
 params [["_side", sideUnknown, [sideUnknown]],["_radius", 0, [0]],["_logic", objNull, [objNull]],["_noUntracked", false]];
 private _count = 0;

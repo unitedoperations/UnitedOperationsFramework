@@ -1,12 +1,64 @@
 #define COMPONENT Gear
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(ALL);
+EXEC_CHECK(ALL);
 UO_FW_3DEN_CHECK;
 
 LOG("GearLoadPreset started");
 
 params ["_preset",["_teamTag","BLUFOR",[""]],"_ctrlButton"];
 LOG_2("_preset: %1 _teamTag: %2",_object,_teamTag);
+
+if (_preset isEqualto "NONE") exitwith {
+    private _classArray = getArray(configFile >> QGVAR(Types) >> "typesArray");
+    {
+        private _gearType = _x;
+        private _varName = format ["UO_FW_Gear_ACE_Arsenal_LoadoutType_%1_%2",_teamTag,_gearType];
+        LOG_1("_varName: %1",_varName);
+        private _attrSection = format ["UO_FW_Gear_%1",_teamTag];
+        missionNamespace setVariable [_varName, _loadoutName];
+        LOG_1("_attrSection: %1",_attrSection);
+        _attrSection set3DENMissionAttribute [_varName,_loadoutName];
+    } foreach _classArray;
+    LOG_1("_ctrlButton:",_ctrlButton);
+    private _ctrlGroup = ctrlParentControlsGroup ctrlParentControlsGroup _ctrlButton;
+    LOG_2("_ctrlGroup: %1 _ctrlButton: %2",_ctrlGroup,_ctrlButton);
+    {
+        private _newcontrol = _x;
+        LOG_1("_newcontrol %1",_newcontrol);
+        ctrlsetfocus _newcontrol;
+        private _cursel = lbCurSel _newcontrol;
+        LOG_1("_cursel %1",_cursel);
+        private _lbValue = _newcontrol lbData _cursel;
+        if !(_lbValue isEqualto "") then {
+            LOG_1("_lbValue %1",_lbValue);
+            private _config = _newcontrol getvariable ["UO_FW_parentcontrolcfg",""];
+            LOG_1("_config %1",_config);
+            if !(_config isEqualto "") then {
+                private _attProperty = getText (_config >> "property");
+                LOG_1("_attProperty %1",_attProperty);
+                private _missionVarValue = missionNamespace getvariable [_attProperty,"NONE"];
+                LOG_1("_missionVarValue %1",_missionVarValue);
+                [_newcontrol,_config,_missionVarValue] call FUNC(ACEGearClassAttribute_AttrReLoad);
+                private _size = lbSize _newcontrol;
+                private _found = false;
+                LOG_1("_size %1",_size);
+                for "_i" from 0 to _size step 1 do {
+                    private _indexValue = _newcontrol lbData _i;
+                    LOG_1("_i %1",_i);
+                    LOG_1("_indexValue %1",_indexValue);
+                    if (_indexValue == _missionVarValue) exitwith {
+                        _newcontrol lbSetCurSel _i;
+                        _found = true;
+                        _newcontrol ctrlCommit 0;
+                    };
+                };
+                LOG_1("_found %1",_found);
+                ctrlsetfocus _ctrlButton;
+            };
+        };
+    } foreach (allcontrols (ctrlparent _ctrlButton));
+    LOG_1("Preset Reset for %1",_teamTag);
+};
 
 private _cfgEntries = [configFile >> "UO_FW_Gear_Presets",0] call BIS_fnc_returnChildren;
 private _found = false;

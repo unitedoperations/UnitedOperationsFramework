@@ -33,7 +33,7 @@ class EGVAR(Respawn,Settings_Main) {
     };
 };
 
-class EGVAR(EndConditions,Settings_Menu) {
+class EGVAR(EndConditions,SettingsMenu) {
     displayName = "End Condition Settings";
     class AttributeCategories {
       #include "EndConditions\TimelimitMenu.hpp"
@@ -87,36 +87,36 @@ class EGVAR(EndConditions,Category_6_Menu) {
 class EGVAR(Export,Menu) {
     displayName = "Export Settings";
     class AttributeCategories {
-        class UO_FW_ExportAttributes {
+        class EGVAR(Export,Category) {
             displayName = "Export Mission Settings";
             collapsed = 0;
             class Attributes {
-                class EGVAR(EXPORT,ExportToProfile) {
-                    property = QEGVAR(EXPORT,ExportToProfile);
+                class EGVAR(Export,ExportToProfile) {
+                    property = QEGVAR(Export,ExportToProfile);
                     displayName = "Export Settings to Profile";
                     tooltip = "Enter the name of the settings preset that will be saved to your profile";
                     control = "UO_FW_ExportToProfileAttribute";
                     expression = "";
                     defaultValue = "''";
                 };
-                class EGVAR(EXPORT,ExportToClipboard) {
-                    property = QEGVAR(EXPORT,ExportToClipboard);
+                class EGVAR(Export,ExportToClipboard) {
+                    property = QEGVAR(Export,ExportToClipboard);
                     displayName = "Export Settings to Clipboard";
                     tooltip = "Export Settings to Clipboard";
                     control = "UO_FW_ExportToClipboardAttribute";
                     expression = "";
                     defaultValue = "[]";
                 };
-                class EGVAR(EXPORT,ExportLoadoutToProfile) {
-                    property = QEGVAR(EXPORT,ExportLoadoutToProfile);
+                class EGVAR(Export,ExportLoadoutToProfile) {
+                    property = QEGVAR(Export,ExportLoadoutToProfile);
                     displayName = "Export Loadouts to Profile";
                     tooltip = "Enter the name of the settings preset that will be saved to your profile";
                     control = "UO_FW_ExportLoadoutToProfileAttribute";
                     expression = "";
                     defaultValue = "''";
                 };
-                class EGVAR(EXPORT,ExportLoadoutToClipboard) {
-                    property = QEGVAR(EXPORT,ExportLoadoutToClipboard);
+                class EGVAR(Export,ExportLoadoutToClipboard) {
+                    property = QEGVAR(Export,ExportLoadoutToClipboard);
                     displayName = "Export Loadouts to Clipboard";
                     tooltip = "Export Loadouts to Clipboard";
                     control = "UO_FW_ExportLoadoutToClipboardAttribute";
@@ -131,7 +131,7 @@ class EGVAR(Export,Menu) {
 class EGVAR(Import,Menu) {
     displayName = "Import Settings";
     class AttributeCategories {
-        class UO_FW_ImportAttributes {
+        class EGVAR(Import,Menu) {
             displayName = "Import Mission Settings";
             collapsed = 0;
             class Attributes {

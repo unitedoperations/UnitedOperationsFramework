@@ -1,8 +1,9 @@
 #define COMPONENT SelfActions
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(CLIENT);
+EXEC_CHECK(CLIENT);
+if !(UO_FW_Server_SelfActionsModule_Allowed) exitwith {};
 
-["UO_FW_SelfActions_ColourCheckInitEvent", {
+[QGVAR(ColourCheckInitEvent), {
     [{!isNull player}, {
         private _teamColorAction = ["colorCheck_class", "Check Team Color", "", {
             private ["_str"];
@@ -20,7 +21,7 @@ UO_FW_EXEC_CHECK(CLIENT);
 }] call CBA_fnc_addEventHandler;
 
 //IGNORE_PRIVATE_WARNING ["_player","_target"];
-["UO_FW_SelfActions_CheckMapInitEvent", {
+[QGVAR(CheckMapInitEvent), {
     [{!isNull player}, {
         private _shareMapAction = ["shareMap_class", "View Map", "", {
             params ["_target", "_player"];
@@ -41,7 +42,7 @@ UO_FW_EXEC_CHECK(CLIENT);
 }] call CBA_fnc_addEventHandler;
 
 //IGNORE_PRIVATE_WARNING ["_thisID"];
-["UO_FW_SelfActions_CutGrassInitEvent", {
+[QGVAR(CutGrassInitEvent), {
     [{!isNull player}, {
         private _macheteAction = ["machete_class", "Cut Grass", "", {
             [player, "AnimDone", {
@@ -58,7 +59,7 @@ UO_FW_EXEC_CHECK(CLIENT);
     }, []] call CBA_fnc_waitUntilAndExecute;
 }] call CBA_fnc_addEventHandler;
 
-["UO_FW_SelfActions_ParaFlaresInitEvent", {
+[QGVAR(ParaFlaresInitEvent), {
     [{!isNull player}, {
         private _paraFlareBaseMenu = ["SelfActions_ParaBaseClass", "Paraflares", "", {}, {true}] call ace_interact_menu_fnc_createAction;
         [player, 1, ["ACE_SelfActions","ACE_Equipment"], _paraFlareBaseMenu] call ace_interact_menu_fnc_addActionToObject;
@@ -81,7 +82,7 @@ UO_FW_EXEC_CHECK(CLIENT);
                         [_flare,"SelfActions_flareShot"] remoteExec ["say3D"];
                         [{!isNull (_this select 0)}, {
                             params ["_flare","_colour","_pos"];
-                            ["UO_FW_SelfActions_ParaFlareCreateLightEvent", [_flare,_colour,_pos]] call CBA_fnc_globalEvent;
+                            [QGVAR(ParaFlareCreateLightEvent), [_flare,_colour,_pos]] call CBA_fnc_globalEvent;
                         }, [_flare,_colour,_pos]] call CBA_fnc_waitUntilAndExecute;
                     }, [_ammoType,_pos,_vectorDir,_colour], 0.5] call CBA_fnc_waitAndExecute;
                 }, [_ammoType,_pos,_vectorDir,_colour], 0.5] call CBA_fnc_waitAndExecute;
@@ -102,22 +103,21 @@ UO_FW_EXEC_CHECK(CLIENT);
     }, []] call CBA_fnc_waitUntilAndExecute;
 }] call CBA_fnc_addEventHandler;
 
-["UO_FW_SettingsLoaded", {
-    if !(UO_FW_Server_SelfActionsModule_Allowed) exitwith {};
+[QEGVAR(Core,SettingsLoaded), {
     if !(GETMVAR(Enable,false)) exitwith {};
     [{!isNull player},{
         if (GETMVAR(CheckColour_Enabled,false)) then {
-            ["UO_FW_SelfActions_ColourCheckInitEvent", []] call CBA_fnc_localEvent;
+            [QGVAR(ColourCheckInitEvent), []] call CBA_fnc_localEvent;
         };
         if (GETMVAR(CheckMap_Enabled,false)) then {
-            ["UO_FW_SelfActions_CheckMapInitEvent", []] call CBA_fnc_localEvent;
+            [QGVAR(CheckMapInitEvent), []] call CBA_fnc_localEvent;
         };
         if (GETMVAR(CutGrass_Enabled,false)) then {
-            ["UO_FW_SelfActions_CutGrassInitEvent", []] call CBA_fnc_localEvent;
+            [QGVAR(CutGrassInitEvent), []] call CBA_fnc_localEvent;
         };
         if (GETMVAR(ParaFlares_Enabled,false)) then {
-            ["UO_FW_SelfActions_ParaFlaresInitEvent", []] call CBA_fnc_localEvent;
+            [QGVAR(ParaFlaresInitEvent), []] call CBA_fnc_localEvent;
         };
-        ["UO_FW_RegisterModuleEvent", ["Self Actions", "Allows players to check their own team color, view other's maps, launch paraflares, and cut grass.", "TinfoilHate and PiZZADOX"]] call CBA_fnc_localEvent;
+        [QEGVAR(Core,RegisterModuleEvent), ["Self Actions", "Allows players to check their own team color, view other's maps, launch paraflares, and cut grass.", "TinfoilHate and PiZZADOX"]] call CBA_fnc_localEvent;
     }, []] call CBA_fnc_waitUntilAndExecute;
 }] call CBA_fnc_addEventHandler;

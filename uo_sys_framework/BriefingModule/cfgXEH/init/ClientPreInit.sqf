@@ -1,8 +1,8 @@
 #define COMPONENT Briefing
 #include "\x\UO_FW\addons\Main\BriefingModule\module_macros.hpp"
-UO_FW_EXEC_CHECK(CLIENT);
+EXEC_CHECK(CLIENT);
 
-["UO_FW_SettingsLoaded", {
+[QEGVAR(Core,SettingsLoaded), {
     [{!isNull player}, {
         private _briefing = [];
         switch (side player) do {

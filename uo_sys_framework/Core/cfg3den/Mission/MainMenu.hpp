@@ -2,8 +2,8 @@ class EGVAR(Core,MainSettings) {
     displayName = "Main Settings";
     collapsed = 0;
     class Attributes {
-        class UO_FW_Enabled {
-            property = "UO_FW_Enabled";
+        class EGVAR(Core,Enabled) {
+            property = QEGVAR(Core,Enabled);
             displayName = "Enable UO Framework";
             tooltip = "Enable UO Framework";
             control = "UO_FW_FrameworkCheckbox";
@@ -11,7 +11,7 @@ class EGVAR(Core,MainSettings) {
             defaultValue = "false";
         };
         class EGVAR(Core,MissionType) {
-            property = "UO_FW_MissionType";
+            property = QEGVAR(Core,MissionType);
             displayName = "Mission Type";
             tooltip = "Determines Mission Type";
             control = "MissionType";

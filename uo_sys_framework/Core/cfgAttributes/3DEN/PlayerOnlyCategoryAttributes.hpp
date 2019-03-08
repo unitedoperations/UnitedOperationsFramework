@@ -148,7 +148,7 @@ class UO_FW_EditPlayerOnlyCategory: Edit {
     };
 };
 
-class UO_FW_EditShortPlayerOnlyCategory: Edit
+class EGVAR(3DEN,EditShortPlayerOnlyCategory): Edit
 {
     onLoad="\
     private ['_isUnitPlayable'];\

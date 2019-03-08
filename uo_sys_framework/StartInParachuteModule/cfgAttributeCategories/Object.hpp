@@ -1,4 +1,4 @@
-class UO_FW_StartInParachute  {
+class EGVAR(StartInParachute,Category)  {
     displayName = "Start in Parachute Options";
     collapsed = 1;
     class Attributes  {
@@ -6,7 +6,7 @@ class UO_FW_StartInParachute  {
             displayName = "Start in Parachute";
             tooltip = "Set Parachute Type of a unit";
             property = QEGVAR(StartInParachute,Type);
-            control = "UO_FW_StartInParachuteAttribute";
+            control = QEGVAR(StartInParachute,TypeAttribute);
             expression = UO_FW_ENTITY_EXPRESSION;
             condition = "objectControllable";
             defaultValue = "0";

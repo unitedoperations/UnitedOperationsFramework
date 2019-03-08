@@ -1,4 +1,4 @@
-class EGVAR(Gear,ManualGearEditShort): EditShort {
+class EGVAR(Gear,AttributeManualGearEditShort): EditShort {
     //save the lbData from the selected entry upon exit
     attributeSave = "\
         private _value = ctrlText (_this controlsGroupCtrl 100);\

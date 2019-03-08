@@ -1,6 +1,6 @@
 #define COMPONENT Spectator
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(CLIENT);
+EXEC_CHECK(CLIENT);
 
 //37 is DIK code for K
 if ((_this select 1) isEqualto 37) then {

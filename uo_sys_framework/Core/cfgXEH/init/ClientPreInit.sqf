@@ -1,6 +1,6 @@
 #define COMPONENT Core
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(CLIENT);
+EXEC_CHECK(CLIENT);
 
 LOG("Client Pre Init");
 
@@ -13,10 +13,10 @@ LOG("Client Pre Init");
         _x params ["_propertyName","_value"];
         player setvariable [_propertyName,_value];
     } foreach _varArray;
-    ["UO_FW_SettingsLoaded", []] call CBA_fnc_localEvent;
+    [QEGVAR(Core,SettingsLoaded), []] call CBA_fnc_localEvent;
 }] call CBA_fnc_addEventHandler;
 
-["UO_FW_RegisterModuleEvent", {
+[QEGVAR(Core,RegisterModuleEvent), {
     if !(hasInterface) exitwith {};
     params ["_name", "_description", "_author"];
     [{!(isNull player)}, {

@@ -1,11 +1,11 @@
 #define COMPONENT StartText
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(CLIENT);
+EXEC_CHECK(CLIENT);
+if (!UO_FW_Server_StartTextModule_Allowed) exitWith {};
 
-["UO_FW_SettingsLoaded", {
-    if (!UO_FW_Server_StartTextModule_Allowed) exitWith {};
+[QEGVAR(Core,SettingsLoaded), {
     if !(GETMVAR(Enabled,false)) exitWith {};
-    ["UO_FW_RegisterModuleEvent", ["Start Text", "Displays animated text on mission start.", "Sacher"]] call CBA_fnc_localEvent;
+    [QEGVAR(Core,RegisterModuleEvent), ["Start Text", "Displays animated text on mission start.", "Sacher"]] call CBA_fnc_localEvent;
     [{(!isNull player) && {(CBA_missionTime > 1)}}, {
         private _dateType = [["DATE"],["TIME"],["DATETIME"]] select (GETMVAR(TimeSelect,2));
         private _startTextArray = [];

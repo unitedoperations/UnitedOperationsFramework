@@ -1,6 +1,6 @@
 #define COMPONENT StartInParachute
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(ALL);
+EXEC_CHECK(ALL);
 
 params ["_target","_elev",["_rand",100,[0]],["_steer",false,[false]]];
 

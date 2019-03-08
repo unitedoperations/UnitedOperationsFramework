@@ -43,7 +43,7 @@ if (_missionFrameworkVersionStr isEqualto "") then {
     _object setvariable [_propertyName,_value,_isGlobal];
 }] call CBA_fnc_addEventHandler;
 
-//["UO_FW_SettingsLoaded", {
+//[QEGVAR(Core,SettingsLoaded), {
 //    //_respawnTypeArray = [['1 Life','ONELIFE'],['Unlimited','UNLIMITED'],['Individual Tickets','INDTICKETS'],['Team Tickets','TEAMTICKETS']];
 //}] call CBA_fnc_addEventHandler;
 

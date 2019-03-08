@@ -15,7 +15,7 @@
 
 #define COMPONENT Core
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(ALL);
+EXEC_CHECK(ALL);
 
 [{
     if (CBA_missionTime > 0 && {getTerrainGrid != 2}) then {

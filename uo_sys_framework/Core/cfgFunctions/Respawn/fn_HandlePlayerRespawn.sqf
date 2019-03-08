@@ -1,6 +1,6 @@
 #define COMPONENT Respawn
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(CLIENT);
+EXEC_CHECK(CLIENT);
 
 private ["_delay","_templateSettings","_teamRespawnMarker","_newSideSetting","_respawnType"];
 
@@ -84,7 +84,7 @@ if ((_respawnType isEqualto "INDTICK") || (_respawnType isEqualto "TEAMTICK") ||
         // Handle Module and Gear Settings
         //CoverMap
         if (QEGVAR(RTemplatesS,CoverMap) in _templateSettings) then {
-            ["UO_FW_CoverMapInit_Event", []] call CBA_fnc_localEvent;
+            [QEGVAR(CoverMap,InitEvent), []] call CBA_fnc_localEvent;
         };
         //SafeStart
         if (QEGVAR(RTemplatesS,SafeStart) in _templateSettings) then {
@@ -100,7 +100,7 @@ if ((_respawnType isEqualto "INDTICK") || (_respawnType isEqualto "TEAMTICK") ||
         };
         //Gear
         if (QEGVAR(RTemplatesS,Gear) in _templateSettings) then {
-            ["UO_FW_Gear_PlayerGearLoad", []] call CBA_fnc_localEvent;
+            [QEGVAR(Gear,PlayerGearLoad), []] call CBA_fnc_localEvent;
         };
         //ACRE
         if (QEGVAR(RTemplatesS,ACRE) in _templateSettings) then {
@@ -109,7 +109,7 @@ if ((_respawnType isEqualto "INDTICK") || (_respawnType isEqualto "TEAMTICK") ||
         };
         //StartInParachute
         if (QEGVAR(RTemplatesS,StartInParachute) in _templateSettings) then {
-            ["UO_FW_StartInParachute_LocalEvent", []] call CBA_fnc_localEvent;
+            [QGVAR(LocalEvent), []] call CBA_fnc_localEvent;
         };
 
     }, [_delay,_templateSettings,_teamRespawnMarker], _delay] call CBA_fnc_waitAndExecute;

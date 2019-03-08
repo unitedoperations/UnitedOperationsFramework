@@ -1,4 +1,4 @@
-class UO_FW_TeamColourAttribute: Combo {
+class EGVAR(TeamColour,ColourAttribute): Combo {
     //save the lbData from the selected entry upon exit
     attributeSave = "\
         private _value = ((_this controlsGroupCtrl 100) lbData lbCurSel (_this controlsGroupCtrl 100));\

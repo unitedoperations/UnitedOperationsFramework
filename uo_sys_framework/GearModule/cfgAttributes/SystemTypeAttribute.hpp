@@ -1,4 +1,4 @@
-class EGVAR(Gear,SystemType): Combo {
+class EGVAR(Gear,AttributeSystemType): Combo {
     attributeSave = "\
         private _value = (_this controlsGroupCtrl 100) lbData lbCurSel (_this controlsGroupCtrl 100);\
         _unit setvariable ['UO_FW_Gear_UnitSystemType',_value];\
@@ -78,7 +78,7 @@ class EGVAR(Gear,SystemType): Combo {
     };
 };
 
-class EGVAR(Gear,SystemTypeVehicle): Combo {
+class EGVAR(Gear,AttributeSystemTypeVehicle): Combo {
     attributeSave = "\
         private _value = (_this controlsGroupCtrl 100) lbData lbCurSel (_this controlsGroupCtrl 100);\
         _unit setvariable ['UO_FW_Gear_UnitSystemType',_value];\

@@ -1,16 +1,14 @@
-#define UO_FW_GEAR_EXPRESSION "_this setVariable ['%s', _value, true];"
-
-class UO_FW_Gear {
+class EGVAR(Gear,UnitCategory) {
     displayName = "Gear Options";
     collapsed = 1;
     class Attributes {
         class EGVAR(Gear,UnitSystemType) {
             displayName = "Gear System Type";
             tooltip = "Set the gear system type for the unit.";
-            control = "UO_FW_Gear_SystemType";
+            control = QEGVAR(Gear,AttributeSystemType);
             typeName = "STRING";
             property = QEGVAR(Gear,UnitSystemType);
-            expression = UO_FW_GEAR_EXPRESSION;
+            expression = UO_FW_ENTITY_EXPRESSION;
             condition = "ObjectControllable";
             validate = "none";
             defaultValue = "'NONE'";
@@ -18,11 +16,11 @@ class UO_FW_Gear {
         class EGVAR(Gear,UnitGearType) {
             displayName = "Gear Type";
             tooltip = "Set the gear type for the unit that sets the class for respawn and other functions. If set to ACE or Olsen gear mode, this corresponds to the types defined in the gear team settings.";
-            control = "UO_FW_Gear_ComboGearLoad";
+            control = QEGVAR(Gear,AttributeComboGearLoad);
             GearSystems[] = {"ACEAR","OLSEN","NONE"};
             property = QEGVAR(Gear,UnitGearType);
             typeName = "STRING";
-            expression = UO_FW_GEAR_EXPRESSION;
+            expression = UO_FW_ENTITY_EXPRESSION;
             condition = "ObjectControllable";
             validate = "none";
             defaultValue = "'NONE'";
@@ -32,16 +30,16 @@ class UO_FW_Gear {
             displayName = "Custom Gear Type";
             GearSystems[] = {"ACEAR","OLSEN"};
             tooltip = "Defines a custom gear class for respawn and other functions. If set to ACE gear system, this corresponds to the name of an ACE mission loadout. If set to Olsen gear system, this corresponds to the name of gear type in the team olsen gear script. Leave blank to disable.";
-            control = "UO_FW_Gear_ManualGearEditShort";
+            control = QEGVAR(Gear,AttributeManualGearEditShort);
             typeName = "STRING";
-            expression = UO_FW_GEAR_EXPRESSION;
+            expression = UO_FW_ENTITY_EXPRESSION;
             condition = "ObjectControllable";
             defaultValue = "''";
         };
         class EGVAR(Gear,VehicleSystemType) {
             displayName = "Gear System Type";
             tooltip = "Set the gear system type for the vehicle.";
-            control = "UO_FW_Gear_SystemTypeVehicle";
+            control = QEGVAR(Gear,AttributeSystemTypeVehicle);
             typeName = "STRING";
             property = QEGVAR(Gear,VehicleSystemType);
             expression = UO_FW_ENTITY_EXPRESSION;
@@ -54,7 +52,7 @@ class UO_FW_Gear {
             displayName = "Custom Gear Type";
             GearSystems[] = {"OLSEN"};
             tooltip = "Defines a custom gear class for respawn and other functions. If set to ACE gear system, this corresponds to the name of an ACE mission loadout. If set to Olsen gear system, this corresponds to the name of gear type in the team olsen gear script. Leave blank to disable.";
-            control = "UO_FW_Gear_ManualGearEditShort";
+            control = QEGVAR(Gear,AttributeManualGearEditShort);
             typeName = "STRING";
             expression = UO_FW_ENTITY_EXPRESSION;
             condition = "objectVehicle";

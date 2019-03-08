@@ -1,4 +1,4 @@
-class UO_FW_StartText {
+class EGVAR(StartText,Category) {
     displayName = "Start Text Settings";
     collapsed = 1;
     class Attributes {

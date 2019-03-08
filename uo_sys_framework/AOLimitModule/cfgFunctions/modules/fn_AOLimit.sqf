@@ -1,6 +1,6 @@
 #define COMPONENT AOLimit
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(ALL);
+EXEC_CHECK(ALL);
 
 if !(UO_FW_Server_AOLIMIT_Allowed) exitwith {};
 params [["_mode","",[""]],["_input",[],[[]]]];

@@ -15,7 +15,7 @@
 
 LOG("setDefaultsCalled");
 
-if !(getMissionConfigValue ["UO_FW_Enabled",false]) exitWith {};
+if !(getMissionConfigValue ["EGVAR(Core,Enabled)",false]) exitWith {};
 if (!UO_FW_Server_Framework_Allowed) exitWith {};
 
 private _sections = "!(((str(configname _x)) find 'UO_FW') isEqualto -1)" configClasses (Configfile >> "Cfg3DEN" >> "Mission");
@@ -56,4 +56,4 @@ private _sections = "!(((str(configname _x)) find 'UO_FW') isEqualto -1)" config
 
 //SETMVAR(Initialized,true);
 missionNamespace setVariable ["UO_FW_Core_Initialized", true];
-["UO_FW_SettingsLoaded", []] call CBA_fnc_localEvent;
+[QEGVAR(Core,SettingsLoaded), []] call CBA_fnc_localEvent;

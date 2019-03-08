@@ -20,7 +20,7 @@ MESSAGE call EFUNC(Core,DebugMessage)
 #define ELSTRING_VAR(var1,var2,var3) ELSTRING(var1,DOUBLES(var2,var3))
 
 //Debug functions
-#define UO_FW_DEBUG(basicmsg,detailedmsg)\
+#define FWDEBUG(basicmsg,detailedmsg)\
 [basicmsg,detailedmsg] call EFUNC(Core,DebugMessageDetailed)
 
 #define MGETMVALUE(var1,var2) getMissionConfigValue [ARR_2(QUOTE(DOUBLES(PREFIX,var1)),var2)]
@@ -97,21 +97,21 @@ MESSAGE call EFUNC(Core,DebugMessage)
 #define CSTRING_2(var1,var2) QUOTE(DOUBLES($STR_UO_FW,DOUBLES(var1,var2)))
 
 //Script control
-#define UO_FW_EXEC_CHECK(ARG)\
+#define EXEC_CHECK(ARG)\
 _argUpper = toUpper(#ARG);\
-if (isNil QMGVAR(Enabled)) then {\
-    MGVAR(Enabled) = MGETMVALUE(Enabled,false);\
+if (isNil QEGVAR(Core,Enabled)) then {\
+    EGVAR(Core,Enabled) = EGETMVALUE(Core,Enabled,false);\
 };\
-if ((_argUpper isEqualto "SERVER") && {(((!isServer) && isMultiplayer) || (!(MGVAR(Enabled))))}) exitWith {}; \
-if ((_argUpper isEqualto "CLIENT") && {((!hasinterface) || (!(MGVAR(Enabled))))}) exitWith {};\
-if ((_argUpper isEqualto "HC") && {(((hasinterface || isServer) && isMultiplayer) || (!(MGVAR(Enabled))))}) exitWith {};\
-if ((_argUpper isEqualto "CLIENTHC") && {(((isDedicated) && isMultiplayer) || (!(MGVAR(Enabled))))}) exitWith {};\
-if ((_argUpper isEqualto "SERVERHC") && {(((hasinterface) && isMultiplayer) || (!(MGVAR(Enabled))))}) exitWith {};\
-if ((_argUpper isEqualto "ALL") && {(!(MGVAR(Enabled)))}) exitWith {};\
-if (!(MGVAR(Enabled))) exitWith {};\
+if ((_argUpper isEqualto "SERVER") && {(((!isServer) && isMultiplayer) || (!(EGVAR(Core,Enabled))))}) exitWith {}; \
+if ((_argUpper isEqualto "CLIENT") && {((!hasinterface) || (!(EGVAR(Core,Enabled))))}) exitWith {};\
+if ((_argUpper isEqualto "HC") && {(((hasinterface || isServer) && isMultiplayer) || (!(EGVAR(Core,Enabled))))}) exitWith {};\
+if ((_argUpper isEqualto "CLIENTHC") && {(((isDedicated) && isMultiplayer) || (!(EGVAR(Core,Enabled))))}) exitWith {};\
+if ((_argUpper isEqualto "SERVERHC") && {(((hasinterface) && isMultiplayer) || (!(EGVAR(Core,Enabled))))}) exitWith {};\
+if ((_argUpper isEqualto "ALL") && {(!(EGVAR(Core,Enabled)))}) exitWith {};\
+if (!(EGVAR(Core,Enabled))) exitWith {};\
 if (!(MGVAR(Server_Framework_Allowed))) exitWith {}
 
 #define UO_FW_3DEN_CHECK if !(is3DEN) exitwith {};
 
-#define UO_FW_VERSIONNUMBER (MGETMVAR(Version_UpdatedNumber,102))
-#define UO_FW_VERSION_CHECK(var1) if (var1 < UO_FW_VERSIONNUMBER) exitwith {};
+#define VERSIONNUMBER (MGETMVAR(Version_UpdatedNumber,102))
+#define VERSION_CHECK(var1) if (var1 < VERSIONNUMBER) exitwith {};

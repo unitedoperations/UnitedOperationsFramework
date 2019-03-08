@@ -1,6 +1,6 @@
 #define COMPONENT CoverMap
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(CLIENT);
+EXEC_CHECK(CLIENT);
 //Covers Map outside marker and centers map on marker center in briefing map
 
 if ((CBA_missionTime > 0 || getClientState isEqualTo "Briefing READ")) exitwith {};

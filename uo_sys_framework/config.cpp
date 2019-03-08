@@ -127,7 +127,7 @@ class Cfg3DEN {
     };
 
     class Mission {
-        class UO_FW_Settings {
+        class EGVAR(Core,Settings) {
             displayName = "Mission Settings";
             class AttributeCategories {
                 //add Main mission settings here
@@ -269,7 +269,7 @@ class display3DEN {
                 #include "Core\display3DEN\MenuDoc.hpp"
                 //Compile UO Menu Folder
                 //Add Custom Items with an Additional Entry in Items[]
-                class UO_FW_Folder {
+                class MGVAR(Folder) {
                     text = "UO Framework";
                     //items[] = {
                     //    QMGVAR(Settings),
@@ -284,19 +284,19 @@ class display3DEN {
                     //    QMGVAR(Documentation)
                     //};
                     items[] = {
-                        QMGVAR(Settings),
+                        QEGVAR(Core,SettingsMenu),
                         QEGVAR(Briefing,Folder),
                         QEGVAR(Respawn,Folder),
-                        QEGVAR(Module,Settings),
+                        QEGVAR(Module,SettingsMenu),
                         QEGVAR(EndConditions,Folder),
                         QEGVAR(ACRE,Folder),
                         QEGVAR(Gear,Folder),
                         QEGVAR(ExportImport,Folder),
-                        QMGVAR(Documentation)
+                        QEGVAR(Core,Documentation)
                     };
                 };
                 //Compile Main Menu
-                items[] += {"UO_FW_Folder"};
+                items[] += {QMGVAR(Folder)};
             };
         };
     };

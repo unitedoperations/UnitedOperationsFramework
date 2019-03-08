@@ -1,4 +1,4 @@
-class UO_FW_CoverMapUnitSettings {
+class EGVAR(CoverMap,UnitSettings) {
     displayName = "Cover Map Options";
     collapsed = 1;
     class Attributes {
@@ -15,7 +15,7 @@ class UO_FW_CoverMapUnitSettings {
             property = QEGVAR(CoverMap,UnitDefaultAO);
             displayName = "CoverMap Default AO";
             tooltip = "AO that the unit will be set to upon mission start. Leave blank to set AO to side default set in the module settings.";
-            control = "UO_FW_EditShortPlayerOnlyCategory";
+            control = QEGVAR(3DEN,EditShortPlayerOnlyCategory);
             validate = "STRING";
             condition = "ObjectControllable";
             expression = UO_FW_ENTITY_EXPRESSION;

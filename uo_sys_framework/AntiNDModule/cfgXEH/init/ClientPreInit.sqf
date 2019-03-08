@@ -1,11 +1,11 @@
 #define COMPONENT AntiND
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(CLIENT);
+EXEC_CHECK(CLIENT);
 
 ["UO_FW_AntiND_Event", {
     if !(UO_FW_Server_AntiNDModule_Allowed) exitwith {};
     if !(GVAR(Enabled)) exitwith {};
-    ["UO_FW_RegisterModuleEvent", ["Anti ND", "Extra Safety for mission start", "Starfox64, PiZZADOX and Sacher"]] call CBA_fnc_localEvent;
+    [QEGVAR(Core,RegisterModuleEvent), ["Anti ND", "Extra Safety for mission start", "Starfox64, PiZZADOX and Sacher"]] call CBA_fnc_localEvent;
     [{(!isNull player)}, {
         private _FiredEh = player addEventHandler ["FiredMan", {
             params ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile", "_vehicle"];
@@ -31,6 +31,6 @@ UO_FW_EXEC_CHECK(CLIENT);
     }] call CBA_fnc_waitUntilAndExecute;
 }] call CBA_fnc_addEventHandler;
 
-["UO_FW_SettingsLoaded", {
+[QEGVAR(Core,SettingsLoaded), {
     ["UO_FW_AntiND_Event", []] call CBA_fnc_localEvent;
 }] call CBA_fnc_addEventHandler;

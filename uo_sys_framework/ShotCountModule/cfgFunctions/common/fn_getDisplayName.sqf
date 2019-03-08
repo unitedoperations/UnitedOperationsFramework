@@ -9,7 +9,7 @@
 
 #define COMPONENT ShotCount
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(SERVER);
+EXEC_CHECK(SERVER);
 
 //IGNORE_PRIVATE_WARNING ["_x"];
 params ["_className"];

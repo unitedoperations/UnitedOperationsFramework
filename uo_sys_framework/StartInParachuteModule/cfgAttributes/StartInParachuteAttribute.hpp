@@ -1,4 +1,4 @@
-class UO_FW_StartInParachuteAttribute: Toolbox {
+class EGVAR(StartInParachute,TypeAttribute): Toolbox {
     attributeLoad = "\
         private _unit = ((get3denselected 'object') select 0);\
         private _name = gettext (_config >> 'property');\

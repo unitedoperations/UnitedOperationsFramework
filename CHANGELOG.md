@@ -5,12 +5,12 @@ The date refers to the date when changes have been merged into DEV branch.
 
 ## [Unreleased]
 ### Added
-- Legacy mission support switches for functions: `UO_FW_Version_UpdatedNumber` and `UO_FW_Version_CreatedNumber` available in PreInit past `UO_FW_Enabled` check. Can be used for specific function changes and redirects based on version changes. Functions specific to an older version should be placed in an additional `\Legacy\` folder
+- Legacy mission support switches for functions: `UO_FW_Version_UpdatedNumber` and `UO_FW_Version_CreatedNumber` available in PreInit past `EGVAR(Core,Enabled)` check. Can be used for specific function changes and redirects based on version changes. Functions specific to an older version should be placed in an additional `\Legacy\` folder
 - Gear System CBA Events for loading 3den attribute unit and vehicle loadouts, as well as forcing specific loadouts to units and vehicles.
 - stringtable.xml and corresponding macros
 - Gear System gear type config macro for later editing and addition of gear types
 - `UO_FW_3DEN_CHECK` macro to exit on !is3den state
-- `UO_FW_VERSION_CHECK(VERSIONNUM)` macro to exit on below `VERSIONNUM` input: eg. `UO_FW_VERSION_CHECK(103)` exits script if version is 102 or below.
+- `VERSION_CHECK(VERSIONNUM)` macro to exit on below `VERSIONNUM` input: eg. `VERSION_CHECK(103)` exits script if version is 102 or below.
 - Added Gear Preset selection system
 - Added `USMC 1980s Woodland` gear preset
 

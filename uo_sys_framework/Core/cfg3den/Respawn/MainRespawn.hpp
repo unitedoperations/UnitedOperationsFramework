@@ -1,4 +1,4 @@
-class UO_FW_MainRespawnSettings {
+class EGVAR(Respawn,Category) {
     displayName = "General Respawn Settings";
     collapsed = 0; //_respawnTypeArray = [['1 Life','ONELIFE'],['Unlimited','UNLIMITED'],['Individual Tickets','INDTICKETS'],['Team Tickets','TEAMTICKETS'],['Wave','WAVE'],['Triggered','TRIGGERED']];\
     class Attributes {
@@ -21,7 +21,7 @@ class UO_FW_MainRespawnSettings {
     };
 };
 
-class UO_FW_JIPCategory {
+class EGVAR(JIP,Category) {
     displayName = "JiP Settings";
     collapsed = 0;
     class Attributes {

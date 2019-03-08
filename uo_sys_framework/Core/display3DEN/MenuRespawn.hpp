@@ -6,25 +6,25 @@ class EGVAR(Respawn,Folder) {
 
 class EGVAR(Respawn,BLUFOR) {
     text = "BLUFOR Respawn Settings";
-    action = "edit3DENMissionAttributes 'UO_FW_Respawn_Settings_BLUFOR';";
+    action = QUOTE(edit3DENMissionAttributes QN(EGVAR(Respawn,Settings_BLUFOR)););
 };
 
 class EGVAR(Respawn,OPFOR) {
     text = "OPFOR Respawn Settings";
-    action = "edit3DENMissionAttributes 'UO_FW_Respawn_Settings_OPFOR';";
+    action = QUOTE(edit3DENMissionAttributes QN(EGVAR(Respawn,Settings_OPFOR)););
 };
 
 class EGVAR(Respawn,Indfor) {
     text = "Indfor Respawn Settings";
-    action = "edit3DENMissionAttributes 'UO_FW_Respawn_Settings_Indfor';";
+    action = QUOTE(edit3DENMissionAttributes QN(EGVAR(Respawn,Settings_Indfor)););
 };
 
 class EGVAR(Respawn,Civilian) {
     text = "Civilian Respawn Settings";
-    action = "edit3DENMissionAttributes 'UO_FW_Respawn_Settings_Civilian';";
+    action = QUOTE(edit3DENMissionAttributes QN(EGVAR(Respawn,Settings_Civilian)););
 };
 
 class EGVAR(Respawn,Main) {
     text = "General Respawn Settings";
-    action = "edit3DENMissionAttributes 'UO_FW_Respawn_Settings_Main';";
+    action = QUOTE(edit3DENMissionAttributes QN(EGVAR(Respawn,Settings_Main)););
 };

@@ -58,7 +58,7 @@ if (hasInterface) then {
                 private _tempUnit = missionNamespace getVariable [_x,objNull];
                 if (isNull _tempUnit) then {
                     private _msg = format ["Firemission module:<br></br>Warning Unit ""%1"" does not exist.", _x];
-                    UO_FW_DEBUG("Firemission Module",_msg);
+                    FWDEBUG("Firemission Module",_msg);
                 };
                 _guns pushBackUnique _tempUnit;
             } forEach (player getVariable ["UO_FW_ArtilleryFOPlayerGuns",[]]);

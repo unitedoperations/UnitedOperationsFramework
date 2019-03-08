@@ -1,6 +1,6 @@
 #define COMPONENT Core
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(CLIENT);
+EXEC_CHECK(CLIENT);
 
 _this params ["_unit", "", "_instigator"];
 
@@ -60,13 +60,13 @@ if (EGETMVAR(Spectator,Killcam_Enabled,true)) then {
             } else {
                 LOG("HIT data not valid");
                 //everything failed, we set value we will detect later
-                ESETMVAR(Spectator,Killcam_unit_pos,ARR_3(0,0,0));
+                ESETMVAR(Spectator,Killcam_unit_pos,[ARR_3(0,0,0)]);
                 ESETMVAR(Spectator,Killcam_killer,(ASLtoAGL eyePos _unit));
                 ESETMVAR(Spectator,Killcam_killer_pos,objNull);
             };
         } else {
             LOG("HIT and KILLED EHs not valid");
-            ESETMVAR(Spectator,Killcam_unit_pos,ARR_3(0,0,0));
+            ESETMVAR(Spectator,Killcam_unit_pos,[ARR_3(0,0,0)]);
             ESETMVAR(Spectator,Killcam_killer,(ASLtoAGL eyePos _unit));
             ESETMVAR(Spectator,Killcam_killer_pos,objNull);
         };

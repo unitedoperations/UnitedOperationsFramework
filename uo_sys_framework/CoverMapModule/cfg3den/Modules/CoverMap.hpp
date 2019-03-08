@@ -1,4 +1,4 @@
-class UO_FW_CoverMap {
+class EGVAR(CoverMap,Category) {
     displayName = "Cover Map Settings";
     collapsed = 1;
     class Attributes {

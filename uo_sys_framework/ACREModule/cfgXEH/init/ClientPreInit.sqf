@@ -9,16 +9,16 @@
 
 #define COMPONENT ACRE
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(CLIENT);
+EXEC_CHECK(CLIENT);
 
 #define RADIONETARRAY(TEAMNAME) \
 [(GETMVAR(RADIONET_NAME1##TEAMNAME,"")),(GETMVAR(RADIONET_NAME2##TEAMNAME,"")),(GETMVAR(RADIONET_NAME3##TEAMNAME,"")),(GETMVAR(RADIONET_NAME4##TEAMNAME,"")),(GETMVAR(RADIONET_NAME5##TEAMNAME,"")),(GETMVAR(RADIONET_NAME6##TEAMNAME,"")),(GETMVAR(RADIONET_NAME7##TEAMNAME,""))]
 
-["UO_FW_SettingsLoaded", {
+[QEGVAR(Core,SettingsLoaded), {
     if !(UO_FW_Server_AcreModule_Allowed) exitwith {};
     if !(GETMVAR(Enabled,false)) exitwith {};
     if (!isDedicated && {hasinterface}) then {
-        ["UO_FW_RegisterModuleEvent", ["ACRE Setup", "Module for Acre Settings", "PiZZADOX and Sacher"]] call CBA_fnc_localEvent;
+        [QEGVAR(Core,RegisterModuleEvent), ["ACRE Setup", "Module for Acre Settings", "PiZZADOX and Sacher"]] call CBA_fnc_localEvent;
         GVAR(Preset) = ["default2", "default3", "default4", "default"];
         GVAR(Preset_BLUFOR) = "default";
         GVAR(Preset_OPFOR) = "default";

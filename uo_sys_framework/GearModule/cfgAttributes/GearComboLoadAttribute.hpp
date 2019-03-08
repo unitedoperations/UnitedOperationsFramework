@@ -1,4 +1,4 @@
-class EGVAR(Gear,ComboGearLoad): ComboPreview {
+class EGVAR(Gear,AttributeComboGearLoad): ComboPreview {
     //save the lbData from the selected entry upon exit
     attributeSave = QUOTE(_this call EFUNC(Gear,GearComboLoadAttribute_AttrSave));
     //_this - config, _value - saved value

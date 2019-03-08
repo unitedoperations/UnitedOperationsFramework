@@ -1,6 +1,6 @@
 #define COMPONENT Spectator
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(CLIENT);
+EXEC_CHECK(CLIENT);
 
 params ["_control", "_code", "_shift", "_control", "_alt"];
 if (_code isEqualto 35 && {!_shift} && {_control} && {!_alt} && {(GETMVAR(keyHandler_display_hidden,false))}) then {

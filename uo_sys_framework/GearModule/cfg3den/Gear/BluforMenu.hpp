@@ -6,7 +6,7 @@ class EGVAR(Gear,Presets_BLUFOR) {
             property = QEGVAR(Gear,ACE_Arsenal_GearPresets_BLUFOR);
             displayName = "Gear Presets";
             tooltip = "";
-            control = "UO_FW_Gear_PresetsCombo_BLUFOR";
+            control = QEGVAR(Gear,PresetsCombo_BLUFOR);
             typeName = "STRING";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "'None'";

@@ -10,12 +10,12 @@
 
 #define COMPONENT AIDrivers
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(CLIENT);
+EXEC_CHECK(CLIENT);
 
-["UO_FW_SettingsLoaded", {
+[QEGVAR(Core,SettingsLoaded), {
 	if (!(UO_FW_Server_AIDRIVERSMODULE_Allowed)) exitwith {};
 	if (((GETMVAR(VehClasses,[])) isEqualto []) && {!(GETMVAR(AllVehs,false))}) exitwith {};
-	["UO_FW_RegisterModuleEvent", ["AI Drivers", "Module for adding AI Drivers to vehicles", "BlackHawk, PiZZADOX and Sacher"]] call CBA_fnc_globalEventJIP;
+	[QEGVAR(Core,RegisterModuleEvent), ["AI Drivers", "Module for adding AI Drivers to vehicles", "BlackHawk, PiZZADOX and Sacher"]] call CBA_fnc_globalEventJIP;
 	private _allowNV = (GETMVAR(NVEnabled,false));
 	private _allowFlip = (GETMVAR(FlipEnabled,false));
 

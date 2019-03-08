@@ -6,7 +6,7 @@ class EGVAR(Gear,Presets_Indfor) {
             property = QEGVAR(Gear,ACE_Arsenal_GearPresets_Indfor);
             displayName = "Gear Presets";
             tooltip = "";
-            control = "UO_FW_Gear_PresetsCombo_Indfor";
+            control = QEGVAR(Gear,PresetsCombo_Indfor);
             typeName = "STRING";
             expression = UO_FW_SCENARIO_EXPRESSION;
             defaultValue = "'None'";

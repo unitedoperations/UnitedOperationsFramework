@@ -3,7 +3,7 @@
 
 #define MAJOR 1
 #define MINOR 0
-#define PATCH 3
+#define PATCH 4
 
 #define VERSION MAJOR.MINOR.PATCH
 #define VERSION_AR MAJOR,MINOR,PATCH

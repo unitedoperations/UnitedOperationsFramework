@@ -1,11 +1,11 @@
 #define COMPONENT SafeStart
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(CLIENT);
+EXEC_CHECK(CLIENT);
 
 ["UO_FW_SafeStart_Event", {
     if !(UO_FW_Server_SafeStartModule_Allowed) exitWith {};
     if !(GETMVAR(Enable,false)) exitwith {};
-    ["UO_FW_RegisterModuleEvent", ["Safe Start", "Extra safety for mission start", "Olsen and PiZZADOX"]] call CBA_fnc_localEvent;
+    [QEGVAR(Core,RegisterModuleEvent), ["Safe Start", "Extra safety for mission start", "Olsen and PiZZADOX"]] call CBA_fnc_localEvent;
     [{(!isNull player) && {(EGETPLVAR(Gear,GearReady,false))}}, {
         if !((currentWeapon player) isEqualto "") then {
             [player, (currentWeapon player), (currentMuzzle player)] call ace_safemode_fnc_lockSafety;
@@ -21,6 +21,6 @@ UO_FW_EXEC_CHECK(CLIENT);
     }, []] call CBA_fnc_waitUntilAndExecute;
 }] call CBA_fnc_addEventHandler;
 
-["UO_FW_SettingsLoaded", {
+[QEGVAR(Core,SettingsLoaded), {
     ["UO_FW_SafeStart_Event", []] call CBA_fnc_localEvent;
 }] call CBA_fnc_addEventHandler;

@@ -1,8 +1,8 @@
 #define COMPONENT SelfActions
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(ALL);
+EXEC_CHECK(ALL);
 
-["UO_FW_SelfActions_ParaFlareCreateLightEvent", {
+[QGVAR(ParaFlareCreateLightEvent), {
     params ["_flare","_colour"];
     [{
         params ["_flare", "_colour"];
