@@ -20,25 +20,20 @@ The United Operation Framework aka the UOFW is an extension of features within t
 ---
 
 ## Getting started
-{: .text-blue-100 }
 
 ### Introduction
-{: .text-blue-000 }
 
 The UOFW is a modification to the Arma 3 editor originally developed for the United Operations community. 
 
 ### First-Time Setup
-{: .text-blue-000 }
 
 Please refer to the [basic setup guide]({{ site.baseurl }}/docs/mission-makers/basic-setup/)
 
 ### Dependencies
-{: .text-blue-000 }
 
 The UOFW requires the latest releases of [CBA](https://github.com/CBATeam/CBA_A3/releases/latest) and [ACE3](https://github.com/acemod/ACE3/releases/latest) respectively.
 
 ### Issues related to other mods
-{: .text-blue-000 }
 
 You should always feel-free to report any issues you encounter with the framework but do keep in mind that if an issue that occurs within the framework is caused by issues within another addon, we cannot promise support to fix the issue as;
 
@@ -48,14 +43,13 @@ You should always feel-free to report any issues you encounter with the framewor
   <!-- - (If this issue crashed a server, player client or headless client, please let us know within your issue report as crashing related issues will be ) -->
 
 ## About the project
-{: .text-blue-100 }
+
 
 The United Operations Framework is a project originally made by [@PiZZAD0X](https://github.com/PiZZAD0X) and [@ChrSacher](https://github.com/ChrSacher/) for the [United Operations](https://unitedoperations.net) community.
 
 These docs are maintained primarily by [@TheTrainDoctor](https://github.com/thecogdoctor/).
 
 ### License
-{: .text-blue-000 }
 
 The United Operations Framework is distributed under the [GPLv2 license](https://github.com/unitedoperations/UnitedOperationsFramework/tree/master/LICENSE).
 
@@ -64,7 +58,6 @@ Reuploads of the United Operations Framework are tolerated.
 Public reuploads are (and will if necessary) be politely asked to differentiate themselves from any official versions.
 
 ### Contributing
-{: .text-blue-000 }
 
 When contributing to this repository, please first discuss the change you wish to make via issue,
 email, or any other method with the owners of this repository before making a change. Read more about becoming a contributor in [our GitHub repo](https://github.com/pmarsceill/just-the-docs#contributing).
