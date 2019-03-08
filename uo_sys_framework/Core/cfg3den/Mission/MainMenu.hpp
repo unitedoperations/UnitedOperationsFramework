@@ -7,7 +7,7 @@ class EGVAR(Core,MainSettings) {
             displayName = "Enable UO Framework";
             tooltip = "Enable UO Framework";
             control = "UO_FW_FrameworkCheckbox";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
         class EGVAR(Core,MissionType) {
@@ -15,7 +15,7 @@ class EGVAR(Core,MainSettings) {
             displayName = "Mission Type";
             tooltip = "Determines Mission Type";
             control = "MissionType";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "0";
         };
     };

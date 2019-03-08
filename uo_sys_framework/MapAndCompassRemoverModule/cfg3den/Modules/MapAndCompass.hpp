@@ -7,7 +7,7 @@ class EGVAR(MapAndCompassRemover,Category) {
             displayName = "Give Players Equipment";
             tooltip = "Give Players Equipment during the briefing";
             control = "Checkbox";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
         class EGVAR(MapAndCompassRemover,RemoveAllMaps) {
@@ -15,7 +15,7 @@ class EGVAR(MapAndCompassRemover,Category) {
             displayName = "Remove Map from AI";
             tooltip = "Remove map from all AI after briefing";
             control = "Checkbox";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
         class EGVAR(MapAndCompassRemover,RemoveAllCompass) {
@@ -23,7 +23,7 @@ class EGVAR(MapAndCompassRemover,Category) {
             displayName = "Remove Compass from AI";
             tooltip = "Remove compass from all AI after briefing";
             control = "Checkbox";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
         class EGVAR(MapAndCompassRemover,AI_LeadersKeepMap) {
@@ -31,7 +31,7 @@ class EGVAR(MapAndCompassRemover,Category) {
             displayName = "AI Group Leaders Keep Maps";
             tooltip = "AI Group Leaders Keep Maps";
             control = "Checkbox";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
         class EGVAR(MapAndCompassRemover,AI_LeadersKeepCompass) {
@@ -39,7 +39,7 @@ class EGVAR(MapAndCompassRemover,Category) {
             displayName = "AI Group Leaders Keep Compasses";
             tooltip = "AI Group Leaders Keep Compasses";
             control = "Checkbox";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
     };

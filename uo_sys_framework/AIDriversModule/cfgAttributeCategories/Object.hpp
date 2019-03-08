@@ -7,7 +7,7 @@ class EGVAR(AIDrivers,Options) {
             tooltip = "Enable AI driver for this vehicle";
             property = QEGVAR(AIDrivers,VehEnabled);
             control = "CheckBox";
-            expression = UO_FW_ENTITY_EXPRESSION;
+            expression = ENTITY_EXPRESSION;
             condition = "objectVehicle";
             defaultValue = "false";
         };
@@ -17,7 +17,7 @@ class EGVAR(AIDrivers,Options) {
             tooltip = "Whether the player can use NVGs in AI Driver view";
             control = "CheckBox";
             condition = "objectVehicle";
-            expression = UO_FW_ENTITY_EXPRESSION;
+            expression = ENTITY_EXPRESSION;
             defaultValue = "false";
         };
         class EGVAR(AIDrivers,VehFlipEnabled) {
@@ -26,7 +26,7 @@ class EGVAR(AIDrivers,Options) {
             tooltip = "Whether the player can flip the vehicle via ACE action";
             control = "CheckBox";
             condition = "objectVehicle";
-            expression = UO_FW_ENTITY_EXPRESSION;
+            expression = ENTITY_EXPRESSION;
             defaultValue = "true";
         };
     };

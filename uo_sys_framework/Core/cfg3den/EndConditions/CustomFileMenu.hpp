@@ -7,7 +7,7 @@ class EGVAR(EndConditions,Custom_File) {
             displayName = "Custom End Condition File";
             tooltip = "Loads file on server as end conditions instead of framework category settings.";
             control = "CheckboxState";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
         class EGVAR(EndConditions,File_Path) {
@@ -16,7 +16,7 @@ class EGVAR(EndConditions,Custom_File) {
             tooltip = "Path to End Condition File";
             control = "Edit";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
     };

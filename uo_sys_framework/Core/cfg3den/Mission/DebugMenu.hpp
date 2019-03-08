@@ -7,7 +7,7 @@ class EGVAR(Core,DebugSettings) {
             displayName = "Debug Enabled";
             tooltip = "Toggle debug mode.";
             control = "Checkbox";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
         class EGVAR(Core,Debug_Detailed_Enabled) {
@@ -15,7 +15,7 @@ class EGVAR(Core,DebugSettings) {
             displayName = "Detailed Debug Enabled";
             tooltip = "Toggle detailed debug mode.";
             control = "Checkbox";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
         class EGVAR(Core,Debug_Logs) {
@@ -23,7 +23,7 @@ class EGVAR(Core,DebugSettings) {
             displayName = "Log all debug messages";
             tooltip = "Log all debug messages.";
             control = "Checkbox";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
         class EGVAR(Core,ForceTerrain_Enabled) {
@@ -31,7 +31,7 @@ class EGVAR(Core,DebugSettings) {
             displayName = "Force TerrainGrid";
             tooltip = "Force terrain grid to prevent far away objects from appearing as floating.";
             control = "Checkbox";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
     };

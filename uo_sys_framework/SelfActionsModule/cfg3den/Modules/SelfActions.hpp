@@ -7,7 +7,7 @@ class EGVAR(SelfActions,Settings) {
             displayName = "Self Actions Enable";
             tooltip = "Enable Self Actions";
             control = "CheckboxState";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "true";
         };
         class EGVAR(SelfActions,CheckColour_Enabled) {
@@ -15,7 +15,7 @@ class EGVAR(SelfActions,Settings) {
             displayName = "Team Colour Action";
             tooltip = "Enable Team Colour Action";
             control = "Checkbox";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "true";
         };
         class EGVAR(SelfActions,CheckMap_Enabled) {
@@ -23,7 +23,7 @@ class EGVAR(SelfActions,Settings) {
             displayName = "View Map Action";
             tooltip = "Enable View Map Action";
             control = "Checkbox";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "true";
         };
         class EGVAR(SelfActions,CutGrass_Enabled) {
@@ -31,7 +31,7 @@ class EGVAR(SelfActions,Settings) {
             displayName = "Cut Grass Action";
             tooltip = "Enable Cut Grass Action";
             control = "Checkbox";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "true";
         };
         class EGVAR(SelfActions,ParaFlares_Enabled) {
@@ -39,7 +39,7 @@ class EGVAR(SelfActions,Settings) {
             displayName = "Launch ParaFlare Action";
             tooltip = "Enable Launch ParaFlare Action";
             control = "Checkbox";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
         class EGVAR(SelfActions,ParaFlare_Brightness) {
@@ -47,7 +47,7 @@ class EGVAR(SelfActions,Settings) {
             displayName = "ParaFlare Brightness";
             tooltip = "Sets the brightness of paraflares";
             control = QMGVAR(15To40Step5_Slider);
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "15";
         };
     };

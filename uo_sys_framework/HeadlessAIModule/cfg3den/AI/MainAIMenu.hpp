@@ -7,7 +7,7 @@ class EGVAR(AI,MainCategory) {
             displayName = "Enable AI System";
             tooltip = "Enable AI System";
             control = "CheckboxState";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
         class EGVAR(AI,DEBUG) {
@@ -15,7 +15,7 @@ class EGVAR(AI,MainCategory) {
             displayName = "Debug Mode";
             tooltip = "Enables Debug Mode";
             control = "Checkbox";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
         class EGVAR(AI,MARKERS_Enabled) {
@@ -23,7 +23,7 @@ class EGVAR(AI,MainCategory) {
             displayName = "Debug Markers";
             tooltip = "Enables Debug Markers for AI";
             control = "Checkbox";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
     };

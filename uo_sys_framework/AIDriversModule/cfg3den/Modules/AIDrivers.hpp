@@ -7,7 +7,7 @@ class EGVAR(AIDrivers,Settings) {
             displayName = "Vehicle Classes";
             tooltip = "Classes to give AI Drivers to at mission start. Leave blank to disable.";
             control = "EditArray";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "[]";
         };
         class EGVAR(AIDrivers,AllVehs) {
@@ -15,7 +15,7 @@ class EGVAR(AIDrivers,Settings) {
             displayName = "All Vehicles";
             tooltip = "Give AI Driver actions to all vehicles at mission start";
             control = "CheckBox";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
         class EGVAR(AIDrivers,NVEnabled) {
@@ -23,7 +23,7 @@ class EGVAR(AIDrivers,Settings) {
             displayName = "Night Vision";
             tooltip = "Whether the player can use NVGs in AI Driver view";
             control = "CheckBox";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
         class EGVAR(AIDrivers,FlipEnabled) {
@@ -31,7 +31,7 @@ class EGVAR(AIDrivers,Settings) {
             displayName = "Flip Vehicle";
             tooltip = "Whether the player can flip the vehicle via ACE action";
             control = "CheckBox";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "true";
         };
     };

@@ -1,6 +1,6 @@
 #define COMPONENT Gear
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_3DEN_CHECK;
+3DEN_CHECK;
 
 LOG("GearComboLoadAttribute_onSelChange started");
 

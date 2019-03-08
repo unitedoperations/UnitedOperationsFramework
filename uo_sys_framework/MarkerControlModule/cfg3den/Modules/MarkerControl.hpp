@@ -7,7 +7,7 @@ class EGVAR(MarkerControl,Category) {
             displayName = "Marker Control";
             tooltip = "Enables Marker Control";
             control = "CheckboxState";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "true";
             typeName = "BOOL";
         };
@@ -17,7 +17,7 @@ class EGVAR(MarkerControl,Category) {
             control = "EditArray";
             typeName = "STRING";
             property = QEGVAR(MarkerControl,BluforMarkers);
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             validate = "none";
             defaultValue = "[]";
         };
@@ -27,7 +27,7 @@ class EGVAR(MarkerControl,Category) {
             control = "EditArray";
             typeName = "STRING";
             property = QEGVAR(MarkerControl,BluforBriefingMarkers);
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             validate = "none";
             defaultValue = "[]";
         };
@@ -37,7 +37,7 @@ class EGVAR(MarkerControl,Category) {
             control = "EditArray";
             typeName = "STRING";
             property = QEGVAR(MarkerControl,OpforMarkers);
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             validate = "none";
             defaultValue = "[]";
         };
@@ -47,7 +47,7 @@ class EGVAR(MarkerControl,Category) {
             control = "EditArray";
             typeName = "STRING";
             property = QEGVAR(MarkerControl,OpforBriefingMarkers);
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             validate = "none";
             defaultValue = "[]";
         };
@@ -57,7 +57,7 @@ class EGVAR(MarkerControl,Category) {
             control = "EditArray";
             typeName = "STRING";
             property = QEGVAR(MarkerControl,IndforMarkers);
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             validate = "none";
             defaultValue = "[]";
         };
@@ -67,7 +67,7 @@ class EGVAR(MarkerControl,Category) {
             control = "EditArray";
             typeName = "STRING";
             property = QEGVAR(MarkerControl,IndforBriefingMarkers);
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             validate = "none";
             defaultValue = "[]";
         };
@@ -77,7 +77,7 @@ class EGVAR(MarkerControl,Category) {
             control = "EditArray";
             typeName = "STRING";
             property = QEGVAR(MarkerControl,CivilianMarkers);
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             validate = "none";
             defaultValue = "[]";
         };
@@ -87,7 +87,7 @@ class EGVAR(MarkerControl,Category) {
             control = "EditArray";
             typeName = "STRING";
             property = QEGVAR(MarkerControl,CivilianBriefingMarkers);
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             validate = "none";
             defaultValue = "[]";
         };
@@ -97,7 +97,7 @@ class EGVAR(MarkerControl,Category) {
             control = "EditArray";
             typeName = "STRING";
             property = QEGVAR(MarkerControl,SystemMarkers);
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             validate = "none";
             defaultValue = "[]";
         };

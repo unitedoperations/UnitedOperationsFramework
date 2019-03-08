@@ -7,7 +7,7 @@ class EGVAR(AI,UnitOptions) {
             tooltip = "Pass custom name to the unit. Default: Nil";
             property = QEGVAR(AI,unitName);
             control = QEGVAR(AI,unitnameControl);
-            expression = UO_FW_ENTITY_EXPRESSION;
+            expression = ENTITY_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(AI,unitIdentity) {
@@ -15,7 +15,7 @@ class EGVAR(AI,UnitOptions) {
             tooltip = "Set the custom name to appear when the units Identity is checked. Default: Nil";
             property = QEGVAR(AI,unitIdentity);
             control = QEGVAR(AI,standardStringOneControl);
-            expression = UO_FW_ENTITY_EXPRESSION;
+            expression = ENTITY_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(AI,unitPersistent) {
@@ -23,7 +23,7 @@ class EGVAR(AI,UnitOptions) {
             tooltip = "Is the unit persistent, will be it get cleaned up by the clean up script if it dies. Default: Persistent";
             property = QEGVAR(AI,unitPersistent);
             control = QEGVAR(AI,persistentControl);
-            expression = UO_FW_ENTITY_EXPRESSION;
+            expression = ENTITY_EXPRESSION;
             defaultValue = "true";
             typeName = "BOOL";
         };
@@ -32,7 +32,7 @@ class EGVAR(AI,UnitOptions) {
             tooltip = "Force the stance of the unit. Default: AUTO";
             property = QEGVAR(AI,stance);
             control = QEGVAR(AI,stanceControl);
-            expression = UO_FW_ENTITY_EXPRESSION;
+            expression = ENTITY_EXPRESSION;
             defaultValue = "'auto'";
             condition = "objectControllable";
         };
@@ -42,7 +42,7 @@ class EGVAR(AI,UnitOptions) {
             control = QEGVAR(Gear,SystemType);
             typeName = "STRING";
             property = QEGVAR(AI,Gear_UnitSystemType);
-            expression = UO_FW_ENTITY_EXPRESSION;
+            expression = ENTITY_EXPRESSION;
             condition = "ObjectControllable";
             validate = "none";
             defaultValue = "'NONE'";
@@ -54,7 +54,7 @@ class EGVAR(AI,UnitOptions) {
             property = QEGVAR(AI,Gear_UnitGearType);
             control = QEGVAR(Gear,ComboGearLoad);
             typeName = "STRING";
-            expression = UO_FW_ENTITY_EXPRESSION;
+            expression = ENTITY_EXPRESSION;
             condition = "ObjectControllable";
             validate = "none";
             defaultValue = "'NONE'";
@@ -66,7 +66,7 @@ class EGVAR(AI,UnitOptions) {
             tooltip = "Defines a custom gear class. If set to ACE gear system, this corresponds to the name of an ACE mission loadout. If set to Olsen gear system, this corresponds to the name of gear type in the team olsen gear script. Leave blank to disable.";
             control = QEGVAR(Gear,ManualGearEditShort);
             typeName = "STRING";
-            expression = UO_FW_ENTITY_EXPRESSION;
+            expression = ENTITY_EXPRESSION;
             condition = "ObjectControllable";
             defaultValue = "''";
         };
@@ -76,7 +76,7 @@ class EGVAR(AI,UnitOptions) {
             control = QEGVAR(Gear,SystemTypeVehicle);
             typeName = "STRING";
             property = QEGVAR(AI,Gear_VehicleSystemType);
-            expression = UO_FW_ENTITY_EXPRESSION;
+            expression = ENTITY_EXPRESSION;
             condition = "objectVehicle";
             validate = "none";
             defaultValue = "'NONE'";
@@ -88,7 +88,7 @@ class EGVAR(AI,UnitOptions) {
             tooltip = "Defines a custom gear class. If set to Olsen gear system, this corresponds to the name of gear type in the team olsen gear script. Leave blank to disable.";
             control = QEGVAR(Gear,ManualGearEditShort);
             typeName = "STRING";
-            expression = UO_FW_ENTITY_EXPRESSION;
+            expression = ENTITY_EXPRESSION;
             condition = "objectVehicle";
             defaultValue = "''";
         };
@@ -97,7 +97,7 @@ class EGVAR(AI,UnitOptions) {
             tooltip = "Pass custom parameters or code to the unit.( _this = unit ) Default: Nil";
             property = QEGVAR(AI,unitInit);
             control = QEGVAR(AI,codeunitControl);
-            expression = UO_FW_ENTITY_EXPRESSION;
+            expression = ENTITY_EXPRESSION;
             defaultValue = "";
         };
         class EGVAR(AI,unitFlying) {
@@ -105,7 +105,7 @@ class EGVAR(AI,UnitOptions) {
             tooltip = "Is the unit spawning in flight. Default: False";
             property = QEGVAR(AI,unitFlying);
             control = QEGVAR(AI,flyingControl);
-            expression = UO_FW_ENTITY_EXPRESSION;
+            expression = ENTITY_EXPRESSION;
             condition = "objectVehicle";
             defaultValue = "false";
             typeName = "BOOL";
@@ -115,7 +115,7 @@ class EGVAR(AI,UnitOptions) {
             tooltip = "Set the unit flying height. Default: 250";
             property = QEGVAR(AI,unitFlyInHeight);
             control = QEGVAR(AI,flyinheightControl);
-            expression = UO_FW_ENTITY_EXPRESSION;
+            expression = ENTITY_EXPRESSION;
             condition = "objectVehicle";
             defaultValue = 250;
             typeName = "NUMBER";

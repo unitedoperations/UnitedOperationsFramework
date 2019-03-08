@@ -7,7 +7,7 @@ class EGVAR(CoverMap,Category) {
             displayName = "Cover Map Module";
             tooltip = "Enable Cover Map Module";
             control = "CheckboxState";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
         class EGVAR(CoverMap,AllowSwitching) {
@@ -15,7 +15,7 @@ class EGVAR(CoverMap,Category) {
             displayName = "Allow Map AO Switching";
             tooltip = "Allow players to switch AOs their character has defined via ace interaction in the map";
             control = "Checkbox";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
         class EGVAR(CoverMap,DefaultAO_BLUFOR) {
@@ -23,7 +23,7 @@ class EGVAR(CoverMap,Category) {
             displayName = "BLUFOR Starting AO";
             tooltip = "Set the BLUFOR Map area to corresponding CoverMap AO name.";
             control = "EditShort";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "'Area0'";
             validate = "STRING";
         };
@@ -32,7 +32,7 @@ class EGVAR(CoverMap,Category) {
             displayName = "OPFOR Starting AO";
             tooltip = "Set the OPFOR Map area to corresponding CoverMap AO name.";
             control = "EditShort";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "'Area0'";
             validate = "STRING";
         };
@@ -41,7 +41,7 @@ class EGVAR(CoverMap,Category) {
             displayName = "Indfor Starting AO";
             tooltip = "Set the Indfor Map area to corresponding CoverMap AO name.";
             control = "EditShort";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "'Area0'";
             validate = "STRING";
         };
@@ -50,7 +50,7 @@ class EGVAR(CoverMap,Category) {
             displayName = "Civilian Starting AO";
             tooltip = "Set the Civilian Map area to corresponding CoverMap AO name.";
             control = "EditShort";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "'Area0'";
             validate = "STRING";
         };

@@ -34,7 +34,7 @@ class EGVAR(AI,ZoneModule) : EGVAR(AI,Module) {
             tooltip = "Enabling activates the zone on init, spawning units on the start of the mission. Default disabled.";
             property = QEGVAR(AI,zoneInitial);
             control = "CheckboxStateReversed";
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "false";
         };
         class EGVAR(AI,zoneRadiusX) {
@@ -42,7 +42,7 @@ class EGVAR(AI,ZoneModule) : EGVAR(AI,Module) {
             tooltip = "The size of the X value of the area the player will initiate this zone at in metres. Default: 100";
             property = QEGVAR(AI,zoneRadiusX);
             control = QMGVAR(RadiusAttribute);
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "100";
             typeName = "NUMBER";
             validate = "number";
@@ -52,7 +52,7 @@ class EGVAR(AI,ZoneModule) : EGVAR(AI,Module) {
             tooltip = "The size of the Y value of the area the player will initiate this zone at in metres. Default: 100";
             property = QEGVAR(AI,zoneRadiusY);
             control = QMGVAR(RadiusAttribute);
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "100";
             typeName = "NUMBER";
             validate = "number";
@@ -62,7 +62,7 @@ class EGVAR(AI,ZoneModule) : EGVAR(AI,Module) {
             tooltip = "Delay after zone is activated that actual spawning occurs. Default 0 secs";
             property = QEGVAR(AI,zoneDelay);
             control = QEGVAR(AI,zoneDelayControl);
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "0";
             typeName = "NUMBER";
             validate = "number";
@@ -72,7 +72,7 @@ class EGVAR(AI,ZoneModule) : EGVAR(AI,Module) {
             tooltip = "Suspending the zone to be enabled later, suspended zones will not detect player is with in radius or that a custom condition is met until zone is enabled. Default: Enabled";
             property = QEGVAR(AI,zoneSuspend);
             control = QEGVAR(AI,zoneSuspendControl);
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "0";
         };
         class EGVAR(AI,Zoneside) {
@@ -80,7 +80,7 @@ class EGVAR(AI,ZoneModule) : EGVAR(AI,Module) {
             tooltip = "Side of the unit that activates the zone. Default: ANY";
             property = QEGVAR(AI,Zoneside);
             control = QEGVAR(AI,ZonesideControl);
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "4";
         };
         class EGVAR(AI,zoneType) {
@@ -88,7 +88,7 @@ class EGVAR(AI,ZoneModule) : EGVAR(AI,Module) {
             tooltip = "Type of unit the player is that activates the zone. Default all Units";
             property = QEGVAR(AI,zoneType);
             control = QEGVAR(AI,zoneTypeControl);
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "0";
         };
         class EGVAR(AI,zoneCondition) {
@@ -96,7 +96,7 @@ class EGVAR(AI,ZoneModule) : EGVAR(AI,Module) {
             tooltip = "Enter a custom condition that must be met for this zone to be activated, condition true will spawn the zone. Default: Nil";
             property = QEGVAR(AI,zoneCondition);
             control = QEGVAR(AI,moduleconditionControl);
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "'true'";
         };
         class EGVAR(AI,zoneCode) {
@@ -104,7 +104,7 @@ class EGVAR(AI,ZoneModule) : EGVAR(AI,Module) {
             tooltip = "Pass custom code to be executed when zone is activated. Default: Nil";
             property = QEGVAR(AI,zoneCode);
             control = QEGVAR(AI,codeControl);
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "''";
         };
     };
@@ -140,7 +140,7 @@ class EGVAR(AI,ControlModule) : EGVAR(AI,Module) {
             tooltip = "The size of the X value of the area the player will initiate the control zone at in metres. Default: 100";
             property = QEGVAR(AI,ControlRadiusX);
             control = QMGVAR(RadiusAttribute);
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "100";
             typeName = "NUMBER";
             validate = "number";
@@ -150,7 +150,7 @@ class EGVAR(AI,ControlModule) : EGVAR(AI,Module) {
             tooltip = "The size of the Y value of the area the player will initiate the control zone at in metres. Default: 100";
             property = QEGVAR(AI,ControlRadiusY);
             control = QMGVAR(RadiusAttribute);
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "100";
             typeName = "NUMBER";
             validate = "number";
@@ -160,7 +160,7 @@ class EGVAR(AI,ControlModule) : EGVAR(AI,Module) {
             tooltip = "Suspending the control module to be enabled later, suspended control modules will not detect player is with in radius or that a custom condition is met until enabled. Default: Enabled";
             property = QEGVAR(AI,controlSuspend);
             control = QEGVAR(AI,zoneSuspendControl);
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "0";
         };
         class EGVAR(AI,ControlInitAction) {
@@ -168,7 +168,7 @@ class EGVAR(AI,ControlModule) : EGVAR(AI,Module) {
             tooltip = "The action the control module performs to linked zones when initiated, toggle Enable,Disable or Do Nothing. Default: Do Nothing";
             property = QEGVAR(AI,ControlInitAction);
             control = QEGVAR(AI,initActionControl);
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "0";
         };
         class EGVAR(AI,ControlAction) {
@@ -176,7 +176,7 @@ class EGVAR(AI,ControlModule) : EGVAR(AI,Module) {
             tooltip = "The action the control module performs to linked zones when activated, toggle Enable or Disable. Default: Enable";
             property = QEGVAR(AI,ControlAction);
             control = QEGVAR(AI,actionControl);
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "0";
         };
         class EGVAR(AI,ControlDelay) {
@@ -184,7 +184,7 @@ class EGVAR(AI,ControlModule) : EGVAR(AI,Module) {
             tooltip = "Delay after control module is activated that actual toggle of linked zones occurs. Default: 0secs";
             property = QEGVAR(AI,ControlDelay);
             control = QEGVAR(AI,zoneDelayControl);
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "0";
             typeName = "NUMBER";
             validate = "number";
@@ -194,7 +194,7 @@ class EGVAR(AI,ControlModule) : EGVAR(AI,Module) {
             tooltip = "Side of the player that activates the control module. Default: WEST";
             property = QEGVAR(AI,ControlSide);
             control = QEGVAR(AI,ZonesideControl);
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "0";
         };
         class EGVAR(AI,ControlType) {
@@ -202,7 +202,7 @@ class EGVAR(AI,ControlModule) : EGVAR(AI,Module) {
             tooltip = "Type of unit the player is that activates the control module. Default: All Units";
             property = QEGVAR(AI,ControlType);
             control = QEGVAR(AI,zoneTypeControl);
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "0";
         };
         class EGVAR(AI,ControlCondition) {
@@ -210,7 +210,7 @@ class EGVAR(AI,ControlModule) : EGVAR(AI,Module) {
             tooltip = "Enter a custom condition that must be met for this control module to be activated, condition true will initiate the control module. Default: Nil";
             property = QEGVAR(AI,ControlCondition);
             control = QEGVAR(AI,moduleconditionControl);
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "'false'";
             validate = "condition";
         };
@@ -219,7 +219,7 @@ class EGVAR(AI,ControlModule) : EGVAR(AI,Module) {
             tooltip = "Pass custom code to be executed when the control module is activated. Default: Nil";
             property = QEGVAR(AI,ControlCode);
             control = QEGVAR(AI,codeControl);
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "'true'";
         };
     };
@@ -253,7 +253,7 @@ class EGVAR(AI,TaskModule) : EGVAR(AI,Module) {
             tooltip = "The range the group will attempt to conduct the set task in. Default: 100";
             property = QEGVAR(AI,taskRadius);
             control = QMGVAR(RadiusAttribute);
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "100";
             typeName = "NUMBER";
             validate = "number";
@@ -263,7 +263,7 @@ class EGVAR(AI,TaskModule) : EGVAR(AI,Module) {
             tooltip = "How long the linked units will perform this task. Default: 0 (forever).";
             property = QEGVAR(AI,TaskTime);
             control = QEGVAR(AI,standardNumberControl);
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "0";
             typeName = "NUMBER";
             validate = "number";
@@ -273,7 +273,7 @@ class EGVAR(AI,TaskModule) : EGVAR(AI,Module) {
             tooltip = "The order that the linked units will perform this task in when multiple tasks used. To use a priority order leave off. Default: OFF.";
             property = QEGVAR(AI,TaskId);
             control = QEGVAR(AI,numberSelect1Control);
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "0";
             typeName = "NUMBER";
             validate = "number";
@@ -283,7 +283,7 @@ class EGVAR(AI,TaskModule) : EGVAR(AI,Module) {
             tooltip = "Task the unit or group will conduct on activation. Default: Hold Until";
             property = QEGVAR(AI,taskSet);
             control = QEGVAR(AI,taskControl);
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "4";
         };
         class EGVAR(AI,occupyOptionSet) {
@@ -291,7 +291,7 @@ class EGVAR(AI,TaskModule) : EGVAR(AI,Module) {
             tooltip = "Should the group occupy a building or buildings. Default: OFF";
             property = QEGVAR(AI,occupyOptionSet);
             control = QEGVAR(AI,occupyoptionControl);
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "0";
         };
         class EGVAR(AI,changeWaypointWait) {
@@ -299,7 +299,7 @@ class EGVAR(AI,TaskModule) : EGVAR(AI,Module) {
             tooltip = "Time unit or group will wait at each auto generated waypoint. Default: 3 secs.";
             property = QEGVAR(AI,changeWaypointWait);
             control = QEGVAR(AI,waypointwaitControl);
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "3";
             typeName = "NUMBER";
             validate = "number";
@@ -309,7 +309,7 @@ class EGVAR(AI,TaskModule) : EGVAR(AI,Module) {
             tooltip = "Behaviour of the group or unit on activation. Default: SAFE";
             property = QEGVAR(AI,behaviourChange);
             control = QEGVAR(AI,behaviourchangeControl);
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "'unchanged'";
         };
         class EGVAR(AI,combatMode) {
@@ -317,7 +317,7 @@ class EGVAR(AI,TaskModule) : EGVAR(AI,Module) {
             tooltip = "Combat Mode of the group or unit on activation. Default: Fire at Will, Engage at Will";
             property = QEGVAR(AI,combatMode);
             control = QEGVAR(AI,combatmodechangeControl);
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "'unchanged'";
         };
         class EGVAR(AI,speed) {
@@ -325,7 +325,7 @@ class EGVAR(AI,TaskModule) : EGVAR(AI,Module) {
             tooltip = "Speed of the group or unit on activation. Default: Limited";
             property = QEGVAR(AI,speed);
             control = QEGVAR(AI,speedchangeControl);
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "'unchanged'";
         };
         class EGVAR(AI,formation) {
@@ -333,7 +333,7 @@ class EGVAR(AI,TaskModule) : EGVAR(AI,Module) {
             tooltip = "Formation of the group or unit on activation. Default: WEDGE";
             property = QEGVAR(AI,formation);
             control = QEGVAR(AI,formationchangeControl);
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "'unchanged'";
         };
         class EGVAR(AI,groupStance) {
@@ -341,7 +341,7 @@ class EGVAR(AI,TaskModule) : EGVAR(AI,Module) {
             tooltip = "Force the stance of the group. Default: AUTO";
             property = QEGVAR(AI,groupStance);
             control = QEGVAR(AI,stancechangeControl);
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "'unchanged'";
         };
         class EGVAR(AI,taskCondition) {
@@ -349,7 +349,7 @@ class EGVAR(AI,TaskModule) : EGVAR(AI,Module) {
             tooltip = "Activate this task with a condition. Default: True";
             property = QEGVAR(AI,taskCondition);
             control = QEGVAR(AI,moduleconditionControl);
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "";
             validate = "condition";
         };
@@ -358,7 +358,7 @@ class EGVAR(AI,TaskModule) : EGVAR(AI,Module) {
             tooltip = "Pass custom parameters or code when the group completes this task. (_this = [GROUP,TASK Module]) Default: Nil";
             property = QEGVAR(AI,taskOnComplete);
             control = QEGVAR(AI,codeControl);
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "(true)";
         };
         class EGVAR(AI,TaskPriority) {
@@ -366,7 +366,7 @@ class EGVAR(AI,TaskModule) : EGVAR(AI,Module) {
             tooltip = "Task priority allows the group to choose between two assigned tasks. Default: Medium";
             property = QEGVAR(AI,TaskPriority);
             control = QEGVAR(AI,taskpriorityControl);
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "1";
             typeName = "NUMBER";
             validate = "number";
@@ -395,7 +395,7 @@ class EGVAR(AI,PositionModule) : EGVAR(AI,Module) {
             tooltip = "Sets the type of position other modules will identify this position as. Default: Standard";
             property = QEGVAR(AI,positionType);
             control = QEGVAR(AI,positiontypeControl);
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "0";
         };
         class EGVAR(AI,positionRadiusX) {
@@ -403,7 +403,7 @@ class EGVAR(AI,PositionModule) : EGVAR(AI,Module) {
             tooltip = "The X radius the position will use to generate a random position. Default: 0";
             property = QEGVAR(AI,positionRadiusX);
             control = QMGVAR(RadiusAttribute);
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "0";
             typeName = "NUMBER";
             validate = "number";
@@ -413,7 +413,7 @@ class EGVAR(AI,PositionModule) : EGVAR(AI,Module) {
             tooltip = "The Y radius the position will use to generate a random position. Default: 0";
             property = QEGVAR(AI,positionRadiusY);
             control = QMGVAR(RadiusAttribute);
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "0";
             typeName = "NUMBER";
             validate = "number";
@@ -423,7 +423,7 @@ class EGVAR(AI,PositionModule) : EGVAR(AI,Module) {
             tooltip = "Distance for player to be warned before entering area. Default: 20.";
             property = QEGVAR(AI,positionWarnRadius);
             control = QEGVAR(AI,standardNumberControl);
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "20";
             typeName = "NUMBER";
             validate = "number";
@@ -453,7 +453,7 @@ class EGVAR(AI,RespawnModule) : EGVAR(AI,Module)  {
             tooltip = "Side of the unit that will respawn at the new location. Default: WEST";
             property = QEGVAR(AI,respawnside);
             control = QEGVAR(AI,ZonesideControl);
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "0";
             typeName = "NUMBER";
             validate = "number";

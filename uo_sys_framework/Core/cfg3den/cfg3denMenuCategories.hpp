@@ -184,7 +184,7 @@ class EGVAR(Core,Version_DummyCategory) {
                     displayName = "";
                     tooltip = "";
                     control = "EditShort";
-                    expression = UO_FW_SCENARIO_EXPRESSION;
+                    expression = SCENARIO_EXPRESSION;
                     defaultValue = "''";
                 };
                 class EGVAR(Core,Version_Updated) {
@@ -192,7 +192,7 @@ class EGVAR(Core,Version_DummyCategory) {
                     displayName = "";
                     tooltip = "";
                     control = "EditShort";
-                    expression = UO_FW_SCENARIO_EXPRESSION;
+                    expression = SCENARIO_EXPRESSION;
                     defaultValue = "''";
                 };
             };

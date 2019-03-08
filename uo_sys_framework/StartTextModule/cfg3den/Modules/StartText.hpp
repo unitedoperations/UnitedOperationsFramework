@@ -7,7 +7,7 @@ class EGVAR(StartText,Category) {
             displayName = "Start Text";
             tooltip = "Enables Start Text";
             control = "CheckboxState";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "true";
             typeName = "BOOL";
         };
@@ -17,7 +17,7 @@ class EGVAR(StartText,Category) {
             control = "Combo";
             typeName = "NUMBER";
             property = QEGVAR(StartText,TimeSelect);
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             validate = "none";
             class values {
                 class Date    {name = "Date"; value = 0;};
@@ -34,7 +34,7 @@ class EGVAR(StartText,Category) {
             property = QEGVAR(StartText,TitleQuote_Blufor);
             defaultValue = "''"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
             typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             validate = "none";
         };
         class EGVAR(StartText,Text_Blufor) {
@@ -45,7 +45,7 @@ class EGVAR(StartText,Category) {
             property = QEGVAR(StartText,Text_Blufor);
             defaultValue = "''"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
             typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             validate = "none";
         };
         class EGVAR(StartText,TitleQuote_Opfor) {
@@ -56,7 +56,7 @@ class EGVAR(StartText,Category) {
             property = QEGVAR(StartText,TitleQuote_Opfor);
             defaultValue = "''"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
             typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             validate = "none";
         };
         class EGVAR(StartText,Text_Opfor) {
@@ -67,7 +67,7 @@ class EGVAR(StartText,Category) {
             property = QEGVAR(StartText,Text_Opfor);
             defaultValue = "''"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
             typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             validate = "none";
         };
         class EGVAR(StartText,TitleQuote_Indfor) {
@@ -78,7 +78,7 @@ class EGVAR(StartText,Category) {
             property = QEGVAR(StartText,TitleQuote_Indfor);
             defaultValue = "''"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
             typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             validate = "none";
         };
         class EGVAR(StartText,Text_Indfor) {
@@ -89,7 +89,7 @@ class EGVAR(StartText,Category) {
             property = QEGVAR(StartText,Text_Indfor);
             defaultValue = "''"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
             typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             validate = "none";
         };
         class EGVAR(StartText,TitleQuote_Civilian) {
@@ -100,7 +100,7 @@ class EGVAR(StartText,Category) {
             property = QEGVAR(StartText,TitleQuote_Civilian);
             defaultValue = "''"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
             typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             validate = "none";
         };
         class EGVAR(StartText,Text_Civilian) {
@@ -111,7 +111,7 @@ class EGVAR(StartText,Category) {
             property = QEGVAR(StartText,Text_Civilian);
             defaultValue = "''"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
             typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             validate = "none";
         };
     };

@@ -7,7 +7,7 @@ class EGVAR(SafeStart,Category) {
             displayName = "Safe Start";
             tooltip = "Enable Safe Start";
             control = "CheckboxState";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "true";
         };
         class EGVAR(SafeStart,Lowered) {
@@ -15,7 +15,7 @@ class EGVAR(SafeStart,Category) {
             displayName = "Start Lowered";
             tooltip = "Enable Lowered Weapon on Mission Start";
             control = "Checkbox";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "true";
         };
         class EGVAR(SafeStart,Unloaded) {
@@ -23,7 +23,7 @@ class EGVAR(SafeStart,Category) {
             displayName = "Start Unloaded";
             tooltip = "Enable Unloaded Weapon on Mission Start";
             control = "Checkbox";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "true";
         };
     };

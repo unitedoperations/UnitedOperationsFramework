@@ -111,7 +111,7 @@ if ((_argUpper isEqualto "ALL") && {(!(EGVAR(Core,Enabled)))}) exitWith {};\
 if (!(EGVAR(Core,Enabled))) exitWith {};\
 if (!(MGVAR(Server_Framework_Allowed))) exitWith {}
 
-#define UO_FW_3DEN_CHECK if !(is3DEN) exitwith {};
+#define 3DEN_CHECK if !(is3DEN) exitwith {};
 
 #define VERSIONNUMBER (MGETMVAR(Version_UpdatedNumber,102))
 #define VERSION_CHECK(var1) if (var1 < VERSIONNUMBER) exitwith {};

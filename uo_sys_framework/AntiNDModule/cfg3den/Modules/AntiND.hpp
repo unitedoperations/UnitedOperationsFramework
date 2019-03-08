@@ -7,7 +7,7 @@ class UO_FW_AntiND {
             displayName = "Anti ND Enabled";
             tooltip = "Toggle activation";
             control = "CheckboxState";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "true";
         };
         class EGVAR(AntiND,Time) {
@@ -16,7 +16,7 @@ class UO_FW_AntiND {
             tooltip = "Time in seconds after spawn after which Anti ND functionality is disabled";
             control = QMGVAR(30To120Step1_Slider);
             validate = "number";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "30";
         };
         class EGVAR(AntiND,Distance) {
@@ -25,7 +25,7 @@ class UO_FW_AntiND {
             tooltip = "Distance in meters at which Anti ND functionality is disabled";
             control = QMGVAR(50To250Step50_Slider);
             validate = "number";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "200";
         };
     };

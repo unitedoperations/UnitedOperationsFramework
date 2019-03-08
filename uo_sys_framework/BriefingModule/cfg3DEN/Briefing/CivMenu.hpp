@@ -7,7 +7,7 @@ class EGVAR(Briefing,NATOStyle_Civilian) {
             displayName = "NATO style briefing";
             tooltip = "Enables NATO style briefing";
             control = "CheckboxState";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
         class EGVAR(Briefing,NATO_Situation_Title_Civilian) {
@@ -23,7 +23,7 @@ class EGVAR(Briefing,NATOStyle_Civilian) {
             tooltip = "Situation";
             control = "EditMulti5";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(Briefing,NATO_SIT_Terrain_Civilian) {
@@ -32,7 +32,7 @@ class EGVAR(Briefing,NATOStyle_Civilian) {
             tooltip = "Terrain";
             control = "EditMulti5";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(Briefing,NATO_SIT_KEYTerrain_Civilian) {
@@ -41,7 +41,7 @@ class EGVAR(Briefing,NATOStyle_Civilian) {
             tooltip = "Key Terrain";
             control = "EditMulti5";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(Briefing,NATO_SIT_Weather_Civilian) {
@@ -50,7 +50,7 @@ class EGVAR(Briefing,NATOStyle_Civilian) {
             tooltip = "Weather";
             control = "EditMulti5";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(Briefing,NATO_Enemy_Title_Civilian) {
@@ -66,7 +66,7 @@ class EGVAR(Briefing,NATOStyle_Civilian) {
             tooltip = "Enemy Disposition";
             control = "EditMulti5";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(Briefing,NATO_Enemy_STRENGTH_Civilian) {
@@ -75,7 +75,7 @@ class EGVAR(Briefing,NATOStyle_Civilian) {
             tooltip = "Enemy Strength";
             control = "EditMulti5";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(Briefing,NATO_Enemy_EQUIPMENT_Civilian) {
@@ -84,7 +84,7 @@ class EGVAR(Briefing,NATOStyle_Civilian) {
             tooltip = "Enemy Equipment";
             control = "EditMulti5";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(Briefing,NATO_Enemy_APPEARANCE_Civilian) {
@@ -93,7 +93,7 @@ class EGVAR(Briefing,NATOStyle_Civilian) {
             tooltip = "Enemy Appearance";
             control = "EditMulti5";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(Briefing,NATO_Enemy_MLCOA_Civilian) {
@@ -102,7 +102,7 @@ class EGVAR(Briefing,NATOStyle_Civilian) {
             tooltip = "Most Likely Course of Action";
             control = "EditMulti5";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(Briefing,NATO_Enemy_MDCOA_Civilian) {
@@ -111,7 +111,7 @@ class EGVAR(Briefing,NATOStyle_Civilian) {
             tooltip = "Most Dangerous Course of Action";
             control = "EditMulti5";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(Briefing,NATO_FRIENDLY_Title_Civilian) {
@@ -127,7 +127,7 @@ class EGVAR(Briefing,NATOStyle_Civilian) {
             tooltip = "Friendly Disposition";
             control = "EditMulti5";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(Briefing,NATO_FRIENDLY_Higher_Civilian) {
@@ -136,7 +136,7 @@ class EGVAR(Briefing,NATOStyle_Civilian) {
             tooltip = "Friendly Higher Units";
             control = "EditMulti5";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(Briefing,NATO_FRIENDLY_STRENGTH_Civilian) {
@@ -145,7 +145,7 @@ class EGVAR(Briefing,NATOStyle_Civilian) {
             tooltip = "Friendly Strength";
             control = "EditMulti5";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(Briefing,NATO_FRIENDLY_APPEARANCE_Civilian) {
@@ -154,7 +154,7 @@ class EGVAR(Briefing,NATOStyle_Civilian) {
             tooltip = "Friendly Appearance";
             control = "EditMulti5";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(Briefing,NATO_Mission_Title_Civilian) {
@@ -170,7 +170,7 @@ class EGVAR(Briefing,NATOStyle_Civilian) {
             tooltip = "Mission";
             control = "EditMulti5";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(Briefing,NATO_EXECUTION_Title_Civilian) {
@@ -188,7 +188,7 @@ class EGVAR(Briefing,NATOStyle_Civilian) {
             tooltip = "Intent";
             control = "EditMulti5";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(Briefing,NATO_EXECUTION_MANEUVER_Civilian) {
@@ -197,7 +197,7 @@ class EGVAR(Briefing,NATOStyle_Civilian) {
             tooltip = "Maneuver";
             control = "EditMulti5";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(Briefing,NATO_EXECUTION_Timings_Civilian) {
@@ -206,7 +206,7 @@ class EGVAR(Briefing,NATOStyle_Civilian) {
             tooltip = "Timings";
             control = "EditMulti5";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(Briefing,NATO_EXECUTION_Tasks_Civilian) {
@@ -215,7 +215,7 @@ class EGVAR(Briefing,NATOStyle_Civilian) {
             tooltip = "Tasks";
             control = "EditMulti5";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(Briefing,NATO_SANDS_Title_Civilian) {
@@ -240,7 +240,7 @@ class EGVAR(Briefing,NATOStyle_Civilian) {
             tooltip = "Fires";
             control = "EditMulti5";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(Briefing,NATO_SANDS_SUPPORT_AMMO_Civilian) {
@@ -249,7 +249,7 @@ class EGVAR(Briefing,NATOStyle_Civilian) {
             tooltip = "Ammo";
             control = "EditMulti5";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(Briefing,NATO_SANDS_SERVICE_Title_Civilian) {
@@ -266,7 +266,7 @@ class EGVAR(Briefing,NATOStyle_Civilian) {
             tooltip = "General";
             control = "EditMulti5";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(Briefing,NATO_CANDS_Title_Civilian) {
@@ -291,7 +291,7 @@ class EGVAR(Briefing,NATOStyle_Civilian) {
             tooltip = "Command";
             control = "EditMulti5";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(Briefing,NATO_CANDS_Signals_Title_Civilian) {
@@ -308,7 +308,7 @@ class EGVAR(Briefing,NATOStyle_Civilian) {
             tooltip = "Radio Frequencies";
             control = "EditMulti5";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(Briefing,NATO_CANDS_Signals_CODEWORDS_Civilian) {
@@ -317,7 +317,7 @@ class EGVAR(Briefing,NATOStyle_Civilian) {
             tooltip = "Codewords";
             control = "EditMulti5";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(Briefing,NATO_CANDS_Signals_SPECIAL_Civilian) {
@@ -326,7 +326,7 @@ class EGVAR(Briefing,NATOStyle_Civilian) {
             tooltip = "Special Signals";
             control = "EditMulti5";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(Briefing,NATO_CANDS_Signals_CALLSIGNS_Civilian) {
@@ -335,7 +335,7 @@ class EGVAR(Briefing,NATOStyle_Civilian) {
             tooltip = "Callsigns";
             control = "EditMulti5";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(Briefing,NATO_CANDS_Signals_PASSWORDS_Civilian) {
@@ -344,7 +344,7 @@ class EGVAR(Briefing,NATOStyle_Civilian) {
             tooltip = "Passwords";
             control = "EditMulti5";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
     };
@@ -358,7 +358,7 @@ class EGVAR(Briefing,WPStyle_Civilian) {
             displayName = "Warsaw Pact style briefing";
             tooltip = "Enables Warsaw Pact style briefing";
             control = "CheckboxState";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
         class EGVAR(Briefing,Warsaw_Preliminaries_Title_Civilian) {
@@ -374,7 +374,7 @@ class EGVAR(Briefing,WPStyle_Civilian) {
             tooltip = "Weather";
             control = "EditMulti5";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(Briefing,Warsaw_Preliminaries_Terrain_Civilian) {
@@ -383,7 +383,7 @@ class EGVAR(Briefing,WPStyle_Civilian) {
             tooltip = "Terrain";
             control = "EditMulti5";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(Briefing,Warsaw_Reference_Title_Civilian) {
@@ -399,7 +399,7 @@ class EGVAR(Briefing,WPStyle_Civilian) {
             tooltip = "Deployment Reference Points";
             control = "EditMulti5";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(Briefing,Warsaw_Reference_SubsequentPoints_Civilian) {
@@ -408,7 +408,7 @@ class EGVAR(Briefing,WPStyle_Civilian) {
             tooltip = "Subsequent Reference Points";
             control = "EditMulti5";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(Briefing,Warsaw_Enemy_Title_Civilian) {
@@ -424,7 +424,7 @@ class EGVAR(Briefing,WPStyle_Civilian) {
             tooltip = "Enemy Disposition";
             control = "EditMulti5";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(Briefing,Warsaw_Enemy_Equip_Civilian) {
@@ -433,7 +433,7 @@ class EGVAR(Briefing,WPStyle_Civilian) {
             tooltip = "Enemy Equipment";
             control = "EditMulti5";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(Briefing,Warsaw_Enemy_Prob_HQ_Civilian) {
@@ -442,7 +442,7 @@ class EGVAR(Briefing,WPStyle_Civilian) {
             tooltip = "Probable Enemy HQ Location";
             control = "EditMulti5";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(Briefing,Warsaw_Enemy_Prob_Line_Civilian) {
@@ -451,7 +451,7 @@ class EGVAR(Briefing,WPStyle_Civilian) {
             tooltip = "Probable Enemy Main Element Location";
             control = "EditMulti5";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(Briefing,Warsaw_Enemy_Prob_Dir_Attack_Civilian) {
@@ -460,7 +460,7 @@ class EGVAR(Briefing,WPStyle_Civilian) {
             tooltip = "Probable Enemy Direction of Attack";
             control = "EditMulti5";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(Briefing,Warsaw_Enemy_Prob_Arty_Civilian) {
@@ -469,7 +469,7 @@ class EGVAR(Briefing,WPStyle_Civilian) {
             tooltip = "Probable Enemy Artillery Positions & Capability";
             control = "EditMulti5";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(Briefing,Warsaw_Higher_Title_Civilian) {
@@ -485,7 +485,7 @@ class EGVAR(Briefing,WPStyle_Civilian) {
             tooltip = "Description";
             control = "EditMulti5";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(Briefing,Warsaw_Higher_Boundary_Civilian) {
@@ -494,7 +494,7 @@ class EGVAR(Briefing,WPStyle_Civilian) {
             tooltip = "Boundaries";
             control = "EditMulti5";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(Briefing,Warsaw_Higher_Arty_Civilian) {
@@ -503,7 +503,7 @@ class EGVAR(Briefing,WPStyle_Civilian) {
             tooltip = "Location and Capability of Artillery";
             control = "EditMulti5";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(Briefing,Warsaw_Mission_Title_Civilian) {
@@ -519,7 +519,7 @@ class EGVAR(Briefing,WPStyle_Civilian) {
             tooltip = "Mission Statement";
             control = "EditMulti5";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(Briefing,Warsaw_Mission_DIR_Civilian) {
@@ -528,7 +528,7 @@ class EGVAR(Briefing,WPStyle_Civilian) {
             tooltip = "End State Direction";
             control = "EditMulti5";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(Briefing,Warsaw_Order_Title_Civilian) {
@@ -544,7 +544,7 @@ class EGVAR(Briefing,WPStyle_Civilian) {
             tooltip = "Tasks";
             control = "EditMulti5";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(Briefing,Warsaw_Order_Tasks_Arty_Civilian) {
@@ -553,7 +553,7 @@ class EGVAR(Briefing,WPStyle_Civilian) {
             tooltip = "Tasks for Artillery Elements";
             control = "EditMulti5";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(Briefing,Warsaw_Order_Timings_Civilian) {
@@ -562,7 +562,7 @@ class EGVAR(Briefing,WPStyle_Civilian) {
             tooltip = "Readiness Timings";
             control = "EditMulti5";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(Briefing,Warsaw_Order_Signals_Civilian) {
@@ -571,7 +571,7 @@ class EGVAR(Briefing,WPStyle_Civilian) {
             tooltip = "Signals";
             control = "EditMulti5";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(Briefing,Warsaw_COMM_Title_Civilian) {
@@ -587,7 +587,7 @@ class EGVAR(Briefing,WPStyle_Civilian) {
             tooltip = "Location of the Commander";
             control = "EditMulti5";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(Briefing,Warsaw_SUCC_Title_Civilian) {
@@ -603,7 +603,7 @@ class EGVAR(Briefing,WPStyle_Civilian) {
             tooltip = "Succession of Command";
             control = "EditMulti5";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
     };
@@ -617,7 +617,7 @@ class EGVAR(Briefing,Custom_File_Civilian) {
             displayName = "Briefing File";
             tooltip = "Loads file as briefing";
             control = "CheckboxState";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
         class EGVAR(Briefing,File_Path_Civilian) {
@@ -626,7 +626,7 @@ class EGVAR(Briefing,Custom_File_Civilian) {
             tooltip = "Path to briefing file";
             control = "Edit";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
     };
@@ -640,7 +640,7 @@ class EGVAR(Briefing,Appendix_Civilian) {
             displayName = "Appendix File";
             tooltip = "Enables Appendix File";
             control = "CheckboxState";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
         class EGVAR(Briefing,Appendix_Path_Civilian) {
@@ -649,7 +649,7 @@ class EGVAR(Briefing,Appendix_Civilian) {
             tooltip = "Path to Appendix Briefing File";
             control = "Edit";
             validate = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
     };

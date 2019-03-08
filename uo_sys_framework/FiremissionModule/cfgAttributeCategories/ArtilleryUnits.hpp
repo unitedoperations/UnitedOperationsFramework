@@ -10,7 +10,7 @@ class UO_FW_Artillery
             displayName = "Artillery Data";
             tooltip = "Enables Artillery Data";
             control = "CheckboxState";
-            expression = UO_FW_ENTITY_EXPRESSION;
+            expression = ENTITY_EXPRESSION;
             defaultValue = "false";
             typeName = "BOOL";
             condition = "objectVehicle";
@@ -21,7 +21,7 @@ class UO_FW_Artillery
             tooltip = "Modifier for units firerate. Firerate * modifier. Default 1. Just keep at 1";
             property = "UO_FW_ArtilleryFireRate";
             control = "EditShort";
-            expression = UO_FW_ENTITY_EXPRESSION;
+            expression = ENTITY_EXPRESSION;
             condition = "objectVehicle";
             validate = "number";
             typeName = "NUMBER";
@@ -33,7 +33,7 @@ class UO_FW_Artillery
             tooltip = "Accuracy of the artillery gun in meters. Default 50";
             property = "UO_FW_ArtilleryAccuracy";
             control = QMGVAR(25To250Step5_Slider);
-            expression = UO_FW_ENTITY_EXPRESSION;
+            expression = ENTITY_EXPRESSION;
             condition = "objectVehicle";
             validate = "number";
             typeName = "NUMBER";
@@ -45,7 +45,7 @@ class UO_FW_Artillery
             tooltip = "Accuracy of spotting rounds in meters. Default 50";
             property = "UO_FW_ArtillerySpottingAccuracy";
             control = QMGVAR(25To250Step5_Slider);
-            expression = UO_FW_ENTITY_EXPRESSION;
+            expression = ENTITY_EXPRESSION;
             condition = "objectVehicle";
             validate = "number";
             typeName = "NUMBER";
@@ -57,7 +57,7 @@ class UO_FW_Artillery
             tooltip = "Time needed to calculate on where to aim. Artillery might need longer to traverse the gun (Arma limitations). Default 30";
             property = "UO_FW_ArtilleryAimTime";
             control = QMGVAR(30To120Step1_Slider);
-            expression = UO_FW_ENTITY_EXPRESSION;
+            expression = ENTITY_EXPRESSION;
             condition = "objectVehicle";
             validate = "number";
             defaultValue = "30";
@@ -69,7 +69,7 @@ class UO_FW_Artillery
             tooltip = "Time needed to calculate after spotting rounds before actuall firemission. Default 30";
             property = "UO_FW_ArtilleryCalculationTime";
             control = QMGVAR(30To120Step1_Slider);
-            expression = UO_FW_ENTITY_EXPRESSION;
+            expression = ENTITY_EXPRESSION;
             condition = "objectVehicle";
             validate = "number";
             typeName = "NUMBER";
@@ -81,7 +81,7 @@ class UO_FW_Artillery
             tooltip = "Custom name for the artillery gun used in the player FO dialog. Only used for displaying a different name. Leave empty for Class Display Name";
             property = "UO_FW_ArtilleryCustomName";
             control = "EditShort";
-            expression = UO_FW_ENTITY_EXPRESSION;
+            expression = ENTITY_EXPRESSION;
             condition = "objectVehicle";
             typeName = "STRING";
             defaultValue = "''";
@@ -92,7 +92,7 @@ class UO_FW_Artillery
             tooltip = "Should artillery have unlimited Ammo. Default false";
             property = "UO_FW_ArtilleryUnlimitedAmmo";
             control = "Checkbox";
-            expression = UO_FW_ENTITY_EXPRESSION;
+            expression = ENTITY_EXPRESSION;
             condition = "objectVehicle";
             defaultValue = "false";
             typeName = "BOOL";

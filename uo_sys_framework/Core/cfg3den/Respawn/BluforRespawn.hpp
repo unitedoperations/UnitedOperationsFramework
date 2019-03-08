@@ -9,14 +9,14 @@ class EGVAR(TeamRespawnSettings,Blufor) {
             control = "UO_FW_Respawn_Combo_Blufor";
             defaultValue = "0";
             property = QEGVAR(Respawn,Type_Blufor);
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
         };
         class EGVAR(Respawn,Templates_Blufor) {
             property = QEGVAR(Respawn,Templates_Blufor);
             displayName = "Respawn System Settings";
             tooltip = "";
             control = "UO_FW_RespawnTemplates_Blufor";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "['']";
         };
         class EGVAR(Respawn,NewTeam_Blufor) {
@@ -25,7 +25,7 @@ class EGVAR(TeamRespawnSettings,Blufor) {
             tooltip = "Determines what side the originally BLUFOR players will spawn on. Enabling this setting requires respawned players to join a new group.";
             respawnTypes[] = {1,2,3};
             control = "UO_FW_RespawnSide_Combo";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "0";
         };
         class EGVAR(Respawn,Delay_Blufor) {
@@ -34,7 +34,7 @@ class EGVAR(TeamRespawnSettings,Blufor) {
             tooltip = "Delay in seconds between a player being killed and respawning. Must be more than 5 seconds.";
             respawnTypes[] = {1,2,3,4,5};
             control = QMGVAR(5To20Step1_Slider);
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "5";
             validate = "number";
         };
@@ -44,7 +44,7 @@ class EGVAR(TeamRespawnSettings,Blufor) {
             tooltip = "Number of individual respawns.";
             respawnTypes[] = {2};
             control = QMGVAR(1To10Step1_Slider);
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "2";
             validate = "number";
         };
@@ -54,7 +54,7 @@ class EGVAR(TeamRespawnSettings,Blufor) {
             tooltip = "Number of team respawns.";
             respawnTypes[] = {3};
             control = QMGVAR(10To100Step1_Slider);
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "30";
             validate = "number";
         };
@@ -64,7 +64,7 @@ class EGVAR(TeamRespawnSettings,Blufor) {
             tooltip = "Number of players needed to respawn a wave.";
             respawnTypes[] = {4};
             control = "EditShort";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "8";
         };
         class EGVAR(Respawn,WaveGearMode_Blufor) {
@@ -78,7 +78,7 @@ class EGVAR(TeamRespawnSettings,Blufor) {
             ";
             respawnTypes[] = {4};
             control = "EditShort";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(Respawn,WaveGearModeArray_Blufor) {
@@ -90,7 +90,7 @@ class EGVAR(TeamRespawnSettings,Blufor) {
             ";
             respawnTypes[] = {4};
             control = "EditCodeMulti3";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "BluforRifleSquad = [[6,10],['SQL',1,1],['TL',1,2],['AR',1,2],['RFL',0,2],['RFLAT',0,2]]; BluforVehicleCrew = [[2,3],['VCMD',1,1],['VCRW',1,2]];";
         };
         class EGVAR(Respawn,TriggeredCond_Blufor) {
@@ -99,7 +99,7 @@ class EGVAR(TeamRespawnSettings,Blufor) {
             tooltip = "Triggered Respawn condition variable.";
             respawnTypes[] = {5};
             control = "EditCode";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "true";
         };
         class EGVAR(Respawn,MaxRespawns_Blufor) {
@@ -108,7 +108,7 @@ class EGVAR(TeamRespawnSettings,Blufor) {
             tooltip = "Total Respawns allowed for Wave and Triggered Respawn Modes. Set to 0 to have no limit.";
             respawnTypes[] = {4,5};
             control = "EditShort";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "0";
             typeName = "number";
         };*/
@@ -125,14 +125,14 @@ class EGVAR(Spectator,Blufor) {
             tooltip = "Teams that this team can spectate.";
             control = "UO_FW_SpectateTeams_Attribute";
             defaultValue = "['BLUFOR','OPFOR','Indfor','CIVILIAN']";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
         };
         class EGVAR(Spectator,KillCam_Blufor) {
             property = QEGVAR(Spectate,KillCam);
             displayName = "Killcam";
             tooltip = "This setting enables the specator killcam functionality.";
             control = "CheckBox";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "true";
         };
         class EGVAR(Spectator,AIEnabled_Blufor) {
@@ -140,7 +140,7 @@ class EGVAR(Spectator,Blufor) {
             displayName = "Spectate AI";
             tooltip = "Enable Spectating AI Entities.";
             control = "CheckBox";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "true";
         };
         class EGVAR(Spectator,FreeCam_Blufor) {
@@ -148,7 +148,7 @@ class EGVAR(Spectator,Blufor) {
             displayName = "Spectator Freecam";
             tooltip = "Enable Freecam Ability in Spectator.";
             control = "CheckBox";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "true";
         };
         class EGVAR(Spectator,3rdPerson_Blufor) {
@@ -156,7 +156,7 @@ class EGVAR(Spectator,Blufor) {
             displayName = "Spectator Third Person";
             tooltip = "Enable Third Person Ability in Spectator.";
             control = "CheckBox";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "true";
         };
     };
@@ -171,7 +171,7 @@ class EGVAR(TeamJIPSettings,BLUFOR) {
             displayName = "JiP Type";
             tooltip = "TELEPORT: Player can teleport to his squad. TRANSPORT: Player can send a hint to all group leaders requesting transport. DENY: Player is killed and put in spectator.";
             control = "UO_FW_JIPTypeAtt";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "0";
         };
@@ -180,7 +180,7 @@ class EGVAR(TeamJIPSettings,BLUFOR) {
             displayName = "JiP Distance";
             tooltip = "If distance to group members upon spawn is greater than this you will be granted the defined JiP action";
             control = QMGVAR(50To200Step50_Slider);
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "200";
         };
@@ -189,7 +189,7 @@ class EGVAR(TeamJIPSettings,BLUFOR) {
             displayName = "Spawn Radius";
             tooltip = "Exiting this radius will remove the JiP actions from the player.";
             control = QMGVAR(50To200Step50_Slider);
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "50";
         };

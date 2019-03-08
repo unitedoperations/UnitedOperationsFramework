@@ -24,7 +24,7 @@ class EGVAR(AOLimit,AOLimitModule): EGVAR(Core,BaseModule) {
             tooltip = "The size of the X value of the setup zone. Default: 100";
             property = QEGVAR(AOLimit,RadiusX);
             control = QMGVAR(RadiusAttribute);
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "100";
             typeName = "NUMBER";
             validate = "number";
@@ -34,7 +34,7 @@ class EGVAR(AOLimit,AOLimitModule): EGVAR(Core,BaseModule) {
             tooltip = "The size of the Y value of the setup zone. Default: 100";
             property = QEGVAR(AOLimit,RadiusY);
             control = QMGVAR(RadiusAttribute);
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "100";
             typeName = "NUMBER";
             validate = "number";
@@ -45,7 +45,7 @@ class EGVAR(AOLimit,AOLimitModule): EGVAR(Core,BaseModule) {
             property = QEGVAR(AOLimit,AOMode);
             control = "UO_FW_AOModeAttribute";
             typeName = "STRING";
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "'HARD'";
         };
         class EGVAR(AOLimit,Blufor) {
@@ -53,7 +53,7 @@ class EGVAR(AOLimit,AOLimitModule): EGVAR(Core,BaseModule) {
             tooltip = "Restrict Blufor to this AO. Units that start outside of the AO will be not be restricted.";
             property = QEGVAR(AOLimit,Blufor);
             control = "CheckBox";
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "true";
             typeName = "BOOL";
             validate = "none";
@@ -63,7 +63,7 @@ class EGVAR(AOLimit,AOLimitModule): EGVAR(Core,BaseModule) {
             tooltip = "Restrict Opfor to this AO. Units that start outside of the AO will be not be restricted.";
             property = QEGVAR(AOLimit,Opfor);
             control = "CheckBox";
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "true";
             typeName = "BOOL";
             validate = "none";
@@ -73,7 +73,7 @@ class EGVAR(AOLimit,AOLimitModule): EGVAR(Core,BaseModule) {
             tooltip = "Restrict Indfor to this AO. Units that start outside of the AO will be not be restricted.";
             property = QEGVAR(AOLimit,Indfor);
             control = "CheckBox";
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "true";
             typeName = "BOOL";
             validate = "none";
@@ -83,7 +83,7 @@ class EGVAR(AOLimit,AOLimitModule): EGVAR(Core,BaseModule) {
             tooltip = "Restrict Civilian to this AO. Units that start outside of the AO will be not be restricted.";
             property = QEGVAR(AOLimit,CIV);
             control = "CheckBox";
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "true";
             typeName = "BOOL";
             validate = "none";
@@ -93,7 +93,7 @@ class EGVAR(AOLimit,AOLimitModule): EGVAR(Core,BaseModule) {
             tooltip = "Enable to restrict players within AO if they spawned outside the area but entered it.";
             property = QEGVAR(AOLimit,EntryMode);
             control = "CheckBox";
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "false";
             typeName = "BOOL";
             validate = "none";
@@ -103,7 +103,7 @@ class EGVAR(AOLimit,AOLimitModule): EGVAR(Core,BaseModule) {
             tooltip = "Enable to exempt air units from AO restriction. Default: true";
             property = QEGVAR(AOLimit,AirUnits);
             control = "CheckBox";
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "true";
             typeName = "BOOL";
             validate = "none";
@@ -113,7 +113,7 @@ class EGVAR(AOLimit,AOLimitModule): EGVAR(Core,BaseModule) {
             tooltip = "The amount of time in seconds a land based unit is allowed to stay outside the AO";
             property = QEGVAR(AoLimit,SoftTimeOutside);
             control = QMGVAR(30To120Step1_Slider);
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "30";
             AOTypes[] = {"SOFT"};
             typeName = "number";
@@ -124,7 +124,7 @@ class EGVAR(AOLimit,AOLimitModule): EGVAR(Core,BaseModule) {
             tooltip = "The amount of time in seconds an air based unit is allowed to stay outside the AO";
             property = QEGVAR(AoLimit,SoftTimeOutsideAir);
             control = QMGVAR(120To360Step1_Slider);
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "120";
             AOTypes[] = {"SOFT"};
             typeName = "number";

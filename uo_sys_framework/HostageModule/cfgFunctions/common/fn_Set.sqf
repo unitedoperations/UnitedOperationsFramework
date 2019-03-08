@@ -28,7 +28,7 @@ if (!UO_FW_Server_HostageModule_Allowed) exitWith {};
         _unit playMoveNow "Acts_AidlPsitMstpSsurWnonDnon04";
     }];
 
-    (SETVAR(_unit,EhAnimDone,_EhAnimDone));
+    SETVAR(_unit,EhAnimDone,_EhAnimDone);
 
     [{
         params ["_argNested", "_idPFH"];

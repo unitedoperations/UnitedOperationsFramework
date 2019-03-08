@@ -7,7 +7,7 @@ class EGVAR(ACRE,RadioTypes_CAT_Civilian) {
             displayName = "Short Range Radio Type";
             tooltip = "Sets the short range radio type for the side";
             control = QEGVAR(Acre,SR_SELECT);
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "0";
         };
         class EGVAR(ACRE,LR_Type_Civilian) {
@@ -15,7 +15,7 @@ class EGVAR(ACRE,RadioTypes_CAT_Civilian) {
             displayName = "Long Range Radio Type";
             tooltip = "Sets the long range radio type for the side";
             control = QEGVAR(Acre,LR_SELECT);
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "0";
         };
         class EGVAR(ACRE,PK_Type_Civilian) {
@@ -23,7 +23,7 @@ class EGVAR(ACRE,RadioTypes_CAT_Civilian) {
             displayName = "Long Range Pack Radio Type";
             tooltip = "Sets the long range pack radio type for the side";
             control = QEGVAR(Acre,PK_SELECT);
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "0";
         };
     };
@@ -37,7 +37,7 @@ class EGVAR(Acre,RADIONET_CAT_Civilian) {
             property = QEGVAR(ACRE,RADIONET_Enabled_Civilian);
             displayName = "Enable Radio Net Channel Names";
             control = "CheckBoxState";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
         class EGVAR(ACRE,RADIONET_NAME1_Civilian) {
@@ -45,7 +45,7 @@ class EGVAR(Acre,RADIONET_CAT_Civilian) {
             displayName = "Channel 1 Name";
             tooltip = "Sets the name of the channel";
             control = "EditShort";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "'PLTNET 1'";
         };
         class EGVAR(ACRE,RADIONET_NAME2_Civilian) {
@@ -53,7 +53,7 @@ class EGVAR(Acre,RADIONET_CAT_Civilian) {
             displayName = "Channel 2 Name";
             tooltip = "Sets the name of the channel";
             control = "EditShort";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "'PLTNET 2'";
         };
         class EGVAR(ACRE,RADIONET_NAME3_Civilian) {
@@ -61,7 +61,7 @@ class EGVAR(Acre,RADIONET_CAT_Civilian) {
             displayName = "Channel 3 Name";
             tooltip = "Sets the name of the channel";
             control = "EditShort";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "'PLTNET 3'";
         };
         class EGVAR(ACRE,RADIONET_NAME4_Civilian) {
@@ -69,7 +69,7 @@ class EGVAR(Acre,RADIONET_CAT_Civilian) {
             displayName = "Channel 4 Name";
             tooltip = "Sets the name of the channel";
             control = "EditShort";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "'PLTNET 4'";
         };
         class EGVAR(ACRE,RADIONET_NAME5_Civilian) {
@@ -77,7 +77,7 @@ class EGVAR(Acre,RADIONET_CAT_Civilian) {
             displayName = "Channel 5 Name";
             tooltip = "Sets the name of the channel";
             control = "EditShort";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "'COY'";
         };
         class EGVAR(ACRE,RADIONET_NAME6_Civilian) {
@@ -85,7 +85,7 @@ class EGVAR(Acre,RADIONET_CAT_Civilian) {
             displayName = "Channel 6 Name";
             tooltip = "Sets the name of the channel";
             control = "EditShort";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "'CAS'";
         };
         class EGVAR(ACRE,RADIONET_NAME7_Civilian) {
@@ -93,7 +93,7 @@ class EGVAR(Acre,RADIONET_CAT_Civilian) {
             displayName = "Channel 7 Name";
             tooltip = "Sets the name of the channel";
             control = "EditShort";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "'FIRES'";
         };
     };
@@ -107,7 +107,7 @@ class EGVAR(Acre,BABEL_CAT_Civilian) {
             property = QEGVAR(Acre,Babel_Enabled_Civilian);
             displayName = "Enable Babel Languages";
             control = "CheckBoxState";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
         class EGVAR(ACRE,BABEL_EN_Civilian) {
@@ -115,7 +115,7 @@ class EGVAR(Acre,BABEL_CAT_Civilian) {
             displayName = "English";
             tooltip = "Enables the language for this side";
             control = "CheckBox";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "true";
         };
         class EGVAR(ACRE,BABEL_RU_Civilian) {
@@ -123,7 +123,7 @@ class EGVAR(Acre,BABEL_CAT_Civilian) {
             displayName = "Russian";
             tooltip = "Enables the language for this side";
             control = "CheckBox";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
         class EGVAR(ACRE,BABEL_FR_Civilian) {
@@ -131,7 +131,7 @@ class EGVAR(Acre,BABEL_CAT_Civilian) {
             displayName = "French";
             tooltip = "Enables the language for this side";
             control = "CheckBox";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
         class EGVAR(ACRE,BABEL_AR_Civilian) {
@@ -139,7 +139,7 @@ class EGVAR(Acre,BABEL_CAT_Civilian) {
             displayName = "Arabic";
             tooltip = "Enables the language for this side";
             control = "CheckBox";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
         class EGVAR(ACRE,BABEL_GK_Civilian) {
@@ -147,7 +147,7 @@ class EGVAR(Acre,BABEL_CAT_Civilian) {
             displayName = "Greek";
             tooltip = "Enables the language for this side";
             control = "CheckBox";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
         class EGVAR(ACRE,BABEL_Custom_Civilian) {
@@ -155,7 +155,7 @@ class EGVAR(Acre,BABEL_CAT_Civilian) {
             displayName = "Custom Language";
             tooltip = "Define a custom language for this side";
             control = "EditShort";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(ACRE,BABEL_Custom2_Civilian) {
@@ -163,7 +163,7 @@ class EGVAR(Acre,BABEL_CAT_Civilian) {
             displayName = "Custom Language 2";
             tooltip = "Define a custom language for this side";
             control = "EditShort";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
     };

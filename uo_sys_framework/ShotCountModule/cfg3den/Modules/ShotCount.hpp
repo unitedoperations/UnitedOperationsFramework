@@ -7,7 +7,7 @@ class EGVAR(ShotCount,Category) {
             displayName = "Shot Count";
             tooltip = "Enable Shot Count";
             control = "CheckboxState";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "true";
         };
     };

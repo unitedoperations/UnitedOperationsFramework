@@ -7,7 +7,7 @@ class EGVAR(StartInParachute,Category)  {
             tooltip = "Set Parachute Type of a unit";
             property = QEGVAR(StartInParachute,Type);
             control = QEGVAR(StartInParachute,TypeAttribute);
-            expression = UO_FW_ENTITY_EXPRESSION;
+            expression = ENTITY_EXPRESSION;
             condition = "objectControllable";
             defaultValue = "0";
         };
@@ -16,7 +16,7 @@ class EGVAR(StartInParachute,Category)  {
             tooltip = "Altitude at which unit is parachuted";
             property = QEGVAR(StartInParachute,Altitude);
             control = QMGVAR(100To1000Step100_Slider);
-            expression = UO_FW_ENTITY_EXPRESSION;
+            expression = ENTITY_EXPRESSION;
             condition = "objectControllable";
             validate = "number";
             defaultValue = "300";
@@ -26,7 +26,7 @@ class EGVAR(StartInParachute,Category)  {
             tooltip = "Adds a random height to the normal parachute altitude";
             property = QEGVAR(StartInParachute,RandomAltitude);
             control = QMGVAR(100To500Step100_Slider);
-            expression = UO_FW_ENTITY_EXPRESSION;
+            expression = ENTITY_EXPRESSION;
             condition = "objectControllable";
             validate = "number";
             defaultValue = "100";

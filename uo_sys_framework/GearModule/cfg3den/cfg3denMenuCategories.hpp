@@ -10,7 +10,7 @@ class EGVAR(Gear,Settings) {
                     displayName = "Enable ACE Arsenal System";
                     tooltip = "Should Gear System be enabled";
                     control = "CheckboxState";
-                    expression = UO_FW_SCENARIO_EXPRESSION;
+                    expression = SCENARIO_EXPRESSION;
                     defaultValue = "false";
                 };
             };
@@ -24,7 +24,7 @@ class EGVAR(Gear,Settings) {
                     displayName = "Enable Olsen System";
                     tooltip = "Should Olsen Gear be enabled";
                     control = "CheckboxState";
-                    expression = UO_FW_SCENARIO_EXPRESSION;
+                    expression = SCENARIO_EXPRESSION;
                     defaultValue = "false";
                 };
                 class EGVAR(Gear,Olsen_OverfillEnabled) {
@@ -32,7 +32,7 @@ class EGVAR(Gear,Settings) {
                     displayName = "Enable Gear overfill";
                     tooltip = "Forces adding an item to inventory. Works only if container is specified!";
                     control = "Checkbox";
-                    expression = UO_FW_SCENARIO_EXPRESSION;
+                    expression = SCENARIO_EXPRESSION;
                     defaultValue = "false";
                 };
                 class EGVAR(Gear,Olsen_FaceRemovalEnabled) {
@@ -40,7 +40,7 @@ class EGVAR(Gear,Settings) {
                     displayName = "Force remove facewear";
                     tooltip = "When set to false, facewear types that are whitelisted will not be removed";
                     control = "Checkbox";
-                    expression = UO_FW_SCENARIO_EXPRESSION;
+                    expression = SCENARIO_EXPRESSION;
                     defaultValue = "false";
                 };
                 class EGVAR(Gear,Olsen_PathToGear) {
@@ -48,7 +48,7 @@ class EGVAR(Gear,Settings) {
                     displayName = "Path to Gearscript";
                     tooltip = "Path to the gearscript file in your mission folder";
                     control = "EditShort";
-                    expression = UO_FW_SCENARIO_EXPRESSION;
+                    expression = SCENARIO_EXPRESSION;
                     defaultValue = "'Gear.sqf'";
                 };
             };
@@ -63,7 +63,7 @@ class PREFIX##_Gear_Olsen_LoadoutType_##TEAMNAME##_##SHORTNAME {\
     tooltip = CSTRING_2(Gear_ToolTip_Olsen,SHORTNAME);\
     control = QUOTE(Edit);\
     typeName = QUOTE(STRING);\
-    expression = UO_FW_SCENARIO_EXPRESSION;\
+    expression = SCENARIO_EXPRESSION;\
     defaultValue = QUOTE('');\
 }
 
@@ -74,7 +74,7 @@ class PREFIX##_Gear_ACE_Arsenal_LoadoutType_##TEAMNAME##_##SHORTNAME {\
     tooltip = CSTRING_2(Gear_ToolTip_ACEAR,SHORTNAME);\
     control = QUOTE(UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo);\
     typeName = QUOTE(STRING);\
-    expression = UO_FW_SCENARIO_EXPRESSION;\
+    expression = SCENARIO_EXPRESSION;\
     defaultValue = QUOTE('NONE');\
 }
 

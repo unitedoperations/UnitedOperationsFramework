@@ -1,7 +1,7 @@
 #define COMPONENT Gear
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 EXEC_CHECK(ALL);
-UO_FW_3DEN_CHECK;
+3DEN_CHECK;
 
 LOG("GearLoadPreset started");
 

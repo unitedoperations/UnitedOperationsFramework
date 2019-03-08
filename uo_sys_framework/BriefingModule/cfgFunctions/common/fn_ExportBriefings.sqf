@@ -1,7 +1,7 @@
 #define COMPONENT Briefing
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 EXEC_CHECK(ALL);
-UO_FW_3DEN_CHECK;
+3DEN_CHECK;
 
 startLoadingScreen ["Exporting Briefing to clipboard..."];
 

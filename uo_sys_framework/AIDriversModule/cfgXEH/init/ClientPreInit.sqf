@@ -12,7 +12,7 @@
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 EXEC_CHECK(CLIENT);
 
-["UO_FW_AIDrivers_Enabled_Event", {
+[QGVAR(Enabled_Event), {
 	params ["_vehicle","_allowNV","_allowFlip"];
 	[_vehicle,_allowNV,_allowFlip] call FUNC(EnableAIDriver);
 }] call CBA_fnc_addEventHandler;

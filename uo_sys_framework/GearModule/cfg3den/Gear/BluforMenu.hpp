@@ -8,7 +8,7 @@ class EGVAR(Gear,Presets_BLUFOR) {
             tooltip = "";
             control = QEGVAR(Gear,PresetsCombo_BLUFOR);
             typeName = "STRING";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "'None'";
         };
     };

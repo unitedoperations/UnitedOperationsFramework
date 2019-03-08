@@ -9,7 +9,7 @@
 
 #define COMPONENT 3DEN
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_3DEN_CHECK;
+3DEN_CHECK;
 
 LOG("BasicSettings3Den called");
 

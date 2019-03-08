@@ -1,10 +1,10 @@
 #define COMPONENT CaptureZone
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_3DEN_CHECK;
+3DEN_CHECK;
 
 LOG("CaptueZoneAttribute Load started");
 
-_this params ["_this", "_config"];
+params ["_this", "_config"];
 
 private _control = (_this controlsGroupCtrl 100);
 _control setvariable [QMGVAR(parentcontrolcfg),_config];

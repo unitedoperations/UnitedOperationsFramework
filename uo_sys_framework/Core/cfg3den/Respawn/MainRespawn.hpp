@@ -8,14 +8,14 @@ class EGVAR(Respawn,Category) {
             tooltip = "This setting enables the 'YOU ARE DEAD' screen that shows immediately following a player's death. Disable to enable VR fadeout effect.";
             control = "CheckBox";
             defaultValue = "true";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
         };
         class EGVAR(Respawn,KillCam) {
             property = QEGVAR(Respawn,KillCam);
             displayName = "Killcam";
             tooltip = "This setting enables the specator killcam functionality.";
             control = "CheckBox";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "true";
         };
     };
@@ -30,7 +30,7 @@ class EGVAR(JIP,Category) {
             displayName = "Deny Time";
             tooltip = "After how many minutes should a player be considered JIP";
             control = QMGVAR(5To20Step1_Slider);
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "5";
         };
@@ -39,7 +39,7 @@ class EGVAR(JIP,Category) {
             displayName = "Expire Time";
             tooltip = "After how many minutes JiPs will no longer have teleport or transport actions.";
             control = QMGVAR(5To20Step1_Slider);
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "5";
         };
@@ -48,7 +48,7 @@ class EGVAR(JIP,Category) {
             displayName = "Nearby Enemy Distance";
             tooltip = "Denies teleport action if the distance between enemies and the intended teleport location is less than this value in metres";
             control = QMGVAR(50To200Step50_Slider);
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "100";
         };

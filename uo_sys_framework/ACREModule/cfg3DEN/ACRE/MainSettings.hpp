@@ -7,7 +7,7 @@ class EGVAR(ACRE,SETTINGS_CAT_Main) {
             displayName = "Enable ACRE Framework";
             tooltip = "Toggle activation";
             control = "CheckBoxState";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
         class EGVAR(ACRE,SCRAMBLE_Enabled) {
@@ -15,7 +15,7 @@ class EGVAR(ACRE,SETTINGS_CAT_Main) {
             displayName = "Enable Frequency Scramble";
             tooltip = "Toggle frequency scrambling";
             control = "CheckBox";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
         class EGVAR(ACRE,BABEL_Enabled) {
@@ -23,7 +23,7 @@ class EGVAR(ACRE,SETTINGS_CAT_Main) {
             displayName = "Enable Babel";
             tooltip = "Toggle Babel activation";
             control = "CheckBox";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
     };

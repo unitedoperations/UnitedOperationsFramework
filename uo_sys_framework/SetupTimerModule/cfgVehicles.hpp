@@ -27,7 +27,7 @@ class EGVAR(SetupTimer,SetupTimerModule): EGVAR(Core,BaseModule) {
             control = "Combo";
             typeName = "NUMBER";
             property = QEGVAR(SetupTimer,SideSelect);
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             validate = "none";
             class values {
                 class West {name = "West"; value = 0; default = 0;};
@@ -42,7 +42,7 @@ class EGVAR(SetupTimer,SetupTimerModule): EGVAR(Core,BaseModule) {
             tooltip = "The size of the X value of the setup zone. Default: 100";
             property = QEGVAR(SetupTimer,RadiusX);
             control = QMGVAR(RadiusAttribute);
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "100";
             typeName = "NUMBER";
             validate = "number";
@@ -52,7 +52,7 @@ class EGVAR(SetupTimer,SetupTimerModule): EGVAR(Core,BaseModule) {
             tooltip = "The size of the Y value of the setup zone. Default: 100";
             property = QEGVAR(SetupTimer,RadiusY);
             control = QMGVAR(RadiusAttribute);
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             defaultValue = "100";
             typeName = "NUMBER";
             validate = "number";
@@ -65,7 +65,7 @@ class EGVAR(SetupTimer,SetupTimerModule): EGVAR(Core,BaseModule) {
             property = QEGVAR(SetupTimer,Time);
             defaultValue = "30"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
             typeName = "NUMBER"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-            expression = UO_FW_MODULE_EXPRESSION;
+            expression = MODULE_EXPRESSION;
             validate = "number";
         };
     };

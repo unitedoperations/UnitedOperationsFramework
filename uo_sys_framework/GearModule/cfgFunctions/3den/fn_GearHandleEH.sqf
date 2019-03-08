@@ -1,7 +1,7 @@
 #define COMPONENT Gear
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 EXEC_CHECK(ALL);
-UO_FW_3DEN_CHECK;
+3DEN_CHECK;
 
 params ["_object"];
 LOG_1("_object: %1",_object);

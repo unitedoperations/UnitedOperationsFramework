@@ -8,7 +8,7 @@ class EGVAR(CoverMap,UnitSettings) {
             tooltip = "List of AO Names that this unit can access via ace interact on map if CoverMap setting is enabled. Leave blank to disable.";
             control = "EditStringArray";
             condition = "ObjectControllable";
-            expression = UO_FW_ENTITY_EXPRESSION;
+            expression = ENTITY_EXPRESSION;
             defaultValue = "[]";
         };
         class EGVAR(CoverMap,UnitDefaultAO) {
@@ -18,7 +18,7 @@ class EGVAR(CoverMap,UnitSettings) {
             control = QEGVAR(3DEN,EditShortPlayerOnlyCategory);
             validate = "STRING";
             condition = "ObjectControllable";
-            expression = UO_FW_ENTITY_EXPRESSION;
+            expression = ENTITY_EXPRESSION;
             defaultValue = "''";
         };
     };

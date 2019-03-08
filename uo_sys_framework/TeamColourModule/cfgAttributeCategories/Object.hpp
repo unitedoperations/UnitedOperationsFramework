@@ -8,7 +8,7 @@ class UO_FW_TeamColourOptions {
             property = QEGVAR(TeamColour,Colour);
             control = QEGVAR(TeamColour,ColourAttribute);
             typeName = "STRING";
-            expression = UO_FW_ENTITY_EXPRESSION;
+            expression = ENTITY_EXPRESSION;
             condition = "objectControllable";
             defaultValue = "'None'";
         };

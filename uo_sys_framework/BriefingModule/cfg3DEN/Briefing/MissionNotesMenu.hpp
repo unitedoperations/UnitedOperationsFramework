@@ -7,7 +7,7 @@ class UO_FW_MissionNotes {
             displayName = "Enable Mission Notes";
             tooltip = "Enables Mission Notes";
             control = "CheckboxState";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "false";
 
         };
@@ -16,7 +16,7 @@ class UO_FW_MissionNotes {
             displayName = "Mission Author";
             tooltip = "Mission Author";
             control = "EditShort";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
         class EGVAR(Briefing,MissionNotes_Testers) {
@@ -24,7 +24,7 @@ class UO_FW_MissionNotes {
             displayName = "Mission Testers and Additional Credit";
             tooltip = "Mission Testers and Additional Credit";
             control = "Edit";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
 
         };
@@ -33,7 +33,7 @@ class UO_FW_MissionNotes {
             displayName = "End Conditions";
             tooltip = "Describe the specific end conditions for the mission here";
             control = "EditMulti5";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
 
         };
@@ -42,7 +42,7 @@ class UO_FW_MissionNotes {
             displayName = "Mission Specific Notes";
             tooltip = "Put any special notes for the mission in here";
             control = "EditMulti5";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
 
         };
@@ -51,7 +51,7 @@ class UO_FW_MissionNotes {
             displayName = "Mission Changelog";
             tooltip = "Put any changes for the mission in here(Bugfixes and such)";
             control = "EditMulti5";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
 
         };
@@ -60,7 +60,7 @@ class UO_FW_MissionNotes {
             displayName = "Allow Game Mastering";
             tooltip = "Allow Game Mastering";
             control = "CheckBox";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "false";
 
         };

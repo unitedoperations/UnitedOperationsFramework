@@ -21,7 +21,7 @@ class EGVAR(Hostage,Attributes) {
             tooltip = "Marker that determines the hostage rescue zone. (Default: 'hostage_rescue' marker)";
             property = QEGVAR(Hostage,Rescue_Location);
             control = "EditShort";
-            expression = UO_FW_ENTITY_EXPRESSION;
+            expression = ENTITY_EXPRESSION;
             condition = "objectControllable ";
             defaultValue = "'hostage_rescue'";
         };
@@ -30,7 +30,7 @@ class EGVAR(Hostage,Attributes) {
             tooltip = "Determine if the hostage will join the squad of the player who frees them. (Default: true)";
             property = QEGVAR(Hostage,Freed_JoinSquad);
             control = "Checkbox";
-            expression = UO_FW_ENTITY_EXPRESSION;
+            expression = ENTITY_EXPRESSION;
             condition = "objectControllable ";
             defaultValue = "true";
         };
@@ -39,7 +39,7 @@ class EGVAR(Hostage,Attributes) {
             tooltip = "Enable modifiers for hostage's behavior when they are freed. (False by default.)";
             property = QEGVAR(Hostage,Freed_Behavior_Modifier);
             control = "Checkbox";
-            expression = UO_FW_ENTITY_EXPRESSION;
+            expression = ENTITY_EXPRESSION;
             condition = "objectControllable ";
             defaultValue = "false";
         };
@@ -48,7 +48,7 @@ class EGVAR(Hostage,Attributes) {
             tooltip = "Determine the hostages behavior when freed by the player.\nWill not function unless 'Hostage Freed Modifiers' is enabled. (Default: CARELESS)";
             property = QEGVAR(Hostage,Freed_Behavior);
             control = QEGVAR(Hostage,FreedBehaviorAttribute);
-            expression = UO_FW_ENTITY_EXPRESSION;
+            expression = ENTITY_EXPRESSION;
             condition = "objectControllable ";
             defaultValue = "'Careless'";
         };

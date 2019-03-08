@@ -26,7 +26,7 @@ class EGVAR(CoverMap,CoverMapModule): EGVAR(Core,BaseModule) {
                 control = "EditShort";
                 typeName = "STRING";
                 property = QEGVAR(CoverMap,AOName);
-                expression = UO_FW_MODULE_EXPRESSION;
+                expression = MODULE_EXPRESSION;
                 validate = "STRING";
                 defaultValue = "'Area0'";
             };
@@ -35,7 +35,7 @@ class EGVAR(CoverMap,CoverMapModule): EGVAR(Core,BaseModule) {
                 tooltip = "The size of the X value of the setup zone. Default: 100";
                 property = QEGVAR(CoverMap,RadiusX);
                 control = QMGVAR(RadiusAttribute);
-                expression = UO_FW_MODULE_EXPRESSION;
+                expression = MODULE_EXPRESSION;
                 defaultValue = "100";
                 typeName = "NUMBER";
                 validate = "number";
@@ -45,7 +45,7 @@ class EGVAR(CoverMap,CoverMapModule): EGVAR(Core,BaseModule) {
                 tooltip = "The size of the Y value of the setup zone. Default: 100";
                 property = QEGVAR(CoverMap,RadiusY);
                 control = QMGVAR(RadiusAttribute);
-                expression = UO_FW_MODULE_EXPRESSION;
+                expression = MODULE_EXPRESSION;
                 defaultValue = "100";
                 typeName = "NUMBER";
                 validate = "number";
@@ -55,7 +55,7 @@ class EGVAR(CoverMap,CoverMapModule): EGVAR(Core,BaseModule) {
                 tooltip = "Map zoom level of the AO. Default: 0.2";
                 property = QEGVAR(CoverMap,ZoomLevel);
                 control = "EditShort";
-                expression = UO_FW_MODULE_EXPRESSION;
+                expression = MODULE_EXPRESSION;
                 defaultValue = "0.2";
                 typeName = "NUMBER";
                 validate = "number";
