@@ -356,18 +356,22 @@ class Extended_InitPost_Eventhandlers {
     class LandVehicle {
         #include "ShotCountModule\cfgXEH\InitPost.hpp"
         #include "AutoTrackAssetModule\cfgXEH\InitPost.hpp"
+        #include "AIDriversModule\cfgXEH\InitPost.hpp"
     };
     class Helicopter {
         #include "ShotCountModule\cfgXEH\InitPost.hpp"
         #include "AutoTrackAssetModule\cfgXEH\InitPost.hpp"
+        #include "AIDriversModule\cfgXEH\InitPost.hpp"
     };
     class Plane {
         #include "ShotCountModule\cfgXEH\InitPost.hpp"
         #include "AutoTrackAssetModule\cfgXEH\InitPost.hpp"
+        #include "AIDriversModule\cfgXEH\InitPost.hpp"
     };
     class Ship_F {
         #include "ShotCountModule\cfgXEH\InitPost.hpp"
         #include "AutoTrackAssetModule\cfgXEH\InitPost.hpp"
+        #include "AIDriversModule\cfgXEH\InitPost.hpp"
     };
 };
 

@@ -15,7 +15,7 @@ params ["_arg"];
 
 if (_arg) then {
     GVAR(DriverCam) = "camera" camCreate [0,0,0];
-    GVAR(DriverCam) cameraEffect ["INTERNAL", "BACK","UO_FW_rtt"];
+    GVAR(DriverCam) cameraEffect ["INTERNAL", "BACK",QGVAR(RTT)];
     GVAR(DriverCam) camSetFov 0.9;
     GVAR(DriverCam) camCommit 0;
 
@@ -31,7 +31,7 @@ if (_arg) then {
         GVAR(driverPipDisplay) = GVAR(pipDisplay) ctrlCreate ["RscPicture", -1];
         GVAR(driverPipDisplay) ctrlSetPosition [0.1,1,0.75,0.5];
         GVAR(driverPipDisplay) ctrlCommit 0;
-        GVAR(driverPipDisplay) ctrlSetText "#(argb,512,512,1)r2t(UO_FW_rtt,1.0)";
+        GVAR(driverPipDisplay) ctrlSetText "#(argb,512,512,1)r2t((GVAR(RTT)),1.0)";
     };
 
 } else {
@@ -40,7 +40,7 @@ if (_arg) then {
             GVAR(pipDisplay) closeDisplay 2;
         };
         detach GVAR(DriverCam);
-        GVAR(DriverCam) cameraEffect ["terminate", "back", "UO_FW_rtt"];
+        GVAR(DriverCam) cameraEffect ["terminate", "back", QGVAR(RTT)];
         camDestroy GVAR(DriverCam);
     };
 };

@@ -21,4 +21,4 @@ if (!isNull _driver) then {
 SETPVAR(_target,driver,objnull);
 GVAR(Vehicle) = objNull;
 [false] call FUNC(ToggleDriverCam);
-hint "Driver removed";
+hint "Driver Removed";

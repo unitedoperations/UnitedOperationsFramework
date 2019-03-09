@@ -10,12 +10,12 @@
 //#define DEBUG_MODE_NORMAL
 #define DEBUG_MODE_FULL
 #define COMPONENT SetDefaults
-//#include "\x\UO_FW\addons\Main\script_macros.hpp"
-#include "\x\cba\addons\Main\script_macros_common.hpp"
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
+//#include "\x\cba\addons\Main\script_macros_common.hpp"
 
 LOG("setDefaultsCalled");
 
-private _sections = QUOTE(!(((str(configname _x)) find QN(PREFIX)) isEqualto -1) )configClasses (Configfile >> "Cfg3DEN" >> "Mission");
+private _sections = QUOTE(!(((str(configname _x)) find QN(PREFIX)) isEqualto -1)) configClasses (Configfile >> "Cfg3DEN" >> "Mission");
 {
     private _section = configName _x;
     LOG_1("foreach _section: %1",_section);
@@ -32,7 +32,7 @@ private _sections = QUOTE(!(((str(configname _x)) find QN(PREFIX)) isEqualto -1)
                         private _valuetext = getText(_x >> "defaultValue");
                         missionNamespace setvariable [_propertyname, (call compile _valuetext), true];
                         private _value = missionNamespace getvariable [_propertyname,""];
-                        LOG_2("_propertyname: %1 already defined with value of %2! not set!",str _propertyname,_value);
+                        LOG_2("_propertyname: %1 no value in mission, default value %2! set!",str _propertyname,_value);
                     } else {
                         ERROR_1("_propertyname: %1 null default value! not set!",_propertyname);
                     };
@@ -52,5 +52,5 @@ private _sections = QUOTE(!(((str(configname _x)) find QN(PREFIX)) isEqualto -1)
 } foreach _sections;
 
 //SETMVAR(Initialized,true);
-missionNamespace setVariable [QEGVAR(Core,Initialized), true];
+ESETPVAR(Core,Initialized,true);
 [QEGVAR(Core,SettingsLoaded), []] call CBA_fnc_localEvent;

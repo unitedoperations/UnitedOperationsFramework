@@ -11,10 +11,15 @@
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 EXEC_CHECK(ALL);
 
-params ["_veh","_enableNV","_enableFlip"];
-if (isNil QGVAR(Vehicle)) then {GVAR(Vehicle) = objNull;};
+//IGNORE_PRIVATE_WARNING ["_target","_player"];
 
-if (_veh getvariable ["UO_FW_hasAIDriversActions",false]) exitwith {};
+params ["_veh","_enableNV","_enableFlip"];
+
+if (isNil QGVAR(Vehicle)) then {
+    GVAR(Vehicle) = objNull;
+};
+
+if (GETVAR(_veh,hasActions,false)) exitwith {};
 
 //AI driver action
 private _action = ["ai_driver","Add/Remove AI driver","",{
@@ -50,7 +55,7 @@ private _pipNvAction = ["ai_driver_pip_nv","Enable/Disable NV in driver's view",
     if (isNil QGVAR(pipNvEnabled)) then {
         GVAR(pipNvEnabled) = false;
     };
-    "FW_rtt" setPiPEffect ([[1], [0]] select GVAR(pipNvEnabled));
+    QGVAR(RTT) setPiPEffect ([[1], [0]] select GVAR(pipNvEnabled));
     GVAR(pipNvEnabled) = !GVAR(pipNvEnabled);
 },{
     (vehicle _player == _target) &&
@@ -66,8 +71,8 @@ if ( _enableFlip) then {
     [_veh, 1, ["ACE_SelfActions"], _unflipAction] call ace_interact_menu_fnc_addActionToObject;
 };
 
-if (_enableNV ) then {
+if (_enableNV) then {
     [_veh, 1, ["ACE_SelfActions"], _pipNvAction] call ace_interact_menu_fnc_addActionToObject;
 };
 
-SETPVAR(_veh,hasAIDriversActions,true);
+SETPVAR(_veh,hasActions,true);

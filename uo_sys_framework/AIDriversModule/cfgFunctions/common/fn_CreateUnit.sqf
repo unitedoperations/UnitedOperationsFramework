@@ -19,12 +19,12 @@ private _turret = (assignedVehicleRole _caller) select 1;
 _caller moveInDriver _target;
 _caller moveInTurret [_target, _turret];
 
-private _class = "B_Soldier_F";
-if (side _caller == EAST) then {
-    _class = "O_Soldier_F";
-};
-if (side _caller == INDEPENDENT) then {
-    _class = "I_Soldier_F";
+private _class = switch (side _caller) do {
+    case BLUFOR: {"B_Soldier_F"};
+    case EAST: {"O_Soldier_F"};
+    case INDEPENDENT: {"I_Soldier_F"};
+    case CIVILIAN: {"C_Marshal_F"};
+    default {"B_Soldier_F"};
 };
 
 private _unit = createAgent [_class, [0,0,0], [], 0, "CAN_COLLIDE"];
@@ -77,4 +77,4 @@ GVAR(LastTimeIn) = CBA_missionTime;
 }, [_unit, _target, _caller]] call CBA_fnc_WaitUntilAndExecute;
 
 GVAR(Vehicle) = _target;
-hint "Driver added";
+hint "Driver Added";

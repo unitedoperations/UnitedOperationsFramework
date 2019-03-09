@@ -5,3 +5,7 @@ CFGFUNCFOLDER(AIDrivers,common);
     CFGFUNC(AIDrivers,ToggleDriverCam);
     CFGFUNC(AIDrivers,EnableAIDriver);
 CFGFUNCFOLDEREND;
+
+CFGFUNCFOLDER(AIDrivers,EH);
+    CFGFUNC(AIDrivers,InitPost);
+CFGFUNCFOLDEREND;

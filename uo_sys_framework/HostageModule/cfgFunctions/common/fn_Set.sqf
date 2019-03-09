@@ -1,11 +1,12 @@
 #define COMPONENT Hostage
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 EXEC_CHECK(ALL);
+params ["_unit"];
+LOG_1("Hostage set called on: %1!",_unit);
 if (!UO_FW_Server_HostageModule_Allowed) exitWith {};
 
 [{(CBA_missionTime > 0)},{
-    params ["_unit","_enabled"];
-    if !(_enabled) exitWith {};
+    params ["_unit"];
     [QEGVAR(Core,RegisterModuleEvent), ["Hostage Control", "Allows the mission maker to easily add hostages to their missions.", "Starfox64, TrainDoctor and PiZZADOX"]] call CBA_fnc_globalEventJiP;
 
     private _marker = (GETVAR(_unit,Rescue_Location,"hostage_rescue"));
@@ -48,4 +49,4 @@ if (!UO_FW_Server_HostageModule_Allowed) exitWith {};
             [_idPFH] call CBA_fnc_removePerFrameHandler;
         };
     }, 5, [_unit,_marker,CBA_missionTime]] call CBA_fnc_addPerFrameHandler;
-}, _this] call CBA_fnc_WaitUntilAndExecute;
+}, [_unit]] call CBA_fnc_WaitUntilAndExecute;

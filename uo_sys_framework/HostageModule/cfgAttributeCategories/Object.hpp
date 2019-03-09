@@ -7,13 +7,8 @@ class EGVAR(Hostage,Attributes) {
             tooltip = "Makes this unit a hostage that starts bound/captive and must be rescued via player action.";
             property = QEGVAR(Hostage,State);
             control = "CheckboxState";
-            expression = QUOTE(\
-                private _propertyName = '%s';\
-                SETVAR(_this,_propertyName, _value);\
-                LOG_2('%1 calling hostage function with %2 value',_this,_value);\
-                [_this,_value] call EFUNC(Hostage,Set);\
-            );
-            condition = "objectControllable ";
+            expression = OBJECT_FNC_EXPRESSION(Hostage,Set);
+            condition = "objectControllable";
             defaultValue = "false";
         };
         class EGVAR(Hostage,Rescue_Location) {
@@ -22,7 +17,7 @@ class EGVAR(Hostage,Attributes) {
             property = QEGVAR(Hostage,Rescue_Location);
             control = "EditShort";
             expression = ENTITY_EXPRESSION;
-            condition = "objectControllable ";
+            condition = "objectControllable";
             defaultValue = "'hostage_rescue'";
         };
          class EGVAR(Hostage,Freed_JoinSquad) {
@@ -31,7 +26,7 @@ class EGVAR(Hostage,Attributes) {
             property = QEGVAR(Hostage,Freed_JoinSquad);
             control = "Checkbox";
             expression = ENTITY_EXPRESSION;
-            condition = "objectControllable ";
+            condition = "objectControllable";
             defaultValue = "true";
         };
         class EGVAR(Hostage,Freed_Behavior_Modifier) {
@@ -40,7 +35,7 @@ class EGVAR(Hostage,Attributes) {
             property = QEGVAR(Hostage,Freed_Behavior_Modifier);
             control = "Checkbox";
             expression = ENTITY_EXPRESSION;
-            condition = "objectControllable ";
+            condition = "objectControllable";
             defaultValue = "false";
         };
         class EGVAR(Hostage,Freed_Behavior) {
@@ -49,7 +44,7 @@ class EGVAR(Hostage,Attributes) {
             property = QEGVAR(Hostage,Freed_Behavior);
             control = QEGVAR(Hostage,FreedBehaviorAttribute);
             expression = ENTITY_EXPRESSION;
-            condition = "objectControllable ";
+            condition = "objectControllable";
             defaultValue = "'Careless'";
         };
     };

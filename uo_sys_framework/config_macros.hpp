@@ -3,16 +3,11 @@
 
 #define ENTITY_EXPRESSION "_propertyName = '%s'; _this setVariable [_propertyName, _value];"
 
-#define DELAYED_FNC_EXPRESSION(FNCNAME) \
-"private _propertyName = '%s';\
-_this setVariable [_propertyName, _value];\
-private _fncName = 'UO_FW_fnc_##FNCNAME##';\
-[{CBA_missionTime > 1},{\
-	params ['_object','_propertyName','_value','_fncName'];\
-	if (local _object && {(_object getvariable ['_propertyName',false])}) then {\
-		[_object,_value] call _fncName;\
-	}\
-},[_this,_propertyName,_value,_fncName]] call CBA_fnc_WaitUntilAndExecute;"
+#define OBJECT_FNC_EXPRESSION(var1,var2) QUOTE(\
+private _propertyname = '%s';\
+_this setVariable [ARR_2(_propertyName,_value)];\
+[ARR_2(_this,_value)] call EFUNC(var1,var2);\
+)
 
 #define MODULE_EXPRESSION "_this setVariable ['%s', _value, true];"
 
@@ -21,7 +16,7 @@ __EXEC(_TEMPMODULE = "Core")\
 __EXEC(_MODULESTR = "")\
 __EXEC(_TEMPFOLDER = #FolderName)\
 class DOUBLES(Core,FolderName) {\
-    file = QUOTE(\x\UO_FW\addons\Main\Core\cfgFunctions\FolderName)
+    file = QUOTE(\x\PREFIX\addons\Main\Core\cfgFunctions\FolderName)
 
 #define CFGFUNCFOLDER(ModuleName,FolderName)\
 __EXEC(_TEMPMODULE = #ModuleName)\
@@ -34,7 +29,7 @@ class DOUBLES(ModuleName,FolderName) {\
     __EXEC(_TEMPFNC = #FunctionName)\
     class DOUBLES(ModuleName,FunctionName) {\
     	scope = 1;\
-    	file = __EVAL("\x\UO_FW\addons\Main\" + _TEMPMODULE + _MODULESTR + "\cfgFunctions\" + _TEMPFOLDER + "\fn_" + #FunctionName + ".sqf");\
+    	file = __EVAL("\x\PREFIX\addons\Main\" + _TEMPMODULE + _MODULESTR + "\cfgFunctions\" + _TEMPFOLDER + "\fn_" + #FunctionName + ".sqf");\
     }
 
 #define CFGFUNCFOLDEREND\
