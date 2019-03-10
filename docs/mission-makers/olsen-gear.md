@@ -94,5 +94,3 @@ Next select the units you want to assign loadouts to through the UOFW system by 
 Your equipment will be pre-loaded through the editor.
 
 Randomized items will be randomized when gear is applied as you load into the briefing screen.
-
----
