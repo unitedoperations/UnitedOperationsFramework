@@ -8,7 +8,7 @@
  */
 
 //#define DEBUG_MODE_NORMAL
-#define DEBUG_MODE_FULL
+//#define DEBUG_MODE_FULL
 #define COMPONENT SetDefaults
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 //#include "\x\cba\addons\Main\script_macros_common.hpp"

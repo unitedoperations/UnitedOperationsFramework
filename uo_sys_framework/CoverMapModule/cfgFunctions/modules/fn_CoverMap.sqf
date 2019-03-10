@@ -1,10 +1,10 @@
 #define COMPONENT CoverMap
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-EXEC_CHECK(ALL);
 
 params [["_mode","",[""]],["_input",[],[[]]]];
 switch _mode do {
     case "init": {
+        EXEC_CHECK(ALL);
         if !is3DEN then {
             if (!UO_FW_Server_CoverMapModule_Allowed) exitWith {};
             if !(GVAR(Enable)) exitWith {};

@@ -87,7 +87,7 @@ class EGVAR(ACRE,UnitOptions) {
             property = QEGVAR(ACRE,PK_RADIO_EAR);
             displayName = "Pack Radio Ear";
             tooltip = "Sets the long range pack radio earpiece setting";
-            control = QEGVAR(Acre,ChannelSelect);
+            control = QEGVAR(Acre,EarSetting);
             expression = ENTITY_EXPRESSION;
             condition = "objectControllable";
             defaultValue = "0";

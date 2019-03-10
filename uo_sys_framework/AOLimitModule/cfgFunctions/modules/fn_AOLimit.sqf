@@ -1,11 +1,11 @@
 #define COMPONENT AOLimit
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-EXEC_CHECK(ALL);
 
-if !(UO_FW_Server_AOLIMIT_Allowed) exitwith {};
 params [["_mode","",[""]],["_input",[],[[]]]];
 switch _mode do {
     case "init": {
+        EXEC_CHECK(ALL);
+        if !(UO_FW_Server_AOLIMIT_Allowed) exitwith {};
         if !is3DEN then {
             _input params ["_logic",["_isActivated",true,[true]]];
             if !(_isActivated) exitWith {};

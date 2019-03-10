@@ -24,7 +24,7 @@ class EGVAR(SafeStart,Category) {
             tooltip = "Enable Unloaded Weapon on Mission Start";
             control = "Checkbox";
             expression = SCENARIO_EXPRESSION;
-            defaultValue = "true";
+            defaultValue = "false";
         };
     };
 };

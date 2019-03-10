@@ -29,4 +29,8 @@ CFGFUNCFOLDER(Gear,Attributes);
     CFGFUNC(Gear,GearComboLoadAttribute_onMouseClick);
     CFGFUNC(Gear,GearPresetAttribute_AttrLoad);
     CFGFUNC(Gear,GearPresetAttribute_onMouseClick);
+    CFGFUNC(Gear,SystemTypeAttribute_AttrLoad);
+    CFGFUNC(Gear,SystemTypeAttribute_AttrSave);
+    CFGFUNC(Gear,SystemTypeVehicleAttribute_AttrLoad);
+    CFGFUNC(Gear,SystemTypeAttribute_onLBSelChanged);
 CFGFUNCFOLDEREND;

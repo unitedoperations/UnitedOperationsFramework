@@ -297,6 +297,15 @@ EXEC_CHECK(CLIENT);
                 default {};
             };
 
+            private _gear = (getItemCargo (uniformContainer player)) select 0;
+            _gear append ((getItemCargo (vestContainer player)) select 0);
+            _gear append ((getItemCargo (backpackContainer player)) select 0);
+            _gear append (assignedItems player);
+            _gear = _gear select {((_x select [0, 4]) == "ACRE") || (_x == "ItemRadio")};
+            {
+                player removeItem _x;
+            } foreach _gear;
+
             if (GETPLVAR(SR_RADIO_Enabled,false)) then {player addItem _SRType;};
             if (GETPLVAR(LR_RADIO_Enabled,false)) then {player addItem _LRType;};
             if (GETPLVAR(PK_RADIO_Enabled,false)) then {player addItem _PKType;};

@@ -10,12 +10,12 @@
  *         BOOL    - True
  */
 #include "\x\UO_FW\addons\Main\HeadlessAIModule\module_macros.hpp"
-UO_FW_AI_EXEC_CHECK(ALL);
 
 params [["_mode","",[""]],["_input",[],[[]]]];
     if (isNil "UO_FW_AI_initialised") then {call EFUNC(AI,init);};
     switch _mode do {
         case "init": {
+            UO_FW_AI_EXEC_CHECK(ALL);
             if !is3DEN then {
                 _input params ["_logic",["_isActivated",true,[true]]];
                 if !(_isActivated) exitWith {};
