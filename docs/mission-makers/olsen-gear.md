@@ -87,10 +87,11 @@ You will need to specify the varnames for certain roles in the UOFW available ru
 
 Next select the units you want to assign loadouts to through the UOFW system by going into the unit(s) attributes. Here you can specify what loadout the unit should be using or you can just directly call the var-name of the loadout you want the unit to use.
 
+Next select the units you want to assign loadouts to through the UOFW system by going into the unit(s) attributes. Here you can specify what loadout the unit should be using or you can just directly call the var-name of the loadout you want the unit to use.
+
 ![Asssigning the Squad Leader Loadout]({{ site.baseurl }}/resources/images/olsen/gear_editor_demo.gif){:class="img-responsive"}
 
 Your equipment will be pre-loaded through the editor.
 
 Randomized items will be randomized when gear is applied as you load into the briefing screen.
- 
 ---
