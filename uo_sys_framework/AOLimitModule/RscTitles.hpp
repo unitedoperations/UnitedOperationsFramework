@@ -1,6 +1,6 @@
 class RscAOLimit
 {
-    onLoad="_this call FUNC(DisplayWarning);";
+    onLoad = QUOTE(_this call EFUNC(AOLimit,DisplayWarning););
     idd=-1;
     duration=1200;
     movingEnable=0;
