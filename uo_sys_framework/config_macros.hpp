@@ -14,22 +14,24 @@ _this setVariable [ARR_2(_propertyName,_value)];\
 #define CFGFUNCFOLDERCORE(FolderName)\
 __EXEC(_TEMPMODULE = "Core")\
 __EXEC(_MODULESTR = "")\
+__EXEC(_STRPREFIX = #PREFIX)\
 __EXEC(_TEMPFOLDER = #FolderName)\
 class DOUBLES(Core,FolderName) {\
-    file = QUOTE(\x\PREFIX\addons\Main\Core\cfgFunctions\FolderName)
+    file = __EVAL("\x\" + _STRPREFIX + "\addons\Main\Core\cfgFunctions\" + _TEMPFOLDER + "\")
 
 #define CFGFUNCFOLDER(ModuleName,FolderName)\
 __EXEC(_TEMPMODULE = #ModuleName)\
 __EXEC(_MODULESTR = "Module")\
+__EXEC(_STRPREFIX = #PREFIX)\
 __EXEC(_TEMPFOLDER = #FolderName)\
 class DOUBLES(ModuleName,FolderName) {\
-    file = QUOTE(\x\UO_FW\addons\Main\ModuleName##Module\cfgFunctions\FolderName)
+    file = __EVAL("\x\" + _STRPREFIX + "\addons\Main\" + _TEMPMODULE + _MODULESTR + "\cfgFunctions\" + _TEMPFOLDER + "\")
 
 #define CFGFUNC(ModuleName,FunctionName)\
     __EXEC(_TEMPFNC = #FunctionName)\
     class DOUBLES(ModuleName,FunctionName) {\
     	scope = 1;\
-    	file = __EVAL("\x\PREFIX\addons\Main\" + _TEMPMODULE + _MODULESTR + "\cfgFunctions\" + _TEMPFOLDER + "\fn_" + #FunctionName + ".sqf");\
+    	file = __EVAL("\x\" + _STRPREFIX + "\addons\Main\" + _TEMPMODULE + _MODULESTR + "\cfgFunctions\" + _TEMPFOLDER + "\fn_" + #FunctionName + ".sqf");\
     }
 
 #define CFGFUNCFOLDEREND\
