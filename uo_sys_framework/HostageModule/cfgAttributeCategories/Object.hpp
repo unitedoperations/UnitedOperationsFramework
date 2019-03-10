@@ -7,7 +7,7 @@ class EGVAR(Hostage,Attributes) {
             tooltip = "Makes this unit a hostage that starts bound/captive and must be rescued via player action.";
             property = QEGVAR(Hostage,State);
             control = "CheckboxState";
-            expression = OBJECT_FNC_EXPRESSION(Hostage,Set);
+            expression = ENTITY_EXPRESSION;
             condition = "objectControllable";
             defaultValue = "false";
         };

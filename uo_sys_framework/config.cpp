@@ -350,6 +350,7 @@ class Extended_InitPost_Eventhandlers {
     class CAManBase {
         #include "Core\cfgXEH\InitPost.hpp"
         #include "ShotCountModule\cfgXEH\InitPost.hpp"
+        #include "HostageModule\cfgXEH\InitPost.hpp"
         //#include "HeadlessAIModule\cfgXEH\InitPost.hpp"
         #include "MapAndCompassRemoverModule\cfgXEH\InitPost.hpp"
     };

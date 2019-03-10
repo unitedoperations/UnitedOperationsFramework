@@ -1,15 +1,18 @@
 #define COMPONENT Hostage
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 EXEC_CHECK(ALL);
-params ["_unit"];
-LOG_1("Hostage set called on: %1!",_unit);
 if (!UO_FW_Server_HostageModule_Allowed) exitWith {};
 
-[{(CBA_missionTime > 0)},{
-    params ["_unit"];
-    [QEGVAR(Core,RegisterModuleEvent), ["Hostage Control", "Allows the mission maker to easily add hostages to their missions.", "Starfox64, TrainDoctor and PiZZADOX"]] call CBA_fnc_globalEventJiP;
+params ["_unit"];
 
-    private _marker = (GETVAR(_unit,Rescue_Location,"hostage_rescue"));
+LOG_1("Hostage set called on: %1!",_unit);
+
+private _marker = (GETVAR(_unit,Rescue_Location,"hostage_rescue"));
+_marker setMarkerAlpha 0;
+
+[{(CBA_missionTime > 0)},{
+    params ["_unit","_marker"];
+    [QEGVAR(Core,RegisterModuleEvent), ["Hostage Control", "Allows the mission maker to easily add hostages to their missions.", "Starfox64, TrainDoctor and PiZZADOX"]] call CBA_fnc_globalEventJiP;
 
     if (getMarkerColor _marker isEqualto "") exitwith {
         ERROR_1("hostage _marker: %1 does not exist!",_marker);
@@ -49,4 +52,4 @@ if (!UO_FW_Server_HostageModule_Allowed) exitWith {};
             [_idPFH] call CBA_fnc_removePerFrameHandler;
         };
     }, 5, [_unit,_marker,CBA_missionTime]] call CBA_fnc_addPerFrameHandler;
-}, [_unit]] call CBA_fnc_WaitUntilAndExecute;
+}, [_unit,_marker]] call CBA_fnc_WaitUntilAndExecute;
