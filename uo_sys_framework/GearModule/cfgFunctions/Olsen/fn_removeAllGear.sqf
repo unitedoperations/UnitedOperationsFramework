@@ -20,12 +20,17 @@ EXEC_CHECK(ALL);
 
 params ["_unit"];
 
-removeHeadgear _unit;
-if ((!isPlayer _unit) || {!((goggles _unit) in WHITELIST)} || {GETMVAR(Olsen_FaceRemovalEnabled,false)}) then {
-    removeGoggles _unit;
+if (!(_unit isKindOf "CAManBase")) then {
+   _unit call UO_FW_fnc_RemoveAllVehicleGear;
+} else {
+    removeHeadgear _unit;
+    if ((!isPlayer _unit) || {!((goggles _unit) in WHITELIST)} || {(missionNamespace getVariable ["UO_FW_Gear_Olsen_FaceRemovalEnabled",false])}) then {
+        removeGoggles _unit;
+    };
+    removeVest _unit;
+    removeBackpack _unit;
+    removeUniform _unit;
+    removeAllWeapons _unit;
+    removeAllAssignedItems _unit;
 };
-removeVest _unit;
-removeBackpack _unit;
-removeUniform _unit;
-removeAllWeapons _unit;
-removeAllAssignedItems _unit;
+
