@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Anti-ND Module
+title: Template Module Page
 nav_order: 2
-parent: Core Modules
+#parent: Core Modules
+nav_exclude: true
 # grand_parent: Modules
 ---
 

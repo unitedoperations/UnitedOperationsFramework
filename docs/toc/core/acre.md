@@ -3,6 +3,7 @@ layout: default
 title: ACRE Module
 nav_order: 1
 parent: Core Modules
+permalink: /docs/toc/core/acre/
 # grand_parent: Modules
 ---
 
