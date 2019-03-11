@@ -2,7 +2,7 @@
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 EXEC_CHECK(CLIENT);
 
-["UO_FW_SafeStart_Event", {
+[QGVAR(Event), {
     if !(UO_FW_Server_SafeStartModule_Allowed) exitWith {};
     if !(GETMVAR(Enable,false)) exitwith {};
     [QEGVAR(Core,RegisterModuleEvent), ["Safe Start", "Extra safety for mission start", "Olsen and PiZZADOX"]] call CBA_fnc_localEvent;
@@ -17,10 +17,11 @@ EXEC_CHECK(CLIENT);
             private _magazineClass = currentMagazine player;
             player setAmmo [currentWeapon player, 0];
             player addMagazines [_magazineClass, 1];
+            private _result = [player, _magazineClass, -1, true] call CBA_fnc_addMagazine;
         };
     }, []] call CBA_fnc_waitUntilAndExecute;
 }] call CBA_fnc_addEventHandler;
 
 [QEGVAR(Core,SettingsLoaded), {
-    ["UO_FW_SafeStart_Event", []] call CBA_fnc_localEvent;
+    [QGVAR(Event), []] call CBA_fnc_localEvent;
 }] call CBA_fnc_addEventHandler;

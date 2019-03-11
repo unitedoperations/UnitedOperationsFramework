@@ -35,25 +35,25 @@ if !(UO_FW_Server_SelfActionsModule_Allowed) exitwith {};
             (!("ItemMap" in assignedItems _player)) &&
             {("ItemMap" in assignedItems _target)} &&
             {(_target distance _player <= 3)} &&
-            {((_player getFriend _target) > 0.6)}
+            {(((side _player) getFriend (side _target)) >= 0.6)}
         }] call ace_interact_menu_fnc_createAction;
-        [player, 0, ["ACE_MainActions"], _shareMapAction, true] call ace_interact_menu_fnc_addActionToObject;
+        ["CAManBase", 0, ["ACE_MainActions"], _shareMapAction, true] call ace_interact_menu_fnc_addActionToClass;
     }, []] call CBA_fnc_waitUntilAndExecute;
 }] call CBA_fnc_addEventHandler;
 
-//IGNORE_PRIVATE_WARNING ["_thisID"];
+//IGNORE_PRIVATE_WARNING ["_thisID","_thisType"];
 [QGVAR(CutGrassInitEvent), {
     [{!isNull player}, {
         private _macheteAction = ["machete_class", "Cut Grass", "", {
             [player, "AnimDone", {
                 params ["_unit", "_anim"];
-                if (_anim isEqualTo "AinvPknlMstpSlayWrflDnon_medic") then {
+                if (_anim isEqualTo "ainvpknlmstpslaywrfldnon_medic") then {
                     private _cutter = createVehicle ["ClutterCutter_small_EP1", [0,0,0], [], 0, "CAN_COLLIDE"];
                     _cutter setpos (_unit getPos [1, getDir _unit]);
-                    _unit removeEventHandler ["AnimDone", _thisID];
+                    _unit removeEventHandler [_thisType, _thisID];
                 };
             }, []] call CBA_fnc_addBISEventHandler;
-            player playMove "AinvPknlMstpSlayWrflDnon_medic";
+            player playMove "ainvpknlmstpslaywrfldnon_medic";
         }, {(stance player isEqualTo "CROUCH") && !(toLower(animationState player) isEqualTo "ainvpknlmstpslaywrfldnon_medic")}] call ace_interact_menu_fnc_createAction;
         [player, 1, ["ACE_SelfActions","ACE_Equipment"], _macheteAction] call ace_interact_menu_fnc_addActionToObject;
     }, []] call CBA_fnc_waitUntilAndExecute;
@@ -69,23 +69,23 @@ if !(UO_FW_Server_SelfActionsModule_Allowed) exitwith {};
                 (_this select 2) params ["_magClass", "_colour", "_ammoType"];
                 private _pos = player modelToWorld [0, 1, 0];
                 _pos = [_pos select 0, _pos select 1, (_pos select 2) + 1.5];
-                private _vectorView = [(getCameraViewDirection player) select 0, (getCameraViewDirection player) select 1, ((getCameraViewDirection player) select 2) + 0.35];
-                private _vectorDir = _vectorView vectorMultiply 55;
                 player playActionNow "HandGunOn";
                 [{
-                    params ["_ammoType", "_pos", "_vectorDir", "_colour"];
-                    [player,"SelfActions_flareFire"] remoteExec ["say3D"];
+                    params ["_ammoType", "_pos", "_colour"];
+                    [player,QEGVAR(SelfActions,flareFire)] remoteExec ["say3D"];
                     [{
-                        params ["_ammoType", "_pos", "_vectorDir", "_colour"];
+                        params ["_ammoType", "_pos", "_colour"];
                         private _flare = _ammoType createVehicle _pos;
+                        private _vectorView = [(getCameraViewDirection player) select 0, (getCameraViewDirection player) select 1, ((getCameraViewDirection player) select 2) + 0.35];
+                        private _vectorDir = _vectorView vectorMultiply 55;
                         _flare setVelocity _vectorDir;
-                        [_flare,"SelfActions_flareShot"] remoteExec ["say3D"];
+                        [_flare,QEGVAR(SelfActions,flareShot)] remoteExec ["say3D"];
                         [{!isNull (_this select 0)}, {
                             params ["_flare","_colour","_pos"];
                             [QGVAR(ParaFlareCreateLightEvent), [_flare,_colour,_pos]] call CBA_fnc_globalEvent;
                         }, [_flare,_colour,_pos]] call CBA_fnc_waitUntilAndExecute;
-                    }, [_ammoType,_pos,_vectorDir,_colour], 0.5] call CBA_fnc_waitAndExecute;
-                }, [_ammoType,_pos,_vectorDir,_colour], 0.5] call CBA_fnc_waitAndExecute;
+                    }, [_ammoType,_pos,_colour], 0.5] call CBA_fnc_waitAndExecute;
+                }, [_ammoType,_pos,_colour], 0.5] call CBA_fnc_waitAndExecute;
         	}, {
         		(vehicle player isEqualto player) && {((_this select 2 select 0) in magazines player)}
         	}, {}, [_magClass,_colour,_ammoType]] call ace_interact_menu_fnc_createAction;

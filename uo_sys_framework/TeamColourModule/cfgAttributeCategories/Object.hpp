@@ -1,4 +1,4 @@
-class UO_FW_TeamColourOptions {
+class EGVAR(TeamColour,Category) {
     displayName = "Team Colour Options";
     collapsed = 1;
     class Attributes {

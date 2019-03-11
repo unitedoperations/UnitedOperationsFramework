@@ -5,20 +5,38 @@ The date refers to the date when changes have been merged into DEV branch.
 
 ## [Unreleased]
 ### Added
-- Legacy mission support switches for functions: `UO_FW_Version_UpdatedNumber` and `UO_FW_Version_CreatedNumber` available in PreInit past `EGVAR(Core,Enabled)` check. Can be used for specific function changes and redirects based on version changes. Functions specific to an older version should be placed in an additional `\Legacy\` folder
+- Legacy mission support switches for functions: `EGVAR(Core,Version_UpdatedNumber)` and `EGVAR(Core,Version_CreatedNumber)` available in PreInit past `EGVAR(Core,Enabled)` check. Can be used for specific function changes and redirects based on version changes. Functions specific to an older version should be placed in an additional `\Legacy\` folder.
 - Gear System CBA Events for loading 3den attribute unit and vehicle loadouts, as well as forcing specific loadouts to units and vehicles.
-- stringtable.xml and corresponding macros
-- Gear System gear type config macro for later editing and addition of gear types
-- `EDEN_CHECK` macro to exit on !is3den state
+- stringtable.xml and corresponding macros.
+- Gear System gear type config macro for later editing and addition of gear types.
+- `EDEN_CHECK` macro to exit on !is3den state.
 - `VERSION_CHECK(VERSIONNUM)` macro to exit on below `VERSIONNUM` input: eg. `VERSION_CHECK(103)` exits script if version is 102 or below.
-- Added Gear Preset selection system
-- Added `USMC 1980s Woodland` gear preset
+- Added Gear Preset selection system.
+- Added `USMC 1980s Woodland` gear preset.
+- Added `US 1960s Woodland` gear preset.
+- Added `UK 2015 MTP` gear preset.
+- Added `UK 1980s Woodland` gear preset.
+- Added `UK 2010s MTP` gear preset.
+- Added `UK 1980s Desert` gear preset.
+- Added `MSV 1980s Woodland` gear preset.
+- Added `Iraq 1980s Desert` gear preset.
+- Added `Insurgents 90s Woodland` gear preset.
 
 ### Changed
 - Gear system now applies loadouts via EH inside 3den instead of on mission init.
+- AI Drivers activation through InitPost.
+- Hostage activation through InitPost.
+- ACRE add radio event now removes all radios before adding defined radios.
+- SafeStart defaults to lowered and on safe but no longer emptied magazine.
+- Start in Parachute activation through InitPost.
+- ACRE module adds radios to the ground if it cannot fit them in unit gear.
+- Safe Start adds unloaded magazine to the ground if it cannot fit it in unit gear.
+- Briefing Module displays tabs conditionally based on content (no longer shows empty tabs or entries).
 
 ### Fixed
-
+- Macro for SelfActions Cfg CfgClasses.
+- Cut Grass Animation EH
+- View Map Self Action condition
 
 ### Removed
 

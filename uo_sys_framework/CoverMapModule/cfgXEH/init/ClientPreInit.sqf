@@ -1,9 +1,9 @@
 #define COMPONENT CoverMap
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 EXEC_CHECK(CLIENT);
+if (!UO_FW_Server_CoverMapModule_Allowed) exitWith {};
 
 [QGVAR(InitEvent), {
-    if (!UO_FW_Server_CoverMapModule_Allowed) exitWith {};
     if !(GETMVAR(Enable,false)) exitWith {};
     [QEGVAR(Core,RegisterModuleEvent), ["Cover Map", "Covers map except specified area, allows switching between multiple AOs", "Blackhawk and PIZZADOX"]] call CBA_fnc_localEvent;
     [{(!isNull player)}, {
@@ -104,5 +104,6 @@ EXEC_CHECK(CLIENT);
 }] call CBA_fnc_addEventHandler;
 
 [QEGVAR(Core,SettingsLoaded), {
+    if !(GETMVAR(Enable,false)) exitWith {};
     [QGVAR(InitEvent), []] call CBA_fnc_localEvent;
 }] call CBA_fnc_addEventHandler;

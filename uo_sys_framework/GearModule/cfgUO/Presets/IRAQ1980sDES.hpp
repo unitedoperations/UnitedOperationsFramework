@@ -1,6 +1,6 @@
 class IRAQ_1980s_DES {
     authors[] = {"Dalltra"};
-    displayName = "IRAQ 1980s Desert";
+    displayName = "Iraq 1980s Desert";
     classPrefix = "IRAQ_1980s_DES_";
     namePrefix = "Iraq 80s (Desert)";
     displayDesc = "Iraq";

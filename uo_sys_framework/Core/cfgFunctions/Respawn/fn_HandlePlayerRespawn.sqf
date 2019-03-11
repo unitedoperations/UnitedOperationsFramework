@@ -83,33 +83,32 @@ if ((_respawnType isEqualto "INDTICK") || (_respawnType isEqualto "TEAMTICK") ||
 
         // Handle Module and Gear Settings
         //CoverMap
-        if (QEGVAR(RTemplatesS,CoverMap) in _templateSettings) then {
+        if ((QEGVAR(RTemplatesS,CoverMap)) in _templateSettings) then {
             [QEGVAR(CoverMap,InitEvent), []] call CBA_fnc_localEvent;
         };
         //SafeStart
-        if (QEGVAR(RTemplatesS,SafeStart) in _templateSettings) then {
-            ["UO_FW_SafeStart_Event", []] call CBA_fnc_localEvent;
+        if ((QEGVAR(RTemplatesS,SafeStart)) in _templateSettings) then {
+            [QEGVAR(SafeStart,Event), []] call CBA_fnc_localEvent;
         };
         //Team Colour
-        if (QEGVAR(RTemplatesS,TeamColour) in _templateSettings) then {
+        if ((QEGVAR(RTemplatesS,TeamColour)) in _templateSettings) then {
             ["UO_FW_TeamColour_Event", []] call CBA_fnc_localEvent;
         };
         //Map and Compass Remover
-        if (QEGVAR(RTemplatesS,MapAndCompassRemover) in _templateSettings) then {
+        if ((QEGVAR(RTemplatesS,MapAndCompassRemover)) in _templateSettings) then {
             ["UO_FW_MapRemover_PlayerEvent", []] call CBA_fnc_localEvent;
         };
         //Gear
-        if (QEGVAR(RTemplatesS,Gear) in _templateSettings) then {
+        if ((QEGVAR(RTemplatesS,Gear)) in _templateSettings) then {
             [QEGVAR(Gear,PlayerGearLoad), []] call CBA_fnc_localEvent;
         };
-        //ACRE
-        if (QEGVAR(RTemplatesS,ACRE) in _templateSettings) then {
-            //TODO
-            //["UO_FW_MapRemover_PlayerEvent", []] call CBA_fnc_localEvent;
+        //Acre
+        if ((QEGVAR(RTemplatesS,Acre)) in _templateSettings) then {
+            [QEGVAR(Acre,AddRadio_Event), []] call CBA_fnc_localEvent;
         };
         //StartInParachute
-        if (QEGVAR(RTemplatesS,StartInParachute) in _templateSettings) then {
-            [QGVAR(LocalEvent), []] call CBA_fnc_localEvent;
+        if ((QEGVAR(RTemplatesS,StartInParachute)) in _templateSettings) then {
+            [QEGVAR(StartInParachute,LocalEvent), []] call CBA_fnc_localEvent;
         };
 
     }, [_delay,_templateSettings,_teamRespawnMarker], _delay] call CBA_fnc_waitAndExecute;

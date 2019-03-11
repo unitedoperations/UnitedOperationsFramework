@@ -104,13 +104,13 @@ class CfgDebriefingSections {
     #include "Core\cfgDebriefingSections.hpp"
 };
 
-//class CfgSounds {
-//    #include "SelfActionsModule\cfgSounds.hpp"
-//};
+class CfgSounds {
+    #include "SelfActionsModule\cfgSounds.hpp"
+};
 
-//class CfgAmmo {
-//    #include "SelfActionsModule\cfgAmmo.hpp"
-//};
+class CfgAmmo {
+    #include "SelfActionsModule\cfgAmmo.hpp"
+};
 
 class CfgMagazines {
     #include "SelfActionsModule\cfgMagazines.hpp"

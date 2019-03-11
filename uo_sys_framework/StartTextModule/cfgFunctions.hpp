@@ -1,3 +1,3 @@
 CFGFUNCFOLDER(StartText,common);
-    CFGFUNC(StartText,ExecuteStartText);
+    CFGFUNC(StartText,Init);
 CFGFUNCFOLDEREND;

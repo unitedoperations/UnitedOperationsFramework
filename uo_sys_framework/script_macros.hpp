@@ -2,10 +2,12 @@
 #ifndef COMPONENT
     #define COMPONENT Main
 #endif
+#ifndef DEBUG_MODE_NORMAL
+    #define DEBUG_MODE_FULL
+#endif
 #ifndef DEBUG_MODE_MINIMUM
     #define DEBUG_MODE_MINIMUM
 #endif
-#define DEBUG_MODE_FULL
 #include "\x\cba\addons\Main\script_macros_common.hpp"
 
 //CBA Error Macro Intercept

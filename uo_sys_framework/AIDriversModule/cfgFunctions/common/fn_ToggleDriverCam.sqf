@@ -31,7 +31,7 @@ if (_arg) then {
         GVAR(driverPipDisplay) = GVAR(pipDisplay) ctrlCreate ["RscPicture", -1];
         GVAR(driverPipDisplay) ctrlSetPosition [0.1,1,0.75,0.5];
         GVAR(driverPipDisplay) ctrlCommit 0;
-        GVAR(driverPipDisplay) ctrlSetText "#(argb,512,512,1)r2t(rtt,1.0)";
+        GVAR(driverPipDisplay) ctrlSetText ("#(argb,512,512,1)r2t(" + QGVAR(RTT) + ",1.0)");
     };
 
 } else {

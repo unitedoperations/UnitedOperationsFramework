@@ -7,7 +7,7 @@
  *        PiZZADOX
  */
 
-//#define DEBUG_MODE_NORMAL
+#define DEBUG_MODE_NORMAL
 //#define DEBUG_MODE_FULL
 #define COMPONENT SetDefaults
 #include "\x\UO_FW\addons\Main\script_macros.hpp"

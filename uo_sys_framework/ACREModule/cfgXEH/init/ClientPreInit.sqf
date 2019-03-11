@@ -10,12 +10,12 @@
 #define COMPONENT ACRE
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 EXEC_CHECK(CLIENT);
+if !(UO_FW_Server_AcreModule_Allowed) exitwith {};
 
 #define RADIONETARRAY(TEAMNAME) \
 [(GETMVAR(RADIONET_NAME1##TEAMNAME,"")),(GETMVAR(RADIONET_NAME2##TEAMNAME,"")),(GETMVAR(RADIONET_NAME3##TEAMNAME,"")),(GETMVAR(RADIONET_NAME4##TEAMNAME,"")),(GETMVAR(RADIONET_NAME5##TEAMNAME,"")),(GETMVAR(RADIONET_NAME6##TEAMNAME,"")),(GETMVAR(RADIONET_NAME7##TEAMNAME,""))]
 
-[QEGVAR(Core,SettingsLoaded), {
-    if !(UO_FW_Server_AcreModule_Allowed) exitwith {};
+[QGVAR(Init_Event), {
     if !(GETMVAR(Enabled,false)) exitwith {};
     if (!isDedicated && {hasinterface}) then {
         [QEGVAR(Core,RegisterModuleEvent), ["ACRE Setup", "Module for Acre Settings", "PiZZADOX and Sacher"]] call CBA_fnc_localEvent;
@@ -81,10 +81,18 @@ EXEC_CHECK(CLIENT);
             } foreach RADIONETARRAY(CIVILIAN);
         };
 
-        LOG_1("Setting Netnames. Blu: %1",(RADIONETARRAY(BLUFOR)));
-        LOG_1("Setting Netnames. Opf: %1",(RADIONETARRAY(OPFOR)));
-        LOG_1("Setting Netnames. Ind: %1",(RADIONETARRAY(INDEPENDENT)));
-        LOG_1("Setting Netnames. Civ: %1",(RADIONETARRAY(CIVILIAN)));
+        if (GETMVAR(RADIONET_Enabled_BLUFOR,false)) then {
+            LOG_1("Setting Netnames. Blu: %1",(RADIONETARRAY(BLUFOR)));
+        };
+        if (GETMVAR(RADIONET_Enabled_OPFOR,false)) then {
+            LOG_1("Setting Netnames. Opf: %1",(RADIONETARRAY(OPFOR)));
+        };
+        if (GETMVAR(RADIONET_Enabled_INDEPENDENT,false)) then {
+            LOG_1("Setting Netnames. Ind: %1",(RADIONETARRAY(INDEPENDENT)));
+        };
+        if (GETMVAR(RADIONET_Enabled_CIVILIAN,false)) then {
+            LOG_1("Setting Netnames. Civ: %1",(RADIONETARRAY(CIVILIAN)));
+        };
 
         [{(!isNull player) && {(!isNull acre_player)} && {([] call acre_api_fnc_isInitialized)}},{
             private _side = side player;
@@ -258,18 +266,12 @@ EXEC_CHECK(CLIENT);
                 };
             };
 
-            ["UO_FW_ACRE_AddRadio_Event",[]] call CBA_fnc_localEvent;
-            //need to check again for acre
-            [{(CBA_missionTime > 1) && {[] call acre_api_fnc_isInitialized}},
-            {
-                ["UO_FW_ACRE_SetChannelAndEar_Event",[]] call CBA_fnc_localEvent;
-            }] call CBA_fnc_waitUntilAndExecute;
-
+            [QGVAR(AddRadio_Event),[]] call CBA_fnc_localEvent;
         }] call CBA_fnc_waitUntilAndExecute;
     };
 }] call CBA_fnc_addEventHandler;
 
-["UO_FW_ACRE_AddRadio_Event",{
+[QGVAR(AddRadio_Event),{
     [{!isNull player},{
         if (GETPLVAR(UnitSettings_Enable,false)) then {
             private ["_SRType","_LRType","_PKType"];
@@ -297,6 +299,8 @@ EXEC_CHECK(CLIENT);
                 default {};
             };
 
+            LOG_3("Radio Types SR: %1 LR: %2 PK: %3",_SRType,_LRType,_PKType);
+
             private _gear = (getItemCargo (uniformContainer player)) select 0;
             _gear append ((getItemCargo (vestContainer player)) select 0);
             _gear append ((getItemCargo (backpackContainer player)) select 0);
@@ -305,15 +309,29 @@ EXEC_CHECK(CLIENT);
             {
                 player removeItem _x;
             } foreach _gear;
+            LOG_3("Removed: %1",_gear);
 
-            if (GETPLVAR(SR_RADIO_Enabled,false)) then {player addItem _SRType;};
-            if (GETPLVAR(LR_RADIO_Enabled,false)) then {player addItem _LRType;};
-            if (GETPLVAR(PK_RADIO_Enabled,false)) then {player addItem _PKType;};
+            if ((GETPLVAR(SR_RADIO_Enabled,false)) && {!(_SRType isEqualTo "NONE")}) then {
+                private _result = [player, _SRType, true] call CBA_fnc_addItem;
+                LOG_2("Adding %1, Success: %2",_SRType,_result);
+            };
+            if ((GETPLVAR(LR_RADIO_Enabled,false)) && {!(_LRType isEqualTo "NONE")}) then {
+                private _result = [player, _LRType, true] call CBA_fnc_addItem;
+                LOG_2("Adding %1, Success: %2",_LRType,_result);
+            };
+            if ((GETPLVAR(PK_RADIO_Enabled,false)) && {!(_PKType isEqualTo "NONE")}) then {
+                private _result = [player, _PKType, true] call CBA_fnc_addItem;
+                LOG_2("Adding %1, Success: %2",_PKType,_result);
+            };
+
+            [{(CBA_missionTime > 1) && {[] call acre_api_fnc_isInitialized}},{
+                [QGVAR(SetChannelAndEar_Event),[]] call CBA_fnc_localEvent;
+            }] call CBA_fnc_waitUntilAndExecute;
         };
     }] call CBA_fnc_waitUntilAndExecute;
 }] call CBA_fnc_addEventHandler;
 
-["UO_FW_ACRE_SetChannelAndEar_Event",{
+[QGVAR(SetChannelAndEar_Event),{
     [{(CBA_missionTime > 1) &&  {[] call acre_api_fnc_isInitialized}},{
         if (GETPLVAR(UnitSettings_Enable,false)) then {
             {
@@ -345,16 +363,22 @@ EXEC_CHECK(CLIENT);
 
             {
                 private _radioID = [_x] call acre_api_fnc_getRadioByType;
-                if ( ! isNil "_radioID") then {
+                if (!isNil "_radioID") then {
                     private _result = (GETPLVAR(PK_RADIO_CHANNEL,1));
                     if (_result < 1) then {
                         ERROR_1("%1 is not a valid Channel Number",_result);
                     } else {
-                        [_radioID, _result] call acre_api_fnc_setRadioChannel;
+                        if !(_x isEqualTo "ACRE_PRC77") then {
+                            [_radioID, _result] call acre_api_fnc_setRadioChannel;
+                        };
                     };
                     [_radioID, (["CENTER", "LEFT", "RIGHT"] select (GETPLVAR(PK_RADIO_EAR,0)))] call acre_api_fnc_setRadioSpatial;
                 };
             } forEach ["ACRE_PRC117F", "ACRE_PRC77", "ACRE_SEM70"];
         };
     }] call CBA_fnc_waitUntilAndExecute;
+}] call CBA_fnc_addEventHandler;
+
+[QEGVAR(Core,SettingsLoaded), {
+    [QGVAR(Init_Event), []] call CBA_fnc_localEvent;
 }] call CBA_fnc_addEventHandler;

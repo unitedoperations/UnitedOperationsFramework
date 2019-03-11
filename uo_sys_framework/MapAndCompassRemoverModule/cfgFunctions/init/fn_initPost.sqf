@@ -9,13 +9,6 @@ if !(_obj isKindOf "Man") exitwith {};
 
 [QEGVAR(Core,RegisterModuleEvent), ["Map and Compass Remover", "Removes Map and Compass after briefing", "TinfoilHate, Sacher and PiZZADOX"]] call CBA_fnc_localEvent;
 
-if (GETMVAR(GivePlayersEquipment,false)) then {
-    if (isPlayer _obj) then {
-        _obj linkItem "ItemCompass";
-        _obj linkItem "ItemMap";
-    };
-};
-
 [{CBA_MissionTime > 0},{
     params ["_obj"];
     if (GETVAR(_obj,RemoveCompass,false)) then {

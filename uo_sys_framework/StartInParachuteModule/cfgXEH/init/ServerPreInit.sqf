@@ -2,7 +2,4 @@
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 EXEC_CHECK(SERVER);
 if (!UO_FW_Server_StartInParachuteModule_Allowed) exitWith {};
-
-[QEGVAR(Core,SettingsLoaded), {
-    [QGVAR(LocalEvent), []] call CBA_fnc_localEvent;
-}] call CBA_fnc_addEventHandler;
+if !(GETMVAR(Enabled,false)) exitwith {};

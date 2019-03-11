@@ -1,4 +1,4 @@
-class UO_FW_MissionNotes {
+class EGVAR(Briefing,MissionNotes) {
     displayName = "Mission Notes";
     collapsed = 1;
     class Attributes {
