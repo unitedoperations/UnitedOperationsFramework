@@ -37,6 +37,11 @@ The date refers to the date when changes have been merged into DEV branch.
 - Macro for SelfActions Cfg CfgClasses.
 - Cut Grass Animation EH
 - View Map Self Action condition
+- AO Limit Soft Notification
+- CaptureZone var and teamcontrolling var
+- End Conditions CaptureZone checking
+- End Conditions attribute AttrLoad and AttrSave
+- Debug display naming
 
 ### Removed
 
