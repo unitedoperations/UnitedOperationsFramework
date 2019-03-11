@@ -293,16 +293,6 @@ class EGVAR(CaptureZone,CaptureZoneModule): EGVAR(Core,BaseModule) {
             typeName = "BOOL";
             validate = "none";
         };
-        //class EGVAR(CaptureZone,Colours) {
-        //    displayName = "Colours";
-        //    tooltip = "Array of colours used for the map markers when zone status changes. Colours are respective with BLUFOR, OPFOR, Indfor, Civilian, Uncontrolled, and Contested.";
-        //    property = QEGVAR(CaptureZone,Colours);
-        //    control = "EditStringArray";
-        //    expression = MODULE_EXPRESSION;
-        //    defaultValue = "['ColorBlue','ColorRed','ColorGreen','ColorYellow','ColorWhite','ColorKhaki']";
-        //    typeName = "STRING";
-        //    validate = "none";
-        //};
         class EGVAR(CaptureZone,Hidden) {
             displayName = "Hidden";
             tooltip = "Hides the CaptureZone on the map. No markers are displayed if setting is enabled.";
@@ -323,14 +313,14 @@ class EGVAR(CaptureZone,CaptureZoneModule): EGVAR(Core,BaseModule) {
             typeName = "BOOL";
             validate = "none";
         };
-        class EGVAR(CaptureZone,Repeatable) {
+        class EGVAR(CaptureZone,Mode) {
             displayName = "Recapture";
             tooltip = "Can this area be recaptured? If disabled, zone will deactivate once a CaptureZone team captures it.";
-            property = QEGVAR(CaptureZone,Repeatable);
-            control = "CheckBox";
+            property = QEGVAR(CaptureZone,Mode);
+            control = QEGVAR(CaptureZone,ModeAttribute);
             expression = MODULE_EXPRESSION;
-            defaultValue = "true";
-            typeName = "BOOL";
+            defaultValue = "1";
+            typeName = "NUMBER";
             validate = "none";
         };
         class EGVAR(CaptureZone,Condition) {

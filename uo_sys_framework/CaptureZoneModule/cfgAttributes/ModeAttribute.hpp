@@ -1,4 +1,4 @@
-class EGVAR(EndConditions,CaptureZoneTeam): Toolbox {
+class EGVAR(CaptureZone,ModeAttribute): Title {
     attributeLoad = "\
         private _name = gettext (_config >> 'property');\
         missionNamespace setvariable [_name,_value];\
@@ -11,7 +11,7 @@ class EGVAR(EndConditions,CaptureZoneTeam): Toolbox {
         private _value = missionNamespace getvariable [_name,''];\
         _value\
     ";
-    h = "8 * (pixelH * pixelGrid * 0.50)";
+    h = "9 * (pixelH * pixelGrid * 0.50)";
     class Controls: Controls {
         class Title: Title {};
         class Value: ctrlToolbox {
@@ -21,9 +21,9 @@ class EGVAR(EndConditions,CaptureZoneTeam): Toolbox {
             w = "82 * (pixelW * pixelGrid * 0.50)";
             h = "8 * (pixelH * pixelGrid * 0.50)";
             rows = 1;
-            columns = 5;
-            values[] = {0,1,2,3,4};
-            strings[] = {"Uncaptured","BLUFOR","OPFOR","Indfor","CIVILIAN"};
+            columns = 3;
+            strings[] = {"Once","Hold","Repeatable"};
+            values[] = {0,1,2};
             onToolboxSelChanged = "\
                 params ['_control','_value'];\
                 private _config = _control getvariable ['UO_FW_ParentCfg',''];\

@@ -175,8 +175,7 @@
 ///////////////////////////////////////////////////////////////////////////
 /// Base Classes
 ///////////////////////////////////////////////////////////////////////////
-class UO_FW_RscBackground
-{
+class UO_FW_RscBackground {
     colorBackground[]={0, 0, 0, 0};
     text="";
     type=CT_STATIC;
@@ -186,8 +185,7 @@ class UO_FW_RscBackground
     font=RobotoCondensed;
     sizeEx=0.04;
 };
-  class UO_FW_RscText
-  {
+  class UO_FW_RscText {
     idc     = -1;
     access     = 0;
     type     = UO_FW_CT_STATIC;
@@ -213,14 +211,12 @@ class UO_FW_RscBackground
   };
 
   //Multi-line text.
-  class UO_FW_RscTextMulti: UO_FW_RscText
-  {
+  class UO_FW_RscTextMulti: UO_FW_RscText {
     linespacing = 1;
     style = UO_FW_ST_LEFT + UO_FW_ST_MULTI;
   };
 
-  class UO_FW_RscFrame
-  {
+  class UO_FW_RscFrame {
     type     = UO_FW_CT_STATIC;
     idc = -1;
     style = 64;
@@ -233,8 +229,7 @@ class UO_FW_RscBackground
   };
 
   //Standard active text (text that can be clicked like a button)
-   class UO_FW_RscActiveText
-  {
+   class UO_FW_RscActiveText {
     idc             = -1;
     access            = UO_FW_ReadAndWrite;
     type             = UO_FW_CT_ACTIVETEXT;
@@ -260,8 +255,7 @@ class UO_FW_RscBackground
     text = "";
   };
 
-  class UO_FW_RscStructuredText
-  {
+  class UO_FW_RscStructuredText {
       idc     = -1;
     access     = 0;
     type     = UO_FW_CT_STRUCTURED_TEXT;
@@ -277,8 +271,7 @@ class UO_FW_RscBackground
     text             = "";
     size             = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
     colorText[]     = {1,1,1,1};
-    class Attributes
-    {
+    class Attributes {
         font     = UO_FW_FONT_NORMAL;
         color     = "#ffffff";
         align     = "left";
@@ -286,8 +279,7 @@ class UO_FW_RscBackground
     };
   };
 
-    class UO_FW_RscHTML
-  {
+    class UO_FW_RscHTML {
     idc         = -1;
     access        = UO_FW_ReadAndWrite;
     type         = UO_FW_CT_HTML;
@@ -308,44 +300,37 @@ class UO_FW_RscBackground
     tooltipColorShade[]     = {1,1,0.7,1};
     prevPage                 = "#(argb,8,8,3)color(1,1,1,1)";
     nextPage                 = "#(argb,8,8,3)color(1,1,1,1)";
-    class H1
-    {
+    class H1 {
         font         = UO_FW_FONT_NORMAL;
         fontBold     = UO_FW_FONT_BOLD;
         sizeEx         = 0.1;
     };
-    class H2
-    {
+    class H2 {
         font         = UO_FW_FONT_NORMAL;
         fontBold     = UO_FW_FONT_BOLD;
         sizeEx         = 0.09;
     };
-    class H3
-    {
+    class H3 {
         font         = UO_FW_FONT_NORMAL;
         fontBold     = UO_FW_FONT_BOLD;
         sizeEx         = 0.08;
     };
-    class H4
-    {
+    class H4 {
         font         = UO_FW_FONT_NORMAL;
         fontBold     = UO_FW_FONT_BOLD;
         sizeEx         = 0.07;
     };
-    class H5
-    {
+    class H5 {
         font         = UO_FW_FONT_NORMAL;
         fontBold     = UO_FW_FONT_BOLD;
         sizeEx         = 0.06;
     };
-    class H6
-    {
+    class H6 {
         font         = UO_FW_FONT_NORMAL;
         fontBold     = UO_FW_FONT_BOLD;
         sizeEx         = 0.05;
     };
-    class P
-    {
+    class P {
         font         = UO_FW_FONT_NORMAL;
         fontBold     = UO_FW_FONT_BOLD;
         sizeEx         = 0.04;
@@ -353,8 +338,7 @@ class UO_FW_RscBackground
   };
 
   // Todo NEEDS CHECKING WITH WIKI
-  class UO_FW_RscProgress
-  {
+  class UO_FW_RscProgress {
     idc         = -1;
     access        = UO_FW_ReadAndWrite;
     type         = UO_FW_CT_PROGRESS;
@@ -372,8 +356,7 @@ class UO_FW_RscBackground
   };
 
   // Todo NEEDS CHECKING WITH WIKI
-  class UO_FW_RscProgressNotFreeze
-  {
+  class UO_FW_RscProgressNotFreeze {
     idc         = -1;
     access        = UO_FW_ReadAndWrite;
     type         = UO_FW_CT_ANIMATED_TEXTURE;
@@ -388,8 +371,7 @@ class UO_FW_RscBackground
     texture     = "#(argb,8,8,3)color(0,0,0,0)";
   };
 
-  class UO_FW_RscPicture
-  {
+  class UO_FW_RscPicture {
     idc         = -1;
     access         = 0;
     type         = UO_FW_CT_STATIC;
@@ -413,8 +395,7 @@ class UO_FW_RscBackground
     tooltipColorShade[] = {0,0,0,0.65};
   };
 
-  class UO_FW_RscEdit
-  {
+  class UO_FW_RscEdit {
     deletable = 0;
     fade = 0;
     access = 0;
@@ -440,8 +421,7 @@ class UO_FW_RscBackground
     tooltipColorShade[] = {0,0,0,0.65};
   };
 
-  class UO_FW_RscCombo
-  {
+  class UO_FW_RscCombo {
     deletable = 0;
     fade = 0;
     access = 0;
@@ -472,8 +452,7 @@ class UO_FW_RscBackground
     tooltipColorText[] = {1,1,1,1};
 
     maxHistoryDelay = 1;
-    class ComboScrollBar
-    {
+    class ComboScrollBar {
         arrowEmpty = "\A3\ui_f\data\gui\cfg\scrollbar\arrowEmpty_ca.paa";
         arrowFull = "\A3\ui_f\data\gui\cfg\scrollbar\arrowFull_ca.paa";
         autoScrollDelay = 5;
@@ -503,8 +482,7 @@ class UO_FW_RscBackground
     wholeHeight = 0.45;
   };
 
-  class UO_FW_RscListBox
-  {
+  class UO_FW_RscListBox {
     deletable = 0;
     fade = 0;
     access = 0;
@@ -537,8 +515,7 @@ class UO_FW_RscBackground
     tooltipColorText[] = {1,1,1,1};
     tooltipColorBox[] ={1,1,1,1};
     tooltipColorShade[] = {0,0,0,0.65};
-    class ListScrollBar
-    {
+    class ListScrollBar {
         arrowEmpty = "\A3\ui_f\data\gui\cfg\scrollbar\arrowEmpty_ca.paa";
         arrowFull = "\A3\ui_f\data\gui\cfg\scrollbar\arrowFull_ca.paa";
         color[] = {1,1,1,1};
@@ -570,8 +547,7 @@ class UO_FW_RscBackground
 
 
   // Todo Needs checking
-  class UO_FW_RscListNBox
-  {
+  class UO_FW_RscListNBox {
     idc             = -1;
     access            = UO_FW_ReadAndWrite;
     type             = UO_FW_CT_LISTNBOX;
@@ -610,8 +586,7 @@ class UO_FW_RscBackground
     idcLeft         = -1;
     idcRight         = -1;
     shadow             = 0;
-    class ListScrollBar
-    {
+    class ListScrollBar {
         arrowEmpty = "\A3\ui_f\data\gui\cfg\scrollbar\arrowEmpty_ca.paa";
         arrowFull = "\A3\ui_f\data\gui\cfg\scrollbar\arrowFull_ca.paa";
         color[] = {1,1,1,1};
@@ -628,8 +603,7 @@ class UO_FW_RscBackground
         autoScrollDelay = 5;
         border = "\A3\ui_f\data\gui\cfg\scrollbar\border_ca.paa";
     };
-    class ScrollBar
-    {
+    class ScrollBar {
         arrowEmpty = "\A3\ui_f\data\gui\cfg\scrollbar\arrowEmpty_ca.paa";
         arrowFull = "\A3\ui_f\data\gui\cfg\scrollbar\arrowFull_ca.paa";
         color[] = {1,1,1,1};
@@ -648,8 +622,7 @@ class UO_FW_RscBackground
     };
   };
 
-  class UO_FW_RscButton
-  {
+  class UO_FW_RscButton {
     deletable = 0;
     fade = 0;
     access = 0;
@@ -683,8 +656,7 @@ class UO_FW_RscBackground
     borderSize = 0;
   };
 
-  class UO_FW_RscShortcutButton
-  {
+  class UO_FW_RscShortcutButton {
     idc = -1;
     style     = UO_FW_ST_UNDEFINED;
     type     = UO_FW_CT_SHORTCUTBUTTON;
@@ -706,22 +678,19 @@ class UO_FW_RscBackground
     textSecondary = "";
     action = "";
 
-    class HitZone
-    {
+    class HitZone {
         left = 0;
         top = 0;
         right = 0;
         bottom = 0;
     };
-    class ShortcutPos
-    {
+    class ShortcutPos {
         left = 0;
         top = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 20) - (((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)) / 2";
         w = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1) * (3/4)";
         h = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
     };
-    class TextPos
-    {
+    class TextPos {
         left = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1) * (3/4)";
         top = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 20) - (((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)) / 2";
         right = 0.005;
@@ -754,8 +723,7 @@ class UO_FW_RscBackground
     soundPush[] = {"\A3\ui_f\data\sound\RscButton\soundPush",0.09,1};
     soundClick[] = {"\A3\ui_f\data\sound\RscButton\soundClick",0.09,1};
     soundEscape[] = {"\A3\ui_f\data\sound\RscButton\soundEscape",0.09,1};
-    class Attributes
-    {
+    class Attributes {
         font = UO_FW_FONT_NORMAL;
         color = "#E5E5E5";
         align = "left";
@@ -776,16 +744,14 @@ class UO_FW_RscBackground
     animTextureFocused = "\A3\ui_f\data\GUI\RscCommon\RscShortcutButton\focus_ca.paa";
     animTexturePressed = "\A3\ui_f\data\GUI\RscCommon\RscShortcutButton\down_ca.paa";
 
-    class AttributesImage
-    {
+    class AttributesImage {
         font = UO_FW_FONT_NORMAL;
         color = "#E5E5E5";
         align = "left";
     };
 };
 
-class UO_FW_RscShortcutButtonMain
-{
+class UO_FW_RscShortcutButtonMain {
     idc = -1;
     style     = UO_FW_ST_UNDEFINED;
     default = 0;
@@ -799,22 +765,19 @@ class UO_FW_RscShortcutButtonMain
     action = "";
     color[] ={1,1,1,1};
     colorDisabled[] ={1,1,1,0.25};
-    class HitZone
-    {
+    class HitZone {
         left = 0;
         top = 0;
         right = 0;
         bottom = 0;
     };
-    class ShortcutPos
-    {
+    class ShortcutPos {
         left = 0.0145;
         top = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 20) - (((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1.2)) / 2";
         w = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1.2) * (3/4)";
         h = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1.2)";
     };
-    class TextPos
-    {
+    class TextPos {
         left = "(((safezoneW / safezoneH) min 1.2) / 32) * 1.5";
         top = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 20)*2 - (((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1.2)) / 2";
         right = 0.005;
@@ -827,23 +790,20 @@ class UO_FW_RscShortcutButtonMain
     animTexturePressed = "\A3\ui_f\data\GUI\RscCommon\RscShortcutButtonMain\down_ca.paa";
     animTextureDefault = "\A3\ui_f\data\GUI\RscCommon\RscShortcutButtonMain\normal_ca.paa";
 
-    class Attributes
-    {
+    class Attributes {
         font = UO_FW_FONT_NORMAL;
         color = "#E5E5E5";
         align = "left";
         shadow = "false";
     };
-    class AttributesImage
-    {
+    class AttributesImage {
         font = UO_FW_FONT_NORMAL;
         color = "#E5E5E5";
         align = "false";
     };
 };
 
-class UO_FW_RscSlider
-{
+class UO_FW_RscSlider {
     idc = -1;
     deletable = 0;
     fade = 0;
@@ -859,8 +819,7 @@ class UO_FW_RscSlider
 
 
   // ToDo Needs checking
-  class UO_FW_RscSliderH: UO_FW_RscSlider
-  {
+  class UO_FW_RscSliderH: UO_FW_RscSlider {
     idc             = -1;
     access            = UO_FW_ReadAndWrite;
     type             = UO_FW_CT_XSLIDER;
@@ -877,8 +836,7 @@ class UO_FW_RscSlider
     shadow = 0;
   };
 
-class UO_FW_IGUIBack
-{
+class UO_FW_IGUIBack {
     type     = UO_FW_CT_STATIC;
     idc = -1;
     style = 128;
@@ -900,8 +858,7 @@ class UO_FW_IGUIBack
     };
 };
 
-class UO_FW_RscCheckBox
-{
+class UO_FW_RscCheckBox {
     idc = -1;
     type     = UO_FW_CT_CHECKBOX;
     style     = UO_FW_ST_UNDEFINED;
@@ -939,8 +896,7 @@ class UO_FW_RscCheckBox
     soundEscape[] = {"",0.1,1};
 };
 
-class UO_FW_RscTextCheckBox
-{
+class UO_FW_RscTextCheckBox {
     idc = -1;
     type     = UO_FW_CT_CHECKBOXES;
     style     = UO_FW_ST_UNDEFINED;
@@ -979,8 +935,7 @@ class UO_FW_RscTextCheckBox
     };
 };
 
-class UO_FW_RscButtonMenu
-{
+class UO_FW_RscButtonMenu {
     idc = -1;
     type     = UO_FW_CT_SHORTCUTBUTTON;
     style = "0x02 + 0xC0";
@@ -1019,22 +974,19 @@ class UO_FW_RscButtonMenu
     tooltipColorText[] = {1,1,1,1};
     tooltipColorBox[] = {1,1,1,1};
     tooltipColorShade[] = {0,0,0,0.65};
-    class TextPos
-    {
+    class TextPos {
         left = "0.25 * (((safezoneW / safezoneH) min 1.2) / 40)";
         top = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) - (((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)) / 2";
         right = 0.005;
         bottom = 0;
     };
-    class Attributes
-    {
+    class Attributes {
         font =  UO_FW_FONT_LIGHT;
         color = "#E5E5E5";
         align = "left";
         shadow = "false";
     };
-    class ShortcutPos
-    {
+    class ShortcutPos {
         left = "(6.25 * (((safezoneW / safezoneH) min 1.2) / 40)) - 0.0225 - 0.005";
         top = 0.005;
         w = 0.0225;
@@ -1046,8 +998,7 @@ class UO_FW_RscButtonMenu
     soundEscape[] = {"\A3\ui_f\data\sound\RscButtonMenu\soundEscape",0.09,1};
 };
 
-class UO_FW_RscButtonMenuOK
-{
+class UO_FW_RscButtonMenuOK {
     idc = 1;
     shortcuts[] =
     {
@@ -1061,8 +1012,7 @@ class UO_FW_RscButtonMenuOK
     soundPush[] = {"\A3\ui_f\data\sound\RscButtonMenuOK\soundPush",0.09,1};
 };
 
-class UO_FW_RscButtonMenuCancel
-{
+class UO_FW_RscButtonMenuCancel {
     idc = 2;
     shortcuts[] =
     {
@@ -1071,8 +1021,7 @@ class UO_FW_RscButtonMenuCancel
     text = "Cancel";
 };
 
-class UO_FW_RscControlsGroup
-{
+class UO_FW_RscControlsGroup {
     idc = -1;
     deletable = 0;
     fade = 0;
@@ -1083,18 +1032,15 @@ class UO_FW_RscControlsGroup
     y = 0;
     w = 1;
     h = 1;
-    class VScrollbar
-    {
+    class VScrollbar {
         color[] = {    1,1,1,1};
         width = 0.021;
         autoScrollEnabled = 1;
     };
-    class HScrollbar
-    {
+    class HScrollbar {
         color[] = {1,1,1,1};
         height = 0.028;
     };
-    class Controls
-    {
+    class Controls {
     };
 };

@@ -22,12 +22,10 @@ if (GETMVAR(Enabled_4,false)) then {
             private _endConditionsCategory4PFHhandle = [{
                 params ["_argNested", "_idPFH"];
                 _argNested params ["_checkFrequency","_lastCheckedTime"];
-                LOG_1("checking Category pfh last checked time: %1",_lastCheckedTime);
                 private _timeDifference = (CBA_missionTime - _lastCheckedTime);
                 if (_timeDifference <= _checkFrequency) exitwith {
-                    LOG_1("exiting Category pfh _timeDifference: %1",_timeDifference);
                 };
-                LOG_1("continued category check with: %1",_lastCheckedTime);
+                LOG_1("Category Check with _lastCheckedTime: %1",_lastCheckedTime);
                 _argNested set [1,CBA_missionTime];
                 private _ConditionCheckList = [];
 
@@ -75,7 +73,7 @@ if (GETMVAR(Enabled_4,false)) then {
                             _alive = _alive && (_unit call EFUNC(Core,alive));
                         } else {
                             _alive = false;
-                            ["Unit " + _x + " not found!","Unit " + _x + " not found!"] call EFUNC(Core,DebugMessageDetailed);
+                            ["Unit " + _x + " not found!","Unit " + _x + " not found!"] call EFUNC(Debug,DebugMessageDetailed);
                         };
                     } forEach _aliveUnitArray;
                     _ConditionCheckList pushback ["Alive Check",_alive];
@@ -151,13 +149,13 @@ if (GETMVAR(Enabled_4,false)) then {
                 if (!(_captureZones_Array_4 isEqualto [])) then {
                     private _captureZones_TeamSetting_4 = GETMVAR(CaptureZoneCaptured_Team_4,1);
                     {
-                        private _CaptureZoneConditionCheck = true;
-                        if !(_x in EGVAR(CaptureZone,ListArray)) then {
+                        private _CaptureZoneConditionCheck = false;
+                        if !((call compile _x) in (EGETMVAR(CaptureZone,ListArray,[]))) then {
                             LOG_1("CaptureZone %1 does not exist!",_x);
                             _CaptureZoneConditionCheck = false;
                         } else {
-                            private _varName = format ["%1_var",false];
-                            private _teamControllingvarName = format ["%1_teamControlling","UNCONTESTED"];
+                            private _varName = format ["%1_var",_x];
+                            private _teamControllingvarName = format ["%1_teamControlling",_x];
 
                             switch (_captureZones_TeamSetting_4) do {
                                 case 0: {
@@ -182,7 +180,7 @@ if (GETMVAR(Enabled_4,false)) then {
                                     };
                                 };
                                 case 3: {
-                                    if ((missionNamespace getVariable [_teamControllingvarName,false]) isEqualto "Indfor") then {
+                                    if ((missionNamespace getVariable [_teamControllingvarName,false]) isEqualto "INDFOR") then {
                                         _CaptureZoneConditionCheck = true;
                                     } else {
                                         _CaptureZoneConditionCheck = false;
@@ -212,8 +210,8 @@ if (GETMVAR(Enabled_4,false)) then {
                 //check block
                 if (GETMVAR(ExtractionEnabled_4,false)) then {
                     private _team = ([EGVAR(Core,TeamName_Blufor),EGVAR(Core,TeamName_Opfor),EGVAR(Core,TeamName_Indfor),EGVAR(Core,TeamName_Civilian)] select GVAR(ExtractionTeam_4));
-                    if (GVAR(ExtractionMarker_4) isEqualto "") exitwith {["","No marker entered for extract zone for Category 4!"] call EFUNC(Core,DebugMessageDetailed);};
-                    if ((getMarkerColor GVAR(ExtractionMarker_4)) isEqualto "") exitwith {["","Invalid extract marker for Category 4!"] call EFUNC(Core,DebugMessageDetailed);};
+                    if (GVAR(ExtractionMarker_4) isEqualto "") exitwith {["","No marker entered for extract zone for Category 4!"] call EFUNC(Debug,DebugMessageDetailed);};
+                    if ((getMarkerColor GVAR(ExtractionMarker_4)) isEqualto "") exitwith {["","Invalid extract marker for Category 4!"] call EFUNC(Debug,DebugMessageDetailed);};
                         if ([_team,GVAR(ExtractionMarker_4),GVAR(ExtractionRatio_4)] call FUNC(hasExtracted)) then {
                             _ExtractionCheck = true;
                         } else {

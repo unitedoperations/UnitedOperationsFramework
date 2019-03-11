@@ -25,7 +25,7 @@ private _found = false;
         _return = (_x select _index);
         _found = true;
     };
-} forEach MGVAR(Teams);
+} forEach EGVAR(Core,Teams);
 
 if !(_found) then {
     ERROR_1("Critical:<br></br>Team ""%1"" does not exist.", _team)

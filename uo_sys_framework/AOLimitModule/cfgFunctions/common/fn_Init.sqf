@@ -110,7 +110,7 @@ EXEC_CHECK(CLIENT);
                                 private _timeLeft = if (_air) then {_softAOtimeAir} else {_softAOtime};
                                 SETMVAR(Display,_outSide);
                                 SETMVAR(TimeLeft,_timeLeft);
-                                QGVAR(Layer) cutRsc ["RscAOLimit", "PLAIN", 0.5, false];
+                                QGVAR(Layer) cutRsc [QGVAR(SoftWarning), "PLAIN", 0.5, false];
                             };
                         };
                     };

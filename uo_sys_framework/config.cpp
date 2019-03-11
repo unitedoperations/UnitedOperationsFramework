@@ -15,10 +15,10 @@ class CfgPatches {
 };
 
 //External Class References
-#include "Core\RscTitles\rscdefinitions.hpp"
+#include "\x\UO_FW\addons\Main\Core\RscTitles\rscdefinitions.hpp"
 #include "\a3\3DEN\UI\macros.inc"
 #include "\a3\3DEN\UI\resincl.inc"
-#include "Core\MainExternal.hpp"
+#include "\x\UO_FW\addons\Main\Core\MainExternal.hpp"
 
 class CfgFactionClasses {
     class NO_CATEGORY;
@@ -44,7 +44,7 @@ class CfgFunctions {
 		#include "AutoTrackAssetModule\cfgFunctions.hpp"
 		#include "CaptureZoneModule\cfgFunctions.hpp"
 		#include "StartInParachuteModule\cfgFunctions.hpp"
-		#include "FiremissionModule\cfgFunctions.hpp"
+		//#include "FiremissionModule\cfgFunctions.hpp"
 		#include "HostageModule\cfgFunctions.hpp"
 		#include "CoverMapModule\cfgFunctions.hpp"
 		#include "MapAndCompassRemoverModule\cfgFunctions.hpp"
@@ -93,7 +93,7 @@ class RscTitles {
     #include "AOLimitModule\RscTitles.hpp"
     #include "SetupTimerModule\RscSetupTimer.hpp"
 };
-#include "FiremissionModule\RscTitles.hpp"
+//#include "FiremissionModule\RscTitles.hpp"
 
 class CfgNotifications {
     #include "AOLimitModule\cfgNotifications.hpp"
@@ -181,7 +181,7 @@ class Cfg3DEN {
             #include "AIDriversModule\cfgAttributeCategories\Object.hpp"
             #include "StartInParachuteModule\cfgAttributeCategories\Object.hpp"
             #include "MapAndCompassRemoverModule\cfgAttributeCategories\Object.hpp"
-            #include "FiremissionModule\cfgAttributeCategories\Object.hpp"
+            //#include "FiremissionModule\cfgAttributeCategories\Object.hpp"
             #include "HostageModule\cfgAttributeCategories\Object.hpp"
             #include "CoverMapModule\cfgAttributeCategories\Object.hpp"
             #include "ObjectSettingsModule\cfgAttributeCategories\Object.hpp"
@@ -326,7 +326,7 @@ class Extended_PreInit_EventHandlers {
 	#include "SelfActionsModule\cfgXEH\PreInit.hpp"
 	#include "MarkerControlModule\cfgXEH\PreInit.hpp"
 	#include "ShotCountModule\cfgXEH\PreInit.hpp"
-	#include "FiremissionModule\cfgXEH\PreInit.hpp"
+	//#include "FiremissionModule\cfgXEH\PreInit.hpp"
 	#include "StartInParachuteModule\cfgXEH\PreInit.hpp"
 	#include "StartTextModule\cfgXEH\PreInit.hpp"
 	#include "SafeStartModule\cfgXEH\PreInit.hpp"

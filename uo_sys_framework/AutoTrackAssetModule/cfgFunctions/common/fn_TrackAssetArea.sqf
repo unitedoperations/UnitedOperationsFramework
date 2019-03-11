@@ -18,6 +18,6 @@ params ["_marker", "_team"];
                     ["UO_FW_TrackAsset_Event",[_vehicle, getText(_vehCfg >> "displayName"), _name]] call CBA_fnc_serverEvent;
                 };
             };
-        } forEach MGVAR(Teams);
+        } forEach EGVAR(Core,Teams);
     };
 } forEach (vehicles select {local _x});

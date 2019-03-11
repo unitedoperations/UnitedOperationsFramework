@@ -32,6 +32,6 @@ if ((isPlayer _unit) || !(GETVAR(_unit,DontTrack,false))) then {
                     _x set [4, (_current + 1)];
                 };
             };
-        } forEach MGVAR(Teams);
+        } forEach EGVAR(Core,Teams);
     };
 };

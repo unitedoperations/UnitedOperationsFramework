@@ -79,7 +79,7 @@ CFGFUNCFOLDERCORE(EventHandlers);
 CFGFUNCFOLDEREND;
 
 CFGFUNCFOLDERCORE(Debug);
-    CFGFUNC(Core,debugMessage);
-    CFGFUNC(Core,debugMessageDetailed);
-    CFGFUNC(Core,refreshDebug);
+    CFGFUNC(Debug,debugMessage);
+    CFGFUNC(Debug,debugMessageDetailed);
+    CFGFUNC(Debug,refreshDebug);
 CFGFUNCFOLDEREND;

@@ -51,7 +51,7 @@ params [["_mode","",[""]],["_input",[],[[]]]];
                 if (UO_FW_AI_DEBUG) then {
                     private _syncedZoneModule = [_logic,["UO_FW_AI_ZoneModule","UO_FW_AI_ZoneModule_R"]] call EFUNC(AI,getSyncedModules);
                     if (_syncedZoneModule isEqualto []) then {
-                        (format["%1 a %2 has no Zone Modules linked.\nLink a Zone Module to the Enable Zone Module to suspend and enable Zones when the Enable Zone Module is activated.",_logic,typeof _logic]) call EFUNC(Core,DebugMessage);
+                        (format["%1 a %2 has no Zone Modules linked.\nLink a Zone Module to the Enable Zone Module to suspend and enable Zones when the Enable Zone Module is activated.",_logic,typeof _logic]) call EFUNC(Debug,DebugMessage);
                     };
                     [_logic] spawn UO_FW_AI_fnc_debugSyncedModules;
                 };

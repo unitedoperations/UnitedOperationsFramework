@@ -67,7 +67,7 @@ LOG("Client Pre Init");
     [_scenario] call FUNC(EndScreen);
 }] call CBA_fnc_addEventHandler;
 
-["UO_FW_EndMission_Event", {
+[QEGVAR(Core,EndmissionEvent), {
     params ["_scenario"];
     ["UO_FW_EndMission_PlayerEvent", [_scenario]] call CBA_fnc_localEvent;
 }] call CBA_fnc_addEventHandler;

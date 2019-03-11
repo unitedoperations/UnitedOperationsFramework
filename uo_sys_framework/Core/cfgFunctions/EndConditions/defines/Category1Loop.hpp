@@ -73,7 +73,7 @@ if (GETMVAR(Enabled_1,false)) then {
                             _alive = _alive && (_unit call EFUNC(Core,alive));
                         } else {
                             _alive = false;
-                            ["Unit " + _x + " not found!","Unit " + _x + " not found!"] call EFUNC(Core,DebugMessageDetailed);
+                            ["Unit " + _x + " not found!","Unit " + _x + " not found!"] call EFUNC(Debug,DebugMessageDetailed);
                         };
                     } forEach _aliveUnitArray;
                     _ConditionCheckList pushback ["Alive Check",_alive];
@@ -149,13 +149,13 @@ if (GETMVAR(Enabled_1,false)) then {
                 if (!(_captureZones_Array_1 isEqualto [])) then {
                     private _captureZones_TeamSetting_1 = GETMVAR(CaptureZoneCaptured_Team_1,1);
                     {
-                        private _CaptureZoneConditionCheck = true;
-                        if !(_x in EGVAR(CaptureZone,ListArray)) then {
+                        private _CaptureZoneConditionCheck = false;
+                        if !((call compile _x) in (EGETMVAR(CaptureZone,ListArray,[]))) then {
                             LOG_1("CaptureZone %1 does not exist!",_x);
                             _CaptureZoneConditionCheck = false;
                         } else {
-                            private _varName = format ["%1_var",false];
-                            private _teamControllingvarName = format ["%1_teamControlling","UNCONTESTED"];
+                            private _varName = format ["%1_var",_x];
+                            private _teamControllingvarName = format ["%1_teamControlling",_x];
 
                             switch (_captureZones_TeamSetting_1) do {
                                 case 0: {
@@ -180,7 +180,7 @@ if (GETMVAR(Enabled_1,false)) then {
                                     };
                                 };
                                 case 3: {
-                                    if ((missionNamespace getVariable [_teamControllingvarName,false]) isEqualto "Indfor") then {
+                                    if ((missionNamespace getVariable [_teamControllingvarName,false]) isEqualto "INDFOR") then {
                                         _CaptureZoneConditionCheck = true;
                                     } else {
                                         _CaptureZoneConditionCheck = false;
@@ -210,8 +210,8 @@ if (GETMVAR(Enabled_1,false)) then {
                 //check block
                 if (GETMVAR(ExtractionEnabled_1,false)) then {
                     private _team = ([EGVAR(Core,TeamName_Blufor),EGVAR(Core,TeamName_Opfor),EGVAR(Core,TeamName_Indfor),EGVAR(Core,TeamName_Civilian)] select GVAR(ExtractionTeam_1));
-                    if (GVAR(ExtractionMarker_1) isEqualto "") exitwith {["","No marker entered for extract zone for Category 1!"] call EFUNC(Core,DebugMessageDetailed);};
-                    if ((getMarkerColor GVAR(ExtractionMarker_1)) isEqualto "") exitwith {["","Invalid extract marker for Category 1!"] call EFUNC(Core,DebugMessageDetailed);};
+                    if (GVAR(ExtractionMarker_1) isEqualto "") exitwith {["","No marker entered for extract zone for Category 1!"] call EFUNC(Debug,DebugMessageDetailed);};
+                    if ((getMarkerColor GVAR(ExtractionMarker_1)) isEqualto "") exitwith {["","Invalid extract marker for Category 1!"] call EFUNC(Debug,DebugMessageDetailed);};
                         if ([_team,GVAR(ExtractionMarker_1),GVAR(ExtractionRatio_1)] call FUNC(hasExtracted)) then {
                             _ExtractionCheck = true;
                         } else {

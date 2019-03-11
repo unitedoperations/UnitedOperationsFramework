@@ -1,27 +1,19 @@
-class EGVAR(Core,DebugSettings) {
+class EGVAR(Debug,Category) {
     displayName = "Debug Settings";
     collapsed = 0;
     class Attributes {
-        class EGVAR(Core,Debug_Enabled) {
-            property = QEGVAR(Core,Debug_Enabled);
+        class EGVAR(Debug,Debug_Enabled) {
+            property = QEGVAR(Debug,Debug_Enabled);
             displayName = "Debug Enabled";
             tooltip = "Toggle debug mode.";
             control = "Checkbox";
             expression = SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
-        class EGVAR(Core,Debug_Detailed_Enabled) {
-            property = QEGVAR(Core,Debug_Detailed_Enabled);
+        class EGVAR(Debug,Detailed_Enabled) {
+            property = QEGVAR(Debug,Detailed_Enabled);
             displayName = "Detailed Debug Enabled";
             tooltip = "Toggle detailed debug mode.";
-            control = "Checkbox";
-            expression = SCENARIO_EXPRESSION;
-            defaultValue = "false";
-        };
-        class EGVAR(Core,Debug_Logs) {
-            property = QEGVAR(Core,Debug_Logs);
-            displayName = "Log all debug messages";
-            tooltip = "Log all debug messages.";
             control = "Checkbox";
             expression = SCENARIO_EXPRESSION;
             defaultValue = "false";

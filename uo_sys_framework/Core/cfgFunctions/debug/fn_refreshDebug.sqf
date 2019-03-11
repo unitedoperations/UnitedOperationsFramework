@@ -12,10 +12,14 @@
  * Public: No
  */
 
+ #define COMPONENT Debug
+ #include "\x\UO_FW\addons\Main\script_macros.hpp"
+ EXEC_CHECK(ALL);
+
 private _text = "<br></br><br></br>";
 
 {
     _text = _text + _x + "<br></br>";
-} forEach UO_FW_DebugMessages;
+} forEach GVAR(DebugMessages);
 
-((uiNamespace getVariable "UO_FW_Debug_Control") displayCtrl 4001) ctrlSetStructuredText (parsetext _text);
+((uiNamespace getVariable QGVAR(DisplayID)) displayCtrl 4001) ctrlSetStructuredText (parsetext _text);

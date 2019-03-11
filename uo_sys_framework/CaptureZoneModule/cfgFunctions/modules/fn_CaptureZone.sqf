@@ -16,7 +16,7 @@ switch (_mode) do {
             private _direction = getdir _logic;
             private _isRectangle = if ((typeof _logic) isEqualTo "UO_FW_CaptureZoneModule_R") then {true} else {false};
             private _area = [_loc,_radiusX,_radiusY,_direction,_isRectangle];
-            private _repeatable = GETVAR(_logic,Repeatable,true);
+            private _mode = ["ONCE","HOLD","REPEATABLE"] select (GETVAR(_logic,Mode,1));
             private _ratioNeeded = ((GETVAR(_logic,RatioNeeded,75)) / 100);
             private _BluforCap = (GETVAR(_logic,Cap_Blufor,0));
             private _OpforCap = (GETVAR(_logic,Cap_Opfor,0));
@@ -67,7 +67,7 @@ switch (_mode) do {
             private _silent = GETVAR(_logic,Silent,false);
             private _automessages = GETVAR(_logic,AutoMessages,false);
             private _cond = GETVAR(_logic,Condition,true);
-            [_logic,_zoneName,_area,_repeatable,_capArray,_timeArray,_messagesArray,_colours,_hidden,_silent,_automessages,_ratioNeeded,_cond] call FUNC(CaptureZoneLoop);
+            [_logic,_zoneName,_area,_mode,_capArray,_timeArray,_messagesArray,_colours,_hidden,_silent,_automessages,_ratioNeeded,_cond] call FUNC(CaptureZoneLoop);
         };
     };
     // When some attributes were changed (including position and rotation)

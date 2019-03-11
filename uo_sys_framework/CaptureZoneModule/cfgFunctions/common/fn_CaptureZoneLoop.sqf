@@ -5,27 +5,28 @@ EXEC_CHECK(SERVER);
 //[_logic,_zoneName,_area,_repeatable,_capArray,_timeArray,_messagesArray,_colours,_hidden,_silent,_automessages,_ratioNeeded,_cond] passed array
 //params ["","_zoneName","","","","","","","","","","",["_cond","true",[""]]];
 private _cond = _this select 12;
+private _logic = _this select 1;
 
 [QEGVAR(Core,RegisterModuleEvent), ["Capture Zone", "Creates Capture Zone objectives for variable declares and end condition requirements", "Sacher and PiZZADOX"]] call CBA_fnc_globalEvent;
 
 LOG_1("CaptureZone Loop called with this: %1",_this);
 if (!(_this call FUNC(ValidateCaptureZone))) exitWith {
-    ERROR_1("CaptureZone %1 failed to Validate",_zoneName);
+    ERROR_1("CaptureZone %1 failed to Validate",_logic);
 };
 
 [{call (_this select 1)}, {
     (_this select 0) params ["_logic","_zoneName"];
-    LOG_1("Activating CaptureZone %1 PFH",_zoneName);
-    //define var for use in endconditions_varName = format ["%1_var",_zoneName];
-    private _varName = format ["%1_var",_zoneName];
-    private _teamControllingvarName = format ["%1_teamControlling",_zoneName];
+    LOG_2("Activating CaptureZone logic: %1 name: %2 PFH",_logic,_zoneName);
     if (isNil QGVAR(ListArray)) then {GVAR(ListArray) = [];};
     GVAR(ListArray) pushBack _logic;
-    GVAR(DOUBLES(PFHhandle,_zoneName)) = [{
+    private _varName = format ["%1_var",_logic];
+    private _teamControllingvarName = format ["%1_teamControlling",_logic];
+    LOG_2("Activating CaptureZone _varName: %1 _teamControllingvarName: %2 PFH",_varName,_teamControllingvarName);
+    GVAR(DOUBLES(PFHhandle,_logic)) = [{
         //var redeclares
         params ["_argNested", "_idPFH"];
         _argNested params ["_args","_lastCheckedTime",["_initialized",false,[false]],"_varName","_teamControllingvarName",["_oldOwner","UNCONTESTED",[""]],["_ownerControlCount",0,[0]],"_marker"];
-        _args params ["_logic","_zoneName","_area","_repeatable","_capArray","_timeArray","_messagesArray","_colours","_hidden","_silent","_automessages","_ratioNeeded"];
+        _args params ["_logic","_zoneName","_area","_mode","_capArray","_timeArray","_messagesArray","_colours","_hidden","_silent","_automessages","_ratioNeeded"];
         _area params ["_loc","_radiusX","_radiusY","_direction","_isRectangle"];
         _colours params ["_bluforcolour","_opforcolour","_indforcolour","_civcolour","_uncontestedcolour","_contestedcolour"];
         _messagesArray params ["_bluformessageArray","_opformessageArray","_indformessageArray","_CIVmessageArray","_contestedmessage","_uncontestedmessage"];
@@ -43,7 +44,7 @@ if (!(_this call FUNC(ValidateCaptureZone))) exitWith {
             _argNested set [6,0];
 
             if !(_hidden) then {
-                _markername = format ["%1_ZoneMarker",_zoneName];
+                _markername = format ["%1_ZoneMarker",_logic];
                 _marker = createmarker [_markername,_loc];
                 _argNested set [7,_marker];
                 if (_isRectangle) then {
@@ -58,8 +59,8 @@ if (!(_this call FUNC(ValidateCaptureZone))) exitWith {
                 _marker setMarkerColor _uncontestedcolour;
             };
 
-            missionNamespace setVariable [_varName,false,true];
-            missionNamespace setVariable [_teamControllingvarName,"UNCONTESTED",true];
+            MissionNamespace setvariable [_varName,false];
+            MissionNamespace setvariable [_teamControllingvarName,"UNCONTESTED"];
         };
 
         private _bluCount = 0;
@@ -70,24 +71,26 @@ if (!(_this call FUNC(ValidateCaptureZone))) exitWith {
         private _playersInArea = (([] call EFUNC(Core,AlivePlayers)) select {(_x inArea _area) && {(!captive _x)}});
 
         if (_playersInArea isEqualTo []) exitwith {
-            _owner = "UNCONTESTED";
-            if !(_owner isEqualto _oldOwner) then {
-                _argNested set [5,_owner];
-                _argNested set [6,0];
-                if !(_hidden) then {
-                    _marker setMarkerColor _uncontestedcolour;
-                    _marker setMarkerAlpha 0.25;
-                };
-                if !(_silent) then {
-                    if (_automessages) then {
-                        private _msg = format ["%1 is uncontested!",_zoneName];
-                        _msg remoteExec ["hint"];
-                    } else {
-                        _uncontestedmessage remoteExec ["hint"];
+            if ((missionNamespace getvariable [_varName,false]) && {(_mode isEqualto "REPEATABLE")}) then {
+                _owner = "UNCONTESTED";
+                if !(_owner isEqualto _oldOwner) then {
+                    _argNested set [5,_owner];
+                    _argNested set [6,0];
+                    if !(_hidden) then {
+                        _marker setMarkerColor _uncontestedcolour;
+                        _marker setMarkerAlpha 0.25;
                     };
+                    if !(_silent) then {
+                        if (_automessages) then {
+                            private _msg = format ["%1 is uncontested!",_zoneName];
+                            _msg remoteExec ["hint"];
+                        } else {
+                            _uncontestedmessage remoteExec ["hint"];
+                        };
+                    };
+                    MissionNamespace setvariable [_varName,false];
+                    MissionNamespace setvariable [_teamControllingvarName,"UNCONTESTED"];
                 };
-                missionNamespace setVariable [_varName,false,true];
-                missionNamespace setVariable [_teamControllingvarName,"UNCONTESTED",true];
             };
         };
 
@@ -179,9 +182,9 @@ if (!(_this call FUNC(ValidateCaptureZone))) exitWith {
                                             (_bluformessageArray select 1) remoteExec ["hint"];
                                         };
                                     };
-                                    missionNamespace setVariable [_varName,true,true];
-                                    missionNamespace setVariable [_teamControllingvarName,"BLUFOR",true];
-                                    if !(_repeatable) exitWith {
+                                    MissionNamespace setvariable [_varName,true];
+                                    MissionNamespace setvariable [_teamControllingvarName,"BLUFOR"];
+                                    if (_mode isEqualto "ONCE") exitWith {
                                         if !(_hidden) then {
                                             _marker setMarkerAlpha 0.5;
                                             _marker setMarkerBrush "Border";
@@ -226,9 +229,9 @@ if (!(_this call FUNC(ValidateCaptureZone))) exitWith {
                                             (_opformessageArray select 1) remoteExec ["hint"];
                                         };
                                     };
-                                    missionNamespace setVariable [_varName,true,true];
-                                    missionNamespace setVariable [_teamControllingvarName,"OPFOR",true];
-                                    if !(_repeatable) exitWith {
+                                    MissionNamespace setvariable [_varName,true];
+                                    MissionNamespace setvariable [_teamControllingvarName,"OPFOR"];
+                                    if (_mode isEqualto "ONCE") exitWith {
                                         if !(_hidden) then {
                                             _marker setMarkerAlpha 0.5;
                                             _marker setMarkerBrush "Border";
@@ -273,9 +276,9 @@ if (!(_this call FUNC(ValidateCaptureZone))) exitWith {
                                             (_indformessageArray select 1) remoteExec ["hint"];
                                         };
                                     };
-                                    missionNamespace setVariable [_varName,true,true];
-                                    missionNamespace setVariable [_teamControllingvarName,"Indfor",true];
-                                    if !(_repeatable) exitWith {
+                                    MissionNamespace setvariable [_varName,true];
+                                    MissionNamespace setvariable [_teamControllingvarName,"Indfor"];
+                                    if (_mode isEqualto "ONCE") exitWith {
                                         if !(_hidden) then {
                                             _marker setMarkerAlpha 0.5;
                                             _marker setMarkerBrush "Border";
@@ -320,9 +323,9 @@ if (!(_this call FUNC(ValidateCaptureZone))) exitWith {
                                             (_CIVmessageArray select 1) remoteExec ["hint"];
                                         };
                                     };
-                                    missionNamespace setVariable [_varName,true,true];
-                                    missionNamespace setVariable [_teamControllingvarName,"CIVILIAN",true];
-                                    if !(_repeatable) exitWith {
+                                    MissionNamespace setvariable [_varName,true];
+                                    MissionNamespace setvariable [_teamControllingvarName,"CIVILIAN"];
+                                    if (_mode isEqualto "ONCE") exitWith {
                                         if !(_hidden) then {
                                             _marker setMarkerAlpha 0.5;
                                             _marker setMarkerBrush "Border";
@@ -386,10 +389,12 @@ if (!(_this call FUNC(ValidateCaptureZone))) exitWith {
                             _contestedmessage remoteExec ["hint"];
                         };
                     };
+                    MissionNamespace setvariable [_varName,false];
+                    MissionNamespace setvariable [_teamControllingvarName,"CONTESTED"];
                 };
             };
         };
 
 
     }, 0, [(_this select 0),CBA_missionTime,false,_varName,_teamControllingvarName]] call CBA_fnc_addPerFrameHandler;
-}, [_this, compile _cond]] call CBA_fnc_waitUntilAndExecute;
+}, [_this, (compile _cond)]] call CBA_fnc_waitUntilAndExecute;

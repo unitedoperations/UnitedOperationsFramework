@@ -19,10 +19,7 @@
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 EXEC_CHECK(SERVER);
 
-params [["_team", "", [""]],
-    ["_marker", "", [""]],
-    ["_ratio", 1, [0]]
-];
+params [["_team", "", [""]],["_marker", "", [""]],["_ratio", 1, [0]]];
 
 private _side = [_team, 1] call EFUNC(Core,getTeamVariable);
 private _count = {
@@ -53,7 +50,7 @@ switch (_side) do {
         };
     };
     case independent: {
-        _respawnTypeNum = MGETMVAR(hasDeparted_Indfor,false);
+        _respawnTypeNum = GETMVAR(hasDeparted_Indfor,false);
         if (_count >= _ratio * ([_team, 4] call EFUNC(Core,getTeamVariable))) then {
             if (_respawnTypeNum) then {
                 _result = true;
@@ -63,7 +60,7 @@ switch (_side) do {
         };
     };
     case civilian: {
-        _respawnTypeNum = MGETMVAR(hasDeparted_Civilian,false);
+        _respawnTypeNum = GETMVAR(hasDeparted_Civilian,false);
         if (_count >= _ratio * ([_team, 4] call EFUNC(Core,getTeamVariable))) then {
             if (_respawnTypeNum) then {
                 _result = true;

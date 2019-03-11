@@ -12,10 +12,10 @@
 
 //CBA Error Macro Intercept
 #define ERROR(MESSAGE) LOG_SYS_FILELINENUMBERS('ERROR',MESSAGE);\
-MESSAGE call EFUNC(Core,DebugMessage)
+MESSAGE call EFUNC(Debug,DebugMessage)
 
 #define WARNING(MESSAGE) LOG_SYS_FILELINENUMBERS('WARNING',MESSAGE);\
-MESSAGE call EFUNC(Core,DebugMessage)
+MESSAGE call EFUNC(Debug,DebugMessage)
 
 #define QN(var1) '##var1##'
 
@@ -23,7 +23,7 @@ MESSAGE call EFUNC(Core,DebugMessage)
 
 //Debug functions
 #define FWDEBUG(basicmsg,detailedmsg)\
-[basicmsg,detailedmsg] call EFUNC(Core,DebugMessageDetailed)
+[basicmsg,detailedmsg] call EFUNC(Debug,DebugMessageDetailed)
 
 #define MGETMVALUE(var1,var2) getMissionConfigValue [ARR_2(QUOTE(DOUBLES(PREFIX,var1)),var2)]
 #define GETMVALUE(var1,var2) getMissionConfigValue [ARR_2(QUOTE(TRIPLES(PREFIX,COMPONENT,var1)),var2)]

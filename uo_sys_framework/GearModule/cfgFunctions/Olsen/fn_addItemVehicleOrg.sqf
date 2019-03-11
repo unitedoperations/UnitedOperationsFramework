@@ -38,6 +38,6 @@ for "_x" from 1 to _amount do {
             _vehicle addItemCargoGlobal [_item, 1];
         };
     } else {
-        (format ["FUNC(AddItemVehicle): Warning couldn't fit %1, in %2, case %3", _item, _vehicle, _loadoutType]) call EFUNC(Core,DebugMessage);
+        (format ["FUNC(AddItemVehicle): Warning couldn't fit %1, in %2, case %3", _item, _vehicle, _loadoutType]) call EFUNC(Debug,DebugMessage);
     };
 };

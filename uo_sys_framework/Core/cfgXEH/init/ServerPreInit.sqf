@@ -5,7 +5,7 @@ EXEC_CHECK(SERVER);
 LOG("Server Pre Init");
 
 ["UO_FW_TeamsInitEvent", {
-    MGVAR(Teams) = [];
+    EGVAR(Core,Teams) = [];
     {
         _x params ["_side","_namevar","_teamTypeNum"];
         private _teamType = ["player","ai","both"] select _teamTypeNum;
@@ -69,7 +69,7 @@ LOG("Server Pre Init");
                     _x set [4, _current - 1];
                 };
             };
-        } forEach MGVAR(Teams);
+        } forEach EGVAR(Core,Teams);
         SETPVAR(_unit,Side,nil);
         SETPVAR(_unit,Tracked,nil);
     };
