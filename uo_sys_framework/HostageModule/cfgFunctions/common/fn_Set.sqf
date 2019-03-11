@@ -25,12 +25,14 @@ _marker setMarkerAlpha 0;
     _unit playMoveNow "Acts_AidlPsitMstpSsurWnonDnon04";
     _unit disableAI "MOVE";
 
-    private _EhAnimDone = _unit addEventHandler ["AnimDone", {
-        if (!alive _unit) exitWith {
-            _unit removeEventHandler ["AnimDone", {(SETVAR(_unit,EhAnimDone,nil));}];
+    //IGNORE_PRIVATE_WARNING ["_thisID","_thisType"];
+    private _EhAnimDone = [_unit, "AnimDone", {
+        params ["_unit", "_anim"];
+        if ((!alive _unit) || (GETVAR(_unit,IsRescued,false))) exitWith {
+            _unit removeEventHandler [_thisType, _thisID];
         };
         _unit playMoveNow "Acts_AidlPsitMstpSsurWnonDnon04";
-    }];
+    }, []] call CBA_fnc_addBISEventHandler;
 
     SETVAR(_unit,EhAnimDone,_EhAnimDone);
 
@@ -40,15 +42,19 @@ _marker setMarkerAlpha 0;
         private _timeDifference = (CBA_missionTime - _lastCheckedTime);
         if (_timeDifference < 5) exitwith {};
         _argNested set [2,(CBA_missionTime)];
-        if (!(animationState _unit isEqualto "acts_aidlpsitmstpssurwnondnon04") && {(_unit inArea _marker)}) exitwith {
+        if ((animationState _unit != "acts_aidlpsitmstpssurwnondnon04") && {(_unit inArea _marker)}) exitwith {
             if ((vehicle _unit) isEqualto _unit) then {
                 [_unit] joinSilent grpNull;
                 _unit disableAI "MOVE";
                 [{
                     _this playMoveNow "AmovPsitMstpSnonWnonDnon_ground";
+                    _this disableAI "ANIM";
                 }, _unit, 1] call CBA_fnc_waitAndExecute;
             };
-            (SETPVAR(_this,IsRescued,true));
+            SETPVAR(_unit,IsRescued,true);
+            [_idPFH] call CBA_fnc_removePerFrameHandler;
+        };
+        if (GETVAR(_unit,IsRescued,false)) exitWith {
             [_idPFH] call CBA_fnc_removePerFrameHandler;
         };
     }, 5, [_unit,_marker,CBA_missionTime]] call CBA_fnc_addPerFrameHandler;
