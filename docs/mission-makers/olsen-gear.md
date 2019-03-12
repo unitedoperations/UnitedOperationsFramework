@@ -50,7 +50,6 @@ switch (_type) do {
 };
 ```
 
-
-Now, to use your Olsen loadouts, refer to the [Gear Module]() page!
+Now, to use your Olsen loadouts, refer to the [Gear Module]({{ site.baseurl }}/docs/toc/core/gear/) page!
 
 ---
