@@ -40,6 +40,7 @@ Adding radios through the ACRE module can only be done on playable units!
 * ![image-title-here]({{ site.baseurl }}/resources/images/acre/acre_radios_2.png){:class="img-responsive"}
 
 3. Select "Configure ACRE Settings" and check the "Enable ACRE Framework" checkbox.
+* [Back to Basic Setup-Guide]({{ site.baseurl}}/docs/mission-makers/basic-setup/#enabling-the-framework)
 
 4. Select the side you want to specify radios for.
 * ![image-title-here]({{ site.baseurl }}/resources/images/acre/acre_radios_sides.png){:class="img-responsive"}

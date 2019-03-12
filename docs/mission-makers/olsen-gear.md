@@ -7,14 +7,9 @@ parent: Users
 
 ---
 
-1. TOC
-{:toc}
+# Olsen Gear in your UO Framework Mission
 
----
-
-# Olsen Gear Scripts via the UO Framework
-
-This page covers the basics of using Olsen gear-scripts through the UO Framework.
+This page covers the initial process of moving Olsen loadouts to a UO Framework mission.
 
 ### Important Note
 {: .fs-6 .text-blue-000 }
@@ -55,43 +50,7 @@ switch (_type) do {
 };
 ```
 
-## Specifying Olsen Loadouts as UOFW Loadouts
 
-**All Olsen framework function calls will automatically be converted to UO Framework calls so long as everything is properly included.**
+Now, to use your Olsen loadouts, refer to the [Gear Module]() page!
 
-### Settings
-
-If you haven't already done so, select the UO Framework button at the top of the editor and select "Configure Gear".
-
-Within the previous menu, open "Configure Gear Settings" where you need to check the "Enable Olsen System" checkbox.
-
-![CONFIGURE GEAR AND CONFIGURE GEAR SETTINGS IMAGE]({{ site.baseurl }}/resources/images/olsen/gear_configure.png){:class="img-responsive"}
-
-![ENABLE OLSEN FRAMEWORK IMAGE]({{ site.baseurl }}/resources/images/olsen/gear_enable.png){:class="img-responsive"}
-
-### Olsen Loadouts as UO Framework Loadouts
-
-You will need to specify the varnames for certain roles in the UOFW available rules. (These also include a few custom slots if needed.)
-
-```
-//AUTHOR: Gkenny
-//Early 2000s MSV
-//...
-//[this, "AFGVDV_RPG"] call FNC_GearScript;
-//[this, "AFGVDV_RPGASST"] call FNC_GearScript;
-//[this, "AFGVDV_EFR"] call FNC_GearScript;
-//[this, "AFGVDV_SL"] call FNC_GearScript;
-```
-
-![IMAGE OF VARNAMES FROM GEARSCRIPT IN ROLE SLOT]({{ site.baseurl }}/resources/images/olsen/gear_roles.png){:class="img-responsive"}
-
-Next select the units you want to assign loadouts to through the UOFW system by going into the unit(s) attributes. Here you can specify what loadout the unit should be using or you can just directly call the var-name of the loadout you want the unit to use.
-
-Next select the units you want to assign loadouts to through the UOFW system by going into the unit(s) attributes. Here you can specify what loadout the unit should be using or you can just directly call the var-name of the loadout you want the unit to use.
-
-![Asssigning the Squad Leader Loadout]({{ site.baseurl }}/resources/images/olsen/gear_editor_demo.gif){:class="img-responsive"}
-
-Your equipment will be pre-loaded through the editor.
-
-Randomized items will be randomized when gear is applied as you load into the briefing screen.
 ---

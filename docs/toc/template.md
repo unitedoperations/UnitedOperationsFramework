@@ -1,13 +1,14 @@
 ---
 layout: default
 title: Template Module Page
-nav_order: 2
+nav_order: 1
 #parent: Core Modules
 nav_exclude: true
 # grand_parent: Modules
 ---
 
 ---
+
 1. TOC
 {:toc}
 
