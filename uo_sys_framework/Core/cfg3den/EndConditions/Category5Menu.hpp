@@ -225,7 +225,7 @@ class EGVAR(EndConditions,CaptureZoneSettings_Category5) {
             tooltip = "Team that must activate the CaptureZones for the condition to fire.";
             control = QEGVAR(EndConditions,CaptureZoneTeam);
             expression = SCENARIO_EXPRESSION;
-            defaultValue = "1";
+            defaultValue = "0";
         };
     };
 };
