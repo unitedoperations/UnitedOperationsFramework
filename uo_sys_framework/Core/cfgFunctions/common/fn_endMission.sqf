@@ -22,8 +22,8 @@ params ["_message"];
 if (CBA_missiontime > (60 + (EGETMVAR(EndConditions,ConditionSleep,0)))) then {
     SETMPVAR(MissionEnded,true);
     //endmission hooks for modules
-    if (EGETMVAR(ShotCount,Enabled,0)) then {
-        LOG("Sending ShotcountData");
+    if (EGETMVAR(ShotCount,Enabled,false)) then {
+        LOG("Calculating ShotCount Data");
         [] call EFUNC(ShotCount,endCount);
     };
     {
@@ -32,7 +32,7 @@ if (CBA_missiontime > (60 + (EGETMVAR(EndConditions,ConditionSleep,0)))) then {
         [_team, 5, _assets select 0] call FUNC(SetTeamVariable);
         [_team, 6, _assets select 1] call FUNC(SetTeamVariable);
     } forEach EGVAR(Core,Teams);
-    [QEGVAR(Core,EndmissionEvent), [_message]] call CBA_fnc_globalEvent;
+    [QGVAR(EndmissionEvent), [_message]] call CBA_fnc_globalEvent;
 } else {
-    ERROR_2("End Conditions have just been triggered. Mission might need to be ended manually! Time:%2 Safetime:%1",(EGETMVAR(EndConditions,ConditionSleep,0) + EGETMVAR(EndConditions,ConditionSleep,0)),CBA_missiontime);
+    ERROR_2("End Conditions have just been triggered. Mission might need to be ended manually! Time:%2 Safetime:%1",(60 + (EGETMVAR(EndConditions,ConditionSleep,0))),CBA_missiontime);
 };

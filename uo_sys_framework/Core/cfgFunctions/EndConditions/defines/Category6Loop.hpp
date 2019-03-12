@@ -22,6 +22,9 @@ if (GETMVAR(Enabled_6,false)) then {
             private _endConditionsCategory6PFHhandle = [{
                 params ["_argNested", "_idPFH"];
                 _argNested params ["_checkFrequency","_lastCheckedTime"];
+                if (EGVAR(core,MissionEnded)) exitwith {
+                    [_idPFH] call CBA_fnc_removePerFrameHandler;
+                };
                 private _timeDifference = (CBA_missionTime - _lastCheckedTime);
                 if (_timeDifference <= _checkFrequency) exitwith {
                 };

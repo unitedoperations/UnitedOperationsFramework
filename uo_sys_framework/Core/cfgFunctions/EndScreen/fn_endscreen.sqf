@@ -4,8 +4,8 @@ EXEC_CHECK(CLIENT);
 
 params ["_scenario"];
 
-//player enableSimulation false;
-//removeAllWeapons player;
+player enableSimulation false;
+removeAllWeapons player;
 private _displayLayerNum = QGVAR(EndScreenLayer) cutRsc [QGVAR(endScreen), "PLAIN"];
 private _bg = 3000;
 private _endTitle = 3001;
