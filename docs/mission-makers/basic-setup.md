@@ -91,8 +91,8 @@ End-Condition categories provided in the End Conditions menu.
 Custom end-conditions done through an SQF script
 {: .fw-600 }
 
-  * Keep in mind, end-conditions from the Olsen framework are not supported by the UO Framework!
-  * [Here's]({{ site.baseurl }}/docs/mission-makers/end_cond/#porting-from-olsen) how to convert your Olsen end-conditions to the UO Framework
+Keep in mind, end-conditions from the Olsen framework are not supported by the UO Framework!
+  <!-- * [Here's]({{ site.baseurl }}/docs/mission-makers/end_cond/#porting-from-olsen) how to convert your Olsen end-conditions to the UO Framework -->
 
 ---
 
