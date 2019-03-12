@@ -1,10 +1,11 @@
-#define COMPONENT AutoTrack
+#define COMPONENT AutoTrackAsset
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(SERVER);
+EXEC_CHECK(SERVER);
 
 if !(UO_FW_Server_AUTOTRACKASSETMODULE_Allowed) exitwith {};
-if !(GETMVAR(AutoTrackAsset_Enabled,false)) exitWith {};
-["UO_FW_RegisterModuleEvent", ["Auto Track Assets", "Automatically runs Asset Tracking on AI vehicles.", "Starfox64, Sacher and PiZZADOX"]] call CBA_fnc_globalEvent;
+if !(GETMVAR(Enabled,false)) exitWith {};
+
+[QEGVAR(Core,RegisterModuleEvent), ["Auto Track Assets", "Automatically runs Asset Tracking on AI vehicles.", "Starfox64, Sacher and PiZZADOX"]] call CBA_fnc_globalEvent;
 params ["_marker", "_team"];
 {
     private _vehicle = _x;
@@ -17,6 +18,6 @@ params ["_marker", "_team"];
                     ["UO_FW_TrackAsset_Event",[_vehicle, getText(_vehCfg >> "displayName"), _name]] call CBA_fnc_serverEvent;
                 };
             };
-        } forEach UO_FW_Teams;
+        } forEach EGVAR(Core,Teams);
     };
 } forEach (vehicles select {local _x});

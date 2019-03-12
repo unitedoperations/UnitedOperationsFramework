@@ -19,6 +19,6 @@ while {count _unvisited > 0 } do {
     private _taskGroups = _taskModule getVariable ["UO_FW_AI_taskGroups", []];
     _taskGroups pushBack _grp;
     _taskModule setVariable ["UO_FW_AI_taskGroups", _taskGroups];
-    _unvisited = _unvisited + (([_taskModule ,["UO_FW_AI_TaskModule"]] call UO_FW_AI_fnc_getSyncedModules) - _visited);
+    _unvisited = _unvisited + (([_taskModule ,["UO_FW_AI_TaskModule"]] call EFUNC(AI,getSyncedModules)) - _visited);
 };
 true

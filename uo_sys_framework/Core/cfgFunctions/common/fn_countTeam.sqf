@@ -14,7 +14,7 @@
 
 #define COMPONENT Core
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(SERVER);
+EXEC_CHECK(SERVER);
 
 params ["_team"];
 private _count = -1;
@@ -23,6 +23,6 @@ private _count = -1;
     if (_name isEqualTo _team) exitWith {
         _count = _current;
     };
-} forEach UO_FW_Teams;
+} forEach EGVAR(Core,Teams);
 
 _count

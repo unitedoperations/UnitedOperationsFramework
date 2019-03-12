@@ -14,12 +14,15 @@
 
 #define COMPONENT Core
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(SERVER);
+EXEC_CHECK(SERVER);
 
-params ["_new"];
+params ["_new","_corpse"];
+SETVAR(_new,Body,_corpse);
 
-if (!(GETVAR(_new,Spectating,false))) then {
-    _new call UO_FW_fnc_EventSpawned;
-} else {
-    _new call UO_FW_fnc_UntrackUnit;
+if (GETVAR(_corpse,Tracked,false)) then {
+    if (GETVAR(_new,Spectating,false)) then {
+        _new call FUNC(UntrackUnit);
+    } else {
+        _new call FUNC(EventSpawned);
+    };
 };

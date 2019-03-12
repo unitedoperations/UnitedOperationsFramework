@@ -1,31 +1,31 @@
-class UO_FW_EndConditions_Timelimit_Settings {
+class EGVAR(EndConditions,Timelimit_Settings) {
     displayName = "Timelimit Settings";
     collapsed = 0;
     class Attributes {
-        class UO_FW_Timelimit_Enabled {
-            property = "UO_FW_Timelimit_Enabled";
+        class EGVAR(EndConditions,Timelimit_Enabled) {
+            property = QEGVAR(Timelimit,Enabled);
             displayName = "Mission Time Limit";
             tooltip = "Enables mission time limit";
             control = "CheckboxState";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
-        class UO_FW_Timelimit {
+        class EGVAR(EndConditions,Timelimit) {
             property = "UO_FW_Timelimit";
             displayName = "Time Limit";
             tooltip = "Ends mission after this time has been reached. Time in minutes";
-            control = "UO_FW_30To120Step1_Slider";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            control = QMGVAR(30To120Step1_Slider);
+            expression = SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "30";
         };
-        class UO_FW_Timelimit_Message {
-            property = "UO_FW_Timelimit_Message";
+        class EGVAR(EndConditions,Timelimit_Message) {
+            property = QEGVAR(Timelimit,Message);
             displayName = "Time Limit Message";
             tooltip = "Message displayed on time limit reached";
             control = "Edit";
             validate = "string";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "'Time Limit Reached!'";
         };
     };

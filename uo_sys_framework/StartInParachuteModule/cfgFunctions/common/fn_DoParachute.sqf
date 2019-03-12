@@ -1,3 +1,7 @@
+#define COMPONENT StartInParachute
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
+EXEC_CHECK(ALL);
+
 params ["_target","_elev",["_rand",100,[0]],["_steer",false,[false]]];
 
 private _class = ["NonSteerable_Parachute_F","Steerable_Parachute_F"] select _steer;

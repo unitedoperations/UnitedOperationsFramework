@@ -1,14 +1,14 @@
 #define COMPONENT ShotCount
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(CLIENT);
+EXEC_CHECK(CLIENT);
 
-["UO_FW_ShotCount_Display_Event", {
+[QGVAR(DisplayEvent), {
     if !(UO_FW_Server_ShotCountModule_Allowed) exitwith {};
-    if !(GETMVAR(ShotCount_Enabled,false)) exitwith {};
-    LOG_1("UO_FW_ShotCount_Display_Event published with: %1",_this);
-    [{!((uiNamespace getVariable ["UO_FW_EndScreen",""]) isEqualto "")}, {
+    if !(MGETMVAR(ShotCount_Enabled,false)) exitwith {};
+    LOG_1("Display_Event published with: %1",_this);
+    [{!((uiNamespace getVariable [QMGVAR(EndScreen),""]) isEqualto "")}, {
         _this params ["_textBLU","_textOPF","_textIND","_textCIV"];
-        private _endscreenDiag = (uiNamespace getVariable "UO_FW_EndScreen");
+        private _endscreenDiag = (uiNamespace getVariable QMGVAR(EndScreen));
         LOG_1("_endscreenDiag: %1",_endscreenDiag);
         private _bottomLeft = 3004;
         private _bottomMiddleLeft = 3005;

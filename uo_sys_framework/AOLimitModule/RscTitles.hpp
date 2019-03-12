@@ -1,15 +1,11 @@
-class RscAOLimit
-{
-    onLoad="_this call UO_FW_fnc_DisplayAOLimitWarning;";
+class EGVAR(AOLimit,SoftWarning) {
+    onLoad = QUOTE([_this select 0] call EFUNC(AOLimit,DisplayWarning););
     idd=-1;
     duration=1200;
     movingEnable=0;
-    class Controls
-    {
-        class TitleBackground
-        {
-            colorBackground[]=
-            {
+    class Controls {
+        class TitleBackground {
+            colorBackground[]= {
                 "(profilenamespace getvariable ['IGUI_BCG_RGB_R',0])",
                 "(profilenamespace getvariable ['IGUI_BCG_RGB_G',1])",
                 "(profilenamespace getvariable ['IGUI_BCG_RGB_B',1])",
@@ -33,8 +29,7 @@ class RscAOLimit
             descriptionColorBox[]={1,1,1,1};
             descriptionColorShade[]={0,0,0,0.64999998};
         };
-        class Title
-        {
+        class Title {
             idc=1001;
             x="13.5 * (((safezoneW / safezoneH) min 1.2) / 40) + (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2)";
             y="30.7 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + (safezoneY + (safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
@@ -54,8 +49,7 @@ class RscAOLimit
             descriptionColorBox[]={1,1,1,1};
             descriptionColorShade[]={0,0,0,0.64999998};
         };
-        class SetupTimeLeft
-        {
+        class SetupTimeLeft {
             idc=1003;
             text="  --:--.---";
             x="18 * (((safezoneW / safezoneH) min 1.2) / 40) + (safezoneX + (safezoneW - ((safezoneW / safezoneH) min 1.2))/2)";

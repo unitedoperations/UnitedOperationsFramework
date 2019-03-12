@@ -14,8 +14,8 @@
 
 #define COMPONENT Core
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(ALL);
+EXEC_CHECK(ALL);
 
-private _unit = _this;
+params ["_unit"];
 
-(alive _unit) && !(_unit getVariable ["UO_FW_Dead", false])
+(alive _unit) && {!(GETVAR(_unit,Dead,false))}

@@ -15,7 +15,7 @@
 
 #define COMPONENT Gear
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(ALL);
+EXEC_CHECK(ALL);
 
 private ["_assignedItems", "_result"];
 
@@ -27,9 +27,7 @@ params [
 _assignedItems = [];
 
 {
-
     _assignedItems pushBack (([_x] call BIS_fnc_itemType) select 1);
-
 } forEach (assignedItems _unit);
 
 _result = _Type in _assignedItems;

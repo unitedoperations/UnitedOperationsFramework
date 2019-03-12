@@ -1,5 +1,5 @@
 //This will tell our scripts if certain waypoints are set or not
-//_WaypointCheck = _group call UO_FW_AI_fnc_Waypointcheck;
+//_WaypointCheck = _group call EFUNC(AI,Waypointcheck);
 params ["_GroupToInspect"];
 private _WaypointsToIncriminate = [];
 

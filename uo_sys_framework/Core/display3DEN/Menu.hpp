@@ -1,11 +1,11 @@
-class UO_FW_Settings {
+class EGVAR(Core,SettingsMenu) {
     text = "Framework Settings";
-    action = "edit3DENMissionAttributes 'UO_FW_Settings';";
+    action = QUOTE(edit3DENMissionAttributes QN(EGVAR(Core,Settings)););
     picture = "\a3\3DEN\Data\Cfg3DEN\History\changeAttributes_ca.paa";
 };
 
-class UO_FW_Module_Settings {
+class EGVAR(Module,SettingsMenu) {
     text = "Module Settings";
-    action = "edit3DENMissionAttributes 'UO_FW_Module_Settings';";
+    action = QUOTE(edit3DENMissionAttributes QN(EGVAR(Module,Settings)););
     picture = "\a3\3DEN\Data\Displays\Display3DEN\PanelRight\modeModules_ca.paa";
 };

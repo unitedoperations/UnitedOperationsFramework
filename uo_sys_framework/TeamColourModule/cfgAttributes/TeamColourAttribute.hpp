@@ -1,4 +1,4 @@
-class UO_FW_TeamColourAttribute: Combo {
+class EGVAR(TeamColour,ColourAttribute): Combo {
     //save the lbData from the selected entry upon exit
     attributeSave = "\
         private _value = ((_this controlsGroupCtrl 100) lbData lbCurSel (_this controlsGroupCtrl 100));\
@@ -11,7 +11,7 @@ class UO_FW_TeamColourAttribute: Combo {
     attributeLoad="\
         private _control = (_this controlsGroupCtrl 100);\
         private _name = gettext (_config >> 'property');\
-        _teamcolourarray = [['None',[0, 0, 0, 0]],['White',[1, 1, 1, 1]],['Red',[1, 0, 0, 1]],['Green',[0, 1, 0, 1]],['Blue',[0, 0, 1, 1]],['Yellow',[1, 1, 0, 1]]];\
+        private _teamcolourarray = [['None',[0, 0, 0, 0]],['White',[1, 1, 1, 1]],['Red',[1, 0, 0, 1]],['Green',[0, 1, 0, 1]],['Blue',[0, 0, 1, 1]],['Yellow',[1, 1, 0, 1]]];\
         {\
             _x params ['_name','_colour'];\
             private _index = _control lbadd _name;\
@@ -25,6 +25,7 @@ class UO_FW_TeamColourAttribute: Combo {
             };\
         } foreach _teamcolourarray;\
         private ['_isUnitPlayable'];\
+        private _unit = ((get3denselected 'object') select 0);\
         private _ctrlGroup = ctrlParentControlsGroup ctrlParentControlsGroup _control;\
         {\
             if (ctrlParentControlsGroup _x isEqualto _ctrlGroup) then {\

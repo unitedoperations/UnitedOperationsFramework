@@ -12,7 +12,7 @@
 UO_FW_AI_EXEC_CHECK(SERVERHC);
 
 params [["_mode","",[""]],["_input",[],[[]]]];
-    if (isNil "UO_FW_AI_initialised") then {call UO_FW_AI_fnc_init;};
+    if (isNil "UO_FW_AI_initialised") then {call EFUNC(AI,init);};
     switch _mode do {
         case "init": {
             if !is3DEN then {

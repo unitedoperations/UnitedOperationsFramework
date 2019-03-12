@@ -1,99 +1,85 @@
-class UO_FW_3DEN_Inits {
-    file = "x\UO_FW\addons\Main\Core\cfgFunctions\3DEN\Inits";
-    class setDefaults {};
-};
+CFGFUNCFOLDERCORE(3DENInits);
+    CFGFUNC(3DEN,setDefaults);
+CFGFUNCFOLDEREND;
 
-class UO_FW_3DEN_Controls {
-    file = "x\UO_FW\addons\Main\Core\cfgFunctions\3DEN\Controls";
-    class attributeLoadCombo {};
-    class attributeSaveCombo {};
-};
+CFGFUNCFOLDERCORE(3DENControls);
+    CFGFUNC(3DEN,attributeLoadCombo);
+    CFGFUNC(3DEN,attributeSaveCombo);
+CFGFUNCFOLDEREND;
 
-class UO_FW_3DEN_Eventhandlers {
-    file = "x\UO_FW\addons\Main\Core\cfgFunctions\3DEN\EventHandlers";
-    class checkDuplicates {};
-};
+CFGFUNCFOLDERCORE(3DENEventhandlers);
+    CFGFUNC(3DEN,checkDuplicates);
+CFGFUNCFOLDEREND;
 
-class UO_FW_3DEN_Editor {
-    file = "x\UO_FW\addons\Main\Core\cfgFunctions\3DEN\Editor";
-    class BasicSettings3DEN {};
-};
+CFGFUNCFOLDERCORE(3DENEditor);
+    CFGFUNC(3DEN,BasicSettings3DEN);
+CFGFUNCFOLDEREND;
 
-class UO_FW_3DEN_ExportImport {
-    file = "x\UO_FW\addons\Main\Core\cfgFunctions\3DEN\ExportImport";
-    class ExportSettings {};
-    class ExportLoadoutSettings {};
-    class ImportSettings {};
-    class ImportLoadoutSettings {};
-};
+CFGFUNCFOLDERCORE(3DENExportImport);
+    CFGFUNC(3DEN,ExportSettings);
+    CFGFUNC(3DEN,ExportLoadoutSettings);
+    CFGFUNC(3DEN,ImportSettings);
+    CFGFUNC(3DEN,ImportLoadoutSettings);
+CFGFUNCFOLDEREND;
 
-class UO_FW_Core_Common {
-    file = "x\UO_FW\addons\Main\Core\cfgFunctions\common";
-    class addTeam {};
-    class alive {};
-    class alivePlayers {};
-    class areaCount {};
-    class casualtyCount {};
-    class casualtyPercentage {};
-    class countTeam {};
-    class createRespawnMarker {};
-    class endMission {};
-    class eventDisconnect {};
-    class eventKilled {};
-    class eventPlayerSpawned {};
-    class eventRespawned {};
-    class eventSpawned {};
-    class forceTerrainGrid {};
-    class getDamagedAssets {};
-    class getTeamVariable {};
-    class hasEmptyPositions {};
-    class hasExtracted {};
-    class randomRange {};
-    class setTeamVariable {};
-    class spawnAI {};
-    class spawnVehicle {};
-    class stackNames {};
-};
+CFGFUNCFOLDERCORE(Common);
+    CFGFUNC(Core,addTeam);
+    CFGFUNC(Core,alive);
+    CFGFUNC(Core,alivePlayers);
+    CFGFUNC(Core,areaCount);
+    CFGFUNC(Core,casualtyCount);
+    CFGFUNC(Core,casualtyPercentage);
+    CFGFUNC(Core,countTeam);
+    CFGFUNC(Core,createRespawnMarker);
+    CFGFUNC(Core,endMission);
+    CFGFUNC(Core,eventDisconnect);
+    CFGFUNC(Core,eventKilled);
+    CFGFUNC(Core,eventRespawned);
+    CFGFUNC(Core,eventSpawned);
+    CFGFUNC(Core,forceTerrainGrid);
+    CFGFUNC(Core,getDamagedAssets);
+    CFGFUNC(Core,getTeamVariable);
+    CFGFUNC(Core,hasEmptyPositions);
+    CFGFUNC(Core,randomRange);
+    CFGFUNC(Core,setTeamVariable);
+    CFGFUNC(Core,stackNames);
+    CFGFUNC(Core,parsedTextDisplay);
+CFGFUNCFOLDEREND;
 
-class UO_FW_Core_JIP {
-    file = "x\UO_FW\addons\Main\Core\cfgFunctions\JiP";
-    class GiveJiPActions {};
-    class JiPTeleport {};
-    class JiPTransport {};
-};
+CFGFUNCFOLDERCORE(JIP);
+    CFGFUNC(JIP,GiveActions);
+    CFGFUNC(JIP,Teleport);
+    CFGFUNC(JIP,Transport);
+CFGFUNCFOLDEREND;
 
-class UO_FW_Core_EndConditions {
-    file = "x\UO_FW\addons\Main\Core\cfgFunctions\EndConditions";
-    class EndConditionsInit {};
-};
+CFGFUNCFOLDERCORE(EndConditions);
+    CFGFUNC(EndConditions,Init);
+    CFGFUNC(EndConditions,hasExtracted);
+CFGFUNCFOLDEREND;
 
-class UO_FW_Core_EndScreen {
-    file = "x\UO_FW\addons\Main\Core\cfgFunctions\EndScreen";
-    class EndScreen {};
-};
+CFGFUNCFOLDERCORE(EndScreen);
+    CFGFUNC(Core,EndScreen);
+CFGFUNCFOLDEREND;
 
-class UO_FW_Core_Respawn {
-    file = "x\UO_FW\addons\Main\Core\cfgFunctions\Respawn";
-    class HandlePlayerRespawn {};
-};
+CFGFUNCFOLDERCORE(Respawn);
+    CFGFUNC(Respawn,HandlePlayerRespawn);
+CFGFUNCFOLDEREND;
 
-class UO_FW_Core_Spectate {
-    file = "x\UO_FW\addons\Main\Core\cfgFunctions\Spectate";
-    class Spectate {};
-    class EndSpectate {};
-    class keyhandleEG {};
-    class keyhandle46 {};
-};
+CFGFUNCFOLDERCORE(Spectator);
+    CFGFUNC(Spectator,Spectate);
+    CFGFUNC(Spectator,EndSpectate);
+    CFGFUNC(Spectator,keyhandleEG);
+    CFGFUNC(Spectator,keyhandle46);
+CFGFUNCFOLDEREND;
 
-class UO_FW_Core_EventHandlers {
-    file = "x\UO_FW\addons\Main\Core\cfgFunctions\Eventhandlers";
-    class KilledHandler {};
-    class RespawnHandler {};
-};
+CFGFUNCFOLDERCORE(EventHandlers);
+    CFGFUNC(Core,HitHandler);
+    CFGFUNC(Core,KilledHandler);
+    CFGFUNC(Core,RespawnHandler);
+CFGFUNCFOLDEREND;
 
-class UO_FW_Core_DebugFunctions {
-    file = "x\UO_FW\addons\Main\Core\cfgFunctions\debug";
-    class debugMessage {};
-    class debugMessageDetailed {};
-    class refreshDebug {};
-};
+CFGFUNCFOLDERCORE(Debug);
+    CFGFUNC(Debug,debugMessage);
+    CFGFUNC(Debug,debugMessageDetailed);
+    CFGFUNC(Debug,refreshDebug);
+CFGFUNCFOLDEREND;

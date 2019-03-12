@@ -1,32 +1,32 @@
-class UO_FW_Blufor_Briefing {
+class EGVAR(Briefing,Blufor) {
     displayName = "Blufor Briefing";
     class AttributeCategories {
         #include "Briefing\BluforMenu.hpp"
     };
 };
 
-class UO_FW_Opfor_Briefing {
+class EGVAR(Briefing,Opfor) {
     displayName = "Opfor Briefing";
     class AttributeCategories {
         #include "Briefing\OpforMenu.hpp"
     };
 };
 
-class UO_FW_Indfor_Briefing {
+class EGVAR(Briefing,Indfor) {
     displayName = "Indfor Briefing";
     class AttributeCategories {
         #include "Briefing\IndforMenu.hpp"
     };
 };
 
-class UO_FW_CIV_Briefing {
+class EGVAR(Briefing,Civilian) {
     displayName = "Civilian Briefing";
     class AttributeCategories {
         #include "Briefing\CivMenu.hpp"
     };
 };
 
-class UO_FW_Mission_Notes {
+class EGVAR(Mission,Notes) {
     displayName = "Mission Notes";
     class AttributeCategories {
         #include "Briefing\MissionNotesMenu.hpp"

@@ -1,3 +1,3 @@
-class UO_FW_AutoTrackAssets_PostInit {
-    init = "_this call UO_FW_fnc_AutoTrackAssetInit";
+class EGVAR(AutoTrackAssets,PostInit) {
+    init = QUOTE(_this call EFUNC(AutoTrackAsset,Init));
 };

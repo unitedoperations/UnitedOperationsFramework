@@ -1,69 +1,69 @@
-class UO_FW_TeamsSetting {
+class EGVAR(Core,TeamsSettings) {
     displayName = "Team Settings";
     collapsed = 0;
     class Attributes {
-        class UO_FW_TeamSetting_Blufor_TeamType {
-            property = "UO_FW_TeamSetting_Blufor_TeamType";
+        class EGVAR(Core,TeamType_Blufor) {
+            property = QEGVAR(Core,Blufor_TeamType);
             displayName = "Type";
             tooltip = "Set team to either AI, Player Controlled, or Both";
             control = "UO_FW_TeamType_Select";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "0";
         };
-        class UO_FW_TeamSetting_TeamName_Blufor {
-            property = "UO_FW_TeamSetting_TeamName_Blufor";
+        class EGVAR(Core,TeamName_Blufor) {
+            property = QEGVAR(Core,TeamName_Blufor);
             displayName = "Name";
             tooltip = "Set team name";
             control = "EditShort";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "'BLUFOR TEAM'";
         };
-        class UO_FW_TeamSetting_Opfor_TeamType {
-            property = "UO_FW_TeamSetting_Opfor_TeamType";
+        class EGVAR(Core,TeamType_Opfor) {
+            property = QEGVAR(Core,Opfor_TeamType);
             displayName = "Type";
             tooltip = "Set team to either AI, Player Controlled, or Both";
             control = "UO_FW_TeamType_Select";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "0";
         };
-        class UO_FW_TeamSetting_TeamName_Opfor {
-            property = "UO_FW_TeamSetting_TeamName_Opfor";
+        class EGVAR(Core,TeamName_Opfor) {
+            property = QEGVAR(Core,TeamName_Opfor);
             displayName = "Name";
             tooltip = "Set team name";
             control = "EditShort";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "'OPFOR TEAM'";
         };
-        class UO_FW_TeamSetting_Indfor_TeamType {
-            property = "UO_FW_TeamSetting_Indfor_TeamType";
+        class EGVAR(Core,TeamType_Indfor) {
+            property = QEGVAR(Core,Indfor_TeamType);
             displayName = "Type";
             tooltip = "Set team to either AI, Player Controlled, or Both";
             control = "UO_FW_TeamType_Select";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "0";
         };
-        class UO_FW_TeamSetting_TeamName_Indfor {
-            property = "UO_FW_TeamSetting_TeamName_Indfor";
+        class EGVAR(Core,TeamName_Indfor) {
+            property = QEGVAR(Core,TeamName_Indfor);
             displayName = "Name";
             tooltip = "Set team name";
             control = "EditShort";
-            expression = UO_FW_SCENARIO_EXPRESSION;
-            defaultValue = "'INDFOR TEAM'";
+            expression = SCENARIO_EXPRESSION;
+            defaultValue = "'Indfor TEAM'";
         };
-        class UO_FW_TeamSetting_Civ_TeamType {
-            property = "UO_FW_TeamSetting_Civ_TeamType";
+        class EGVAR(Core,TeamType_Civilian) {
+            property = QEGVAR(Core,Civ_TeamType);
             displayName = "Type";
             tooltip = "Set team to either AI, Player Controlled, or Both";
             control = "UO_FW_TeamType_Select";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "0";
         };
-        class UO_FW_TeamSetting_TeamName_Civ {
-            property = "UO_FW_TeamSetting_TeamName_Civ";
+        class EGVAR(Core,TeamName_Civilian) {
+            property = QEGVAR(Core,TeamName_Civilian);
             displayName = "Name";
             tooltip = "Set team name";
             control = "EditShort";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "'CIVILIAN TEAM'";
         };
     };

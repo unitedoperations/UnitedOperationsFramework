@@ -13,16 +13,16 @@ UO_FW_AI_EXEC_CHECK(SERVERHC);
     _x params ["_grp"];
     if ({alive _x} count (units _grp) > 0 && _grp getVariable["UO_FW_AI_isNotZoneActivated",true]) then {
         if (isNull (_grp getVariable["UO_FW_AI_CurrentTask",objNull])) then {
-            private _taskCheck = [_grp,_grp,true] call UO_FW_AI_fnc_taskCheck;
+            private _taskCheck = [_grp,_grp,true] call EFUNC(AI,taskCheck);
             _taskCheck params [["_task",objNull,[objNull]]];
             if (!isNull _task) then {
-                [_grp,_task] call UO_FW_AI_fnc_taskSet;
+                [_grp,_task] call EFUNC(AI,taskSet);
             };
         } else {
-            private _taskCheck = [_grp,(_grp getVariable["UO_FW_AI_CurrentTask",objNull])] call UO_FW_AI_fnc_taskCheck;
+            private _taskCheck = [_grp,(_grp getVariable["UO_FW_AI_CurrentTask",objNull])] call EFUNC(AI,taskCheck);
             _taskCheck params [["_task",objNull,[objNull]]];
-            if (_grp getVariable "UO_FW_AI_CurrentTaskEndTime" < CBA_MissionTime && !isNull _task) then {
-                [_grp,_task] call UO_FW_AI_fnc_taskSet;
+            if (GETVAR(_grp,CurrentTaskEndTime,0) < CBA_MissionTime && !isNull _task) then {
+                [_grp,_task] call EFUNC(AI,taskSet);
             };
         };
     } else {

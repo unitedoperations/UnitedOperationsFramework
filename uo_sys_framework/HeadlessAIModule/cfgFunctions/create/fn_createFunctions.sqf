@@ -13,12 +13,12 @@ params ["_functions","_delay"];
 [{
     {
         private _logic = _x;
-        private _posModules = [_logic,["UO_FW_AI_PositionModule"]] call UO_FW_AI_fnc_getSyncedModules;
+        private _posModules = [_logic,["UO_FW_AI_PositionModule"]] call EFUNC(AI,getSyncedModules);
         private _spos = [0,0,0];
         if ( count _posModules > 0) then {
             private _pos = getPosATL (_posModules select 0);
             if (((_posModules select 0) getVariable ['UO_FW_AI_PositionRadius',0]) > 0) then {
-                _spos = [_pos,0,((_posModules select 0) getVariable ['UO_FW_AI_PositionRadius',0]),1] call UO_FW_AI_fnc_getRandomPositionCircle;
+                _spos = [_pos,0,((_posModules select 0) getVariable ['UO_FW_AI_PositionRadius',0]),1] call EFUNC(AI,getRandomPositionCircle);
             } else {
                 _spos = _pos;
             };

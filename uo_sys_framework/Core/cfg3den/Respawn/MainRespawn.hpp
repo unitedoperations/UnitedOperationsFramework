@@ -1,54 +1,54 @@
-class UO_FW_MainRespawnSettings {
+class EGVAR(Respawn,Category) {
     displayName = "General Respawn Settings";
     collapsed = 0; //_respawnTypeArray = [['1 Life','ONELIFE'],['Unlimited','UNLIMITED'],['Individual Tickets','INDTICKETS'],['Team Tickets','TEAMTICKETS'],['Wave','WAVE'],['Triggered','TRIGGERED']];\
     class Attributes {
-        class UO_FW_RespawnSetting_InstantDeath {
-            property = "UO_FW_RespawnSetting_InstantDeath";
+        class EGVAR(Respawn,InstantDeath) {
+            property = QEGVAR(Respawn,InstantDeath);
             displayName = "Instant Death Screen";
             tooltip = "This setting enables the 'YOU ARE DEAD' screen that shows immediately following a player's death. Disable to enable VR fadeout effect.";
             control = "CheckBox";
             defaultValue = "true";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
         };
-        class UO_FW_RespawnSetting_KillCam {
-            property = "UO_FW_RespawnSetting_KillCam";
+        class EGVAR(Respawn,KillCam) {
+            property = QEGVAR(Respawn,KillCam);
             displayName = "Killcam";
             tooltip = "This setting enables the specator killcam functionality.";
             control = "CheckBox";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "true";
         };
     };
 };
 
-class UO_FW_JIPCategory {
+class EGVAR(JIP,Category) {
     displayName = "JiP Settings";
     collapsed = 0;
     class Attributes {
-        class UO_FW_JIP_DENYTIME {
-            property = "UO_FW_JIP_DENYTIME";
+        class EGVAR(JIP,DENYTIME) {
+            property = QEGVAR(JIP,DENYTIME);
             displayName = "Deny Time";
             tooltip = "After how many minutes should a player be considered JIP";
-            control = "UO_FW_5To20Step1_Slider";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            control = QMGVAR(5To20Step1_Slider);
+            expression = SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "5";
         };
-        class UO_FW_JIP_EXPIRETIME {
-            property = "UO_FW_JIP_EXPIRETIME";
+        class EGVAR(JIP,EXPIRETIME) {
+            property = QEGVAR(JIP,EXPIRETIME);
             displayName = "Expire Time";
             tooltip = "After how many minutes JiPs will no longer have teleport or transport actions.";
-            control = "UO_FW_5To20Step1_Slider";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            control = QMGVAR(5To20Step1_Slider);
+            expression = SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "5";
         };
-        class UO_FW_JIP_EnemyDISTANCE {
-            property = "UO_FW_JIP_EnemyDISTANCE";
+        class EGVAR(JIP,EnemyDISTANCE) {
+            property = QEGVAR(JIP,EnemyDISTANCE);
             displayName = "Nearby Enemy Distance";
             tooltip = "Denies teleport action if the distance between enemies and the intended teleport location is less than this value in metres";
-            control = "UO_FW_50To200Step50_Slider";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            control = QMGVAR(50To200Step50_Slider);
+            expression = SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "100";
         };

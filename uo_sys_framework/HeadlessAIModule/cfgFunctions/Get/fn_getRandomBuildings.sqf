@@ -13,7 +13,7 @@
 UO_FW_AI_EXEC_CHECK(SERVERHC);
 params ["_pos",["_radius",500,[0]],["_bldAmt",25,[0]]];
 private _blds = [];
-private _rblds = [_pos,_radius] call UO_FW_AI_fnc_getBuildings;
+private _rblds = [_pos,_radius] call EFUNC(AI,getBuildings);
 for "_i" from 0 to _bldAmt step 1 do {
     private _index = (floor random (count _rblds));
     private _bld = _rblds select _index;

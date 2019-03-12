@@ -10,7 +10,7 @@ attributeLoad = "\
         private _active = _name in _value;\
         _ctrlListbox lbsetvalue [_lbAdd,[0,1] select _active];\
         _ctrlListbox lbsetpicture [_lbAdd,[_pictureUnchecked,_pictureChecked] select _active];\
-    } foreach ['BLUFOR','OPFOR','INDFOR','CIVILIAN'];\
+    } foreach ['BLUFOR','OPFOR','Indfor','CIVILIAN'];\
 "
 
 #define UO_FW_SPECTATETEAMS_ATTR_SAVE \

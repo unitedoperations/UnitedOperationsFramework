@@ -73,12 +73,12 @@ _grp setVariable ['UO_FW_AI_forceLights',_fl];
 _grp setVariable ['UO_FW_AI_surrender',_surrender];
 _grp setVariable ['UO_FW_AI_Tracker',_tracker];
 //_grp call CBA_fnc_clearWaypoints;
-[_grp,_behave,_combat,_speed,_formation] call UO_FW_AI_fnc_setGroupBehaviour;
+[_grp,_behave,_combat,_speed,_formation] call EFUNC(AI,setGroupBehaviour);
 {
     _x setUnitPos _grpStance;
     if (!isNull(assignedVehicle _x)) then {[_x] orderGetIn true;};
 } forEach (units _grp);
-if (_fl) then {[_grp] call UO_FW_AI_fnc_setFlashlights;};
-if (_surrender) then {[_grp] call UO_FW_AI_fnc_setSurrender;};
+if (_fl) then {[_grp] call EFUNC(AI,setFlashlights);};
+if (_surrender) then {[_grp] call EFUNC(AI,setSurrender);};
 _grp spawn _grpinit;
 true

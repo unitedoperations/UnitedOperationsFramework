@@ -1,20 +1,21 @@
 class UO_FW_FrameworkCheckbox: Checkbox {
-    attributeLoad="\
+    attributeLoad = QUOTE(\
         (_this controlsGroupCtrl 100) cbsetchecked _value;\
-        if (_value) then {[] call UO_FW_fnc_BasicSettings3Den;};\
-    ";
-	attributeSave = "\
+        if (_value) then {[] call EFUNC(3DEN,BasicSettings3Den);};\
+    );
+	attributeSave = QUOTE(\
         _value = cbchecked (_this controlsGroupCtrl 100);\
-        if (_value) then {[] call UO_FW_fnc_BasicSettings3Den;};\
+        if (_value) then {[] call EFUNC(3DEN,BasicSettings3Den);};\
         _value\
-    ";
+    );
     class Controls: Controls {
         class Title: Title {};
         class Value: Value {
-            onCheckedChanged ="\
-                params ['_control', '_checked'];\
-                if (_checked isEqualTo 1) then {[] call UO_FW_fnc_BasicSettings3Den;};\
-            ";
+            onCheckedChanged = QUOTE(\
+                private _ctrlCheckbox = (_this select 0);\
+                private _state = [ARR_2(false,true)] select (_this select 1);\
+                if (_state) then {[] call EFUNC(3DEN,BasicSettings3Den);};\
+            );
         };
     };
 };

@@ -1,15 +1,15 @@
-private ["_Unit", "_index", "_NearestEnemy", "_unit","_UO_FW_AI_MovedRecently","_UO_FW_AI_MovedRecentlyCover","_ReturnVariable","_UO_FW_AI_MovedRecentlyRETURN","_UO_FW_AI_MovedRecentlyCoverRETURN","_UO_FW_AI_InCoverRETURN"];
-params ["_Unit","_UO_FW_AI_GARRISONED","_UO_FW_AI_MovedRecently","_UO_FW_AI_MovedRecentlyCover","_UO_FW_AI_VisuallyCanSee","_UO_FW_AI_ActivelyClearing","_UO_FW_AI_StartedInside"];
+private ["_Unit", "_index", "_NearestEnemy", "_unit","_MovedRecently","_MovedRecentlyCover","_ReturnVariable","_MovedRecentlyRETURN","_MovedRecentlyCoverRETURN","_InCoverRETURN"];
+params ["_Unit","_GARRISONED","_MovedRecently","_MovedRecentlyCover","_VisuallyCanSee","_ActivelyClearing","_StartedInside"];
 
-//systemchat format ["%1",((group _Unit) call UO_FW_AI_fnc_Waypointcheck)];
-//if ((count ((group _Unit) call UO_FW_AI_fnc_Waypointcheck)) > 0) exitwith {};
+//systemchat format ["%1",((group _Unit) call EFUNC(AI,Waypointcheck))];
+//if ((count ((group _Unit) call EFUNC(AI,Waypointcheck))) > 0) exitwith {};
 if (UO_FW_AI_CurrentlyMoving < UO_FW_AI_CurrentlyMovingLimit) then {
     private _FiredRecently = _unit getVariable ["UO_FW_AI_FiredTime",diag_ticktime];
 
     //systemchat "EXECUTED COMBAT MOVEMENT!";
     //systemchat format ["%1",(diag_tickTime - _FiredRecently)];
 
-    if (_UO_FW_AI_MovedRecentlyCover || {(diag_tickTime - _FiredRecently) < 3} || {_UO_FW_AI_VisuallyCanSee} || {_UO_FW_AI_ActivelyClearing} || {_UO_FW_AI_StartedInside} || {_UO_FW_AI_GARRISONED} || {_UO_FW_AI_MovedRecently}) exitWith {_ReturnVariable = [false,false,false];UO_FW_AI_CurrentlyMoving = UO_FW_AI_CurrentlyMoving - 1;_ReturnVariable};
+    if (_MovedRecentlyCover || {(diag_tickTime - _FiredRecently) < 3} || {_VisuallyCanSee} || {_ActivelyClearing} || {_StartedInside} || {_GARRISONED} || {_MovedRecently}) exitWith {_ReturnVariable = [false,false,false];UO_FW_AI_CurrentlyMoving = UO_FW_AI_CurrentlyMoving - 1;_ReturnVariable};
     private _Squadlead = leader _Unit;
 
     if (_Squadlead distance _Unit > 60) then {
@@ -25,29 +25,29 @@ if (UO_FW_AI_CurrentlyMoving < UO_FW_AI_CurrentlyMovingLimit) then {
         if !(_WPPosition isEqualTo [0,0,0]) then {
             if (_Unit isEqualTo (leader _Unit)) then {
                 private _GroupDudes = units (group _Unit);
-                _NearestEnemy = _Unit call UO_FW_AI_fnc_ClosestEnemy;
+                _NearestEnemy = _Unit call EFUNC(AI,ClosestEnemy);
                 if (isNil "_NearestEnemy" || _NearestEnemy isEqualTo [0,0,0]) then {_NearestEnemy = _WPPosition;};
                 //systemchat format ["_NearestEnemy: %1",_NearestEnemy];
-                _UO_FW_AI_MovedRecentlyRETURN = true;
-                _UO_FW_AI_MovedRecentlyCoverRETURN = true;
-                _UO_FW_AI_InCoverRETURN = true;
-                _ReturnVariable = [_UO_FW_AI_MovedRecentlyRETURN,_UO_FW_AI_MovedRecentlyCoverRETURN,_UO_FW_AI_InCoverRETURN];
+                _MovedRecentlyRETURN = true;
+                _MovedRecentlyCoverRETURN = true;
+                _InCoverRETURN = true;
+                _ReturnVariable = [_MovedRecentlyRETURN,_MovedRecentlyCoverRETURN,_InCoverRETURN];
                 {
-                    [_x,_WPPosition,_UO_FW_AI_GARRISONED,_UO_FW_AI_MovedRecentlyCover,_UO_FW_AI_ActivelyClearing,_UO_FW_AI_StartedInside,_NearestEnemy] spawn {
-                        params ["_unit","_pos","_UO_FW_AI_GARRISONED","_UO_FW_AI_MovedRecentlyCover","_UO_FW_AI_ActivelyClearing","_UO_FW_AI_StartedInside","_NearestEnemy"];
+                    [_x,_WPPosition,_GARRISONED,_MovedRecentlyCover,_ActivelyClearing,_StartedInside,_NearestEnemy] spawn {
+                        params ["_unit","_pos","_GARRISONED","_MovedRecentlyCover","_ActivelyClearing","_StartedInside","_NearestEnemy"];
                         if !((vehicle _Unit) isEqualTo _Unit) exitWith {};
                         waitUntil {UO_FW_AI_CurrentlyMoving < UO_FW_AI_CurrentlyMovingLimit};
                         UO_FW_AI_CurrentlyMoving = UO_FW_AI_CurrentlyMoving + 1;
                         sleep (random 10);
 
 
-                        private _MoveToPos = [_Unit,_Pos,_NearestEnemy] call UO_FW_AI_fnc_FragmentMove;
+                        private _MoveToPos = [_Unit,_Pos,_NearestEnemy] call EFUNC(AI,FragmentMove);
                         //systemchat format ["_MoveToPos: %1",_MoveToPos];
                         if !((vehicle _Unit) isEqualTo _Unit) exitWith {
                             _Unit forceSpeed -1;
                             _Unit doMove _Pos;
                         };
-                        private _CoverPos = [_Unit,_MoveToPos,_UO_FW_AI_GARRISONED,_UO_FW_AI_MovedRecentlyCover,_UO_FW_AI_ActivelyClearing,_UO_FW_AI_StartedInside,_NearestEnemy] call UO_FW_AI_fnc_FindCoverPos;
+                        private _CoverPos = [_Unit,_MoveToPos,_GARRISONED,_MovedRecentlyCover,_ActivelyClearing,_StartedInside,_NearestEnemy] call EFUNC(AI,FindCoverPos);
                         //systemchat format ["_CoverPos: %1",_CoverPos];
 
                         if !(isNil "_CoverPos") then {
@@ -95,16 +95,16 @@ if (UO_FW_AI_CurrentlyMoving < UO_FW_AI_CurrentlyMovingLimit) then {
                     };
                 } foreach _GroupDudes;
             };
-            _UO_FW_AI_MovedRecentlyRETURN = true;
-            _UO_FW_AI_MovedRecentlyCoverRETURN = true;
-            _UO_FW_AI_InCoverRETURN = true;
-            _ReturnVariable = [_UO_FW_AI_MovedRecentlyRETURN,_UO_FW_AI_MovedRecentlyCoverRETURN,_UO_FW_AI_InCoverRETURN];
+            _MovedRecentlyRETURN = true;
+            _MovedRecentlyCoverRETURN = true;
+            _InCoverRETURN = true;
+            _ReturnVariable = [_MovedRecentlyRETURN,_MovedRecentlyCoverRETURN,_InCoverRETURN];
             //_Unit setVariable ["UO_FW_AI_InCover",true,false];
         } else {
-            _UO_FW_AI_MovedRecentlyRETURN = false;
-            _UO_FW_AI_MovedRecentlyCoverRETURN = false;
-            _UO_FW_AI_InCoverRETURN = false;
-            _ReturnVariable = [_UO_FW_AI_MovedRecentlyRETURN,_UO_FW_AI_MovedRecentlyCoverRETURN,_UO_FW_AI_InCoverRETURN];
+            _MovedRecentlyRETURN = false;
+            _MovedRecentlyCoverRETURN = false;
+            _InCoverRETURN = false;
+            _ReturnVariable = [_MovedRecentlyRETURN,_MovedRecentlyCoverRETURN,_InCoverRETURN];
 
         };
         UO_FW_AI_CurrentlyMoving = UO_FW_AI_CurrentlyMoving - 1;

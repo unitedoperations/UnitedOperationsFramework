@@ -1,13 +1,13 @@
-class UO_FW_AI_InitPost {
-    init = "_this call UO_FW_HC_playerInit;";
+class EGVAR(AI,InitPost) {
+    init = QUOTE(_this call EFUNC(AI,playerInit););
 };
 
-//class UO_FW_AI_InitPost {
-//    init = "\
-//        if (isPlayer _this) then {\
-//            _this call UO_FW_HC_playerInit;\
-//        } else {\
-//            _this call UO_FW_HC_onInit;\
-//        };\
+//class EGVAR(AI,InitPost) {
+//    init = "
+//        if (isPlayer _this) then {
+//            _this call UO_FW_AI_playerInit;
+//        } else {
+//            _this call UO_FW_AI_onInit;
+//        };
 //    ";
 //};

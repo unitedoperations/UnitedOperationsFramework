@@ -1,35 +1,35 @@
-class UO_FW_Briefing_Folder {
+class EGVAR(Briefing,Folder) {
     text = "Configure Briefings";
-    items[] = {"UO_FW_Blufor_Briefing_Configure","UO_FW_Opfor_Briefing_Configure","UO_FW_Indfor_Briefing_Configure","UO_FW_CIV_Briefing_Configure","UO_FW_Mission_Notes_Configure","UO_FW_Mission_Export"};
+    items[] = {"UO_FW_Briefing_Configure_Blufor","UO_FW_Briefing_Configure_Opfor","UO_FW_Briefing_Configure_Indfor","UO_FW_Briefing_Configure_Civilian","UO_FW_Mission_Notes_Configure","UO_FW_Mission_Export"};
     picture = "\a3\3DEN\Data\Cfg3DEN\Comment\texture_ca.paa";
 };
 
-class UO_FW_Blufor_Briefing_Configure {
+class EGVAR(Briefing,Configure_Blufor) {
     text = "Configure Blufor Briefing";
-    action = "edit3DENMissionAttributes 'UO_FW_Blufor_Briefing';";
+    action = "edit3DENMissionAttributes 'UO_FW_Briefing_Blufor';";
 };
 
-class UO_FW_Opfor_Briefing_Configure {
+class EGVAR(Briefing,Configure_Opfor) {
     text = "Configure Opfor Briefing";
-    action = "edit3DENMissionAttributes 'UO_FW_Opfor_Briefing';";
+    action = "edit3DENMissionAttributes 'UO_FW_Briefing_Opfor';";
 };
 
-class UO_FW_Indfor_Briefing_Configure {
+class EGVAR(Briefing,Configure_Indfor) {
     text = "Configure Indfor Briefing";
-    action = "edit3DENMissionAttributes 'UO_FW_Indfor_Briefing';";
+    action = "edit3DENMissionAttributes 'UO_FW_Briefing_Indfor';";
 };
 
-class UO_FW_CIV_Briefing_Configure {
+class EGVAR(Briefing,Configure_Civilian) {
     text = "Configure Civilian Briefing";
-    action = "edit3DENMissionAttributes 'UO_FW_CIV_Briefing';";
+    action = "edit3DENMissionAttributes 'UO_FW_Briefing_Civilian';";
 };
 
-class UO_FW_Mission_Notes_Configure {
+class EGVAR(Mission,Notes_Configure) {
     text = "Configure Mission Notes";
     action = "edit3DENMissionAttributes 'UO_FW_Mission_Notes';";
 };
 
-class UO_FW_Mission_Export {
+class EGVAR(Mission,Export) {
     text = "Export Briefing";
-    action = "[] call UO_FW_fnc_ExportBriefings;";
+    action = "[] call UO_FW_fnc_Briefing_ExportBriefings;";
 };

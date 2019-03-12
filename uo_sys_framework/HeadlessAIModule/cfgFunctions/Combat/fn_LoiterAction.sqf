@@ -53,7 +53,7 @@ while {((behaviour _unit ) != "COMBAT") && ((behaviour _unit ) != "STEALTH") && 
         case 3: {
             if (!(alive _unit ))exitWith {};
             _unit  setVariable ["UO_FW_AI_LOITERINGACT",3];
-            _ClosestUnit = [(_UnitGroup - [_unit ]),_unit ] call UO_FW_AI_fnc_ClosestObject;
+            _ClosestUnit = [(_UnitGroup - [_unit ]),_unit ] call EFUNC(AI,ClosestObject);
             _ClosestUnit setVariable ["UO_FW_AI_LOITERINGACT",3];
             if (((behaviour _unit) == "COMBAT") || ((behaviour _unit) == "AWARE") || ((behaviour _unit) == "STEALTH")) then {  breakOut "SAFE_Loop1";};
             _rnd = random 10;

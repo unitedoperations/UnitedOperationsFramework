@@ -1,4 +1,3 @@
-class UO_FW_StartTextFunctions {
-    file = "\x\UO_FW\addons\Main\StartTextModule\cfgFunctions\common";
-    class ExecuteStartText {};
-};
+CFGFUNCFOLDER(StartText,common);
+    CFGFUNC(StartText,Init);
+CFGFUNCFOLDEREND;

@@ -1,37 +1,37 @@
-class UO_FW_AIDrivers_Settings {
+class EGVAR(AIDrivers,Settings) {
     displayName = "AI Drivers Settings";
     collapsed = 1;
     class Attributes {
-        class UO_FW_AIDrivers_VehClasses {
-            property = "UO_FW_AIDrivers_VehClasses";
+        class EGVAR(AIDrivers,VehClasses) {
+            property = QEGVAR(AIDrivers,VehClasses);
             displayName = "Vehicle Classes";
             tooltip = "Classes to give AI Drivers to at mission start. Leave blank to disable.";
             control = "EditArray";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "[]";
         };
-        class UO_FW_AIDrivers_AllVehs {
-            property = "UO_FW_AIDrivers_AllVehs";
+        class EGVAR(AIDrivers,AllVehs) {
+            property = QEGVAR(AIDrivers,AllVehs);
             displayName = "All Vehicles";
             tooltip = "Give AI Driver actions to all vehicles at mission start";
             control = "CheckBox";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
-        class UO_FW_AIDrivers_NVEnabled {
-            property = "UO_FW_AIDrivers_NVEnabled";
+        class EGVAR(AIDrivers,NVEnabled) {
+            property = QEGVAR(AIDrivers,NVEnabled);
             displayName = "Night Vision";
             tooltip = "Whether the player can use NVGs in AI Driver view";
             control = "CheckBox";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
-        class UO_FW_AIDrivers_FlipEnabled {
-            property = "UO_FW_AIDrivers_FlipEnabled";
+        class EGVAR(AIDrivers,FlipEnabled) {
+            property = QEGVAR(AIDrivers,FlipEnabled);
             displayName = "Flip Vehicle";
             tooltip = "Whether the player can flip the vehicle via ACE action";
             control = "CheckBox";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "true";
         };
     };

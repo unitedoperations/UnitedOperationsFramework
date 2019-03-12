@@ -16,7 +16,7 @@
 
 #define COMPONENT Core
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(ALL);
+EXEC_CHECK(ALL);
 
 params [
     ["_team", "", [""]],
@@ -30,6 +30,6 @@ private _return = false;
         _x set [_index, _value];
         _return = true;
     };
-} forEach UO_FW_Teams;
+} forEach EGVAR(Core,Teams);
 
 _return

@@ -1,11 +1,11 @@
 #include "\x\UO_FW\addons\Main\HeadlessAIModule\module_macros.hpp"
 UO_FW_AI_EXEC_CHECK(HC);
 
-if (!(getMissionConfigValue ["UO_FW_AI_Enabled",false])) exitWith {};
+if !(MGETMVALUE(AI_Enabled,false)) exitWith {};
 
 LOG("running fn_initMain");
 
-["UO_FW_RegisterModuleEvent", ["Headless AI", "Custom AI Scripts and spawning modules for AI", "PiZZADOX"]] call CBA_fnc_globalEvent;
+[QEGVAR(Core,RegisterModuleEvent), ["Headless AI", "Custom AI Scripts and spawning modules for AI", "PiZZADOX"]] call CBA_fnc_globalEvent;
 
 UO_FW_AI_Zones = [];
 UO_FW_AI_entities = [];
@@ -112,11 +112,11 @@ UO_FW_AI_FORCETIME_TIME = 12;
 
 //Lets gets the queue handler going
 [{CBA_MissionTime > 0},{
-    [] call UO_FW_AI_fnc_QueueHandle;
-    [] call UO_FW_AI_fnc_ActiveHandler;
-    [] call UO_FW_AI_fnc_GroupHandler;
-    [] call UO_FW_AI_fnc_MapMarkers;
-    [] call UO_FW_AI_fnc_zoneMonitor;
+    [] call EFUNC(AI,QueueHandle);
+    [] call EFUNC(AI,ActiveHandler);
+    [] call EFUNC(AI,GroupHandler);
+    [] call EFUNC(AI,MapMarkers);
+    [] call EFUNC(AI,zoneMonitor);
 }] call CBA_fnc_waitUntilAndExecute;
 
 //leader/group behavior handling loop

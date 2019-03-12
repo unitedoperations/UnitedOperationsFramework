@@ -9,8 +9,8 @@
 #include "\x\UO_FW\addons\Main\HeadlessAIModule\module_macros.hpp"
 UO_FW_AI_EXEC_CHECK(SERVERHC);
 params ["_logic",["_entities",[[], [], []],[[]]],["_vehLog",[],[[]]]];
-private _synced = [_logic] call UO_FW_AI_fnc_getSynced;
-private _posModules = [_logic,["UO_FW_AI_PositionModule"]] call UO_FW_AI_fnc_getSyncedModules;
+private _synced = [_logic] call EFUNC(AI,getSynced);
+private _posModules = [_logic,["UO_FW_AI_PositionModule"]] call EFUNC(AI,getSyncedModules);
 {
     private _posModule = _x;
     private _position = (getPosATL _posModule);
@@ -18,7 +18,7 @@ private _posModules = [_logic,["UO_FW_AI_PositionModule"]] call UO_FW_AI_fnc_get
         private _obj =  _x;
         if (!(_obj isKindOf "Logic")) then {
             if (_obj isKindOf "Thing") then {
-                (_entities select 2) pushback ([_obj,_position] call UO_FW_AI_fnc_getDetailsThing);
+                (_entities select 2) pushback ([_obj,_position] call EFUNC(AI,getDetailsThing));
             };
             if (_obj isKindOf "StaticWeapon"
                 || _obj isKindOf "Static"
@@ -28,7 +28,7 @@ private _posModules = [_logic,["UO_FW_AI_PositionModule"]] call UO_FW_AI_fnc_get
             ) then {
                 private _grp = if (_obj isKindOf "StaticWeapon" || _obj isKindOf "Static") then {group (gunner _obj)} else {group (driver _obj)};
                 if (isNull _grp) then {
-                    (_entities select 1) pushback ([_obj] call UO_FW_AI_fnc_getDetailsVehicleEmpty);
+                    (_entities select 1) pushback ([_obj] call EFUNC(AI,getDetailsVehicleEmpty));
                 };
             };
             if (_obj isKindOf "Man") then {
@@ -45,10 +45,10 @@ private _posModules = [_logic,["UO_FW_AI_PositionModule"]] call UO_FW_AI_fnc_get
                     private _posRadius = _posModule getVariable ['UO_FW_AI_PositionRadius',0];
                     if (_grpRadius > 1 || _posRadius > 1) then {
                         if (_grpRadius > 1) then {
-                            _grpPosArray = [_grpPos,0,_grpRadius,(_gx*5)] call UO_FW_AI_fnc_getRandomPositionCircle;
+                            _grpPosArray = [_grpPos,0,_grpRadius,(_gx*5)] call EFUNC(AI,getRandomPositionCircle);
                         } else {
                             if (_posRadius > 1) then {
-                                _grpPosArray = [_grpPos,0,_posRadius,(_gx*5)] call UO_FW_AI_fnc_getRandomPositionCircle;
+                                _grpPosArray = [_grpPos,0,_posRadius,(_gx*5)] call EFUNC(AI,getRandomPositionCircle);
                             };
                         };
                         if (!(_grpPosArray isEqualTo [])) then {
@@ -59,27 +59,27 @@ private _posModules = [_logic,["UO_FW_AI_PositionModule"]] call UO_FW_AI_fnc_get
                     };
                     {
                         private _unit = _x;
-                        private _unitpos = [_grpPosNew,_grpldr,_unit] call UO_FW_AI_fnc_getNewPos;
+                        private _unitpos = [_grpPosNew,_grpldr,_unit] call EFUNC(AI,getNewPos);
                         private _veh = assignedVehicle _unit;
                         if (!isNull _veh) then {
                             private _vehPos = getposATL _veh;
                             if (!(_grpPosNew isEqualTo _grpPos)) then {_vehPos = _grpPosNew;};
                             if (!(_veh in _vehLog)) then {
-                                (_group select 2) pushBack ([_veh,_vehPos] call UO_FW_AI_fnc_getDetailsVehicle);
+                                (_group select 2) pushBack ([_veh,_vehPos] call EFUNC(AI,getDetailsVehicle));
                                 _vehLog pushBack _veh;
                             };
                         };
                         if (_grpldr isEqualTo _unit) then {
                             {
                                 (_group select 1) pushback _x;
-                            } forEach ([_unit,_grpPosNew] call UO_FW_AI_fnc_getDetailsGroup);
+                            } forEach ([_unit,_grpPosNew] call EFUNC(AI,getDetailsGroup));
                         };
-                        private _unitDetails = [_unit,_unitpos,_veh] call UO_FW_AI_fnc_getDetailsUnit;
+                        private _unitDetails = [_unit,_unitpos,_veh] call EFUNC(AI,getDetailsUnit);
                         (_group select 2) pushback _unitDetails;
                     } foreach _units;
                     private _occupy = ((_group select 1) select 15);
                     //private _multiOccupy = _grp getVariable ['UO_FW_AI_multiOccupy',0];
-                    private _newOccupy = [(_grp getVariable ['UO_FW_AI_multiOccupy',0]),_gx] call UO_FW_AI_fnc_setMultiOccupy;
+                    private _newOccupy = [(_grp getVariable ['UO_FW_AI_multiOccupy',0]),_gx] call EFUNC(AI,setMultiOccupy);
                     private _currentPos = ((_group select 1) select 1);
                     for "_g" from 0 to _gx step 1 do {
                         if (_newOccupy isEqualTo 0 && {_gx isEqualTo 1}) then {
@@ -118,5 +118,5 @@ private _posModules = [_logic,["UO_FW_AI_PositionModule"]] call UO_FW_AI_fnc_get
         };
     } foreach _synced;
 } forEach _posModules;
-[_synced] call UO_FW_AI_fnc_deleteVehicles;
+[_synced] call EFUNC(AI,deleteVehicles);
 _entities

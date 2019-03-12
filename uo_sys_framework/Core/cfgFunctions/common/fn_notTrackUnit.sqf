@@ -15,6 +15,6 @@
 
 #define COMPONENT Core
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(ALL);
+EXEC_CHECK(ALL);
 
-["UO_FW_NotTrack_Event", []] call CBA_fnc_serverEvent;
+["UO_FW_DontTrack_Event", []] call CBA_fnc_serverEvent;

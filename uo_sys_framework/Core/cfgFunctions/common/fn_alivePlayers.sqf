@@ -14,9 +14,9 @@
 
 #define COMPONENT Core
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(ALL);
+EXEC_CHECK(ALL);
 
-private _alivePlayers = allPlayers select {(alive _x) && {!(_x getVariable ["UO_FW_Dead", false])} && {!(_x isKindOf "HeadlessClient_F")}};
+private _alivePlayers = allPlayers select {(alive _x) && {!(GETVAR(_x,Dead,false))} && {!(_x isKindOf "HeadlessClient_F")}};
 
 if (count _this > 0) then {
     private _lowerThis = [];

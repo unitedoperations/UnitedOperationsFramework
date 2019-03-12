@@ -15,7 +15,7 @@
 
 #define COMPONENT Gear
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(ALL);
+EXEC_CHECK(ALL);
 
 params [
     ["_weapon", "", [""]],
@@ -23,15 +23,10 @@ params [
 ];
 
 private _result = false;
-
 {
-
     if (_item == _x) exitWith {
-
         _result = true;
-
     };
-
 } forEach ([_weapon] call BIS_fnc_compatibleItems);
 
 _result

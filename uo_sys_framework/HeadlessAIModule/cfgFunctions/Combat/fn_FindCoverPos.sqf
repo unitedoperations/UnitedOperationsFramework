@@ -1,7 +1,7 @@
 private ["_Unit", "_MovePosition", "_NearestEnemy", "_TypeListFinal", "_TypeList", "_Type", "_Type", "_BoundingArray", "_p1", "_p2", "_maxWidth", "_maxLength", "_maxHeight", "_ClosestCover", "_GuessLocation", "_coverObjectspos","_WeakListFinal","_MovePos"];
-params ["_Unit","_MovePos","_UO_FW_AI_GARRISONED","_UO_FW_AI_MovedRecentlyCover","_UO_FW_AI_ActivelyClearing","_UO_FW_AI_StartedInside","_NearestEnemy"];
+params ["_Unit","_MovePos","_GARRISONED","_MovedRecentlyCover","_ActivelyClearing","_StartedInside","_NearestEnemy"];
 
-if (_UO_FW_AI_MovedRecentlyCover || {_UO_FW_AI_ActivelyClearing} || {_UO_FW_AI_StartedInside} || {_UO_FW_AI_GARRISONED}) exitWith {};
+if (_MovedRecentlyCover || {_ActivelyClearing} || {_StartedInside} || {_GARRISONED}) exitWith {};
 
 
 //systemchat format ["E %1",_Unit];
@@ -39,7 +39,7 @@ private _Roads = _MovePosition nearRoads 30;
 
 
 if (_TypeListFinal isEqualTo [] && _WeakListFinal isEqualTo []) exitWith {};
-//_ClosestCover = [_TypeListFinal,_this] call UO_FW_AI_fnc_ClosestObject;
+//_ClosestCover = [_TypeListFinal,_this] call EFUNC(AI,ClosestObject);
 if !(_TypeListFinal isEqualTo []) then {_ClosestCover = _TypeListFinal call BIS_fnc_selectRandom;} else {_ClosestCover = _WeakListFinal call BIS_fnc_selectRandom;};
 
 

@@ -1,13 +1,13 @@
-class UO_FW_ShotCount {
+class EGVAR(ShotCount,Category) {
     displayName = "Shot Count Settings";
     collapsed = 1;
     class Attributes {
-        class UO_FW_ShotCount_Enabled {
-            property = "UO_FW_ShotCount_Enabled";
+        class EGVAR(ShotCount,Enabled) {
+            property = QEGVAR(ShotCount,Enabled);
             displayName = "Shot Count";
             tooltip = "Enable Shot Count";
             control = "CheckboxState";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "true";
         };
     };

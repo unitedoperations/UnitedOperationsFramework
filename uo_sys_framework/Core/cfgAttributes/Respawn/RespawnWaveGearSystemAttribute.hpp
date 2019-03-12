@@ -2,7 +2,7 @@ class UO_FW_Respawn_WaveGearSystemAttribute: Combo {
     //save the lbData from the selected entry upon exit
     attributeSave = "\
         private _attProperty = getText (_config >> 'property');\
-        _value = ((_this controlsGroupCtrl 100) lbData lbCurSel (_this controlsGroupCtrl 100));\
+        private _value = ((_this controlsGroupCtrl 100) lbData lbCurSel (_this controlsGroupCtrl 100));\
         missionNamespace setvariable [_attProperty,_value];\
         _value\
     ";

@@ -9,7 +9,7 @@ if (!isDedicated) then {
         if (isNull(_respawnPoint)) then {
 
             _temp = format ["Ticketed respawn feature:<br></br>Warning game logic ""%1"" does not exist.", _respawnName];
-            _temp call UO_FW_fnc_DebugMessage;
+            _temp call EFUNC(Debug,DebugMessage);
 
         };
 

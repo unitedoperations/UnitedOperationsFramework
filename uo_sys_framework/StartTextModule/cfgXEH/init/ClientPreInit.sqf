@@ -1,41 +1,41 @@
 #define COMPONENT StartText
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(CLIENT);
+EXEC_CHECK(CLIENT);
+if (!UO_FW_Server_StartTextModule_Allowed) exitWith {};
 
-["UO_FW_SettingsLoaded", {
-    if (!UO_FW_Server_StartTextModule_Allowed) exitWith {};
-    if !(GETMVAR(StartText_Enabled,false)) exitWith {};
-    ["UO_FW_RegisterModuleEvent", ["Start Text", "Displays animated text on mission start.", "Sacher"]] call CBA_fnc_localEvent;
+[QEGVAR(Core,SettingsLoaded), {
+    if !(GETMVAR(Enabled,false)) exitWith {};
+    [QEGVAR(Core,RegisterModuleEvent), ["Start Text", "Displays animated text on mission start.", "Sacher"]] call CBA_fnc_localEvent;
     [{(!isNull player) && {(CBA_missionTime > 1)}}, {
-        private _dateType = [["DATE"],["TIME"],["DATETIME"]] select (GETMVAR(StartText_TimeSelect,2));
+        private _dateType = [["DATE"],["TIME"],["DATETIME"]] select (GETMVAR(TimeSelect,2));
         private _startTextArray = [];
         switch (side player) do { //Checks what team the player is on
             case west: {
-                private _TitleQuoteVar = GETMVAR(StartText_BluforTitleQuote,"");
-                private _textVar = GETMVAR(StartText_BluforText,"");
+                private _TitleQuoteVar = GETMVAR(TitleQuote_Blufor,"");
+                private _textVar = GETMVAR(Text_Blufor,"");
                 if !(_TitleQuoteVar isEqualto "" ) then {_startTextArray pushBack ["TitleQUOTE", _TitleQuoteVar];};
                 if !(_textVar isEqualto "" ) then {_startTextArray pushBack ["TEXT", _textVar];};
             };
             case east: {
-                private _TitleQuoteVar = GETMVAR(StartText_OpforTitleQuote,"");
-                private _textVar = GETMVAR(StartText_OpforText,"");
+                private _TitleQuoteVar = GETMVAR(TitleQuote_Opfor,"");
+                private _textVar = GETMVAR(Text_Opfor,"");
                 if !(_TitleQuoteVar isEqualto "" ) then {_startTextArray pushBack ["TitleQUOTE", _TitleQuoteVar];};
                 if !(_textVar isEqualto "" ) then {_startTextArray pushBack ["TEXT", _textVar];};
             };
             case independent: {
-                private _TitleQuoteVar = GETMVAR(StartText_INDFORTitleQuote,"");
-                private _textVar = GETMVAR(StartText_INDFORText,"");
+                private _TitleQuoteVar = GETMVAR(TitleQuote_Indfor,"");
+                private _textVar = GETMVAR(Text_Indfor,"");
                 if !(_TitleQuoteVar isEqualto "" ) then {_startTextArray pushBack ["TitleQUOTE", _TitleQuoteVar];};
                 if !(_textVar isEqualto "" ) then {_startTextArray pushBack ["TEXT", _textVar];};
             };
             case civilian: {
-                private _TitleQuoteVar = GETMVAR(StartText_CIVTitleQuote,"");
-                private _textVar = GETMVAR(StartText_CIVText,"");
+                private _TitleQuoteVar = GETMVAR(TitleQuote_Civilian,"");
+                private _textVar = GETMVAR(Text_Civilian,"");
                 if !(_TitleQuoteVar isEqualto "" ) then {_startTextArray pushBack ["TitleQUOTE", _TitleQuoteVar];};
                 if !(_textVar isEqualto "" ) then {_startTextArray pushBack ["TEXT", _textVar];};
             };
         };
         _startTextArray pushBack _dateType;
-        [_startTextArray] call UO_FW_fnc_ExecuteStartText;
+        [_startTextArray] call FUNC(Init);
     }] call CBA_fnc_waitUntilAndExecute;
 }] call CBA_fnc_addEventHandler;

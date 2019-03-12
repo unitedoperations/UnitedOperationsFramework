@@ -34,12 +34,12 @@ class UO_FW_ImportLoadoutFromProfileAttribute: Combo {
 			w="0.99 * 	5 * (pixelW * pixelGrid * 	0.50)";
 			h="5 * (pixelH * pixelGrid * 	0.50)";
 			text="\a3\3DEN\Data\Attributes\ComboPreview\play_ca.paa";
-			onMouseButtonClick="\
+			onMouseButtonClick= QUOTE(\
 				_this params ['_ctrlButton'];\
 				_ctrlGroup = ctrlParentControlsGroup _ctrlButton;\
 				_ctrlCombo = _ctrlGroup controlsgroupctrl 100;\
-				[(_ctrlCombo lbData lbcursel _ctrlCombo),false] call UO_FW_fnc_ImportLoadoutSettings;\
-			";
+				[ARR_2((_ctrlCombo lbData lbcursel _ctrlCombo),false)] call EFUNC(3DEN,ImportLoadoutSettings);\
+			);
 		};
 	};
 };

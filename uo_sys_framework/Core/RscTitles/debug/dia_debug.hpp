@@ -1,12 +1,11 @@
-//Do not edit unless you know what you are doing
-//because you are on the highway to the danger zone!
-
-class UO_FW_DIA_DEBUG {
+class EGVAR(Debug,Display) {
     idd = 400;
     fadeout = 0;
     fadein = 0;
     duration = 360;
-    onLoad = "uiNamespace setVariable ['UO_FW_Debug_Control', _this select 0];";
+    onLoad = QUOTE(\
+        uiNamespace setVariable [ARR_2(QN(EGVAR(Debug,DisplayID)),_this select 0)];\
+    );
     class controlsBackground {
         class SOME_TEXT:  UO_FW_RscStructuredText {
             idc = 4001;

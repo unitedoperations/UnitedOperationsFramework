@@ -15,7 +15,7 @@
 
 #define COMPONENT Core
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(ALL);
+EXEC_CHECK(ALL);
 
 params [["_team", "", [""]],["_index", 0, [0]]];
 private _return = 0;
@@ -25,7 +25,7 @@ private _found = false;
         _return = (_x select _index);
         _found = true;
     };
-} forEach UO_FW_Teams;
+} forEach EGVAR(Core,Teams);
 
 if !(_found) then {
     ERROR_1("Critical:<br></br>Team ""%1"" does not exist.", _team)

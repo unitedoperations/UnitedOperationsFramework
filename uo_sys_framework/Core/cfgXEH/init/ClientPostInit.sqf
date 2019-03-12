@@ -1,6 +1,6 @@
 #define COMPONENT Core
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(CLIENTHC);
+EXEC_CHECK(CLIENTHC);
 
 LOG("ClientHC Post Init");
 
@@ -12,7 +12,7 @@ if (hasInterface) then {
         if ((_this select 0) isEqualto []) then {
             _msg = _msg + ": " + (_this select 0);
         };
-        _msg call UO_FW_fnc_EndMission;
+        _msg call FUNC(EndMission);
     }, "admin"] call CBA_fnc_registerChatCommand;
 
     [{!(isNull player)}, {
@@ -23,7 +23,7 @@ if (hasInterface) then {
             }] call CBA_fnc_execNextFrame;
         }] call CBA_fnc_execNextFrame;
 
-        if (didJIP && {(CBA_missionTime > ((GETMVAR(JIP_DENYTIME,5)) * 60))}) exitwith {
+        if (didJIP && {(CBA_missionTime > ((EGETMVAR(JIP,Denytime,5)) * 60))}) exitwith {
             ["UO_FW_JIP_PlayerEvent", []] call CBA_fnc_localEvent;
             ["UO_FW_JIP_ServerEvent", [player]] call CBA_fnc_serverEvent;
         };
@@ -33,7 +33,7 @@ if (hasInterface) then {
     }] call CBA_fnc_WaitUntilAndExecute;
 } else {
     LOG("HC Post Init");
-    if (GETMVAR(AI_ViewDistance_Enforce,false)) then {
-        setViewDistance GETMVAR(AI_ViewDistance,2500);
+    if (EGETMVAR(AI,ViewDistance_Enforce,false)) then {
+        setViewDistance EGETMVAR(AI,ViewDistance,2500);
     };
 };

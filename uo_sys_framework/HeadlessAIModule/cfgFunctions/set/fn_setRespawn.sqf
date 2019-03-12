@@ -8,7 +8,7 @@ params [["_logic",objNull,[objNull]],["_marker","respawn_west",[""]]];
         case WEST: {_marker = "respawn_west";};
         case EAST: {_marker = "respawn_east";};
         case INDEPENDENT: {_marker = "respawn_guerrila";};
-        case CIVILIAN: {_marker = "respawn_CIV";};
+        case CIVILIAN: {_marker = "respawn_civilian";};
         default {};
     };
     if (_marker in allMapMarkers) then {
@@ -19,5 +19,5 @@ params [["_logic",objNull,[objNull]],["_marker","respawn_west",[""]]];
     {
         private _unit = _x;
     } forEach (allUnits select {side _x isEqualTo _side});
-} forEach ([_logic getVariable ["UO_FW_AI_respawnside",0]] call UO_FW_AI_fnc_getSide);
+} forEach ([GETVAR(_logic,respawnside,0)] call EFUNC(AI,getSide));
 true

@@ -14,24 +14,24 @@ UO_FW_AI_EXEC_CHECK(SERVERHC);
 params ["_pos","_radius","_occupy","_grpcount",["_bld",[],[[]]],["_bldPos",[],[[]]]];
 switch (_occupy) do {
     case 2: {
-        _bld pushBack ([_pos,_radius] call UO_FW_AI_fnc_getNearestBuilding);
+        _bld pushBack ([_pos,_radius] call EFUNC(AI,getNearestBuilding));
         _bldPos = (_bld select 0) buildingPos -1;
     };
     case 3: {
-        _bld pushBack ([_pos,_radius] call UO_FW_AI_fnc_getRandomBuilding);
+        _bld pushBack ([_pos,_radius] call EFUNC(AI,getRandomBuilding));
         _bldPos = (_bld select 0) buildingPos -1;
     };
     case 4: {
-        _bld = [_pos,_radius] call UO_FW_AI_fnc_getNearestGroupBuildings;
+        _bld = [_pos,_radius] call EFUNC(AI,getNearestGroupBuildings);
     };
     case 5: {
-        _bld = [_pos,_radius] call UO_FW_AI_fnc_getRandomGroupBuildings;
+        _bld = [_pos,_radius] call EFUNC(AI,getRandomGroupBuildings);
     };
     case 6: {
-        _bld = [_pos,_radius,_grpcount] call UO_FW_AI_fnc_getNearestBuildings;
+        _bld = [_pos,_radius,_grpcount] call EFUNC(AI,getNearestBuildings);
     };
     case 7: {
-        _bld = [_pos,_radius,_grpcount] call UO_FW_AI_fnc_getRandomBuildings;
+        _bld = [_pos,_radius,_grpcount] call EFUNC(AI,getRandomBuildings);
     };
     default {
         _bld pushBack (nearestBuilding _pos);

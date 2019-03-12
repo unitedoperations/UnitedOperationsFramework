@@ -1,12 +1,13 @@
-class UO_FW_RscSetupTimer {
-    onLoad="_this call UO_FW_fnc_SetupTimerInit;";
+#include "\A3\ui_f\hpp\defineResinclDesign.inc"
+
+class EGVAR(SetupTimer,DisplayRsc) {
+    onLoad= QUOTE([_this] call EFUNC(SetupTimer,SetupTimerInit););
     idd=-1;
     duration=1200;
     movingEnable=0;
     class Controls {
         class TitleBackground {
-            colorBackground[]=
-            {
+            colorBackground[]= {
                 "(profilenamespace getvariable ['IGUI_BCG_RGB_R',0])",
                 "(profilenamespace getvariable ['IGUI_BCG_RGB_G',1])",
                 "(profilenamespace getvariable ['IGUI_BCG_RGB_B',1])",

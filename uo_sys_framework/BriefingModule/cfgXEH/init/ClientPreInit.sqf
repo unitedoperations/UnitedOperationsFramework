@@ -1,12 +1,11 @@
 #define COMPONENT Briefing
 #include "\x\UO_FW\addons\Main\BriefingModule\module_macros.hpp"
-UO_FW_EXEC_CHECK(CLIENT);
+EXEC_CHECK(CLIENT);
 
-["UO_FW_SettingsLoaded", {
+[QEGVAR(Core,SettingsLoaded), {
     [{!isNull player}, {
-        private _side = (side player);
         private _briefing = [];
-        switch (_side) do {
+        switch (side player) do {
             case west: {
                 #include "\x\UO_FW\addons\Main\BriefingModule\defines\blufor_briefing.hpp"
             };

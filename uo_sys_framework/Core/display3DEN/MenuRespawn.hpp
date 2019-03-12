@@ -1,30 +1,30 @@
-class UO_FW_Respawn_Folder {
+class EGVAR(Respawn,Folder) {
     text = "Configure Respawn";
-    items[] = {"UO_FW_Respawn_Main","UO_FW_Respawn_BLUFOR","UO_FW_Respawn_OPFOR","UO_FW_Respawn_INDFOR","UO_FW_Respawn_CIV"};
+    items[] = {QEGVAR(Respawn,Main),QEGVAR(Respawn,BLUFOR),QEGVAR(Respawn,OPFOR),QEGVAR(Respawn,Indfor),QEGVAR(Respawn,Civilian)};
     picture = "\a3\3DEN\Data\Cfg3DEN\History\changeAttributes_ca.paa";
 };
 
-class UO_FW_Respawn_BLUFOR {
+class EGVAR(Respawn,BLUFOR) {
     text = "BLUFOR Respawn Settings";
-    action = "edit3DENMissionAttributes 'UO_FW_Respawn_Settings_BLUFOR';";
+    action = QUOTE(edit3DENMissionAttributes QN(EGVAR(Respawn,Settings_BLUFOR)););
 };
 
-class UO_FW_Respawn_OPFOR {
+class EGVAR(Respawn,OPFOR) {
     text = "OPFOR Respawn Settings";
-    action = "edit3DENMissionAttributes 'UO_FW_Respawn_Settings_OPFOR';";
+    action = QUOTE(edit3DENMissionAttributes QN(EGVAR(Respawn,Settings_OPFOR)););
 };
 
-class UO_FW_Respawn_INDFOR {
-    text = "INDFOR Respawn Settings";
-    action = "edit3DENMissionAttributes 'UO_FW_Respawn_Settings_INDFOR';";
+class EGVAR(Respawn,Indfor) {
+    text = "Indfor Respawn Settings";
+    action = QUOTE(edit3DENMissionAttributes QN(EGVAR(Respawn,Settings_Indfor)););
 };
 
-class UO_FW_Respawn_CIV {
+class EGVAR(Respawn,Civilian) {
     text = "Civilian Respawn Settings";
-    action = "edit3DENMissionAttributes 'UO_FW_Respawn_Settings_CIV';";
+    action = QUOTE(edit3DENMissionAttributes QN(EGVAR(Respawn,Settings_Civilian)););
 };
 
-class UO_FW_Respawn_Main {
+class EGVAR(Respawn,Main) {
     text = "General Respawn Settings";
-    action = "edit3DENMissionAttributes 'UO_FW_Respawn_Settings_Main';";
+    action = QUOTE(edit3DENMissionAttributes QN(EGVAR(Respawn,Settings_Main)););
 };

@@ -1,16 +1,16 @@
 #include "\x\UO_FW\addons\Main\HeadlessAIModule\module_macros.hpp"
 UO_FW_AI_EXEC_CHECK(SERVERHC);
 
-//params ["_Unit","_AttachObject","_UO_FW_AI_GRENADETHROWN"];
-params ["_Unit","_UO_FW_AI_GRENADETHROWN"];
+//params ["_Unit","_AttachObject","_GRENADETHROWN"];
+params ["_Unit","_GRENADETHROWN"];
 
-//private _NearestEnemy = _Unit call UO_FW_AI_fnc_ClosestEnemy;
+//private _NearestEnemy = _Unit call EFUNC(AI,ClosestEnemy);
 //private _GuessLocation = _Unit getHideFrom _NearestEnemy;
 
 //if (isNull _NearestEnemy) exitWith
 if ((random 100) <= UO_FW_AI_GRENADECHANCE) exitWith {
     //Throw grenades and seek for any kind of cover
-    [_Unit,_UO_FW_AI_GRENADETHROWN] spawn UO_FW_AI_fnc_ThrowGrenade;
+    [_Unit,_GRENADETHROWN] spawn UO_FW_AI_fnc_ThrowGrenade;
 };
 
 //private _coverObjectsClosest = [];

@@ -1,8 +1,8 @@
 #define COMPONENT SelfActions
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(ALL);
+EXEC_CHECK(ALL);
 
-["UO_FW_SelfActions_ParaFlareCreateLightEvent", {
+[QGVAR(ParaFlareCreateLightEvent), {
     params ["_flare","_colour"];
     [{
         params ["_flare", "_colour"];
@@ -10,7 +10,7 @@ UO_FW_EXEC_CHECK(ALL);
         [{!isNull (_this select 1)}, {
             params ["_flare", "_flareLight", "_colour"];
             _flareLight lightAttachObject [_flare, [0,0,0]];
-            private _brightness = (GETMVAR(SelfActions_ParaFlare_Brightness,15));
+            private _brightness = (GETMVAR(ParaFlare_Brightness,15));
             diag_log format ["_brightness: %1",_brightness];
             _flareLight setLightBrightness _brightness;
         	_flareLight setLightUseFlare false;

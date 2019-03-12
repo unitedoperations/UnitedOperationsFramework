@@ -4,7 +4,7 @@ UO_FW_AI_EXEC_CHECK(SERVERHC);
 
 Private ["_Unit", "_NoFlanking", "_myNearestEnemy", "_myEnemyPos", "_rnd", "_dist", "_dir", "_myPlaces", "_RandomArray", "_RandomLocation", "_waypoint0", "_waypoint1", "_waypoint2", "_wPos", "_GroupCount"];
 //AI Waypoint Mock up using select best.
-params ["_group",["_UO_FW_AI_Flanking",false]];
+params ["_group",["_Flanking",false]];
 
 _Unit = leader _group;
 
@@ -12,13 +12,13 @@ _Unit = leader _group;
 //if ((count (waypoints (group _Unit))) >= 3 && !(((velocityModelSpace _Unit) select 1) isEqualTo 0) ) exitWith {};
 if ((count (waypoints (group _Unit))) >= 3) exitWith {};
 
-private _WaypointCheck = _group call UO_FW_AI_fnc_Waypointcheck;
+private _WaypointCheck = _group call EFUNC(AI,Waypointcheck);
 if (count _WaypointCheck > 0) exitWith {};
 
 _NoFlanking = _group getVariable ["UO_FW_AI_REINFORCE",false];
 if (_NoFlanking) exitWith {};
 
-//_myNearestEnemy = _Unit call UO_FW_AI_fnc_ClosestEnemy;
+//_myNearestEnemy = _Unit call EFUNC(AI,ClosestEnemy);
 _myNearestEnemy = _Unit findNearestEnemy _Unit;
 
 if (isNull _myNearestEnemy) exitWith {
@@ -49,7 +49,7 @@ if (isNull _myNearestEnemy) exitWith {
 
 if (isNil "_myNearestEnemy" || {(typeName _myNearestEnemy) isEqualTo "ARRAY"}) exitWith {};
 
-if (_UO_FW_AI_Flanking) exitWith {};
+if (_Flanking) exitWith {};
 
 if ((count (waypoints (group _Unit))) >= 3) exitWith {};
 
@@ -69,7 +69,7 @@ _GroupCount = count units _group;
 _myEnemyPos = (getposATL _myNearestEnemy);
 if (_myEnemyPos isEqualTo [0,0,0]) exitWith {
     sleep 30;
-    [_Unit,_UO_FW_AI_Flanking] spawn UO_FW_AI_fnc_FlankManeuver;
+    [_Unit,_Flanking] spawn UO_FW_AI_fnc_FlankManeuver;
 };
 
 private _RandomChance = random 100;
@@ -90,7 +90,7 @@ if (_RandomChance < 25) then {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //systemchat format ["%1 RAWR C",side _unit];
 sleep 0.25;
-if (_myEnemyPos isEqualTo [0,0,0]) exitWith {_UO_FW_AI_Flanking = false;[_Unit,_UO_FW_AI_Flanking] spawn UO_FW_AI_fnc_FlankManeuver;_UO_FW_AI_Flanking = true;};
+if (_myEnemyPos isEqualTo [0,0,0]) exitWith {_Flanking = false;[_Unit,_Flanking] spawn UO_FW_AI_fnc_FlankManeuver;_Flanking = true;};
 
 while {(count (waypoints _group)) > 0} do {
  deleteWaypoint ((waypoints _group) select 0);

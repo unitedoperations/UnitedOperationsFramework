@@ -1,4 +1,4 @@
-class AOLimitWarning {
+class EGVAR(AOLimit,Notification) {
     Title = "AO LIMIT";
     iconPicture = "\a3\Ui_f\data\GUI\Cfg\Debriefing\endDefault_ca.paa";
     description = "<t align='left'>Trying to super-flank?<br/>How about no.</t>";

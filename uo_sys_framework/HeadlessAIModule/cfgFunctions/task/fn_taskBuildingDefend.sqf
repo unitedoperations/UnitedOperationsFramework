@@ -21,7 +21,7 @@ params ["_unit",["_bld",objNull,[objNull]],["_bldPos",[],[[]]],["_wpWait",5,[0]]
 _uSet params [["_behave","safe",[""]],["_combat","red",[""]],["_speed","limited",[""]],["_formation","wedge",[""]]];
 if (isNull _bld || _bldPos isEqualto []) then {
     if (isNull _bld) then {
-        _bld = [(getposATL _unit),100,false] call UO_FW_AI_fnc_getNearestBuilding;
+        _bld = [(getposATL _unit),100,false] call EFUNC(AI,getNearestBuilding);
     };
     _bldPos = _bld buildingPos -1;
 };

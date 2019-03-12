@@ -14,23 +14,23 @@
 
 #define COMPONENT Core
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(ALL);
+EXEC_CHECK(ALL);
 
 params ["_team"];
 
 private _disabledAssets = [];
 private _destroyedAssets = [];
 {
-    if (_x getVariable "UO_FW_AssetTeam" isEqualto _team) then {
+    if ((GETVAR(_x,AssetTeam,sideUnknown)) isEqualto _team) then {
         if (alive _x) then {
-            if (!canMove _x && {!canFire _x}) then {
-                _disabledAssets set [count _disabledAssets, _x getVariable "UO_FW_AssetName"];
+            if ((!canMove _x) || (!canFire _x)) then {
+                _disabledAssets set [count _disabledAssets, (GETVAR(_x,AssetTeam,sideUnknown))];
             };
         } else {
-            _destroyedAssets set [count _destroyedAssets, _x getVariable "UO_FW_AssetName"];
+            _destroyedAssets set [count _destroyedAssets, (GETVAR(_x,AssetTeam,sideUnknown))];
         };
     };
 } forEach vehicles;
-_destroyedAssets = _destroyedAssets call UO_FW_fnc_StackNames;
-_disabledAssets = _disabledAssets call UO_FW_fnc_StackNames;
+_destroyedAssets = _destroyedAssets call FUNC(StackNames);
+_disabledAssets = _disabledAssets call FUNC(StackNames);
 [_disabledAssets, _destroyedAssets]

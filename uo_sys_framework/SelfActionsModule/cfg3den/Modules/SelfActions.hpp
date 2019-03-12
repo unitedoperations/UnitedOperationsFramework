@@ -1,53 +1,53 @@
-class UO_FW_SelfActions {
+class EGVAR(SelfActions,Settings) {
     displayName = "Self Action Settings";
     collapsed = 1;
     class Attributes {
-        class UO_FW_SelfActions_Enable {
-            property = "UO_FW_SelfActions_Enable";
+        class EGVAR(SelfActions,Enable) {
+            property = QEGVAR(SelfActions,Enable);
             displayName = "Self Actions Enable";
             tooltip = "Enable Self Actions";
             control = "CheckboxState";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "true";
         };
-        class UO_FW_SelfActions_CheckColour_Enabled {
-            property = "UO_FW_SelfActions_CheckColour_Enabled";
+        class EGVAR(SelfActions,CheckColour_Enabled) {
+            property = QEGVAR(SelfActions,CheckColour_Enabled);
             displayName = "Team Colour Action";
             tooltip = "Enable Team Colour Action";
             control = "Checkbox";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "true";
         };
-        class UO_FW_SelfActions_CheckMap_Enabled {
-            property = "UO_FW_SelfActions_CheckMap_Enabled";
+        class EGVAR(SelfActions,CheckMap_Enabled) {
+            property = QEGVAR(SelfActions,CheckMap_Enabled);
             displayName = "View Map Action";
             tooltip = "Enable View Map Action";
             control = "Checkbox";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "true";
         };
-        class UO_FW_SelfActions_CutGrass_Enabled {
-            property = "UO_FW_SelfActions_CutGrass_Enabled";
+        class EGVAR(SelfActions,CutGrass_Enabled) {
+            property = QEGVAR(SelfActions,CutGrass_Enabled);
             displayName = "Cut Grass Action";
             tooltip = "Enable Cut Grass Action";
             control = "Checkbox";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "true";
         };
-        class UO_FW_SelfActions_ParaFlares_Enabled {
-            property = "UO_FW_SelfActions_ParaFlares_Enabled";
+        class EGVAR(SelfActions,ParaFlares_Enabled) {
+            property = QEGVAR(SelfActions,ParaFlares_Enabled);
             displayName = "Launch ParaFlare Action";
             tooltip = "Enable Launch ParaFlare Action";
             control = "Checkbox";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
-        class UO_FW_SelfActions_ParaFlare_Brightness {
-            property = "UO_FW_SelfActions_ParaFlare_Brightness";
+        class EGVAR(SelfActions,ParaFlare_Brightness) {
+            property = QEGVAR(SelfActions,ParaFlare_Brightness);
             displayName = "ParaFlare Brightness";
             tooltip = "Sets the brightness of paraflares";
-            control = "UO_FW_15To40Step5_Slider";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            control = QMGVAR(15To40Step5_Slider);
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "15";
         };
     };

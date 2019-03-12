@@ -10,18 +10,18 @@
 UO_FW_AI_EXEC_CHECK(SERVERHC);
 
 params [["_mode","",[""]],["_input",[],[[]]]];
-    if (isNil "UO_FW_AI_initialised") then {call UO_FW_AI_fnc_init;};
+    if (isNil "UO_FW_AI_initialised") then {call EFUNC(AI,init);};
     switch _mode do {
         case "init": {
             if !(is3DEN) then {
                 _input params ["_logic",["_isActivated",true,[true]]];
                 if !(_isActivated) exitWith {};
                 // Disable Linked Zones
-                private _syncedZoneModules = [_logic,["UO_FW_AI_ZoneModule","UO_FW_AI_ZoneModule_R"]] call UO_FW_AI_fnc_getSyncedModules;
+                private _syncedZoneModules = [_logic,["UO_FW_AI_ZoneModule","UO_FW_AI_ZoneModule_R"]] call EFUNC(AI,getSyncedModules);
                 if (count _syncedZoneModules > 0) then {
                     for "_z" from 0 to (count _syncedZoneModules) step 1 do {
                         private _syncedZoneModule = _syncedZoneModules select _z;
-                        ([_syncedZoneModule,UO_FW_AI_Zones] call UO_FW_AI_fnc_getDetails) set [3, 1];
+                        ([_syncedZoneModule,UO_FW_AI_Zones] call EFUNC(AI,getDetails)) set [3, 1];
                     };
                 };
                 //Setup Suspend Module as Zone
@@ -33,24 +33,25 @@ params [["_mode","",[""]],["_input",[],[[]]]];
                 UO_FW_AI_Zones pushBack [
                     _logic,
                     (getPosATL _logic),
-                    (_logic getVariable ["UO_FW_AI_EnableZoneRadiusX",200]),
-                    0,
-                    ([_logic getVariable ["UO_FW_AI_EnableZoneSide",0]] call UO_FW_AI_fnc_getSide),
-                    (UO_FW_AI_zoneTypes select (_logic getVariable ["UO_FW_AI_EnableZoneType",1])),
+                    (GETVAR(_logic,EnableZoneRadiusX,200)),
+                    false,
+                    ([GETVAR(_logic,EnableZoneSide,0)] call EFUNC(AI,getSide)),
+                    (UO_FW_AI_zoneTypes select (GETVAR(_logic,EnableZoneType,1))),
                     _cond,
-                    (_logic getVariable ["UO_FW_AI_EnableZoneDelay",0]),
+                    (GETVAR(_logic,EnableZoneDelay,0)),
                     _code,
-                    (_logic getVariable ["UO_FW_AI_EnableZoneRadiusY",200]),
+                    (GETVAR(_logic,EnableZoneRadiusY,200)),
                     _isRectangle,
                     (getDir _logic),
-                    (_logic getVariable ["UO_FW_AI_ZoneHazard",false])
+                    (GETVAR(_logic,ZoneHazard,false)),
+                    (GETVAR(_logic,zoneSuspend,0))
                 ];
-                private _entities = [_logic] call UO_FW_AI_fnc_getSyncedObjects;
+                private _entities = [_logic] call EFUNC(AI,getSyncedObjects);
                 UO_FW_AI_entities pushBack [_logic,_entities];
                 if (UO_FW_AI_DEBUG) then {
-                    private _syncedZoneModule = [_logic,["UO_FW_AI_ZoneModule","UO_FW_AI_ZoneModule_R"]] call UO_FW_AI_fnc_getSyncedModules;
+                    private _syncedZoneModule = [_logic,["UO_FW_AI_ZoneModule","UO_FW_AI_ZoneModule_R"]] call EFUNC(AI,getSyncedModules);
                     if (_syncedZoneModule isEqualto []) then {
-                        (format["%1 a %2 has no Zone Modules linked.\nLink a Zone Module to the Enable Zone Module to suspend and enable Zones when the Enable Zone Module is activated.",_logic,typeof _logic]) call UO_FW_fnc_DebugMessage;
+                        (format["%1 a %2 has no Zone Modules linked.\nLink a Zone Module to the Enable Zone Module to suspend and enable Zones when the Enable Zone Module is activated.",_logic,typeof _logic]) call EFUNC(Debug,DebugMessage);
                     };
                     [_logic] spawn UO_FW_AI_fnc_debugSyncedModules;
                 };

@@ -1,4 +1,4 @@
-class UO_FW_HostageFreedBehaviorAttribute: Combo {
+class EGVAR(Hostage,FreedBehaviorAttribute): Combo {
     //save the lbData from the selected entry upon exit
     attributeSave = "\
         private _value = ((_this controlsGroupCtrl 100) lbData lbCurSel (_this controlsGroupCtrl 100));\
@@ -12,7 +12,7 @@ class UO_FW_HostageFreedBehaviorAttribute: Combo {
         private _control = (_this controlsGroupCtrl 100);\
         private _name = gettext (_config >> 'property');\
         private _unit = ((get3denselected 'object') select 0);\
-        _teamcolourarray = ['Unchanged','Careless','Safe','Aware','Combat','Stealth'];\
+        private _behaviorArray = ['Unchanged','Careless','Safe','Aware','Combat','Stealth'];\
         {\
             private _index = _control lbadd _x;\
             _control lbsetdata [_index,_x];\
@@ -21,7 +21,7 @@ class UO_FW_HostageFreedBehaviorAttribute: Combo {
                 _control lbSetCurSel _index;\
                 _unit setvariable [_name,_value];\
             };\
-        } foreach _teamcolourarray;\
+        } foreach _behaviorArray;\
     ";
     class Controls: Controls {
         class Title: Title {};

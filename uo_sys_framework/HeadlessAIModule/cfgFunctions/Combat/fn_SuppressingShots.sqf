@@ -31,7 +31,7 @@ if (UO_FW_AI_CurrentlySuppressing < UO_FW_AI_CurrentlySuppressingLimit) then {
             _pos = getPosATL _pos;
         };
 
-        _Point = _Unit call UO_FW_AI_fnc_ClosestEnemy;
+        _Point = _Unit call EFUNC(AI,ClosestEnemy);
         if (_Point isEqualTo [] || {isNil "_Point"}) exitWith {};
         _ArrayCheck = typeName _Point;
         if (_ArrayCheck isEqualTo "ARRAY") exitWith {};

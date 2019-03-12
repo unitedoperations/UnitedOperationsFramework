@@ -1,15 +1,15 @@
-class UO_FW_ExportImport_Folder {
+class EGVAR(ExportImport,Folder) {
     text = "Import/Export Framework Settings";
-    items[] = {"UO_FW_Export_Configure","UO_FW_Import_Configure"};
+    items[] = {QEGVAR(Export,Configure),QEGVAR(Import,Configure)};
     picture = "";
 };
 
-class UO_FW_Export_Configure {
+class EGVAR(Export,Configure) {
     text = "Export Mission Settings";
-    action = "edit3DENMissionAttributes 'UO_FW_Export_Menu';";
+    action = QUOTE(edit3DENMissionAttributes QN(EGVAR(Export,Menu)););
 };
 
-class UO_FW_Import_Configure {
+class EGVAR(Import,Configure) {
     text = "Import Mission Settings";
-    action = "edit3DENMissionAttributes 'UO_FW_Import_Menu';";
+    action = QUOTE(edit3DENMissionAttributes QN(EGVAR(Import,Menu)););
 };

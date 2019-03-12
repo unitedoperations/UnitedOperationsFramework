@@ -1,14 +1,14 @@
 private ["_Unit", "_TargetPosition", "_unit", "_NewPosition", "_Accuracy", "_Shake", "_Speed", "_SpotTime", "_SpotDistance", "_target"];
-params ["_Unit","_UO_FW_AI_DiagLastCheck","_TargetPosition"];
+params ["_Unit","_DiagLastCheck","_TargetPosition"];
 
-_UO_FW_AI_DiagLastCheck = diag_ticktime;
+_DiagLastCheck = diag_ticktime;
 if (_TargetPosition isEqualTo [0,0,0]) then {
     //_target = assignedTarget _unit;
-    _target = _Unit call UO_FW_AI_fnc_ClosestEnemy;if (_target isEqualTo [0,0,0]) exitwith {};
+    _target = _Unit call EFUNC(AI,ClosestEnemy);if (_target isEqualTo [0,0,0]) exitwith {};
     _TargetPosition = getpos _target;
 } else {
     //_target = assignedTarget _unit;
-    _target = _Unit call UO_FW_AI_fnc_ClosestEnemy;if (_target isEqualTo [0,0,0]) exitwith {};
+    _target = _Unit call EFUNC(AI,ClosestEnemy);if (_target isEqualTo [0,0,0]) exitwith {};
     _NewPosition = getpos _Target;
 
 
@@ -58,6 +58,6 @@ if (_TargetPosition isEqualTo [0,0,0]) then {
     _TargetPosition = _NewPosition;
 };
 
-_ReturnedArray = [_UO_FW_AI_DiagLastCheck,_TargetPosition];
+_ReturnedArray = [_DiagLastCheck,_TargetPosition];
 
 _ReturnedArray

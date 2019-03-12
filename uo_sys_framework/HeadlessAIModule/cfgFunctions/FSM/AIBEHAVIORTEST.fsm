@@ -821,7 +821,7 @@ class FSM
                                         priority = 995.000000;
                                         to="Temp_Halt";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"(diag_fps < UO_FW_AI_FPSFreeze) || ((([] call UO_FW_fnc_alivePlayers) findif {(_x distance2d _Unit) <= UO_FW_AI_DisableDistance}) isEqualto -1) && !((behaviour _Unit) isEqualTo ""COMBAT"")"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(diag_fps < UO_FW_AI_FPSFreeze) || ((([] call EFUNC(Core,AlivePlayers) findif {(_x distance2d _Unit) <= UO_FW_AI_DisableDistance}) isEqualto -1) && !((behaviour _Unit) isEqualTo ""COMBAT"")"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/"_unit disableAI ""ALL"";" \n
                                          "_unit forcespeed 0;"/*%FSM</ACTION""">*/;
                                 };
@@ -856,7 +856,7 @@ class FSM
                                         priority = 50.000000;
                                         to="Main_Loop";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"((_LastTimeCheck8 + 2) < diag_ticktime) && {(_InitialWaypointSet)} && {(UO_FW_AI_SIGHTAID_Enabled)} && {(({_x distance2d _unit < UO_FW_AI_SIGHTAID_DISTANCE} count ([] call UO_FW_fnc_alivePlayers)) > 0)}"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"((_LastTimeCheck8 + 2) < diag_ticktime) && {(_InitialWaypointSet)} && {(UO_FW_AI_SIGHTAID_Enabled)} && {(({_x distance2d _unit < UO_FW_AI_SIGHTAID_DISTANCE} count ([] call EFUNC(Core,AlivePlayers)) > 0)}"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/"_LastTimeCheck8 = diag_ticktime;" \n
                                          "[_unit] spawn UO_FW_AI_fnc_SightAid;"/*%FSM</ACTION""">*/;
                                 };
@@ -972,7 +972,7 @@ class FSM
                                         priority = 15.000000;
                                         to="Main_Loop";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"(diag_fps >= UO_FW_AI_FPSFreeze) && !((([] call UO_FW_fnc_alivePlayers) findif {(_x distance2d _Unit) <= UO_FW_AI_DisableDistance}) isEqualto -1)"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(diag_fps >= UO_FW_AI_FPSFreeze) && !((([] call EFUNC(Core,AlivePlayers) findif {(_x distance2d _Unit) <= UO_FW_AI_DisableDistance}) isEqualto -1)"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/"_unit enableAI ""ALL"";" \n
                                          "_unit forcespeed -1;"/*%FSM</ACTION""">*/;
                                 };

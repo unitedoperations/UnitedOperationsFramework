@@ -1,10 +1,8 @@
-class UO_FW_SetupTimerFunctions {
-    file = "\x\UO_FW\addons\Main\SetupTimerModule\cfgFunctions\common";
-    class ExecuteSetupTimer {};
-    class ValidateSetupTimer {};
-    class SetupTimerInit {};
-};
-class UO_FW_SetupTimerModuleFunctions {
-    file = "\x\UO_FW\addons\Main\SetupTimerModule\cfgFunctions\modules";
-    class SetupTimer {};
-};
+CFGFUNCFOLDER(SetupTimer,common);
+    CFGFUNC(SetupTimer,ExecuteSetupTimer);
+    CFGFUNC(SetupTimer,SetupTimerInit);
+CFGFUNCFOLDEREND;
+
+CFGFUNCFOLDER(SetupTimer,modules);
+    CFGFUNC(SetupTimer,moduleSetupTimer);
+CFGFUNCFOLDEREND;

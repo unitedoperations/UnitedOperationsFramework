@@ -1,4 +1,4 @@
-class UO_FW_AI_standardNumberControl : Edit {
+class EGVAR(AI,standardNumberControl) : Edit {
      attributeLoad = "if !(_value isEqualType '') then {_value = str _value;};(_this controlsGroupCtrl 101) ctrlSetText _value;";
      attributeSave = "_value = ctrlText (_this controlsGroupCtrl 101);if (gettext (_config >> 'typeName') == 'NUMBER') then {_value = parsenumber _value;};_value";
      class Controls: Controls {
@@ -12,7 +12,7 @@ class UO_FW_AI_standardNumberControl : Edit {
          };
      };
  };
-class UO_FW_AI_patrolradiusControl : Edit {
+class EGVAR(AI,patrolradiusControl) : Edit {
      attributeLoad = "if !(_value isEqualType '') then {_value = str _value;};(_this controlsGroupCtrl 102) ctrlSetText _value;";
      attributeSave = "_value = ctrlText (_this controlsGroupCtrl 102); if (gettext (_config >> 'typeName') == 'NUMBER') then {_value = parsenumber _value;}; [_value] spawn UO_FW_AI_fnc_setRadial; _value";
      class Controls: Controls {
@@ -26,7 +26,7 @@ class UO_FW_AI_patrolradiusControl : Edit {
          };
      };
  };
-class UO_FW_AI_behaviourControl : Title    {
+class EGVAR(AI,behaviourControl) : Title    {
     attributeLoad = "_index = ['careless','safe','aware','combat','stealth'] find _value; missionNamespace setvariable ['UO_FW_AI_behaviour_value',_index]; (_this controlsGroupCtrl 103) lbsetcursel _index;";
     attributeSave = "['careless','safe','aware','combat','stealth'] select (missionNamespace getvariable ['UO_FW_AI_behaviour_value',1]);";
     class Controls: Controls {
@@ -45,7 +45,7 @@ class UO_FW_AI_behaviourControl : Title    {
         };
     };
 };
-class UO_FW_AI_codeControl : Edit {
+class EGVAR(AI,codeControl) : Edit {
     attributeLoad = "if !(_value isEqualType '') then {_value = str _value;};(_this controlsGroupCtrl 104) ctrlSetText _value;";
     attributeSave = "_value = ctrlText (_this controlsGroupCtrl 104);if (gettext (_config >> 'typeName') == 'NUMBER') then {_value = parsenumber _value;};_value";
     h = 3 * SIZE_M * GRID_H;
@@ -61,7 +61,7 @@ class UO_FW_AI_codeControl : Edit {
         };
     };
 };
-class UO_FW_AI_waypointwaitControl : Edit {
+class EGVAR(AI,waypointwaitControl) : Edit {
      attributeLoad = "if !(_value isEqualType '') then {_value = str _value;};(_this controlsGroupCtrl 105) ctrlSetText _value;";
      attributeSave = "_value = ctrlText (_this controlsGroupCtrl 105);if (gettext (_config >> 'typeName') == 'NUMBER') then {_value = parsenumber _value;};_value";
      class Controls: Controls {
@@ -75,7 +75,7 @@ class UO_FW_AI_waypointwaitControl : Edit {
          };
      };
  };
-class UO_FW_AI_combatmodeControl : Title    {
+class EGVAR(AI,combatmodeControl) : Title    {
     attributeLoad = "_index = (['blue','green','white','yellow','red'] find _value); missionNamespace setvariable ['UO_FW_AI_combatmode_value',_index]; (_this controlsGroupCtrl 106) lbsetcursel _index;";
     attributeSave = "['blue','green','white','yellow','red'] select (missionNamespace getvariable ['UO_FW_AI_combatmode_value',4]);";
     h = "25 * (pixelH * pixelGrid * 0.50)";
@@ -104,7 +104,7 @@ class UO_FW_AI_combatmodeControl : Title    {
         };
     };
 };
-class UO_FW_AI_taskControl : Title    {
+class EGVAR(AI,taskControl) : Title    {
     attributeLoad = "missionNamespace setvariable ['UO_FW_AI_task_value',_value]; (_this controlsGroupCtrl 107) lbsetcursel (_value);";
     attributeSave = "missionNamespace getvariable ['UO_FW_AI_task_value',4];";
     h = "20 * (pixelH * pixelGrid * 0.50)";
@@ -151,7 +151,7 @@ class UO_FW_AI_taskControl : Title    {
         };
     };
 };
-class UO_FW_AI_formationControl : Toolbox {
+class EGVAR(AI,formationControl) : Toolbox {
     attributeLoad = "_index = ['wedge','vee','line','column','file','stag_column','ech_left','ech_right','diamond'] find _value; missionNamespace setvariable ['UO_FW_AI_formation_value',_index]; (_this controlsGroupCtrl 108) lbsetcursel _index;";
     attributeSave = "['wedge','vee','line','column','file','stag_column','ech_left','ech_right','diamond'] select (missionNamespace getvariable ['UO_FW_AI_formation_value',0]);";
     h = 2 * SIZE_M * GRID_H;
@@ -192,7 +192,7 @@ class UO_FW_AI_formationControl : Toolbox {
         };
     };
 };
-class UO_FW_AI_speedControl : Toolbox {
+class EGVAR(AI,speedControl) : Toolbox {
     attributeLoad = "_index = ['limited','normal','full'] find _value; missionNamespace setvariable ['UO_FW_AI_speed_value',_index]; (_this controlsGroupCtrl 109) lbsetcursel _index;";
     attributeSave = "['limited','normal','full'] select (missionNamespace getvariable ['UO_FW_AI_speed_value',0]);";
     h = 2 * SIZE_M * GRID_H;
@@ -221,7 +221,7 @@ class UO_FW_AI_speedControl : Toolbox {
         };
     };
 };
-class UO_FW_AI_stanceControl: Toolbox {
+class EGVAR(AI,stanceControl): Toolbox {
     attributeLoad = "_index = ['auto','down','middle','up'] find _value; missionNamespace setvariable ['UO_FW_AI_stance_value',_index]; (_this controlsGroupCtrl 110) lbsetcursel _index;";
     attributeSave = "['auto','down','middle','up'] select (missionNamespace getvariable ['UO_FW_AI_stance_value',0]);";
     h = 8 * GRID_H;
@@ -252,7 +252,7 @@ class UO_FW_AI_stanceControl: Toolbox {
         };
     };
 };
-class UO_FW_AI_startbuildingControl : Title    {
+class EGVAR(AI,startbuildingControl) : Title    {
     attributeLoad = "_index = (if (_value isequaltype 0) then {_value} else {[false,true] find _value}); missionNamespace setvariable ['UO_FW_AI_startbuilding_value',_index]; (_this controlsGroupCtrl 119) lbsetcursel _index;";
     attributeSave = "[false,true] select (missionNamespace getvariable ['UO_FW_AI_startbuilding_value',0]);";
     class Controls: Controls {
@@ -271,7 +271,7 @@ class UO_FW_AI_startbuildingControl : Title    {
         };
     };
 };
-class UO_FW_AI_multiplierControl : Edit {
+class EGVAR(AI,multiplierControl) : Edit {
      attributeLoad = "if !(_value isEqualType '') then {_value = str _value;};(_this controlsGroupCtrl 120) ctrlSetText _value;";
      attributeSave = "_value = ctrlText (_this controlsGroupCtrl 120);if (gettext (_config >> 'typeName') == 'NUMBER') then {_value = parsenumber _value;};_value";
      class Controls: Controls {
@@ -285,7 +285,7 @@ class UO_FW_AI_multiplierControl : Edit {
          };
      };
  };
-class UO_FW_AI_occupyoptionControl : Title {
+class EGVAR(AI,occupyoptionControl) : Title {
     attributeLoad = "missionNamespace setvariable ['UO_FW_AI_occupyoption_value',_value]; (_this controlsGroupCtrl 121) lbsetcursel (((_value) min 7) max 0);";
     attributeSave = "missionNamespace getvariable ['UO_FW_AI_occupyoption_value',0];";
     h = "20 * (pixelH * pixelGrid * 0.50)";
@@ -318,7 +318,7 @@ class UO_FW_AI_occupyoptionControl : Title {
         };
     };
 };
-class UO_FW_AI_removeControl : Title {
+class EGVAR(AI,removeControl) : Title {
     attributeLoad = "missionNamespace setvariable ['UO_FW_AI_remove_value',_value]; (_this controlsGroupCtrl 122) lbsetcursel (((_value) min 11) max 0);";
     attributeSave = "missionNamespace getvariable ['UO_FW_AI_remove_value',0];";
     h = "20 * (pixelH * pixelGrid * 0.50)";
@@ -351,7 +351,7 @@ class UO_FW_AI_removeControl : Title {
         };
     };
 };
-class UO_FW_AI_codeunitControl : Edit {
+class EGVAR(AI,codeunitControl) : Edit {
     attributeLoad = "if !(_value isEqualType '') then {_value = str _value;};(_this controlsGroupCtrl 123) ctrlSetText _value;";
     attributeSave = "_value = ctrlText (_this controlsGroupCtrl 123);if (gettext (_config >> 'typeName') == 'NUMBER') then {_value = parsenumber _value;};_value";
     h = 3 * SIZE_M * GRID_H;
@@ -367,7 +367,7 @@ class UO_FW_AI_codeunitControl : Edit {
         };
     };
 };
-class UO_FW_AI_persistentControl : Title {
+class EGVAR(AI,persistentControl) : Title {
     attributeLoad = "_index = (if (_value isequaltype 0) then {_value} else {[false,true] find _value}); missionNamespace setvariable ['UO_FW_AI_persistent_value',_index]; (_this controlsGroupCtrl 124) lbsetcursel _index;";
     attributeSave = "[false,true] select (missionNamespace getvariable ['UO_FW_AI_persistent_value',0]);";
     class Controls: Controls {
@@ -386,7 +386,7 @@ class UO_FW_AI_persistentControl : Title {
         };
     };
 };
-class UO_FW_AI_unitnameControl : Edit {
+class EGVAR(AI,unitnameControl) : Edit {
         onLoad="\
             private ['_isUnitPlayable'];\
             private _unit = ((get3denselected 'object') select 0);\
@@ -424,7 +424,7 @@ class UO_FW_AI_unitnameControl : Edit {
          };
      };
  };
-class UO_FW_AI_multioccupyControl : Title {
+class EGVAR(AI,multioccupyControl) : Title {
     attributeLoad = "missionNamespace setvariable ['UO_FW_AI_multioccupy_value',_value]; (_this controlsGroupCtrl 126) lbsetcursel (((_value) min 9) max 0);";
     attributeSave = "missionNamespace getvariable ['UO_FW_AI_multioccupy_value',1];";
     h = "10 * (pixelH * pixelGrid * 0.50)";
@@ -461,7 +461,7 @@ class UO_FW_AI_multioccupyControl : Title {
         };
     };
 };
-class UO_FW_AI_moduleradiusControl : Edit {
+class EGVAR(AI,moduleradiusControl) : Edit {
      attributeLoad = "if !(_value isEqualType '') then {_value = str _value;};(_this controlsGroupCtrl 127) ctrlSetText _value;";
      attributeSave = "_value = ctrlText (_this controlsGroupCtrl 127);if (gettext (_config >> 'typeName') == 'NUMBER') then {_value = parsenumber _value;};_value";
      class Controls: Controls {
@@ -475,7 +475,7 @@ class UO_FW_AI_moduleradiusControl : Edit {
          };
      };
  };
-class UO_FW_AI_moduleradiusControl2 : Edit {
+class EGVAR(AI,moduleradiusControl2) : Edit {
      attributeLoad = "if !(_value isEqualType '') then {_value = str _value;};(_this controlsGroupCtrl 227) ctrlSetText _value;";
      attributeSave = "_value = ctrlText (_this controlsGroupCtrl 227);if (gettext (_config >> 'typeName') == 'NUMBER') then {_value = parsenumber _value;};_value";
      class Controls: Controls {
@@ -489,7 +489,7 @@ class UO_FW_AI_moduleradiusControl2 : Edit {
          };
      };
  };
-class UO_FW_AI_zoneDelayControl : Edit {
+class EGVAR(AI,zoneDelayControl) : Edit {
      attributeLoad = "if !(_value isEqualType '') then {_value = str _value;};(_this controlsGroupCtrl 128) ctrlSetText _value;";
      attributeSave = "_value = ctrlText (_this controlsGroupCtrl 128);if (gettext (_config >> 'typeName') == 'NUMBER') then {_value = parsenumber _value;};_value";
      class Controls: Controls {
@@ -503,7 +503,7 @@ class UO_FW_AI_zoneDelayControl : Edit {
          };
      };
  };
- class UO_FW_AI_zoneInitialSpawn : Title {
+ class EGVAR(AI,zoneInitialSpawn) : Title {
     attributeLoad = "missionNamespace setvariable ['UO_FW_AI_intial_value',_value]; (_this controlsGroupCtrl 129) lbsetcursel _value;";
     attributeSave = "missionNamespace getvariable ['UO_FW_AI_intial_value',0];";
     class Controls: Controls {
@@ -522,9 +522,9 @@ class UO_FW_AI_zoneDelayControl : Edit {
         };
     };
 };
-class UO_FW_AI_zoneOnControl : Title {
-    attributeLoad = "missionNamespace setvariable ['UO_FW_AI_zoneOn_value',_value]; (_this controlsGroupCtrl 129) lbsetcursel _value;";
-    attributeSave = "missionNamespace getvariable ['UO_FW_AI_zoneOn_value',0];";
+class EGVAR(AI,zoneSuspendControl) : Title {
+    attributeLoad = "missionNamespace setvariable ['UO_FW_AI_zoneSuspend_value',_value]; (_this controlsGroupCtrl 129) lbsetcursel _value;";
+    attributeSave = "missionNamespace getvariable ['UO_FW_AI_zoneSuspend_value',0];";
     class Controls: Controls {
         class Title: Title {};
         class Value: ctrlToolbox {
@@ -536,12 +536,12 @@ class UO_FW_AI_zoneOnControl : Title {
             rows = 1;
             columns = 2;
             values[] = {0,1};
-            strings[] = {"EnableD","SUSPENDED"};
-            onToolboxSelChanged = "missionNamespace setvariable ['UO_FW_AI_zoneOn_value',_this select 1];";
+            strings[] = {"Enabled","Suspended"};
+            onToolboxSelChanged = "missionNamespace setvariable ['UO_FW_AI_zoneSuspend_value',_this select 1];";
         };
     };
 };
-class UO_FW_AI_moduleconditionControl : Edit {
+class EGVAR(AI,moduleconditionControl) : Edit {
     attributeLoad = "if !(_value isEqualType '') then {_value = str _value;};(_this controlsGroupCtrl 130) ctrlSetText _value;";
     attributeSave = "_value = ctrlText (_this controlsGroupCtrl 130);if (gettext (_config >> 'typeName') == 'NUMBER') then {_value = parsenumber _value;};_value";
     h = 3 * SIZE_M * GRID_H;
@@ -557,7 +557,7 @@ class UO_FW_AI_moduleconditionControl : Edit {
         };
     };
 };
-class UO_FW_AI_zoneTypeControl : Title    {
+class EGVAR(AI,zoneTypeControl) : Title    {
     attributeLoad = "missionNamespace setvariable ['UO_FW_AI_zoneType_value',_value]; (_this controlsGroupCtrl 131) lbsetcursel (((_value) min 11) max 0);";
     attributeSave = "missionNamespace getvariable ['UO_FW_AI_zoneType_value',1];";
     h = "25 * (pixelH * pixelGrid * 0.50)";
@@ -594,7 +594,7 @@ class UO_FW_AI_zoneTypeControl : Title    {
         };
     };
 };
-class UO_FW_AI_ZonesideControl : Title    {
+class EGVAR(AI,ZonesideControl) : Title    {
     attributeLoad = "missionNamespace setvariable ['UO_FW_AI_Zoneside_value',_value]; (_this controlsGroupCtrl 132) lbsetcursel (((_value) min 12) max 0);";
     attributeSave = "missionNamespace getvariable ['UO_FW_AI_Zoneside_value',1];";
     h = "35 * (pixelH * pixelGrid * 0.50)";
@@ -633,7 +633,7 @@ class UO_FW_AI_ZonesideControl : Title    {
         };
     };
 };
-class UO_FW_AI_behaviourchangeControl : Title    {
+class EGVAR(AI,behaviourchangeControl) : Title    {
     attributeLoad = "_index = ['unchanged','careless','safe','aware','combat','stealth'] find _value; missionNamespace setvariable ['UO_FW_AI_behaviour_value',_index]; (_this controlsGroupCtrl 134) lbsetcursel _index;";
     attributeSave = "['unchanged','careless','safe','aware','combat','stealth'] select (missionNamespace getvariable ['UO_FW_AI_behaviourchange_value',0]);";
     class Controls: Controls {
@@ -652,7 +652,7 @@ class UO_FW_AI_behaviourchangeControl : Title    {
         };
     };
 };
-class UO_FW_AI_combatmodechangeControl : Title    {
+class EGVAR(AI,combatmodechangeControl) : Title    {
     attributeLoad = "_index = (['unchanged','blue','green','white','yellow','red'] find _value); missionNamespace setvariable ['UO_FW_AI_combatmodechange_value',_index]; (_this controlsGroupCtrl 135) lbsetcursel _index;";
     attributeSave = "['unchanged','blue','green','white','yellow','red'] select (missionNamespace getvariable ['UO_FW_AI_combatmodechange_value',0]);";
     h = "25 * (pixelH * pixelGrid * 0.50)";
@@ -682,7 +682,7 @@ class UO_FW_AI_combatmodechangeControl : Title    {
         };
     };
 };
-class UO_FW_AI_speedchangeControl : Toolbox {
+class EGVAR(AI,speedchangeControl) : Toolbox {
     attributeLoad = "_index = ['unchanged','limited','normal','full'] find _value; missionNamespace setvariable ['UO_FW_AI_speedchange_value',_index]; (_this controlsGroupCtrl 136) lbsetcursel _index;";
     attributeSave = "['unchanged','limited','normal','full'] select (missionNamespace getvariable ['UO_FW_AI_speedchange_value',0]);";
     h = 2 * SIZE_M * GRID_H;
@@ -713,7 +713,7 @@ class UO_FW_AI_speedchangeControl : Toolbox {
         };
     };
 };
-class UO_FW_AI_formationchangeControl : Toolbox {
+class EGVAR(AI,formationchangeControl) : Toolbox {
     attributeLoad = "_index = ['unchanged','wedge','vee','line','column','file','stag_column','ech_left','ech_right','diamond'] find _value; missionNamespace setvariable ['UO_FW_AI_formationchange_value',_index]; (_this controlsGroupCtrl 137) lbsetcursel _index;";
     attributeSave = "['unchanged','wedge','vee','line','column','file','stag_column','ech_left','ech_right','diamond'] select (missionNamespace getvariable ['UO_FW_AI_formationchange_value',0]);";
     h = 2 * SIZE_M * GRID_H;
@@ -756,7 +756,7 @@ class UO_FW_AI_formationchangeControl : Toolbox {
         };
     };
 };
-class UO_FW_AI_stancechangeControl: Toolbox {
+class EGVAR(AI,stancechangeControl): Toolbox {
     attributeLoad = "_index = ['unchanged','auto','down','middle','up'] find _value; missionNamespace setvariable ['UO_FW_AI_stancechange_value',_index]; (_this controlsGroupCtrl 138) lbsetcursel _index;";
     attributeSave = "['unchanged','auto','down','middle','up'] select (missionNamespace getvariable ['UO_FW_AI_stancechange_value',0]);";
     h = 8 * GRID_H;
@@ -789,7 +789,7 @@ class UO_FW_AI_stancechangeControl: Toolbox {
         };
     };
 };
-class UO_FW_AI_taskpriorityControl : Title {
+class EGVAR(AI,taskpriorityControl) : Title {
     attributeLoad = "missionNamespace setvariable ['UO_FW_AI_taskpriority_value',_value]; (_this controlsGroupCtrl 139) lbsetcursel (((_value) min 2) max 0);";
     attributeSave = "missionNamespace getvariable ['UO_FW_AI_taskpriority_value',1];";
     h = "5 * (pixelH * pixelGrid * 0.50)";
@@ -816,7 +816,7 @@ class UO_FW_AI_taskpriorityControl : Title {
         };
     };
 };
-class UO_FW_AI_standardNumberAltControl : Edit {
+class EGVAR(AI,standardNumberAltControl) : Edit {
      attributeLoad = "if !(_value isEqualType '') then {_value = str _value;};(_this controlsGroupCtrl 140) ctrlSetText _value;";
      attributeSave = "_value = ctrlText (_this controlsGroupCtrl 140);if (gettext (_config >> 'typeName') == 'NUMBER') then {_value = parsenumber _value;};_value";
      class Controls: Controls {
@@ -831,7 +831,7 @@ class UO_FW_AI_standardNumberAltControl : Edit {
          };
      };
  };
-class UO_FW_AI_forcelightsControl : Title {
+class EGVAR(AI,forcelightsControl) : Title {
     attributeLoad = "_index = (if (_value isequaltype 0) then {_value} else {[false,true] find _value}); missionNamespace setvariable ['UO_FW_AI_persistent_value',_index]; (_this controlsGroupCtrl 142) lbsetcursel _index;";
     attributeSave = "[false,true] select (missionNamespace getvariable ['UO_FW_AI_persistent_value',0]);";
     class Controls: Controls {
@@ -850,7 +850,7 @@ class UO_FW_AI_forcelightsControl : Title {
         };
     };
 };
-class UO_FW_AI_MainControl : Title    {
+class EGVAR(AI,MainControl) : Title    {
     attributeLoad = "missionNamespace setvariable ['UO_FW_AI_Main_value',_value]; (_this controlsGroupCtrl 143) lbsetcursel _value;";
     attributeSave = "missionNamespace getvariable ['UO_FW_AI_Main_value',0];";
     class Controls: Controls {
@@ -869,7 +869,7 @@ class UO_FW_AI_MainControl : Title    {
         };
     };
 };
-class UO_FW_AI_MainconsoleControl : Title    {
+class EGVAR(AI,MainconsoleControl) : Title    {
     attributeLoad = "missionNamespace setvariable ['UO_FW_AI_Mainconsole_value',_value]; (_this controlsGroupCtrl 144) lbsetcursel _value;";
     attributeSave = "missionNamespace getvariable ['UO_FW_AI_Mainconsole_value',1];";
     class Controls: Controls {
@@ -888,7 +888,7 @@ class UO_FW_AI_MainconsoleControl : Title    {
         };
     };
 };
-class UO_FW_AI_MaindebugControl : Title    {
+class EGVAR(AI,MaindebugControl) : Title    {
     attributeLoad = "missionNamespace setvariable ['UO_FW_AI_Maindebug_value',_value]; (_this controlsGroupCtrl 145) lbsetcursel _value;";
     attributeSave = "missionNamespace getvariable ['UO_FW_AI_Maindebug_value',0];";
     class Controls: Controls {
@@ -907,7 +907,7 @@ class UO_FW_AI_MaindebugControl : Title    {
         };
     };
 };
-class UO_FW_AI_standardStringOneControl : Edit {
+class EGVAR(AI,standardStringOneControl) : Edit {
      attributeLoad = "if !(_value isEqualType '') then {_value = str _value;};(_this controlsGroupCtrl 146) ctrlSetText _value;";
      attributeSave = "_value = ctrlText (_this controlsGroupCtrl 146);if (gettext (_config >> 'typeName') == 'NUMBER') then {_value = parsenumber _value;};_value";
      class Controls: Controls {
@@ -921,7 +921,7 @@ class UO_FW_AI_standardStringOneControl : Edit {
          };
      };
  };
-class UO_FW_AI_standardStringTwoControl : Edit {
+class EGVAR(AI,standardStringTwoControl) : Edit {
      attributeLoad = "if !(_value isEqualType '') then {_value = str _value;};(_this controlsGroupCtrl 147) ctrlSetText _value;";
      attributeSave = "_value = ctrlText (_this controlsGroupCtrl 147);if (gettext (_config >> 'typeName') == 'NUMBER') then {_value = parsenumber _value;};_value";
      class Controls: Controls {
@@ -935,7 +935,7 @@ class UO_FW_AI_standardStringTwoControl : Edit {
          };
      };
  };
-class UO_FW_AI_standardStringThreeControl : Edit {
+class EGVAR(AI,standardStringThreeControl) : Edit {
      attributeLoad = "if !(_value isEqualType '') then {_value = str _value;};(_this controlsGroupCtrl 148) ctrlSetText _value;";
      attributeSave = "_value = ctrlText (_this controlsGroupCtrl 148);if (gettext (_config >> 'typeName') == 'NUMBER') then {_value = parsenumber _value;};_value";
      class Controls: Controls {
@@ -949,7 +949,7 @@ class UO_FW_AI_standardStringThreeControl : Edit {
          };
      };
  };
-class UO_FW_AI_positiontypeControl : Title    {
+class EGVAR(AI,positiontypeControl) : Title    {
     attributeLoad = "missionNamespace setvariable ['UO_FW_AI_postiontype_value',_value]; (_this controlsGroupCtrl 149) lbsetcursel _value;";
     attributeSave = "missionNamespace getvariable ['UO_FW_AI_postiontype_value',0];";
     class Controls: Controls {
@@ -968,7 +968,7 @@ class UO_FW_AI_positiontypeControl : Title    {
         };
     };
 };
-class UO_FW_AI_flyingControl : Title    {
+class EGVAR(AI,flyingControl) : Title    {
     attributeLoad = "_index = (if (_value isequaltype 0) then {_value} else {[false,true] find _value}); missionNamespace setvariable ['UO_FW_AI_flying_value',_index]; (_this controlsGroupCtrl 150) lbsetcursel _index;";
     attributeSave = "[false,true] select (missionNamespace getvariable ['UO_FW_AI_flying_value',0]);";
     class Controls: Controls {
@@ -987,7 +987,7 @@ class UO_FW_AI_flyingControl : Title    {
         };
     };
 };
-class UO_FW_AI_heliControl : Title    {
+class EGVAR(AI,heliControl) : Title    {
     attributeLoad = "missionNamespace setvariable ['UO_FW_AI_helitype_value',_value]; (_this controlsGroupCtrl 151) lbsetcursel _value;";
     attributeSave = "missionNamespace getvariable ['UO_FW_AI_helitype_value',0];";
     class Controls: Controls {
@@ -1006,7 +1006,7 @@ class UO_FW_AI_heliControl : Title    {
         };
     };
 };
-class UO_FW_AI_initActionControl : Title {
+class EGVAR(AI,initActionControl) : Title {
     attributeLoad = "missionNamespace setvariable ['UO_FW_AI_initAction_value',_value]; (_this controlsGroupCtrl 152) lbsetcursel (((_value) min 2) max 0);";
     attributeSave = "missionNamespace getvariable ['UO_FW_AI_initAction_value',1];";
     h = "5 * (pixelH * pixelGrid * 0.50)";
@@ -1033,7 +1033,7 @@ class UO_FW_AI_initActionControl : Title {
         };
     };
 };
-class UO_FW_AI_actionControl : Title {
+class EGVAR(AI,actionControl) : Title {
     attributeLoad = "missionNamespace setvariable ['UO_FW_AI_action_value',_value]; (_this controlsGroupCtrl 153) lbsetcursel (((_value) min 2) max 0);";
     attributeSave = "missionNamespace getvariable ['UO_FW_AI_action_value',1];";
     h = "5 * (pixelH * pixelGrid * 0.50)";
@@ -1060,7 +1060,7 @@ class UO_FW_AI_actionControl : Title {
         };
     };
 };
-class UO_FW_AI_flyinheightControl : Edit {
+class EGVAR(AI,flyinheightControl) : Edit {
      attributeLoad = "if !(_value isEqualType '') then {_value = str _value;};(_this controlsGroupCtrl 154) ctrlSetText _value;";
      attributeSave = "_value = ctrlText (_this controlsGroupCtrl 154);if (gettext (_config >> 'typeName') == 'NUMBER') then {_value = parsenumber _value;};_value";
      class Controls: Controls {
@@ -1074,7 +1074,7 @@ class UO_FW_AI_flyinheightControl : Edit {
          };
      };
  };
-class UO_FW_AI_boolControl : Title    {
+class EGVAR(AI,boolControl) : Title    {
     attributeLoad = "_index = (if (_value isequaltype 0) then {_value} else {[false,true] find _value}); missionNamespace setvariable ['UO_FW_AI_bool_value',_index]; (_this controlsGroupCtrl 155) lbsetcursel _index;";
     attributeSave = "[false,true] select (missionNamespace getvariable ['UO_FW_AI_bool_value',0]);";
     class Controls: Controls {
@@ -1093,7 +1093,7 @@ class UO_FW_AI_boolControl : Title    {
         };
     };
 };
-class UO_FW_AI_boolControl2 : Title    {
+class EGVAR(AI,boolControl2) : Title    {
     attributeLoad = "_index = (if (_value isequaltype 0) then {_value} else {[false,true] find _value}); missionNamespace setvariable ['UO_FW_AI_bool2_value',_index]; (_this controlsGroupCtrl 156) lbsetcursel _index;";
     attributeSave = "[false,true] select (missionNamespace getvariable ['UO_FW_AI_bool2_value',0]);";
     class Controls: Controls {
@@ -1112,7 +1112,7 @@ class UO_FW_AI_boolControl2 : Title    {
         };
     };
 };
-class UO_FW_AI_numberSelect1Control : Title    {
+class EGVAR(AI,numberSelect1Control) : Title    {
     attributeLoad = "missionNamespace setvariable ['UO_FW_AI_numberSelect1_value',_value]; (_this controlsGroupCtrl 159) lbsetcursel (((_value) min 6) max 0);";
     attributeSave = "missionNamespace getvariable ['UO_FW_AI_numberSelect1_value',0];";
     h = "5 * (pixelH * pixelGrid * 0.50)";

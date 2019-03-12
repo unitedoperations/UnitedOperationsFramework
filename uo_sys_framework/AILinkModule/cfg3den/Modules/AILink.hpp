@@ -2,91 +2,91 @@ class UO_FW_AILink {
     displayName = "AI Link Settings";
     collapsed = 1;
     class Attributes {
-        class UO_FW_AILink_Enabled {
-            property = "UO_FW_AILink_Enabled";
+        class EGVAR(AILink,Enabled) {
+            property = QEGVAR(AILink,Enabled);
             displayName = "AI Link";
             tooltip = "Enables AI Link";
             control = "CheckboxState";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             defaultValue = "false";
             typeName = "BOOL";
         };
-        class UO_FW_AILink_StartDelay {
-            property = "UO_FW_AILink_StartDelay";
+        class EGVAR(AILink,StartDelay) {
+            property = QEGVAR(AILink,StartDelay);
             displayName = "Start Delay";
             tooltip = "Delay in seconds when starting the mission until the first loop runs.";
-            control = "UO_FW_30To120Step1_Slider";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            control = QMGVAR(30To120Step1_Slider);
+            expression = SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "30";
             typeName = "NUMBER";
         };
-        class UO_FW_AILink_ShareDelay {
-            property = "UO_FW_AILink_ShareDelay";
+        class EGVAR(AILink,ShareDelay) {
+            property = QEGVAR(AILink,ShareDelay);
             displayName = "Share Delay";
             tooltip = "Delay in seconds between loops after the first.";
-            control = "UO_FW_10To100Step1_Slider";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            control = QMGVAR(10To100Step1_Slider);
+            expression = SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "30";
             typeName = "NUMBER";
         };
-        class UO_FW_AILink_TransDelay {
-            property = "UO_FW_AILink_TransDelay";
+        class EGVAR(AILink,TransDelay) {
+            property = QEGVAR(AILink,TransDelay);
             displayName = "Trans Delay";
             tooltip = "Delay in seconds, maximum randomized, for target information to be transmitted. No effect if set higher than tin_AILink_shareDelay.";
-            control = "UO_FW_10To100Step1_Slider";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            control = QMGVAR(10To100Step1_Slider);
+            expression = SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "10";
             typeName = "NUMBER";
         };
-        class UO_FW_AILink_LRRange {
-            property = "UO_FW_AILink_LRRange";
+        class EGVAR(AILink,LRRange) {
+            property = QEGVAR(AILink,LRRange);
             displayName = "LR Range";
             tooltip = "Range if both groups have long-range radios, also used if tin_AILink_needRadio is false.";
-            control = "UO_FW_500To2500Step100_Slider";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            control = QMGVAR(500To2500Step100_Slider);
+            expression = SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "800";
             typeName = "NUMBER";
         };
-        class UO_FW_AILink_SRRange {
-            property = "UO_FW_AILink_SRRange";
+        class EGVAR(AILink,SRRange) {
+            property = QEGVAR(AILink,SRRange);
             displayName = "SR Range";
             tooltip = "Range if both groups have short-range radios.";
-            control = "UO_FW_300To1000Step100_Slider";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            control = QMGVAR(300To1000Step100_Slider);
+            expression = SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "400";
             typeName = "NUMBER";
         };
-        class UO_FW_AILink_NeedRadio {
-            property = "UO_FW_AILink_NeedRadio";
+        class EGVAR(AILink,NeedRadio) {
+            property = QEGVAR(AILink,NeedRadio);
             displayName = "Need Radio";
             tooltip = "Controls if both AI groups need radios. If false, it will work regardless of radios. Will also perform somewhat better.";
             control = "Checkbox";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             validate = "none";
             defaultValue = "false";
             typeName = "BOOL";
         };
-        class UO_FW_AILink_MaxKnows {
-            property = "UO_FW_AILink_MaxKnows";
+        class EGVAR(AILink,MaxKnows) {
+            property = QEGVAR(AILink,MaxKnows);
             displayName = "Max Knows about";
             tooltip = "The maximum amount that knowsAbout will be set to via this script.";
-            control = "UO_FW_1To4Step01_Slider";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            control = QMGVAR(1To4Step01_Slider);
+            expression = SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "3.5";
             typeName = "NUMBER";
         };
-        class UO_FW_AILink_Debug {
-            property = "UO_FW_AILink_Debug";
+        class EGVAR(AILink,Debug) {
+            property = QEGVAR(AILink,Debug);
             displayName = "Debug?";
             tooltip = "Debug Information; Very spammy.";
             control = "Checkbox";
-            expression = UO_FW_SCENARIO_EXPRESSION;
+            expression = SCENARIO_EXPRESSION;
             validate = "none";
             defaultValue = "false";
             typeName = "BOOL";

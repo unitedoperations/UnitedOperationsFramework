@@ -1,4 +1,4 @@
-class UO_FW_CaptureZone_TeamAttribute: Title {
+class EGVAR(CaptureZone,TeamAttribute): Title {
     attributeLoad = "\
         private _name = gettext (_config >> 'property');\
         missionNamespace setvariable [_name,_value];\

@@ -18,29 +18,19 @@
 
 #define COMPONENT Gear
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(ALL);
+EXEC_CHECK(ALL);
 
-params ["_unit", "_loadoutType", "_item"];
+params ["_unit", "_loadoutType", "_item",  ["_amount",1,[1]], ["_position", "NONE", [""]]];
 private ["_success", "_parents", "_Type"];
-private _amount = 1;
-private _position = "none";
 
-if !([_item, _unit] call UO_FW_fnc_checkClassname) exitWith {};
-
-if (count _this > 3) then {
-    _amount = _this select 3;
-};
-
-if (count _this > 4) then {
-    _position = toLower (_this select 4);
-};
+if !([_item, _unit] call FUNC(checkClassname)) exitWith {};
 
 for "_x" from 1 to _amount do {
     _success = false;
     _parents = [configFile >> "CFGweapons" >> _item, true] call BIS_fnc_returnParents;
     _Type = (_item call BIS_fnc_itemType) select 1;
 
-    if (_position == "none") then {
+    if (toLower(_position) == "none") then {
         if (!_success && "Rifle" in _parents) then {
             if (primaryWeapon _unit == "") then {
                 _unit addWeaponGlobal _item;
@@ -60,7 +50,7 @@ for "_x" from 1 to _amount do {
             };
         };
         if (!_success && _Type in ["Map", "GPS", "Compass", "Watch", "NVGoggles"]) then {
-            if ([_unit, _Type] call UO_FW_fnc_CanLinkItem) then {
+            if ([_unit, _Type] call FUNC(CanLinkItem)) then {
                 _unit linkItem _item;
                 _success = true;
             };
@@ -102,19 +92,19 @@ for "_x" from 1 to _amount do {
             };
         };
         if (!_success && _Type in ["AccessoryMuzzle", "AccessoryPointer", "AccessorySights", "AccessoryBipod"]) then {
-            if ([primaryWeapon _unit, _item] call UO_FW_fnc_CanAttachItem) then {
+            if ([primaryWeapon _unit, _item] call FUNC(CanAttachItem)) then {
                 if (!(_Type in primaryWeaponItems _unit)) then {
                     _unit addPrimaryWeaponItem _item;
                     _success = true;
                 };
             } else {
-                if ([handgunWeapon _unit, _item] call UO_FW_fnc_CanAttachItem) then {
+                if ([handgunWeapon _unit, _item] call FUNC(CanAttachItem)) then {
                     if (!(_Type in handgunItems _unit)) then {
                         _unit addHandgunItem _item;
                         _success = true;
                     };
                 } else {
-                    if ([secondaryWeapon _unit, _item] call UO_FW_fnc_CanAttachItem) then {
+                    if ([secondaryWeapon _unit, _item] call FUNC(CanAttachItem)) then {
                         if (!(_Type in secondaryWeaponItems _unit)) then {
                             _unit addSecondaryWeaponItem _item;
                             _success = true;
@@ -127,8 +117,8 @@ for "_x" from 1 to _amount do {
         if (!_success) then {
             switch (_position) do {
                 case "backpack": {
-                    if (_unit canAddItemToBackpack _item || UO_FW_Gear_Olsen_OverfillEnabled) then {
-                        if (UO_FW_Gear_Olsen_OverfillEnabled) then {
+                    if (_unit canAddItemToBackpack _item || GVAR(Olsen_OverfillEnabled)) then {
+                        if (GVAR(Olsen_OverfillEnabled)) then {
                             (backpackContainer _unit) addItemCargoGlobal [_item, 1];
                         } else {
                             _unit addItemToBackpack _item;
@@ -137,8 +127,8 @@ for "_x" from 1 to _amount do {
                     };
                 };
                 case "vest": {
-                    if (_unit canAddItemToVest _item || UO_FW_Gear_Olsen_OverfillEnabled) then {
-                        if (UO_FW_Gear_Olsen_OverfillEnabled) then {
+                    if (_unit canAddItemToVest _item || GVAR(Olsen_OverfillEnabled)) then {
+                        if (GVAR(Olsen_OverfillEnabled)) then {
                             (vestContainer _unit) addItemCargoGlobal [_item, 1];
                         } else {
                             _unit addItemToVest _item;
@@ -147,8 +137,8 @@ for "_x" from 1 to _amount do {
                     };
                 };
                 case "uniform": {
-                    if (_unit canAddItemToUniform _item || UO_FW_Gear_Olsen_OverfillEnabled) then {
-                        if (UO_FW_Gear_Olsen_OverfillEnabled) then {
+                    if (_unit canAddItemToUniform _item || GVAR(Olsen_OverfillEnabled)) then {
+                        if (GVAR(Olsen_OverfillEnabled)) then {
                             (uniformContainer _unit) addItemCargoGlobal [_item, 1];
                         } else {
                             _unit addItemToUniform _item;

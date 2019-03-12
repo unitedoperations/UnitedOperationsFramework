@@ -1,6 +1,6 @@
 #define COMPONENT Core
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-UO_FW_EXEC_CHECK(CLIENT);
+EXEC_CHECK(CLIENT);
 
 LOG("Client Pre Init");
 
@@ -13,10 +13,10 @@ LOG("Client Pre Init");
         _x params ["_propertyName","_value"];
         player setvariable [_propertyName,_value];
     } foreach _varArray;
-    ["UO_FW_SettingsLoaded", []] call CBA_fnc_localEvent;
+    [QEGVAR(Core,SettingsLoaded), []] call CBA_fnc_localEvent;
 }] call CBA_fnc_addEventHandler;
 
-["UO_FW_RegisterModuleEvent", {
+[QEGVAR(Core,RegisterModuleEvent), {
     if !(hasInterface) exitwith {};
     params ["_name", "_description", "_author"];
     [{!(isNull player)}, {
@@ -56,31 +56,31 @@ LOG("Client Pre Init");
     switch (side player) do {
         case WEST: {SETMVAR(TeamTag,"BLUFOR");};
         case EAST: {SETMVAR(TeamTag,"OPFOR");};
-        case INDEPENDENT: {SETMVAR(TeamTag,"INDFOR");};
-        case CIVILIAN: {SETMVAR(TeamTag,"CIV");};
+        case INDEPENDENT: {SETMVAR(TeamTag,"Indfor");};
+        case CIVILIAN: {SETMVAR(TeamTag,"CIVILIAN");};
         default {SETMVAR(TeamTag,"BLUFOR");};
     };
 }] call CBA_fnc_WaitUntilAndExecute;
 
 ["UO_FW_EndMission_PlayerEvent", {
     params ["_scenario"];
-    [_scenario] call UO_FW_fnc_EndScreen;
+    [_scenario] call FUNC(EndScreen);
 }] call CBA_fnc_addEventHandler;
 
-["UO_FW_EndMission_Event", {
-    ["UO_FW_EndMission_PlayerEvent", []] call CBA_fnc_localEvent;
+[QEGVAR(Core,EndmissionEvent), {
+    params ["_scenario"];
+    ["UO_FW_EndMission_PlayerEvent", [_scenario]] call CBA_fnc_localEvent;
 }] call CBA_fnc_addEventHandler;
 
-["UO_FW_Specator_StartSpectate_Event", {
-    [] call UO_FW_fnc_spectate;
+["UO_FW_Spectator_StartSpectate_Event", {
+    [] call EFUNC(Spectator,Spectate);
 }] call CBA_fnc_addEventHandler;
 
 ["UO_FW_Spectator_EndSpectate_Event", {
-    [] call UO_FW_fnc_endSpectate;
+    [] call EFUNC(Spectator,endSpectate);
 }] call CBA_fnc_addEventHandler;
 
 ["UO_FW_PlayerRespawn_Event", {
-    [] call UO_FW_fnc_HandlePlayerRespawn;
 }] call CBA_fnc_addEventHandler;
 
 ["UO_FW_PlayerRespawn_RecieveTicketEvent", {
@@ -90,16 +90,16 @@ LOG("Client Pre Init");
     private ["_delay"];
     switch (side player) do {
         case west: {
-            _delay = GETMVAR(RespawnSetting_Delay_BLUFOR,5);
+            _delay = MGETMVAR(Respawn_Delay_BLUFOR,5);
         };
         case east: {
-            _delay = GETMVAR(RespawnSetting_Delay_OPFOR,5);
+            _delay = MGETMVAR(Respawn_Delay_OPFOR,5);
         };
         case independent: {
-            _delay = GETMVAR(RespawnSetting_Delay_INDFOR,5);
+            _delay = MGETMVAR(Respawn_Delay_Indfor,5);
         };
         case civilian: {
-            _delay = GETMVAR(RespawnSetting_Delay_CIV,5);
+            _delay = MGETMVAR(Respawn_Delay_Civilian,5);
         };
     };
     [{
@@ -142,8 +142,8 @@ LOG("Client Pre Init");
 }] call CBA_fnc_addEventHandler;
 
 ["UO_FW_PlayerInit_Event", {
-    if (GETMVAR(Player_ViewDistance_Enforce,false)) then {
-        setViewDistance GETMVAR(Player_ViewDistance,2500);
+    if (GETMVAR(ViewDistance_Enforce,false)) then {
+        setViewDistance GETMVAR(ViewDistance,2500);
     };
     enableSaving [false, false];
     enableEngineArtillery false;
@@ -156,27 +156,26 @@ LOG("Client Pre Init");
 
 ["UO_FW_PlayerInitEH_Event", {
     SETPLPVAR(Dead,false);
+    SETPLPVAR(HasDied,false);
     SETPLPVAR(Spectating,false);
     SETPLPVAR(Body,player);
     UO_FW_PlayerHitHandle = [player, "Hit", FUNC(HitHandler), []] call CBA_fnc_addBISEventHandler;
-    UO_FW_PlayerKillHandle = [player, "Killed", FUNC(KilledHandler), []] call CBA_fnc_addBISEventHandler;
-    UO_FW_PlayerRespawnHandle = [player, "Respawn", FUNC(RespawnHandler), []] call CBA_fnc_addBISEventHandler;
     ["UO_FW_PlayerSpawned", player] call CBA_fnc_serverEvent;
 }] call CBA_fnc_addEventHandler;
 
 ["UO_FW_JIP_PlayerEvent", {
-    if (((UO_FW_JIP_Type_BLUFOR isEqualto 2) && (side player isEqualto west))
-        || ((UO_FW_JIP_Type_OPFOR isEqualto 2) && (side player isEqualto east))
-        || ((UO_FW_JIP_Type_INDFOR isEqualto 2) && (side player isEqualto independent))
-        || ((UO_FW_JIP_Type_CIV isEqualto 2) && (side player isEqualto civilian))
+    if (((UO_FW_JIP_Type_BLUFOR isEqualto 2) && {(side player isEqualto west)})
+        || ((UO_FW_JIP_Type_OPFOR isEqualto 2) && {(side player isEqualto east)})
+        || ((UO_FW_JIP_Type_Indfor isEqualto 2) && {(side player isEqualto independent)})
+        || ((UO_FW_JIP_Type_Civilian isEqualto 2) && {(side player isEqualto civilian)})
     ) exitwith {
-        ["This mission does not support JIP for your team, enabling spectator"] call ace_common_fnc_displayTextStructured;
+        ["This mission does not support JIP for your team, enabling spectator"] call EFUNC(Core,parsedTextDisplay);
         ["UO_FW_UnTrack_Event", [player]] call CBA_fnc_serverEvent;
         ["UO_FW_Specator_StartSpectate_Event", []] call CBA_fnc_localEvent;
-        SETPLPVAR(JIP_Excluded,true);
+        SETPLPVAR(JIPExcluded,true);
     };
     // Player can JiP, initialize player vars and EHs
     ["UO_FW_PlayerInitEH_Event", []] call CBA_fnc_localEvent;
     ["UO_FW_PlayerInit_Event", []] call CBA_fnc_localEvent;
-    [] call FUNC(GiveJiPActions);
+    [] call EFUNC(JiP,GiveActions);
 }] call CBA_fnc_addEventHandler;

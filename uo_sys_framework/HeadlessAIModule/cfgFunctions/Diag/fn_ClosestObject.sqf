@@ -2,7 +2,7 @@
 UO_FW_AI_EXEC_CHECK(SERVERHC);
 
 params ["_list","_object"];
-//[_list,_object] call UO_FW_AI_fnc_ClosestObject;
+//[_list,_object] call EFUNC(AI,ClosestObject);
 ////systemchat format ["%1",_object];
 private _position = [0,0,0];
 if (isNil "_object") exitWith {};
