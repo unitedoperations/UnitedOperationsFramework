@@ -20,9 +20,12 @@ EXEC_CHECK(ALL);
 
 params ["_unit"];
 
-if (!(_unit isKindOf "CAManBase")) then {
+if(!(_unit isKindOf "CAManBase")) then
+{
    _unit call UO_FW_fnc_RemoveAllVehicleGear;
-} else {
+}
+else
+{
     removeHeadgear _unit;
     if ((!isPlayer _unit) || {!((goggles _unit) in WHITELIST)} || {GETMVAR(Olsen_FaceRemovalEnabled,false)}) then {
         removeGoggles _unit;
