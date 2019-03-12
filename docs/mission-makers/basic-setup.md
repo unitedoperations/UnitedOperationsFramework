@@ -15,6 +15,22 @@ redirect_from:
 
 ---
 
+# Installation
+
+[Latest Release](https://github.com/unitedoperations/UnitedOperationsFramework/releases/latest/)
+{: .btn .mb-6 }
+
+(This process is taken from the testing instructions, it is unlikely this will apply for non-testing users.)
+
+1. Unzip the contents of the .zip/.7z file to a folder of your choosing. (I highly suggest UOFW or something similar.)
+2. Run build.bat and hit y on both prompts. This will place a folder in your Arma 3 folder called @uof
+3. Open the Arma 3 Launcher with your normal United Operations Modpack.
+4. Select the mods tab and select Local mod in the mods menu.
+5. Specify the @UOF folder in your Arma 3 installation and load it after all of your other mods. (At the bottom of the list.)
+6. Load into Arma 3 and you will be running the latest dev release of the UO Framework!
+
+---
+
 # Setup
 
 ## Enabling the Framework
@@ -76,56 +92,24 @@ Custom end-conditions done through an SQF script
 {: .fw-600 }
 
   * Keep in mind, end-conditions from the Olsen framework are not supported by the UO Framework!
-  * [Here's]({{ site.baseurl }}/docs/toc/core/end_cond/#olsen-framework) how to convert your Olsen end-conditions to the UO Framework
+  * [Here's]({{ site.baseurl }}/docs/mission-makers/end_cond/#porting-from-olsen) how to convert your Olsen end-conditions to the UO Framework
 
 ---
 
 # Using the Core Modules
 
-## ACRE
+* [ACRE]({{ site.baseurl }}/docs/toc/core/acre/)
 
-* Basic text and image based guide for
+* [Gear]({{ site.baseurl }}/docs/toc/core/gear/)
 
-* using the ACRE module
+* [AO-Limits]({{ site.baseurl }}/docs/toc/core/ao-limits/)
 
-## Gear
+* [Disconnect Control]({{ site.baseurl }}/docs/toc/core/disconnect/)
 
-* Basic text and image based guide for
+* [Anti-ND]({{ site.baseurl }}/docs/toc/core/anti-nd/)
 
-* using the gear module (ACE3 system)
+* [Safe-Start]({{ site.baseurl }}/docs/toc/core/safe-start/)
 
-## AO-Limits
+* [Setup Timer]({{ site.baseurl }}/docs/toc/core/safe-start/)
 
-* Basic text and image based guide guide for
-
-* using the AO Limit zones
-
-## Disconnect Control
-
-* Basic text and image based guide for
-
-* using the disonnect control/JIP module
-
-## Anti-Negligent Discharge
-
-* Basic text and image based guide for
-
-* using the Anti-ND module
-
-## Safe Start
-
-* Basic text and image based guide for
-
-* using the Safe Start module
-
-## Setup Timer
-
-* Basic text and image based guide for
-
-* using the Setup Timer module
-
-## Start Text
-
-* Basic text and image based guide for
-
-* using the Start Text module
+---

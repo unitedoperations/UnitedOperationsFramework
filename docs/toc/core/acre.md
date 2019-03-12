@@ -29,8 +29,6 @@ Provides an efficient in-editor system for:
 
 Adding radios through the ACRE module can only be done on playable units!
 
----
-
 ## Adding Radios
 
 1. Open the UO Framework menu.
@@ -55,13 +53,9 @@ Adding radios through the ACRE module can only be done on playable units!
 
 The playable units you assigned radios will now have radios when starting your mission!
 
----
-
 ## Adding Vehicle Racks
 
 _**WIP**_
-
----
 
 ## Radio Scrambling, Babel and Channel Names
 
