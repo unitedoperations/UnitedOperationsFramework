@@ -20,6 +20,14 @@ assignees: ''
 
 Add a clear and concise description of the error. This makes it easier for us to fix the issue.
 
+#### Logs
+
+Include a link to the pastebin/gist of your RPT log(s).
+
+#### Mission File(s)
+
+Please include a link to a .zip of your root mission folder here.
+
 #### Steps to reproduce
 
 Add the steps needed to reproduce the issue. For example:
@@ -33,7 +41,7 @@ Add the steps needed to reproduce the issue. For example:
 
 A clear and concise description of what you expected to happen.
 
-#### Screenshots
+#### Video and Screenshots
 
 Post a screenshot of the bug. This makes it easier to identify and fix the issue.
 
