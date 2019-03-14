@@ -70,11 +70,12 @@ To enable the ACRE module, refer to this [guide.]({{ site.baseurl }}/docs/toc/co
 
 To enable the Gear module, refer to this [guide.]({{ site.baseurl }}/docs/toc/core/gear/#ace-gear)
 
-## Briefings
+<!-- TODO -->
+<!-- ## Briefings
 
 * Basic text and image based guide for
 
-* using the briefing module
+* using the briefing module -->
 
 ## End-Conditions
 

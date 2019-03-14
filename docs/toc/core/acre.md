@@ -53,9 +53,10 @@ Adding radios through the ACRE module can only be done on playable units!
 
 The playable units you assigned radios will now have radios when starting your mission!
 
-## Adding Vehicle Racks
+<!-- TODO -->
+<!-- ## Adding Vehicle Racks
 
-_**WIP**_
+_**WIP**_ -->
 
 ## Radio Scrambling, Babel and Channel Names
 
