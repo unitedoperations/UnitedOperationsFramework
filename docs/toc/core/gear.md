@@ -69,9 +69,11 @@ Your equipment will be pre-loaded through the editor.
 
 Randomized items will be randomized when gear is applied as you load into the briefing screen.
 
-### Using Feature Three
+### Using Manual Loadouts
 
-Text here.
+#### Manual ACE Loadouts
+
+#### Manual Olsen Loadouts
 
 ### Using Feature Four
 
