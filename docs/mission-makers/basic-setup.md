@@ -17,6 +17,8 @@ redirect_from:
 
 # Installation
 
+## Github
+
 [Latest Release](https://github.com/unitedoperations/UnitedOperationsFramework/releases/latest/)
 {: .btn .mb-6 }
 
@@ -28,6 +30,15 @@ redirect_from:
 4. Select the mods tab and select Local mod in the mods menu.
 5. Specify the @UOF folder in your Arma 3 installation and load it after all of your other mods. (At the bottom of the list.)
 6. Load into Arma 3 and you will be running the latest dev release of the UO Framework!
+
+## United Operations Testpack
+
+[Testing Modpack](https://steamcommunity.com/sharedfiles/filedetails/?id=849706204)
+{: .btn .mb-6 }
+
+Subscribe to the pack below for the latest public testing release of the framework.
+Keep in mind this version requires you to have content exclusive to the United Operations server and mod-pack.
+These dependencies are a temporary requirement and will be removed in a later public release.
 
 ---
 

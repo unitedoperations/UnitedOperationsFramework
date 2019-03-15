@@ -28,7 +28,32 @@ Here are just a few of the features the gear module provides:
 
 ### Using ACE Arsenal Loadouts
 
-Text here.
+Using the ACE Arsenal is the most effective and efficient way of assigning equipment to units.
+
+#### Settings
+
+Open a new mission and enable the framework and ACE gear system through the UO Framework menu tab.
+
+#### Specifying Role Loadouts
+
+1. To make a loadout mission specific:
+ - Open any unit in the editor through the ACE arsenal and save their loadout to the "Default" tab.
+ - Open any unit in the editor through the ACE arsenal, then save a public loadout to the "Default" tab.
+2. Next, open the faction gear setting and select the role you want to assign a loadout.
+3. Select a loadout available in the ACE Arsenal for that role and exit the gear system.
+
+#### Changing a Unit's Loadout
+
+After completing the above steps, you will still need to specify what loadouts unit will have.
+
+1. Right click on the unit you want to specify a loadout for and open the unit attributes.
+2. Find the Gear Settings Attribute and select the ACE gear system.
+
+
+### Using ACE Presets
+
+
+### Settings
 
 ### Using Olsen Loadouts
 
@@ -74,8 +99,6 @@ Randomized items will be randomized when gear is applied as you load into the br
 #### Manual ACE Loadouts
 
 #### Manual Olsen Loadouts
-
-### Using Feature Four
 
 ---
 
