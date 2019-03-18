@@ -1,14 +1,20 @@
 <p align="center">
     <a href="https://github.com/unitedoperations/UnitedOperationsFramework/releases">
-        <img src="https://img.shields.io/badge/Version-1.0.2-blue.svg" alt="Olsen Framework Version">
+        <img src="https://img.shields.io/badge/Version-1.0.4-blue.svg?style=flat-square" alt="Olsen Framework Version">
     </a>
     <a href="https://github.com/unitedoperations/UnitedOperationsFramework/">
-        <img src="https://img.shields.io/github/issues/UnitedOperations/UnitedOperationsFramework.svg" alt="Framework Issues">
+        <img src="https://img.shields.io/github/issues/UnitedOperations/UnitedOperationsFramework.svg?style=flat-square" alt="Framework Issues">
+    </a>
+    <a href="https://github.com/acemod/ACE3/releases">
+        <img src="https://img.shields.io/github/downloads/unitedoperations/UnitedOperationsFramework/total.svg?style=flat-square&label=Downloads" alt="UOFW Downloads">
+    </a>
+    <a href="https://github.com/unitedoperations/UnitedOperationsFramework/blob/master/LICENSE">
+        <img src="https://img.shields.io/badge/License-GPLv2-red.svg?style=flat-square" alt="UOFW License">
     </a>
   <a href="https://github.com/unitedoperations/UnitedOperationsFramework/pulls">
-        <img src="https://img.shields.io/github/issues-pr-raw/UnitedOperations/UnitedOperationsFramework.svg" alt="Pull Requests">
+        <img src="https://img.shields.io/github/issues-pr-raw/UnitedOperations/UnitedOperationsFramework.svg?style=flat-square" alt="Pull Requests">
     </a>
-    <img src="https://img.shields.io/github/languages/code-size/UnitedOperations/UnitedOperationsFramework.svg" alt="Framework Size">
+    <img src="https://img.shields.io/github/languages/code-size/UnitedOperations/UnitedOperationsFramework.svg?style=flat-square" alt="Framework Size">
 </p>
 
 The **UO Framework** is a modular mission making addon based on the [Olsen Framework](https://github.com/dklollol/Olsen-Framework-Arma-3) designed to help create high quality Arma 3 scenarios utilizing the in game editor and removing the requirement for mission makers to deal with manual editing of script setting files by implementing editor menus and settings for tailoring the mission. Originally designed for [United Operations](http://unitedoperations.net/).
