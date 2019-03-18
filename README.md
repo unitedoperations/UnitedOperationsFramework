@@ -1,3 +1,3 @@
 # UnitedOperationsFramework
 
-Upload any pictures for the wiki here
+This branch is heavily outdated. Please ignore it's contents for the time being.
