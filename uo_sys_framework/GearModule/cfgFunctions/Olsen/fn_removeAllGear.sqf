@@ -22,7 +22,7 @@ params ["_unit"];
 
 if(!(_unit isKindOf "CAManBase")) then
 {
-   _unit call UO_FW_fnc_RemoveAllVehicleGear;
+   _unit call FUNC(RemoveAllVehicleGear);
 }
 else
 {
@@ -36,4 +36,3 @@ else
     removeAllWeapons _unit;
     removeAllAssignedItems _unit;
 };
-

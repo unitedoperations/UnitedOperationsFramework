@@ -1,10 +1,10 @@
-class UO_FW_AOModeAttribute: Combo {
+class EGVAR(AOLimit,AOModeAttribute): Combo {
     attributeLoad ="\
         private _logic = ((get3denselected 'logic') select 0);\
         private _cfgname = gettext (_config >> 'property');\
         _logic setvariable [_cfgname,_value];\
         private _ctrlCombo = (_this controlsGroupCtrl 100);\
-        _ctrlCombo setvariable ['UO_FW_parentcontrolcfg',_config];\
+        _ctrlCombo setvariable ['parentcontrolcfg',_config];\
         private _ctrlGroup = ctrlParentControlsGroup _ctrlCombo;\
         private _AOSystemTypes = [['Hard','HARD'],['Soft','SOFT']];\
         {\

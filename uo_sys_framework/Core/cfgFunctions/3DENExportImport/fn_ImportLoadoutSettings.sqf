@@ -25,7 +25,7 @@ if (_clipBoardMode) then {
     };
     LOG("Loaded Loadout Settings from Clipboard!");
 } else {
-    private _profileArray = profileNamespace getvariable ["UO_FW_ProfileLoadoutSettingsArray",[]];
+    private _profileArray = profileNamespace getvariable [QEGVAR(Core,ProfileLoadoutSettingsArray),[]];
     if (_profileArray isEqualto []) exitwith {};
     private _found = false;
     {

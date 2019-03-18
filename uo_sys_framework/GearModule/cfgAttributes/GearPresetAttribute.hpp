@@ -45,7 +45,7 @@ class EGVAR(Gear,PresetsCombo_Indfor): EGVAR(Gear,PresetsCombo_BLUFOR) {
     };
 };
 
-class EGVAR(Gear,PresetsCombo_CIVILIAN): EGVAR(Gear,PresetsCombo_BLUFOR) {
+class EGVAR(Gear,PresetsCombo_Civ): EGVAR(Gear,PresetsCombo_BLUFOR) {
     class Controls: Controls {
         class Title: Title {};
         class Value: Value {

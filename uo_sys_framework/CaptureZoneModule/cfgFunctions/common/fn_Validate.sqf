@@ -1,6 +1,6 @@
 #define COMPONENT CaptureZone
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-EXEC_CHECK(ALL);
+EXEC_CHECK(SERVER);
 
 //[_logic,_zoneName,_area,_repeatable,_capArray,_timeArray,_messagesArray,_colours,_hidden,_silent,_automessages,_ratioNeeded,_cond]
 //[_logic,_zoneName,_area,_repeatable,_capArray,_timeArray,_messagesArray,_colours,_hidden,_silent,_automessages,_ratioNeeded,_cond]

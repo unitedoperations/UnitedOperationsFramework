@@ -1,4 +1,4 @@
-class UO_FW_AutoTrackAsset {
+class EGVAR(AutoTrackAsset,Category) {
     displayName = "Auto Track Asset Settings";
     collapsed = 1;
     class Attributes {

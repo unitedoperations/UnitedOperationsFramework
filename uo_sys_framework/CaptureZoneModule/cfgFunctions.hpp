@@ -3,8 +3,9 @@ CFGFUNCFOLDER(CaptureZone,modules);
 CFGFUNCFOLDEREND;
 
 CFGFUNCFOLDER(CaptureZone,common);
-    CFGFUNC(CaptureZone,CaptureZoneLoop);
-    CFGFUNC(CaptureZone,ValidateCaptureZone);
+    CFGFUNC(CaptureZone,Init);
+    CFGFUNC(CaptureZone,Loop);
+    CFGFUNC(CaptureZone,Validate);
 CFGFUNCFOLDEREND;
 
 CFGFUNCFOLDER(CaptureZone,Attributes);

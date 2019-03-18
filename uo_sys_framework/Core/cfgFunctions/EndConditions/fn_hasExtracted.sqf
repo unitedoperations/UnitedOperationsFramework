@@ -60,13 +60,13 @@ switch (_side) do {
         };
     };
     case civilian: {
-        _respawnTypeNum = GETMVAR(hasDeparted_Civilian,false);
+        _respawnTypeNum = GETMVAR(hasDeparted_Civ,false);
         if (_count >= _ratio * ([_team, 4] call EFUNC(Core,getTeamVariable))) then {
             if (_respawnTypeNum) then {
                 _result = true;
             };
         } else {
-            SETMPVAR(hasDeparted_Civilian,true);
+            SETMPVAR(hasDeparted_Civ,true);
         };
     };
     default {_result = false;};

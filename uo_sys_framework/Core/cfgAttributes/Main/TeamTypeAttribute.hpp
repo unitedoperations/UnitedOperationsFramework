@@ -1,9 +1,9 @@
-class UO_FW_TeamType_Select: Title {
+class EGVAR(Core,TeamType_Select): Title {
     attributeLoad = "\
         private _name = gettext (_config >> 'property');\
         missionNamespace setvariable [_name,_value];\
         private _control = (_this controlsGroupCtrl 100);\
-        _control setvariable ['UO_FW_ParentCfg',_config];\
+        _control setvariable ['ParentCfg',_config];\
         _control lbsetcursel _value;\
     ";
     attributeSave = "\
@@ -25,7 +25,7 @@ class UO_FW_TeamType_Select: Title {
             values[] = {0,1,2};
             onToolboxSelChanged = "\
                 params ['_control','_value'];\
-                private _config = _control getvariable ['UO_FW_ParentCfg',''];\
+                private _config = _control getvariable ['ParentCfg',''];\
                 private _name = gettext (_config >> 'property');\
                 missionNamespace setvariable [_name,_value];\
             ";

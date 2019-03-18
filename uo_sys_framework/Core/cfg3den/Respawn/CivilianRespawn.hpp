@@ -1,34 +1,34 @@
-class EGVAR(TeamRespawnSettings,Civilian) {
+class EGVAR(TeamRespawnSettings,Civ) {
     displayName = "Civilian Respawn Settings";
     collapsed = 0; //_respawnTypeArray = [['1 Life','ONELIFE'],['Unlimited','UNLIMITED'],['Individual Tickets','INDTICKETS'],['Team Tickets','TEAMTICKETS'],['Wave','WAVE'],['Triggered','TRIGGERED']];\
     class Attributes {
-        class EGVAR(Respawn,Type_Civilian) {
+        class EGVAR(Respawn,Type_Civ) {
             displayName = "Respawn System";
-            tooltip = "Type of respawn system for Civilian. Place down a GameLogic object with name UO_FW_RESPAWN_Civilian to define respawn location.";
-            control = "UO_FW_Respawn_Combo_Civilian";
+            tooltip =  QUOTE(Type of respawn system for BLUFOR. Place down a GameLogic object with name MGVAR(RESPAWN_CIV) to define respawn location.);
+            control = QEGVAR(Respawn,Combo_Civ);
             defaultValue = "0";
-            property = QEGVAR(Respawn,Type_Civilian);
+            property = QEGVAR(Respawn,Type_Civ);
             expression = SCENARIO_EXPRESSION;
         };
-        class EGVAR(Respawn,Templates_Civilian) {
-            property = QEGVAR(Respawn,Templates_Civilian);
+        class EGVAR(Respawn,Templates_Civ) {
+            property = QEGVAR(Respawn,Templates_Civ);
             displayName = "Respawn System Settings";
             tooltip = "";
-            control = "UO_FW_RespawnTemplates_Civilian";
+            control = QEGVAR(Respawn,Templates_Civ);
             expression = SCENARIO_EXPRESSION;
             defaultValue = "['']";
         };
-        class EGVAR(Respawn,NewTeam_Civilian) {
-            property = QEGVAR(Respawn,NewTeam_Civilian);
+        class EGVAR(Respawn,NewTeam_Civ) {
+            property = QEGVAR(Respawn,NewTeam_Civ);
             displayName = "Respawn Side";
             tooltip = "Determines what side the originally Civilian players will spawn on. Enabling this setting requires respawned players to join a new group.";
             respawnTypes[] = {1,2,3};
-            control = "UO_FW_RespawnSide_Combo";
+            control = QEGVAR(Respawn,Side_Combo);
             expression = SCENARIO_EXPRESSION;
             defaultValue = "3";
         };
-        class EGVAR(Respawn,Delay_Civilian) {
-            property = QEGVAR(Respawn,Delay_Civilian);
+        class EGVAR(Respawn,Delay_Civ) {
+            property = QEGVAR(Respawn,Delay_Civ);
             displayName = "Respawn Delay";
             tooltip = "Delay in seconds between a player being killed and respawning. Must be more than 5 seconds.";
             respawnTypes[] = {1,2,3,4,5};
@@ -37,8 +37,8 @@ class EGVAR(TeamRespawnSettings,Civilian) {
             defaultValue = "5";
             validate = "number";
         };
-        class EGVAR(Respawn,IndTickets_Civilian) {
-            property = QEGVAR(Respawn,IndTickets_Civilian);
+        class EGVAR(Respawn,IndTickets_Civ) {
+            property = QEGVAR(Respawn,IndTickets_Civ);
             displayName = "Individual Respawn Tickets";
             tooltip = "Number of individual respawns.";
             respawnTypes[] = {2};
@@ -47,8 +47,8 @@ class EGVAR(TeamRespawnSettings,Civilian) {
             defaultValue = "2";
             validate = "number";
         };
-        class EGVAR(Respawn,TeamTickets_Civilian) {
-            property = QEGVAR(Respawn,TeamTickets_Civilian);
+        class EGVAR(Respawn,TeamTickets_Civ) {
+            property = QEGVAR(Respawn,TeamTickets_Civ);
             displayName = "Team Respawn Tickets";
             tooltip = "Number of team respawns.";
             respawnTypes[] = {3};
@@ -60,19 +60,19 @@ class EGVAR(TeamRespawnSettings,Civilian) {
     };
 };
 
-class EGVAR(Spectator,Civilian) {
+class EGVAR(Spectator,Civ) {
     displayName = "Civilian Spectate Settings";
     collapsed = 0;
     class Attributes {
-        class EGVAR(Spectator,EnabledTeams_Civilian) {
+        class EGVAR(Spectator,EnabledTeams_Civ) {
             property = QEGVAR(Spectate,EnabledTeams);
             displayName = "Spectate Teams";
             tooltip = "Teams that this team can spectate.";
-            control = "UO_FW_SpectateTeams_Attribute";
-            defaultValue = "['BLUFOR','OPFOR','Indfor','CIVILIAN']";
+            control = QEGVAR(Spectator,Teams_Attribute);
+            defaultValue = "['BLUFOR','OPFOR','Indfor','Civ']";
             expression = SCENARIO_EXPRESSION;
         };
-        class EGVAR(Spectator,KillCam_Civilian) {
+        class EGVAR(Spectator,KillCam_Civ) {
             property = QEGVAR(Spectate,KillCam);
             displayName = "Killcam";
             tooltip = "This setting enables the specator killcam functionality.";
@@ -80,15 +80,15 @@ class EGVAR(Spectator,Civilian) {
             expression = SCENARIO_EXPRESSION;
             defaultValue = "true";
         };
-        class EGVAR(Spectator,AIEnabled_Civilian) {
-            property = QEGVAR(Spectate,AIEnabled_Civilian);
+        class EGVAR(Spectator,AIEnabled_Civ) {
+            property = QEGVAR(Spectate,AIEnabled_Civ);
             displayName = "Spectate AI";
             tooltip = "Enable Spectating AI Entities.";
             control = "CheckBox";
             expression = SCENARIO_EXPRESSION;
             defaultValue = "true";
         };
-        class EGVAR(Spectator,FreeCam_Civilian) {
+        class EGVAR(Spectator,FreeCam_Civ) {
             property = QEGVAR(Spectate,FreeCam);
             displayName = "Spectator Freecam";
             tooltip = "Enable Freecam Ability in Spectator.";
@@ -96,7 +96,7 @@ class EGVAR(Spectator,Civilian) {
             expression = SCENARIO_EXPRESSION;
             defaultValue = "true";
         };
-        class EGVAR(Spectator,3rdPerson_Civilian) {
+        class EGVAR(Spectator,3rdPerson_Civ) {
             property = QEGVAR(Spectate,3rdPerson);
             displayName = "Spectator Third Person";
             tooltip = "Enable Third Person Ability in Spectator.";
@@ -107,21 +107,21 @@ class EGVAR(Spectator,Civilian) {
     };
 };
 
-class EGVAR(TeamJIPSettings,Civilian) {
+class EGVAR(TeamJIPSettings,Civ) {
     displayName = "Civilian JiP Settings";
     collapsed = 0;
     class Attributes {
-        class EGVAR(JIP,Type_Civilian) {
-            property = QEGVAR(JIP,Type_Civilian);
+        class EGVAR(JIP,Type_Civ) {
+            property = QEGVAR(JIP,Type_Civ);
             displayName = "JiP Type";
             tooltip = "TELEPORT: Player can teleport to his squad. TRANSPORT: Player can send a hint to all group leaders requesting transport. DENY: Player is killed and put in spectator.";
-            control = "UO_FW_JIPTypeAtt";
+            control = QEGVAR(JIP,TypeAtt);
             expression = SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "0";
         };
-        class EGVAR(JIP,Distance_Civilian) {
-            property = QEGVAR(JIP,Distance_Civilian);
+        class EGVAR(JIP,Distance_Civ) {
+            property = QEGVAR(JIP,Distance_Civ);
             displayName = "JiP Distance";
             tooltip = "If distance to group members upon spawn is greater than this you will be granted the defined JiP action";
             control = QMGVAR(50To200Step50_Slider);
@@ -129,8 +129,8 @@ class EGVAR(TeamJIPSettings,Civilian) {
             validate = "number";
             defaultValue = "200";
         };
-        class EGVAR(JIP,SpawnDistance_Civilian) {
-            property = QEGVAR(JIP,SpawnDistance_Civilian);
+        class EGVAR(JIP,SpawnDistance_Civ) {
+            property = QEGVAR(JIP,SpawnDistance_Civ);
             displayName = "Spawn Radius";
             tooltip = "Exiting this radius will remove the JiP actions from the player.";
             control = QMGVAR(50To200Step50_Slider);

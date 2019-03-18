@@ -1,4 +1,4 @@
-class UO_FW_CheckBoxPlayerOnlyCategory: CheckBox {
+class EGVAR(Core,CheckBoxPlayerOnlyCategory): CheckBox {
     onLoad="\
     private ['_isUnitPlayable'];\
     private _unit = ((get3denselected 'object') select 0);\
@@ -28,7 +28,7 @@ class UO_FW_CheckBoxPlayerOnlyCategory: CheckBox {
     };
 };
 
-class UO_FW_CheckBoxStatePlayerOnlyCategory: CheckBoxState {
+class EGVAR(Core,CheckBoxStatePlayerOnlyCategory): CheckBoxState {
     onLoad="\
     private ['_isUnitPlayable'];\
     private _unit = ((get3denselected 'object') select 0);\
@@ -58,7 +58,7 @@ class UO_FW_CheckBoxStatePlayerOnlyCategory: CheckBoxState {
     };
 };
 
-class UO_FW_CheckboxNumberPlayerOnlyCategory: Edit {
+class EGVAR(Core,CheckboxNumberPlayerOnlyCategory): Edit {
     onLoad="\
     private ['_isUnitPlayable'];\
     private _unit = ((get3denselected 'object') select 0);\
@@ -88,7 +88,7 @@ class UO_FW_CheckboxNumberPlayerOnlyCategory: Edit {
     };
 };
 
-class UO_FW_CheckboxReversedPlayerOnlyCategory: Edit {
+class EGVAR(Core,CheckboxReversedPlayerOnlyCategory): Edit {
     onLoad="\
     private ['_isUnitPlayable'];\
     private _unit = ((get3denselected 'object') select 0);\
@@ -118,7 +118,7 @@ class UO_FW_CheckboxReversedPlayerOnlyCategory: Edit {
     };
 };
 
-class UO_FW_EditPlayerOnlyCategory: Edit {
+class EGVAR(Core,EditPlayerOnlyCategory): Edit {
     onLoad="\
     private ['_isUnitPlayable'];\
     private _unit = ((get3denselected 'object') select 0);\
@@ -179,7 +179,7 @@ class EGVAR(3DEN,EditShortPlayerOnlyCategory): Edit
     };
 };
 
-class UO_FW_EditArrayPlayerOnlyCategory: Edit
+class EGVAR(Core,EditArrayPlayerOnlyCategory): Edit
 {
     onLoad="\
     private ['_isUnitPlayable'];\

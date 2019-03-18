@@ -3,7 +3,7 @@ class EGVAR(Gear,AttributeManualGearEditShort): EditShort {
     attributeSave = "\
         private _value = ctrlText (_this controlsGroupCtrl 100);\
         private _unit = ((get3denselected 'object') select 0);\
-        _unit setvariable ['UO_FW_Gear_ManualUnitClass',_value];\
+        _unit setvariable ['##PREFIX##_Gear_ManualUnitClass',_value];\
         _value\
     ";
     //_this - config, _value - saved value
@@ -13,7 +13,7 @@ class EGVAR(Gear,AttributeManualGearEditShort): EditShort {
         };\
         private _unit = ((get3denselected 'object') select 0);\
         (_this controlsGroupCtrl 100) ctrlSetText _value;\
-        _unit setvariable ['UO_FW_Gear_ManualUnitClass',_value];\
+        _unit setvariable ['##PREFIX##_Gear_ManualUnitClass',_value];\
     ";
 
     class Controls: Controls {
@@ -23,7 +23,7 @@ class EGVAR(Gear,AttributeManualGearEditShort): EditShort {
                 private _ctrlEdit = _this select 0;\
                 private _value = ctrlText _ctrlEdit;\
                 private _unit = ((get3denselected 'object') select 0);\
-                _unit setvariable ['UO_FW_Gear_ManualUnitClass',_value];\
+                _unit setvariable ['##PREFIX##_Gear_ManualUnitClass',_value];\
             ";
         };
     };

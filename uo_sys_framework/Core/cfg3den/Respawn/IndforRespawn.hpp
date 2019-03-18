@@ -4,8 +4,8 @@ class EGVAR(TeamRespawnSettings,Indfor) {
     class Attributes {
         class EGVAR(Respawn,Type_Indfor) {
             displayName = "Respawn System";
-            tooltip = "Type of respawn system for Indfor. Place down a GameLogic object with name UO_FW_RESPAWN_Indfor to define respawn location.";
-            control = "UO_FW_Respawn_Combo_Indfor";
+            tooltip =  QUOTE(Type of respawn system for BLUFOR. Place down a GameLogic object with name MGVAR(RESPAWN_INDFOR) to define respawn location.);
+            control = QEGVAR(Respawn,Combo_Indfor);
             defaultValue = "0";
             property = QEGVAR(Respawn,Type_Indfor);
             expression = SCENARIO_EXPRESSION;
@@ -14,7 +14,7 @@ class EGVAR(TeamRespawnSettings,Indfor) {
             property = QEGVAR(Respawn,Templates_Indfor);
             displayName = "Respawn System Settings";
             tooltip = "";
-            control = "UO_FW_RespawnTemplates_Indfor";
+            control = QEGVAR(Respawn,Templates_Indfor);
             expression = SCENARIO_EXPRESSION;
             defaultValue = "['']";
         };
@@ -23,7 +23,7 @@ class EGVAR(TeamRespawnSettings,Indfor) {
             displayName = "Respawn Side";
             tooltip = "Determines what side the originally Indfor players will spawn on. Enabling this setting requires respawned players to join a new group.";
             respawnTypes[] = {1,2,3};
-            control = "UO_FW_RespawnSide_Combo";
+            control = QEGVAR(Respawn,Side_Combo);
             expression = SCENARIO_EXPRESSION;
             defaultValue = "2";
         };
@@ -69,7 +69,7 @@ class EGVAR(Spectator,Indfor) {
             property = QEGVAR(Spectate,EnabledTeams);
             displayName = "Spectate Teams";
             tooltip = "Teams that this team can spectate.";
-            control = "UO_FW_SpectateTeams_Attribute";
+            control = QEGVAR(Spectator,Teams_Attribute);
             defaultValue = "['BLUFOR','OPFOR','Indfor','CIVILIAN']";
             expression = SCENARIO_EXPRESSION;
         };
@@ -116,7 +116,7 @@ class EGVAR(TeamJIPSettings,Indfor) {
             property = QEGVAR(JIP,Type_Indfor);
             displayName = "JiP Type";
             tooltip = "TELEPORT: Player can teleport to his squad. TRANSPORT: Player can send a hint to all group leaders requesting transport. DENY: Player is killed and put in spectator.";
-            control = "UO_FW_JIPTypeAtt";
+            control = QEGVAR(JIP,TypeAtt);
             expression = SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "0";

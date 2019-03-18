@@ -1,7 +1,7 @@
 #define COMPONENT MapAndCompassRemover
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 EXEC_CHECK(CLIENT);
-if (!UO_FW_Server_RemoverModule_Allowed) exitWith {};
+if (!UO_FW_Server_MapAndCompassRemover_Allowed) exitWith {};
 
 [QEGVAR(Core,SettingsLoaded), {
     if (GETMVAR(GivePlayersEquipment,false)) then {

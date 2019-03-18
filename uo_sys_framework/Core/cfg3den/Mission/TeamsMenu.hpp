@@ -3,10 +3,10 @@ class EGVAR(Core,TeamsSettings) {
     collapsed = 0;
     class Attributes {
         class EGVAR(Core,TeamType_Blufor) {
-            property = QEGVAR(Core,Blufor_TeamType);
+            property = QEGVAR(Core,TeamType_Blufor);
             displayName = "Type";
             tooltip = "Set team to either AI, Player Controlled, or Both";
-            control = "UO_FW_TeamType_Select";
+            control = QEGVAR(Core,TeamType_Select);
             expression = SCENARIO_EXPRESSION;
             defaultValue = "0";
         };
@@ -19,10 +19,10 @@ class EGVAR(Core,TeamsSettings) {
             defaultValue = "'BLUFOR TEAM'";
         };
         class EGVAR(Core,TeamType_Opfor) {
-            property = QEGVAR(Core,Opfor_TeamType);
+            property = QEGVAR(Core,TeamType_Opfor);
             displayName = "Type";
             tooltip = "Set team to either AI, Player Controlled, or Both";
-            control = "UO_FW_TeamType_Select";
+            control = QEGVAR(Core,TeamType_Select);
             expression = SCENARIO_EXPRESSION;
             defaultValue = "0";
         };
@@ -35,10 +35,10 @@ class EGVAR(Core,TeamsSettings) {
             defaultValue = "'OPFOR TEAM'";
         };
         class EGVAR(Core,TeamType_Indfor) {
-            property = QEGVAR(Core,Indfor_TeamType);
+            property = QEGVAR(Core,TeamType_Indfor);
             displayName = "Type";
             tooltip = "Set team to either AI, Player Controlled, or Both";
-            control = "UO_FW_TeamType_Select";
+            control = QEGVAR(Core,TeamType_Select);
             expression = SCENARIO_EXPRESSION;
             defaultValue = "0";
         };
@@ -50,16 +50,16 @@ class EGVAR(Core,TeamsSettings) {
             expression = SCENARIO_EXPRESSION;
             defaultValue = "'Indfor TEAM'";
         };
-        class EGVAR(Core,TeamType_Civilian) {
-            property = QEGVAR(Core,Civ_TeamType);
+        class EGVAR(Core,TeamType_Civ) {
+            property = QEGVAR(Core,TeamType_Civ);
             displayName = "Type";
             tooltip = "Set team to either AI, Player Controlled, or Both";
-            control = "UO_FW_TeamType_Select";
+            control = QEGVAR(Core,TeamType_Select);
             expression = SCENARIO_EXPRESSION;
             defaultValue = "0";
         };
-        class EGVAR(Core,TeamName_Civilian) {
-            property = QEGVAR(Core,TeamName_Civilian);
+        class EGVAR(Core,TeamName_Civ) {
+            property = QEGVAR(Core,TeamName_Civ);
             displayName = "Name";
             tooltip = "Set team name";
             control = "EditShort";

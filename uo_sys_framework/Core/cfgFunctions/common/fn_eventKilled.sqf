@@ -27,5 +27,5 @@ if (GETVAR(_unit,Tracked,false)) then {
             SETPVAR(_unit,Dead,true);
             _x set [4, (_current - 1)];
         };
-    } forEach EGVAR(Core,Teams);
+    } forEach GVAR(Teams);
 };

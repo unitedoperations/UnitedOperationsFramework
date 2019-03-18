@@ -4,9 +4,9 @@ EXEC_CHECK(SERVER);
 
 LOG("Server Post Init");
 
-UO_FW_EventRespawnedHandle = addMissionEventHandler ["EntityRespawned", {_this call UO_FW_fnc_EventRespawned;}];
-UO_FW_EventKilledHandle = addMissionEventHandler ["EntityKilled", {_this call UO_FW_fnc_EventKilled;}];
-UO_FW_EventDisconnectHandle = addMissionEventHandler ["HandleDisconnect", {_this call UO_FW_fnc_EventDisconnect;}];
+GVAR(EventRespawnedHandle) = addMissionEventHandler ["EntityRespawned", {_this call FUNC(EventRespawned);}];
+GVAR(EventKilledHandle) = addMissionEventHandler ["EntityKilled", {_this call FUNC(EventKilled);}];
+GVAR(EventDisconnectHandle) = addMissionEventHandler ["HandleDisconnect", {_this call FUNC(EventDisconnect);}];
 
 if (EGETMVAR(AI,ViewDistance_Enforce,false)) then {
     setViewDistance EGETMVAR(AI,ViewDistance,2500);
@@ -19,6 +19,6 @@ SETMPVAR(ServerInitialized,true);
     ESETMVAR(Respawn,TeamTicketsRemaining_Blufor,(EGETMVAR(Respawn,TeamTickets_Blufor,30)));
     ESETMVAR(Respawn,TeamTicketsRemaining_Opfor,(EGETMVAR(Respawn,TeamTickets_Opfor,30)));
     ESETMVAR(Respawn,TeamTicketsRemaining_Indfor,(EGETMVAR(Respawn,TeamTickets_Indfor,30)));
-    ESETMVAR(Respawn,TeamTicketsRemaining_Civilian,(EGETMVAR(Respawn,TeamTickets_Civilian,30)));
+    ESETMVAR(Respawn,TeamTicketsRemaining_Civ,(EGETMVAR(Respawn,TeamTickets_Civ,30)));
     [] call EFUNC(EndConditions,Init);
 }] call CBA_fnc_WaitUntilAndExecute;

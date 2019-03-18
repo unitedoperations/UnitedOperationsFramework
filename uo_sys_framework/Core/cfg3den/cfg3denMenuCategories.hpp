@@ -19,7 +19,7 @@ class EGVAR(Respawn,Settings_Indfor) {
     };
 };
 
-class EGVAR(Respawn,Settings_Civilian) {
+class EGVAR(Respawn,Settings_Civ) {
     displayName = "Civilian Respawn Settings";
     class AttributeCategories {
         #include "Respawn\CivilianRespawn.hpp"
@@ -95,7 +95,7 @@ class EGVAR(Export,Menu) {
                     property = QEGVAR(Export,ExportToProfile);
                     displayName = "Export Settings to Profile";
                     tooltip = "Enter the name of the settings preset that will be saved to your profile";
-                    control = "UO_FW_ExportToProfileAttribute";
+                    control = QEGVAR(Export,ToProfileAttribute);
                     expression = "";
                     defaultValue = "''";
                 };
@@ -103,7 +103,7 @@ class EGVAR(Export,Menu) {
                     property = QEGVAR(Export,ExportToClipboard);
                     displayName = "Export Settings to Clipboard";
                     tooltip = "Export Settings to Clipboard";
-                    control = "UO_FW_ExportToClipboardAttribute";
+                    control = QEGVAR(Export,ToClipboardAttribute);
                     expression = "";
                     defaultValue = "[]";
                 };
@@ -111,7 +111,7 @@ class EGVAR(Export,Menu) {
                     property = QEGVAR(Export,ExportLoadoutToProfile);
                     displayName = "Export Loadouts to Profile";
                     tooltip = "Enter the name of the settings preset that will be saved to your profile";
-                    control = "UO_FW_ExportLoadoutToProfileAttribute";
+                    control = QEGVAR(Export,LoadoutToProfileAttribute);
                     expression = "";
                     defaultValue = "''";
                 };
@@ -119,7 +119,7 @@ class EGVAR(Export,Menu) {
                     property = QEGVAR(Export,ExportLoadoutToClipboard);
                     displayName = "Export Loadouts to Clipboard";
                     tooltip = "Export Loadouts to Clipboard";
-                    control = "UO_FW_ExportLoadoutToClipboardAttribute";
+                    control = QEGVAR(Export,LoadoutToClipboardAttribute);
                     expression = "";
                     defaultValue = "[]";
                 };
@@ -139,7 +139,7 @@ class EGVAR(Import,Menu) {
                     property = QEGVAR(IMPORT,ImportfromProfile);
                     displayName = "Import Settings from Profile";
                     tooltip = "";
-                    control = "UO_FW_ImportFromProfileAttribute";
+                    control = QEGVAR(Import,FromProfileAttribute);
                     expression = "";
                     defaultValue = "''";
                 };
@@ -147,7 +147,7 @@ class EGVAR(Import,Menu) {
                     property = QEGVAR(Import,ImportFromClipboard);
                     displayName = "Import Settings from Clipboard";
                     tooltip = "Import Settings from Clipboard";
-                    control = "UO_FW_ImportFromClipboardAttribute";
+                    control = QEGVAR(Import,FromClipboardAttribute);
                     expression = "";
                     defaultValue = "[]";
                 };
@@ -155,7 +155,7 @@ class EGVAR(Import,Menu) {
                     property = QEGVAR(IMPORT,ImportLoadoutfromProfile);
                     displayName = "Import Loadouts from Profile";
                     tooltip = "";
-                    control = "UO_FW_ImportLoadoutFromProfileAttribute";
+                    control = QEGVAR(Import,LoadoutFromProfileAttribute);
                     expression = "";
                     defaultValue = "''";
                 };
@@ -163,7 +163,7 @@ class EGVAR(Import,Menu) {
                     property = QEGVAR(Import,ImportLoadoutFromClipboard);
                     displayName = "Import Loadouts from Clipboard";
                     tooltip = "";
-                    control = "UO_FW_ImportLoadoutFromClipboardAttribute";
+                    control = QEGVAR(Import,LoadoutFromClipboardAttribute);
                     expression = "";
                     defaultValue = "[]";
                 };

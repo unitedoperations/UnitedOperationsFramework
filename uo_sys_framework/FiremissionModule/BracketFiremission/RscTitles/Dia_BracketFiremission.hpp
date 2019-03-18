@@ -13,7 +13,7 @@ class UO_FW_DIA_BRACKETFIREMission
     controls[] = {BFM_BACKGROUND,BFM_DESCRIPTIONTEXT,BFM_SELECTEDGUN,BFM_SELECTEDSHELLTEXT,BFM_STARTGRID,BFM_ENDGRID,BFM_BURSTNUMBERTEXT,BFM_BURSTROUNDSTEXT,
         BFM_DELAYTEXT,BFM_SPOTDISTTEXT,BFM_SELECTEDGUNEDIT,BFM_SELECTEDSHELLEDIT,BFM_STARTGRIDEDIT,
         BFM_ENDGRIDEDIT,BFM_BURSTNUMBEREDIT,BFM_BURSTROUNDSEDIT,BFM_BURSTDELAYEDIT,BFM_SPOTTINGDISTANCEDIT,BFM_FIREBUTTON,BFM_CANCELBUTTON};
-        class BFM_BACKGROUND: UO_FW_RscText
+        class BFM_BACKGROUND: MGVAR(RscText)
         {
             idc = -1;
             x = ARTIWIDTHMainSPACE * safezoneW + safezoneX - ARTIBORDERTHICKNESS;
@@ -23,7 +23,7 @@ class UO_FW_DIA_BRACKETFIREMission
             shadow = 0;
             colorBackground[] = {0.65,0.65,0.65,0.7};
         };
-        class BFM_DESCRIPTIONTEXT: UO_FW_RscText
+        class BFM_DESCRIPTIONTEXT: MGVAR(RscText)
         {
             idc = -1;
             text = "Bracket Firemission"; //--- ToDo: Localize;
@@ -35,7 +35,7 @@ class UO_FW_DIA_BRACKETFIREMission
             colorText[] = {0,0,0,1};
             shadow = 0;
         };
-    class BFM_SELECTEDGUN: UO_FW_RscText
+    class BFM_SELECTEDGUN: MGVAR(RscText)
     {
         idc = -1;
         text = "Selected gun:"; //--- ToDo: Localize;
@@ -47,7 +47,7 @@ class UO_FW_DIA_BRACKETFIREMission
         colorText[] = {0,0,0,1};
         shadow = 0;
     };
-    class BFM_SELECTEDSHELLTEXT: UO_FW_RscText
+    class BFM_SELECTEDSHELLTEXT: MGVAR(RscText)
     {
         idc = -1;
         text = "Aviable ammunition:"; //--- ToDo: Localize;
@@ -58,7 +58,7 @@ class UO_FW_DIA_BRACKETFIREMission
         colorText[] = {0,0,0,1};
         shadow = 0;
     };
-    class BFM_STARTGRID: UO_FW_RscText
+    class BFM_STARTGRID: MGVAR(RscText)
     {
         idc = -1;
         text = "Start Grid:"; //--- ToDo: Localize;
@@ -69,7 +69,7 @@ class UO_FW_DIA_BRACKETFIREMission
         colorText[] = {0,0,0,1};
         shadow = 0;
     };
-    class BFM_ENDGRID: UO_FW_RscText
+    class BFM_ENDGRID: MGVAR(RscText)
     {
         idc = -1;
         text = "End Grid:"; //--- ToDo: Localize;
@@ -80,7 +80,7 @@ class UO_FW_DIA_BRACKETFIREMission
         colorText[] = {0,0,0,1};
         shadow = 0;
     };
-    class BFM_BURSTNUMBERTEXT: UO_FW_RscText
+    class BFM_BURSTNUMBERTEXT: MGVAR(RscText)
     {
         idc = -1;
         text = "Number of salvos:"; //--- ToDo: Localize;
@@ -91,7 +91,7 @@ class UO_FW_DIA_BRACKETFIREMission
         colorText[] = {0,0,0,1};
         shadow = 0;
     };
-    class BFM_BURSTROUNDSTEXT: UO_FW_RscText
+    class BFM_BURSTROUNDSTEXT: MGVAR(RscText)
     {
         idc = -1;
         text = "Number of rounds per salvo:"; //--- ToDo: Localize;
@@ -102,7 +102,7 @@ class UO_FW_DIA_BRACKETFIREMission
         colorText[] = {0,0,0,1};
         shadow = 0;
     };
-    class BFM_DELAYTEXT: UO_FW_RscText
+    class BFM_DELAYTEXT: MGVAR(RscText)
     {
         idc = -1;
         text = "Delay between salvos:"; //--- ToDo: Localize;
@@ -113,7 +113,7 @@ class UO_FW_DIA_BRACKETFIREMission
         colorText[] = {0,0,0,1};
         shadow = 0;
     };
-    class BFM_SPOTDISTTEXT: UO_FW_RscText
+    class BFM_SPOTDISTTEXT: MGVAR(RscText)
     {
         idc = -1;
         text = "Minimum spotting round distance:"; //--- ToDo: Localize;
@@ -124,7 +124,7 @@ class UO_FW_DIA_BRACKETFIREMission
         colorText[] = {0,0,0,1};
         shadow = 0;
     };
-    class BFM_FIREBUTTON: UO_FW_RscButton
+    class BFM_FIREBUTTON: MGVAR(RscButton)
     {
         idc = -1;
         text = "Fire Artillery"; //--- ToDo: Localize;
@@ -135,7 +135,7 @@ class UO_FW_DIA_BRACKETFIREMission
 
             onMouseButtonDown = "[] call UO_FW_fnc_DIA_BracketFiremissionFire;";
     };
-    class BFM_SELECTEDGUNEDIT: UO_FW_RscListbox
+    class BFM_SELECTEDGUNEDIT: MGVAR(RscListbox)
     {
         idc = BFM_DIA_IDC_GUNSELECT;
         text = ""; //--- ToDo: Localize;
@@ -148,7 +148,7 @@ class UO_FW_DIA_BRACKETFIREMission
         //colorActive[] = {0,1,0,1};
         onLBSelChanged = "(_this select 1) call UO_FW_fnc_DIA_BracketFiremissionSetArtillery;";
     };
-    class BFM_SELECTEDSHELLEDIT: UO_FW_RscListbox
+    class BFM_SELECTEDSHELLEDIT: MGVAR(RscListbox)
     {
         idc = BFM_DIA_IDC_SHELLSELECT;
         text = ""; //--- ToDo: Localize;
@@ -157,7 +157,7 @@ class UO_FW_DIA_BRACKETFIREMission
         w = ARTILAYOUTWIDTH * safezoneW;
         h = ARTILAYOUTHEIGHT * safezoneH;
     };
-    class BFM_STARTGRIDEDIT: UO_FW_RscEdit
+    class BFM_STARTGRIDEDIT: MGVAR(RscEdit)
     {
         idc = BFM_DIA_IDC_STARTGRID;
         text = ""; //--- ToDo: Localize;
@@ -168,7 +168,7 @@ class UO_FW_DIA_BRACKETFIREMission
         colorText[] = {0,0,0,1};
         shadow = 0;
     };
-    class BFM_ENDGRIDEDIT: UO_FW_RscEdit
+    class BFM_ENDGRIDEDIT: MGVAR(RscEdit)
     {
         idc = BFM_DIA_IDC_ENDGRID;
         text = ""; //--- ToDo: Localize;
@@ -179,7 +179,7 @@ class UO_FW_DIA_BRACKETFIREMission
         colorText[] = {0,0,0,1};
         shadow = 0;
     };
-    class BFM_BURSTNUMBEREDIT: UO_FW_RscEdit
+    class BFM_BURSTNUMBEREDIT: MGVAR(RscEdit)
     {
         idc = BFM_DIA_IDC_BURSTNUMBER;
         text = ""; //--- ToDo: Localize;
@@ -190,7 +190,7 @@ class UO_FW_DIA_BRACKETFIREMission
         colorText[] = {0,0,0,1};
         shadow = 0;
     };
-    class BFM_BURSTROUNDSEDIT: UO_FW_RscEdit
+    class BFM_BURSTROUNDSEDIT: MGVAR(RscEdit)
     {
         idc = BFM_DIA_IDC_BURSTROUNDS;
         text = ""; //--- ToDo: Localize;
@@ -201,7 +201,7 @@ class UO_FW_DIA_BRACKETFIREMission
         colorText[] = {0,0,0,1};
         shadow = 0;
     };
-    class BFM_BURSTDELAYEDIT: UO_FW_RscEdit
+    class BFM_BURSTDELAYEDIT: MGVAR(RscEdit)
     {
         idc = BFM_DIA_IDC_BURSTDELAY;
         text = ""; //--- ToDo: Localize;
@@ -212,7 +212,7 @@ class UO_FW_DIA_BRACKETFIREMission
         colorText[] = {0,0,0,1};
         shadow = 0;
     };
-    class BFM_SPOTTINGDISTANCEDIT: UO_FW_RscEdit
+    class BFM_SPOTTINGDISTANCEDIT: MGVAR(RscEdit)
     {
         idc = BFM_DIA_IDC_SPOTTING;
         text = ""; //--- ToDo: Localize;
@@ -223,7 +223,7 @@ class UO_FW_DIA_BRACKETFIREMission
         colorText[] = {0,0,0,1};
         shadow = 0;
     };
-    class BFM_CANCELBUTTON: UO_FW_RscButton
+    class BFM_CANCELBUTTON: MGVAR(RscButton)
     {
         idc = 1600;
         text = "Cancel"; //--- ToDo: Localize;

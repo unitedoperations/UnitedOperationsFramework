@@ -1,7 +1,7 @@
 /*
  * Author: Olsen
  *
- * Retrieve variable for a set team from UO_FW_Teams.
+ * Retrieve variable for a set team from EGVAR(Core,Teams).
  *
  * Arguments:
  * 0: Team name <string>
@@ -25,7 +25,7 @@ private _found = false;
         _return = (_x select _index);
         _found = true;
     };
-} forEach EGVAR(Core,Teams);
+} forEach GVAR(Teams);
 
 if !(_found) then {
     ERROR_1("Critical:<br></br>Team ""%1"" does not exist.", _team)

@@ -14,7 +14,7 @@ class UO_FW_DIA_POINTFIREMission
     controls[] = {PFM_BACKGROUND,PFM_DESCRIPTIONTEXT,PFM_SELECTEDGUNTEXT,PFM_SELECTEDSHELLTEXT,PFM_GRIDTEXT,PFM_DISPERSIONTEXT,PFM_BURSTNUMBERTEXT,PFM_BURSTROUNDSTEXT,
         PFM_DELAYTEXT,PFM_SPOTDISTTEXT,PFM_SELECTEDGUNEDIT,PFM_SELECTEDSHELLEDIT,PFM_GRIDEDIT,PFM_DISPERSIONEDIT,PFM_BURSTNUMBEREDIT,PFM_BURSTROUNDSEDIT,
         PFM_BURSTDELAYEDIT,PFM_SPOTTINGDISTANCEDIT,PFM_FIREBUTTON,PFM_CANCELBUTTON};
-        class PFM_BACKGROUND: UO_FW_RscText
+        class PFM_BACKGROUND: MGVAR(RscText)
         {
             idc = -1;
             x = ARTIWIDTHMainSPACE * safezoneW + safezoneX - ARTIBORDERTHICKNESS;
@@ -24,7 +24,7 @@ class UO_FW_DIA_POINTFIREMission
                 shadow = 0;
             colorBackground[] = {0.65,0.65,0.65,0.7};
         };
-        class PFM_DESCRIPTIONTEXT: UO_FW_RscText
+        class PFM_DESCRIPTIONTEXT: MGVAR(RscText)
         {
             idc = -1;
             text = "Point Firemission"; //--- ToDo: Localize;
@@ -38,7 +38,7 @@ class UO_FW_DIA_POINTFIREMission
     shadow = 0;
 
         };
-    class PFM_SELECTEDGUNTEXT: UO_FW_RscText
+    class PFM_SELECTEDGUNTEXT: MGVAR(RscText)
     {
         idc = -1;
         text = "Selected gun:"; //--- ToDo: Localize;
@@ -53,7 +53,7 @@ class UO_FW_DIA_POINTFIREMission
     shadow = 0;
 
     };
-    class PFM_SELECTEDSHELLTEXT: UO_FW_RscText
+    class PFM_SELECTEDSHELLTEXT: MGVAR(RscText)
     {
         idc = -1;
         text = "Aviable ammunition:"; //--- ToDo: Localize;
@@ -65,7 +65,7 @@ class UO_FW_DIA_POINTFIREMission
 
         shadow = 0;
     };
-    class PFM_GRIDTEXT: UO_FW_RscText
+    class PFM_GRIDTEXT: MGVAR(RscText)
     {
         idc = -1;
         text = "Grid:"; //--- ToDo: Localize;
@@ -77,7 +77,7 @@ class UO_FW_DIA_POINTFIREMission
 
     shadow = 0;
     };
-    class PFM_DISPERSIONTEXT: UO_FW_RscText
+    class PFM_DISPERSIONTEXT: MGVAR(RscText)
     {
         idc = -1;
         text = "Dispersion:"; //--- ToDo: Localize;
@@ -89,7 +89,7 @@ class UO_FW_DIA_POINTFIREMission
 
     shadow = 0;
     };
-    class PFM_BURSTNUMBERTEXT: UO_FW_RscText
+    class PFM_BURSTNUMBERTEXT: MGVAR(RscText)
     {
         idc = -1;
         text = "Number of salvos:"; //--- ToDo: Localize;
@@ -101,7 +101,7 @@ class UO_FW_DIA_POINTFIREMission
 
     shadow = 0;
     };
-    class PFM_BURSTROUNDSTEXT: UO_FW_RscText
+    class PFM_BURSTROUNDSTEXT: MGVAR(RscText)
     {
         idc = -1;
         text = "Number of rounds per salvo:"; //--- ToDo: Localize;
@@ -113,7 +113,7 @@ class UO_FW_DIA_POINTFIREMission
 
     shadow = 0;
     };
-    class PFM_DELAYTEXT: UO_FW_RscText
+    class PFM_DELAYTEXT: MGVAR(RscText)
     {
         idc = -1;
         text = "Delay between salvos:"; //--- ToDo: Localize;
@@ -125,7 +125,7 @@ class UO_FW_DIA_POINTFIREMission
 
     shadow = 0;
     };
-    class PFM_SPOTDISTTEXT: UO_FW_RscText
+    class PFM_SPOTDISTTEXT: MGVAR(RscText)
     {
         idc = -1;
         text = "Minimum spotting round distance:"; //--- ToDo: Localize;
@@ -137,7 +137,7 @@ class UO_FW_DIA_POINTFIREMission
 
     shadow = 0;
     };
-    class PFM_FIREBUTTON: UO_FW_RscButton
+    class PFM_FIREBUTTON: MGVAR(RscButton)
     {
         idc = 1430;
         text = "Fire Artillery"; //--- ToDo: Localize;
@@ -148,7 +148,7 @@ class UO_FW_DIA_POINTFIREMission
         shadow = 0;
         onMouseButtonDown = "[] call UO_FW_fnc_DIA_PointFiremissionFire;";
     };
-    class PFM_SELECTEDGUNEDIT: UO_FW_RscListbox
+    class PFM_SELECTEDGUNEDIT: MGVAR(RscListbox)
     {
         idc = PFM_DIA_IDC_GUNSELECT;
         text = ""; //--- ToDo: Localize;
@@ -161,7 +161,7 @@ class UO_FW_DIA_POINTFIREMission
         shadow = 0;
         onLBSelChanged = "(_this select 1) call UO_FW_fnc_DIA_PointFiremissionSetArtillery;";
     };
-    class PFM_SELECTEDSHELLEDIT: UO_FW_RscListbox
+    class PFM_SELECTEDSHELLEDIT: MGVAR(RscListbox)
     {
         idc = PFM_DIA_IDC_SHELLSELECT;
         text = ""; //--- ToDo: Localize;
@@ -171,7 +171,7 @@ class UO_FW_DIA_POINTFIREMission
         h = ARTILAYOUTHEIGHT * safezoneH;
             shadow = 0;
     };
-    class PFM_GRIDEDIT: UO_FW_RscEdit
+    class PFM_GRIDEDIT: MGVAR(RscEdit)
     {
         idc = PFM_DIA_IDC_GRID;
         text = ""; //--- ToDo: Localize;
@@ -183,7 +183,7 @@ class UO_FW_DIA_POINTFIREMission
 
     shadow = 0;
     };
-    class PFM_DISPERSIONEDIT: UO_FW_RscEdit
+    class PFM_DISPERSIONEDIT: MGVAR(RscEdit)
     {
         idc = PFM_DIA_IDC_DISPERSION;
         text = ""; //--- ToDo: Localize;
@@ -195,7 +195,7 @@ class UO_FW_DIA_POINTFIREMission
 
     shadow = 0;
     };
-    class PFM_BURSTNUMBEREDIT: UO_FW_RscEdit
+    class PFM_BURSTNUMBEREDIT: MGVAR(RscEdit)
     {
         idc = PFM_DIA_IDC_BURSTNUMBER;
         text = ""; //--- ToDo: Localize;
@@ -207,7 +207,7 @@ class UO_FW_DIA_POINTFIREMission
 
     shadow = 0;
     };
-    class PFM_BURSTROUNDSEDIT: UO_FW_RscEdit
+    class PFM_BURSTROUNDSEDIT: MGVAR(RscEdit)
     {
         idc = PFM_DIA_IDC_BURSTROUNDS;
         text = ""; //--- ToDo: Localize;
@@ -219,7 +219,7 @@ class UO_FW_DIA_POINTFIREMission
 
     shadow = 0;
     };
-    class PFM_BURSTDELAYEDIT: UO_FW_RscEdit
+    class PFM_BURSTDELAYEDIT: MGVAR(RscEdit)
     {
         idc = PFM_DIA_IDC_BURSTDELAY;
         text = ""; //--- ToDo: Localize;
@@ -232,7 +232,7 @@ class UO_FW_DIA_POINTFIREMission
 
     shadow = 0;
     };
-    class PFM_SPOTTINGDISTANCEDIT: UO_FW_RscEdit
+    class PFM_SPOTTINGDISTANCEDIT: MGVAR(RscEdit)
     {
         idc = PFM_DIA_IDC_SPOTTING;
         text = ""; //--- ToDo: Localize;
@@ -244,7 +244,7 @@ class UO_FW_DIA_POINTFIREMission
 
     shadow = 0;
     };
-    class PFM_CANCELBUTTON: UO_FW_RscButton
+    class PFM_CANCELBUTTON: MGVAR(RscButton)
     {
         idc = 1600;
         text = "Cancel"; //--- ToDo: Localize;

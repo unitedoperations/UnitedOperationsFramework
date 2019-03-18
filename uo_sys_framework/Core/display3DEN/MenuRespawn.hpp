@@ -21,7 +21,7 @@ class EGVAR(Respawn,Indfor) {
 
 class EGVAR(Respawn,Civilian) {
     text = "Civilian Respawn Settings";
-    action = QUOTE(edit3DENMissionAttributes QN(EGVAR(Respawn,Settings_Civilian)););
+    action = QUOTE(edit3DENMissionAttributes QN(EGVAR(Respawn,Settings_Civ)););
 };
 
 class EGVAR(Respawn,Main) {

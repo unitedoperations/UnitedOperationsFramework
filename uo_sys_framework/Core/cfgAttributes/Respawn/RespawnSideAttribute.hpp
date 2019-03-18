@@ -1,4 +1,4 @@
-class UO_FW_RespawnSide_Combo: Combo {
+class EGVAR(Respawn,Side_Combo): Combo {
     //save the lbData from the selected entry upon exit
     attributeSave = "\
         private _value = ((_this controlsGroupCtrl 100) lbValue lbCurSel (_this controlsGroupCtrl 100));\

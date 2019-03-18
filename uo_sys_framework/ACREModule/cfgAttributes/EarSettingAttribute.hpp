@@ -1,10 +1,10 @@
-class EGVAR(Acre,EarSetting): Title {
+class EGVAR(ACRE,EarSetting): Title {
     attributeLoad = "\
         private _unit = ((get3denselected 'object') select 0);\
         private _name = gettext (_config >> 'property');\
         _unit setvariable [_name,_value];\
         private _control = (_this controlsGroupCtrl 100);\
-        _control setvariable ['UO_FW_ParentCfg',_config];\
+        _control setvariable ['ParentCfg',_config];\
         _control lbsetcursel _value\
     ";
     attributeSave = "\
@@ -29,7 +29,7 @@ class EGVAR(Acre,EarSetting): Title {
             onToolboxSelChanged ="\
                 params ['_control','_value'];\
                 private _unit = ((get3denselected 'object') select 0);\
-                private _config = _control getvariable ['UO_FW_ParentCfg',''];\
+                private _config = _control getvariable ['ParentCfg',''];\
                 private _name = gettext (_config >> 'property');\
                 _unit setvariable [_name,_value];\
             ";

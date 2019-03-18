@@ -61,6 +61,12 @@ CFGFUNCFOLDERCORE(EndScreen);
     CFGFUNC(Core,EndScreen);
 CFGFUNCFOLDEREND;
 
+CFGFUNCFOLDERCORE(Attributes);
+    CFGFUNC(3DEN,ImportFromProfileAttributeAttrLoad);
+    CFGFUNC(3DEN,ImportLoadoutFromProfileAttributeAttrLoad);
+    CFGFUNC(Respawn,respawntemplates_attr_load);
+CFGFUNCFOLDEREND;
+
 CFGFUNCFOLDERCORE(Respawn);
     CFGFUNC(Respawn,HandlePlayerRespawn);
 CFGFUNCFOLDEREND;
@@ -81,5 +87,6 @@ CFGFUNCFOLDEREND;
 CFGFUNCFOLDERCORE(Debug);
     CFGFUNC(Debug,debugMessage);
     CFGFUNC(Debug,debugMessageDetailed);
+    CFGFUNC(Debug,debugMessageDisplay);
     CFGFUNC(Debug,refreshDebug);
 CFGFUNCFOLDEREND;

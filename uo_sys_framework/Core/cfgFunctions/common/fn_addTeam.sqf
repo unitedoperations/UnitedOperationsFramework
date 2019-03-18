@@ -21,7 +21,7 @@ EXEC_CHECK(SERVER);
 params [["_side", sideUnknown, [sideUnknown]],["_name", "Unknown", [""]],["_Type", "both", [""]]];
 
 if (isMultiplayer) then {
-    EGVAR(Core,Teams) set [count EGVAR(Core,Teams), [_name, _side, _Type,  0, 0, [], []]];
+    GVAR(Teams) set [count (GVAR(Teams)), [_name, _side, _Type,  0, 0, [], []]];
 } else {
-    EGVAR(Core,Teams) set [count EGVAR(Core,Teams), [_name, _side, "both",  0, 0, [], []]];
+    GVAR(Teams) set [count (GVAR(Teams)), [_name, _side, "both",  0, 0, [], []]];
 };

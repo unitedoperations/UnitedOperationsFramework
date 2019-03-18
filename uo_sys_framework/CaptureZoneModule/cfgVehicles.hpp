@@ -199,47 +199,47 @@ class EGVAR(CaptureZone,CaptureZoneModule): EGVAR(Core,BaseModule) {
             defaultValue = "'colorIndependent'";
             validate = "none";
         };
-        class EGVAR(CaptureZone,Cap_Civilian) {
+        class EGVAR(CaptureZone,Cap_Civ) {
             displayName = "Civilian";
             tooltip = "Whether or not the team can capture the zone, and whether they are checked in the player count.";
-            property = QEGVAR(CaptureZone,Cap_Civilian);
+            property = QEGVAR(CaptureZone,Cap_Civ);
             control = QEGVAR(CaptureZone,TeamAttribute);
             expression = MODULE_EXPRESSION;
             defaultValue = "0";
             typeName = "number";
         };
-        class EGVAR(CaptureZone,Time_Civilian) {
+        class EGVAR(CaptureZone,Time_Civ) {
             displayName = "Civilian Time";
             tooltip = "Time needed for Civilian to capture the zone in seconds. Set to 0 for instant capture";
-            property = QEGVAR(CaptureZone,Time_Civilian);
+            property = QEGVAR(CaptureZone,Time_Civ);
             control = QMGVAR(0To600Step1_Slider);
             expression = MODULE_EXPRESSION;
             defaultValue = "30";
             typeName = "NUMBER";
             validate = "number";
         };
-        class EGVAR(CaptureZone,MessageCapturing_Civilian) {
+        class EGVAR(CaptureZone,MessageCapturing_Civ) {
             displayName = "Civilian Capturing Message";
             tooltip = "Message to display when Civilian is capturing the zone. Leave empty to disable this hint";
-            property = QEGVAR(CaptureZone,MessageCapturing_Civilian);
+            property = QEGVAR(CaptureZone,MessageCapturing_Civ);
             control = "Edit";
             expression = MODULE_EXPRESSION;
             defaultValue = "'Civilian is capturing the zone!'";
             validate = "none";
         };
-        class EGVAR(CaptureZone,MessageCaptured_Civilian) {
+        class EGVAR(CaptureZone,MessageCaptured_Civ) {
             displayName = "Civilian Captured Message";
             tooltip = "Message to display when Civilian captures the zone. Leave empty to disable this hint";
-            property = QEGVAR(CaptureZone,MessageCaptured_Civilian);
+            property = QEGVAR(CaptureZone,MessageCaptured_Civ);
             control = "Edit";
             expression = MODULE_EXPRESSION;
             defaultValue = "'Civilian has captured the zone!'";
             validate = "none";
         };
-        class EGVAR(CaptureZone,Colour_Civilian) {
+        class EGVAR(CaptureZone,Colour_Civ) {
             displayName = "Civilian Colour";
             tooltip = "Civilian Colour";
-            property = QEGVAR(CaptureZone,Colour_Civilian);
+            property = QEGVAR(CaptureZone,Colour_Civ);
             control = QEGVAR(CaptureZone,ColourCombo);
             expression = MODULE_EXPRESSION;
             defaultValue = "'colorCivilian'";

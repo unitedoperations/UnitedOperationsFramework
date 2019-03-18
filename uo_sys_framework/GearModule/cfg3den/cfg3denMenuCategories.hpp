@@ -56,9 +56,9 @@ class EGVAR(Gear,Settings) {
     };
 };
 
-#define UO_FW_GEAR_TYPECONFIG_OLSEN(TEAMNAME,SHORTNAME)  \
+#define GEAR_TYPECONFIG_OLSEN(TEAMNAME,SHORTNAME)  \
 class PREFIX##_Gear_Olsen_LoadoutType_##TEAMNAME##_##SHORTNAME {\
-    property = QUOTE(TRIPLES(UO_FW_Gear_Olsen_LoadoutType,TEAMNAME,SHORTNAME));\
+    property = QUOTE(TRIPLES(PREFIX##_Gear_Olsen_LoadoutType,TEAMNAME,SHORTNAME));\
     displayName = CSTRING_2(Gear_DisplayName,SHORTNAME);\
     tooltip = CSTRING_2(Gear_ToolTip_Olsen,SHORTNAME);\
     control = QUOTE(Edit);\
@@ -67,12 +67,12 @@ class PREFIX##_Gear_Olsen_LoadoutType_##TEAMNAME##_##SHORTNAME {\
     defaultValue = QUOTE('');\
 }
 
-#define UO_FW_GEAR_TYPECONFIG_ACEAR(TEAMNAME,SHORTNAME) \
+#define GEAR_TYPECONFIG_ACEAR(TEAMNAME,SHORTNAME) \
 class PREFIX##_Gear_ACE_Arsenal_LoadoutType_##TEAMNAME##_##SHORTNAME {\
-    property = QUOTE(TRIPLES(UO_FW_Gear_ACE_Arsenal_LoadoutType,TEAMNAME,SHORTNAME));\
+    property = QUOTE(TRIPLES(PREFIX##_Gear_ACE_Arsenal_LoadoutType,TEAMNAME,SHORTNAME));\
     displayName = CSTRING_2(Gear_DisplayName,SHORTNAME);\
     tooltip = CSTRING_2(Gear_ToolTip_ACEAR,SHORTNAME);\
-    control = QUOTE(UO_FW_Gear_ACE_Arsenal_LoadoutClassCombo);\
+    control = QUOTE(TRIPLES(PREFIX,Gear,ACE_Arsenal_LoadoutClassCombo));\
     typeName = QUOTE(STRING);\
     expression = SCENARIO_EXPRESSION;\
     defaultValue = QUOTE('NONE');\
@@ -99,7 +99,7 @@ class EGVAR(Gear,Menu_Indfor) {
     };
 };
 
-class EGVAR(Gear,Menu_Civilian) {
+class EGVAR(Gear,Menu_Civ) {
     displayName = "Civilian Gear Settings";
     class AttributeCategories {
         #include "Gear\CivilianMenu.hpp"

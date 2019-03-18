@@ -4,7 +4,7 @@ EXEC_CHECK(ALL);
 
 [QGVAR(LocalObjectsGearLoad), {
     if !(UO_FW_Server_GearModule_Allowed) exitwith {};
-    if (!(UO_FW_Gear_ACEAR_System_Enabled) && {!(UO_FW_Gear_Olsen_Enabled)}) exitwith {};
+    if (!(GETMVAR(ACEAR_System_Enabled,false)) && {!(GETMVAR(Olsen_Enabled,false))}) exitwith {};
     {
         [{(!isNull _this)}, {
             params ["_unit"];
@@ -17,7 +17,7 @@ EXEC_CHECK(ALL);
                 ERROR_1("No loadout found for unit: %1",_unit);
             };
             if (_gearType isEqualto "MANUAL") then {
-                _unit setvariable ["UO_FW_Gear_ManualUnitClass","MANUAL"];
+                _unit setvariable [QGVAR(ManualUnitClass),"MANUAL"];
                 private _manualClass = GETVAR(_unit,ManualUnitClass,"");
                 if (_manualClass isEqualto "") exitwith {
                     ERROR_1("Unit %1 is set to manual loadout but has none!, exiting gearscript.",_unit);
@@ -55,16 +55,16 @@ EXEC_CHECK(ALL);
                 };
                 switch (side _unit) do {
                     case west: {
-                        _loadoutvarname = format ["UO_FW_Gear_%1_LoadoutType_Blufor_%2",_SystemTag,_gearType];
+                        _loadoutvarname = format ["##PREFIX##_Gear_%1_LoadoutType_Blufor_%2",_SystemTag,_gearType];
                     };
                     case east: {
-                        _loadoutvarname = format ["UO_FW_Gear_%1_LoadoutType_Opfor_%2",_SystemTag,_gearType];
+                        _loadoutvarname = format ["##PREFIX##_Gear_%1_LoadoutType_Opfor_%2",_SystemTag,_gearType];
                     };
                     case independent: {
-                        _loadoutvarname = format ["UO_FW_Gear_%1_LoadoutType_Indfor_%2",_SystemTag,_gearType];
+                        _loadoutvarname = format ["##PREFIX##_Gear_%1_LoadoutType_Indfor_%2",_SystemTag,_gearType];
                     };
                     case civilian: {
-                        _loadoutvarname = format ["UO_FW_Gear_%1_LoadoutType_Civilian_%2",_SystemTag,_gearType];
+                        _loadoutvarname = format ["##PREFIX##_Gear_%1_LoadoutType_Civ_%2",_SystemTag,_gearType];
                     };
                 };
                 _loadoutName = missionNamespace getvariable [_loadoutvarname,"NONE"];
@@ -99,8 +99,8 @@ EXEC_CHECK(ALL);
         [{(!isNull _this)}, {
             params ["_vehicle"];
             private ["_loadoutName"];
-            private _systemType = _vehicle getvariable ["UO_FW_Gear_VehicleSystemType","NONE"];
-            private _loadoutName = _vehicle getvariable ["UO_FW_Gear_VehicleGearManualType",""];
+            private _systemType = _vehicle getvariable [QGVAR(VehicleSystemType),"NONE"];
+            private _loadoutName = _vehicle getvariable [QGVAR(VehicleGearManualType),""];
             if (_systemType isEqualto "NONE") exitwith {};
             switch (_systemType) do {
                 case "ACEAR": {
@@ -131,15 +131,15 @@ EXEC_CHECK(ALL);
             };
         },_x] call CBA_fnc_waitUntilandExecute;
     } forEach (vehicles select {local _x && (!isPlayer _x)});
-    missionNamespace setvariable ["UO_FW_Gear_ServerInit",true,true];
+    missionNamespace setvariable [QGVAR(ServerInit),true,true];
 }] call CBA_fnc_addEventHandler;
 
-["UO_FW_Gear_UnitLoad", {
+[QGVAR(UnitLoad), {
     params ["_unit"];
     if !(UO_FW_Server_GearModule_Allowed) exitwith {
         SETPVAR(_unit,GearReady,true);
     };
-    if (!(UO_FW_Gear_ACEAR_System_Enabled) && {!(UO_FW_Gear_Olsen_Enabled)}) exitwith {
+    if (!(GETMVAR(ACEAR_System_Enabled,false)) && {!(GETMVAR(Olsen_Enabled,false))}) exitwith {
         SETPVAR(_unit,GearReady,true);
     };
     [{(!isNull _this)}, {
@@ -154,7 +154,7 @@ EXEC_CHECK(ALL);
             SETPVAR(_unit,GearReady,true);
         };
         if (_gearType isEqualto "MANUAL") then {
-            _unit setvariable ["UO_FW_Gear_ManualUnitClass","MANUAL"];
+            _unit setvariable [QGVAR(ManualUnitClass),"MANUAL"];
             private _manualClass = (GETVAR(_unit,UnitGearManualType,""));
             if (_manualClass isEqualto "") exitwith {
                 ERROR_1("Unit %1 is set to manual loadout but has none!, exiting gearscript.",_unit);
@@ -197,16 +197,16 @@ EXEC_CHECK(ALL);
             };
             switch (side _unit) do {
                 case west: {
-                    _loadoutvarname = format ["UO_FW_Gear_%1_LoadoutType_Blufor_%2",_SystemTag,_gearType];
+                    _loadoutvarname = format ["##PREFIX##_Gear_%1_LoadoutType_Blufor_%2",_SystemTag,_gearType];
                 };
                 case east: {
-                    _loadoutvarname = format ["UO_FW_Gear_%1_LoadoutType_Opfor_%2",_SystemTag,_gearType];
+                    _loadoutvarname = format ["##PREFIX##_Gear_%1_LoadoutType_Opfor_%2",_SystemTag,_gearType];
                 };
                 case independent: {
-                    _loadoutvarname = format ["UO_FW_Gear_%1_LoadoutType_Indfor_%2",_SystemTag,_gearType];
+                    _loadoutvarname = format ["##PREFIX##_Gear_%1_LoadoutType_Indfor_%2",_SystemTag,_gearType];
                 };
                 case civilian: {
-                    _loadoutvarname = format ["UO_FW_Gear_%1_LoadoutType_Civilian_%2",_SystemTag,_gearType];
+                    _loadoutvarname = format ["##PREFIX##_Gear_%1_LoadoutType_Civ_%2",_SystemTag,_gearType];
                 };
             };
             _loadoutName = missionNamespace getvariable [_loadoutvarname,"NONE"];
@@ -242,12 +242,12 @@ EXEC_CHECK(ALL);
     },_unit] call CBA_fnc_waitUntilandExecute;
 }] call CBA_fnc_addEventHandler;
 
-["UO_FW_Gear_ForceUnitLoad", {
+[QGVAR(ForceUnitLoad), {
     params ["_unit",["_systemType","ACEAR",[""]],["_forcedClass","NONE",[""]],["_forcedSide",(side (_this select 0))]];
     if !(UO_FW_Server_GearModule_Allowed) exitwith {
         SETPVAR(_unit,GearReady,true);
     };
-    if (!(UO_FW_Gear_ACEAR_System_Enabled) && {!(UO_FW_Gear_Olsen_Enabled)}) exitwith {
+    if (!(GETMVAR(ACEAR_System_Enabled,false)) && {!(GETMVAR(Olsen_Enabled,false))}) exitwith {
         SETPVAR(_unit,GearReady,true);
     };
     if (_forcedClass isEqualto "NONE") exitwith {ERROR_1("Invalid forcedclass for unit:%1",_unit)};
@@ -261,16 +261,16 @@ EXEC_CHECK(ALL);
         };
         switch (_forcedSide) do {
             case west: {
-                _loadoutvarname = format ["UO_FW_Gear_%1_LoadoutType_Blufor_%2",_SystemTag,_forcedClass];
+                _loadoutvarname = format ["##PREFIX##_Gear_%1_LoadoutType_Blufor_%2",_SystemTag,_forcedClass];
             };
             case east: {
-                _loadoutvarname = format ["UO_FW_Gear_%1_LoadoutType_Opfor_%2",_SystemTag,_forcedClass];
+                _loadoutvarname = format ["##PREFIX##_Gear_%1_LoadoutType_Opfor_%2",_SystemTag,_forcedClass];
             };
             case independent: {
-                _loadoutvarname = format ["UO_FW_Gear_%1_LoadoutType_Indfor_%2",_SystemTag,_forcedClass];
+                _loadoutvarname = format ["##PREFIX##_Gear_%1_LoadoutType_Indfor_%2",_SystemTag,_forcedClass];
             };
             case civilian: {
-                _loadoutvarname = format ["UO_FW_Gear_%1_LoadoutType_Civilian_%2",_SystemTag,_forcedClass];
+                _loadoutvarname = format ["##PREFIX##_Gear_%1_LoadoutType_Civ_%2",_SystemTag,_forcedClass];
             };
         };
         _loadoutName = missionNamespace getvariable [_loadoutvarname,"NONE"];
@@ -305,9 +305,9 @@ EXEC_CHECK(ALL);
     },[_unit,_systemType,_forcedClass,_forcedSide]] call CBA_fnc_waitUntilandExecute;
 }] call CBA_fnc_addEventHandler;
 
-["UO_FW_Gear_VehicleLoad", {
+[QGVAR(VehicleLoad), {
     if !(UO_FW_Server_GearModule_Allowed) exitwith {};
-    if !(UO_FW_Gear_Olsen_Enabled) exitwith {};
+    if !(GETMVAR(Olsen_Enabled,false)) exitwith {};
     params ["_vehicle"];
     [{(!isNull _this)}, {
         params ["_vehicle"];
@@ -326,9 +326,9 @@ EXEC_CHECK(ALL);
     },_vehicle] call CBA_fnc_waitUntilandExecute;
 }] call CBA_fnc_addEventHandler;
 
-["UO_FW_Gear_ForceVehicleLoad", {
+[QGVAR(ForceVehicleLoad), {
     if !(UO_FW_Server_GearModule_Allowed) exitwith {};
-    if !(UO_FW_Gear_Olsen_Enabled) exitwith {};
+    if !(GETMVAR(Olsen_Enabled,false)) exitwith {};
     params ["_vehicle",["_systemType","NONE",[""]],["_forcedClass","NONE",[""]]];
     if (_forcedClass isEqualto "NONE") exitwith {ERROR_1("Invalid forcedclass for vehicle:%1",_vehicle)};
     [{(!isNull (_this select 0))}, {

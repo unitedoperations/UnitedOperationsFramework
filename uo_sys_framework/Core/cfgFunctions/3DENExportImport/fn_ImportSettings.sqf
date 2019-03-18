@@ -21,7 +21,7 @@ if (_clipBoardMode) then {
         _section set3DENMissionAttribute [_class,_value];
     } foreach _settingsArray;
 } else {
-    private _profileArray = profileNamespace getvariable ["UO_FW_ProfileSettingsArray",[]];
+    private _profileArray = profileNamespace getvariable [QEGVAR(Core,ProfileSettingsArray),[]];
     if (_profileArray isEqualto []) exitwith {};
     private _found = false;
     {

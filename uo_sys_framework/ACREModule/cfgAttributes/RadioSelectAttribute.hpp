@@ -1,9 +1,9 @@
-class EGVAR(Acre,SR_SELECT): Toolbox {
+class EGVAR(ACRE,SR_SELECT): Toolbox {
     attributeLoad ="\
         private _name = gettext (_config >> 'property');\
         missionNamespace setvariable [_name,_value];\
         private _control = (_this controlsGroupCtrl 100);\
-        _control setvariable ['UO_FW_ParentCfg',_config];\
+        _control setvariable ['ParentCfg',_config];\
         _control lbsetcursel _value\
     ";
     attributeSave = "\
@@ -26,7 +26,7 @@ class EGVAR(Acre,SR_SELECT): Toolbox {
             values[] = {0,1,2};
             onToolboxSelChanged ="\
                 params ['_control','_value'];\
-                private _config = _control getvariable ['UO_FW_ParentCfg',''];\
+                private _config = _control getvariable ['ParentCfg',''];\
                 private _name = gettext (_config >> 'property');\
                 missionNamespace setvariable [_name,_value];\
             ";
@@ -34,12 +34,12 @@ class EGVAR(Acre,SR_SELECT): Toolbox {
     };
 };
 
-class EGVAR(Acre,LR_SELECT): Toolbox {
+class EGVAR(ACRE,LR_SELECT): Toolbox {
     attributeLoad ="\
         private _name = gettext (_config >> 'property');\
         missionNamespace setvariable [_name,_value];\
         private _control = (_this controlsGroupCtrl 100);\
-        _control setvariable ['UO_FW_ParentCfg',_config];\
+        _control setvariable ['ParentCfg',_config];\
         _control lbsetcursel _value\
     ";
     attributeSave = "\
@@ -62,7 +62,7 @@ class EGVAR(Acre,LR_SELECT): Toolbox {
             values[] = {0,1,2,3};
             onToolboxSelChanged ="\
                 params ['_control','_value'];\
-                private _config = _control getvariable ['UO_FW_ParentCfg',''];\
+                private _config = _control getvariable ['ParentCfg',''];\
                 private _name = gettext (_config >> 'property');\
                 missionNamespace setvariable [_name,_value];\
             ";
@@ -70,12 +70,12 @@ class EGVAR(Acre,LR_SELECT): Toolbox {
     };
 };
 
-class EGVAR(Acre,PK_SELECT): Toolbox {
+class EGVAR(ACRE,PK_SELECT): Toolbox {
     attributeLoad ="\
         private _name = gettext (_config >> 'property');\
         missionNamespace setvariable [_name,_value];\
         private _control = (_this controlsGroupCtrl 100);\
-        _control setvariable ['UO_FW_ParentCfg',_config];\
+        _control setvariable ['ParentCfg',_config];\
         _control lbsetcursel _value\
     ";
     attributeSave = "\
@@ -98,7 +98,7 @@ class EGVAR(Acre,PK_SELECT): Toolbox {
             values[] = {0,1,2,3};
             onToolboxSelChanged ="\
                 params ['_control','_value'];\
-                private _config = _control getvariable ['UO_FW_ParentCfg',''];\
+                private _config = _control getvariable ['ParentCfg',''];\
                 private _name = gettext (_config >> 'property');\
                 missionNamespace setvariable [_name,_value];\
             ";

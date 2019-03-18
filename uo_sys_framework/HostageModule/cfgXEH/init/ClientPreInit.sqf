@@ -8,6 +8,7 @@ EXEC_CHECK(CLIENT);
         params ["_target", "_player"];
         LOG_2("_statement %1, %2",_target,_player);
         (!(GETVAR((_this select 0),IsRescued,false))
+        && !(GETVAR((_this select 0),IsUntied,false))
         && {(alive (_this select 0))})
     };
     private _statement = {

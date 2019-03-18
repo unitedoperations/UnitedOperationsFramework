@@ -86,16 +86,16 @@ class EGVAR(EndConditions,CasualtySettings_Category3) {
             validate = "number";
             defaultValue = "75";
         };
-        class EGVAR(EndConditions,CasualtyCount_Enabled_Civilian_3) {
-            property = QEGVAR(EndConditions,CasualtyCount_Enabled_Civilian_3);
+        class EGVAR(EndConditions,CasualtyCount_Enabled_Civ_3) {
+            property = QEGVAR(EndConditions,CasualtyCount_Enabled_Civ_3);
             displayName = "CIVILIAN Casualty";
             tooltip = "Enables casualty limit for this team";
             control = "CheckBox";
             expression = SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
-        class EGVAR(EndConditions,CasualtyCount_Percentage_Civilian_3) {
-            property = QEGVAR(EndConditions,CasualtyCount_Percentage_Civilian_3);
+        class EGVAR(EndConditions,CasualtyCount_Percentage_Civ_3) {
+            property = QEGVAR(EndConditions,CasualtyCount_Percentage_Civ_3);
             displayName = "Casualty Percentage";
             tooltip = "End condition fires when team casualty percentage is over this number";
             control = QMGVAR(5To100Step5_Slider);

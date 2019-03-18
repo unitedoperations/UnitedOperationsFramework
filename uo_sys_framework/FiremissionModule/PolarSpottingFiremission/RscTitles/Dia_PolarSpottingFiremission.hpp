@@ -12,7 +12,7 @@ class UO_FW_DIA_POLARSPOTTINGFIREMission
     controlsBackground[] = {};
     objects[] = {};
     controls[] = {PSFM_BACKGROUND,PSFM_DESCRIPTIONTEXT,PSFM_SELECTEDGUNTEXT,PSFM_SELECTEDSHELLTEXT,PSFM_GRIDTEXT,PSFM_MILSTEXT,PSFM_DISTANCETEXT,PSFM_SELECTEDGUNEDIT,PSFM_SELECTEDSHELLEDIT,PSFM_GRIDEDIT,PSFM_MILSEDIT,PSFM_DISTANCEEDIT,PSFM_FIREBUTTON,PSFM_CANCELBUTTON};
-        class PSFM_BACKGROUND: UO_FW_RscText
+        class PSFM_BACKGROUND: MGVAR(RscText)
         {
             idc = -1;
             x = ARTIWIDTHMainSPACE * safezoneW + safezoneX - ARTIBORDERTHICKNESS;
@@ -22,7 +22,7 @@ class UO_FW_DIA_POLARSPOTTINGFIREMission
                 shadow = 0;
             colorBackground[] = {0.65,0.65,0.65,0.7};
         };
-        class PSFM_DESCRIPTIONTEXT: UO_FW_RscText
+        class PSFM_DESCRIPTIONTEXT: MGVAR(RscText)
         {
             idc = -1;
             text = "Polar Spotting Round"; //--- ToDo: Localize;
@@ -36,7 +36,7 @@ class UO_FW_DIA_POLARSPOTTINGFIREMission
     shadow = 0;
 
         };
-    class PSFM_SELECTEDGUNTEXT: UO_FW_RscText
+    class PSFM_SELECTEDGUNTEXT: MGVAR(RscText)
     {
         idc = -1;
         text = "Selected gun:"; //--- ToDo: Localize;
@@ -51,7 +51,7 @@ class UO_FW_DIA_POLARSPOTTINGFIREMission
     shadow = 0;
 
     };
-    class PSFM_SELECTEDSHELLTEXT: UO_FW_RscText
+    class PSFM_SELECTEDSHELLTEXT: MGVAR(RscText)
     {
         idc = -1;
         text = "Aviable ammunition:"; //--- ToDo: Localize;
@@ -63,7 +63,7 @@ class UO_FW_DIA_POLARSPOTTINGFIREMission
 
         shadow = 0;
     };
-    class PSFM_GRIDTEXT: UO_FW_RscText
+    class PSFM_GRIDTEXT: MGVAR(RscText)
     {
         idc = -1;
         text = "Caller Grid:"; //--- ToDo: Localize;
@@ -75,7 +75,7 @@ class UO_FW_DIA_POLARSPOTTINGFIREMission
 
     shadow = 0;
     };
-    class PSFM_MILSTEXT: UO_FW_RscText
+    class PSFM_MILSTEXT: MGVAR(RscText)
     {
         idc = -1;
         text = "Mils:"; //--- ToDo: Localize;
@@ -87,7 +87,7 @@ class UO_FW_DIA_POLARSPOTTINGFIREMission
 
     shadow = 0;
     };
-    class PSFM_DISTANCETEXT: UO_FW_RscText
+    class PSFM_DISTANCETEXT: MGVAR(RscText)
     {
         idc = -1;
         text = "Distance:"; //--- ToDo: Localize;
@@ -99,7 +99,7 @@ class UO_FW_DIA_POLARSPOTTINGFIREMission
 
     shadow = 0;
     };
-    class PSFM_FIREBUTTON: UO_FW_RscButton
+    class PSFM_FIREBUTTON: MGVAR(RscButton)
     {
         idc = 1430;
         text = "Fire Artillery"; //--- ToDo: Localize;
@@ -110,7 +110,7 @@ class UO_FW_DIA_POLARSPOTTINGFIREMission
     shadow = 0;
             onMouseButtonDown = "[] call UO_FW_fnc_DIA_PolarSpottingFiremissionFire;";
     };
-    class PSFM_SELECTEDGUNEDIT: UO_FW_RscListbox
+    class PSFM_SELECTEDGUNEDIT: MGVAR(RscListbox)
     {
         idc = PSFM_DIA_IDC_GUNSELECT;
         text = ""; //--- ToDo: Localize;
@@ -123,7 +123,7 @@ class UO_FW_DIA_POLARSPOTTINGFIREMission
         shadow = 0;
         onLBSelChanged = "(_this select 1) call UO_FW_fnc_DIA_PolarSpottingFiremissionSetArtillery;";
     };
-    class PSFM_SELECTEDSHELLEDIT: UO_FW_RscListbox
+    class PSFM_SELECTEDSHELLEDIT: MGVAR(RscListbox)
     {
         idc = PSFM_DIA_IDC_SHELLSELECT;
         text = ""; //--- ToDo: Localize;
@@ -133,7 +133,7 @@ class UO_FW_DIA_POLARSPOTTINGFIREMission
         h = ARTILAYOUTHEIGHT * safezoneH;
             shadow = 0;
     };
-    class PSFM_GRIDEDIT: UO_FW_RscEdit
+    class PSFM_GRIDEDIT: MGVAR(RscEdit)
     {
         idc = PSFM_DIA_IDC_GRID;
         text = ""; //--- ToDo: Localize;
@@ -145,7 +145,7 @@ class UO_FW_DIA_POLARSPOTTINGFIREMission
 
     shadow = 0;
     };
-    class PSFM_MILSEDIT: UO_FW_RscEdit
+    class PSFM_MILSEDIT: MGVAR(RscEdit)
     {
         idc = PSFM_DIA_IDC_MILS;
         text = ""; //--- ToDo: Localize;
@@ -157,7 +157,7 @@ class UO_FW_DIA_POLARSPOTTINGFIREMission
 
     shadow = 0;
     };
-    class PSFM_DISTANCEEDIT: UO_FW_RscEdit
+    class PSFM_DISTANCEEDIT: MGVAR(RscEdit)
     {
         idc = PSFM_DIA_IDC_DISTANCE;
         text = ""; //--- ToDo: Localize;
@@ -169,7 +169,7 @@ class UO_FW_DIA_POLARSPOTTINGFIREMission
 
     shadow = 0;
     };
-    class PSFM_CANCELBUTTON: UO_FW_RscButton
+    class PSFM_CANCELBUTTON: MGVAR(RscButton)
     {
         idc = 1600;
         text = "Cancel"; //--- ToDo: Localize;

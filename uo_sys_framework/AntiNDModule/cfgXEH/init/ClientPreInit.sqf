@@ -2,7 +2,7 @@
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 EXEC_CHECK(CLIENT);
 
-["UO_FW_AntiND_Event", {
+[QGVAR(Event), {
     if !(UO_FW_Server_AntiNDModule_Allowed) exitwith {};
     if !(GVAR(Enabled)) exitwith {};
     [QEGVAR(Core,RegisterModuleEvent), ["Anti ND", "Extra Safety for mission start", "Starfox64, PiZZADOX and Sacher"]] call CBA_fnc_localEvent;
@@ -32,5 +32,5 @@ EXEC_CHECK(CLIENT);
 }] call CBA_fnc_addEventHandler;
 
 [QEGVAR(Core,SettingsLoaded), {
-    ["UO_FW_AntiND_Event", []] call CBA_fnc_localEvent;
+    [QGVAR(Event), []] call CBA_fnc_localEvent;
 }] call CBA_fnc_addEventHandler;

@@ -1,4 +1,4 @@
-#define UO_FW_SPECTATETEAMS_ATTR_LOAD \
+#define SPECTATETEAMS_ATTR_LOAD \
 attributeLoad = "\
     private _pictureChecked = gettext (configfile >> 'ctrlCheckbox' >> 'textureChecked');\
     private _pictureUnchecked = gettext (configfile >> 'ctrlCheckbox' >> 'textureUnchecked');\
@@ -13,7 +13,7 @@ attributeLoad = "\
     } foreach ['BLUFOR','OPFOR','Indfor','CIVILIAN'];\
 "
 
-#define UO_FW_SPECTATETEAMS_ATTR_SAVE \
+#define SPECTATETEAMS_ATTR_SAVE \
 attributeSave = "\
     _value = [];\
     _ctrlListbox = _this controlsGroupCtrl 100;\
@@ -25,7 +25,7 @@ attributeSave = "\
     _value\
 "
 
-#define UO_FW_SPECTATETEAMS_ATTR_ONLOAD \
+#define SPECTATETEAMS_ATTR_ONLOAD \
 onLBSelChanged = "\
     _ctrlListbox = _this select 0;\
     _cursel = _this select 1;\
@@ -37,9 +37,9 @@ onLBSelChanged = "\
     _ctrlListbox lbsetpicture [_cursel,[_pictureUnchecked,_pictureChecked] select _active];\
 "
 
-class UO_FW_SpectateTeams_Attribute: Title {
-    UO_FW_SPECTATETEAMS_ATTR_LOAD;
-    UO_FW_SPECTATETEAMS_ATTR_SAVE;
+class EGVAR(Spectator,Teams_Attribute): Title {
+    SPECTATETEAMS_ATTR_LOAD;
+    SPECTATETEAMS_ATTR_SAVE;
     h="4 * 5 * (pixelH * pixelGrid * 0.50)";
     class Controls: Controls {
         class Title: Title {
@@ -53,7 +53,7 @@ class UO_FW_SpectateTeams_Attribute: Title {
             h="4 * 5 * (pixelH * pixelGrid * 0.50)";
             colorSelectBackground[]={0,0,0,0};
             colorSelectBackground2[]={0,0,0,0};
-            UO_FW_SPECTATETEAMS_ATTR_ONLOAD;
+            SPECTATETEAMS_ATTR_ONLOAD;
         };
     };
 };

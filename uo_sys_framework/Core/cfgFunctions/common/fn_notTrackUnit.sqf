@@ -17,4 +17,4 @@
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 EXEC_CHECK(ALL);
 
-["UO_FW_DontTrack_Event", []] call CBA_fnc_serverEvent;
+[QGVAR(DontTrackEvent), []] call CBA_fnc_serverEvent;

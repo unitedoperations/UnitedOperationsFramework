@@ -1,4 +1,4 @@
-class UO_FW_AntiND {
+class EGVAR(AntiND,Category) {
     displayName = "Anti ND Settings";
     collapsed = 1;
     class Attributes {

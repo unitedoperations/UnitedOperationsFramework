@@ -261,9 +261,12 @@ class display3DEN {
                 #include "Core\display3DEN\Menu3DEN.hpp"
                 #include "Core\display3DEN\MenuTools.hpp"
                 //Add Custom Tools Menus
-                /*class UO_FW_Tools_Folder {
+                /*class EGVAR(Tools,Folder) {
                     text = "Tools";
-                    items[] = {"UO_FW_Test_Mission","UO_FW_Test_Loadouts"};
+                    items[] = {
+                        EGVAR(Tools,Test_Mission),
+                        EGVAR(Tools,Test_Loadouts)
+                    };
                 };*/
                 //Documentation Define
                 #include "Core\display3DEN\MenuDoc.hpp"

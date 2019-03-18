@@ -1,4 +1,4 @@
-class UO_FW_Respawn_WaveGearSystemAttribute: Combo {
+class EGVAR(Respawn,WaveGearSystemAttribute): Combo {
     //save the lbData from the selected entry upon exit
     attributeSave = "\
         private _attProperty = getText (_config >> 'property');\
@@ -29,7 +29,7 @@ class UO_FW_Respawn_WaveGearSystemAttribute: Combo {
                 _ctrlCombo = _this select 0;\
                 _cursel = _this select 1;\
                 _value = _control lbData _cursel;\
-                private _config = _ctrlCombo getvariable ['UO_FW_parentcontrolcfg',''];\
+                private _config = _ctrlCombo getvariable ['parentcontrolcfg',''];\
                 private _attProperty = getText (_config >> 'property');\
                 missionNamespace setvariable [_attProperty,_value];\
             ";

@@ -12,7 +12,7 @@ switch (side player) do {
         _templateSettings = GETMVAR(Templates_BLUFOR,[]);
         private _newSideValue = GETMVAR(NewTeam_BLUFOR,0);
         _newSideSetting = [blufor,opfor,independent,civilian] select _newSideValue;
-        _teamRespawnMarker = "UO_FW_RESPAWN_BLUFOR";
+        _teamRespawnMarker = QMGVAR(RESPAWN_BLUFOR);
     };
     case east: {
         private _respawnTypeNum = GETMVAR(Type_OPFOR,0);
@@ -21,7 +21,7 @@ switch (side player) do {
         _templateSettings = GETMVAR(Templates_OPFOR,[]);
         private _newSideValue = GETMVAR(NewTeam_OPFOR,1);
         _newSideSetting = [blufor,opfor,independent,civilian] select _newSideValue;
-        _teamRespawnMarker = "UO_FW_RESPAWN_OPFOR";
+        _teamRespawnMarker = QMGVAR(RESPAWN_OPFOR);
     };
     case independent: {
         private _respawnTypeNum = GETMVAR(Type_Indfor,0);
@@ -30,16 +30,16 @@ switch (side player) do {
         _templateSettings = GETMVAR(Templates_Indfor,[]);
         private _newSideValue = GETMVAR(NewTeam_Indfor,2);
         _newSideSetting = [blufor,opfor,independent,civilian] select _newSideValue;
-        _teamRespawnMarker = "UO_FW_RESPAWN_Indfor";
+        _teamRespawnMarker = QMGVAR(RESPAWN_Indfor);
     };
     case civilian: {
-        private _respawnTypeNum = GETMVAR(Type_Civilian,0);
+        private _respawnTypeNum = GETMVAR(Type_Civ,0);
         _respawnType = ["ONELIFE","UNLIMITED","INDTICK","TEAMTICK"] select _respawnTypeNum;
-        _delay = GETMVAR(Delay_Civilian,5);
-        _templateSettings = GETMVAR(Templates_Civilian,[]);
-        private _newSideValue = GETMVAR(NewTeam_Civilian,3);
+        _delay = GETMVAR(Delay_Civ,5);
+        _templateSettings = GETMVAR(Templates_Civ,[]);
+        private _newSideValue = GETMVAR(NewTeam_Civ,3);
         _newSideSetting = [blufor,opfor,independent,civilian] select _newSideValue;
-        _teamRespawnMarker = "UO_FW_RESPAWN_Civilian";
+        _teamRespawnMarker = QMGVAR(RESPAWN_Civ);
     };
 };
 
@@ -48,15 +48,15 @@ switch (side player) do {
 
 if ((_respawnType isEqualto "INDTICK") || (_respawnType isEqualto "TEAMTICK") || (_respawnType isEqualto "UNLIMITED")) then {
     [{
-        params ["_delay","_templateSettings","_teamRespawnMarker"];
+        params ["_templateSettings","_teamRespawnMarker"];
 
         // Re call player init event
-        ["UO_FW_PlayerInit_Event", []] call CBA_fnc_localEvent;
+        [QEGVAR(Core,PlayerInitEvent), []] call CBA_fnc_localEvent;
 
         // Remove Killed Displays
         if (GETMVAR(InstantDeath,true)) then {
-            "UO_FW_KilledLayer" cutText ["","BLACK IN", 5];
-            ["UO_FW_death", 0, false] call ace_common_fnc_setHearingCapability;
+            (QEGVAR(Core,KilledLayer)) cutText ["","BLACK IN", 5];
+            [QEGVAR(Core,DeathHearing), 0, false] call ace_common_fnc_setHearingCapability;
             0 fadeSound 1;
         } else {
             0 fadeSound 1;
@@ -65,7 +65,7 @@ if ((_respawnType isEqualto "INDTICK") || (_respawnType isEqualto "TEAMTICK") ||
         };
 
         // Handle Group Join
-        if (QEGVAR(RTemplatesS,JoinGroup) in _templateSettings) then {
+        if ((QEGVAR(RTemplatesS,JoinGroup)) in _templateSettings) then {
             private _oldGroup = GETMVAR(OLDGROUP,grpnull);
             [player] joinSilent _oldGroup;
         } else {
@@ -78,7 +78,7 @@ if ((_respawnType isEqualto "INDTICK") || (_respawnType isEqualto "TEAMTICK") ||
         if !(isNull (missionNamespace getVariable [_teamRespawnMarker, objNull])) then {
             [player,(getpos(missionNamespace getVariable _teamRespawnMarker)),10] call CBA_fnc_setPos;
         } else {
-            [player,UO_FW_SpawnPos,30] call CBA_fnc_setPos;
+            [player,(EGVAR(Core,SpawnPos)),30] call CBA_fnc_setPos;
         };
 
         // Handle Module and Gear Settings
@@ -92,11 +92,11 @@ if ((_respawnType isEqualto "INDTICK") || (_respawnType isEqualto "TEAMTICK") ||
         };
         //Team Colour
         if ((QEGVAR(RTemplatesS,TeamColour)) in _templateSettings) then {
-            ["UO_FW_TeamColour_Event", []] call CBA_fnc_localEvent;
+            [QEGVAR(TeamColour,Event), []] call CBA_fnc_localEvent;
         };
         //Map and Compass Remover
         if ((QEGVAR(RTemplatesS,MapAndCompassRemover)) in _templateSettings) then {
-            ["UO_FW_MapRemover_PlayerEvent", []] call CBA_fnc_localEvent;
+            [QEGVAR(MapAndCompassRemover,PlayerEvent), []] call CBA_fnc_localEvent;
         };
         //Gear
         if ((QEGVAR(RTemplatesS,Gear)) in _templateSettings) then {
@@ -111,5 +111,5 @@ if ((_respawnType isEqualto "INDTICK") || (_respawnType isEqualto "TEAMTICK") ||
             [QEGVAR(StartInParachute,LocalEvent), []] call CBA_fnc_localEvent;
         };
 
-    }, [_delay,_templateSettings,_teamRespawnMarker], _delay] call CBA_fnc_waitAndExecute;
+    }, [_templateSettings,_teamRespawnMarker], _delay] call CBA_fnc_waitAndExecute;
 };

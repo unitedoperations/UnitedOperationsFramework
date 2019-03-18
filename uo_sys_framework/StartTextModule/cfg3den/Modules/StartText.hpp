@@ -92,23 +92,23 @@ class EGVAR(StartText,Category) {
             expression = SCENARIO_EXPRESSION;
             validate = "none";
         };
-        class EGVAR(StartText,TitleQuote_Civilian) {
+        class EGVAR(StartText,TitleQuote_Civ) {
             // Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
             displayName = "Civilian Title Quote"; // Attribute label
             tooltip = "Title Quote of the Civilian Start Text. Empty for none";
             control = "Edit";
-            property = QEGVAR(StartText,TitleQuote_Civilian);
+            property = QEGVAR(StartText,TitleQuote_Civ);
             defaultValue = "''"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
             typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
             expression = SCENARIO_EXPRESSION;
             validate = "none";
         };
-        class EGVAR(StartText,Text_Civilian) {
+        class EGVAR(StartText,Text_Civ) {
             // Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
             displayName = "Civilian Text"; // At    tribute label
             tooltip = "Text of the Civilian Start Text. Empty for none";
             control = "Edit";
-            property = QEGVAR(StartText,Text_Civilian);
+            property = QEGVAR(StartText,Text_Civ);
             defaultValue = "''"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
             typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
             expression = SCENARIO_EXPRESSION;

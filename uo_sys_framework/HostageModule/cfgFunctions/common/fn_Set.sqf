@@ -1,7 +1,7 @@
 #define COMPONENT Hostage
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 EXEC_CHECK(ALL);
-if (!UO_FW_Server_HostageModule_Allowed) exitWith {};
+if !(UO_FW_Server_HostageModule_Allowed) exitWith {};
 
 params ["_unit"];
 
@@ -9,6 +9,9 @@ LOG_1("Hostage set called on: %1!",_unit);
 
 private _marker = (GETVAR(_unit,Rescue_Location,"hostage_rescue"));
 _marker setMarkerAlpha 0;
+
+SETPVAR(_unit,IsUntied,false);
+SETPVAR(_unit,IsRescued,false);
 
 [{(CBA_missionTime > 0)},{
     params ["_unit","_marker"];
@@ -22,16 +25,16 @@ _marker setMarkerAlpha 0;
     _unit setBehaviour "CARELESS";
     _unit allowFleeing 0;
     _unit setCaptive true;
-    _unit playMoveNow "Acts_AidlPsitMstpSsurWnonDnon04";
+    [_unit, "Acts_AidlPsitMstpSsurWnonDnon04", 1] call ace_common_fnc_doAnimation;
     _unit disableAI "MOVE";
 
     //IGNORE_PRIVATE_WARNING ["_thisID","_thisType"];
     private _EhAnimDone = [_unit, "AnimDone", {
         params ["_unit", "_anim"];
-        if ((!alive _unit) || (GETVAR(_unit,IsRescued,false))) exitWith {
+        if ((!alive _unit) || (GETVAR(_unit,IsRescued,false)) || (GETVAR(_unit,IsUntied,false))) exitWith {
             _unit removeEventHandler [_thisType, _thisID];
         };
-        _unit playMoveNow "Acts_AidlPsitMstpSsurWnonDnon04";
+        [_unit, "Acts_AidlPsitMstpSsurWnonDnon04", 1] call ace_common_fnc_doAnimation;
     }, []] call CBA_fnc_addBISEventHandler;
 
     SETVAR(_unit,EhAnimDone,_EhAnimDone);
@@ -46,10 +49,8 @@ _marker setMarkerAlpha 0;
             if ((vehicle _unit) isEqualto _unit) then {
                 [_unit] joinSilent grpNull;
                 _unit disableAI "MOVE";
-                [{
-                    _this playMoveNow "AmovPsitMstpSnonWnonDnon_ground";
-                    _this disableAI "ANIM";
-                }, _unit, 1] call CBA_fnc_waitAndExecute;
+                [_unit, "AmovPsitMstpSnonWnonDnon_ground", 1] call ace_common_fnc_doAnimation;
+                _unit disableAI "ANIM";
             };
             SETPVAR(_unit,IsRescued,true);
             [_idPFH] call CBA_fnc_removePerFrameHandler;

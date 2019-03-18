@@ -23,8 +23,8 @@ switch (side player) do {
         _templateSettings = EGETMVAR(Respawn,Templates_Indfor,[]);
     };
     case civilian: {
-        _delay = EGETMVAR(Respawn,Delay_Civilian,5);
-        _templateSettings = EGETMVAR(Respawn,Templates_Civilian,[]);
+        _delay = EGETMVAR(Respawn,Delay_Civ,5);
+        _templateSettings = EGETMVAR(Respawn,Templates_Civ,[]);
     };
 };
 
@@ -79,8 +79,8 @@ if (EGETMVAR(Respawn,InstantDeath,true)) then {
     [{
         params ["_fadeInSpeed"];
         0 fadeSound 0;
-        "UO_FW_KilledLayer" cutText ["<t color='#FF0000' size='2.0'>YOU ARE DEAD</t>", "BLACK", _fadeInSpeed, true, true];
-        ["UO_FW_death", 0, true] call ace_common_fnc_setHearingCapability;
+        (QEGVAR(Core,KilledLayer)) cutText ["<t color='#FF0000' size='2.0'>YOU ARE DEAD</t>", "BLACK", _fadeInSpeed, true, true];
+        [QEGVAR(Core,DeathHearing), 0, true] call ace_common_fnc_setHearingCapability;
     }, [_fadeInSpeed]] call CBA_fnc_execNextFrame;
 } else {
     [{

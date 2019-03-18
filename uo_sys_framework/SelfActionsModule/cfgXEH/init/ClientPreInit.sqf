@@ -95,10 +95,10 @@ if !(UO_FW_Server_SelfActionsModule_Allowed) exitwith {};
             ["Green","FlareGreen_F",[0.25,0.5,0.25],"F_20mm_Green"],
             ["Yellow","FlareYellow_F",[0.5,0.5,0.25],"F_20mm_Yellow"],
             ["Red","FlareRed_F",[0.5,0.25,0.25],"F_20mm_Red"],
-            ["Large White","UO_FW_ParaFlare_White",[1,1,1],"UO_FW_ParaFlare_Shot_White"],
-            ["Large Green","UO_FW_ParaFlare_Green",[0.25,0.5,0.25],"UO_FW_ParaFlare_Shot_Green"],
-            ["Large Yellow","UO_FW_ParaFlare_Yellow",[0.5,0.5,0.25],"UO_FW_ParaFlare_Shot_Yellow"],
-            ["Large Red","UO_FW_ParaFlare_Red",[0.5,0.25,0.25],"UO_FW_ParaFlare_Shot_Red"]
+            ["Large White",QMGVAR(ParaFlare_White),[1,1,1],QMGVAR(ParaFlare_Shot_White)],
+            ["Large Green",QMGVAR(ParaFlare_Green),[0.25,0.5,0.25],QMGVAR(ParaFlare_Shot_Green)],
+            ["Large Yellow",QMGVAR(ParaFlare_Yellow),[0.5,0.5,0.25],QMGVAR(ParaFlare_Shot_Yellow)],
+            ["Large Red",QMGVAR(ParaFlare_Red),[0.5,0.25,0.25],QMGVAR(ParaFlare_Shot_Red)]
         ];
     }, []] call CBA_fnc_waitUntilAndExecute;
 }] call CBA_fnc_addEventHandler;

@@ -42,13 +42,13 @@ if (UO_FW_AutoTrackAsset_Enabled) then {
         case west: {EGVAR(Core,TeamName_Blufor)};
         case east: {EGVAR(Core,TeamName_Opfor)};
         case independent: {EGVAR(Core,TeamName_Indfor)};
-        case civilian: {EGVAR(Core,TeamName_Civilian)};
+        case civilian: {EGVAR(Core,TeamName_Civ)};
         default {""};
     };
     if !(_team isEqualto "") then {
         private _vehCfg = (configFile >> "CfgVehicles" >> (typeOf _vehicle));
         if (isText(_vehCfg >> "displayName")) then {
-            ["UO_FW_TrackAsset_Event",[_vehicle, getText(_vehCfg >> "displayName"), _team]] call CBA_fnc_serverEvent;
+            [QEGVAR(Core,TrackAssetEvent),[_vehicle, getText(_vehCfg >> "displayName"), _team]] call CBA_fnc_serverEvent;
         };
     };
 };

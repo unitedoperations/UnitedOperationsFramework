@@ -43,7 +43,7 @@ class EGVAR(AOLimit,AOLimitModule): EGVAR(Core,BaseModule) {
             displayName = "AO Mode";
             tooltip = "Set the AO as a Soft AO that gives players time to return to the area before killing them, or a hard AO which forces the player inside the AO.";
             property = QEGVAR(AOLimit,AOMode);
-            control = "UO_FW_AOModeAttribute";
+            control = QEGVAR(AOLimit,AOModeAttribute);
             typeName = "STRING";
             expression = MODULE_EXPRESSION;
             defaultValue = "'HARD'";

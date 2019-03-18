@@ -1,4 +1,4 @@
-class UO_FW_ExportLoadoutToProfileAttribute: ComboPreview {
+class EGVAR(Export,LoadoutToProfileAttribute): ComboPreview {
     attributeLoad="";
     attributeSave="";
 	class Controls: Controls {

@@ -22,10 +22,10 @@ if (_clipBoardMode) then {
     copytoClipboard (str _loadoutsList);
     LOG("Loadout settings copied to clipboard");
 } else {
-    private _profileArray = profileNamespace getvariable ["UO_FW_ProfileLoadoutSettingsArray",[]];
+    private _profileArray = profileNamespace getvariable [QEGVAR(Core,ProfileLoadoutSettingsArray),[]];
     if (_profileArray isEqualto []) then {
         _profileArray pushback [_name,_loadoutsList];
-        profileNamespace setvariable ["UO_FW_ProfileLoadoutSettingsArray",_profileArray];
+        profileNamespace setvariable [QEGVAR(Core,ProfileLoadoutSettingsArray),_profileArray];
         saveProfileNamespace;
     } else {
         private _findIfResult = _profileArray findif {((toLower (_x select 0)) isEqualto (toLower _name))};
@@ -36,14 +36,14 @@ if (_clipBoardMode) then {
                 private _result = ["Loadout Preset Name is already in profile, do you want to overwrite this preset?", "Overwrite Loadout Preset", "Overwrite", true, (findDisplay 313)] call BIS_fnc_guiMessage;
                 if (_result) then {
                     _profileArray set [_findIfResult,[_name,_loadoutsList]];
-                    profileNamespace setvariable ["UO_FW_ProfileLoadoutSettingsArray",_profileArray];
+                    profileNamespace setvariable [QEGVAR(Core,ProfileLoadoutSettingsArray),_profileArray];
                     saveProfileNamespace;
                     LOG("Loadout settings saved to profile");
                 };
             };
         } else {
             _profileArray pushback [_name,_loadoutsList];
-            profileNamespace setvariable ["UO_FW_ProfileLoadoutSettingsArray",_profileArray];
+            profileNamespace setvariable [QEGVAR(Core,ProfileLoadoutSettingsArray),_profileArray];
             saveProfileNamespace;
             LOG("Loadout settings saved to profile");
         };

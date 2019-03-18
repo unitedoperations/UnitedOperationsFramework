@@ -31,7 +31,7 @@ if (CBA_missiontime > (60 + (EGETMVAR(EndConditions,ConditionSleep,0)))) then {
         private _assets = _team call FUNC(GetDamagedAssets);
         [_team, 5, _assets select 0] call FUNC(SetTeamVariable);
         [_team, 6, _assets select 1] call FUNC(SetTeamVariable);
-    } forEach EGVAR(Core,Teams);
+    } forEach GVAR(Teams);
     [QGVAR(EndmissionEvent), [_message]] call CBA_fnc_globalEvent;
 } else {
     ERROR_2("End Conditions have just been triggered. Mission might need to be ended manually! Time:%2 Safetime:%1",(60 + (EGETMVAR(EndConditions,ConditionSleep,0))),CBA_missiontime);

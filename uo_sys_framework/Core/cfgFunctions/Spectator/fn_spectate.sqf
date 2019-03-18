@@ -58,17 +58,17 @@ switch (side player) do {
         _thirdPersonSetting = GETMVAR(3rdPerson_Indfor,true);
     };
     case civilian: {
-        _delay = EGETMVAR(Respawn,Delay_Civilian,5);
-        private _teamSpectateVarValue = GETMVAR(EnabledTeams_Civilian,[]);
+        _delay = EGETMVAR(Respawn,Delay_Civ,5);
+        private _teamSpectateVarValue = GETMVAR(EnabledTeams_Civ,[]);
         _teamSpectateList = [];
         if ("BLUFOR" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique BLUFOR};
         if ("OPFOR" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique OPFOR};
         if ("Indfor" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique INDEPENDENT};
         if ("CIVILIAN" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique CIVILIAN};
-        _killCamSetting = GETMVAR(KillCam_Civilian,true);
-        _AISetting = GETMVAR(AIEnabled_Civilian,true);
-        _freeCamSetting = GETMVAR(FreeCam_Civilian,true);
-        _thirdPersonSetting = GETMVAR(3rdPerson_Civilian,true);
+        _killCamSetting = GETMVAR(KillCam_Civ,true);
+        _AISetting = GETMVAR(AIEnabled_Civ,true);
+        _freeCamSetting = GETMVAR(FreeCam_Civ,true);
+        _thirdPersonSetting = GETMVAR(3rdPerson_Civ,true);
     };
 };
 
@@ -89,8 +89,8 @@ SETMVAR(spectator_marker,"");
 if (GETMVAR(RespawnSetting_InstantDeath,true)) then {
     [{
         params ["_teamSpectateList","_AISetting","_freeCamSetting","_thirdPersonSetting"];
-        "UO_FW_KilledLayer" cutText ["","BLACK IN", 5];
-        ["UO_FW_death", 0, false] call ace_common_fnc_setHearingCapability;
+        (QEGVAR(Core,KilledLayer)) cutText ["","BLACK IN", 5];
+        [QEGVAR(Core,DeathHearing), 0, false] call ace_common_fnc_setHearingCapability;
         0 fadeSound 1;
         ["Initialize",[
             player,
@@ -141,7 +141,7 @@ if (EGETMVAR(ACRE,enable_babel,false)) then {
                 _missionLanguages pushback _x;
             };
         } foreach _x;
-    } forEach UO_FW_languages_babel;
+    } forEach EGETMVAR(Acre,languages_babel,[]);
     _missionLanguages call acre_api_fnc_babelSetSpokenLanguages;
 };
 
@@ -245,11 +245,11 @@ SETPLPVAR(Spectating,true);
         player setOxygenRemaining 1;
         if !(["IsSpectating",[]] call BIS_fnc_EGSpectator) exitwith {
             (SETPLPVAR(Spectating,false));
-            ["UO_FW_Spectator_EndEvent", []] call CBA_fnc_localEvent;
+            [QGVAR(EndEvent), []] call CBA_fnc_localEvent;
             [_idPFH] call CBA_fnc_removePerFrameHandler;
         };
         if !(GETPLVAR(Spectating,false)) exitwith {
-            ["UO_FW_Spectator_EndEvent", []] call CBA_fnc_localEvent;
+            [QGVAR(Spectator_EndEvent), []] call CBA_fnc_localEvent;
             [_idPFH] call CBA_fnc_removePerFrameHandler;
         };
     }, 5, []] call CBA_fnc_addPerFrameHandler;

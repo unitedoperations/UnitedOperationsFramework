@@ -72,7 +72,7 @@ private _colors = ["colorBlack","colorBlack",_colorForest,"colorGreen",_colorFor
     {
         _x params ["_color"];
 
-        private _markername1 = format ["UO_FW_CoverMap_Marker_C_%1_%2",_i,_forEachIndex];
+        private _markername1 = format ["##PREFIX##_CoverMap_Marker_C_%1_%2",_i,_forEachIndex];
         private _marker1 = createMarkerLocal [_markername1,[_posos_x, _posos_y]];
         GVAR(MarkerArray) pushBack _marker1;
 
@@ -92,7 +92,7 @@ private _colors = ["colorBlack","colorBlack",_colorForest,"colorGreen",_colorFor
     private _posos_y = _posy + (cos _dir) * (_MainBS / 2 + _s);
 
     for "_m" from 0 to 7 do {
-        private _markername2 = format ["UO_FW_CoverMap_Marker_W_%1_%2",_i,_m];
+        private _markername2 = format ["##PREFIX##_CoverMap_Marker_W_%1_%2",_i,_m];
         private _marker2 = createMarkerLocal [_markername2,[_posos_x, _posos_y]];
         GVAR(MarkerArray) pushBack _marker2;
 
@@ -106,7 +106,7 @@ private _colors = ["colorBlack","colorBlack",_colorForest,"colorGreen",_colorFor
 
 } forEach [_dir, (_dir + 90), (_dir + 180), (_dir + 270)];
 
-private _markername3 = format ["UO_FW_CoverMap_Marker_b1_%1",_index];
+private _markername3 = format ["##PREFIX##_CoverMap_Marker_b1_%1",_index];
 private _marker3 = createMarkerLocal [_markername3,[_posx, _posy]];
 GVAR(MarkerArray) pushBack _marker3;
 
@@ -116,7 +116,7 @@ _marker3 setMarkerShapeLocal "rectangle";
 _marker3 setMarkerBrushLocal "border";
 _marker3 setMarkerColorLocal "colorBlack";
 
-private _markername4 = format ["UO_FW_CoverMap_Marker_b2_%1",_index];
+private _markername4 = format ["##PREFIX##_CoverMap_Marker_b2_%1",_index];
 private _marker4 = createMarkerLocal [_markername4,[_posx, _posy]];
 GVAR(MarkerArray) pushBack _marker4;
 

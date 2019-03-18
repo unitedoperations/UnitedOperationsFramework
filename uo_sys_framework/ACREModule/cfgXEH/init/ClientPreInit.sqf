@@ -10,7 +10,7 @@
 #define COMPONENT ACRE
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 EXEC_CHECK(CLIENT);
-if !(UO_FW_Server_AcreModule_Allowed) exitwith {};
+if !(UO_FW_Server_ACREModule_Allowed) exitwith {};
 
 #define RADIONETARRAY(TEAMNAME) \
 [(GETMVAR(RADIONET_NAME1##TEAMNAME,"")),(GETMVAR(RADIONET_NAME2##TEAMNAME,"")),(GETMVAR(RADIONET_NAME3##TEAMNAME,"")),(GETMVAR(RADIONET_NAME4##TEAMNAME,"")),(GETMVAR(RADIONET_NAME5##TEAMNAME,"")),(GETMVAR(RADIONET_NAME6##TEAMNAME,"")),(GETMVAR(RADIONET_NAME7##TEAMNAME,""))]
@@ -18,17 +18,17 @@ if !(UO_FW_Server_AcreModule_Allowed) exitwith {};
 [QGVAR(Init_Event), {
     if !(GETMVAR(Enabled,false)) exitwith {};
     if (!isDedicated && {hasinterface}) then {
-        [QEGVAR(Core,RegisterModuleEvent), ["ACRE Setup", "Module for Acre Settings", "PiZZADOX and Sacher"]] call CBA_fnc_localEvent;
+        [QEGVAR(Core,RegisterModuleEvent), ["ACRE Setup", "Module for ACRE Settings", "PiZZADOX and Sacher"]] call CBA_fnc_localEvent;
         GVAR(Preset) = ["default2", "default3", "default4", "default"];
         GVAR(Preset_BLUFOR) = "default";
         GVAR(Preset_OPFOR) = "default";
         GVAR(Preset_Indfor) = "default";
-        GVAR(Preset_CIVILIAN) = "default";
+        GVAR(Preset_Civ) = "default";
         if (GETMVAR(SCRAMBLE_Enabled,false)) then {
             GVAR(Preset_BLUFOR) = GVAR(Preset) select 0;
             GVAR(Preset_OPFOR) = GVAR(Preset) select 1;
             GVAR(Preset_Indfor) = GVAR(Preset) select 2;
-            GVAR(Preset_CIVILIAN) = GVAR(Preset) select 3;
+            GVAR(Preset_Civ) = GVAR(Preset) select 3;
         };
         //Channel names stuff
         LOG("ACRE Init");
@@ -68,14 +68,14 @@ if !(UO_FW_Server_AcreModule_Allowed) exitwith {};
                 };
             } foreach RADIONETARRAY(INDEPENDENT);
         };
-        if ((GETMVAR(RADIONET_Enabled_CIVILIAN,false)) && {(side player isEqualTo civilian)}) then {
+        if ((GETMVAR(RADIONET_Enabled_Civ,false)) && {(side player isEqualTo civilian)}) then {
             {
                 private _index = _forEachIndex + 1;
                 _x params ["_name"];
                 if (_name != "") then {
                     {
                         private _label = [_x, "label"] call acre_api_fnc_mapChannelFieldName;
-                        [_x, GVAR(Preset_CIVILIAN), _index, _label, _name] call acre_api_fnc_setPresetChannelField;
+                        [_x, GVAR(Preset_Civ), _index, _label, _name] call acre_api_fnc_setPresetChannelField;
                     } forEach ["ACRE_PRC117F", "ACRE_PRC148", "ACRE_PRC152"];
                 };
             } foreach RADIONETARRAY(CIVILIAN);
@@ -90,7 +90,7 @@ if !(UO_FW_Server_AcreModule_Allowed) exitwith {};
         if (GETMVAR(RADIONET_Enabled_INDEPENDENT,false)) then {
             LOG_1("Setting Netnames. Ind: %1",(RADIONETARRAY(INDEPENDENT)));
         };
-        if (GETMVAR(RADIONET_Enabled_CIVILIAN,false)) then {
+        if (GETMVAR(RADIONET_Enabled_Civ,false)) then {
             LOG_1("Setting Netnames. Civ: %1",(RADIONETARRAY(CIVILIAN)));
         };
 
@@ -132,12 +132,12 @@ if !(UO_FW_Server_AcreModule_Allowed) exitwith {};
                     _presetTemp = GVAR(Preset_Indfor);
                 };
                 default {
-                    _presetTemp = GVAR(Preset_CIVILIAN);
+                    _presetTemp = GVAR(Preset_Civ);
                 };
             };
 
             if (GETMVAR(SCRAMBLE_Enabled,false)) then {
-                LOG_1("Enabling Acre Scramble with %1",_presetTemp);
+                LOG_1("Enabling ACRE Scramble with %1",_presetTemp);
                 ["ACRE_PRC343", _presetTemp ] call acre_api_fnc_setPreset;
                 ["ACRE_PRC77", _presetTemp ] call acre_api_fnc_setPreset;
                 ["ACRE_PRC117F", _presetTemp ] call acre_api_fnc_setPreset;
@@ -162,13 +162,13 @@ if !(UO_FW_Server_AcreModule_Allowed) exitwith {};
                     QGVAR(Babel_Custom_BLUFOR),QGVAR(Babel_Custom2_BLUFOR),
                     QGVAR(Babel_Custom_OPFOR),QGVAR(Babel_Custom2_OPFOR),
                     QGVAR(Babel_Custom_Indfor),QGVAR(Babel_Custom2_Indfor),
-                    QGVAR(Babel_Custom_CIVILIAN),QGVAR(Babel_Custom2_CIVILIAN)
+                    QGVAR(Babel_Custom_Civ),QGVAR(Babel_Custom2_Civ)
                 ];
                 {
                     private _index = _forEachIndex + 1;
                     _CURRENTBABEL_LANGUAGES pushBack ["cl" + (str _index),((missionNamespace getVariable [_x,""]))];
                 } forEach _names;
-                private _langInfo = format ["Acre Babel Lanugages: %1",_CURRENTBABEL_LANGUAGES];
+                private _langInfo = format ["ACRE Babel Lanugages: %1",_CURRENTBABEL_LANGUAGES];
                 LOG_1("%1",_langInfo);
                 {_x call acre_api_fnc_babelAddLanguageType;} foreach _CURRENTBABEL_LANGUAGES;
 
@@ -217,19 +217,19 @@ if !(UO_FW_Server_AcreModule_Allowed) exitwith {};
                     } forEach [QGVAR(Babel_Custom_Indfor),QGVAR(Babel_Custom2_Indfor)];
                 } forEach _CURRENTBABEL_LANGUAGES;
 
-                private _ACRE_CIVILIAN_BABEL_LANGUAGES = [];
-                if (GVAR(Babel_EN_CIVILIAN)) then {_ACRE_CIVILIAN_BABEL_LANGUAGES pushBack "en"; };
-                if (GVAR(Babel_RU_CIVILIAN)) then {_ACRE_CIVILIAN_BABEL_LANGUAGES pushBack "ru"; };
-                if (GVAR(Babel_FR_CIVILIAN)) then {_ACRE_CIVILIAN_BABEL_LANGUAGES pushBack "fr"; };
-                if (GVAR(Babel_AR_CIVILIAN)) then {_ACRE_CIVILIAN_BABEL_LANGUAGES pushBack "ar"; };
-                if (GVAR(Babel_GK_CIVILIAN)) then {_ACRE_CIVILIAN_BABEL_LANGUAGES pushBack "gk"; };
+                private _ACRE_Civ_BABEL_LANGUAGES = [];
+                if (GVAR(Babel_EN_Civ)) then {_ACRE_Civ_BABEL_LANGUAGES pushBack "en"; };
+                if (GVAR(Babel_RU_Civ)) then {_ACRE_Civ_BABEL_LANGUAGES pushBack "ru"; };
+                if (GVAR(Babel_FR_Civ)) then {_ACRE_Civ_BABEL_LANGUAGES pushBack "fr"; };
+                if (GVAR(Babel_AR_Civ)) then {_ACRE_Civ_BABEL_LANGUAGES pushBack "ar"; };
+                if (GVAR(Babel_GK_Civ)) then {_ACRE_Civ_BABEL_LANGUAGES pushBack "gk"; };
                 {
                     private _language = _x;
                     {
                         if ((_language select 1) isEqualTo (missionNamespace getVariable [_x,""]) && {(missionNamespace getVariable [_x,""]) != ""}) then {
-                            _ACRE_CIVILIAN_BABEL_LANGUAGES pushBack (_language select 0);
+                            _ACRE_Civ_BABEL_LANGUAGES pushBack (_language select 0);
                         };
-                    } forEach [QGVAR(Babel_Custom_CIVILIAN),QGVAR(Babel_Custom2_CIVILIAN)];
+                    } forEach [QGVAR(Babel_Custom_Civ),QGVAR(Babel_Custom2_Civ)];
                 } forEach _CURRENTBABEL_LANGUAGES;
 
 
@@ -257,8 +257,8 @@ if !(UO_FW_Server_AcreModule_Allowed) exitwith {};
                     };
                 };
 
-                if (GVAR(Babel_Enabled_CIVILIAN) && {(side player isEqualTo civilian)}) then {
-                    _ACRE_CIVILIAN_BABEL_LANGUAGES call acre_api_fnc_babelSetSpokenLanguages;
+                if (GVAR(Babel_Enabled_Civ) && {(side player isEqualTo civilian)}) then {
+                    _ACRE_Civ_BABEL_LANGUAGES call acre_api_fnc_babelSetSpokenLanguages;
                     private _languages = GETPLVAR(Babel_Languages,[]);
                     if !(_languages isEqualTo []) then {
                         _languages call acre_api_fnc_babelSetSpokenLanguages;
@@ -292,9 +292,9 @@ if !(UO_FW_Server_AcreModule_Allowed) exitwith {};
                     _PKType = ["NONE","ACRE_PRC117F","ACRE_PRC77","ACRE_SEM70"] select GVAR(PK_Type_Indfor);
                 };
                 case civilian: {
-                    _SRType = ["NONE","ACRE_PRC343","ACRE_SEM52SL"] select GVAR(SR_Type_CIVILIAN);
-                    _LRType = ["NONE","ACRE_PRC343","ACRE_PRC148","ACRE_PRC152"] select GVAR(LR_Type_CIVILIAN);
-                    _PKType = ["NONE","ACRE_PRC117F","ACRE_PRC77","ACRE_SEM70"] select GVAR(PK_Type_CIVILIAN);
+                    _SRType = ["NONE","ACRE_PRC343","ACRE_SEM52SL"] select GVAR(SR_Type_Civ);
+                    _LRType = ["NONE","ACRE_PRC343","ACRE_PRC148","ACRE_PRC152"] select GVAR(LR_Type_Civ);
+                    _PKType = ["NONE","ACRE_PRC117F","ACRE_PRC77","ACRE_SEM70"] select GVAR(PK_Type_Civ);
                 };
                 default {};
             };

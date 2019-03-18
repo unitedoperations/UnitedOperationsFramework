@@ -23,6 +23,6 @@ private _count = -1;
     if (_name isEqualTo _team) exitWith {
         _count = _current;
     };
-} forEach EGVAR(Core,Teams);
+} forEach GVAR(Teams);
 
 _count

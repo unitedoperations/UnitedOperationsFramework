@@ -1,31 +1,31 @@
 class EGVAR(ACRE,Folder) {
     text = "Configure ACRE";
-    items[] = {QEGVAR(Acre,Configure_Blufor),QEGVAR(Acre,Configure_Opfor),QEGVAR(Acre,Configure_Indfor),QEGVAR(Acre,Configure_Civilian),QEGVAR(Acre,Configure_MainSettings)};
+    items[] = {QEGVAR(ACRE,Configure_Blufor),QEGVAR(ACRE,Configure_Opfor),QEGVAR(ACRE,Configure_Indfor),QEGVAR(ACRE,Configure_Civ),QEGVAR(ACRE,Configure_MainSettings)};
     //picture = "\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\talk_ca.paa";
     picture = "x\UO_FW\addons\Main\ACREModule\resources\RadioIcon_Radio.paa";
 };
 
-class EGVAR(Acre,Configure_Blufor) {
+class EGVAR(ACRE,Configure_Blufor) {
     text = "Configure Blufor ACRE";
-    action = "edit3DENMissionAttributes 'UO_FW_ACRE_Blufor';";
+    action = QUOTE(edit3DENMissionAttributes QN(EGVAR(ACRE,Blufor)));
 };
 
-class EGVAR(Acre,Configure_Opfor) {
+class EGVAR(ACRE,Configure_Opfor) {
     text = "Configure Opfor ACRE";
-    action = "edit3DENMissionAttributes 'UO_FW_ACRE_Opfor';";
+    action = QUOTE(edit3DENMissionAttributes QN(EGVAR(ACRE,Opfor)));
 };
 
-class EGVAR(Acre,Configure_Indfor) {
+class EGVAR(ACRE,Configure_Indfor) {
     text = "Configure Indfor ACRE";
-    action = "edit3DENMissionAttributes 'UO_FW_ACRE_Indfor';";
+    action = QUOTE(edit3DENMissionAttributes QN(EGVAR(ACRE,Indfor)));
 };
 
-class EGVAR(ACRE,Configure_Civilian) {
+class EGVAR(ACRE,Configure_Civ) {
     text = "Configure Civilian ACRE";
-    action = "edit3DENMissionAttributes 'UO_FW_ACRE_Civilian';";
+    action = QUOTE(edit3DENMissionAttributes QN(EGVAR(ACRE,Civilian)));
 };
 
 class EGVAR(ACRE,Configure_MainSettings) {
     text = "Configure ACRE Settings";
-    action = "edit3DENMissionAttributes 'UO_FW_ACRE_MainSettings';";
+    action = QUOTE(edit3DENMissionAttributes QN(EGVAR(ACRE,MainSettings)));
 };

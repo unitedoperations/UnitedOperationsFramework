@@ -8,7 +8,7 @@ params [["_logic",objNull,[objNull]],["_marker","respawn_west",[""]]];
         case WEST: {_marker = "respawn_west";};
         case EAST: {_marker = "respawn_east";};
         case INDEPENDENT: {_marker = "respawn_guerrila";};
-        case CIVILIAN: {_marker = "respawn_civilian";};
+        case CIVILIAN: {_marker = "respawn_Civ";};
         default {};
     };
     if (_marker in allMapMarkers) then {

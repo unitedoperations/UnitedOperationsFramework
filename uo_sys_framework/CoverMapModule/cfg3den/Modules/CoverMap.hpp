@@ -45,8 +45,8 @@ class EGVAR(CoverMap,Category) {
             defaultValue = "'Area0'";
             validate = "STRING";
         };
-        class EGVAR(CoverMap,DefaultAO_Civilian) {
-            property = QEGVAR(CoverMap,DefaultAO_Civilian);
+        class EGVAR(CoverMap,DefaultAO_Civ) {
+            property = QEGVAR(CoverMap,DefaultAO_Civ);
             displayName = "Civilian Starting AO";
             tooltip = "Set the Civilian Map area to corresponding CoverMap AO name.";
             control = "EditShort";

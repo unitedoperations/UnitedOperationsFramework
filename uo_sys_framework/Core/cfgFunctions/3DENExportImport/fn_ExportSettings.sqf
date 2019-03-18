@@ -18,7 +18,7 @@ EDEN_CHECK;
 params [["_name",""],["_clipBoardMode",false]];
 
 private _attributeValues = [];
-private _sections = "!(((str(configname _x)) find 'UO_FW') isEqualto -1)" configClasses (Configfile >> "Cfg3DEN" >> "Mission");
+private _sections = QUOTE(!(((str(configname _x)) find QN(PREFIX)) isEqualto -1)) configClasses (Configfile >> "Cfg3DEN" >> "Mission");
 {
     private _section = configName _x;
     LOG_1("_section %1",_section);
@@ -50,11 +50,11 @@ if (_clipBoardMode) then {
     copytoClipboard (str _attributeValues);
     LOG("Mission settings copied to clipboard");
 } else {
-    private _profileArray = profileNamespace getvariable ["UO_FW_ProfileSettingsArray",[]];
+    private _profileArray = profileNamespace getvariable [QEGVAR(Core,ProfileSettingsArray),[]];
     LOG_1("_profileArray %1",_profileArray);
     if (_profileArray isEqualto []) then {
         _profileArray pushback [_name,_attributeValues];
-        profileNamespace setvariable ["UO_FW_ProfileSettingsArray",_profileArray];
+        profileNamespace setvariable [QEGVAR(Core,ProfileSettingsArray),_profileArray];
         saveProfileNamespace;
     } else {
         private _findIfResult = _profileArray findif {((toLower (_x select 0)) isEqualto (toLower _name))};
@@ -65,13 +65,13 @@ if (_clipBoardMode) then {
                 private _result = ["Setting Preset Name is already in profile, do you want to overwrite this preset?", "Overwrite Settings Preset", "Overwrite", true, (findDisplay 313)] call BIS_fnc_guiMessage;
                 if (_result) then {
                     _profileArray set [_findIfResult,[_name,_attributeValues]];
-                    profileNamespace setvariable ["UO_FW_ProfileSettingsArray",_profileArray];
+                    profileNamespace setvariable [QEGVAR(Core,ProfileSettingsArray),_profileArray];
                     saveProfileNamespace;
                 };
             };
         } else {
             _profileArray pushback [_name,_attributeValues];
-            profileNamespace setvariable ["UO_FW_ProfileSettingsArray",_profileArray];
+            profileNamespace setvariable [QEGVAR(Core,ProfileSettingsArray),_profileArray];
             saveProfileNamespace;
         };
     };

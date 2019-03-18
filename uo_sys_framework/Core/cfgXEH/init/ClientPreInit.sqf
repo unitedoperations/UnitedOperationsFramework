@@ -4,7 +4,7 @@ EXEC_CHECK(CLIENT);
 
 LOG("Client Pre Init");
 
-["UO_FW_RecievePlayerVars", {
+[QGVAR(RecievePlayerVars), {
     params ["_playerUnit","_varArray"];
     LOG_1("Var Recieve _playerUnit: %1",_playerUnit);
     LOG_1("Var Recieve _varArray: %1",_varArray);
@@ -13,29 +13,29 @@ LOG("Client Pre Init");
         _x params ["_propertyName","_value"];
         player setvariable [_propertyName,_value];
     } foreach _varArray;
-    [QEGVAR(Core,SettingsLoaded), []] call CBA_fnc_localEvent;
+    [QGVAR(SettingsLoaded), []] call CBA_fnc_localEvent;
 }] call CBA_fnc_addEventHandler;
 
-[QEGVAR(Core,RegisterModuleEvent), {
+[QGVAR(RegisterModuleEvent), {
     if !(hasInterface) exitwith {};
     params ["_name", "_description", "_author"];
     [{!(isNull player)}, {
         params ["_name", "_description", "_author"];
-        if !(player diarySubjectExists "UO_FW_Menu") then {
-            player createDiarySubject ["UO_FW_Menu", "UO Framework"];
+        if !(player diarySubjectExists QGVAR(Menu)) then {
+            player createDiarySubject [QGVAR(Menu), "UO Framework"];
         };
-        if (isNil "UO_FW_ModuleDiaryEntries") then {UO_FW_ModuleDiaryEntries = []};
+        if (isNil QGVAR(ModuleDiaryEntries)) then {GVAR(ModuleDiaryEntries) = []};
         //IGNORE_PRIVATE_WARNING ["_x"];
-        if ((UO_FW_ModuleDiaryEntries findIf {_name isEqualto _x}) isEqualto -1) then {
-            UO_FW_ModuleDiaryEntries append [_name];
-            player createDiaryRecord ["UO_FW_Menu", [_name,"<font size='16'>" + _name + "</font><br/>Description: " + _description + "<br/>by " + _author]];
+        if ((GVAR(ModuleDiaryEntries) findIf {_name isEqualto _x}) isEqualto -1) then {
+            GVAR(ModuleDiaryEntries) append [_name];
+            player createDiaryRecord [QGVAR(Menu), [_name,"<font size='16'>" + _name + "</font><br/>Description: " + _description + "<br/>by " + _author]];
         };
     },[_name, _description, _author]] call CBA_fnc_WaitUntilAndExecute;
 }] call CBA_fnc_addEventHandler;
 
-["UO_FW_RegisterFrameworkEvent", {
-    if !(player diarySubjectExists "UO_FW_Menu") then {
-        player createDiarySubject ["UO_FW_Menu", "UO Framework"];
+[QGVAR(RegisterFrameworkEvent), {
+    if !(player diarySubjectExists QGVAR(Menu)) then {
+        player createDiarySubject [QGVAR(Menu), "UO Framework"];
     };
     private _info = "
     <font size='18'>United Operations Framework</font><br/>
@@ -44,14 +44,13 @@ LOG("Client Pre Init");
     Find out more about the framework on GitHub.<br/>
     github.com/unitedoperations/UnitedOperationsFramework<br/>
     <br/>
-    Current Version: 1.0.2
-    ";
-    player createDiaryRecord ["UO_FW_Menu", ["Framework Info", _info]];
+    Current Version: " + VERSIONSTR;
+    player createDiaryRecord [QGVAR(Menu), ["Framework Info", _info]];
 }] call CBA_fnc_addEventHandler;
 
 [{!(isNull player)}, {
     LOG_1("Client call waituntil player: %1",player);
-    ["UO_FW_RecievePlayerVarRequest", [player,clientOwner]] call CBA_fnc_serverEvent;
+    [QGVAR(RecievePlayerVarRequest), [player,clientOwner]] call CBA_fnc_serverEvent;
     SETMVAR(SpawnPos,(getpos player));
     switch (side player) do {
         case WEST: {SETMVAR(TeamTag,"BLUFOR");};
@@ -62,28 +61,28 @@ LOG("Client Pre Init");
     };
 }] call CBA_fnc_WaitUntilAndExecute;
 
-["UO_FW_EndMission_PlayerEvent", {
+[QGVAR(EndMissionPlayerEvent), {
     params ["_scenario"];
     [_scenario] call FUNC(EndScreen);
 }] call CBA_fnc_addEventHandler;
 
-[QEGVAR(Core,EndmissionEvent), {
+[QGVAR(EndmissionEvent), {
     params ["_scenario"];
-    ["UO_FW_EndMission_PlayerEvent", [_scenario]] call CBA_fnc_localEvent;
+    [QGVAR(EndMissionPlayerEvent), [_scenario]] call CBA_fnc_localEvent;
 }] call CBA_fnc_addEventHandler;
 
-["UO_FW_Spectator_StartSpectate_Event", {
+[QEGVAR(Spectator,StartSpectateEvent), {
     [] call EFUNC(Spectator,Spectate);
 }] call CBA_fnc_addEventHandler;
 
-["UO_FW_Spectator_EndSpectate_Event", {
+[QEGVAR(Spectator,EndSpectateEvent), {
     [] call EFUNC(Spectator,endSpectate);
 }] call CBA_fnc_addEventHandler;
 
-["UO_FW_PlayerRespawn_Event", {
+[QGVAR(PlayerRespawnEvent), {
 }] call CBA_fnc_addEventHandler;
 
-["UO_FW_PlayerRespawn_RecieveTicketEvent", {
+[QGVAR(PlayerRespawnRecieveTicketEvent), {
     params ["_unit","_response","_ticketType","_ticketsRemaining"];
     LOG_1("RecieveTicketEvent",_this);
     if !(local _unit) exitwith {};
@@ -99,7 +98,7 @@ LOG("Client Pre Init");
             _delay = MGETMVAR(Respawn_Delay_Indfor,5);
         };
         case civilian: {
-            _delay = MGETMVAR(Respawn_Delay_Civilian,5);
+            _delay = MGETMVAR(Respawn_Delay_Civ,5);
         };
     };
     [{
@@ -107,7 +106,7 @@ LOG("Client Pre Init");
         switch (_ticketType) do {
             case "IND": {
                 if (_response) then {
-                    ["UO_FW_PlayerRespawn_Event", []] call CBA_fnc_localEvent;
+                    [QGVAR(PlayerRespawnEvent), []] call CBA_fnc_localEvent;
                     if (_ticketsRemaining isEqualTo 0) exitwith {
                         "You have no respawn tickets remaining." call BIS_fnc_titleText;
                     };
@@ -117,13 +116,13 @@ LOG("Client Pre Init");
                     };
                     (format ["You have %1 respawn %2 remaining.",_ticketsRemaining,_pluralForm]) call BIS_fnc_titleText;
                 } else {
-                    ["UO_FW_Specator_StartSpectate_Event", []] call CBA_fnc_localEvent;
+                    [QEGVAR(Spectator,StartSpectateEvent), []] call CBA_fnc_localEvent;
                     "You had no respawn tickets remaining<br />Enabling spectator." call BIS_fnc_titleText;
                 };
             };
             case "TEAM": {
                 if (_response) then {
-                    ["UO_FW_PlayerRespawn_Event", []] call CBA_fnc_localEvent;
+                    [QGVAR(PlayerRespawnEvent), []] call CBA_fnc_localEvent;
                     if (_ticketsRemaining isEqualTo 0) exitwith {
                         "Your team has no respawn tickets remaining." call BIS_fnc_titleText;
                     };
@@ -133,7 +132,7 @@ LOG("Client Pre Init");
                     };
                     (format ["Your team has %1 respawn %2 remaining.",_ticketsRemaining,_pluralForm]) call BIS_fnc_titleText;
                 } else {
-                    ["UO_FW_Specator_StartSpectate_Event", []] call CBA_fnc_localEvent;
+                    [QEGVAR(Spectator,StartSpectateEvent), []] call CBA_fnc_localEvent;
                     "Your team had no respawn tickets remaining<br />Enabling spectator." call BIS_fnc_titleText;
                 };
             };
@@ -141,7 +140,7 @@ LOG("Client Pre Init");
     }, [_response,_ticketType,_ticketsRemaining], (_delay + 3)] call CBA_fnc_WaitAndExecute;
 }] call CBA_fnc_addEventHandler;
 
-["UO_FW_PlayerInit_Event", {
+[QGVAR(PlayerInitEvent), {
     if (GETMVAR(ViewDistance_Enforce,false)) then {
         setViewDistance GETMVAR(ViewDistance,2500);
     };
@@ -154,28 +153,28 @@ LOG("Client Pre Init");
     player setvariable ["BIS_noCoreConversations",true,true];
 }] call CBA_fnc_addEventHandler;
 
-["UO_FW_PlayerInitEH_Event", {
+[QGVAR(PlayerInitEHEvent), {
     SETPLPVAR(Dead,false);
     SETPLPVAR(HasDied,false);
     SETPLPVAR(Spectating,false);
     SETPLPVAR(Body,player);
-    UO_FW_PlayerHitHandle = [player, "Hit", FUNC(HitHandler), []] call CBA_fnc_addBISEventHandler;
-    ["UO_FW_PlayerSpawned", player] call CBA_fnc_serverEvent;
+    GVAR(PlayerHitHandle) = [player, "Hit", FUNC(HitHandler), []] call CBA_fnc_addBISEventHandler;
+    [QGVAR(PlayerSpawned), player] call CBA_fnc_serverEvent;
 }] call CBA_fnc_addEventHandler;
 
-["UO_FW_JIP_PlayerEvent", {
-    if (((UO_FW_JIP_Type_BLUFOR isEqualto 2) && {(side player isEqualto west)})
-        || ((UO_FW_JIP_Type_OPFOR isEqualto 2) && {(side player isEqualto east)})
-        || ((UO_FW_JIP_Type_Indfor isEqualto 2) && {(side player isEqualto independent)})
-        || ((UO_FW_JIP_Type_Civilian isEqualto 2) && {(side player isEqualto civilian)})
+[QEGVAR(JiP,PlayerEvent), {
+    if ((((EGETMVAR(JiP,Type_BLUFOR,0)) isEqualto 2) && {(side player isEqualto west)})
+        || (((EGETMVAR(JiP,Type_OPFOR,0)) isEqualto 2) && {(side player isEqualto east)})
+        || (((EGETMVAR(JiP,Type_Indfor,0)) isEqualto 2) && {(side player isEqualto independent)})
+        || (((EGETMVAR(JiP,Type_Civ,0)) isEqualto 2) && {(side player isEqualto civilian)})
     ) exitwith {
-        ["This mission does not support JIP for your team, enabling spectator"] call EFUNC(Core,parsedTextDisplay);
-        ["UO_FW_UnTrack_Event", [player]] call CBA_fnc_serverEvent;
-        ["UO_FW_Specator_StartSpectate_Event", []] call CBA_fnc_localEvent;
+        ["This mission does not support JIP for your team, enabling spectator"] call FUNC(parsedTextDisplay);
+        [QGVAR(UnTrackEvent), [player]] call CBA_fnc_serverEvent;
+        [QEGVAR(Spectator,StartSpectateEvent), []] call CBA_fnc_localEvent;
         SETPLPVAR(JIPExcluded,true);
     };
     // Player can JiP, initialize player vars and EHs
-    ["UO_FW_PlayerInitEH_Event", []] call CBA_fnc_localEvent;
-    ["UO_FW_PlayerInit_Event", []] call CBA_fnc_localEvent;
+    [QGVAR(PlayerInitEHEvent), []] call CBA_fnc_localEvent;
+    [QGVAR(PlayerInitEvent), []] call CBA_fnc_localEvent;
     [] call EFUNC(JiP,GiveActions);
 }] call CBA_fnc_addEventHandler;

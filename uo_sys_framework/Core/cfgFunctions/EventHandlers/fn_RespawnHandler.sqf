@@ -24,7 +24,7 @@ switch (side player) do {
         _respawnType = ["ONELIFE","UNLIMITED","INDTICK","TEAMTICK"] select _respawnTypeNum;
     };
     case civilian: {
-        private _respawnTypeNum = MGETMVAR(Respawn_Type_Civilian,0);
+        private _respawnTypeNum = MGETMVAR(Respawn_Type_Civ,0);
         _respawnType = ["ONELIFE","UNLIMITED","INDTICK","TEAMTICK"] select _respawnTypeNum;
     };
 };
@@ -33,18 +33,18 @@ LOG_1("_respawnType: %1",_respawnType);
 
 switch (_respawnType) do {
     case "ONELIFE": {
-        ["UO_FW_Specator_StartSpectate_Event", []] call CBA_fnc_localEvent;
+        [QEGVAR(Spectator,StartSpectateEvent), []] call CBA_fnc_localEvent;
     };
     case "UNLIMITED": {
-        ["UO_FW_PlayerRespawn_Event", []] call CBA_fnc_localEvent;
+        [QEGVAR(Core,PlayerRespawnEvent), []] call CBA_fnc_localEvent;
     };
     case "INDTICK": {
-        ["UO_FW_PlayerRespawn_RequestTicketEvent", [player,"IND"]] call CBA_fnc_serverEvent;
+        [QEGVAR(Core,PlayerRespawnRequestTicketEvent), [player,"IND"]] call CBA_fnc_serverEvent;
     };
     case "TEAMTICK": {
-        ["UO_FW_PlayerRespawn_RequestTicketEvent", [player,"TEAM"]] call CBA_fnc_serverEvent;
+        [QEGVAR(Core,PlayerRespawnRequestTicketEvent), [player,"TEAM"]] call CBA_fnc_serverEvent;
     };
     default {
-        ["UO_FW_Specator_StartSpectate_Event", []] call CBA_fnc_localEvent;
+        [QEGVAR(Spectator,StartSpectateEvent), []] call CBA_fnc_localEvent;
     };
 };

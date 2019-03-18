@@ -19,17 +19,17 @@ if (hasInterface) then {
         //Global client init including JiPs
         [{
             [{
-                ["UO_FW_RegisterFrameworkEvent", []] call CBA_fnc_localEvent;
+                [QEGVAR(Core,RegisterFrameworkEvent), []] call CBA_fnc_localEvent;
             }] call CBA_fnc_execNextFrame;
         }] call CBA_fnc_execNextFrame;
 
         if (didJIP && {(CBA_missionTime > ((EGETMVAR(JIP,Denytime,5)) * 60))}) exitwith {
-            ["UO_FW_JIP_PlayerEvent", []] call CBA_fnc_localEvent;
-            ["UO_FW_JIP_ServerEvent", [player]] call CBA_fnc_serverEvent;
+            [QEGVAR(JiP,PlayerEvent), []] call CBA_fnc_localEvent;
+            [QEGVAR(JiP,ServerEvent), [player]] call CBA_fnc_serverEvent;
         };
         //Global client init excluding JiPs - init here should be replicated after JiP ability determined
-        ["UO_FW_PlayerInit_Event", []] call CBA_fnc_localEvent;
-        ["UO_FW_PlayerInitEH_Event", []] call CBA_fnc_localEvent;
+        [QEGVAR(Core,PlayerInitEvent), []] call CBA_fnc_localEvent;
+        [QEGVAR(Core,PlayerInitEHEvent), []] call CBA_fnc_localEvent;
     }] call CBA_fnc_WaitUntilAndExecute;
 } else {
     LOG("HC Post Init");

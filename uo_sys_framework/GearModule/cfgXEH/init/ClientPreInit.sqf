@@ -72,16 +72,16 @@ EXEC_CHECK(CLIENTHC);
             private ["_loadoutvarname"];
             switch (side player) do {
                 case west: {
-                    _loadoutvarname = format ["UO_FW_Gear_%1_LoadoutType_Blufor_%2",_SystemTag,_gearType];
+                    _loadoutvarname = format ["##PREFIX##_Gear_%1_LoadoutType_Blufor_%2",_SystemTag,_gearType];
                 };
                 case east: {
-                    _loadoutvarname = format ["UO_FW_Gear_%1_LoadoutType_Opfor_%2",_SystemTag,_gearType];
+                    _loadoutvarname = format ["##PREFIX##_Gear_%1_LoadoutType_Opfor_%2",_SystemTag,_gearType];
                 };
                 case resistance: {
-                    _loadoutvarname = format ["UO_FW_Gear_%1_LoadoutType_Indfor_%2",_SystemTag,_gearType];
+                    _loadoutvarname = format ["##PREFIX##_Gear_%1_LoadoutType_Indfor_%2",_SystemTag,_gearType];
                 };
                 case civilian: {
-                    _loadoutvarname = format ["UO_FW_Gear_%1_LoadoutType_Civilian_%2",_SystemTag,_gearType];
+                    _loadoutvarname = format ["##PREFIX##_Gear_%1_LoadoutType_Civ_%2",_SystemTag,_gearType];
                 };
             };
             //_loadoutName = missionNamespace getvariable [_loadoutvarname,"NONE"];

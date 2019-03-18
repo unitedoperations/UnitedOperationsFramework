@@ -88,7 +88,7 @@ MESSAGE call EFUNC(Debug,DebugMessage)
 #define QQGVAR(var1) QUOTE(QGVAR(var1))
 #define QQEGVAR(var1,var2) QUOTE(QEGVAR(var1,var2))
 
-//UO_FW_Component_fnc_functionName
+//PREFIX_COMPONENT_fnc_functionName
 #define MFUNC(var1) TRIPLES(PREFIX,fnc,var1)
 #define QMFUNC(var1) QUOTE(MFUNC(var1))
 #define FUNC(var1) TRIPLES(PREFIX,fnc,DOUBLES(COMPONENT,var1))
@@ -96,7 +96,7 @@ MESSAGE call EFUNC(Debug,DebugMessage)
 #define EFUNC(var1,var2) TRIPLES(PREFIX,fnc,DOUBLES(var1,var2))
 #define QEFUNC(var1,var2) QUOTE(EFUNC(var1,var2))
 
-#define CSTRING_2(var1,var2) QUOTE(DOUBLES($STR_UO_FW,DOUBLES(var1,var2)))
+#define CSTRING_2(var1,var2) QUOTE(DOUBLES(DOUBLES($STR,PREFIX),DOUBLES(var1,var2)))
 
 //Script control
 #define EXEC_CHECK(ARG)\

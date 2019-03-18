@@ -48,7 +48,7 @@ if (!UO_FW_Server_CoverMapModule_Allowed) exitWith {};
                     };
                 };
                 case civilian: {
-                    _DefaultAO = (GETMVAR(DefaultAO_Civilian,""));
+                    _DefaultAO = (GETMVAR(DefaultAO_Civ,""));
                     _DefaultAO = toLower(_DefaultAO);
                     if (_DefaultAO isEqualto "") exitwith {
                         ERROR("No Default Civilian Area defined for CoverMap!");
@@ -85,7 +85,7 @@ if (!UO_FW_Server_CoverMapModule_Allowed) exitWith {};
                         if ((_AONameAllowed isEqualto _AOName) && {!(_AONameAllowed in _ActionArray)}) then {
                             private _condition = {
                                 params ["", "", "_params"];
-                                (visibleMap) && !(GVAR(currentAO) isEqualto (_params select 0)) && (GETMVAR(AllowSwitching,false))
+                                (visibleMap) && {!(GVAR(currentAO) isEqualto (_params select 0))} && {(GETMVAR(AllowSwitching,false))}
                             };
                             private _statement = {
                                 params ["", "", "_params"];

@@ -29,8 +29,8 @@ if (!UO_FW_Server_StartTextModule_Allowed) exitWith {};
                 if !(_textVar isEqualto "" ) then {_startTextArray pushBack ["TEXT", _textVar];};
             };
             case civilian: {
-                private _TitleQuoteVar = GETMVAR(TitleQuote_Civilian,"");
-                private _textVar = GETMVAR(Text_Civilian,"");
+                private _TitleQuoteVar = GETMVAR(TitleQuote_Civ,"");
+                private _textVar = GETMVAR(Text_Civ,"");
                 if !(_TitleQuoteVar isEqualto "" ) then {_startTextArray pushBack ["TitleQUOTE", _TitleQuoteVar];};
                 if !(_textVar isEqualto "" ) then {_startTextArray pushBack ["TEXT", _textVar];};
             };

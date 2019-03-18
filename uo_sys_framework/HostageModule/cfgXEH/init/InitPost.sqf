@@ -3,12 +3,8 @@
 EXEC_CHECK(ALL);
 
 params ["_unit"];
+private _hostageState = GETVAR(_unit,State,false);
+LOG_2("Hostage InitPost Unit: %1 Value: %2!",_unit,_hostageState);
 
-if !(GETVAR(_unit,State,false)) exitwith {};
-
-//IGNORE_PRIVATE_WARNING ["_thisArgs"];
-
-[QEGVAR(Core,SettingsLoaded), {
-    private _unit = _thisArgs;
-    [_unit] call FUNC(Set);
-}, _unit] call CBA_fnc_addEventHandlerArgs;
+if !(_hostageState) exitwith {};
+[_unit] call FUNC(Set);

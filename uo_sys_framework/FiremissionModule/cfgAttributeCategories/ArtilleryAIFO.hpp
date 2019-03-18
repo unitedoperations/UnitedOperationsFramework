@@ -9,7 +9,7 @@ class UO_FW_ArtilleryAIFO
             property = "UO_FW_ArtilleryFOAIEnabled";
             displayName = "Make Unit an Artillery AI FO?";
             tooltip = "Enables Artillery FO";
-            control = "UO_FW_CheckBoxStateAIOnlyCategory";
+            control = QEGVAR(Core,CheckBoxStateAIOnlyCategory);
             expression = ENTITY_EXPRESSION;
             defaultValue = "false";
             typeName = "BOOL";

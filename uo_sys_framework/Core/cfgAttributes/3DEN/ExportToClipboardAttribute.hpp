@@ -1,4 +1,4 @@
-class UO_FW_ExportToClipboardAttribute: Title {
+class EGVAR(Export,ToClipboardAttribute): Title {
     class Controls: Controls {
         class Title: Title {};
         class Value: ctrlButtonPictureKeepAspect {

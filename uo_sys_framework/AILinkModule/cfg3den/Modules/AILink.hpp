@@ -1,4 +1,4 @@
-class UO_FW_AILink {
+class EGVAR(AILink,Category) {
     displayName = "AI Link Settings";
     collapsed = 1;
     class Attributes {

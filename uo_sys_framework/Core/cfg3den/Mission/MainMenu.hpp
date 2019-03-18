@@ -6,7 +6,7 @@ class EGVAR(Core,MainSettings) {
             property = QEGVAR(Core,Enabled);
             displayName = "Enable UO Framework";
             tooltip = "Enable UO Framework";
-            control = "UO_FW_FrameworkCheckbox";
+            control = QEGVAR(Core,FrameworkCheckbox);
             expression = SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
@@ -14,7 +14,7 @@ class EGVAR(Core,MainSettings) {
             property = QEGVAR(Core,MissionType);
             displayName = "Mission Type";
             tooltip = "Determines Mission Type";
-            control = "MissionType";
+            control = QEGVAR(Core,MissionTypeAttribute);
             expression = SCENARIO_EXPRESSION;
             defaultValue = "0";
         };

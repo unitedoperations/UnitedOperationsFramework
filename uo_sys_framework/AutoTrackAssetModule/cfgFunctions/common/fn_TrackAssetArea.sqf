@@ -15,7 +15,7 @@ params ["_marker", "_team"];
             if (_name isEqualto _team) exitWith {
                 private _vehCfg = (configFile >> "CfgVehicles" >> (typeOf _vehicle));
                 if (isText(_vehCfg >> "displayName")) then {
-                    ["UO_FW_TrackAsset_Event",[_vehicle, getText(_vehCfg >> "displayName"), _name]] call CBA_fnc_serverEvent;
+                    [QEGVAR(Core,TrackAssetEvent),[_vehicle, getText(_vehCfg >> "displayName"), _name]] call CBA_fnc_serverEvent;
                 };
             };
         } forEach EGVAR(Core,Teams);

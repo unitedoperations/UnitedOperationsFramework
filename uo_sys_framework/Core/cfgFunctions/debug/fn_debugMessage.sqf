@@ -20,24 +20,8 @@ if !(UO_FW_Server_DEBUG_Allowed) exitWith {};
 
 params ["_message"];
 
-if (isNil QGVAR(DebugMessages)) then {GVAR(DebugMessages) = [];};
-
-if (!(_message in GVAR(DebugMessages))) then {
-    GVAR(DebugMessages) pushback _message;
+if (isMultiplayer) then {
+    [QGVAR(DebugMessageEvent), [_message]] call CBA_fnc_globalEvent;
+} else {
+    [_message] call FUNC(debugMessageDisplay);
 };
-
-if (isNull (uiNamespace getVariable [QGVAR(DisplayID),displaynull])) then {
-    QGVAR(Layer) cutRsc [QGVAR(Display), "PLAIN"];
-};
-
-[{
-    params ["_message"];
-    [{!(isNull (uiNamespace getVariable [QGVAR(DisplayID),displaynull]))}, {
-        params ["_message"];
-        [] call FUNC(refreshDebug);
-        [{
-            GVAR(DebugMessages) = GVAR(DebugMessages) - [_message];
-            [] call FUNC(refreshDebug);
-        }, [_message], 30] call CBA_fnc_waitAndExecute;
-    }, [_message]] call CBA_fnc_waitUntilAndExecute;
-}, [_message]] call CBA_fnc_execNextFrame;

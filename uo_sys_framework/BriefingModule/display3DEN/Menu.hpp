@@ -1,35 +1,35 @@
 class EGVAR(Briefing,Folder) {
     text = "Configure Briefings";
-    items[] = {"UO_FW_Briefing_Configure_Blufor","UO_FW_Briefing_Configure_Opfor","UO_FW_Briefing_Configure_Indfor","UO_FW_Briefing_Configure_Civilian","UO_FW_Mission_Notes_Configure","UO_FW_Mission_Export"};
+    items[] = {QEGVAR(Briefing,Configure_Blufor),QEGVAR(Briefing,Configure_Opfor),QEGVAR(Briefing,Configure_Indfor),QEGVAR(Briefing,Configure_Civ),QEGVAR(Briefing,Notes_Configure),QEGVAR(Briefing,Export)};
     picture = "\a3\3DEN\Data\Cfg3DEN\Comment\texture_ca.paa";
 };
 
 class EGVAR(Briefing,Configure_Blufor) {
     text = "Configure Blufor Briefing";
-    action = "edit3DENMissionAttributes 'UO_FW_Briefing_Blufor';";
+    action = QUOTE(edit3DENMissionAttributes QN(EGVAR(Briefing,Blufor)));
 };
 
 class EGVAR(Briefing,Configure_Opfor) {
     text = "Configure Opfor Briefing";
-    action = "edit3DENMissionAttributes 'UO_FW_Briefing_Opfor';";
+    action = QUOTE(edit3DENMissionAttributes QN(EGVAR(Briefing,Opfor)));
 };
 
 class EGVAR(Briefing,Configure_Indfor) {
     text = "Configure Indfor Briefing";
-    action = "edit3DENMissionAttributes 'UO_FW_Briefing_Indfor';";
+    action = QUOTE(edit3DENMissionAttributes QN(EGVAR(Briefing,Indfor)));
 };
 
-class EGVAR(Briefing,Configure_Civilian) {
+class EGVAR(Briefing,Configure_Civ) {
     text = "Configure Civilian Briefing";
-    action = "edit3DENMissionAttributes 'UO_FW_Briefing_Civilian';";
+    action = QUOTE(edit3DENMissionAttributes QN(EGVAR(Briefing,Civilian)));
 };
 
-class EGVAR(Mission,Notes_Configure) {
+class EGVAR(Briefing,Notes_Configure) {
     text = "Configure Mission Notes";
-    action = "edit3DENMissionAttributes 'UO_FW_Mission_Notes';";
+    action = QUOTE(edit3DENMissionAttributes QN(EGVAR(Briefing,MissionNotes)));
 };
 
-class EGVAR(Mission,Export) {
+class EGVAR(Briefing,Export) {
     text = "Export Briefing";
-    action = "[] call UO_FW_fnc_Briefing_ExportBriefings;";
+    action = QUOTE([] call EFUNC(Briefing,ExportBriefings););
 };

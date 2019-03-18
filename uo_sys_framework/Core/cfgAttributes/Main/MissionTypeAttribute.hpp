@@ -1,6 +1,12 @@
-class MissionType: Toolbox {
-    attributeLoad="missionNamespace setvariable ['UO_FW_Mission_Type',_value]; (_this controlsGroupCtrl 100) lbsetcursel _value;";
-    attributeSave="missionNamespace getvariable ['UO_FW_Mission_Type',0];";
+class EGVAR(Core,MissionTypeAttribute): Toolbox {
+    attributeLoad= QUOTE(\
+        missionNamespace setVariable [QN(EGVAR(Core,MissionType)),_value];\
+        (_this controlsGroupCtrl 100) lbsetcursel _value;\
+    );
+    attributeSave= QUOTE(\
+        private _value = missionNamespace getVariable [QN(EGVAR(Core,MissionType)),0];\
+        _value\
+    );
     h="8 * (pixelH * pixelGrid * 0.50)";
     class Controls: Controls {
         class Title: Title {};
@@ -26,7 +32,9 @@ class MissionType: Toolbox {
                 "UOTC is defined as any mission built for the United Operations Training Center"
             };
             values[]={0,1,2,3,4};
-            onToolboxSelChanged="missionNamespace setvariable ['UO_FW_Mission_Type',_this select 1];";
+            onToolboxSelChanged = QUOTE(\
+                missionNamespace setVariable [QN(EGVAR(Core,MissionType)),(_this select 1)];\
+            );
         };
     };
 };

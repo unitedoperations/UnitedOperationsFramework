@@ -43,12 +43,12 @@ if !(GVAR(ExpendedAmmunition_Indfor) isEqualto []) then {
     _ShotCount_textIND = "";
 };
 
-if !(GVAR(ExpendedAmmunition_Civilian) isEqualto []) then {
+if !(GVAR(ExpendedAmmunition_Civ) isEqualto []) then {
     _ShotCount_textCIV = "CIVILIAN Munitions Expended:<br/>";
     {
         _x params ["_label","_count"];
         _ShotCount_textCIV = _ShotCount_textCIV + _label + ": " + str(_count) + " Rounds" + "<br/>";
-    } foreach GVAR(ExpendedAmmunition_Civilian);
+    } foreach GVAR(ExpendedAmmunition_Civ);
 } else {
     _ShotCount_textCIV = "";
 };

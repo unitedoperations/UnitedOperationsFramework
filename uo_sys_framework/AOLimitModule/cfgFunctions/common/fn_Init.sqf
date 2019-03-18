@@ -31,7 +31,7 @@ EXEC_CHECK(CLIENT);
             };
         } foreach GVAR(Arrays);
         private _count = (count GVAR(Arrays));
-        _arrayname = format ["UO_FW_AOLimit_Array_%1",_count];
+        _arrayname = format ["##PREFIX##_AOLimit_Array_%1",_count];
         missionNamespace setvariable [_arrayname,[_area]];
         _run = true;
     };

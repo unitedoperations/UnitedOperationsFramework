@@ -23,9 +23,9 @@ class EGVAR(Gear,Configure_Indfor) {
     action = QUOTE(edit3DENMissionAttributes QN(EGVAR(Gear,Menu_Indfor)));
 };
 
-class EGVAR(Gear,Configure_Civilian) {
+class EGVAR(Gear,Configure_Civ) {
     text = "Configure Civilian Gear";
-    action = QUOTE(edit3DENMissionAttributes QN(EGVAR(Gear,Menu_Civilian)));
+    action = QUOTE(edit3DENMissionAttributes QN(EGVAR(Gear,Menu_Civ)));
 };
 
 class EGVAR(Gear,Folder) {
@@ -36,7 +36,7 @@ class EGVAR(Gear,Folder) {
         QEGVAR(Gear,Configure_Blufor),
         QEGVAR(Gear,Configure_Opfor),
         QEGVAR(Gear,Configure_Indfor),
-        QEGVAR(Gear,Configure_Civilian)
+        QEGVAR(Gear,Configure_Civ)
     };
     picture = "\a3\3DEN\Data\Displays\Display3DEN\EntityMenu\arsenal_ca.paa";
 };

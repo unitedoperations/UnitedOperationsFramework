@@ -1,4 +1,4 @@
-class EGVAR(Acre,ChannelSelect): Title {
+class EGVAR(ACRE,ChannelSelect): Title {
     attributeLoad = "\
         private _valuestr = str _value;\
         (_this controlsGroupCtrl 100) ctrlSetText _valuestr;\

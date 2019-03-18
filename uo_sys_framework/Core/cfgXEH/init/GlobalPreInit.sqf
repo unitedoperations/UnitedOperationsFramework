@@ -1,7 +1,6 @@
-call compile preProcessFileLineNumbers "\x\UO_FW\addons\Main\Core\cfgXEH\Settings\CBA_settings.sqf";
-
 #define COMPONENT Core
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
+call compile preProcessFileLineNumbers "\x\UO_FW\addons\Main\Core\cfgXEH\Settings\CBA_settings.sqf";
 
 INFO_1("Framework Server setting: %1",UO_FW_Server_Framework_Allowed);
 
@@ -9,13 +8,13 @@ if (!UO_FW_Server_Framework_Allowed) exitWith {
     INFO("Framework is disabled in Server settings, exiting");
 };
 
-if !(EGETMVALUE(Core,Enabled,false)) exitWith {
+if !(GETMVALUE(Enabled,false)) exitWith {
     INFO("Framework is disabled in Mission settings... exiting");
 };
 
 INFO("Initializing Framework");
 LOG("Global Pre Init");
-UO_FW_Framework_Initialized = false;
+SETMVAR(Initialized,false);
 [] call EFUNC(3DEN,setDefaults);
 
 private _missionFrameworkVersionCreatedStr = (GETMVALUE(Version_Created,""));
@@ -38,16 +37,16 @@ if (_missionFrameworkVersionStr isEqualto "") then {
     INFO_1("Mission Updated with Framework Version:%1",_missionFrameworkVersion);
 };
 
-["UO_FW_EntityAttributeLoad", {
+[QGVAR(EntityAttributeLoad), {
     params ["_object", "_propertyName", "_value", ["_isGlobal",false,[false]]];
     _object setvariable [_propertyName,_value,_isGlobal];
 }] call CBA_fnc_addEventHandler;
 
-//[QEGVAR(Core,SettingsLoaded), {
+//[QGVAR(SettingsLoaded), {
 //    //_respawnTypeArray = [['1 Life','ONELIFE'],['Unlimited','UNLIMITED'],['Individual Tickets','INDTICKETS'],['Team Tickets','TEAMTICKETS']];
 //}] call CBA_fnc_addEventHandler;
 
-["UO_FW_EndMission_LocalObjectsEvent", {
+[QEGVAR(EndMission,LocalObjectsEvent), {
     {
         _x enableSimulation false;
         removeAllWeapons _x;
@@ -58,9 +57,14 @@ if (_missionFrameworkVersionStr isEqualto "") then {
     } foreach allUnits select {local _x};
 }] call CBA_fnc_addEventHandler;
 
-if (!(hasInterface) || !(isMultiplayer)) then {
-    [QEGVAR(Core,EndmissionEvent), {
+[QEGVAR(Debug,DebugMessageEvent), {
+    params ["_message"];
+    [_message] call EFUNC(Debug,debugMessageDisplay);
+}] call CBA_fnc_addEventHandler;
+
+if (!(hasInterface) || (isServer)) then {
+    [QGVAR(EndmissionEvent), {
         params ["_scenario"];
-        ["UO_FW_EndMission_LocalObjectsEvent", []] call CBA_fnc_localEvent;
+        [QEGVAR(EndMission,LocalObjectsEvent), []] call CBA_fnc_localEvent;
     }] call CBA_fnc_addEventHandler;
 };
