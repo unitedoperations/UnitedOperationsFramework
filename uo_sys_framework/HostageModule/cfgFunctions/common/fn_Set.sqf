@@ -25,7 +25,7 @@ SETPVAR(_unit,IsRescued,false);
     _unit setBehaviour "CARELESS";
     _unit allowFleeing 0;
     _unit setCaptive true;
-    [_unit, "Acts_AidlPsitMstpSsurWnonDnon04", 1] call ace_common_fnc_doAnimation;
+    [_unit, "Acts_AidlPsitMstpSsurWnonDnon04", 1] remoteExecCall ["ace_common_fnc_doAnimation", _unit];
     _unit disableAI "MOVE";
 
     //IGNORE_PRIVATE_WARNING ["_thisID","_thisType"];
@@ -34,7 +34,7 @@ SETPVAR(_unit,IsRescued,false);
         if ((!alive _unit) || (GETVAR(_unit,IsRescued,false)) || (GETVAR(_unit,IsUntied,false))) exitWith {
             _unit removeEventHandler [_thisType, _thisID];
         };
-        [_unit, "Acts_AidlPsitMstpSsurWnonDnon04", 1] call ace_common_fnc_doAnimation;
+		    [_unit, "Acts_AidlPsitMstpSsurWnonDnon04", 1] remoteExecCall ["ace_common_fnc_doAnimation", _unit];
     }, []] call CBA_fnc_addBISEventHandler;
 
     SETVAR(_unit,EhAnimDone,_EhAnimDone);
@@ -49,7 +49,7 @@ SETPVAR(_unit,IsRescued,false);
             if ((vehicle _unit) isEqualto _unit) then {
                 [_unit] joinSilent grpNull;
                 _unit disableAI "MOVE";
-                [_unit, "AmovPsitMstpSnonWnonDnon_ground", 1] call ace_common_fnc_doAnimation;
+				        [_unit, "AmovPsitMstpSnonWnonDnon_ground", 1] remoteExecCall ["ace_common_fnc_doAnimation", _unit];
                 _unit disableAI "ANIM";
             };
             SETPVAR(_unit,IsRescued,true);

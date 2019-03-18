@@ -8,4 +8,5 @@ Thumbs.db
 *.bak
 *.json
 *.log
-
+*.zip
+*.7z
