@@ -17,28 +17,34 @@ redirect_from:
 
 # Installation
 
+## United Operations Testpack
+
+[Testing Modpack](https://steamcommunity.com/sharedfiles/filedetails/?id=849706204)
+{: .btn .mb-4 }
+
+Subscribe to the pack below for the latest public testing release of the framework.
+Keep in mind this version requires you to have content exclusive to the United Operations server and mod-pack.
+These dependencies are a temporary requirement and will be removed in a later public release.	
+
 ## Github
 
 [Latest Release](https://github.com/unitedoperations/UnitedOperationsFramework/releases/latest/)
-{: .btn .mb-6 }
+{: .btn .mb-4 }
 
-(This process is taken from the testing instructions, it is unlikely this will apply for non-testing users.)
+[UO Framework Rolling Release](https://steamcommunity.com/sharedfiles/filedetails/?id=1681312425)
+{: .btn .mb-4 }
 
-1. Unzip the contents of the .zip/.7z file to a folder of your choosing. (I highly suggest UOFW or something similar.)
+
+If you want to build the framework from the latest commit to master:
+
+1. Obtaining source code
+- A: Use "Clone or Download" button on Github, download as a zip file and unzip it's contents to a folder of your choosing.
+- B: Or clone the latest commit to master to a local repository.
 2. Run build.bat and hit y on both prompts. This will place a folder in your Arma 3 folder called @uof
 3. Open the Arma 3 Launcher with your normal United Operations Modpack.
 4. Select the mods tab and select Local mod in the mods menu.
 5. Specify the @UOF folder in your Arma 3 installation and load it after all of your other mods. (At the bottom of the list.)
 6. Load into Arma 3 and you will be running the latest dev release of the UO Framework!
-
-## United Operations Testpack
-
-[Testing Modpack](https://steamcommunity.com/sharedfiles/filedetails/?id=849706204)
-{: .btn .mb-6 }
-
-Subscribe to the pack below for the latest public testing release of the framework.
-Keep in mind this version requires you to have content exclusive to the United Operations server and mod-pack.
-These dependencies are a temporary requirement and will be removed in a later public release.
 
 ---
 
@@ -90,18 +96,15 @@ To enable the Gear module, refer to this [guide.]({{ site.baseurl }}/docs/toc/co
 
 ## End-Conditions
 
-End conditions can be setup through two different methods.
-
 End-Condition categories provided in the End Conditions menu.
 {: .fw-600 }
 
-  - "All Conditions" means once all conditions you select within the that condition, that ending will occur.
+  - "All Conditions" means once all conditions within you select within the that condition, that ending will occur.
   <!-- ![image-title-here]({{ site.baseurl }}/resources/images/setup/endcond_all.png){:class="img-responsive"} -->
   - "Any Condition" means once any one of the conditions you specify occur, that ending will occur.
   <!-- ![image-title-here]({{ site.baseurl }}/resources/images/setup/endcond_any.png){:class="img-responsive"} -->
-
-Custom end-conditions done through an SQF script
-{: .fw-600 }
+  - Custom end-conditions done through an SQF script
+	{: .fw-600 }
 
 Keep in mind, end-conditions from the Olsen framework are not supported by the UO Framework!
   <!-- * [Here's]({{ site.baseurl }}/docs/mission-makers/end_cond/#porting-from-olsen) how to convert your Olsen end-conditions to the UO Framework -->
