@@ -31,12 +31,12 @@ These dependencies are a temporary requirement and will be removed in a later pu
 [Latest Release](https://github.com/unitedoperations/UnitedOperationsFramework/releases/latest/)
 {: .btn .mb-4 }
 
+[UO Framework Rolling Release](https://steamcommunity.com/sharedfiles/filedetails/?id=1681312425)
+{: .btn .mb-4 }
+
 
 If you want to build the framework from the latest commit to master:
 
-1. Obtaining source code
-- A: Use "Clone or Download" button on Github, download as a zip file and unzip it's contents to a folder of your choosing.
-- B: Or clone the latest commit to master to a local repository.
 2. Run build.bat and hit y on both prompts. This will place a folder in your Arma 3 folder called @uof
 3. Open the Arma 3 Launcher with your normal United Operations Modpack.
 4. Select the mods tab and select Local mod in the mods menu.
