@@ -59,11 +59,18 @@ kramdown:
 plugins:
   - jekyll-redirect-from
   
+# collections:
+#     docs:
+#         permalink: "/:collection/:slug"
+#         output: "true"
+  
 defaults:
-    -
-        scope:
+    -   scope:
             path: ""
+            type: ""
         values:
+            layout: default
             alt_title: "Default Title"
             use_title: true
-            # grand_parent:
+            # permalink: "/:slug"
+            # grand_parent: 

@@ -31,9 +31,6 @@ These dependencies are a temporary requirement and will be removed in a later pu
 [Latest Release](https://github.com/unitedoperations/UnitedOperationsFramework/releases/latest/)
 {: .btn .mb-4 }
 
-[UO Framework Rolling Release](https://steamcommunity.com/sharedfiles/filedetails/?id=1681312425)
-{: .btn .mb-4 }
-
 
 If you want to build the framework from the latest commit to master:
 

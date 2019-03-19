@@ -16,42 +16,41 @@ parent: Core Modules
 
 ## Features
 
-List features of the module here:
-- Feature One
-- Feature Two
-- Feature Three
-- Feature Four
+* Enable or disable prevention of negligent discharges of:
+  1. Rifles
+  2. Pistols 
+  3. Launchers
+
+
+While the player is:
+
+
+A) __*within a specified radius from their spawn location*__ **and** 
+
+
+B) __*until a certain time limit has been reached*__
+
+
+this module will prevent players from causing damage through negligent discharge aka ND.
 
 ## Usage
 
-### Using Feature One
+### Enabling Anti-ND
 
-Text here.
+- Open the UO Framework Menu and select Module Settings.
 
-### Using Feature Two
+- Open the Anti-ND Settings tab.
+<!-- ![image-title-here]({{ site.baseurl }}/resources/images/core/anti_nd_settings.png){:class="img-responsive"} -->
 
-Text here.
+- You can configure the timing after player spawn (or JiP) and distance from the spawn location here.
+These settings apply to all factions and all players.
+<!-- ![image-title-here]({{ site.baseurl }}/resources/images/core/anti_nd_configuration.gif){:class="img-responsive"} -->
 
-### Using Feature Three
-
-Text here.
-
-### Using Feature Four
 
 ---
 
 # Developers
 
-## WIP
+This module does not provide any functions end-users can call themselves.
 
-This subsection will contain explanations of the functions created for the framework.
-It should not contain explanations of CBA function calls etc.
-Major event-handlers that developers can use themselves for certain tasks should also be documented and explained here.
-
-## Functions
-
-_**WIP**_
-
-## Eventhandlers
-
-_**WIP**_
+---
