@@ -10,7 +10,7 @@ params ["_vehicle"];
 [{(!isNull (_this select 0))},{
     params ["_vehicle"];
     if ((!isPlayer _vehicle) && {!(side _vehicle isEqualto civilian)}) then {
-        if (GETVAR(_vehicle,AssetName,"")) then {
+        if ((GETVAR(_vehicle,AssetName,"")) isEqualTo "") then {
             {
                 _x params ["_name", "_side", "_type", "_start", "_current", "_disabled", "_destroyed"];
                 if (_side isEqualto (side _vehicle)) exitWith {
