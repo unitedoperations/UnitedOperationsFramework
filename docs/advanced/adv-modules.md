@@ -5,7 +5,7 @@ alt_title: Advanced Modules Index
 use_title: true
 nav_order: 4
 has_children: true
-permalink: /docs/toc/advanced/adv-modules/
+permalink: /docs/advanced/adv-modules/
 ---
 
 ---

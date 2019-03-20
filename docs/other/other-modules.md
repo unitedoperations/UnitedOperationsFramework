@@ -5,7 +5,7 @@ alt_title: Misc. Modules Index
 use_title: true
 nav_order: 5
 has_children: true
-permalink: /docs/toc/other/other-modules/
+permalink: /docs/other/other-modules/
 ---
 
 ---

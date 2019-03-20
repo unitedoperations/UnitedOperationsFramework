@@ -3,9 +3,10 @@ layout: default
 title: Basic Setup
 nav_order: 1
 parent: Users
-permalink: /docs/mission-makers/basic-setup/
+permalink: /docs/missions/basic-setup/
 redirect_from: 
-  - /docs/mission-makers/users/
+  - /docs/missions/users/
+  - /docs/mission-makers/basic-setup/
 ---
 
 ---
@@ -73,16 +74,16 @@ Almost all modules with the exceptions of the ACRE and Gear modules are enabled 
 
 These modules are enabled by default:
 
-* [Automatic Asset Tracking]({{ site.baseurl }}/docs/toc/core/auto-track/)
-* [Disconnect Control]({{ site.baseurl }}/docs/toc/core/disconnect/)
-* [Anti-ND]({{ site.baseurl }}/docs/toc/core/anti-nd/)
-* [Safe Start]({{ site.baseurl }}/docs/toc/core/safe-start/)
-* [Self-Actions]({{ site.baseurl }}/docs/toc/other/self-actions/)
-* [Shot Count]({{ site.baseurl }}/docs/toc/core/shot-count/)
+* [Automatic Asset Tracking]({{ site.baseurl }}/docs/core/auto-track/)
+* [Disconnect Control]({{ site.baseurl }}/docs/core/disconnect/)
+* [Anti-ND]({{ site.baseurl }}/docs/core/anti-nd/)
+* [Safe Start]({{ site.baseurl }}/docs/core/safe-start/)
+* [Self-Actions]({{ site.baseurl }}/docs/other/self-actions/)
+* [Shot Count]({{ site.baseurl }}/docs/core/shot-count/)
 
-To enable the ACRE module, refer to this [guide.]({{ site.baseurl }}/docs/toc/core/acre/#adding-radios)
+To enable the ACRE module, refer to this [guide.]({{ site.baseurl }}/docs/core/acre/#adding-radios)
 
-To enable the Gear module, refer to this [guide.]({{ site.baseurl }}/docs/toc/core/gear/#ace-gear)
+To enable the Gear module, refer to this [guide.]({{ site.baseurl }}/docs/core/gear/#ace-gear)
 
 <!-- TODO -->
 <!-- ## Briefings
@@ -110,18 +111,18 @@ Keep in mind, end-conditions from the Olsen framework are not supported by the U
 
 # Using the Core Modules
 
-* [ACRE]({{ site.baseurl }}/docs/toc/core/acre/)
+* [ACRE]({{ site.baseurl }}/docs/core/acre/)
 
-* [Gear]({{ site.baseurl }}/docs/toc/core/gear/)
+* [Gear]({{ site.baseurl }}/docs/core/gear/)
 
-* [AO-Limits]({{ site.baseurl }}/docs/toc/core/ao-limits/)
+* [AO-Limits]({{ site.baseurl }}/docs/core/ao-limits/)
 
-* [Disconnect Control]({{ site.baseurl }}/docs/toc/core/disconnect/)
+* [Disconnect Control]({{ site.baseurl }}/docs/core/disconnect/)
 
-* [Anti-ND]({{ site.baseurl }}/docs/toc/core/anti-nd/)
+* [Anti-ND]({{ site.baseurl }}/docs/core/anti-nd/)
 
-* [Safe-Start]({{ site.baseurl }}/docs/toc/core/safe-start/)
+* [Safe-Start]({{ site.baseurl }}/docs/core/safe-start/)
 
-* [Setup Timer]({{ site.baseurl }}/docs/toc/core/safe-start/)
+* [Setup Timer]({{ site.baseurl }}/docs/core/safe-start/)
 
 ---
