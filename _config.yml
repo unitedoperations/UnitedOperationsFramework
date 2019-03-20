@@ -24,8 +24,13 @@ url: https://unitedoperations.github.io # the base hostname & protocol for your 
 repository: https://github.com/unitedoperations/UnitedOperationsFramework
 branch: gh-pages
 
-permalink: pretty
+#permalink: pretty
+permalink: /:title/
+show_dir_listing: false
 exclude: ["node_modules/", "*.gemspec", "*.gem", "Gemfile", "Gemfile.lock", "package.json", "package-lock.json",  "script/", "LICENSE.txt", "lib/", "bin/", "README.md", "Rakefile"]
+
+include:
+    - "resources"
 
 # Enable or disable the site search
 search_enabled: true
@@ -49,8 +54,6 @@ color_scheme: dark
 ga_tracking:
 
 #theme: "just-the-docs"
-include:
-    - "resources"
 
 markdown: kramdown
 kramdown:
@@ -59,11 +62,18 @@ kramdown:
 plugins:
   - jekyll-redirect-from
   
+# collections:
+#     docs:
+#         permalink: "/:collection/:slug"
+#         output: "true"
+
 defaults:
-    -
-        scope:
+    -   scope:
             path: ""
+            type: ""
         values:
+            layout: default
             alt_title: "Default Title"
             use_title: true
-            # grand_parent:
+            permalink: /:title
+            # grand_parent: 

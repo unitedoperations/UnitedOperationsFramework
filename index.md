@@ -55,9 +55,9 @@ The United Operations Framework is distributed under the [GPLv2 license](https:/
 
 Reuploads of the United Operations Framework are tolerated.
 
-Public reuploads are (and will if necessary) be politely asked to differentiate themselves from any official versions.
+Public reuploads are (and will if necessary be) politely asked to differentiate themselves from any official releases.
 
 ### Contributing
 
 When contributing to this repository, please first discuss the change you wish to make via issue,
-email, or any other method with the owners of this repository before making a change. Read more about becoming a contributor in [our GitHub repo](https://github.com/pmarsceill/just-the-docs#contributing).
+email, or any other method with the owners of this repository before making a change. Read more about becoming a contributor in [our GitHub repo](https://github.com/unitedoperations/UnitedOperationsFramework/blob/master/.github/CONTRIBUTING.md).

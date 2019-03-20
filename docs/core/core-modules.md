@@ -5,7 +5,7 @@ alt_title: Core Modules Index
 use_title: true
 nav_order: 3
 has_children: true
-permalink: /docs/toc/core/core-modules/
+permalink: /docs/core/core-modules/
 ---
 
 ---

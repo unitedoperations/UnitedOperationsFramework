@@ -3,6 +3,7 @@ layout: default
 title: ACRE Module
 nav_order: 1
 parent: Core Modules
+permalink: /docs/core/acre/
 # grand_parent: Modules
 ---
 
@@ -28,8 +29,6 @@ Provides an efficient in-editor system for:
 
 Adding radios through the ACRE module can only be done on playable units!
 
----
-
 ## Adding Radios
 
 1. Open the UO Framework menu.
@@ -39,6 +38,7 @@ Adding radios through the ACRE module can only be done on playable units!
 * ![image-title-here]({{ site.baseurl }}/resources/images/acre/acre_radios_2.png){:class="img-responsive"}
 
 3. Select "Configure ACRE Settings" and check the "Enable ACRE Framework" checkbox.
+* [Back to Basic Setup-Guide]({{ site.baseurl}}/docs/mission-makers/basic-setup/#enabling-the-framework)
 
 4. Select the side you want to specify radios for.
 * ![image-title-here]({{ site.baseurl }}/resources/images/acre/acre_radios_sides.png){:class="img-responsive"}
@@ -53,13 +53,10 @@ Adding radios through the ACRE module can only be done on playable units!
 
 The playable units you assigned radios will now have radios when starting your mission!
 
----
+<!-- TODO and WIP -->
+<!-- ## Adding Vehicle Racks
 
-## Adding Vehicle Racks
-
-_**WIP**_
-
----
+_**WIP**_ -->
 
 ## Radio Scrambling, Babel and Channel Names
 
