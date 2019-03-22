@@ -26,7 +26,7 @@ class EGVAR(Briefing,Civilian) {
     };
 };
 
-class EGVAR(Mission,Notes) {
+class EGVAR(Briefing,MissionNotes) {
     displayName = "Mission Notes";
     class AttributeCategories {
         #include "Briefing\MissionNotesMenu.hpp"
