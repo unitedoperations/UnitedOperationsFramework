@@ -1,4 +1,4 @@
-class EGVAR(Briefing,MissionNotes) {
+class EGVAR(Briefing,Notes) {
     displayName = "Mission Notes";
     collapsed = 1;
     class Attributes {
