@@ -49,16 +49,16 @@ if (_object isKindOf "CAManBase") then {
         };
         switch (side _object) do {
             case west: {
-                _loadoutvarname = format ["##PREFIX##_Gear_%1_LoadoutType_Blufor_%2",_SystemTag,_gearType];
+                _loadoutvarname = format ["%3_Gear_%1_LoadoutType_Blufor_%2",_SystemTag,_gearType,PREFIXSTR];
             };
             case east: {
-                _loadoutvarname = format ["##PREFIX##_Gear_%1_LoadoutType_Opfor_%2",_SystemTag,_gearType];
+                _loadoutvarname = format ["%3_Gear_%1_LoadoutType_Opfor_%2",_SystemTag,_gearType,PREFIXSTR];
             };
             case independent: {
-                _loadoutvarname = format ["##PREFIX##_Gear_%1_LoadoutType_Indfor_%2",_SystemTag,_gearType];
+                _loadoutvarname = format ["%3_Gear_%1_LoadoutType_Indfor_%2",_SystemTag,_gearType,PREFIXSTR];
             };
             case civilian: {
-                _loadoutvarname = format ["##PREFIX##_Gear_%1_LoadoutType_Civ_%2",_SystemTag,_gearType];
+                _loadoutvarname = format ["%3_Gear_%1_LoadoutType_Civ_%2",_SystemTag,_gearType,PREFIXSTR];
             };
         };
         private _loadoutName = missionNamespace getvariable [_loadoutvarname,"NONE"];

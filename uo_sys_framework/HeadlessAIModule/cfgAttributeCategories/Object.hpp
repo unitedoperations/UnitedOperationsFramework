@@ -39,7 +39,7 @@ class EGVAR(AI,UnitOptions) {
         class EGVAR(AI,Gear_UnitSystemType) {
             displayName = "Gear System Type";
             tooltip = "Set the gear system type for the unit.";
-            control = QEGVAR(Gear,SystemType);
+            control = QEGVAR(Gear,AttributeSystemType);
             typeName = "STRING";
             property = QEGVAR(AI,Gear_UnitSystemType);
             expression = ENTITY_EXPRESSION;
@@ -52,7 +52,7 @@ class EGVAR(AI,UnitOptions) {
             tooltip = "Set the gear type for the unit. If set to ACE or Olsen gear mode, this corresponds to the types defined in the gear team settings.";
             GearSystems[] = {"ACEAR","OLSEN","NONE"};
             property = QEGVAR(AI,Gear_UnitGearType);
-            control = QEGVAR(Gear,ComboGearLoad);
+            control = QEGVAR(Gear,AttributeComboGearLoad);
             typeName = "STRING";
             expression = ENTITY_EXPRESSION;
             condition = "ObjectControllable";
@@ -64,7 +64,7 @@ class EGVAR(AI,UnitOptions) {
             displayName = "Custom Gear Type";
             GearSystems[] = {"ACEAR","OLSEN"};
             tooltip = "Defines a custom gear class. If set to ACE gear system, this corresponds to the name of an ACE mission loadout. If set to Olsen gear system, this corresponds to the name of gear type in the team olsen gear script. Leave blank to disable.";
-            control = QEGVAR(Gear,ManualGearEditShort);
+            control = QEGVAR(Gear,AttributeManualGearEditShort);
             typeName = "STRING";
             expression = ENTITY_EXPRESSION;
             condition = "ObjectControllable";
@@ -73,7 +73,7 @@ class EGVAR(AI,UnitOptions) {
         class EGVAR(AI,Gear_VehicleSystemType) {
             displayName = "Gear System Type";
             tooltip = "Set the gear system type for the vehicle.";
-            control = QEGVAR(Gear,SystemTypeVehicle);
+            control = QEGVAR(Gear,AttributeSystemTypeVehicle);
             typeName = "STRING";
             property = QEGVAR(AI,Gear_VehicleSystemType);
             expression = ENTITY_EXPRESSION;
@@ -86,7 +86,7 @@ class EGVAR(AI,UnitOptions) {
             displayName = "Custom Gear Type";
             GearSystems[] = {"OLSEN"};
             tooltip = "Defines a custom gear class. If set to Olsen gear system, this corresponds to the name of gear type in the team olsen gear script. Leave blank to disable.";
-            control = QEGVAR(Gear,ManualGearEditShort);
+            control = QEGVAR(Gear,AttributeManualGearEditShort);
             typeName = "STRING";
             expression = ENTITY_EXPRESSION;
             condition = "objectVehicle";

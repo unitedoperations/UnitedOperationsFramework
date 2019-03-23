@@ -57,8 +57,8 @@ class EGVAR(Gear,Settings) {
 };
 
 #define GEAR_TYPECONFIG_OLSEN(TEAMNAME,SHORTNAME)  \
-class PREFIX##_Gear_Olsen_LoadoutType_##TEAMNAME##_##SHORTNAME {\
-    property = QUOTE(TRIPLES(PREFIX##_Gear_Olsen_LoadoutType,TEAMNAME,SHORTNAME));\
+class ##PREFIX##_Gear_Olsen_LoadoutType_##TEAMNAME##_##SHORTNAME {\
+    property = QUOTE(TRIPLES(EGVAR(Gear,Olsen_LoadoutType),TEAMNAME,SHORTNAME));\
     displayName = CSTRING_2(Gear_DisplayName,SHORTNAME);\
     tooltip = CSTRING_2(Gear_ToolTip_Olsen,SHORTNAME);\
     control = QUOTE(Edit);\
@@ -68,8 +68,8 @@ class PREFIX##_Gear_Olsen_LoadoutType_##TEAMNAME##_##SHORTNAME {\
 }
 
 #define GEAR_TYPECONFIG_ACEAR(TEAMNAME,SHORTNAME) \
-class PREFIX##_Gear_ACE_Arsenal_LoadoutType_##TEAMNAME##_##SHORTNAME {\
-    property = QUOTE(TRIPLES(PREFIX##_Gear_ACE_Arsenal_LoadoutType,TEAMNAME,SHORTNAME));\
+class ##PREFIX##_Gear_ACE_Arsenal_LoadoutType_##TEAMNAME##_##SHORTNAME {\
+    property = QUOTE(TRIPLES(EGVAR(Gear,ACE_Arsenal_LoadoutType),TEAMNAME,SHORTNAME));\
     displayName = CSTRING_2(Gear_DisplayName,SHORTNAME);\
     tooltip = CSTRING_2(Gear_ToolTip_ACEAR,SHORTNAME);\
     control = QUOTE(TRIPLES(PREFIX,Gear,ACE_Arsenal_LoadoutClassCombo));\

@@ -6,15 +6,16 @@ EDEN_CHECK;
 LOG("GearLoadPreset started");
 
 params ["_preset",["_teamTag","BLUFOR",[""]],"_ctrlButton"];
-LOG_2("_preset: %1 _teamTag: %2",_object,_teamTag);
+LOG_2("_preset: %1 _teamTag: %2",_preset,_teamTag);
 
 if (_preset isEqualto "NONE") exitwith {
     private _classArray = getArray(configFile >> QGVAR(Types) >> "typesArray");
     {
         private _gearType = _x;
-        private _varName = format ["##PREFIX##_Gear_ACE_Arsenal_LoadoutType_%1_%2",_teamTag,_gearType];
+        private _varName = format ["%3_Gear_ACE_Arsenal_LoadoutType_%1_%2",_teamTag,_gearType,PREFIXSTR];
         LOG_1("_varName: %1",_varName);
-        private _attrSection = format ["##PREFIX##_Gear_%1",_teamTag];
+        private _attrSection = format ["%2_Gear_%1",_teamTag,PREFIXSTR];
+        private _loadoutName = "NONE";
         missionNamespace setVariable [_varName, _loadoutName];
         LOG_1("_attrSection: %1",_attrSection);
         _attrSection set3DENMissionAttribute [_varName,_loadoutName];
@@ -31,7 +32,7 @@ if (_preset isEqualto "NONE") exitwith {
         private _lbValue = _newcontrol lbData _cursel;
         if !(_lbValue isEqualto "") then {
             LOG_1("_lbValue %1",_lbValue);
-            private _config = _newcontrol getvariable ["parentcontrolcfg",""];
+            private _config = _newcontrol getvariable [QMGVAR(parentcontrolcfg),""];
             LOG_1("_config %1",_config);
             if !(_config isEqualto "") then {
                 private _attProperty = getText (_config >> "property");
@@ -86,7 +87,7 @@ private _defaultloadoutsArray = missionNamespace getvariable ["ace_arsenal_defau
     _x params [["_gearType","",[""]],["_loadoutArray",[],[[]]]];
     if !(_loadoutArray isEqualto []) then {
         LOG_1("_gearType: %1",_gearType);
-        private _gearTypeString = localize (format ["STR_##PREFIX##_Gear_DisplayName_%1",_gearType]);
+        private _gearTypeString = localize (format ["STR_%2_Gear_DisplayName_%1",_gearType,PREFIXSTR]);
         LOG_1("_gearTypeString: %1",_gearTypeString);
         private _loadoutName = format ["%1 %2",_namePrefix,_gearTypeString];
         LOG_1("_loadoutName: %1",_loadoutName);
@@ -104,9 +105,9 @@ private _defaultloadoutsArray = missionNamespace getvariable ["ace_arsenal_defau
             missionNamespace setvariable ["ace_arsenal_defaultLoadoutsList",_defaultloadoutsArray];
             "ace_arsenal_DummyCategory" set3DENMissionAttribute ["ace_arsenal_DefaultLoadoutsListAttribute",_defaultloadoutsArray];
         };
-        private _varName = format ["##PREFIX##_Gear_ACE_Arsenal_LoadoutType_%1_%2",_teamTag,_gearType];
+        private _varName = format ["%3_Gear_ACE_Arsenal_LoadoutType_%1_%2",_teamTag,_gearType,PREFIXSTR];
         LOG_1("_varName: %1",_varName);
-        private _attrSection = format ["##PREFIX##_Gear_%1",_teamTag];
+        private _attrSection = format ["%2_Gear_%1",_teamTag,PREFIXSTR];
         missionNamespace setVariable [_varName, _loadoutName];
         LOG_1("_attrSection: %1",_attrSection);
         _attrSection set3DENMissionAttribute [_varName,_loadoutName];
@@ -125,7 +126,7 @@ LOG_2("_ctrlGroup: %1 _ctrlButton: %2",_ctrlGroup,_ctrlButton);
     private _lbValue = _newcontrol lbData _cursel;
     if !(_lbValue isEqualto "") then {
         LOG_1("_lbValue %1",_lbValue);
-        private _config = _newcontrol getvariable ["parentcontrolcfg",""];
+        private _config = _newcontrol getvariable [QMGVAR(parentcontrolcfg),""];
         LOG_1("_config %1",_config);
         if !(_config isEqualto "") then {
             private _attProperty = getText (_config >> "property");

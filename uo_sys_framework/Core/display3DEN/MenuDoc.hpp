@@ -5,3 +5,8 @@ class EGVAR(Core,Documentation) {
     weblink = "https://github.com/unitedoperations/UnitedOperationsFramework";
     opensNewWindow = 1;
 };
+
+class EGVAR(Core,VersionDisplay) {
+    text = QUOTE(Framework Version: VERSION);
+    action = "";
+};

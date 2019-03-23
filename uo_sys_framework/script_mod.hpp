@@ -1,5 +1,6 @@
 #define MainPREFIX x
 #define PREFIX UO_FW
+#define PREFIXSTR QUOTE(PREFIX)
 
 #define MAJOR 1
 #define MINOR 0

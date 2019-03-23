@@ -260,19 +260,11 @@ class display3DEN {
                 //Tools Define
                 #include "Core\display3DEN\Menu3DEN.hpp"
                 #include "Core\display3DEN\MenuTools.hpp"
-                //Add Custom Tools Menus
-                /*class EGVAR(Tools,Folder) {
-                    text = "Tools";
-                    items[] = {
-                        EGVAR(Tools,Test_Mission),
-                        EGVAR(Tools,Test_Loadouts)
-                    };
-                };*/
                 //Documentation Define
                 #include "Core\display3DEN\MenuDoc.hpp"
                 //Compile UO Menu Folder
                 //Add Custom Items with an Additional Entry in Items[]
-                class MGVAR(Folder) {
+                class EGVAR(Core,Folder) {
                     text = "UO Framework";
                     //items[] = {
                     //    QMGVAR(Settings),
@@ -284,7 +276,8 @@ class display3DEN {
                     //    QEGVAR(Gear,Folder),
                     //    QEGVAR(AI,Settings),
                     //    QEGVAR(ExportImport,Folder),
-                    //    QMGVAR(Documentation)
+                    //    QEGVAR(Core,Documentation),
+                    //    QEGVAR(Core,VersionDisplay)
                     //};
                     items[] = {
                         QEGVAR(Core,SettingsMenu),
@@ -295,11 +288,12 @@ class display3DEN {
                         QEGVAR(ACRE,Folder),
                         QEGVAR(Gear,Folder),
                         QEGVAR(ExportImport,Folder),
-                        QEGVAR(Core,Documentation)
+                        QEGVAR(Core,Documentation),
+                        QEGVAR(Core,VersionDisplay)
                     };
                 };
                 //Compile Main Menu
-                items[] += {QMGVAR(Folder)};
+                items[] += {QEGVAR(Core,Folder)};
             };
         };
     };
