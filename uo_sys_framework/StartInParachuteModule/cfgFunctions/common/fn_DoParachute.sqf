@@ -4,6 +4,7 @@ EXEC_CHECK(ALL);
 
 params ["_target","_elev",["_rand",100,[0]],["_steer",false,[false]]];
 
+[QEGVAR(Core,RegisterModuleEvent), ["Start in Parachute", "Starts players in parachutes", "Briland and Sacher"]] call CBA_fnc_globalEventJiP;
 private _class = ["NonSteerable_Parachute_F","Steerable_Parachute_F"] select _steer;
 
 [{!isnull (_this select 0)}, {
