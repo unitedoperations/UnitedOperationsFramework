@@ -9,7 +9,7 @@ if !(_obj isKindOf "Man") exitwith {};
 
 [{!isNull (_this select 0)},{
     params ["_obj"];
-    private _parachuteType = ["NONE","NONSTEERABLE","STEERABLE"] select (GETVAR(_obj,Type, 0));
+    private _parachuteType = ["NONE","NONSTEERABLE","STEERABLE"] select (GETVAR(_obj,Type,0));
     private _altitude = GETVAR(_obj,Altitude, 300);
     private _randomAltitude = GETVAR(_obj,RandomAltitude, 100);
     switch (_parachuteType) do {
