@@ -167,6 +167,29 @@ class EGVAR(EndConditions,VariableSettings_Category1) {
     };
 };
 
+class EGVAR(EndConditions,CaptureZoneSettings_Category1) {
+    displayName = "CaptureZone Settings";
+    collapsed = 0;
+    class Attributes {
+        class EGVAR(EndConditions,CaptureZoneCaptured_Array_1) {
+            property = QEGVAR(EndConditions,CaptureZoneCaptured_Array_1);
+            displayName = "CaptureZone Names";
+            tooltip = "List of CaptureZones names that must be captured for the end condition to fire. Leave empty to disable.";
+            control = "EditArray";
+            expression = SCENARIO_EXPRESSION;
+            defaultValue = "[]";
+        };
+        class EGVAR(EndConditions,CaptureZoneCaptured_Team_1) {
+            property = QEGVAR(EndConditions,CaptureZoneCaptured_Team_1);
+            displayName = "CaptureZone Team";
+            tooltip = "Team that must activate the CaptureZones for the condition to fire.";
+            control = QEGVAR(EndConditions,CaptureZoneTeam);
+            expression = SCENARIO_EXPRESSION;
+            defaultValue = "0";
+        };
+    };
+};
+
 class EGVAR(EndConditions,ExtractionSettings_Category1) {
     displayName = "Extraction Settings";
     collapsed = 0;
@@ -174,7 +197,7 @@ class EGVAR(EndConditions,ExtractionSettings_Category1) {
         class EGVAR(EndConditions,ExtractionEnabled_1) {
             property = QEGVAR(EndConditions,ExtractionEnabled_1);
             displayName = "Require Extraction";
-            tooltip = "Require Extraction in addition to end conditions for this category.";
+            tooltip = "Require Extraction in addition to end conditions for this category. This is a secondary end-condition which requires a primary end-condition (all conditions above).";
             control = "CheckBoxState";
             expression = SCENARIO_EXPRESSION;
             defaultValue = "false";
@@ -203,29 +226,6 @@ class EGVAR(EndConditions,ExtractionSettings_Category1) {
             expression = SCENARIO_EXPRESSION;
             validate = "number";
             defaultValue = "75";
-        };
-    };
-};
-
-class EGVAR(EndConditions,CaptureZoneSettings_Category1) {
-    displayName = "CaptureZone Settings";
-    collapsed = 0;
-    class Attributes {
-        class EGVAR(EndConditions,CaptureZoneCaptured_Array_1) {
-            property = QEGVAR(EndConditions,CaptureZoneCaptured_Array_1);
-            displayName = "CaptureZone Names";
-            tooltip = "List of CaptureZones names that must be captured for the end condition to fire. Leave empty to disable.";
-            control = "EditArray";
-            expression = SCENARIO_EXPRESSION;
-            defaultValue = "[]";
-        };
-        class EGVAR(EndConditions,CaptureZoneCaptured_Team_1) {
-            property = QEGVAR(EndConditions,CaptureZoneCaptured_Team_1);
-            displayName = "CaptureZone Team";
-            tooltip = "Team that must activate the CaptureZones for the condition to fire.";
-            control = QEGVAR(EndConditions,CaptureZoneTeam);
-            expression = SCENARIO_EXPRESSION;
-            defaultValue = "0";
         };
     };
 };

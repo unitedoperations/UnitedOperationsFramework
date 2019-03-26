@@ -152,6 +152,7 @@ class Cfg3DEN {
                 #include "MapAndCompassRemoverModule\cfg3den\Modules\MapAndCompass.hpp"
                 #include "MarkerControlModule\cfg3den\Modules\MarkerControl.hpp"
                 #include "SafeStartModule\cfg3den\Modules\SafeStart.hpp"
+                #include "StartInParachuteModule\cfg3den\Modules\StartInParachute.hpp"
                 #include "SelfActionsModule\cfg3den\Modules\SelfActions.hpp"
                 #include "ShotCountModule\cfg3den\Modules\ShotCount.hpp"
                 #include "StartTextModule\cfg3den\Modules\StartText.hpp"

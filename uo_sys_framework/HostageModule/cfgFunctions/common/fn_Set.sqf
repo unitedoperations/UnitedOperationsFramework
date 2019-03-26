@@ -5,6 +5,7 @@ if !(UO_FW_Server_HostageModule_Allowed) exitWith {};
 
 params ["_unit"];
 
+[QEGVAR(Core,RegisterModuleEvent), ["Hostage Control", "Allows the mission maker to easily add hostages to their missions.", "Starfox64, TrainDoctor and PiZZADOX"]] call CBA_fnc_globalEventJiP;
 LOG_1("Hostage set called on: %1!",_unit);
 
 private _marker = (GETVAR(_unit,Rescue_Location,"hostage_rescue"));
@@ -15,7 +16,6 @@ SETPVAR(_unit,IsRescued,false);
 
 [{(CBA_missionTime > 0)},{
     params ["_unit","_marker"];
-    [QEGVAR(Core,RegisterModuleEvent), ["Hostage Control", "Allows the mission maker to easily add hostages to their missions.", "Starfox64, TrainDoctor and PiZZADOX"]] call CBA_fnc_globalEventJiP;
 
     if (getMarkerColor _marker isEqualto "") exitwith {
         ERROR_1("hostage _marker: %1 does not exist!",_marker);

@@ -4,7 +4,6 @@ EXEC_CHECK(ALL);
 if (!UO_FW_Server_StartInParachuteModule_Allowed) exitWith {};
 
 [QGVAR(LocalEvent), {
-    [QEGVAR(Core,RegisterModuleEvent), ["Start in Parachute", "Starts players in parachutes", "Briland and Sacher"]] call CBA_fnc_globalEventJiP;
     {
         private _parachuteType = ["NONE","NONSTEERABLE","STEERABLE"] select (GETVAR(_x,Type,0));
         private _altitude = GETVAR(_x,Altitude,300);

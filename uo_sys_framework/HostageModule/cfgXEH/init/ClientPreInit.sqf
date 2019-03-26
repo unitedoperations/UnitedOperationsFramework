@@ -16,6 +16,6 @@ EXEC_CHECK(CLIENT);
         LOG_2("_statement %1, %2",_target,_player);
         [_target,_player] call FUNC(Rescue);
     };
-    private _rescueaction = ["RescueHostage", "Rescue Hostage","",_statement,_condition] call ace_interact_menu_fnc_createAction;
-    [_unit, 0, ["ACE_MainActions"], _rescueaction] call ace_interact_menu_fnc_addActionToObject;
+    private _rescueaction = ["RescueHostage", "Rescue Hostage","",_statement,_condition,{},[],"righthand"] call ace_interact_menu_fnc_createAction;
+    [_unit, 0, [], _rescueaction] call ace_interact_menu_fnc_addActionToObject;
 }] call CBA_fnc_addEventHandler;
