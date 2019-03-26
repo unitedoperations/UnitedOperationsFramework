@@ -1,132 +1,26 @@
 #define RESPAWNCOMBO_ATTR_LOAD(VALUEVAR,CFGVAR) \
-attributeLoad = "\
-    private _ctrlCombo = (_this controlsGroupCtrl 100);\
-    missionNamespace setvariable ['##VALUEVAR##',_value];\
-    missionNamespace setvariable ['##CFGVAR##',_config];\
-    private _respawnSystemTypeArray = [['None',0],['Unlimited',1],['Individual Tickets',2],['Team Tickets',3]];\
-    {\
-        _x params ['_name','_number'];\
-        private _index = _ctrlCombo lbadd _name;\
-        _ctrlCombo lbsetdata [_index,_name];\
-        _ctrlCombo lbsetValue [_index,_number];\
-        if (_value isEqualto (_ctrlCombo lbValue _index)) then {\
-            _ctrlCombo lbSetCurSel _index;\
-        };\
-    } foreach _respawnSystemTypeArray;\
-"
+attributeLoad = QUOTE([ARR_5(_this,_value,_config,QN(CFGVAR),QN(VALUEVAR))] call EFUNC(Respawn,RespawnCombo_AttrLoad))
 
 #define RESPAWNCOMBO_ATTR_SAVE(VALUEVAR,CFGVAR) \
-attributeSave = "\
-    private _ctrlCombo = (_this controlsGroupCtrl 100);\
-    private _value = (_ctrlCombo lbValue lbCurSel _ctrlCombo);\
-    missionNamespace setvariable ['##VALUEVAR##',_value];\
-    missionNamespace setvariable ['##CFGVAR##',_config];\
-    _value\
-"
+attributeSave = QUOTE([ARR_4(_this,_config,QN(CFGVAR),QN(VALUEVAR))] call EFUNC(Respawn,RespawnCombo_AttrSave))
 
 #define RESPAWNCOMBO_ONLOAD(VALUEVAR,CFGVAR) \
-onLoad = "\
-    params ['_ctrlCombo'];\
-    [{!((missionNamespace getvariable [(_this select 1),'']) isEqualto '')},{\
-        params ['_ctrlCombo','_varName','_cfgVarName'];\
-        private _configstr = missionNamespace getvariable [_cfgVarName,''];\
-        private _configH = configHierarchy _configstr;\
-        private _configHParent = _configH select ((count _configH) - 2);\
-        private _cfgAttributes = [_configHParent,0] call BIS_fnc_returnChildren;\
-        private _respawnType = missionNamespace getvariable [_varName,0];\
-        private _ctrlGroup = ctrlParentControlsGroup ctrlParentControlsGroup _ctrlCombo;\
-        _n = 0;\
-        {\
-            if (ctrlParentControlsGroup _x == _ctrlGroup) then {\
-                _cfg = _cfgAttributes select _n;\
-                _respawnTypes = getarray (_cfg >> 'respawnTypes');\
-                _state = ((count _respawnTypes == 0) || (_respawnType in _respawnTypes));\
-                _fade = [0.75,0] select _state;\
-                _n = _n + 1;\
-                _x ctrlenable _state;\
-                _x ctrlsetfade _fade;\
-                _x ctrlcommit 0;\
-                ctrlsetfocus _x;\
-                ctrlsetfocus _ctrlCombo;\
-            };\
-        } foreach (allcontrols (ctrlparent _ctrlCombo));\
-    }, [_ctrlCombo,'##VALUEVAR##','##CFGVAR##']] call CBA_fnc_waitUntilAndExecute;\
-"
+onLoad = QUOTE([ARR_3(_this,QN(CFGVAR),QN(VALUEVAR))] call EFUNC(Respawn,RespawnCombo_onLoad))
 
 #define RESPAWNCOMBO_ONLBSELCHANGED(VALUEVAR,CFGVAR) \
-onLBSelChanged = "\
-    params ['_ctrlCombo','_cursel'];\
-    [_ctrlCombo,_cursel] spawn {\
-        params ['_ctrlCombo','_cursel'];\
-        _respawnType = _ctrlCombo lbValue _cursel;\
-        diag_log format ['combo new var onsel: %1',_respawnType];\
-        private _configstr = missionNamespace getvariable ['##CFGVAR##',''];\
-        private _configH = configHierarchy _configstr;\
-        private _configHParent = _configH select ((count _configH) - 2);\
-        private _cfgAttributes = [_configHParent,0] call BIS_fnc_returnChildren;\
-        missionNamespace setvariable ['##VALUEVAR##',_respawnType];\
-        private _ctrlGroup = ctrlParentControlsGroup ctrlParentControlsGroup _ctrlCombo;\
-        _n = 0;\
-        {\
-            if (ctrlParentControlsGroup _x == _ctrlGroup) then {\
-                _cfg = _cfgAttributes select _n;\
-                _respawnTypes = getarray (_cfg >> 'respawnTypes');\
-                _state = ((count _respawnTypes == 0) || (_respawnType in _respawnTypes));\
-                _fade = [0.75,0] select _state;\
-                _n = _n + 1;\
-                _x ctrlenable _state;\
-                _x ctrlsetfade _fade;\
-                _x ctrlcommit 0;\
-                ctrlsetfocus _x;\
-                ctrlsetfocus _ctrlCombo;\
-            };\
-        } foreach (allcontrols (ctrlparent _ctrlCombo));\
-    };\
-"
+onLBSelChanged = QUOTE([ARR_3(_this,QN(CFGVAR),QN(VALUEVAR))] call EFUNC(Respawn,RespawnCombo_onLBSelChanged))
 
 #define RESPAWNTEMPLATES_ATTR_LOAD(VALUEVAR) \
-attributeLoad = QUOTE([ARR_3(_this,_value,VALUEVAR)] call EFUNC(Respawn,respawntemplates_attr_load))
+attributeLoad = QUOTE([ARR_3(_this,_value,QN(VALUEVAR))] call EFUNC(Respawn,respawntemplates_attr_load))
 
 #define RESPAWNTEMPLATES_ATTR_SAVE \
-attributeSave = "\
-    _value = [];\
-    {\
-        _ctrlListbox = _this controlsGroupCtrl (100 + _x);\
-        if (ctrlshown _ctrlListbox) exitwith {\
-            for '_i' from 0 to (lbsize _ctrlListbox - 1) do {\
-                if (_ctrlListbox lbvalue _i > 0) then {_value pushback (_ctrlListbox lbdata _i);};\
-            };\
-        };\
-    } foreach [0,1,2,3,4,5];\
-    _value\
-"
+attributeSave = QUOTE(_this call EFUNC(Respawn,respawntemplates_attr_save))
 
-#define RESPAWNTEMPLATES_ATTR_ONLOAD \
-onLBSelChanged = "\
-    _ctrlListbox = _this select 0;\
-    _cursel = _this select 1;\
-    _active = _ctrlListbox lbvalue _cursel;\
-    _active = (_active + 1) / 2;\
-    _pictureChecked = gettext (configfile >> 'ctrlCheckbox' >> 'textureChecked');\
-    _pictureUnchecked = gettext (configfile >> 'ctrlCheckbox' >> 'textureUnchecked');\
-    _ctrlListbox lbsetvalue [_cursel,_active];\
-    _ctrlListbox lbsetpicture [_cursel,[_pictureUnchecked,_pictureChecked] select _active];\
-"
+#define RESPAWNTEMPLATES_ATTR_ONLBSELCHANGED \
+onLBSelChanged = QUOTE(_this call EFUNC(Respawn,RespawnTemplates_onLBSelChanged))
 
 #define RESPAWNTEMPLATES_ATTR_ONSETFOCUS(VALUEVAR) \
-onSetFocus = "\
-_ctrl = _this select 0;\
-diag_log format ['onsetfocus this: %1',_this];\
-private _selectedRespawnType = missionNamespace getvariable ['##VALUEVAR##',0];\
-diag_log format ['onsetfocus _valueVar: %1',_valueVar];\
-    diag_log format ['onsetfocus wait this: %1',_this];\
-    _ctrlGroup = ctrlparentcontrolsgroup _ctrl;\
-    diag_log format ['onsetfocus _selectedRespawnType: %1',_selectedRespawnType];\
-    {\
-        _ctrlListbox = _ctrlGroup controlsGroupCtrl (100 + _x);\
-        _ctrlListbox ctrlshow (_x == _selectedRespawnType);\
-    } foreach [0,1,2,3,4,5];\
-"
+onSetFocus = QUOTE([ARR_2(_this,QN(VALUEVAR))] call EFUNC(Respawn,RespawnTemplates_onSetFocus))
 
 #define RESPAWNCOMBO_ATTR_VALUES \
 class Value1: Value0 { idc=101; };\
@@ -138,13 +32,13 @@ class Value6: Value0 { idc=106; };\
 class Value7: Value0 { idc=107; }
 
 class EGVAR(Respawn,Combo_Blufor): Combo {
-    RESPAWNCOMBO_ATTR_LOAD(EGVAR(Respawn,Value_Blufor),RESPAWNCOMBO_Cfg_Blufor);
-    RESPAWNCOMBO_ATTR_SAVE(EGVAR(Respawn,Value_Blufor),RESPAWNCOMBO_Cfg_Blufor);
+    RESPAWNCOMBO_ATTR_LOAD(EGVAR(Respawn,Value_Blufor),EGVAR(Respawn,ComboCfg_Blufor));
+    RESPAWNCOMBO_ATTR_SAVE(EGVAR(Respawn,Value_Blufor),EGVAR(Respawn,ComboCfg_Blufor));
     class Controls: Controls {
         class Title: Title {};
         class Value: Value {
-            RESPAWNCOMBO_ONLOAD(EGVAR(Respawn,Value_Blufor),RESPAWNCOMBO_Cfg_Blufor);
-            RESPAWNCOMBO_ONLBSELCHANGED(EGVAR(Respawn,Value_Blufor),RESPAWNCOMBO_Cfg_Blufor);
+            RESPAWNCOMBO_ONLOAD(EGVAR(Respawn,Value_Blufor),EGVAR(Respawn,ComboCfg_Blufor));
+            RESPAWNCOMBO_ONLBSELCHANGED(EGVAR(Respawn,Value_Blufor),EGVAR(Respawn,ComboCfg_Blufor));
         };
     };
 };
@@ -165,7 +59,7 @@ class EGVAR(Respawn,Templates_Blufor): Title {
             h="8 * 5 * (pixelH * pixelGrid * 0.50)";
             colorSelectBackground[]={0,0,0,0};
             colorSelectBackground2[]={0,0,0,0};
-            RESPAWNTEMPLATES_ATTR_ONLOAD;
+            RESPAWNTEMPLATES_ATTR_ONLBSELCHANGED;
             RESPAWNTEMPLATES_ATTR_ONSETFOCUS(EGVAR(Respawn,Value_Blufor));
         };
         RESPAWNCOMBO_ATTR_VALUES;
@@ -173,13 +67,13 @@ class EGVAR(Respawn,Templates_Blufor): Title {
 };
 
 class EGVAR(Respawn,Combo_Opfor): EGVAR(Respawn,Combo_Blufor) {
-    RESPAWNCOMBO_ATTR_LOAD(EGVAR(Respawn,Value_Opfor),RESPAWNCOMBO_Cfg_Opfor);
-    RESPAWNCOMBO_ATTR_SAVE(EGVAR(Respawn,Value_Opfor),RESPAWNCOMBO_Cfg_Opfor);
+    RESPAWNCOMBO_ATTR_LOAD(EGVAR(Respawn,Value_Opfor),EGVAR(Respawn,ComboCfg_Opfor));
+    RESPAWNCOMBO_ATTR_SAVE(EGVAR(Respawn,Value_Opfor),EGVAR(Respawn,ComboCfg_Opfor));
     class Controls: Controls {
         class Title: Title {};
         class Value: Value {
-            RESPAWNCOMBO_ONLOAD(EGVAR(Respawn,Value_Opfor),RESPAWNCOMBO_Cfg_Opfor);
-            RESPAWNCOMBO_ONLBSELCHANGED(EGVAR(Respawn,Value_Opfor),RESPAWNCOMBO_Cfg_Opfor);
+            RESPAWNCOMBO_ONLOAD(EGVAR(Respawn,Value_Opfor),EGVAR(Respawn,ComboCfg_Opfor));
+            RESPAWNCOMBO_ONLBSELCHANGED(EGVAR(Respawn,Value_Opfor),EGVAR(Respawn,ComboCfg_Opfor));
         };
     };
 };
@@ -190,7 +84,7 @@ class EGVAR(Respawn,Templates_Opfor): EGVAR(Respawn,Templates_Blufor) {
     class Controls: Controls {
         class Title: Title {};
         class Value0: Value0 {
-            RESPAWNTEMPLATES_ATTR_ONLOAD;
+            RESPAWNTEMPLATES_ATTR_ONLBSELCHANGED;
             RESPAWNTEMPLATES_ATTR_ONSETFOCUS(EGVAR(Respawn,Value_Opfor));
         };
         RESPAWNCOMBO_ATTR_VALUES;
@@ -198,13 +92,13 @@ class EGVAR(Respawn,Templates_Opfor): EGVAR(Respawn,Templates_Blufor) {
 };
 
 class EGVAR(Respawn,Combo_Indfor): EGVAR(Respawn,Combo_Blufor) {
-    RESPAWNCOMBO_ATTR_LOAD(EGVAR(Respawn,Value_Indfor),RESPAWNCOMBO_Cfg_Indfor);
-    RESPAWNCOMBO_ATTR_SAVE(EGVAR(Respawn,Value_Indfor),RESPAWNCOMBO_Cfg_Indfor);
+    RESPAWNCOMBO_ATTR_LOAD(EGVAR(Respawn,Value_Indfor),EGVAR(Respawn,ComboCfg_Indfor));
+    RESPAWNCOMBO_ATTR_SAVE(EGVAR(Respawn,Value_Indfor),EGVAR(Respawn,ComboCfg_Indfor));
     class Controls: Controls {
         class Title: Title {};
         class Value: Value {
-            RESPAWNCOMBO_ONLOAD(EGVAR(Respawn,Value_Indfor),RESPAWNCOMBO_Cfg_Indfor);
-            RESPAWNCOMBO_ONLBSELCHANGED(EGVAR(Respawn,Value_Indfor),RESPAWNCOMBO_Cfg_Indfor);
+            RESPAWNCOMBO_ONLOAD(EGVAR(Respawn,Value_Indfor),EGVAR(Respawn,ComboCfg_Indfor));
+            RESPAWNCOMBO_ONLBSELCHANGED(EGVAR(Respawn,Value_Indfor),EGVAR(Respawn,ComboCfg_Indfor));
         };
     };
 };
@@ -215,7 +109,7 @@ class EGVAR(Respawn,Templates_Indfor): EGVAR(Respawn,Templates_Blufor) {
     class Controls: Controls {
         class Title: Title {};
         class Value0: Value0 {
-            RESPAWNTEMPLATES_ATTR_ONLOAD;
+            RESPAWNTEMPLATES_ATTR_ONLBSELCHANGED;
             RESPAWNTEMPLATES_ATTR_ONSETFOCUS(EGVAR(Respawn,Value_Indfor));
         };
         RESPAWNCOMBO_ATTR_VALUES;
@@ -223,13 +117,13 @@ class EGVAR(Respawn,Templates_Indfor): EGVAR(Respawn,Templates_Blufor) {
 };
 
 class EGVAR(Respawn,Combo_Civ): EGVAR(Respawn,Combo_Blufor) {
-    RESPAWNCOMBO_ATTR_LOAD(EGVAR(Respawn,Value_Civ),RESPAWNCOMBO_Cfg_Civ);
-    RESPAWNCOMBO_ATTR_SAVE(EGVAR(Respawn,Value_Civ),RESPAWNCOMBO_Cfg_Civ);
+    RESPAWNCOMBO_ATTR_LOAD(EGVAR(Respawn,Value_Civ),EGVAR(Respawn,ComboCfg_Civ));
+    RESPAWNCOMBO_ATTR_SAVE(EGVAR(Respawn,Value_Civ),EGVAR(Respawn,ComboCfg_Civ));
     class Controls: Controls {
         class Title: Title {};
         class Value: Value {
-            RESPAWNCOMBO_ONLOAD(EGVAR(Respawn,Value_Civ),RESPAWNCOMBO_Cfg_Civ);
-            RESPAWNCOMBO_ONLBSELCHANGED(EGVAR(Respawn,Value_Civ),RESPAWNCOMBO_Cfg_Civ);
+            RESPAWNCOMBO_ONLOAD(EGVAR(Respawn,Value_Civ),EGVAR(Respawn,ComboCfg_Civ));
+            RESPAWNCOMBO_ONLBSELCHANGED(EGVAR(Respawn,Value_Civ),EGVAR(Respawn,ComboCfg_Civ));
         };
     };
 };
@@ -240,7 +134,7 @@ class EGVAR(Respawn,Templates_Civ): EGVAR(Respawn,Templates_Blufor) {
     class Controls: Controls {
         class Title: Title {};
         class Value0: Value0 {
-            RESPAWNTEMPLATES_ATTR_ONLOAD;
+            RESPAWNTEMPLATES_ATTR_ONLBSELCHANGED;
             RESPAWNTEMPLATES_ATTR_ONSETFOCUS(EGVAR(Respawn,Value_Civ));
         };
         RESPAWNCOMBO_ATTR_VALUES;
