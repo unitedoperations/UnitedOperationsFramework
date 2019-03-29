@@ -1,8 +1,9 @@
 ---
 layout: default
+use_title: true
 title: Marker Control Module
-nav_order: 4
-parent: Advanced Modules
+nav_order: 7
+parent: Core Modules
 # grand_parent: Modules
 ---
 
@@ -41,18 +42,12 @@ Text here.
 
 ---
 
-# Developers
-
-## WIP
-
-This subsection will contain explanations of the functions created for the framework.
-It should not contain explanations of CBA function calls etc.
-Major event-handlers that developers can use themselves for certain tasks should also be documented and explained here.
+# Advanced Mission-making
 
 ## Functions
-
-_**WIP**_
+This module does not provide any functions end-users can call themselves.
 
 ## Eventhandlers
+This module does not provide any event-handlers end-users can call themselves.
 
-_**WIP**_
+---

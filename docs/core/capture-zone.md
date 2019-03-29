@@ -1,8 +1,8 @@
 ---
 layout: default
 use_title: true
-title: Setup Timer Module
-nav_order: 9
+title: Capture Zone Module
+nav_order: 11
 parent: Core Modules
 # grand_parent: Modules
 ---

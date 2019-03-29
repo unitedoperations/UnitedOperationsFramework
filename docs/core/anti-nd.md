@@ -1,7 +1,8 @@
 ---
 layout: default
+use_title: true
 title: Anti-ND Module
-nav_order: 2
+nav_order: 5
 parent: Core Modules
 # grand_parent: Modules
 ---
@@ -24,33 +25,35 @@ parent: Core Modules
 
 While the player is:
 
-
 A) __*within a specified radius from their spawn location*__ **and** 
-
 
 B) __*until a certain time limit has been reached*__
 
-
-this module will prevent players from causing damage through negligent discharge aka ND.
+The module will prevent players from causing damage through negligent discharge (ND).
 
 ## Usage
 
 ### Enabling Anti-ND
 
-- Open the UO Framework Menu and select Module Settings.
+* Open the UO Framework Menu and select Module Settings.
+<!-- - ![Framework Tab]({{ site.baseurl }}/resources/images/generic/generic_framework_tab.png){:class="img-responsive"} -->
+<!-- TODO: Replace image above with one containing the UO Framework tab and the Module Settings sub-menu button. -->
 
-- Open the Anti-ND Settings tab.
-<!-- ![image-title-here]({{ site.baseurl }}/resources/images/core/anti_nd_settings.png){:class="img-responsive"} -->
+* Open the Anti-ND Settings tab and change settings appropriately.
+<!-- - ![image-title-here]({{ site.baseurl }}/resources/images/core/anti_nd_configuration.png){:class="img-responsive"}  -->
+<!-- TODO: Add image of the module settings button and the anti-nd module settings dropdown.  -->
 
-- You can configure the timing after player spawn (or JiP) and distance from the spawn location here.
-These settings apply to all factions and all players.
-<!-- ![image-title-here]({{ site.baseurl }}/resources/images/core/anti_nd_configuration.gif){:class="img-responsive"} -->
-
+You can configure the timing after player spawn (or JiP) and distance from the spawn location here. \\
+**These settings apply to all factions and all players.**
 
 ---
 
-# Developers
+# Advanced Mission-making
 
+## Functions
 This module does not provide any functions end-users can call themselves.
+
+## Eventhandlers
+This module does not provide any event-handlers end-users can call themselves.
 
 ---

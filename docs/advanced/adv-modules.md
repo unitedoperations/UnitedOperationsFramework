@@ -3,7 +3,7 @@ layout: default
 title: Advanced Modules
 alt_title: Advanced Modules Index
 use_title: true
-nav_order: 4
+nav_order: 5
 has_children: true
 permalink: /docs/advanced/adv-modules/
 ---

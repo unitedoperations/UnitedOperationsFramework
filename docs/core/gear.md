@@ -1,7 +1,8 @@
 ---
 layout: default
+use_title: true
 title: Gear Module
-nav_order: 7
+nav_order: 3
 parent: Core Modules
 permalink: /docs/core/gear/
 # grand_parent: Modules
@@ -21,7 +22,7 @@ permalink: /docs/core/gear/
 Here are just a few of the features the gear module provides:
 - ACE Arsenal Loadout System
 - Olsen Framework Loadout Support
-- Feature Three
+- Manual Loadouts from Olsen and ACE Systems
 - Feature Four
 
 ## Usage
@@ -102,18 +103,12 @@ Randomized items will be randomized when gear is applied as you load into the br
 
 ---
 
-# Developers
-
-## WIP
-
-This subsection will contain explanations of the functions created for the framework.
-It should not contain explanations of CBA function calls etc.
-Major event-handlers that developers can use themselves for certain tasks should also be documented and explained here.
+# Advanced Mission-making
 
 ## Functions
 
-_**WIP**_
+### Olsen Functions
 
-## Eventhandlers
+### ACE System Functions
 
-_**WIP**_
+---

@@ -1,8 +1,9 @@
 ---
 layout: default
+use_title: true
 title: AI Link Module
 nav_order: 1
-parent: Advanced Modules
+parent: Other Modules
 # grand_parent: Modules
 ---
 

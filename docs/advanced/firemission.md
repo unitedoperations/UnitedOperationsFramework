@@ -1,6 +1,7 @@
 ---
 layout: default
-title: Fire-mission Module
+use_title: true
+title: Fire-Mission Module
 nav_order: 2
 parent: Advanced Modules
 # grand_parent: Modules

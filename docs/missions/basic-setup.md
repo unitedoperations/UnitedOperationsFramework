@@ -1,5 +1,6 @@
 ---
 layout: default
+use_title: true
 title: Basic Setup
 nav_order: 1
 parent: Users
@@ -18,14 +19,19 @@ redirect_from:
 
 # Installation
 
+### Important Note
+
+The ACE Gear Presets within the UOF require content available only on UO Servers.
+The UOF is not dependent upon this content, as **the UOF is only dependent upon CBA and ACE3.**
+
+The dependencies on UO exclusive content are temporary and will be made a non-issue in a later public release.
+
 ## United Operations Testpack
 
 [Testing Modpack](https://steamcommunity.com/sharedfiles/filedetails/?id=849706204)
 {: .btn .mb-4 }
 
-Subscribe to the pack below for the latest public testing release of the framework.
-Keep in mind this version requires you to have content exclusive to the United Operations server and mod-pack.
-These dependencies are a temporary requirement and will be removed in a later public release.	
+Subscribe to the pack below for the latest public testing release of the framework.  
 
 ## Github
 
@@ -47,7 +53,7 @@ If you want to build the framework from the latest commit to master:
 ---
 
 # Setup
-
+<!-- TODO: Replace place-holder comments with actual images. -->
 ## Enabling the Framework
 
 * Open a new scenario in the Eden Editor.
@@ -74,23 +80,34 @@ Almost all modules with the exceptions of the ACRE and Gear modules are enabled 
 
 These modules are enabled by default:
 
-* [Automatic Asset Tracking]({{ site.baseurl }}/docs/core/auto-track/)
-* [Disconnect Control]({{ site.baseurl }}/docs/core/disconnect/)
-* [Anti-ND]({{ site.baseurl }}/docs/core/anti-nd/)
-* [Safe Start]({{ site.baseurl }}/docs/core/safe-start/)
-* [Self-Actions]({{ site.baseurl }}/docs/other/self-actions/)
-* [Shot Count]({{ site.baseurl }}/docs/core/shot-count/)
+* [Automatic Asset Tracking](../../other/auto-track/)
+* [Disconnect Control](../../core/disconnect/)
+* [Anti-ND](../../core/anti-nd/)
+* [Safe Start](../../core/safe-start/)
+* [Self-Actions](../../other/self-actions/)
+* [Shot Count](../../core/shot-count/)
 
-To enable the ACRE module, refer to this [guide.]({{ site.baseurl }}/docs/core/acre/#adding-radios)
+To enable the ACRE module, refer to this [guide.](../../core/acre/#adding-radios)
 
-To enable the Gear module, refer to this [guide.]({{ site.baseurl }}/docs/core/gear/#ace-gear)
+To enable the Gear module, refer to this [guide.](../../core/gear/#using-ace-arsenal-loadouts)
 
-<!-- TODO -->
-<!-- ## Briefings
+## Briefings
 
-* Basic text and image based guide for
+The below guidelines for briefings are required for United Operations missions.
 
-* using the briefing module -->
+1. Briefing is clear and concise.
+2. Briefing contains the time, weather, and if applicable visibility.
+3. Briefing defines friendly forces well.
+4. Briefing defines known enemy forces.
+5. Briefing defines starting locations for friendly troops.
+6. Briefing defines known locations of enemy troops.
+7. Briefing defines necessary mission notes.
+
+And an extra recommendation from the UO Framework team.
+
+* Briefing details all mission end-conditions.
+
+Simply follow the briefing templates within the editor to fulfill all of these requirements.
 
 ## End-Conditions
 
@@ -111,18 +128,18 @@ Keep in mind, end-conditions from the Olsen framework are not supported by the U
 
 # Using the Core Modules
 
-* [ACRE]({{ site.baseurl }}/docs/core/acre/)
+* [ACRE](../../core/acre/)
 
-* [Gear]({{ site.baseurl }}/docs/core/gear/)
+* [Gear](../../core/gear/)
 
-* [AO-Limits]({{ site.baseurl }}/docs/core/ao-limits/)
+* [AO-Limits](../../core/ao-limit/)
 
-* [Disconnect Control]({{ site.baseurl }}/docs/core/disconnect/)
+* [Disconnect Control](../../core/disconnect/)
 
-* [Anti-ND]({{ site.baseurl }}/docs/core/anti-nd/)
+* [Anti-ND](../../core/anti-nd/)
 
-* [Safe-Start]({{ site.baseurl }}/docs/core/safe-start/)
+* [Safe-Start](../../core/safe-start/)
 
-* [Setup Timer]({{ site.baseurl }}/docs/core/safe-start/)
+* [Setup Timer](../../core/setup-timer/)
 
 ---

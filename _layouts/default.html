@@ -56,20 +56,19 @@
           {% endif %}
         {% endunless %}
         <div id="main-content" class="page-content" role="main">
-			{% if page.use_title and page.title and page.alt_title == "Default Title" %}
-			<h1> {{ page.title }} </h1>
-			<a href="{{ site.repository }}/tree/{{ site.branch }}/{{ page.path }}" target="_blank"><button type="button" name="button" class="btn">Edit me on Github</button></a>
-			{% else if page.use_title and !page.title and page.alt_title != "Default Title" %}
-			<h1> {{ page.alt_title }} </h1>
-			<a href="{{ site.repository }}/tree/{{ site.branch }}/{{ page.path }}" target="_blank"><button type="button" name="button" class="btn">Edit me on Github</button></a>
-			{% else if page.alt_title != "Default Title" and page.use_title != true %}
-			{% else if page.use_title and page.title != "" and page.alt_title != "Default Title" and page.title != "Home" %}
-				{% if page.alt_title == "" %} 
-				<h1> {{ page.title }} </h1>
-				<a href="{{ site.repository }}/tree/{{ site.branch }}/{{ page.path }}" target="_blank"><button type="button" name="button" class="btn">Edit me on Github</button></a>
+			{% unless page.use_title != true %}
+				{% if page.title == "Home"%}
+					<h1> {{ page.alt_title }} </h1>
+					<a href="{{ site.repository }}/tree/{{ site.branch }}/{{ page.path }}" target="_blank"><button type="button" name="button" class="btn">Edit me on Github</button></a>
 				{% else %}
-				<h1> {{ page.alt_title }} </h1>
-				<a href="{{ site.repository }}/tree/{{ site.branch }}/{{ page.path }}" target="_blank"><button type="button" name="button" class="btn">Edit me on Github</button></a>
+					<h1> {{ page.title }} </h1>
+					<a href="{{ site.repository }}/tree/{{ site.branch }}/{{ page.path }}" target="_blank"><button type="button" name="button" class="btn">Edit me on Github</button></a>
+				{% endif %}
+			{% endunless %}
+			{% if page.use_title == false %}
+				{% if page.alt_title != "" %}
+					<h1> {{ page.alt_title }} </h1>
+					<a href="{{ site.repository }}/tree/{{ site.branch }}/{{ page.path }}" target="_blank"><button type="button" name="button" class="btn">Edit me on Github</button></a>
 				{% endif %}
 			{% endif %}
           {{ content }}

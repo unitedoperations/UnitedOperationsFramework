@@ -31,6 +31,7 @@ exclude: ["node_modules/", "*.gemspec", "*.gem", "Gemfile", "Gemfile.lock", "pac
 
 include:
     - "resources"
+    - "docs"
 
 # Enable or disable the site search
 search_enabled: true
@@ -61,19 +62,22 @@ kramdown:
 
 plugins:
   - jekyll-redirect-from
+  - jekyll-relative-links
   
-# collections:
-#     docs:
-#         permalink: "/:collection/:slug"
-#         output: "true"
+relative_links:
+    enabled: true
+    collections: false
 
 defaults:
     -   scope:
-            path: ""
-            type: ""
+            path: "docs"
+            type: "default"
         values:
             layout: default
-            alt_title: "Default Title"
             use_title: true
-            permalink: /:title
+            title: "Default"
+            alt_title: "Default Title"
+            permalink: /:title/
+            redirect_from: 
+                - /:title
             # grand_parent: 

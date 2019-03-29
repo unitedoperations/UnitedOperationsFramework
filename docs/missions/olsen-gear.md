@@ -1,15 +1,12 @@
 ---
 layout: default
+use_title: true
 title: Using Olsen Gear Scripts
 nav_order: 2
 parent: Users
 ---
 
 ---
-
-# Olsen Gear in your UO Framework Mission
-
-This page covers the initial process of moving Olsen loadouts to a UO Framework mission.
 
 ### Important Note
 {: .fs-6 .text-blue-000 }
@@ -33,15 +30,16 @@ switch (_type) do {
 
 Ensure that your main gear file:
 1. Is titled ``gear.sqf``
- - or matches the root gear filename/path specified in ``UOFW -> Configure Gear -> NAME OF TEXTBOX HERE``
-2. Is located in your mission root folder with ``mission.sqm``
+  - or matches the root gear filename/path specified in ``UOFW -> Configure Gear -> NAME OF TEXTBOX HERE``
+2. Has only a simple switch statement with ``_type`` as it's variable. 
+  - (See above example.)
+3. Is located in your mission root folder with ``mission.sqm``
 
 Ex: ``MissionNameExample.IslandName/gear.sqf``
 
 It also must include all the relevant loadouts you want to use within your ``loadouts`` folder.
 
 ```
-//...
 switch (_type) do {
 
 	#include "loadouts\CustomLoadoutsOne.sqf"
@@ -50,6 +48,6 @@ switch (_type) do {
 };
 ```
 
-Now, to use your Olsen loadouts, refer to the [Gear Module]({{ site.baseurl }}/docs/toc/core/gear/) page!
+Now, to use your Olsen loadouts, refer to the [Gear Module](../../core/gear/) page!
 
 ---
