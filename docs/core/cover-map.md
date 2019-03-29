@@ -18,27 +18,22 @@ parent: Core Modules
 
 ## Features
 
-List features of the module here:
-- Feature One
-- Feature Two
-- Feature Three
-- Feature Four
+Cover-Map module is provides these features:
+- Per faction Cover-map sides.
+- Multiple areas which swapped through ACE Self-Interactions.
 
 ## Usage
 
-### Using Feature One
+### Per faction "Maps"
 
-Text here.
+Making per faction AOs with the cover-map module is quite easy.
+1. Open module settings and enable the Cover-Map module.
+2. Designate the names you want to use for your faction(s).
+  - i.e. REDFOR AO is called ``redAO`` and BLUFOR AO is called ``blueAO``.
+3. Add a cover-map object to your mission and match it's ``AO Name`` attribute to match the zone you designated for that faction.
+3. 
 
-### Using Feature Two
 
-Text here.
-
-### Using Feature Three
-
-Text here.
-
-### Using Feature Four
 
 ---
 
