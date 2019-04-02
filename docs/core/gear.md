@@ -23,7 +23,6 @@ Here are just a few of the features the gear module provides:
 - ACE Arsenal Loadout System
 - Olsen Framework Loadout Support
 - Manual Loadouts from Olsen and ACE Systems
-- Feature Four
 
 ## Usage
 
@@ -49,12 +48,16 @@ After completing the above steps, you will still need to specify what loadouts u
 
 1. Right click on the unit you want to specify a loadout for and open the unit attributes.
 2. Find the Gear Settings Attribute and select the ACE gear system.
+3. Assign the loadout you want on each unit individually or as a group of a certain type of unit.
 
+You can preview loadouts by 
+* Clicking the play button within a unit's ``Gear Settings`` attribute or
+* Using the load all gear button in ``Olsen Framework > Configure Gear > Load All Gear``
 
-### Using ACE Presets
+<!-- ### Using ACE Presets
 
+### Settings -->
 
-### Settings
 
 ### Using Olsen Loadouts
 
@@ -95,11 +98,11 @@ Your equipment will be pre-loaded through the editor.
 
 Randomized items will be randomized when gear is applied as you load into the briefing screen.
 
-### Using Manual Loadouts
+<!-- ### Using Manual Loadouts
 
 #### Manual ACE Loadouts
 
-#### Manual Olsen Loadouts
+#### Manual Olsen Loadouts -->
 
 ---
 
