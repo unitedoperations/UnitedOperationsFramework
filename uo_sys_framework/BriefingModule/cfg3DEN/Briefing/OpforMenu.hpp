@@ -494,8 +494,8 @@ class EGVAR(Briefing,WPStyle_OPFOR) {
         };
         class EGVAR(Briefing,Warsaw_Enemy_Prob_Arty_OPFOR) {
             property = QEGVAR(Briefing,Warsaw_Enemy_Prob_Arty_OPFOR);
-            displayName = "Probable Enemy Artillery Positions & Capability";
-            tooltip = "Probable Enemy Artillery Positions & Capability";
+            displayName = "Probable Enemy Artillery Positions and Capability";
+            tooltip = "Probable Enemy Artillery Positions and Capability";
             control = "EditMulti5";
             validate = "STRING";
             expression = SCENARIO_EXPRESSION;

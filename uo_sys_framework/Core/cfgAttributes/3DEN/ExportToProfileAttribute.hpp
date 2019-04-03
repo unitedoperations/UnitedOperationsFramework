@@ -16,11 +16,12 @@ class EGVAR(Export,ToProfileAttribute): ComboPreview {
 			h="5 * (pixelH * pixelGrid * 	0.50)";
 			text="\a3\3DEN\Data\Attributes\ComboPreview\play_ca.paa";
 			onMouseButtonClick= QUOTE(\
-				_ctrlButton = _this select 0;\
-				_ctrlGroup = ctrlParentControlsGroup _ctrlButton;\
-				_ctrlEdit = _ctrlGroup controlsgroupctrl 100;\
-				_name = ctrlText _ctrlEdit;\
-				[ARR_2(_name,false)] call EFUNC(3DEN,ExportSettings);\
+				private _ctrlButton = _this select 0;\
+				private _ctrlGroup = ctrlParentControlsGroup _ctrlButton;\
+				private _ctrlEdit = _ctrlGroup controlsgroupctrl 100;\
+				private _name = ctrlText _ctrlEdit;\
+                diag_log format ['export to profile _name: %1',_name];\
+				[ARR_2(_name,0)] call EFUNC(3DEN,ExportSettings);\
 			);
 		};
 	};

@@ -17,9 +17,9 @@ class EGVAR(Import,FromProfileAttribute): Combo {
 			text="\a3\3DEN\Data\Attributes\ComboPreview\play_ca.paa";
 			onMouseButtonClick= QUOTE(\
 				_this params ['_ctrlButton'];\
-				_ctrlGroup = ctrlParentControlsGroup _ctrlButton;\
-				_ctrlCombo = _ctrlGroup controlsgroupctrl 100;\
-				[ARR_2((_ctrlCombo lbData lbcursel _ctrlCombo),false)] call EFUNC(3DEN,ImportSettings);\
+				private _ctrlGroup = ctrlParentControlsGroup _ctrlButton;\
+				private _ctrlCombo = _ctrlGroup controlsgroupctrl 100;\
+				[ARR_2((_ctrlCombo lbData lbcursel _ctrlCombo),0)] call EFUNC(3DEN,ImportSettings);\
 			);
 		};
 	};

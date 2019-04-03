@@ -66,7 +66,7 @@ if ((_respawnType isEqualto "INDTICK") || (_respawnType isEqualto "TEAMTICK") ||
 
         // Handle Group Join
         if ((QEGVAR(RTemplatesS,JoinGroup)) in _templateSettings) then {
-            private _oldGroup = GETMVAR(OLDGROUP,grpnull);
+            private _oldGroup = GETMVAR(Core,OLDGROUP,grpnull);
             [player] joinSilent _oldGroup;
         } else {
             if !(_newSideSetting isEqualto (side player)) then {

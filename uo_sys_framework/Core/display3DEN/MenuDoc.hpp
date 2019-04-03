@@ -1,8 +1,8 @@
 class EGVAR(Core,Documentation) {
-    text = "Framework Wiki";
+    text = "Framework Docs";
     data = "HelpFeedback";
     picture = "\a3\3DEN\Data\Controls\ctrlMenu\link_ca.paa";
-    weblink = "https://github.com/unitedoperations/UnitedOperationsFramework";
+    weblink = "https://unitedoperations.github.io/UnitedOperationsFramework/";
     opensNewWindow = 1;
 };
 
