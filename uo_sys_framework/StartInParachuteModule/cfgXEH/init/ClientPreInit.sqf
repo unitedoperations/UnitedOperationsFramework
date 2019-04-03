@@ -4,7 +4,6 @@ EXEC_CHECK(CLIENT);
 if (!UO_FW_Server_StartInParachuteModule_Allowed) exitWith {};
 
 [QGVAR(PlayerEvent), {
-    [QEGVAR(Core,RegisterModuleEvent), ["Start in Parachute", "Starts players in parachutes", "Briland and Sacher"]] call CBA_fnc_localEvent;
     if !(GETMVAR(Enabled,false)) exitwith {};
     [{(!isNull player)}, {
         [{

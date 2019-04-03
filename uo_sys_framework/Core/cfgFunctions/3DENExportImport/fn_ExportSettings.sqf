@@ -15,7 +15,7 @@ EDEN_CHECK;
 
 //IGNORE_PRIVATE_WARNING ["_x"];
 
-params [["_name",""],["_clipBoardMode",false]];
+params [["_name","",[""]],["_clipBoardMode",0,[0]]];
 
 private _attributeValues = [];
 private _sections = QUOTE(!(((str(configname _x)) find QN(PREFIX)) isEqualto -1)) configClasses (Configfile >> "Cfg3DEN" >> "Mission");
@@ -46,10 +46,11 @@ private _sections = QUOTE(!(((str(configname _x)) find QN(PREFIX)) isEqualto -1)
     } foreach _children;
 } foreach _sections;
 
-if (_clipBoardMode) then {
+if (_clipBoardMode isEqualto 1) then {
     copytoClipboard (str _attributeValues);
     LOG("Mission settings copied to clipboard");
 } else {
+    if (_name isEqualto "") exitwith {};
     private _profileArray = profileNamespace getvariable [QEGVAR(Core,ProfileSettingsArray),[]];
     LOG_1("_profileArray %1",_profileArray);
     if (_profileArray isEqualto []) then {
@@ -58,7 +59,7 @@ if (_clipBoardMode) then {
         saveProfileNamespace;
     } else {
         private _findIfResult = _profileArray findif {((toLower (_x select 0)) isEqualto (toLower _name))};
-        if (!((_findIfResult) isEqualto -1)) then {
+        if (_findIfResult > -1) then {
             diag_log format ["preset _name: %1 already found in _profileArray!, setting option for overwrite",_name];
             [_profileArray,_name,_attributeValues,_findIfResult] spawn {
                 params ["_profileArray","_name","_attributeValues","_findIfResult"];

@@ -7,7 +7,7 @@ class EGVAR(Import,LoadoutFromClipboardAttribute): Title {
             w="0.99 * 5 * (pixelW * pixelGrid * 0.50)";
             h="5 * (pixelH * pixelGrid * 0.50)";
             text="\a3\3DEN\Data\Attributes\ComboPreview\play_ca.paa";
-            onMouseButtonClick=QUOTE([ARR_2('',true)] call EFUNC(3DEN,ImportLoadoutSettings););
+            onMouseButtonClick=QUOTE([ARR_2('',1)] call EFUNC(3DEN,ImportLoadoutSettings););
         };
     };
 };

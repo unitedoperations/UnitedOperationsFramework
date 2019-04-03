@@ -22,7 +22,7 @@ MESSAGE call EFUNC(Debug,DebugMessage)
 #define ELSTRING_VAR(var1,var2,var3) ELSTRING(var1,DOUBLES(var2,var3))
 
 //Debug functions
-#define FWDEBUG(basicmsg,detailedmsg)\
+#define FWDEBUG(basicmsg,detailedmsg) \
 [basicmsg,detailedmsg] call EFUNC(Debug,DebugMessageDetailed)
 
 #define MGETMVALUE(var1,var2) getMissionConfigValue [ARR_2(QUOTE(DOUBLES(PREFIX,var1)),var2)]
@@ -99,8 +99,8 @@ MESSAGE call EFUNC(Debug,DebugMessage)
 #define CSTRING_2(var1,var2) QUOTE(DOUBLES(DOUBLES($STR,PREFIX),DOUBLES(var1,var2)))
 
 //Script control
-#define EXEC_CHECK(ARG)\
-_argUpper = toUpper(#ARG);\
+#define EXEC_CHECK(ARG) \
+private _argUpper = toUpper(#ARG);\
 if (isNil QEGVAR(Core,Enabled)) then {\
     EGVAR(Core,Enabled) = EGETMVALUE(Core,Enabled,false);\
 };\
@@ -110,8 +110,8 @@ if ((_argUpper isEqualto "HC") && {(((hasinterface || isServer) && isMultiplayer
 if ((_argUpper isEqualto "CLIENTHC") && {(((isDedicated) && isMultiplayer) || (!(EGVAR(Core,Enabled))))}) exitWith {};\
 if ((_argUpper isEqualto "SERVERHC") && {(((hasinterface) && isMultiplayer) || (!(EGVAR(Core,Enabled))))}) exitWith {};\
 if ((_argUpper isEqualto "ALL") && {(!(EGVAR(Core,Enabled)))}) exitWith {};\
-if (!(EGVAR(Core,Enabled))) exitWith {};\
-if (!(MGVAR(Server_Framework_Allowed))) exitWith {}
+if !(EGVAR(Core,Enabled)) exitWith {};\
+if !(MGVAR(Server_Framework_Allowed)) exitWith {}
 
 #define EDEN_CHECK if !(is3DEN) exitwith {};
 

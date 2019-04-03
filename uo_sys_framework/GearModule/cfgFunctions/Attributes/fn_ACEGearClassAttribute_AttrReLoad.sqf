@@ -4,9 +4,8 @@ EDEN_CHECK;
 
 LOG("ACEGearClassAttributeLoad started");
 
-_this params ["_this", "_config", "_value"];
+params ["_control", "_config", "_value"];
 
-private _control = _this;
 _control setvariable [QMGVAR(parentcontrolcfg),_config];
 private _attProperty = getText (_config >> "property");
 missionNamespace setvariable [_attProperty,_value];

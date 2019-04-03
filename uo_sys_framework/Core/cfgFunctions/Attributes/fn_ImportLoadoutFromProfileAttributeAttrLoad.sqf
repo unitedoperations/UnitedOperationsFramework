@@ -7,7 +7,7 @@ EDEN_CHECK;
 
 params ["_ctrl"];
 
-private _control = _this controlsgroupctrl 100;
+private _control = _ctrl controlsgroupctrl 100;
 private _profileArray = profileNamespace getvariable [QEGVAR(Core,ProfileLoadoutSettingsArray),[]];
 if (_profileArray isEqualto []) then {
     lbClear _control;

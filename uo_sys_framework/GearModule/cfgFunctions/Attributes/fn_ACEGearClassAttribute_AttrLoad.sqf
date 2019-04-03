@@ -4,7 +4,7 @@ EDEN_CHECK;
 
 LOG("ACEGearClassAttributeLoad started");
 
-_this params ["_this", "_config"];
+params ["_this", "_config"];
 
 private _control = (_this controlsGroupCtrl 100);
 _control setvariable [QMGVAR(parentcontrolcfg),_config];

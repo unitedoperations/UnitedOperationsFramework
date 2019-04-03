@@ -12,9 +12,9 @@
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 EDEN_CHECK;
 
-params [["_name",""],["_clipBoardMode",false]];
+params [["_name","",[""]],["_clipBoardMode",0,[0]]];
 
-if (_clipBoardMode) then {
+if (_clipBoardMode isEqualto 1) then {
     private _settingsArray = call compile copyFromClipboard;
     {
         _x params ["_section","_class","_value"];

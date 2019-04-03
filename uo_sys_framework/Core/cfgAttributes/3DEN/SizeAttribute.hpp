@@ -1,4 +1,4 @@
-class MGVAR(RadiusAttribute) : Edit {
+class EGVAR(Core,RadiusAttribute) : Edit {
      attributeLoad = QUOTE(\
         if !(_value isEqualType '') then {\
             _value = str _value;\

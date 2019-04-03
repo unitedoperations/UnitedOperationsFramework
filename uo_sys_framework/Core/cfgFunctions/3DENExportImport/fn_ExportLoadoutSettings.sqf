@@ -15,13 +15,14 @@ EDEN_CHECK;
 
 //IGNORE_PRIVATE_WARNING ["_x"];
 
-params [["_name",""],["_clipBoardMode",false]];
+params [["_name","",[""]],["_clipBoardMode",0,[0]]];
 
 private _loadoutsList = (missionNamespace getVariable ["ace_arsenal_defaultLoadoutsList", []]);
-if (_clipBoardMode) then {
+if (_clipBoardMode isEqualto 1) then {
     copytoClipboard (str _loadoutsList);
     LOG("Loadout settings copied to clipboard");
 } else {
+    if (_name isEqualto "") exitwith {};
     private _profileArray = profileNamespace getvariable [QEGVAR(Core,ProfileLoadoutSettingsArray),[]];
     if (_profileArray isEqualto []) then {
         _profileArray pushback [_name,_loadoutsList];
@@ -29,7 +30,7 @@ if (_clipBoardMode) then {
         saveProfileNamespace;
     } else {
         private _findIfResult = _profileArray findif {((toLower (_x select 0)) isEqualto (toLower _name))};
-        if (!((_findIfResult) isEqualto -1)) then {
+        if (_findIfResult > -1) then {
             ERROR_1("preset _name: %1 already found in _profileArray!, setting option for overwrite",_name);
             [_profileArray,_name,_loadoutsList,_findIfResult] spawn {
                 params ["_profileArray","_name","_loadoutsList","_findIfResult"];

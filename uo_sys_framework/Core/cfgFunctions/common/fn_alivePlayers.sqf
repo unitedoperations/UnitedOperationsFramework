@@ -21,8 +21,14 @@ private _alivePlayers = allPlayers select {(alive _x) && {!(GETVAR(_x,Dead,false
 if (count _this > 0) then {
     private _lowerThis = [];
     {
-        _lowerThis pushback (tolower _x);
+        if (_x isEqualType sideUnknown) then {
+            _lowerThis pushback (tolower (str _x));
+        };
+        if (_x isEqualType "") then {
+            _lowerThis pushback (tolower _x);
+        };
     } foreach _this;
+    LOG_1("_lowerThis var: %1",_lowerThis);
 
     private _return = [];
 
@@ -34,7 +40,7 @@ if (count _this > 0) then {
         _return append (_alivePlayers select {side _x isEqualto east});
     };
 
-    if (("independent" in _lowerThis) || ("independent" in _lowerThis) || ("guer" in _lowerThis)) then {
+    if (("independent" in _lowerThis) || ("resistance" in _lowerThis) || ("guer" in _lowerThis)) then {
         _return append (_alivePlayers select {side _x isEqualto independent});
     };
 

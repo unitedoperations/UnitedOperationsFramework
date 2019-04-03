@@ -35,7 +35,7 @@ class EGVAR(CaptureZone,CaptureZoneModule): EGVAR(Core,BaseModule) {
             displayName = "Activation Radius X";
             tooltip = "The size of the X value of the capture zone. Default: 100";
             property = QEGVAR(CaptureZone,RadiusX);
-            control = QMGVAR(RadiusAttribute);
+            control = QEGVAR(Core,RadiusAttribute);
             expression = MODULE_EXPRESSION;
             defaultValue = "100";
             typeName = "NUMBER";
@@ -45,7 +45,7 @@ class EGVAR(CaptureZone,CaptureZoneModule): EGVAR(Core,BaseModule) {
             displayName = "Activation Radius Y";
             tooltip = "The size of the Y value of the capture zone. Default: 100";
             property = QEGVAR(CaptureZone,RadiusY);
-            control = QMGVAR(RadiusAttribute);
+            control = QEGVAR(Core,RadiusAttribute);
             expression = MODULE_EXPRESSION;
             defaultValue = "100";
             typeName = "NUMBER";

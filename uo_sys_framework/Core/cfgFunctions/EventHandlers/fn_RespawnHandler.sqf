@@ -2,8 +2,7 @@
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 EXEC_CHECK(CLIENT);
 
-//_thisID _thisArgs
-_this params ["_unit", "_corpse"];
+params ["_unit", "_corpse"];
 
 SETPLPVAR(Body,_corpse);
 

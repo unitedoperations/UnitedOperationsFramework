@@ -79,7 +79,11 @@ if (GETMVAR(NATO_INDFOR,false)) then {
     };
     private _friendlyStrength = GETMVAR(NATO_FRIENDLY_STRENGTH_INDFOR,"");
     if !(_friendlyStrength isEqualTo "") then {
-        _friendlyStr = _friendlyStr + "<font color='#5BD527' size='14.0'><h1>Equipment:</h1></font color><br/>" + _friendlyStrength + "<br/><br/>";
+        _friendlyStr = _friendlyStr + "<font color='#5BD527' size='14.0'><h1>Strength:</h1></font color><br/>" + _friendlyStrength + "<br/><br/>";
+    };
+    private _friendlyEquipment = GETMVAR(NATO_FRIENDLY_EQUIPMENT_INDFOR,"");
+    if !(_friendlyEquipment isEqualTo "") then {
+        _friendlyStr = _friendlyStr + "<font color='#5BD527' size='14.0'><h1>Equipment:</h1></font color><br/>" + _friendlyEquipment + "<br/><br/>";
     };
     private _friendlyAppearance = GETMVAR(NATO_FRIENDLY_APPEARANCE_INDFOR,"");
     if !(_friendlyAppearance isEqualTo "") then {
@@ -126,7 +130,7 @@ if (GETMVAR(NATO_INDFOR,false)) then {
 
     private _execTasks = GETMVAR(NATO_EXECUTION_Tasks_INDFOR,"");
     if !(_execTasks isEqualTo "") then {
-        _execStr = _execStr + "<font color='#5BD527' size='14.0'><h1>Timings:</h1></font color><br/>" + _execTasks;
+        _execStr = _execStr + "<font color='#5BD527' size='14.0'><h1>Tasks:</h1></font color><br/>" + _execTasks;
     };
 
     if !(_execStr isEqualTo "") then {
@@ -144,12 +148,12 @@ if (GETMVAR(NATO_INDFOR,false)) then {
 
     private _firesStr = GETMVAR(NATO_SANDS_SUPPORT_FIRES_INDFOR,"");
     if !(_firesStr isEqualTo "") then {
-        _supportStr = _supportStr + "<font color='#5BD527' size='14.0'><h1>Timings:</h1></font color><br/>" + _firesStr + "<br/><br/>";
+        _supportStr = _supportStr + "<font color='#5BD527' size='14.0'><h1>Fires:</h1></font color><br/>" + _firesStr + "<br/><br/>";
     };
 
     private _ammoTasks = GETMVAR(NATO_SANDS_SUPPORT_AMMO_INDFOR,"");
     if !(_ammoTasks isEqualTo "") then {
-        _supportStr = _supportStr + "<font color='#5BD527' size='14.0'><h1>Timings:</h1></font color><br/>" + _ammoTasks;
+        _supportStr = _supportStr + "<font color='#5BD527' size='14.0'><h1>Ammo:</h1></font color><br/>" + _ammoTasks;
     };
 
     if !(_supportStr isEqualTo "") then {
@@ -171,7 +175,7 @@ if (GETMVAR(NATO_INDFOR,false)) then {
         ENDTAB;
     };
 
-    NEWTAB("V. Command & Signal:"),
+    NEWTAB("V. Command and Signal:"),
     ""
     ENDTAB;
 
@@ -212,7 +216,7 @@ if (GETMVAR(NATO_INDFOR,false)) then {
 
     private _signalPass = GETMVAR(NATO_CANDS_Signals_PASSWORDS_INDFOR,"");
     if !(_signalPass isEqualTo "") then {
-        _signalStr = _signalStr + "<font color='#5BD527' size='14.0'><h1>Frequencies:</h1></font color><br/>" + _signalPass;
+        _signalStr = _signalStr + "<font color='#5BD527' size='14.0'><h1>Passwords:</h1></font color><br/>" + _signalPass;
     };
 
     if !(_signalStr isEqualTo "") then {
@@ -289,7 +293,7 @@ if (GETMVAR(Warsaw_INDFOR,false)) then {
 
     private _enArty = GETMVAR(Warsaw_Enemy_Prob_Arty_INDFOR,"");
     if !(_enArty isEqualTo "") then {
-        _enStr = _enStr + "<font color='#5BD527' size='14.0'><h1>Probable Enemy Artillery Positions & Capability:</h1></font color><br/>" + _enArty;
+        _enStr = _enStr + "<font color='#5BD527' size='14.0'><h1>Probable Enemy Artillery Positions and Capability:</h1></font color><br/>" + _enArty;
     };
 
     if !(_enStr isEqualTo "") then {
@@ -404,14 +408,16 @@ if (GETMVAR(Appendix_INDFOR,false)) then {
 
 if (GETMVAR(MissionNotes_Enable,false)) then {
     //Mission Notes
-    private _notesTesters = GETMVAR(MissionNotes_Testers,"");
-    if !(_notesTesters isEqualTo "") then {
-        _notesStr = _notesStr + "<font color='#5BD527' size='14.0'><h1>Author:</h1></font color><br/>" + _notesTesters + "<br/><br/>";
+    private _notesStr = "";
+
+    private _notesAuthor = GETMVAR(MissionNotes_Testers,"");
+    if !(_notesAuthor isEqualTo "") then {
+        _notesStr = _notesStr + "<font color='#5BD527' size='14.0'><h1>Author:</h1></font color><br/>" + _notesAuthor + "<br/><br/>";
     };
 
-    private _notesAuthor = GETMVAR(MissionNotes_Author,"");
-    if !(_notesAuthor isEqualTo "") then {
-        _notesStr = _notesStr + "<font color='#5BD527' size='14.0'><h1>Testers:</h1></font color><br/>" + _notesAuthor + "<br/><br/>";
+    private _notesTesters = GETMVAR(MissionNotes_Author,"");
+    if !(_notesTesters isEqualTo "") then {
+        _notesStr = _notesStr + "<font color='#5BD527' size='14.0'><h1>Testers:</h1></font color><br/>" + _notesTesters + "<br/><br/>";
     };
 
     private _notesConditions = GETMVAR(MissionNotes_Conditions,"");
@@ -436,6 +442,7 @@ if (GETMVAR(MissionNotes_Enable,false)) then {
     };
 
 };
+
 
 private _gamemastermsg = "";
 
