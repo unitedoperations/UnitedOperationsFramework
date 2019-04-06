@@ -64,40 +64,40 @@ class EGVAR(Spectator,OPFOR) {
     displayName = "OPFOR Spectate Settings";
     collapsed = 0;
     class Attributes {
-        class EGVAR(Spectator,EnabledTeams_OPFOR) {
-            property = QEGVAR(Spectate,EnabledTeams_OPFOR);
+        class EGVAR(Spectator,EnabledTeams_Opfor) {
+            property = QEGVAR(Spectator,EnabledTeams_Opfor);
             displayName = "Spectate Teams";
             tooltip = "Teams that this team can spectate.";
             control = QEGVAR(Spectator,Teams_Attribute);
             defaultValue = "['BLUFOR','OPFOR','Indfor','CIVILIAN']";
             expression = SCENARIO_EXPRESSION;
         };
-        class EGVAR(Spectator,KillCam_OPFOR) {
-            property = QEGVAR(Spectate,KillCam_OPFOR);
+        class EGVAR(Spectator,KillCam_Opfor) {
+            property = QEGVAR(Spectator,KillCam_Opfor);
             displayName = "Killcam";
             tooltip = "This setting enables the specator killcam functionality.";
             control = "CheckBox";
             expression = SCENARIO_EXPRESSION;
             defaultValue = "true";
         };
-        class EGVAR(Spectator,AIEnabled_OPFOR) {
-            property = QEGVAR(Spectate,AIEnabled_OPFOR);
+        class EGVAR(Spectator,AIEnabled_Opfor) {
+            property = QEGVAR(Spectator,AIEnabled_Opfor);
             displayName = "Spectate AI";
             tooltip = "Enable Spectating AI Entities.";
             control = "CheckBox";
             expression = SCENARIO_EXPRESSION;
             defaultValue = "true";
         };
-        class EGVAR(Spectator,FreeCam_OPFOR) {
-            property = QEGVAR(Spectate,FreeCam_OPFOR);
+        class EGVAR(Spectator,FreeCam_Opfor) {
+            property = QEGVAR(Spectator,FreeCam_Opfor);
             displayName = "Spectator Freecam";
             tooltip = "Enable Freecam Ability in Spectator.";
             control = "CheckBox";
             expression = SCENARIO_EXPRESSION;
             defaultValue = "true";
         };
-        class EGVAR(Spectator,3rdPerson_OPFOR) {
-            property = QEGVAR(Spectate,3rdPerson_OPFOR);
+        class EGVAR(Spectator,3rdPerson_Opfor) {
+            property = QEGVAR(Spectator,3rdPerson_Opfor);
             displayName = "Spectator Third Person";
             tooltip = "Enable Third Person Ability in Spectator.";
             control = "CheckBox";

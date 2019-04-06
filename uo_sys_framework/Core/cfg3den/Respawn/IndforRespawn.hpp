@@ -66,7 +66,7 @@ class EGVAR(Spectator,Indfor) {
     collapsed = 0;
     class Attributes {
         class EGVAR(Spectator,EnabledTeams_Indfor) {
-            property = QEGVAR(Spectate,EnabledTeams_Indfor);
+            property = QEGVAR(Spectator,EnabledTeams_Indfor);
             displayName = "Spectate Teams";
             tooltip = "Teams that this team can spectate.";
             control = QEGVAR(Spectator,Teams_Attribute);
@@ -74,7 +74,7 @@ class EGVAR(Spectator,Indfor) {
             expression = SCENARIO_EXPRESSION;
         };
         class EGVAR(Spectator,KillCam_Indfor) {
-            property = QEGVAR(Spectate,KillCam_Indfor);
+            property = QEGVAR(Spectator,KillCam_Indfor);
             displayName = "Killcam";
             tooltip = "This setting enables the specator killcam functionality.";
             control = "CheckBox";
@@ -82,7 +82,7 @@ class EGVAR(Spectator,Indfor) {
             defaultValue = "true";
         };
         class EGVAR(Spectator,AIEnabled_Indfor) {
-            property = QEGVAR(Spectate,AIEnabled_Indfor);
+            property = QEGVAR(Spectator,AIEnabled_Indfor);
             displayName = "Spectate AI";
             tooltip = "Enable Spectating AI Entities.";
             control = "CheckBox";
@@ -90,7 +90,7 @@ class EGVAR(Spectator,Indfor) {
             defaultValue = "true";
         };
         class EGVAR(Spectator,FreeCam_Indfor) {
-            property = QEGVAR(Spectate,FreeCam_Indfor);
+            property = QEGVAR(Spectator,FreeCam_Indfor);
             displayName = "Spectator Freecam";
             tooltip = "Enable Freecam Ability in Spectator.";
             control = "CheckBox";
@@ -98,7 +98,7 @@ class EGVAR(Spectator,Indfor) {
             defaultValue = "true";
         };
         class EGVAR(Spectator,3rdPerson_Indfor) {
-            property = QEGVAR(Spectate,3rdPerson_Indfor);
+            property = QEGVAR(Spectator,3rdPerson_Indfor);
             displayName = "Spectator Third Person";
             tooltip = "Enable Third Person Ability in Spectator.";
             control = "CheckBox";

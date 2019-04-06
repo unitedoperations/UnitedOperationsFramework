@@ -65,7 +65,7 @@ class EGVAR(Spectator,Civ) {
     collapsed = 0;
     class Attributes {
         class EGVAR(Spectator,EnabledTeams_Civ) {
-            property = QEGVAR(Spectate,EnabledTeams_Civ);
+            property = QEGVAR(Spectator,EnabledTeams_Civ);
             displayName = "Spectate Teams";
             tooltip = "Teams that this team can spectate.";
             control = QEGVAR(Spectator,Teams_Attribute);
@@ -73,7 +73,7 @@ class EGVAR(Spectator,Civ) {
             expression = SCENARIO_EXPRESSION;
         };
         class EGVAR(Spectator,KillCam_Civ) {
-            property = QEGVAR(Spectate,KillCam_Civ);
+            property = QEGVAR(Spectator,KillCam_Civ);
             displayName = "Killcam";
             tooltip = "This setting enables the specator killcam functionality.";
             control = "CheckBox";
@@ -81,7 +81,7 @@ class EGVAR(Spectator,Civ) {
             defaultValue = "true";
         };
         class EGVAR(Spectator,AIEnabled_Civ) {
-            property = QEGVAR(Spectate,AIEnabled_Civ);
+            property = QEGVAR(Spectator,AIEnabled_Civ);
             displayName = "Spectate AI";
             tooltip = "Enable Spectating AI Entities.";
             control = "CheckBox";
@@ -89,7 +89,7 @@ class EGVAR(Spectator,Civ) {
             defaultValue = "true";
         };
         class EGVAR(Spectator,FreeCam_Civ) {
-            property = QEGVAR(Spectate,FreeCam_Civ);
+            property = QEGVAR(Spectator,FreeCam_Civ);
             displayName = "Spectator Freecam";
             tooltip = "Enable Freecam Ability in Spectator.";
             control = "CheckBox";
@@ -97,7 +97,7 @@ class EGVAR(Spectator,Civ) {
             defaultValue = "true";
         };
         class EGVAR(Spectator,3rdPerson_Civ) {
-            property = QEGVAR(Spectate,3rdPerson_Civ);
+            property = QEGVAR(Spectator,3rdPerson_Civ);
             displayName = "Spectator Third Person";
             tooltip = "Enable Third Person Ability in Spectator.";
             control = "CheckBox";
