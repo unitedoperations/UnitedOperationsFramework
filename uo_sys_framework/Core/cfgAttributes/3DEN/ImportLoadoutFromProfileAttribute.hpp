@@ -19,7 +19,7 @@ class EGVAR(Import,LoadoutFromProfileAttribute): Combo {
 				_this params ['_ctrlButton'];\
 				_ctrlGroup = ctrlParentControlsGroup _ctrlButton;\
 				_ctrlCombo = _ctrlGroup controlsgroupctrl 100;\
-				[ARR_2((_ctrlCombo lbData lbcursel _ctrlCombo),false)] call EFUNC(3DEN,ImportLoadoutSettings);\
+				[ARR_2((_ctrlCombo lbData lbcursel _ctrlCombo),0)] call EFUNC(3DEN,ImportLoadoutSettings);\
 			);
 		};
 	};

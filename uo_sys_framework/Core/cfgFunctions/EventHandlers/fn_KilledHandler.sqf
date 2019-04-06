@@ -2,9 +2,9 @@
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 EXEC_CHECK(CLIENT);
 
-_this params ["_unit", "", "_instigator"];
+params ["_unit", "", "_instigator"];
 
-MSETMVAR(OldGroup,(group player));
+SETMVAR(OldGroup,(group player));
 SETPLPVAR(Dead,true);
 
 private ["_delay","_templateSettings"];

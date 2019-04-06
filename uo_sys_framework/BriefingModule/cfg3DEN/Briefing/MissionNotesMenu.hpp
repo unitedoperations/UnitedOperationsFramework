@@ -9,7 +9,6 @@ class EGVAR(Briefing,MissionNotes) {
             control = "CheckboxState";
             expression = SCENARIO_EXPRESSION;
             defaultValue = "false";
-
         };
         class EGVAR(Briefing,MissionNotes_Author) {
             property = QEGVAR(Briefing,MissionNotes_Author);

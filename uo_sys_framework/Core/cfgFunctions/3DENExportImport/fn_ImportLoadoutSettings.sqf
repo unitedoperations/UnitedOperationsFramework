@@ -13,10 +13,10 @@
 EXEC_CHECK(ALL);
 EDEN_CHECK;
 
-params [["_name",""],["_clipBoardMode",false]];
+params [["_name","",[""]],["_clipBoardMode",0,[0]]];
 
 private _loadoutList = (missionNamespace getVariable ["ace_arsenal_defaultLoadoutsList", []]);
-if (_clipBoardMode) then {
+if (_clipBoardMode isEqualto 1) then {
     private _copyData = call compile copyFromClipboard;
     if (_loadoutList isEqualTo []) then {
         missionNamespace setVariable ["ace_arsenal_defaultLoadoutsList", _copyData];

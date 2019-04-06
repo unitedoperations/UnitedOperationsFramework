@@ -64,7 +64,7 @@ if (GETMVALUE(NATO_BLUFOR,false)) then {
     "NEWTAB(""   B. Support: "")," +  _br +
     "<font color='#5BD527'><h1>General:</h1></font color><br/>" + _br + (GETMVALUE(NATO_SANDS_SERVICE_GENERAL_BLUFOR,"")) +  _br +
     "ENDTAB;" +  _br +
-    "NEWTAB(""V. Command & Signal:"")," +  _br +
+    "NEWTAB(""V. Command and Signal:"")," +  _br +
     "" + _br +
     "ENDTAB;" +  _br +
     "NEWTAB(""   A. Command:"")," + _br +
@@ -100,7 +100,7 @@ if (GETMVALUE(Warsaw_BLUFOR,false)) then {
     "<font color='#5BD527'><h1>Probable Enemy HQ Location:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Prob_HQ_BLUFOR,"")) + "<br/><br/>" + _br +
     "<font color='#5BD527'><h1>Probable Enemy Main Element Location:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Prob_Line_BLUFOR,"")) + "<br/><br/>" + _br +
     "<font color='#5BD527'><h1>Probable Enemy Direction of Attack:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Prob_Dir_Attack_BLUFOR,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Probable Enemy Artillery Positions & Capability:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Prob_Arty_BLUFOR,"")) + _br +
+    "<font color='#5BD527'><h1>Probable Enemy Artillery Positions and Capability:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Prob_Arty_BLUFOR,"")) + _br +
     "ENDTAB;" +  _br +
     "NEWTAB(""IV. Higher and Adjacent Units:"")," + _br +
     "<font color='#5BD527'><h1>Description:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Higher_Disp_BLUFOR,"")) + "<br/><br/>" + _br +
@@ -185,7 +185,7 @@ if (GETMVALUE(NATO_OPFOR,false)) then {
     "NEWTAB(""   B. Support: "")," +  _br +
     "<font color='#5BD527'><h1>General:</h1></font color><br/>" + _br + (GETMVALUE(NATO_SANDS_SERVICE_GENERAL_OPFOR,"")) +  _br +
     "ENDTAB;" +  _br +
-    "NEWTAB(""V. Command & Signal:"")," +  _br +
+    "NEWTAB(""V. Command and Signal:"")," +  _br +
     "" + _br +
     "ENDTAB;" +  _br +
     "NEWTAB(""   A. Command:"")," + _br +
@@ -222,7 +222,7 @@ if (GETMVALUE(Warsaw_OPFOR,false)) then {
     "<font color='#5BD527'><h1>Probable Enemy HQ Location:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Prob_HQ_OPFOR,"")) + "<br/><br/>" + _br +
     "<font color='#5BD527'><h1>Probable Enemy Main Element Location:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Prob_Line_OPFOR,"")) + "<br/><br/>" + _br +
     "<font color='#5BD527'><h1>Probable Enemy Direction of Attack:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Prob_Dir_Attack_OPFOR,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Probable Enemy Artillery Positions & Capability:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Prob_Arty_OPFOR,"")) + _br +
+    "<font color='#5BD527'><h1>Probable Enemy Artillery Positions and Capability:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Prob_Arty_OPFOR,"")) + _br +
     "ENDTAB;" +  _br +
     "NEWTAB(""IV. Higher and Adjacent Units:"")," + _br +
     "<font color='#5BD527'><h1>Description:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Higher_Disp_OPFOR,"")) + "<br/><br/>" + _br +
@@ -306,7 +306,7 @@ if (GETMVALUE(NATO_Indfor,false)) then {
     "NEWTAB(""   B. Support: "")," +  _br +
     "<font color='#5BD527'><h1>General:</h1></font color><br/>" + _br + (GETMVALUE(NATO_SANDS_SERVICE_GENERAL_Indfor,"")) +  _br +
     "ENDTAB;" +  _br +
-    "NEWTAB(""V. Command & Signal:"")," +  _br +
+    "NEWTAB(""V. Command and Signal:"")," +  _br +
     "" + _br +
     "ENDTAB;" +  _br +
     "NEWTAB(""   A. Command:"")," + _br +
@@ -343,7 +343,7 @@ if (GETMVALUE(Warsaw_Indfor,false)) then {
     "<font color='#5BD527'><h1>Probable Enemy HQ Location:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Prob_HQ_Indfor,"")) + "<br/><br/>" + _br +
     "<font color='#5BD527'><h1>Probable Enemy Main Element Location:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Prob_Line_Indfor,"")) + "<br/><br/>" + _br +
     "<font color='#5BD527'><h1>Probable Enemy Direction of Attack:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Prob_Dir_Attack_Indfor,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Probable Enemy Artillery Positions & Capability:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Prob_Arty_Indfor,"")) + _br +
+    "<font color='#5BD527'><h1>Probable Enemy Artillery Positions and Capability:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Prob_Arty_Indfor,"")) + _br +
     "ENDTAB;" +  _br +
     "NEWTAB(""IV. Higher and Adjacent Units:"")," + _br +
     "<font color='#5BD527'><h1>Description:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Higher_Disp_Indfor,"")) + "<br/><br/>" + _br +
@@ -428,7 +428,7 @@ if (GETMVALUE(NATO_Civ,false)) then {
     "NEWTAB(""   B. Support: "")," +  _br +
     "<font color='#5BD527'><h1>General:</h1></font color><br/>" + _br + (GETMVALUE(NATO_SANDS_SERVICE_GENERAL_Civ,"")) +  _br +
     "ENDTAB;" +  _br +
-    "NEWTAB(""V. Command & Signal:"")," +  _br +
+    "NEWTAB(""V. Command and Signal:"")," +  _br +
     "" + _br +
     "ENDTAB;" +  _br +
     "NEWTAB(""   A. Command:"")," + _br +
@@ -465,7 +465,7 @@ if (GETMVALUE(Warsaw_Civ,false)) then {
     "<font color='#5BD527'><h1>Probable Enemy HQ Location:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Prob_HQ_Civ,"")) + "<br/><br/>" + _br +
     "<font color='#5BD527'><h1>Probable Enemy Main Element Location:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Prob_Line_Civ,"")) + "<br/><br/>" + _br +
     "<font color='#5BD527'><h1>Probable Enemy Direction of Attack:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Prob_Dir_Attack_Civ,"")) + "<br/><br/>" + _br +
-    "<font color='#5BD527'><h1>Probable Enemy Artillery Positions & Capability:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Prob_Arty_Civ,"")) + _br +
+    "<font color='#5BD527'><h1>Probable Enemy Artillery Positions and Capability:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Prob_Arty_Civ,"")) + _br +
     "ENDTAB;" +  _br +
     "NEWTAB(""IV. Higher and Adjacent Units:"")," + _br +
     "<font color='#5BD527'><h1>Description:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Higher_Disp_Civ,"")) + "<br/><br/>" + _br +
