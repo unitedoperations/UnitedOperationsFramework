@@ -173,7 +173,7 @@ if !(_cam isEqualto objNull) then {
     }, []] call CBA_fnc_waitUntilAndExecute;
     if !(_killCamSetting) then {
         //we move 2 meters back so player's body is visible
-        _pos getpos [-2, _dir];
+        _pos = _pos getpos [-2, _dir];
         _cam setposATL _pos;
         _cam setDir _dir;
     } else {
