@@ -33,7 +33,7 @@ switch (side player) do {
     };
     case east: {
         _delay = EGETMVAR(Respawn,Delay_OPFOR,5);
-        private _teamSpectateVarValue = GETMVAR(EnabledTeams_OPFOR,[]);
+        private _teamSpectateVarValue = GETMVAR(EnabledTeams_Opfor,[]);
         _teamSpectateList = [];
         if ("BLUFOR" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique BLUFOR};
         if ("OPFOR" in _teamSpectateVarValue) then {_teamSpectateList pushBackUnique OPFOR};

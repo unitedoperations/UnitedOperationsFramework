@@ -80,6 +80,7 @@ LOG("Client Pre Init");
 }] call CBA_fnc_addEventHandler;
 
 [QGVAR(PlayerRespawnEvent), {
+	[] call EFUNC(Respawn,HandlePlayerRespawn);
 }] call CBA_fnc_addEventHandler;
 
 [QGVAR(PlayerRespawnRecieveTicketEvent), {
