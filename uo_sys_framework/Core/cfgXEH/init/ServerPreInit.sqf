@@ -121,7 +121,7 @@ LOG("Server Pre Init");
                 };
             };
             private _indTicketsRemaining = (GETVAR(_unit,IndTicketsRemaining,0));
-            LOG_1("_indTicketsRemaining: %1",_indTicketsRemaining);
+			TRACE_1("Individual Tickets:",_indTicketsRemaining);
             if (_indTicketsRemaining > 0) then {
                 DEC(_indTicketsRemaining);
                 SETVAR(_unit,IndTicketsRemaining,_indTicketsRemaining);
