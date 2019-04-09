@@ -118,7 +118,7 @@ if (GETMVAR(NATO_BLUFOR,false)) then {
         _execStr = _execStr + "<font color='#5BD527' size='14.0'><h1>Commanders Intent:</h1></font color><br/>" + _execCIntent + "<br/><br/>";
     };
 
-    private _execManeuver = GETMVAR(NATO_EXECUTION_INTENT_BLUFOR,"");
+    private _execManeuver = GETMVAR(NATO_EXECUTION_MANEUVER_BLUFOR,"");
     if !(_execManeuver isEqualTo "") then {
         _execStr = _execStr + "<font color='#5BD527' size='14.0'><h1>Maneuver:</h1></font color><br/>" + _execManeuver + "<br/><br/>";
     };
