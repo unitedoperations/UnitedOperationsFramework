@@ -100,7 +100,7 @@ LOG("Server Pre Init");
 
 [QGVAR(PlayerRespawnRequestTicketEvent), {
     params ["_unit","_ticketType"];
-    LOG_2("RequestTicketEvent",_unit,_ticketType);
+    TRACE_2("RequestTicketEvent",_unit,_ticketType);
     switch (_ticketType) do {
         case "IND": {
             //Individual Tickets
