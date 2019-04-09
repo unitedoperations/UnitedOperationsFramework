@@ -120,7 +120,7 @@ class EGVAR(Spectator,Blufor) {
     collapsed = 0;
     class Attributes {
         class EGVAR(Spectator,EnabledTeams_Blufor) {
-            property = QEGVAR(Spectate,EnabledTeams);
+            property = QEGVAR(Spectator,EnabledTeams_Blufor);
             displayName = "Spectate Teams";
             tooltip = "Teams that this team can spectate.";
             control = QEGVAR(Spectator,Teams_Attribute);
@@ -128,7 +128,7 @@ class EGVAR(Spectator,Blufor) {
             expression = SCENARIO_EXPRESSION;
         };
         class EGVAR(Spectator,KillCam_Blufor) {
-            property = QEGVAR(Spectate,KillCam);
+            property = QEGVAR(Spectator,KillCam_Blufor);
             displayName = "Killcam";
             tooltip = "This setting enables the specator killcam functionality.";
             control = "CheckBox";
@@ -136,7 +136,7 @@ class EGVAR(Spectator,Blufor) {
             defaultValue = "true";
         };
         class EGVAR(Spectator,AIEnabled_Blufor) {
-            property = QEGVAR(Spectate,AIEnabled_Blufor);
+            property = QEGVAR(Spectator,AIEnabled_Blufor);
             displayName = "Spectate AI";
             tooltip = "Enable Spectating AI Entities.";
             control = "CheckBox";
@@ -144,7 +144,7 @@ class EGVAR(Spectator,Blufor) {
             defaultValue = "true";
         };
         class EGVAR(Spectator,FreeCam_Blufor) {
-            property = QEGVAR(Spectate,FreeCam);
+            property = QEGVAR(Spectator,FreeCam_Blufor);
             displayName = "Spectator Freecam";
             tooltip = "Enable Freecam Ability in Spectator.";
             control = "CheckBox";
@@ -152,7 +152,7 @@ class EGVAR(Spectator,Blufor) {
             defaultValue = "true";
         };
         class EGVAR(Spectator,3rdPerson_Blufor) {
-            property = QEGVAR(Spectate,3rdPerson);
+            property = QEGVAR(Spectator,3rdPerson_Blufor);
             displayName = "Spectator Third Person";
             tooltip = "Enable Third Person Ability in Spectator.";
             control = "CheckBox";

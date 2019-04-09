@@ -80,11 +80,12 @@ LOG("Client Pre Init");
 }] call CBA_fnc_addEventHandler;
 
 [QGVAR(PlayerRespawnEvent), {
+	[] call EFUNC(Respawn,HandlePlayerRespawn);
 }] call CBA_fnc_addEventHandler;
 
 [QGVAR(PlayerRespawnRecieveTicketEvent), {
     params ["_unit","_response","_ticketType","_ticketsRemaining"];
-    LOG_1("RecieveTicketEvent",_this);
+    TRACE_1("RecieveTicketEvent",_this);
     if !(local _unit) exitwith {};
     private ["_delay"];
     switch (side player) do {
