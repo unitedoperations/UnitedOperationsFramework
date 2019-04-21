@@ -144,7 +144,10 @@ LOG("Client Pre Init");
 [QGVAR(PlayerInitEvent), {
     if (GETMVAR(ViewDistance_Enforce,false)) then {
         setViewDistance GETMVAR(ViewDistance,2500);
+    } else {
+        setViewDistance (EGETMVAR(Core,PlayerViewDistance,2500));
     };
+    
     enableSaving [false, false];
     enableEngineArtillery false;
     enableRadio false;
