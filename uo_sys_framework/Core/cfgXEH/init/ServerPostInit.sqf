@@ -10,6 +10,8 @@ GVAR(EventDisconnectHandle) = addMissionEventHandler ["HandleDisconnect", {_this
 
 if (EGETMVAR(AI,ViewDistance_Enforce,false)) then {
     setViewDistance EGETMVAR(AI,ViewDistance,2500);
+} else {
+        setViewDistance (EGETMVAR(Core,AIViewDistance,2500));
 };
 
 SETMPVAR(MissionEnded,false);

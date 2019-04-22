@@ -100,28 +100,28 @@ LOG("Server Pre Init");
 
 [QGVAR(PlayerRespawnRequestTicketEvent), {
     params ["_unit","_ticketType"];
-    LOG_2("RequestTicketEvent",_unit,_ticketType);
+    TRACE_2("RequestTicketEvent",_unit,_ticketType);
     switch (_ticketType) do {
         case "IND": {
             //Individual Tickets
             if ((GETVAR(_unit,IndTicketsRemaining,"")) isEqualTo "") then {
                 switch (side _unit) do {
                     case west: {
-                        SETVAR(_unit,IndTicketsRemaining,GVAR(IndTickets_Blufor));
+                        SETVAR(_unit,IndTicketsRemaining,EGETMVAR(Respawn,IndTickets_Blufor,2));
                     };
                     case east: {
-                        SETVAR(_unit,IndTicketsRemaining,GVAR(IndTickets_Blufor));
+                        SETVAR(_unit,IndTicketsRemaining,EGETMVAR(Respawn,IndTickets_Opfor,2));
                     };
                     case independent: {
-                        SETVAR(_unit,IndTicketsRemaining,GVAR(IndTickets_Blufor));
+                        SETVAR(_unit,IndTicketsRemaining,EGETMVAR(Respawn,IndTickets_Indfor,2));
                     };
                     case civilian: {
-                        SETVAR(_unit,IndTicketsRemaining,GVAR(IndTickets_Blufor));
+                        SETVAR(_unit,IndTicketsRemaining,EGETMVAR(Respawn,IndTickets_Civ,2));
                     };
                 };
             };
             private _indTicketsRemaining = (GETVAR(_unit,IndTicketsRemaining,0));
-            LOG_1("_indTicketsRemaining: %1",_indTicketsRemaining);
+			TRACE_1("Individual Tickets:",_indTicketsRemaining);
             if (_indTicketsRemaining > 0) then {
                 DEC(_indTicketsRemaining);
                 SETVAR(_unit,IndTicketsRemaining,_indTicketsRemaining);

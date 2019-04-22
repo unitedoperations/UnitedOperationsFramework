@@ -64,7 +64,14 @@ CFGFUNCFOLDEREND;
 CFGFUNCFOLDERCORE(Attributes);
     CFGFUNC(3DEN,ImportFromProfileAttributeAttrLoad);
     CFGFUNC(3DEN,ImportLoadoutFromProfileAttributeAttrLoad);
+    CFGFUNC(Respawn,RespawnCombo_AttrLoad);
+    CFGFUNC(Respawn,RespawnCombo_AttrSave);
+    CFGFUNC(Respawn,RespawnCombo_onLoad);
+    CFGFUNC(Respawn,RespawnCombo_onLBSelChanged);
     CFGFUNC(Respawn,respawntemplates_attr_load);
+    CFGFUNC(Respawn,respawntemplates_attr_save);
+    CFGFUNC(Respawn,RespawnTemplates_onLBSelChanged);
+    CFGFUNC(Respawn,RespawnTemplates_onSetFocus);
 CFGFUNCFOLDEREND;
 
 CFGFUNCFOLDERCORE(Respawn);

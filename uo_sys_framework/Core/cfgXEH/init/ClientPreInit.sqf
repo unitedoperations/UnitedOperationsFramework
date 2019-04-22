@@ -80,11 +80,12 @@ LOG("Client Pre Init");
 }] call CBA_fnc_addEventHandler;
 
 [QGVAR(PlayerRespawnEvent), {
+	[] call EFUNC(Respawn,HandlePlayerRespawn);
 }] call CBA_fnc_addEventHandler;
 
 [QGVAR(PlayerRespawnRecieveTicketEvent), {
     params ["_unit","_response","_ticketType","_ticketsRemaining"];
-    LOG_1("RecieveTicketEvent",_this);
+    TRACE_1("RecieveTicketEvent",_this);
     if !(local _unit) exitwith {};
     private ["_delay"];
     switch (side player) do {
@@ -143,7 +144,10 @@ LOG("Client Pre Init");
 [QGVAR(PlayerInitEvent), {
     if (GETMVAR(ViewDistance_Enforce,false)) then {
         setViewDistance GETMVAR(ViewDistance,2500);
+    } else {
+        setViewDistance (EGETMVAR(Core,PlayerViewDistance,2500));
     };
+    
     enableSaving [false, false];
     enableEngineArtillery false;
     enableRadio false;
