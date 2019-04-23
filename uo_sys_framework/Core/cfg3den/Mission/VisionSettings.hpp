@@ -2,8 +2,8 @@ class EGVAR(Core,ViewDistanceSettings) {
     displayName = "View Distance Settings";
     collapsed = 0;
     class Attributes {
-        class EGVAR(Core,PlayerEnabled) {
-            property = QEGVAR(Core,PlayerEnabled);
+        class EGVAR(Core,VisionPlayerEnabled) {
+            property = QEGVAR(Core,VisionPlayerEnabled);
             displayName = "Player Viewdistance";
             tooltip = "Enable Player Viewdistance";
             control = "Checkbox";
@@ -20,8 +20,8 @@ class EGVAR(Core,ViewDistanceSettings) {
             defaultValue = "2500";
             typeName = "NUMBER";
         };
-        class EGVAR(Core,AIEnabled) {
-            property = QEGVAR(Core,AIEnabled);
+        class EGVAR(Core,VisionAIEnabled) {
+            property = QEGVAR(Core,VisionAIEnabled);
             displayName = "AI Viewdistance";
             tooltip = "Enable AI Viewdistance";
             control = "Checkbox";

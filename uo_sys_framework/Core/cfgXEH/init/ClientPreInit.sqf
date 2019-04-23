@@ -146,7 +146,7 @@ LOG("Client Pre Init");
         setViewDistance GETMVAR(ViewDistance,2500);
     } else 
     {
-        if(GETMVAR(PlayerEnabled,false)) then {
+        if(GETMVAR(VisionPlayerEnabled,false)) then {
             
             setViewDistance (GETMVAR(PlayerViewDistance,2500));
         };

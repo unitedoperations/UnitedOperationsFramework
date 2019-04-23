@@ -37,7 +37,7 @@ if (hasInterface) then {
         setViewDistance EGETMVAR(AI,ViewDistance,2500);
     } else 
     {
-        if(GETMVAR(AIEnabled,false)) then
+        if(GETMVAR(VisionAIEnabled,false)) then
                 
             setViewDistance (GETMVAR(AIViewDistance,2500));
         };
