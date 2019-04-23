@@ -4,7 +4,7 @@ class MGVAR(Slider): Slider {
         private _slider = _ctrlGroup controlsGroupCtrl 100;\
         private _edit = _ctrlGroup controlsGroupCtrl 101;\
         _slider sliderSetPosition _value;\
-        _edit ctrlSetText ([_value, 1, 0, true] call CBA_fnc_formatNumber);\
+        _edit ctrlSetText ([_value, 1, 0, false] call CBA_fnc_formatNumber);\
     ";
     attributeSave = "\
         params ['_ctrlGroup'];\
@@ -38,7 +38,7 @@ class PREFIX##_##MINVAL##To##MAXVAL##Step0##STEPSIZE##_Slider: MGVAR(Slider) {\
             params ['_slider'];\
             private _edit = (ctrlParentControlsGroup _slider) controlsGroupCtrl 101;\
             private _value = sliderPosition _slider;\
-            _edit ctrlSetText ([_value, 1, 1, true] call CBA_fnc_formatNumber);\
+            _edit ctrlSetText ([_value, 1, 1, false] call CBA_fnc_formatNumber);\
         }];\
         _edit ctrlAddEventHandler ['KillFocus', {\
             params ['_editctrl'];\
@@ -65,7 +65,7 @@ class PREFIX##_##MINVAL##To##MAXVAL##Step##STEPSIZE##_Slider: MGVAR(Slider) {\
         private _slider = _ctrlGroup controlsGroupCtrl 100;\
         private _edit = _ctrlGroup controlsGroupCtrl 101;\
         _slider sliderSetPosition _value;\
-        _edit ctrlSetText ([_value, 1, 0, true] call CBA_fnc_formatNumber);\
+        _edit ctrlSetText ([_value, 1, 0, false] call CBA_fnc_formatNumber);\
     ";\
     onLoad = "\
         params ['_ctrlGroup'];\
@@ -75,7 +75,7 @@ class PREFIX##_##MINVAL##To##MAXVAL##Step##STEPSIZE##_Slider: MGVAR(Slider) {\
             params ['_slider'];\
             private _edit = (ctrlParentControlsGroup _slider) controlsGroupCtrl 101;\
             private _value = sliderPosition _slider;\
-            _edit ctrlSetText ([_value, 1, 0, true] call CBA_fnc_formatNumber);\
+            _edit ctrlSetText ([_value, 1, 0, false] call CBA_fnc_formatNumber);\
         }];\
         _edit ctrlAddEventHandler ['KillFocus', {\
             params ['_editctrl'];\
