@@ -35,5 +35,11 @@ if (hasInterface) then {
     LOG("HC Post Init");
     if (EGETMVAR(AI,ViewDistance_Enforce,false)) then {
         setViewDistance EGETMVAR(AI,ViewDistance,2500);
+    } else {
+        if(GETMVAR(VisionAIEnabled,false)) then {          
+            setViewDistance (GETMVAR(AIViewDistance,2500));
+            TRACE_1("AI Headless Viewdistance",(GETMVAR(AIViewDistance,2500)));   
+        };
     };
+    
 };
