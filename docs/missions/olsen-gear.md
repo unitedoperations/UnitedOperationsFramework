@@ -19,6 +19,16 @@ Copy your ``gear.sqf`` and the accompanying ``loadouts`` folder accompanying it 
 Your gear.sqf should look like the below code.
 
 ```
+#define random(MIN, MAX) \
+([MIN, MAX] call UO_FW_FNC_RandomRange)
+
+_temp = "";
+
+#define SET_GROUP(groupName) _temp = #groupName + package;\
+call compile format ['%1 = {
+#define END_GROUP };', _temp]
+#define ADD_GROUP(groupName) call call compile format ["%1", #groupName + package]
+
 switch (_type) do {
 
 	#include "loadouts\CustomLoadoutsOne.sqf"
@@ -31,7 +41,7 @@ switch (_type) do {
 Ensure that your main gear file:
 1. Is titled ``gear.sqf``
   - or matches the root gear filename/path specified in ``UOFW -> Configure Gear -> NAME OF TEXTBOX HERE``
-2. Has only a simple switch statement with ``_type`` as it's variable. 
+2. Has only macro definitions and a simple switch statement with ``_type`` as it's variable. 
   - (See above example.)
 3. Is located in your mission root folder with ``mission.sqm``
 
