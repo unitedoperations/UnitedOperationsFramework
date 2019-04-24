@@ -38,6 +38,7 @@ if (hasInterface) then {
     } else {
         if(GETMVAR(VisionAIEnabled,false)) then {          
             setViewDistance (GETMVAR(AIViewDistance,2500));
+            TRACE_1("AI Headless Viewdistance",(GETMVAR(AIViewDistance,2500)));   
         };
     };
     

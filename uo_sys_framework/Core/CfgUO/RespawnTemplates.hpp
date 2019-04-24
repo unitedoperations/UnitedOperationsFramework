@@ -1,10 +1,10 @@
 class MGVAR(RespawnTemplates) {
     respawnTemplatesNone[] = {};
-    respawnTemplatesUnlimited[] = {QEGVAR(RTemplatesS,JoinGroup),QEGVAR(RTemplatesS,SafeStart),QEGVAR(RTemplatesS,ACRE),QEGVAR(RTemplatesS,Gear),QEGVAR(RTemplatesS,CoverMap),QEGVAR(RTemplatesS,MapAndCompassRemover)};
-    respawnTemplatesIndTick[] = {QEGVAR(RTemplatesS,JoinGroup),QEGVAR(RTemplatesS,SafeStart),QEGVAR(RTemplatesS,ACRE),QEGVAR(RTemplatesS,Gear),QEGVAR(RTemplatesS,CoverMap),QEGVAR(RTemplatesS,MapAndCompassRemover)};
-    respawnTemplatesTeamTick[] = {QEGVAR(RTemplatesS,JoinGroup),QEGVAR(RTemplatesS,SafeStart),QEGVAR(RTemplatesS,ACRE),QEGVAR(RTemplatesS,Gear),QEGVAR(RTemplatesS,CoverMap),QEGVAR(RTemplatesS,MapAndCompassRemover)};
-    respawnTemplatesWave[] = {QEGVAR(RTemplatesS,JoinGroup),QEGVAR(RTemplatesS,SafeStart),QEGVAR(RTemplatesS,ACRE),QEGVAR(RTemplatesS,Gear),QEGVAR(RTemplatesS,CoverMap),QEGVAR(RTemplatesS,MapAndCompassRemover)};
-    respawnTemplatesTriggered[] = {QEGVAR(RTemplatesS,JoinGroup),QEGVAR(RTemplatesS,SafeStart),QEGVAR(RTemplatesS,ACRE),QEGVAR(RTemplatesS,Gear),QEGVAR(RTemplatesS,CoverMap),QEGVAR(RTemplatesS,MapAndCompassRemover)};
+    respawnTemplatesUnlimited[] = {QEGVAR(RTemplatesS,SafeStart),QEGVAR(RTemplatesS,ACRE),QEGVAR(RTemplatesS,Gear),QEGVAR(RTemplatesS,CoverMap),QEGVAR(RTemplatesS,MapAndCompassRemover)};
+    respawnTemplatesIndTick[] = {QEGVAR(RTemplatesS,SafeStart),QEGVAR(RTemplatesS,ACRE),QEGVAR(RTemplatesS,Gear),QEGVAR(RTemplatesS,CoverMap),QEGVAR(RTemplatesS,MapAndCompassRemover)};
+    respawnTemplatesTeamTick[] = {QEGVAR(RTemplatesS,SafeStart),QEGVAR(RTemplatesS,ACRE),QEGVAR(RTemplatesS,Gear),QEGVAR(RTemplatesS,CoverMap),QEGVAR(RTemplatesS,MapAndCompassRemover)};
+    respawnTemplatesWave[] = {QEGVAR(RTemplatesS,SafeStart),QEGVAR(RTemplatesS,ACRE),QEGVAR(RTemplatesS,Gear),QEGVAR(RTemplatesS,CoverMap),QEGVAR(RTemplatesS,MapAndCompassRemover)};
+    respawnTemplatesTriggered[] = {QEGVAR(RTemplatesS,SafeStart),QEGVAR(RTemplatesS,ACRE),QEGVAR(RTemplatesS,Gear),QEGVAR(RTemplatesS,CoverMap),QEGVAR(RTemplatesS,MapAndCompassRemover)};
     class EGVAR(RTemplatesS,JoinGroup) {
         displayName = "Rejoin Group on Respawn";
         respawnTypes[] = {1,2,3,5};

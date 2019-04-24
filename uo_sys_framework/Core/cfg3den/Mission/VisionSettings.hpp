@@ -13,7 +13,7 @@ class EGVAR(Core,ViewDistanceSettings) {
         class EGVAR(Core,PlayerViewDistance) {
             property = QEGVAR(Core,PlayerViewDistance);
             displayName = "Player View-distance";
-            tooltip = "Set the Player View-distance in meters. Players might not see all the way to the limit due to fog but AI can.";
+            tooltip = "Set the Player View-distance in meters. Min = 200m enforced by Arma. Players might not see all the way to the limit due to fog but AI can.";
             control = QMGVAR(200To10000Step50_Slider);
             expression = SCENARIO_EXPRESSION;
             validate = "number";
@@ -31,7 +31,7 @@ class EGVAR(Core,ViewDistanceSettings) {
         class EGVAR(Core,AIViewDistance) {
             property = QEGVAR(Core,AIViewDistance);
             displayName = "AI View-distance";
-            tooltip = "Set the AI View-distance in meters.";
+            tooltip = "Set the AI View-distance in meters.  Min = 200m enforced by Arma.";
             control = QMGVAR(200To10000Step50_Slider);
             expression = SCENARIO_EXPRESSION;
             validate = "number";
