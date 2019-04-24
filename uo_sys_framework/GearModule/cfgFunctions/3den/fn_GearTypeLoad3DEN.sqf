@@ -58,7 +58,7 @@ if (_object isKindOf "CAManBase") then {
                 _loadoutvarname = format ["%3_Gear_%1_LoadoutType_Indfor_%2",_SystemTag,_gearType,PREFIXSTR];
             };
             case civilian: {
-                _loadoutvarname = format ["%3_Gear_%1_LoadoutType_Civ_%2",_SystemTag,_gearType,PREFIXSTR];
+                _loadoutvarname = format ["%3_Gear_%1_LoadoutType_CIVILIAN_%2",_SystemTag,_gearType,PREFIXSTR];
             };
         };
         private _loadoutName = missionNamespace getvariable [_loadoutvarname,"NONE"];
