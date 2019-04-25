@@ -16,6 +16,7 @@ The date refers to the date when changes have been merged into DEV branch.
 - Individual ticketed respawns now fully functional
 - Team tickets and unlimited respawn options now functional
 - Respawn as a different faction is now functional
+- Spectator is now at the correct location
 
 ### Removed
 
