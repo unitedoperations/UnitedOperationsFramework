@@ -175,8 +175,10 @@ if !(_cam isEqualto objNull) then {
         //we move 2 meters back so player's body is visible
         _pos = _pos getpos [-2, _dir];
         _cam setposATL _pos;
-        _cam setDir _dir;
+        _cam setDir _dir;    
+        TRACE_1("Spectator position",_pos);
     } else {
+       
         SETMVAR(killcam_toggle,false);
         //this cool piece of code adds key handler to spectator display
         //it takes some time for display to create, so we have to delay it.
@@ -184,12 +186,13 @@ if !(_cam isEqualto objNull) then {
             LOG("Display loaded, attaching key EH");
             GVAR(killcam_keyHandle) = (findDisplay 60492) displayAddEventHandler ["keyDown", {call FUNC(KillCamToggleKeyH);}];
         }, []] call CBA_fnc_waitUntilAndExecute;
-        if (objNull isEqualTo (GETMVAR(killcam_killer,objnull))) then {
+        if !(objNull isEqualTo (GETMVAR(killcam_killer,objnull))) then {
             LOG("found valid killer");
             GVAR(killcam_distance) = (GVAR(killcam_killer)) distance _body;
             private _dirto = [_body, GVAR(killcam_killer)] call BIS_fnc_dirTo;
             _pos = _pos getpos [-1.8,_dirto];
             _cam setposATL _pos;
+            TRACE_1("Killcam position",_pos);
             //vector magic
             private _temp1 = ([getposASL _cam, (getposASL GVAR(killcam_killer))] call BIS_fnc_vectorFromXToY);
             private _temp = (_temp1 call CBA_fnc_vect2Polar);
@@ -199,7 +202,9 @@ if !(_cam isEqualto objNull) then {
         } else {
             LOG("no valid killer");
             _cam setposATL _pos;
+
             _cam setDir _dir;
+             TRACE_1("No Killer Killcam position",_pos);
         };
         GVAR(killcam_drawHandle) = addMissionEventHandler ["Draw3D", {
             //we don't draw hud unless we toggle it by keypress
