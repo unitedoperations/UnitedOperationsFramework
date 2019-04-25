@@ -225,28 +225,35 @@ if (GETMVAR(Enabled_5,false)) then {
                 };
 
                 if (_ExtractionCheck) then {
-                    if (GVAR(Mode_5) isEqualto 1) then {
-                        {
-                            _x params ["_name","_value"];
-                            if (_value) exitwith {
-                                LOG_1("Category 5 Ending due to :%1",_value);
+                    if((GETMVAR(ExtractionEnabled_5,false)) && (GETMVAR(ExtractionForced_5,false))) then
+                    {
+                                    LOG_1("Category 5 Ending due to forced Extraction!");
+                                    [GVAR(Message_5)] call EFUNC(Core,EndMission);
+                                    [_idPFH] call CBA_fnc_removePerFrameHandler;
+                    } else {
+                        if (GVAR(Mode_5) isEqualto 1) then {
+                            {
+                                _x params ["_name","_value"];
+                                if (_value) exitwith {
+                                    LOG_1("Category 5 Ending due to :%1",_value);
+                                    [GVAR(Message_5)] call EFUNC(Core,EndMission);
+                                    [_idPFH] call CBA_fnc_removePerFrameHandler;
+                                };
+                            } foreach _ConditionCheckList;
+                        } else {
+                            private _fullcheck = true;
+                            {
+                                _x params ["_name","_value"];
+                                _fullcheck = _fullcheck && _value;
+                                LOG_2("Category 5 checking var:%1 result:%2",_name,_value);
+                            } foreach _ConditionCheckList;
+                            if (_fullcheck) then {
+                                LOG("Category 5 Ending due to all conditions met!");
                                 [GVAR(Message_5)] call EFUNC(Core,EndMission);
                                 [_idPFH] call CBA_fnc_removePerFrameHandler;
                             };
-                        } foreach _ConditionCheckList;
-                    } else {
-                        private _fullcheck = true;
-                        {
-                            _x params ["_name","_value"];
-                            _fullcheck = _fullcheck && _value;
-                            LOG_2("Category 5 checking var:%1 result:%2",_name,_value);
-                        } foreach _ConditionCheckList;
-                        if (_fullcheck) then {
-                            LOG("Category 5 Ending due to all conditions met!");
-                            [GVAR(Message_5)] call EFUNC(Core,EndMission);
-                            [_idPFH] call CBA_fnc_removePerFrameHandler;
                         };
-                    };
+                    };                  
                 };
             }, 1, [(GETMVAR(ConditionSleep,30)),CBA_missionTime]] call CBA_fnc_addPerFrameHandler;
         } else {

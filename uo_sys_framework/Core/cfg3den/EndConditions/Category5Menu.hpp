@@ -202,6 +202,14 @@ class EGVAR(EndConditions,ExtractionSettings_Category5) {
             expression = SCENARIO_EXPRESSION;
             defaultValue = "false";
         };
+         class EGVAR(EndConditions,ExtractionForced_5) {
+            property = QEGVAR(EndConditions,ExtractionForced_5);
+            displayName = "Force Extraction End";
+            tooltip = "If enabled then the mission will end regardless of any other conditions above and the extraction is met!";
+            control = "CheckBox";
+            expression = SCENARIO_EXPRESSION;
+            defaultValue = "false";
+        };
         class EGVAR(EndConditions,ExtractionTeam_5) {
             property = QEGVAR(EndConditions,ExtractionTeam_5);
             displayName = "Team";
