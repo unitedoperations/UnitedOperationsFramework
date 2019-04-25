@@ -10,6 +10,7 @@ The date refers to the date when changes have been merged into DEV branch.
 
 ### Changed
 - CaptureZone modules used hint, changed to hintSilent
+- The extraction end-condition is now longer dependent upon another end-condition to fire.
 
 ### Fixed
 - All run "module on respawn" settings are now configurable.
