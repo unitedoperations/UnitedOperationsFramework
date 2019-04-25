@@ -13,9 +13,7 @@ parent: Users
 
 ---
 
-## End-Condition Categories
-
-### Primary End-Conditions
+## End-Conditions
 
 These are standalone conditions which are fully "independent".
 
@@ -34,10 +32,6 @@ These are standalone conditions which are fully "independent".
 - Custom Variables
   * Array of variables which are checked for true status (true vs false).
 
-### Tertiary End-Conditions
-
-These are dependent conditions which require a primary end-condition to operate.
-
 - Require Extraction
   * A **percentage**/**ratio** of alive members for **a specific faction** to total alive players of that faction must move to a certain **marker**.
   * Require extraction for one team at a time.
@@ -50,8 +44,7 @@ End-conditions can be evaluated in one of two ways.
   - If any one of these conditions are met, this condition's ending text will be displayed.
 * All conditions
   - If all specified conditions are met, this condition's ending text will be displayed.
- 
-If the extraction condition is enabled then it must be completed before an ending is evaluated in either mode.
+
 
 ### Casualty Percentages
 
