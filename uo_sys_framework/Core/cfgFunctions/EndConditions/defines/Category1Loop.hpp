@@ -225,7 +225,7 @@ if (GETMVAR(Enabled_1,false)) then {
                 };
 
                 if (_ExtractionCheck) then {
-                    if((GETMVAR(ExtractionEnabled_1,false)) && (GETMVAR(EndConditions,ExtractionForced_1,false))) then
+                    if((GETMVAR(ExtractionEnabled_1,false)) && (GETMVAR(ExtractionForced_1,false))) then
                     {
                                     LOG_1("Category 1 Ending due to forced Extraction!");
                                     [GVAR(Message_1)] call EFUNC(Core,EndMission);
