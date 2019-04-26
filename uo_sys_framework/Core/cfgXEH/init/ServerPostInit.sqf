@@ -4,8 +4,8 @@ EXEC_CHECK(SERVER);
 
 LOG("Server Post Init");
 
-GVAR(EventRespawnedHandle) = addMissionEventHandler ["EntityRespawned", {_this call FUNC(EventRespawned);}];
-GVAR(EventKilledHandle) = addMissionEventHandler ["EntityKilled", {_this call FUNC(EventKilled);}];
+//GVAR(EventRespawnedHandle) = addMissionEventHandler ["EntityRespawned", {_this call FUNC(EventRespawned);}];
+//GVAR(EventKilledHandle) = addMissionEventHandler ["EntityKilled", {_this call FUNC(EventKilled);}];
 GVAR(EventDisconnectHandle) = addMissionEventHandler ["HandleDisconnect", {_this call FUNC(EventDisconnect);}];
 
 if (EGETMVAR(AI,ViewDistance_Enforce,false)) then {

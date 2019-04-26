@@ -7,6 +7,7 @@ The date refers to the date when changes have been merged into DEV branch.
 ### Added
 - View Distance limit sliders now avaliable!
   - Note: Minimumn view-distance enforced by Arma is 200 meters.
+- Added unit babel language
 
 ### Changed
 - CaptureZone modules used hint, changed to hintSilent

@@ -232,6 +232,22 @@ if !(UO_FW_Server_ACREModule_Allowed) exitwith {};
                     } forEach [QGVAR(Babel_Custom_Civ),QGVAR(Babel_Custom2_Civ)];
                 } forEach _CURRENTBABEL_LANGUAGES;
 
+                _additonalLanguage = GETPLVAR(AdditionalLanguage,"None");
+                _lang = ["None","English","Russian","French","Arabic","Greek","BluforCustomLanguage1","BluforCustomLanguage2",
+                "OpforCustomLanguage1","OpforCustomLanguage2","IndforCustomLanguage1","IndforCustomLanguage2","CivCustomLanguage1","CivCustomLanguage2"];
+
+                _possibleLang = ["None","en","ru","fr","ar","gk","cl1","cl2","cl3","cl4","cl5","cl6","cl7","cl8"];
+                
+
+                _addIndex = _lang find _additonalLanguage;
+                //ignore None by index
+                if(_addIndex > 0) then
+                {
+                    _ACRE_BLUFOR_BABEL_LANGUAGES pushBackUnique (_possibleLang select _addIndex);
+                    _ACRE_OPFOR_BABEL_LANGUAGES pushBackUnique (_possibleLang select _addIndex);
+                    _ACRE_Indfor_BABEL_LANGUAGES pushBackUnique (_possibleLang select _addIndex);
+                    _ACRE_Civ_BABEL_LANGUAGES pushBackUnique (_possibleLang select _addIndex);
+                };
 
                 if (GVAR(Babel_Enabled_BLUFOR) && {(side player isEqualTo west)}) then {
                     _ACRE_BLUFOR_BABEL_LANGUAGES call acre_api_fnc_babelSetSpokenLanguages;

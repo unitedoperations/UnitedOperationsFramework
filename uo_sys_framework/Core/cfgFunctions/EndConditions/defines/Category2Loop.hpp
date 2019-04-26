@@ -17,7 +17,7 @@ if (GETMVAR(Enabled_2,false)) then {
         if (!(GETMVAR(CustomVariables_Array_2,[]) isEqualto [])) then {_conditionsCountCategory2 = _conditionsCountCategory2 + 1;};
         if (!(GETMVAR(CaptureZoneCaptured_Array_2,[]) isEqualto [])) then {_conditionsCountCategory2 = _conditionsCountCategory2 + 1;};
 
-        if ((_conditionsCountCategory2) > 0) then {
+        if ((_conditionsCountCategory2) > 0  || ((GETMVAR(ExtractionEnabled_2,false)) && (GETMVAR(ExtractionForced_2,false)))) then {
             LOG_1("Starting Category 2 Condition Count:%1",_conditionsCountCategory2);
             private _endConditionsCategory2PFHhandle = [{
                 params ["_argNested", "_idPFH"];
@@ -220,6 +220,7 @@ if (GETMVAR(Enabled_2,false)) then {
                         } else {
                             _ExtractionCheck = false;
                         };
+                        TRACE_1("Extraction Check Cat 2",_ExtractionCheck);
                 } else {
                     _ExtractionCheck = true;
                 };

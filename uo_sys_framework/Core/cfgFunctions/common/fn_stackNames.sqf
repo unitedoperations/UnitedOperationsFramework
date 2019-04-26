@@ -15,8 +15,8 @@
 #define COMPONENT Core
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 EXEC_CHECK(ALL);
-
-params ["_array"];
+//DO NOT USE PARAMS AS IT IS NOT WORKING FOR ARRAY WITH 1 ELEMENT
+_array = _this;
 private _foundArray = [];
 private _newArray = [];
 {

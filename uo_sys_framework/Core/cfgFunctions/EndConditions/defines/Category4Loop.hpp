@@ -17,7 +17,7 @@ if (GETMVAR(Enabled_4,false)) then {
         if (!(GETMVAR(CustomVariables_Array_4,[]) isEqualto [])) then {_conditionsCountCategory4 = _conditionsCountCategory4 + 1;};
         if (!(GETMVAR(CaptureZoneCaptured_Array_4,[]) isEqualto [])) then {_conditionsCountCategory4 = _conditionsCountCategory4 + 1;};
 
-        if ((_conditionsCountCategory4) > 0) then {
+        if ((_conditionsCountCategory4) > 0  || ((GETMVAR(ExtractionEnabled_4,false)) && (GETMVAR(ExtractionForced_4,false)))) then {
             LOG_1("Starting Category 4 Condition Count:%1",_conditionsCountCategory4);
             private _endConditionsCategory4PFHhandle = [{
                 params ["_argNested", "_idPFH"];
@@ -220,6 +220,7 @@ if (GETMVAR(Enabled_4,false)) then {
                         } else {
                             _ExtractionCheck = false;
                         };
+                        TRACE_1("Extraction Check Cat 4",_ExtractionCheck);
                 } else {
                     _ExtractionCheck = true;
                 };

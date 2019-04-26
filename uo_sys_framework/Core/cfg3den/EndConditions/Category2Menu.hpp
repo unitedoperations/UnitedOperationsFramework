@@ -197,7 +197,7 @@ class EGVAR(EndConditions,ExtractionSettings_Category2) {
         class EGVAR(EndConditions,ExtractionEnabled_2) {
             property = QEGVAR(EndConditions,ExtractionEnabled_2);
             displayName = "Require Extraction";
-            tooltip = "Require Extraction in addition to end conditions for this category. This is a secondary end-condition which requires a primary end-condition (all conditions above).";
+            tooltip = "Require Extraction in addition to end conditions for this category. This is a secondary end-condition which requires a primary end-condition (all conditions above). Ratio/Players need to leave the marked area first before the condition is triggered.";
             control = "CheckBoxState";
             expression = SCENARIO_EXPRESSION;
             defaultValue = "false";
