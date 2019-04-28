@@ -19,12 +19,12 @@ The date refers to the date when changes have been merged into DEV branch.
 - Team tickets and unlimited respawn options now functional
 - Respawn as a different faction is now functional
 - Spectator is now at the correct location
+- ACRE Set Radio Channel now works correctly
+- ACRE Set Ear now works correctly
 
 ### Removed
 
 ### Known Issues
-- Spectator camera does not properly place players where they died.
-  - This is a minor issue but will be addressed as soon as major debug can be performed.
 
 ## [1.0.5]
 ### Added
