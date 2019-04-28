@@ -373,7 +373,7 @@ if !(UO_FW_Server_ACREModule_Allowed) exitwith {};
                         [_radioID, _result] call acre_api_fnc_setRadioChannel;
                     };
 
-                    [_radioID, (["LEFT","CENTER", "RIGHT"] select (GETPLVAR(SR_RADIO_EAR,0)))] call acre_api_fnc_setRadioSpatial;
+                    [_radioID, (["LEFT","CENTER", "RIGHT"] select (GETPLVAR(SR_RADIO_EAR,1)))] call acre_api_fnc_setRadioSpatial;
                 };
             } forEach ["ACRE_PRC343", "ACRE_SEM52SL"];
 
@@ -386,7 +386,7 @@ if !(UO_FW_Server_ACREModule_Allowed) exitwith {};
                     } else {
                         [_radioID, _result] call acre_api_fnc_setRadioChannel;
                     };
-                    [_radioID, ([ "LEFT","CENTER", "RIGHT"] select (GETPLVAR(LR_RADIO_EAR,0)))] call acre_api_fnc_setRadioSpatial;
+                    [_radioID, ([ "LEFT","CENTER", "RIGHT"] select (GETPLVAR(LR_RADIO_EAR,1)))] call acre_api_fnc_setRadioSpatial;
                 };
             } forEach ["ACRE_PRC343", "ACRE_PRC148", "ACRE_PRC152"];
 
@@ -401,7 +401,7 @@ if !(UO_FW_Server_ACREModule_Allowed) exitwith {};
                             [_radioID, _result] call acre_api_fnc_setRadioChannel;
                         };
                     };
-                    [_radioID, (["LEFT","CENTER", "RIGHT"] select (GETPLVAR(PK_RADIO_EAR,0)))] call acre_api_fnc_setRadioSpatial;
+                    [_radioID, (["LEFT","CENTER", "RIGHT"] select (GETPLVAR(PK_RADIO_EAR,1)))] call acre_api_fnc_setRadioSpatial;
                 };
             } forEach ["ACRE_PRC117F", "ACRE_PRC77", "ACRE_SEM70"];
         };
