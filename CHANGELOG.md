@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 The version number refer to VERSION define in script_mod.
 The date refers to the date when changes have been merged into DEV branch.
 
-## [1.0.6 - Testing Server and Dev Branch]
+## [1.0.6]
 ### Added
 - View Distance limit sliders now avaliable!
   - Note: Minimumn view-distance enforced by Arma is 200 meters.
