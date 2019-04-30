@@ -91,7 +91,8 @@ if (GETMVAR(Enabled_2,false)) then {
                         private _unit = missionNamespace getVariable [_x,objNull];
                         if (isNull _unit) then {
                             _dead = false;
-                            LOG_1("Unit %1 not found!",_unit);
+                            LOG_1("Unit %1 not found!",_x);
+                            ["Unit " + _x + " not found!","Unit " + _x + " not found!"] call EFUNC(Debug,DebugMessageDetailed);
                         } else {
                             private _unitDeadCheck = (!(_unit call EFUNC(Core,alive)));
                             LOG_2("Unit %1 check: %2",_unit,_unitDeadCheck);
@@ -112,7 +113,8 @@ if (GETMVAR(Enabled_2,false)) then {
                             _damaged = _damaged && ((damage _unit > 0.5) || ((_unit isKindOf LandVehicle) && (!canMove _unit)));
                         } else {
                             _damaged = false;
-                            LOG_1("Unit %1 not found!",_x);
+                           LOG_1("Unit %1 not found!",_x);
+                            ["Unit " + _x + " not found!","Unit " + _x + " not found!"] call EFUNC(Debug,DebugMessageDetailed);
                         };
                     } forEach _damagedUnitArray;
                     _ConditionCheckList pushback ["Damaged Check",_damaged];
@@ -130,6 +132,7 @@ if (GETMVAR(Enabled_2,false)) then {
                         } else {
                             _rescued = false;
                             LOG_1("Unit %1 not found!",_x);
+                            ["Unit " + _x + " not found!","Unit " + _x + " not found!"] call EFUNC(Debug,DebugMessageDetailed);
                         };
                     } forEach _hostageRescuedArray;
                     _ConditionCheckList pushback ["Rescued Check",_rescued];
@@ -155,6 +158,7 @@ if (GETMVAR(Enabled_2,false)) then {
                         private _CaptureZoneConditionCheck = false;
                         if !((call compile _x) in (EGETMVAR(CaptureZone,ListArray,[]))) then {
                             LOG_1("CaptureZone %1 does not exist!",_x);
+                            ["CaptureZone " + _x + " does not exist!","CaptureZone " + _x + " does not exist!"] call EFUNC(Debug,DebugMessageDetailed);
                             _CaptureZoneConditionCheck = false;
                         } else {
                             private _varName = format ["%1_var",_x];
