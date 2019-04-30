@@ -3,7 +3,30 @@ All notable changes to this project will be documented in this file.
 The version number refer to VERSION define in script_mod.
 The date refers to the date when changes have been merged into DEV branch.
 
-## [Unreleased]
+## [1.0.6]
+### Added
+- View Distance limit sliders now avaliable!
+  - Note: Minimumn view-distance enforced by Arma is 200 meters.
+- Added unit babel language
+
+### Changed
+- CaptureZone modules used hint, changed to hintSilent
+- The extraction end-condition is now longer dependent upon another end-condition to fire.
+
+### Fixed
+- All run "module on respawn" settings are now configurable.
+- Individual ticketed respawns now fully functional
+- Team tickets and unlimited respawn options now functional
+- Respawn as a different faction is now functional
+- Spectator is now at the correct location
+- ACRE Set Radio Channel now works correctly
+- ACRE Set Ear now works correctly
+
+### Removed
+
+### Known Issues
+
+## [1.0.5]
 ### Added
 - Legacy mission support switches for functions: `EGVAR(Core,Version_UpdatedNumber)` and `EGVAR(Core,Version_CreatedNumber)` available in PreInit past `EGVAR(Core,Enabled)` check. Can be used for specific function changes and redirects based on version changes. Functions specific to an older version should be placed in an additional `\Legacy\` folder.
 - Gear System CBA Events for loading 3den attribute unit and vehicle loadouts, as well as forcing specific loadouts to units and vehicles.
@@ -44,8 +67,7 @@ The date refers to the date when changes have been merged into DEV branch.
 - Debug display naming
 
 ### Removed
-
-
+- N/A
 
 ## [1.0.2] - 2018-22-02
 ### Added

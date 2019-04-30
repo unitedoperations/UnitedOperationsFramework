@@ -197,8 +197,16 @@ class EGVAR(EndConditions,ExtractionSettings_Category6) {
         class EGVAR(EndConditions,ExtractionEnabled_6) {
             property = QEGVAR(EndConditions,ExtractionEnabled_6);
             displayName = "Require Extraction";
-            tooltip = "Require Extraction in addition to end conditions for this category. This is a secondary end-condition which requires a primary end-condition (all conditions above).";
+            tooltip = "Require Extraction in addition to end conditions for this category. This is a secondary end-condition which requires a primary end-condition (all conditions above). Ratio/Players need to leave the marked area first before the condition is triggered.";
             control = "CheckBoxState";
+            expression = SCENARIO_EXPRESSION;
+            defaultValue = "false";
+        };
+         class EGVAR(EndConditions,ExtractionForced_6) {
+            property = QEGVAR(EndConditions,ExtractionForced_6);
+            displayName = "Force Extraction End";
+            tooltip = "If enabled then the mission will end regardless of any other conditions above and the extraction is met!";
+            control = "CheckBox";
             expression = SCENARIO_EXPRESSION;
             defaultValue = "false";
         };

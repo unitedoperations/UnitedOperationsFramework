@@ -27,11 +27,12 @@ private _count = {
 } count ([_side] call EFUNC(Core,alivePlayers));
 
 private ["_respawnTypeNum","_result"];
-
+_result = false;
+_ratio = _ratio/100;
 switch (_side) do {
     case west: {
         _respawnTypeNum = GETMVAR(hasDeparted_BLUFOR,false);
-        if (_count >= _ratio * ([_team, 4] call EFUNC(Core,getTeamVariable))) then {
+        if (_count >= _ratio  * ([_team, 4] call EFUNC(Core,getTeamVariable))) then {
             if (_respawnTypeNum) then {
                 _result = true;
             };

@@ -17,7 +17,7 @@ if (GETMVAR(Enabled_2,false)) then {
         if (!(GETMVAR(CustomVariables_Array_2,[]) isEqualto [])) then {_conditionsCountCategory2 = _conditionsCountCategory2 + 1;};
         if (!(GETMVAR(CaptureZoneCaptured_Array_2,[]) isEqualto [])) then {_conditionsCountCategory2 = _conditionsCountCategory2 + 1;};
 
-        if ((_conditionsCountCategory2) > 0) then {
+        if ((_conditionsCountCategory2) > 0  || ((GETMVAR(ExtractionEnabled_2,false)) && (GETMVAR(ExtractionForced_2,false)))) then {
             LOG_1("Starting Category 2 Condition Count:%1",_conditionsCountCategory2);
             private _endConditionsCategory2PFHhandle = [{
                 params ["_argNested", "_idPFH"];
@@ -91,7 +91,8 @@ if (GETMVAR(Enabled_2,false)) then {
                         private _unit = missionNamespace getVariable [_x,objNull];
                         if (isNull _unit) then {
                             _dead = false;
-                            LOG_1("Unit %1 not found!",_unit);
+                            LOG_1("Unit %1 not found!",_x);
+                            ["Unit " + _x + " not found!","Unit " + _x + " not found!"] call EFUNC(Debug,DebugMessageDetailed);
                         } else {
                             private _unitDeadCheck = (!(_unit call EFUNC(Core,alive)));
                             LOG_2("Unit %1 check: %2",_unit,_unitDeadCheck);
@@ -112,7 +113,8 @@ if (GETMVAR(Enabled_2,false)) then {
                             _damaged = _damaged && ((damage _unit > 0.5) || ((_unit isKindOf LandVehicle) && (!canMove _unit)));
                         } else {
                             _damaged = false;
-                            LOG_1("Unit %1 not found!",_x);
+                           LOG_1("Unit %1 not found!",_x);
+                            ["Unit " + _x + " not found!","Unit " + _x + " not found!"] call EFUNC(Debug,DebugMessageDetailed);
                         };
                     } forEach _damagedUnitArray;
                     _ConditionCheckList pushback ["Damaged Check",_damaged];
@@ -130,6 +132,7 @@ if (GETMVAR(Enabled_2,false)) then {
                         } else {
                             _rescued = false;
                             LOG_1("Unit %1 not found!",_x);
+                            ["Unit " + _x + " not found!","Unit " + _x + " not found!"] call EFUNC(Debug,DebugMessageDetailed);
                         };
                     } forEach _hostageRescuedArray;
                     _ConditionCheckList pushback ["Rescued Check",_rescued];
@@ -155,6 +158,7 @@ if (GETMVAR(Enabled_2,false)) then {
                         private _CaptureZoneConditionCheck = false;
                         if !((call compile _x) in (EGETMVAR(CaptureZone,ListArray,[]))) then {
                             LOG_1("CaptureZone %1 does not exist!",_x);
+                            ["CaptureZone " + _x + " does not exist!","CaptureZone " + _x + " does not exist!"] call EFUNC(Debug,DebugMessageDetailed);
                             _CaptureZoneConditionCheck = false;
                         } else {
                             private _varName = format ["%1_var",_x];
@@ -220,33 +224,41 @@ if (GETMVAR(Enabled_2,false)) then {
                         } else {
                             _ExtractionCheck = false;
                         };
+                        TRACE_1("Extraction Check Cat 2",_ExtractionCheck);
                 } else {
                     _ExtractionCheck = true;
                 };
 
                 if (_ExtractionCheck) then {
-                    if (GVAR(Mode_2) isEqualto 1) then {
-                        {
-                            _x params ["_name","_value"];
-                            if (_value) exitwith {
-                                LOG_1("Category 2 Ending due to :%1",_value);
+                    if((GETMVAR(ExtractionEnabled_2,false)) && (GETMVAR(ExtractionForced_2,false))) then
+                    {
+                                    LOG_1("Category 2 Ending due to forced Extraction!");
+                                    [GVAR(Message_2)] call EFUNC(Core,EndMission);
+                                    [_idPFH] call CBA_fnc_removePerFrameHandler;
+                    } else {
+                        if (GVAR(Mode_2) isEqualto 1) then {
+                            {
+                                _x params ["_name","_value"];
+                                if (_value) exitwith {
+                                    LOG_1("Category 2 Ending due to :%1",_value);
+                                    [GVAR(Message_2)] call EFUNC(Core,EndMission);
+                                    [_idPFH] call CBA_fnc_removePerFrameHandler;
+                                };
+                            } foreach _ConditionCheckList;
+                        } else {
+                            private _fullcheck = true;
+                            {
+                                _x params ["_name","_value"];
+                                _fullcheck = _fullcheck && _value;
+                                LOG_2("Category 2 checking var:%1 result:%2",_name,_value);
+                            } foreach _ConditionCheckList;
+                            if (_fullcheck) then {
+                                LOG("Category 2 Ending due to all conditions met!");
                                 [GVAR(Message_2)] call EFUNC(Core,EndMission);
                                 [_idPFH] call CBA_fnc_removePerFrameHandler;
                             };
-                        } foreach _ConditionCheckList;
-                    } else {
-                        private _fullcheck = true;
-                        {
-                            _x params ["_name","_value"];
-                            _fullcheck = _fullcheck && _value;
-                            LOG_2("Category 2 checking var:%1 result:%2",_name,_value);
-                        } foreach _ConditionCheckList;
-                        if (_fullcheck) then {
-                            LOG("Category 2 Ending due to all conditions met!");
-                            [GVAR(Message_2)] call EFUNC(Core,EndMission);
-                            [_idPFH] call CBA_fnc_removePerFrameHandler;
                         };
-                    };
+                    };                  
                 };
             }, 1, [(GETMVAR(ConditionSleep,30)),CBA_missionTime]] call CBA_fnc_addPerFrameHandler;
         } else {

@@ -1,12 +1,16 @@
 class EGVAR(Core,MissionTypeAttribute): Toolbox {
-    attributeLoad= QUOTE(\
-        missionNamespace setVariable [QN(EGVAR(Core,MissionType)),_value];\
-        (_this controlsGroupCtrl 100) lbsetcursel _value;\
-    );
-    attributeSave= QUOTE(\
-        private _value = missionNamespace getVariable [QN(EGVAR(Core,MissionType)),0];\
+    attributeLoad = "\
+        private _name = gettext (_config >> 'property');\
+        missionNamespace setvariable [_name,_value];\
+        private _control = (_this controlsGroupCtrl 100);\
+        _control setvariable ['ParentCfg',_config];\
+        _control lbsetcursel _value;\
+    ";
+    attributeSave = "\
+        private _name = gettext (_config >> 'property');\
+        private _value = missionNamespace getvariable [_name,''];\
         _value\
-    );
+    ";
     h="8 * (pixelH * pixelGrid * 0.50)";
     class Controls: Controls {
         class Title: Title {};
@@ -32,9 +36,12 @@ class EGVAR(Core,MissionTypeAttribute): Toolbox {
                 "UOTC is defined as any mission built for the United Operations Training Center"
             };
             values[]={0,1,2,3,4};
-            onToolboxSelChanged = QUOTE(\
-                missionNamespace setVariable [QN(EGVAR(Core,MissionType)),(_this select 1)];\
-            );
+            onToolboxSelChanged = "\
+                params ['_control','_value'];\
+                private _config = _control getvariable ['ParentCfg',''];\
+                private _name = gettext (_config >> 'property');\
+                missionNamespace setvariable [_name,_value];\
+            ";
         };
     };
 };

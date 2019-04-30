@@ -17,7 +17,7 @@ if (GETMVAR(Enabled_3,false)) then {
         if (!(GETMVAR(CustomVariables_Array_3,[]) isEqualto [])) then {_conditionsCountCategory3 = _conditionsCountCategory3 + 1;};
         if (!(GETMVAR(CaptureZoneCaptured_Array_3,[]) isEqualto [])) then {_conditionsCountCategory3 = _conditionsCountCategory3 + 1;};
 
-        if ((_conditionsCountCategory3) > 0) then {
+        if ((_conditionsCountCategory3) > 0  || ((GETMVAR(ExtractionEnabled_3,false)) && (GETMVAR(ExtractionForced_3,false)))) then {
             LOG_1("Starting Category 3 Condition Count:%1",_conditionsCountCategory3);
             private _endConditionsCategory3PFHhandle = [{
                 params ["_argNested", "_idPFH"];
@@ -76,6 +76,7 @@ if (GETMVAR(Enabled_3,false)) then {
                             _alive = _alive && (_unit call EFUNC(Core,alive));
                         } else {
                             _alive = false;
+                            LOG_1("Unit %1 not found!",_x);
                             ["Unit " + _x + " not found!","Unit " + _x + " not found!"] call EFUNC(Debug,DebugMessageDetailed);
                         };
                     } forEach _aliveUnitArray;
@@ -91,7 +92,8 @@ if (GETMVAR(Enabled_3,false)) then {
                         private _unit = missionNamespace getVariable [_x,objNull];
                         if (isNull _unit) then {
                             _dead = false;
-                            LOG_1("Unit %1 not found!",_unit);
+                            LOG_1("Unit %1 not found!",_x);
+                            ["Unit " + _x + " not found!","Unit " + _x + " not found!"] call EFUNC(Debug,DebugMessageDetailed);
                         } else {
                             private _unitDeadCheck = (!(_unit call EFUNC(Core,alive)));
                             LOG_2("Unit %1 check: %2",_unit,_unitDeadCheck);
@@ -113,6 +115,7 @@ if (GETMVAR(Enabled_3,false)) then {
                         } else {
                             _damaged = false;
                             LOG_1("Unit %1 not found!",_x);
+                            ["Unit " + _x + " not found!","Unit " + _x + " not found!"] call EFUNC(Debug,DebugMessageDetailed);
                         };
                     } forEach _damagedUnitArray;
                     _ConditionCheckList pushback ["Damaged Check",_damaged];
@@ -130,6 +133,7 @@ if (GETMVAR(Enabled_3,false)) then {
                         } else {
                             _rescued = false;
                             LOG_1("Unit %1 not found!",_x);
+                            ["Unit " + _x + " not found!","Unit " + _x + " not found!"] call EFUNC(Debug,DebugMessageDetailed);
                         };
                     } forEach _hostageRescuedArray;
                     _ConditionCheckList pushback ["Rescued Check",_rescued];
@@ -155,6 +159,7 @@ if (GETMVAR(Enabled_3,false)) then {
                         private _CaptureZoneConditionCheck = false;
                         if !((call compile _x) in (EGETMVAR(CaptureZone,ListArray,[]))) then {
                             LOG_1("CaptureZone %1 does not exist!",_x);
+                            ["CaptureZone " + _x + " does not exist!","CaptureZone " + _x + " does not exist!"] call EFUNC(Debug,DebugMessageDetailed);
                             _CaptureZoneConditionCheck = false;
                         } else {
                             private _varName = format ["%1_var",_x];
@@ -220,33 +225,41 @@ if (GETMVAR(Enabled_3,false)) then {
                         } else {
                             _ExtractionCheck = false;
                         };
+                        TRACE_1("Extraction Check Cat 3",_ExtractionCheck);
                 } else {
                     _ExtractionCheck = true;
                 };
 
                 if (_ExtractionCheck) then {
-                    if (GVAR(Mode_3) isEqualto 1) then {
-                        {
-                            _x params ["_name","_value"];
-                            if (_value) exitwith {
-                                LOG_1("Category 3 Ending due to :%1",_value);
+                    if((GETMVAR(ExtractionEnabled_3,false)) && (GETMVAR(ExtractionForced_3,false))) then
+                    {
+                                    LOG_1("Category 3 Ending due to forced Extraction!");
+                                    [GVAR(Message_3)] call EFUNC(Core,EndMission);
+                                    [_idPFH] call CBA_fnc_removePerFrameHandler;
+                    } else {
+                        if (GVAR(Mode_3) isEqualto 1) then {
+                            {
+                                _x params ["_name","_value"];
+                                if (_value) exitwith {
+                                    LOG_1("Category 3 Ending due to :%1",_value);
+                                    [GVAR(Message_3)] call EFUNC(Core,EndMission);
+                                    [_idPFH] call CBA_fnc_removePerFrameHandler;
+                                };
+                            } foreach _ConditionCheckList;
+                        } else {
+                            private _fullcheck = true;
+                            {
+                                _x params ["_name","_value"];
+                                _fullcheck = _fullcheck && _value;
+                                LOG_2("Category 3 checking var:%1 result:%2",_name,_value);
+                            } foreach _ConditionCheckList;
+                            if (_fullcheck) then {
+                                LOG("Category 3 Ending due to all conditions met!");
                                 [GVAR(Message_3)] call EFUNC(Core,EndMission);
                                 [_idPFH] call CBA_fnc_removePerFrameHandler;
                             };
-                        } foreach _ConditionCheckList;
-                    } else {
-                        private _fullcheck = true;
-                        {
-                            _x params ["_name","_value"];
-                            _fullcheck = _fullcheck && _value;
-                            LOG_2("Category 3 checking var:%1 result:%2",_name,_value);
-                        } foreach _ConditionCheckList;
-                        if (_fullcheck) then {
-                            LOG("Category 3 Ending due to all conditions met!");
-                            [GVAR(Message_3)] call EFUNC(Core,EndMission);
-                            [_idPFH] call CBA_fnc_removePerFrameHandler;
                         };
-                    };
+                    };                  
                 };
             }, 1, [(GETMVAR(ConditionSleep,30)),CBA_missionTime]] call CBA_fnc_addPerFrameHandler;
         } else {

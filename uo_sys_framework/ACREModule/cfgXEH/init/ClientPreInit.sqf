@@ -12,8 +12,6 @@
 EXEC_CHECK(CLIENT);
 if !(UO_FW_Server_ACREModule_Allowed) exitwith {};
 
-#define RADIONETARRAY(TEAMNAME) \
-[(GETMVAR(RADIONET_NAME1##TEAMNAME,"")),(GETMVAR(RADIONET_NAME2##TEAMNAME,"")),(GETMVAR(RADIONET_NAME3##TEAMNAME,"")),(GETMVAR(RADIONET_NAME4##TEAMNAME,"")),(GETMVAR(RADIONET_NAME5##TEAMNAME,"")),(GETMVAR(RADIONET_NAME6##TEAMNAME,"")),(GETMVAR(RADIONET_NAME7##TEAMNAME,""))]
 
 [QGVAR(Init_Event), {
     if !(GETMVAR(Enabled,false)) exitwith {};
@@ -32,6 +30,21 @@ if !(UO_FW_Server_ACREModule_Allowed) exitwith {};
         };
         //Channel names stuff
         LOG("ACRE Init");
+
+        _radioNetNamesBlufor = [(GETMVAR(RADIONET_NAME1_Blufor ,"PLTNET 1")),(GETMVAR(RADIONET_NAME2_Blufor ,"PLTNET 2")),(GETMVAR(RADIONET_NAME3_Blufor ,"PLTNET 3")),
+        (GETMVAR(RADIONET_NAME4_Blufor ,"PLTNET 4")),(GETMVAR(RADIONET_NAME5_Blufor ,"Coy")),(GETMVAR(RADIONET_NAME6_Blufor ,"Cas")),(GETMVAR(RADIONET_NAME7_Blufor ,"Fires"))];
+
+         _radioNetNamesOpfor = [(GETMVAR(RADIONET_NAME1_Opfor ,"PLTNET 1")),(GETMVAR(RADIONET_NAME2_Opfor ,"PLTNET 2")),(GETMVAR(RADIONET_NAME3_Opfor ,"PLTNET 3")),
+        (GETMVAR(RADIONET_NAME4_Opfor ,"PLTNET 4")),(GETMVAR(RADIONET_NAME5_Opfor ,"Coy")),(GETMVAR(RADIONET_NAME6_Opfor ,"Cas")),(GETMVAR(RADIONET_NAME7_Opfor ,"Fires"))];
+
+         _radioNetNamesIndfor = [(GETMVAR(RADIONET_NAME1_Indfor ,"PLTNET 1")),(GETMVAR(RADIONET_NAME2_Indfor ,"PLTNET 2")),(GETMVAR(RADIONET_NAME3_Indfor ,"PLTNET 3")),
+        (GETMVAR(RADIONET_NAME4_Indfor ,"PLTNET 4")),(GETMVAR(RADIONET_NAME5_Indfor ,"Coy")),(GETMVAR(RADIONET_NAME6_Indfor ,"Cas")),(GETMVAR(RADIONET_NAME7_Indfor ,"Fires"))];
+
+         _radioNetNamesCiv = [(GETMVAR(RADIONET_NAME1_Civ ,"PLTNET 1")),(GETMVAR(RADIONET_NAME2_Civ ,"PLTNET 2")),(GETMVAR(RADIONET_NAME3_Civ ,"PLTNET 3")),
+        (GETMVAR(RADIONET_NAME4_Civ ,"PLTNET 4")),(GETMVAR(RADIONET_NAME5_Civ ,"Coy")),(GETMVAR(RADIONET_NAME6_Civ ,"Cas")),(GETMVAR(RADIONET_NAME7_Civ ,"Fires"))];
+
+
+
         if ((GETMVAR(RADIONET_Enabled_BLUFOR,false)) && {(side player isEqualTo west)}) then {
             {
                 private _index = _forEachIndex + 1;
@@ -42,7 +55,7 @@ if !(UO_FW_Server_ACREModule_Allowed) exitwith {};
                         [_x, GVAR(Preset_BLUFOR), _index, _label, _name] call acre_api_fnc_setPresetChannelField;
                     } forEach ["ACRE_PRC117F", "ACRE_PRC148", "ACRE_PRC152"];
                 };
-            } foreach RADIONETARRAY(BLUFOR);
+            } foreach _radioNetNamesBlufor;
         };
         if ((GETMVAR(RADIONET_Enabled_OPFOR,false)) && {(side player isEqualTo east)}) then {
             {
@@ -54,7 +67,7 @@ if !(UO_FW_Server_ACREModule_Allowed) exitwith {};
                         [_x, GVAR(Preset_OPFOR), _index, _label, _name] call acre_api_fnc_setPresetChannelField;
                     } forEach ["ACRE_PRC117F", "ACRE_PRC148", "ACRE_PRC152"];
                 };
-            } foreach RADIONETARRAY(OPFOR);
+            } foreach _radioNetNamesOpfor;
         };
         if ((GETMVAR(RADIONET_Enabled_Indfor,false)) && {(side player isEqualTo independent)}) then {
             {
@@ -66,7 +79,7 @@ if !(UO_FW_Server_ACREModule_Allowed) exitwith {};
                         [_x, GVAR(Preset_Indfor), _index, _label, _name] call acre_api_fnc_setPresetChannelField;
                     } forEach ["ACRE_PRC117F", "ACRE_PRC148", "ACRE_PRC152"];
                 };
-            } foreach RADIONETARRAY(INDEPENDENT);
+            } foreach _radioNetNamesIndfor;
         };
         if ((GETMVAR(RADIONET_Enabled_Civ,false)) && {(side player isEqualTo civilian)}) then {
             {
@@ -78,20 +91,20 @@ if !(UO_FW_Server_ACREModule_Allowed) exitwith {};
                         [_x, GVAR(Preset_Civ), _index, _label, _name] call acre_api_fnc_setPresetChannelField;
                     } forEach ["ACRE_PRC117F", "ACRE_PRC148", "ACRE_PRC152"];
                 };
-            } foreach RADIONETARRAY(CIVILIAN);
+            } foreach  _radioNetNamesCiv;
         };
 
         if (GETMVAR(RADIONET_Enabled_BLUFOR,false)) then {
-            LOG_1("Setting Netnames. Blu: %1",(RADIONETARRAY(BLUFOR)));
+            LOG_1("Setting Netnames. Blu: %1",(_radioNetNamesBlufor));
         };
         if (GETMVAR(RADIONET_Enabled_OPFOR,false)) then {
-            LOG_1("Setting Netnames. Opf: %1",(RADIONETARRAY(OPFOR)));
+            LOG_1("Setting Netnames. Opf: %1",(_radioNetNamesOpfor));
         };
         if (GETMVAR(RADIONET_Enabled_INDEPENDENT,false)) then {
-            LOG_1("Setting Netnames. Ind: %1",(RADIONETARRAY(INDEPENDENT)));
+            LOG_1("Setting Netnames. Ind: %1",(_radioNetNamesIndfor));
         };
         if (GETMVAR(RADIONET_Enabled_Civ,false)) then {
-            LOG_1("Setting Netnames. Civ: %1",(RADIONETARRAY(CIVILIAN)));
+            LOG_1("Setting Netnames. Civ: %1",( _radioNetNamesCiv));
         };
 
         [{(!isNull player) && {(!isNull acre_player)} && {([] call acre_api_fnc_isInitialized)}},{
@@ -232,6 +245,22 @@ if !(UO_FW_Server_ACREModule_Allowed) exitwith {};
                     } forEach [QGVAR(Babel_Custom_Civ),QGVAR(Babel_Custom2_Civ)];
                 } forEach _CURRENTBABEL_LANGUAGES;
 
+                _additonalLanguage = GETPLVAR(AdditionalLanguage,"None");
+                _lang = ["None","English","Russian","French","Arabic","Greek","BluforCustomLanguage1","BluforCustomLanguage2",
+                "OpforCustomLanguage1","OpforCustomLanguage2","IndforCustomLanguage1","IndforCustomLanguage2","CivCustomLanguage1","CivCustomLanguage2"];
+
+                _possibleLang = ["None","en","ru","fr","ar","gk","cl1","cl2","cl3","cl4","cl5","cl6","cl7","cl8"];
+                
+
+                _addIndex = _lang find _additonalLanguage;
+                //ignore None by index
+                if(_addIndex > 0) then
+                {
+                    _ACRE_BLUFOR_BABEL_LANGUAGES pushBackUnique (_possibleLang select _addIndex);
+                    _ACRE_OPFOR_BABEL_LANGUAGES pushBackUnique (_possibleLang select _addIndex);
+                    _ACRE_Indfor_BABEL_LANGUAGES pushBackUnique (_possibleLang select _addIndex);
+                    _ACRE_Civ_BABEL_LANGUAGES pushBackUnique (_possibleLang select _addIndex);
+                };
 
                 if (GVAR(Babel_Enabled_BLUFOR) && {(side player isEqualTo west)}) then {
                     _ACRE_BLUFOR_BABEL_LANGUAGES call acre_api_fnc_babelSetSpokenLanguages;
@@ -344,7 +373,7 @@ if !(UO_FW_Server_ACREModule_Allowed) exitwith {};
                         [_radioID, _result] call acre_api_fnc_setRadioChannel;
                     };
 
-                    [_radioID, (["CENTER", "LEFT", "RIGHT"] select (GETPLVAR(SR_RADIO_EAR,0)))] call acre_api_fnc_setRadioSpatial;
+                    [_radioID, (["LEFT","CENTER", "RIGHT"] select (GETPLVAR(SR_RADIO_EAR,1)))] call acre_api_fnc_setRadioSpatial;
                 };
             } forEach ["ACRE_PRC343", "ACRE_SEM52SL"];
 
@@ -357,7 +386,7 @@ if !(UO_FW_Server_ACREModule_Allowed) exitwith {};
                     } else {
                         [_radioID, _result] call acre_api_fnc_setRadioChannel;
                     };
-                    [_radioID, (["CENTER", "LEFT", "RIGHT"] select (GETPLVAR(LR_RADIO_EAR,0)))] call acre_api_fnc_setRadioSpatial;
+                    [_radioID, ([ "LEFT","CENTER", "RIGHT"] select (GETPLVAR(LR_RADIO_EAR,1)))] call acre_api_fnc_setRadioSpatial;
                 };
             } forEach ["ACRE_PRC343", "ACRE_PRC148", "ACRE_PRC152"];
 
@@ -372,7 +401,7 @@ if !(UO_FW_Server_ACREModule_Allowed) exitwith {};
                             [_radioID, _result] call acre_api_fnc_setRadioChannel;
                         };
                     };
-                    [_radioID, (["CENTER", "LEFT", "RIGHT"] select (GETPLVAR(PK_RADIO_EAR,0)))] call acre_api_fnc_setRadioSpatial;
+                    [_radioID, (["LEFT","CENTER", "RIGHT"] select (GETPLVAR(PK_RADIO_EAR,1)))] call acre_api_fnc_setRadioSpatial;
                 };
             } forEach ["ACRE_PRC117F", "ACRE_PRC77", "ACRE_SEM70"];
         };
