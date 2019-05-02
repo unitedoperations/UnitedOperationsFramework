@@ -1,6 +1,6 @@
 if (GETMVAR(File_Civ,false)) exitwith {
     if !(GETMVAR(File_Path_Civ,"") isEqualto "") then {
-        "" call (compile preprocessFileLineNumbers GETMVAR(File_Path_Civ,""));
+        "" call (compile preprocessFileLineNumbers (GETMVAR(File_Path_Civ,"")));
     } else {
         ERROR("No briefing found for CIVILIAN!");
     };

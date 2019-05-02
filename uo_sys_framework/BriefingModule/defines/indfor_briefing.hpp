@@ -1,6 +1,6 @@
 if (GETMVAR(File_INDFOR,false)) exitwith {
     if !(GETMVAR(File_Path_INDFOR,"") isEqualto "") then {
-        "" call (compile preprocessFileLineNumbers GETMVAR(File_Path_INDFOR,""));
+        "" call (compile preprocessFileLineNumbers (GETMVAR(File_Path_INDFOR,"")));
     } else {
         ERROR("No briefing found for INDFOR!");
     };
