@@ -1,6 +1,6 @@
 if (GETMVAR(File_BLUFOR,false)) exitwith {
     if !(GETMVAR(File_Path_BLUFOR,"") isEqualto "") then {
-        "" call (compile preprocessFileLineNumbers GETMVAR(File_Path_BLUFOR,""));
+        "" call (compile preprocessFileLineNumbers (GETMVAR(File_Path_BLUFOR,"")));
     } else {
         ERROR("No briefing found for BLUFOR!");
     };
