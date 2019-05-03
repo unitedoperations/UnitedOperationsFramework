@@ -73,7 +73,7 @@ if (GETMVAR(NATO_OPFOR,false)) then {
     if !(_friendlyDisposition isEqualTo "") then {
         _friendlyStr = _friendlyStr + "<font color='#5BD527' size='14.0'><h1>Disposition:</h1></font color><br/>" + _friendlyDisposition + "<br/><br/>";
     };
-    private _friendlyHigher = GETMVAR(NATO_FRIENDLY_DIS_OPFOR,"");
+    private _friendlyHigher = GETMVAR(NATO_FRIENDLY_Higher_OPFOR,"");
     if !(_friendlyHigher isEqualTo "") then {
         _friendlyStr = _friendlyStr + "<font color='#5BD527' size='14.0'><h1>Higher Units:</h1></font color><br/>" + _friendlyHigher + "<br/><br/>";
     };
