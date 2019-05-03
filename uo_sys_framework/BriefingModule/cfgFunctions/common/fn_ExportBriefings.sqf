@@ -71,7 +71,6 @@ if (GETMVALUE(NATO_BLUFOR,false)) then {
     "NEWTAB(""IV. Service Support:"")" +  _br +
     " "   + _br +
     "ENDTAB;" +  _br +
-
     "NEWTAB(""   A. Support:"")" +  _br +
     "<font color='#5BD527'><h1>Fires:</h1></font color><br/>" +  _br + (GETMVALUE(NATO_SANDS_SUPPORT_FIRES_BLUFOR,"")) + "<br/><br/>" +  _br +
     "<font color='#5BD527'><h1>Ammo:</h1></font color><br/>" +  _br + (GETMVALUE(NATO_SANDS_SUPPORT_AMMO_BLUFOR,"")) +   _br +
@@ -109,12 +108,12 @@ if (GETMVALUE(Warsaw_BLUFOR,false)) then {
     "<font color='#5BD527'><h1>Weather:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Preliminaries_Weather_BLUFOR,"")) + "<br/><br/>" + _br +
     "<font color='#5BD527'><h1>Terrain:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Preliminaries_Terrain_BLUFOR,"")) +  _br +
     "ENDTAB;" +  _br +
-
+    
     "NEWTAB(""II. Reference Points:"")" + _br +
     "<font color='#5BD527'><h1>Deployment Reference Points:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Reference_DeploymentPoints_BLUFOR,"")) + "<br/><br/>" + _br +
     "<font color='#5BD527'><h1>Subsequent Reference Points:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Reference_SubsequentPoints_BLUFOR,"")) +  _br +
     "ENDTAB;" +  _br +
-
+    
     "NEWTAB(""III. Enemy:"")" + _br +
     "<font color='#5BD527'><h1>Enemy Disposition:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Disp_BLUFOR,"")) + "<br/><br/>" + _br +
     "<font color='#5BD527'><h1>Enemy Equipment:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Equip_BLUFOR,"")) + "<br/><br/>" + _br +
@@ -199,7 +198,7 @@ if (GETMVALUE(NATO_OPFOR,false)) then {
     "NEWTAB(""IV. Service Support:"")" +  _br +
     " "   + _br +
     "ENDTAB;" +  _br +
-
+    
     "NEWTAB(""   A. Support:"")" +  _br +
     "<font color='#5BD527'><h1>Fires:</h1></font color><br/>" +  _br + (GETMVALUE(NATO_SANDS_SUPPORT_FIRES_OPFOR,"")) + "<br/><br/>" +  _br +
     "<font color='#5BD527'><h1>Ammo:</h1></font color><br/>" +  _br + (GETMVALUE(NATO_SANDS_SUPPORT_AMMO_OPFOR,"")) +   _br +
@@ -237,13 +236,12 @@ if (GETMVALUE(Warsaw_OPFOR,false)) then {
     _export = _export + "NEWTAB(""I. Preliminaries:"")" +  _br +
     "<font color='#5BD527'><h1>Weather:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Preliminaries_Weather_OPFOR,"")) + "<br/><br/>" + _br +
     "<font color='#5BD527'><h1>Terrain:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Preliminaries_Terrain_OPFOR,"")) +  _br +
-    "ENDTAB;" +  _br +
-
+    "ENDTAB;" +  _br + 
     "NEWTAB(""II. Reference Points:"")" + _br +
     "<font color='#5BD527'><h1>Deployment Reference Points:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Reference_DeploymentPoints_OPFOR,"")) + "<br/><br/>" + _br +
     "<font color='#5BD527'><h1>Subsequent Reference Points:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Reference_SubsequentPoints_OPFOR,"")) +  _br +
     "ENDTAB;" +  _br +
-
+    
     "NEWTAB(""III. Enemy:"")" + _br +
     "<font color='#5BD527'><h1>Enemy Disposition:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Disp_OPFOR,"")) + "<br/><br/>" + _br +
     "<font color='#5BD527'><h1>Enemy Equipment:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Equip_OPFOR,"")) + "<br/><br/>" + _br +
@@ -252,7 +250,7 @@ if (GETMVALUE(Warsaw_OPFOR,false)) then {
     "<font color='#5BD527'><h1>Probable Enemy Direction of Attack:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Prob_Dir_Attack_OPFOR,"")) + "<br/><br/>" + _br +
     "<font color='#5BD527'><h1>Probable Enemy Artillery Positions and Capability:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Enemy_Prob_Arty_OPFOR,"")) + _br +
     "ENDTAB;" +  _br +
-
+    
     "NEWTAB(""IV. Higher and Adjacent Units:"")" + _br +
     "<font color='#5BD527'><h1>Description:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Higher_Disp_OPFOR,"")) + "<br/><br/>" + _br +
     "<font color='#5BD527'><h1>Boundaries:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_Higher_Boundary_OPFOR,"")) + "<br/><br/>" + _br +
@@ -327,7 +325,7 @@ if (GETMVALUE(NATO_Indfor,false)) then {
     "NEWTAB(""IV. Service Support:"")" +  _br +
     " "   + _br +
     "ENDTAB;" +  _br +
-
+    
     "NEWTAB(""   A. Support:"")" +  _br +
     "<font color='#5BD527'><h1>Fires:</h1></font color><br/>" +  _br + (GETMVALUE(NATO_SANDS_SUPPORT_FIRES_Indfor,"")) + "<br/><br/>" +  _br +
     "<font color='#5BD527'><h1>Ammo:</h1></font color><br/>" +  _br + (GETMVALUE(NATO_SANDS_SUPPORT_AMMO_Indfor,"")) +   _br +
