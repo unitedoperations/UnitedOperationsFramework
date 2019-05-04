@@ -18,11 +18,7 @@
 EXEC_CHECK(ALL);
 
 private ["_unit", "_loadoutType", "_items", "_amount", "_position", "_randomPick"];
-_unit = (_this select 0) ;
-_loadoutType = (_this select 1) ;
-_items = _this select 2;
-_amount = 1;
-_position = "NONE";
+params ["_unit", "_loadoutType", "_items", ["_amount",1,[1]], ["_position", "NONE", [""]]];
 
 if (count _items > 1) then {
     if (typeName (_items select 1) == "ARRAY") then {
