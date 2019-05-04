@@ -18,9 +18,9 @@
 EXEC_CHECK(ALL);
 
 private ["_unit", "_loadoutType", "_items", "_amount", "_position", "_randomPick"];
-_unit = (_this select 0) select 0;
-_loadoutType = (_this select 0) select 1;
-_items = _this select 1;
+_unit = (_this select 0) ;
+_loadoutType = (_this select 1) ;
+_items = _this select 2;
 _amount = 1;
 _position = "NONE";
 
@@ -38,7 +38,7 @@ if (count _items > 1) then {
     };
 };
 
-private _randomPick = (_items select (([1, count _items] call FUNC(RandomRange)) - 1));
+private _randomPick = (_items select (([1, count _items] call EFUNC(Core,RandomRange)) - 1));
 if (_position == "ARRAY") then {
     if ((_randomPick select 0) isEqualType "ARRAY") then {
         {
