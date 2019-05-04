@@ -17,7 +17,7 @@
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 EXEC_CHECK(ALL);
 
-private ["_unit", "_loadoutType", "_items", "_amount", "_position", "_randomPick"];
+private ["_randomPick"];
 params ["_unit", "_loadoutType", "_items", ["_amount",1,[1]], ["_position", "NONE", [""]]];
 
 if (count _items > 1) then {
