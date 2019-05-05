@@ -1,6 +1,6 @@
 #define COMPONENT AIDrivers
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
-EXEC_CHECK(ALL);
+EXEC_CHECK(SERVER);
 if !(UO_FW_Server_AIDRIVERSMODULE_Allowed) exitwith {};
 
 params ["_vehicle"];

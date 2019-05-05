@@ -16,7 +16,7 @@ if !(GETMVAR(Enabled,false)) exitwith {};
 [QEGVAR(Core,RegisterModuleEvent), ["Shot Count", "Count shots fired by units", "Beta, TinfoilHate, PiZZADOX and Sacher"]] call CBA_fnc_localEvent;
 
 params ["_obj"];
-
+if(!local _obj) exitWith {};
 if !((_obj getVariable [QGVAR(firedEh), ""]) isEqualto "") exitWith {};
 SETVAR(_obj,originalSide,side _obj);
 

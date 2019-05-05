@@ -6,7 +6,7 @@ if !(GETMVAR(Enabled,false)) exitwith {};
 
 params ["_obj"];
 if !(_obj isKindOf "Man") exitwith {};
-
+if !(local _obj) exitWith {};
 [{!isNull (_this select 0)},{
     params ["_obj"];
     private _parachuteType = ["NONE","NONSTEERABLE","STEERABLE"] select (GETVAR(_obj,Type,0));
