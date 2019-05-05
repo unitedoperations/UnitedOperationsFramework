@@ -18,11 +18,11 @@ private _export = "private _briefing = [];" + _br +
 "#define DISPLAYBRIEFING() \"+ _br +
 "_size = count _briefing - 1; \"+ _br +
 "for '_i' from 0 to _size do \"+ _br +
-"{ \ " + _br +
+"{ \" + _br +
     "player createDiaryRecord (_briefing select _size - _i); \"+ _br +
 " }; "+ _br +
-+ _br +
-+ _br +
+_br +
+_br +
 
 
  "switch (side player) do " + _br +
