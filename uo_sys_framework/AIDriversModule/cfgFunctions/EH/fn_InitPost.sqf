@@ -15,7 +15,7 @@ params ["_vehicle"];
     private _inClasses = (typeOf _vehicle) in (GETMVAR(VehClasses,[]));
     private _option = GETVAR(_vehicle,VehEnabled,false);
 
-    LOG_5("Trying to add AI Drivers to %1 _allVehicles=%2 _inClasses=%3 _option=%4", _vehicle,_allVeh,_inClasses,_option);
+    LOG_4("Trying to add AI Drivers to %1 _allVehicles=%2 _inClasses=%3 _option=%4", _vehicle,_allVeh,_inClasses,_option);
 
     if (_allVeh) exitwith {
         [QGVAR(Enabled_Event),[_vehicle,_allowNV,_allowFlip]] call CBA_fnc_globalEventJIP;
