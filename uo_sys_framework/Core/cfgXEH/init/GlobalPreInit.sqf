@@ -25,16 +25,21 @@ if (_missionFrameworkVersionCreatedStr isEqualto "") then {
     private _missionFrameworkVersionCreated = parseNumber ((_missionFrameworkVersionCreatedStr splitString ".") joinString "");
     SETMVAR(Version_CreatedNum,_missionFrameworkVersionCreated);
     INFO_1("Mission Created with Framework Version:%1",_missionFrameworkVersionCreated);
+    
 };
 
 private _missionFrameworkVersionStr = (GETMVALUE(Version_Updated,""));
 if (_missionFrameworkVersionStr isEqualto "") then {
     SETMVAR(Version_UpdatedNumber,102);
     INFO("Mission Updated with Framework Version: Legacy");
+    private _build = UO_BUILD_NUMBER;
+    INFO_1("Framework Build Number: %1",_build);
 } else {
     private _missionFrameworkVersion = parseNumber ((_missionFrameworkVersionStr splitString ".") joinString "");
     SETMVAR(Version_UpdatedNumber,_missionFrameworkVersion);
     INFO_1("Mission Updated with Framework Version:%1",_missionFrameworkVersion);
+    private _build = UO_BUILD_NUMBER;
+    INFO_1("Framework Build Number: %1",_build);
 };
 
 [QGVAR(EntityAttributeLoad), {

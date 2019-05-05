@@ -31,14 +31,14 @@ switch (side player) do {
         _distance = GETMVAR(Distance_Civ,200);
     };
 };
-
+LOG_1("Adding Jip Actions: Type=%1",_type);
 switch (_type) do {
     case 0: {
         private _teleportAction = ["Jip_Teleport_Action", "Teleport To Squad", "", {
             params ["_target", "_player", "_args"];
             _args params ["_distance"];
             [_target,_args] call FUNC(Teleport);
-        }, {(player distance (EGETMVAR(Core,SpawnPos,(getpos player))) > ((_this select 2 ) select 0))}, {}, [_distance]] call ace_interact_menu_fnc_createAction;
+        }, {((player distance (EGETMVAR(Core,SpawnPos,(getpos player)))) < ((_this select 2 ) select 0))}, {}, [_distance]] call ace_interact_menu_fnc_createAction;
         [player, 1, ["ACE_SelfActions"], _teleportAction] call ace_interact_menu_fnc_addActionToObject;
         [{
             params ["_args","_idPFH"];
@@ -60,7 +60,7 @@ switch (_type) do {
             params ["_target", "_player", "_args"];
             _args params ["_distance"];
             [_target,_args] call FUNC(Transport);
-        }, {(player distance (EGETMVAR(Core,SpawnPos,(getpos player))) > ((_this select 2) select 0))}, {}, [_distance]] call ace_interact_menu_fnc_createAction;
+        }, {((player distance (EGETMVAR(Core,SpawnPos,(getpos player)))) < ((_this select 2 ) select 0))}, {}, [_distance]] call ace_interact_menu_fnc_createAction;
         [player, 1, ["ACE_SelfActions"], _transportAction] call ace_interact_menu_fnc_addActionToObject;
         [{
             params ["_args","_idPFH"];
