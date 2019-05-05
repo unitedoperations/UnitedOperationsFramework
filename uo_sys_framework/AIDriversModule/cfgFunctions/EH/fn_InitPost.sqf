@@ -11,15 +11,21 @@ params ["_vehicle"];
     private _vehicle = _thisArgs;
     private _allowNV = GETMVAR(NVEnabled,false);
 	private _allowFlip = GETMVAR(FlipEnabled,false);
-    if (GETMVAR(AllVehs,false)) exitwith {
+    private _allVeh = GETMVAR(AllVehs,false);
+    private _inClasses = (typeOf _vehicle) in (GETMVAR(VehClasses,[]));
+    private _option = GETVAR(_vehicle,VehEnabled,false);
+
+    LOG_5("Trying to add AI Drivers to %1 _allVehicles=%2 _inClasses=%3 _option=%4", _vehicle,_allVeh,_inClasses,_option);
+
+    if (_allVeh) exitwith {
         [QGVAR(Enabled_Event),[_vehicle,_allowNV,_allowFlip]] call CBA_fnc_globalEventJIP;
         [QEGVAR(Core,RegisterModuleEvent), ["AI Drivers", "Module for adding AI Drivers to vehicles", "BlackHawk, PiZZADOX and Sacher"]] call CBA_fnc_globalEventJIP;
     };
-    if ((typeOf _vehicle) in (GETMVAR(VehClasses,[]))) exitwith {
+    if (_inClasses) exitwith {
         [QEGVAR(Core,RegisterModuleEvent), ["AI Drivers", "Module for adding AI Drivers to vehicles", "BlackHawk, PiZZADOX and Sacher"]] call CBA_fnc_globalEventJIP;
         [QGVAR(Enabled_Event),[_vehicle,_allowNV,_allowFlip]] call CBA_fnc_globalEventJIP;
     };
-    if (GETVAR(_vehicle,VehEnabled,false)) then {
+    if (_option) then {
         private _allowNV = GETVAR(_vehicle,VehNVEnabled,false);
     	private _allowFlip = GETVAR(_vehicle,VehFlipEnabled,false);
         [QGVAR(Enabled_Event),[_vehicle,_allowNV,_allowFlip]] call CBA_fnc_globalEventJIP;
