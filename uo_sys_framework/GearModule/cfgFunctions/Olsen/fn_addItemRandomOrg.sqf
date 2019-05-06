@@ -17,6 +17,7 @@
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 EXEC_CHECK(ALL);
 
+private ["_randomPick"];
 params ["_unit", "_loadoutType", "_items", ["_amount",1,[1]], ["_position", "NONE", [""]]];
 
 if (count _items > 1) then {
@@ -33,7 +34,7 @@ if (count _items > 1) then {
     };
 };
 
-private _randomPick = (_items select (([1, count _items] call FUNC(RandomRange)) - 1));
+private _randomPick = (_items select (([1, count _items] call EFUNC(Core,RandomRange)) - 1));
 if (_position == "ARRAY") then {
     if ((_randomPick select 0) isEqualType "ARRAY") then {
         {

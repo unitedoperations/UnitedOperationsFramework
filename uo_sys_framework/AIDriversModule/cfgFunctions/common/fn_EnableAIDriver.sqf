@@ -75,4 +75,4 @@ if (_enableNV) then {
     [_veh, 1, ["ACE_SelfActions"], _pipNvAction] call ace_interact_menu_fnc_addActionToObject;
 };
 
-SETPVAR(_veh,hasActions,true);
+SETVAR(_veh,hasActions,true);

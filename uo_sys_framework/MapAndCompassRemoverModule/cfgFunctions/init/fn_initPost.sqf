@@ -6,6 +6,7 @@ if !(GETMVAR(Enabled,false)) exitwith {};
 
 params ["_obj"];
 if !(_obj isKindOf "Man") exitwith {};
+if !(local _obj) exitWith {};
 
 [QEGVAR(Core,RegisterModuleEvent), ["Map and Compass Remover", "Removes Map and Compass after briefing", "TinfoilHate, Sacher and PiZZADOX"]] call CBA_fnc_localEvent;
 

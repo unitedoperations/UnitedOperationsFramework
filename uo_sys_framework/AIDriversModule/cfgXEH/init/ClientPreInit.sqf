@@ -14,5 +14,6 @@ EXEC_CHECK(CLIENT);
 
 [QGVAR(Enabled_Event), {
 	params ["_vehicle","_allowNV","_allowFlip"];
+	LOG_1("Enabling AI Driver for %1",_vehicle);
 	[_vehicle,_allowNV,_allowFlip] call FUNC(EnableAIDriver);
 }] call CBA_fnc_addEventHandler;

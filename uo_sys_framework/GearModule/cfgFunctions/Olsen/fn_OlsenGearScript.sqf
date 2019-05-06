@@ -32,7 +32,7 @@ FNC_AddItem = {
 FNC_AddItemRandom = {
     private _args = [_unit, _type];
     TRACE_4("addItem Parameters:",_unit,_type,_args,_this);
-    _args append _this;
+    _args pushBack _this;
     TRACE_1("addItem parameters after append:",_args);
     _args call FUNC(AddItemRandomOrg);
 };

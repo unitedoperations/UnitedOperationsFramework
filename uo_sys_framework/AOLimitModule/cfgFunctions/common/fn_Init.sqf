@@ -77,15 +77,15 @@ EXEC_CHECK(CLIENT);
             _argNested params ["_unit","_args","_startedInside","_outSide","_enteredZone","_arrayname","_softAOMode","_recheckDead","_pos"];
             _args params ["","_area","","_entryMode","_airsetting","","_softAOtime","_softAOtimeAir"];
 
-            LOG_1("_argNested: %1",_argNested);
-            LOG_1("_area: %1",_area);
-            LOG_1("(vehicle _unit): %1",(vehicle _unit));
+            //LOG_1("_argNested: %1",_argNested);
+            //LOG_1("_area: %1",_area);
+            //LOG_1("(vehicle _unit): %1",(vehicle _unit));
             private _air = ((vehicle _unit) isKindOf "Air");
             if ((_airsetting) && {_air}) exitwith {};
 
             if ((count ((missionNamespace getvariable _arrayname))) isEqualto 1) then {
                 if ((vehicle _unit) inArea _area) then {
-                    LOG("unit in area");
+                   // LOG("unit in area");
                     _outSide = false;
                     _argNested set [3,_outSide];
                     _enteredZone = true;
@@ -117,7 +117,7 @@ EXEC_CHECK(CLIENT);
                 };
             } else {
                 if (({(vehicle _unit) inArea _x} count (missionNamespace getvariable _arrayname)) > 0) then {
-                    LOG("unit in area b");
+                    //LOG("unit in area b");
                     _enteredZone = true;
                     _argNested set [4,_enteredZone];
                     _outSide = false;
@@ -150,7 +150,7 @@ EXEC_CHECK(CLIENT);
             };
 
             SETMVAR(Display,_outSide);
-            LOG_1("_outSide: %1",_outSide);
+            //LOG_1("_outSide: %1",_outSide);
 
             if ((count (missionNamespace getvariable _arrayname)) == 1) then {
                 if ((!(_startedInside) && {!_softAOMode} && {(_entryMode)} && {!((vehicle _unit) inArea _area)}) || {(_recheckDead && !_softAOMode)}) then {
