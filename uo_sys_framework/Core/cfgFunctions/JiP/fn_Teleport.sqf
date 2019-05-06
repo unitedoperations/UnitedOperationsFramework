@@ -49,7 +49,7 @@ LOG_1("Jip Teleport to %1",_target);
 if (!isNull(_target)) then {
     if !(_target isEqualto vehicle _target) then {
         private _moveInSuccess = player moveInAny (vehicle _target);
-        [{!(isNil (_moveInSuccess))}, {
+        [{(vehicle player) isEqualTo (vehicle _target)}, {
             params ["_moveInSuccess"];
             if (_moveInSuccess) then {
                 [player,1,["ACE_SelfActions","Jip_Teleport_Action"]] call ace_interact_menu_fnc_removeActionFromObject;
@@ -59,7 +59,7 @@ if (!isNull(_target)) then {
                 ["Failed to move into leader's vehicle, please try again later."] call EFUNC(Core,parsedTextDisplay);
                 LOG_1("Failed Teleport due to vehicle %1",_target);
             };
-        }, [_moveInSuccess]] call CBA_fnc_WaitUntilAndExecute;
+        }, [_moveInSuccess],10] call CBA_fnc_WaitUntilAndExecute;
     } else {
         private _stance = stance _target;
         switch (_stance) do {
