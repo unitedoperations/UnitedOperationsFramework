@@ -59,7 +59,7 @@ if (!isNull(_target)) then {
                 ["Failed to move into leader's vehicle, please try again later."] call EFUNC(Core,parsedTextDisplay);
                 LOG_1("Failed Teleport due to vehicle %1",_target);
             };
-        }, [_target,_moveInSuccess],10] call CBA_fnc_WaitUntilAndExecute;
+        }, [_target,_moveInSuccess],10,{[player,1,["ACE_SelfActions","Jip_Teleport_Action"]] call ace_interact_menu_fnc_removeActionFromObject;}] call CBA_fnc_WaitUntilAndExecute;
     } else {
         private _stance = stance _target;
         switch (_stance) do {
