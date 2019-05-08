@@ -23,7 +23,7 @@ if (hasInterface) then {
             }] call CBA_fnc_execNextFrame;
         }] call CBA_fnc_execNextFrame;
 
-        if (didJIP && {(CBA_missionTime > ((EGETMVAR(JIP,Denytime,5)) * 60))}) exitwith {
+        if (didJIP && {(CBA_missionTime < ((EGETMVAR(JIP,Denytime,5)) * 60))}) exitwith {
             [QEGVAR(JiP,PlayerEvent), []] call CBA_fnc_localEvent;
             [QEGVAR(JiP,ServerEvent), [player]] call CBA_fnc_serverEvent;
         };

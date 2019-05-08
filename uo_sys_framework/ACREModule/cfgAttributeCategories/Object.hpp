@@ -102,5 +102,24 @@ class EGVAR(ACRE,UnitOptions) {
             condition = "objectControllable";
             defaultValue = "'None'";
         };
+        class EGVAR(ACRE,VehicleACRE_Enabled) {
+            property = QEGVAR(ACRE,VehicleACRE_Enabled);
+            displayName = "Enable ACRE Vehicle Settings";
+            tooltip = "Enable ACRE Vehicle Settings";
+            control = "CheckBox";
+            expression = ENTITY_EXPRESSION;
+            condition = "objectVehicle";
+            defaultValue = "false";
+        };
+        class EGVAR(ACRE,VehicleACREPreset) {
+            property = QEGVAR(ACRE,VehicleACREPreset);
+            displayName = "Vehicle Rack Preset";
+            tooltip = "Will set the vehicles ACRE rack to the selected side. Selecting Default will skip this setting. Requires ACRE Scrambling to be enabled.";
+            control = QEGVAR(ACRE,VehicleRadioPresetAttribute);
+            typeName = "STRING";
+            expression = ENTITY_EXPRESSION;
+            condition = "objectVehicle";
+            defaultValue = "''";
+        };
     };
 };

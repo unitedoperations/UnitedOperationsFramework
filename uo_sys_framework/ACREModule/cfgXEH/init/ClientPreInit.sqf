@@ -31,17 +31,17 @@ if !(UO_FW_Server_ACREModule_Allowed) exitwith {};
         //Channel names stuff
         LOG("ACRE Init");
 
-        _radioNetNamesBlufor = [(GETMVAR(RADIONET_NAME1_Blufor ,"PLTNET 1")),(GETMVAR(RADIONET_NAME2_Blufor ,"PLTNET 2")),(GETMVAR(RADIONET_NAME3_Blufor ,"PLTNET 3")),
-        (GETMVAR(RADIONET_NAME4_Blufor ,"PLTNET 4")),(GETMVAR(RADIONET_NAME5_Blufor ,"Coy")),(GETMVAR(RADIONET_NAME6_Blufor ,"Cas")),(GETMVAR(RADIONET_NAME7_Blufor ,"Fires"))];
+        _radioNetNamesBlufor = [(GETMVAR(RADIONET_NAME1_Blufor,"PLTNET 1")),(GETMVAR(RADIONET_NAME2_Blufor,"PLTNET 2")),(GETMVAR(RADIONET_NAME3_Blufor,"PLTNET 3")),
+        (GETMVAR(RADIONET_NAME4_Blufor,"PLTNET 4")),(GETMVAR(RADIONET_NAME5_Blufor,"Coy")),(GETMVAR(RADIONET_NAME6_Blufor,"Cas")),(GETMVAR(RADIONET_NAME7_Blufor,"Fires"))];
 
-         _radioNetNamesOpfor = [(GETMVAR(RADIONET_NAME1_Opfor ,"PLTNET 1")),(GETMVAR(RADIONET_NAME2_Opfor ,"PLTNET 2")),(GETMVAR(RADIONET_NAME3_Opfor ,"PLTNET 3")),
-        (GETMVAR(RADIONET_NAME4_Opfor ,"PLTNET 4")),(GETMVAR(RADIONET_NAME5_Opfor ,"Coy")),(GETMVAR(RADIONET_NAME6_Opfor ,"Cas")),(GETMVAR(RADIONET_NAME7_Opfor ,"Fires"))];
+         _radioNetNamesOpfor = [(GETMVAR(RADIONET_NAME1_Opfor,"PLTNET 1")),(GETMVAR(RADIONET_NAME2_Opfor,"PLTNET 2")),(GETMVAR(RADIONET_NAME3_Opfor,"PLTNET 3")),
+        (GETMVAR(RADIONET_NAME4_Opfor,"PLTNET 4")),(GETMVAR(RADIONET_NAME5_Opfor,"Coy")),(GETMVAR(RADIONET_NAME6_Opfor,"Cas")),(GETMVAR(RADIONET_NAME7_Opfor,"Fires"))];
 
-         _radioNetNamesIndfor = [(GETMVAR(RADIONET_NAME1_Indfor ,"PLTNET 1")),(GETMVAR(RADIONET_NAME2_Indfor ,"PLTNET 2")),(GETMVAR(RADIONET_NAME3_Indfor ,"PLTNET 3")),
-        (GETMVAR(RADIONET_NAME4_Indfor ,"PLTNET 4")),(GETMVAR(RADIONET_NAME5_Indfor ,"Coy")),(GETMVAR(RADIONET_NAME6_Indfor ,"Cas")),(GETMVAR(RADIONET_NAME7_Indfor ,"Fires"))];
+         _radioNetNamesIndfor = [(GETMVAR(RADIONET_NAME1_Indfor,"PLTNET 1")),(GETMVAR(RADIONET_NAME2_Indfor,"PLTNET 2")),(GETMVAR(RADIONET_NAME3_Indfor,"PLTNET 3")),
+        (GETMVAR(RADIONET_NAME4_Indfor,"PLTNET 4")),(GETMVAR(RADIONET_NAME5_Indfor,"Coy")),(GETMVAR(RADIONET_NAME6_Indfor,"Cas")),(GETMVAR(RADIONET_NAME7_Indfor,"Fires"))];
 
-         _radioNetNamesCiv = [(GETMVAR(RADIONET_NAME1_Civ ,"PLTNET 1")),(GETMVAR(RADIONET_NAME2_Civ ,"PLTNET 2")),(GETMVAR(RADIONET_NAME3_Civ ,"PLTNET 3")),
-        (GETMVAR(RADIONET_NAME4_Civ ,"PLTNET 4")),(GETMVAR(RADIONET_NAME5_Civ ,"Coy")),(GETMVAR(RADIONET_NAME6_Civ ,"Cas")),(GETMVAR(RADIONET_NAME7_Civ ,"Fires"))];
+         _radioNetNamesCiv = [(GETMVAR(RADIONET_NAME1_Civ,"PLTNET 1")),(GETMVAR(RADIONET_NAME2_Civ,"PLTNET 2")),(GETMVAR(RADIONET_NAME3_Civ,"PLTNET 3")),
+        (GETMVAR(RADIONET_NAME4_Civ,"PLTNET 4")),(GETMVAR(RADIONET_NAME5_Civ,"Coy")),(GETMVAR(RADIONET_NAME6_Civ,"Cas")),(GETMVAR(RADIONET_NAME7_Civ,"Fires"))];
 
 
 
@@ -361,49 +361,93 @@ if !(UO_FW_Server_ACREModule_Allowed) exitwith {};
 }] call CBA_fnc_addEventHandler;
 
 [QGVAR(SetChannelAndEar_Event),{
+    
     [{(CBA_missionTime > 1) &&  {[] call acre_api_fnc_isInitialized}},{
+
+
+        private ["_SRType","_LRType","_PKType"];
+        switch (side player) do {
+            case west: {
+                _SRType = ["NONE","ACRE_PRC343","ACRE_SEM52SL"] select GVAR(SR_Type_BLUFOR);
+                _LRType = ["NONE","ACRE_PRC343","ACRE_PRC148","ACRE_PRC152"] select GVAR(LR_Type_BLUFOR);
+                _PKType = ["NONE","ACRE_PRC117F","ACRE_PRC77","ACRE_SEM70"] select GVAR(PK_Type_BLUFOR);
+            };
+            case east: {
+                _SRType = ["NONE","ACRE_PRC343","ACRE_SEM52SL"] select GVAR(SR_Type_OPFOR);
+                _LRType = ["NONE","ACRE_PRC343","ACRE_PRC148","ACRE_PRC152"] select GVAR(LR_Type_OPFOR);
+                _PKType = ["NONE","ACRE_PRC117F","ACRE_PRC77","ACRE_SEM70"] select GVAR(PK_Type_OPFOR);
+            };
+            case independent: {
+                _SRType = ["NONE","ACRE_PRC343","ACRE_SEM52SL"] select GVAR(SR_Type_Indfor);
+                _LRType = ["NONE","ACRE_PRC343","ACRE_PRC148","ACRE_PRC152"] select GVAR(LR_Type_Indfor);
+                _PKType = ["NONE","ACRE_PRC117F","ACRE_PRC77","ACRE_SEM70"] select GVAR(PK_Type_Indfor);
+            };
+            case civilian: {
+                _SRType = ["NONE","ACRE_PRC343","ACRE_SEM52SL"] select GVAR(SR_Type_Civ);
+                _LRType = ["NONE","ACRE_PRC343","ACRE_PRC148","ACRE_PRC152"] select GVAR(LR_Type_Civ);
+                _PKType = ["NONE","ACRE_PRC117F","ACRE_PRC77","ACRE_SEM70"] select GVAR(PK_Type_Civ);
+            };
+            default {};
+        };
         if (GETPLVAR(UnitSettings_Enable,false)) then {
-            {
-                private _radioID = [_x] call acre_api_fnc_getRadioByType;
-                if (!isNil "_radioID") then {
-                    private _result = (GETPLVAR(SR_RADIO_CHANNEL,1));
-                    if (_result < 1) then {
-                        ERROR_1("%1 is not a valid Channel Number",_result);
-                    } else {
-                        [_radioID, _result] call acre_api_fnc_setRadioChannel;
-                    };
+            private _radioIDs = [] call acre_api_fnc_getCurrentRadioList;
+            TRACE_1("Found Radios",_radiosIDs);
 
-                    [_radioID, (["LEFT","CENTER", "RIGHT"] select (GETPLVAR(SR_RADIO_EAR,1)))] call acre_api_fnc_setRadioSpatial;
-                };
-            } forEach ["ACRE_PRC343", "ACRE_SEM52SL"];
+            if (_SRType != "NONE") then {
+                
+                {
+                private _radioId = _x;
+                if(([_radioId, _SRType] call acre_api_fnc_isKindOf)) exitWith {
+                        private _result = (GETPLVAR(SR_RADIO_CHANNEL,1));
+                        if (_result < 1) then {
+                            ERROR_1("%1 is not a valid Channel Number",_result);
+                        } else {
 
-            {
-                private _radioID = [_x] call acre_api_fnc_getRadioByType;
-                if ( ! isNil "_radioID") then {
-                    private _result = (GETPLVAR(LR_RADIO_CHANNEL,1));
-                    if (_result < 1) then {
-                        ERROR_1("%1 is not a valid Channel Number",_result);
-                    } else {
-                        [_radioID, _result] call acre_api_fnc_setRadioChannel;
-                    };
-                    [_radioID, ([ "LEFT","CENTER", "RIGHT"] select (GETPLVAR(LR_RADIO_EAR,1)))] call acre_api_fnc_setRadioSpatial;
-                };
-            } forEach ["ACRE_PRC343", "ACRE_PRC148", "ACRE_PRC152"];
-
-            {
-                private _radioID = [_x] call acre_api_fnc_getRadioByType;
-                if (!isNil "_radioID") then {
-                    private _result = (GETPLVAR(PK_RADIO_CHANNEL,1));
-                    if (_result < 1) then {
-                        ERROR_1("%1 is not a valid Channel Number",_result);
-                    } else {
-                        if !(_x isEqualTo "ACRE_PRC77") then {
-                            [_radioID, _result] call acre_api_fnc_setRadioChannel;
+                            [_radioId, _result] call acre_api_fnc_setRadioChannel;
+                            LOG_2("Setting SR %1 to channel %2",_radioId,_result);
                         };
-                    };
-                    [_radioID, (["LEFT","CENTER", "RIGHT"] select (GETPLVAR(PK_RADIO_EAR,1)))] call acre_api_fnc_setRadioSpatial;
-                };
-            } forEach ["ACRE_PRC117F", "ACRE_PRC77", "ACRE_SEM70"];
+                        [_radioId, (["LEFT","CENTER", "RIGHT"] select (GETPLVAR(SR_RADIO_EAR,1)))] call acre_api_fnc_setRadioSpatial;
+                        _radioIDs deleteAt _forEachIndex;
+                };  
+                }forEach _radioIDs;
+            };
+
+            if(_LRType != "NONE") then {
+                {
+                    private _radioId = _x;
+                    if(([_radioId, _LRType] call acre_api_fnc_isKindOf)) exitWith {
+                            private _result = (GETPLVAR(LR_RADIO_CHANNEL,1));
+                            if (_result < 1) then {
+                                ERROR_1("%1 is not a valid Channel Number",_result);
+                            } else {
+
+                                [_radioId, _result] call acre_api_fnc_setRadioChannel;
+                                LOG_2("Setting LR %1 to channel %2",_radioId,_result);
+                            };
+                            [_radioId, (["LEFT","CENTER", "RIGHT"] select (GETPLVAR(LR_RADIO_EAR,1)))] call acre_api_fnc_setRadioSpatial;
+                            _radioIDs deleteAt _forEachIndex;
+                    };  
+                }forEach _radioIDs;
+            };
+           
+            if(_PKType != "NONE") then {
+                {
+                    private _radioId = _x;
+                    if(([_radioId, _PKType] call acre_api_fnc_isKindOf)) exitWith {
+                            private _result = (GETPLVAR(PK_RADIO_CHANNEL,1));
+                            if (_result < 1) then {
+                                ERROR_1("%1 is not a valid Channel Number",_result);
+                            } else {
+
+                                [_radioId, _result] call acre_api_fnc_setRadioChannel;
+                                LOG_2("Setting PK %1 to channel %2",_radioId,_result);
+                            };
+                            [_radioId, (["LEFT","CENTER", "RIGHT"] select (GETPLVAR(PK_RADIO_EAR,1)))] call acre_api_fnc_setRadioSpatial;
+                            _radioIDs deleteAt _forEachIndex;
+                    };  
+                }forEach _radioIDs;
+            };
+            
         };
     }] call CBA_fnc_waitUntilAndExecute;
 }] call CBA_fnc_addEventHandler;

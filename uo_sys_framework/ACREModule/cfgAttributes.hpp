@@ -2,3 +2,4 @@
 #include "CfgAttributes\RadioSelectAttribute.hpp"
 #include "CfgAttributes\ChannelSelectAttribute.hpp"
 #include "CfgAttributes\AdditionalLanguageAttribute.hpp"
+#include "CfgAttributes\VehicleRadioPresetAttribute.hpp"
