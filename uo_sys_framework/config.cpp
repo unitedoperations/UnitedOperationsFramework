@@ -259,7 +259,7 @@ class display3DEN {
                     QEGVAR(ACRE,ACREContextCivilian)
                 };
             };
-            items += {QEGVAR(ACRE,ContextFolder)};
+            items[] += {QEGVAR(ACRE,ContextFolder)};
         };
     };
 

@@ -1,15 +1,3 @@
-// class EGVAR(ACRE,ContextFolder) {
-// 	items[] = {
-// 		QEGVAR(ACRE,ACREContextMain),
-// 		QEGVAR(ACRE,ACREContextBlufor), 
-// 		QEGVAR(ACRE,ACREContextOpfor), 
-// 		QEGVAR(ACRE,ACREContextIndfor), 
-// 		QEGVAR(ACRE,ACREContextCivilian)
-// 	};
-// };
-
-
-
 class EGVAR(ACRE,ACREContextMain)
 {
 	text = "Open Main ACRE Settings";
