@@ -5,6 +5,7 @@ class ctrlButton;
 class ctrlButtonPictureKeepAspect;
 class ctrlDefaultText;
 class ctrlDefault;
+class ctrlMenu;
 class ctrlMenuStrip;
 class ctrlToolbox;
 class ctrlCheckbox;

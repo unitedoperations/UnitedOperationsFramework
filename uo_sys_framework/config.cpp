@@ -246,6 +246,12 @@ class Cfg3DEN {
 };
 
 class display3DEN {
+    class ContextMenu: ctrlMenu {
+        class Items {
+            #include "ACREModule\display3den\ContextMenu.hpp"
+        };
+    };
+
     class Controls {
         class MenuStrip: ctrlMenuStrip {
             class Items {
