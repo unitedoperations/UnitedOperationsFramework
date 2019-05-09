@@ -248,7 +248,11 @@ class Cfg3DEN {
 class display3DEN {
     class ContextMenu: ctrlMenu {
         class Items {
-            #include "ACREModule\display3den\ContextMenu.hpp"
+            class EGVAR(ACRE,Folder) {
+                text = "ACRE Settings";
+                #include "ACREModule\display3den\ContextMenu.hpp"
+            };
+            items += {QEGVAR(ACRE,Folder)};
         };
     };
 
