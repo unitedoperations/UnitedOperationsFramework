@@ -249,13 +249,17 @@ class display3DEN {
     class ContextMenu: ctrlMenu {
         class Items {
             #include "ACREModule\display3den\ContextMenu.hpp"
-            class EGVAR(Core,ContextFolder) {
+            class EGVAR(ACRE,ContextFolder) {
                 text = "ACRE Settings";
-                items[] += {
-                    QEGVAR(ACRE,ContextFolder)
+                items[] = {
+                    QEGVAR(ACRE,ACREContextMain),
+                    QEGVAR(ACRE,ACREContextBlufor), 
+                    QEGVAR(ACRE,ACREContextOpfor), 
+                    QEGVAR(ACRE,ACREContextIndfor), 
+                    QEGVAR(ACRE,ACREContextCivilian)
                 };
             };
-            items += {QEGVAR(Core,ContextFolder)};
+            items += {QEGVAR(ACRE,ContextFolder)};
         };
     };
 
