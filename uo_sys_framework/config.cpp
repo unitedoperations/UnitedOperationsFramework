@@ -248,11 +248,14 @@ class Cfg3DEN {
 class display3DEN {
     class ContextMenu: ctrlMenu {
         class Items {
-            class EGVAR(ACRE,Folder) {
+            #include "ACREModule\display3den\ContextMenu.hpp"
+            class EGVAR(Core,ContextFolder) {
                 text = "ACRE Settings";
-                #include "ACREModule\display3den\ContextMenu.hpp"
+                items[] = {
+                    QEGVAR(ACRE,ContextFolder);
+                };
             };
-            items += {QEGVAR(ACRE,Folder)};
+            items += {QEGVAR(ACRE,ContextFolder)};
         };
     };
 
@@ -277,19 +280,6 @@ class display3DEN {
                 //Add Custom Items with an Additional Entry in Items[]
                 class EGVAR(Core,Folder) {
                     text = "UO Framework";
-                    //items[] = {
-                    //    QMGVAR(Settings),
-                    //    QEGVAR(Briefing,Folder),
-                    //    QEGVAR(Respawn,Folder),
-                    //    QEGVAR(Module,Settings),
-                    //    QEGVAR(EndConditions,Folder),
-                    //    QEGVAR(ACRE,Folder),
-                    //    QEGVAR(Gear,Folder),
-                    //    QEGVAR(AI,Settings),
-                    //    QEGVAR(ExportImport,Folder),
-                    //    QEGVAR(Core,Documentation),
-                    //    QEGVAR(Core,VersionDisplay)
-                    //};
                     items[] = {
                         QEGVAR(Core,SettingsMenu),
                         QEGVAR(Briefing,Folder),

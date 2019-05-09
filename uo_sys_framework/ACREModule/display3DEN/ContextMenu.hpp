@@ -7,12 +7,23 @@
 // 	};
 // };
 
-items[] = {
-	QEGVAR(ACRE,ACREContextMain),
-	QEGVAR(ACRE,ACREContextBlufor),
-	QEGVAR(ACRE,ACREContextOpfor),
-	QEGVAR(ACRE,ACREContextIndfor), 
-	QEGVAR(ACRE,ACREContextCivilian)
+// items[] = {
+// 	QEGVAR(ACRE,ACREContextMain),
+// 	QEGVAR(ACRE,ACREContextBlufor),
+// 	QEGVAR(ACRE,ACREContextOpfor),
+// 	QEGVAR(ACRE,ACREContextIndfor),
+// 	QEGVAR(ACRE,ACREContextCivilian)
+// };
+
+class EGVAR(ACRE,ContextFolder) {
+	//picture = "someLogo.paa";//Icon used for the entry called '''Log'''
+	items[] = {
+		QEGVAR(ACRE,ACREContextMain),
+		QEGVAR(ACRE,ACREContextBlufor), 
+		QEGVAR(ACRE,ACREContextOpfor), 
+		QEGVAR(ACRE,ACREContextIndfor), 
+		QEGVAR(ACRE,ACREContextCivilian)
+	};
 };
 
 class EGVAR(ACRE,ACREContextMain)
