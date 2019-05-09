@@ -251,11 +251,11 @@ class display3DEN {
             #include "ACREModule\display3den\ContextMenu.hpp"
             class EGVAR(Core,ContextFolder) {
                 text = "ACRE Settings";
-                items[] = {
-                    QEGVAR(ACRE,ContextFolder);
+                items[] += {
+                    QEGVAR(ACRE,ContextFolder)
                 };
             };
-            items += {QEGVAR(ACRE,ContextFolder)};
+            items += {QEGVAR(Core,ContextFolder)};
         };
     };
 
