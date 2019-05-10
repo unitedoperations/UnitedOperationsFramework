@@ -3,7 +3,12 @@ class EGVAR(Gear,ContextFolder)
 	text = "Gear Settings";
 	value = 0;
 	items[] = {
-		QEGVAR(Gear,SettingsContext), QEGVAR(Gear,LoadOnAllContext), QEGVAR(Gear,BluforContext), QEGVAR(Gear,OpforContext), QEGVAR(Gear,IndforContext), QEGVAR(Gear,CivilianContext)
+		QEGVAR(Gear,SettingsContext),
+		QEGVAR(Gear,LoadOnAllContext),
+		QEGVAR(Gear,BluforContext),
+		QEGVAR(Gear,OpforContext),
+		QEGVAR(Gear,IndforContext),
+		QEGVAR(Gear,CivilianContext)
 	};
 	picture = "\a3\3DEN\Data\Displays\Display3DEN\EntityMenu\arsenal_ca.paa";
 };

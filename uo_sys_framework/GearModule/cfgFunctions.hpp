@@ -14,6 +14,7 @@ CFGFUNCFOLDEREND;
 CFGFUNCFOLDER(Gear,3DEN);
     CFGFUNC(Gear,GearTypeLoad3DEN);
     CFGFUNC(Gear,setAllEntityGear);
+    CFGFUNC(Gear,setAllEntityGear);
     CFGFUNC(Gear,GearHandleEH);
     CFGFUNC(Gear,GearLoadPreset);
 CFGFUNCFOLDEREND;

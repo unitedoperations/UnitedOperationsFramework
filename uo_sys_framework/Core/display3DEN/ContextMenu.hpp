@@ -3,7 +3,8 @@ class EGVAR(Core,ContextFolder)
 	text = "UOF Settings";
 	value = 0;
 	items[] = {
-		QEGVAR(Core,CoreContext), QEGVAR(Core,ModulesContext)
+		QEGVAR(Core,CoreContext),
+		QEGVAR(Core,ModulesContext)
 	};
 	picture = "\a3\3DEN\Data\Cfg3DEN\History\changeAttributes_ca.paa";
 };

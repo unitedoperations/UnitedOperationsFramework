@@ -3,7 +3,12 @@ class EGVAR(Briefing,ContextFolder)
 	text = "Briefing Settings";
 	value = 0;
 	items[] = {
-		QEGVAR(Briefing,BluforContext), QEGVAR(Briefing,OpforContext), QEGVAR(Briefing,IndforContext), QEGVAR(Briefing,CivilianContext), QEGVAR(Briefing,MissionContext), QEGVAR(Briefing,ExportContext)
+		QEGVAR(Briefing,BluforContext),
+		QEGVAR(Briefing,OpforContext),
+		QEGVAR(Briefing,IndforContext),
+		QEGVAR(Briefing,CivilianContext),
+		QEGVAR(Briefing,MissionContext),
+		QEGVAR(Briefing,ExportContext)
 	};
     picture = "\a3\3DEN\Data\Cfg3DEN\Comment\texture_ca.paa";
 };
