@@ -4,6 +4,11 @@ class EGVAR(Respawn,Folder) {
     picture = "\a3\3DEN\Data\Cfg3DEN\History\changeAttributes_ca.paa";
 };
 
+class EGVAR(Respawn,Main) {
+    text = "General Respawn Settings";
+    action = QUOTE(edit3DENMissionAttributes QN(EGVAR(Respawn,Settings_Main)););
+};
+
 class EGVAR(Respawn,BLUFOR) {
     text = "BLUFOR Respawn Settings";
     action = QUOTE(edit3DENMissionAttributes QN(EGVAR(Respawn,Settings_BLUFOR)););
@@ -22,9 +27,4 @@ class EGVAR(Respawn,Indfor) {
 class EGVAR(Respawn,Civilian) {
     text = "Civilian Respawn Settings";
     action = QUOTE(edit3DENMissionAttributes QN(EGVAR(Respawn,Settings_Civ)););
-};
-
-class EGVAR(Respawn,Main) {
-    text = "General Respawn Settings";
-    action = QUOTE(edit3DENMissionAttributes QN(EGVAR(Respawn,Settings_Main)););
 };

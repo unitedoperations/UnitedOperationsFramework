@@ -250,8 +250,8 @@ class display3DEN {
         class Items {
             class Separator {value = 0;};
             #include "Core\display3den\ContextMenu.hpp"
-            #include "ACREModule\display3den\ContextMenu.hpp"
             #include "BriefingModule\display3den\ContextMenu.hpp"
+            #include "ACREModule\display3den\ContextMenu.hpp"
             #include "GearModule\display3den\ContextMenu.hpp"
             items[] += {"Separator", QEGVAR(Core,ContextFolder), EGVAR(Briefing,ContextFolder), QEGVAR(ACRE,ContextFolder), QEGVAR(Gear,ContextFolder)};
         };
