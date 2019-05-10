@@ -248,18 +248,12 @@ class Cfg3DEN {
 class display3DEN {
     class ContextMenu: ctrlMenu {
         class Items {
+            class Separator {value = 0;};
+            #include "Core\display3den\ContextMenu.hpp"
             #include "ACREModule\display3den\ContextMenu.hpp"
-            class EGVAR(ACRE,ContextFolder) {
-                text = "ACRE Settings";
-                items[] = {
-                    QEGVAR(ACRE,ACREContextMain),
-                    QEGVAR(ACRE,ACREContextBlufor), 
-                    QEGVAR(ACRE,ACREContextOpfor), 
-                    QEGVAR(ACRE,ACREContextIndfor), 
-                    QEGVAR(ACRE,ACREContextCivilian)
-                };
-            };
-            items[] += {QEGVAR(ACRE,ContextFolder)};
+            #include "BriefingModule\display3den\ContextMenu.hpp"
+            #include "GearModule\display3den\ContextMenu.hpp"
+            items[] += {"Separator", QEGVAR(Core,ContextFolder), EGVAR(Briefing,ContextFolder), QEGVAR(ACRE,ContextFolder), QEGVAR(Gear,ContextFolder)};
         };
     };
 
