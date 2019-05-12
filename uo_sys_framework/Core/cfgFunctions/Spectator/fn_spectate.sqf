@@ -186,12 +186,14 @@ if (EGETMVAR(ACRE,enable_babel,false)) then {
             _cam setDir _dir;    
             TRACE_1("Spectator position",_pos);
         } else {
-        
+                         
             SETMVAR(killcam_toggle,false);
             //this cool piece of code adds key handler to spectator display
             //it takes some time for display to create, so we have to delay it.
             [{!isNull (findDisplay 60492)}, {
                 LOG("Display loaded, attaching key EH");
+                private _killcam_msg = "<t size = '.8'>Press </t><t color='#FFA500' size = '.8'>K</t><t size = '.8'> to toggle indicator showing location where you were killed from.</t>";
+                [_killcam_msg, 0.55, 0.8, 8, 1] spawn BIS_fnc_dynamicText;
                 GVAR(killcam_keyHandle) = (findDisplay 60492) displayAddEventHandler ["keyDown", {call FUNC(KillCamToggleKeyH);}];
             }, []] call CBA_fnc_waitUntilAndExecute;
             if !(objNull isEqualTo (GETMVAR(killcam_killer,objnull))) then {
@@ -201,6 +203,8 @@ if (EGETMVAR(ACRE,enable_babel,false)) then {
                 _pos = _pos getpos [-1.8,_dirto];
                 _cam setposATL _pos;
                 TRACE_1("Killcam position",_pos);
+                private _kPos = GVAR(killcam_killer_pos);
+                TRACE_1("Killer Killcam position",_kPos);
                 //vector magic
                 private _temp1 = ([getposASL _cam, (getposASL GVAR(killcam_killer))] call BIS_fnc_vectorFromXToY);
                 private _temp = (_temp1 call CBA_fnc_vect2Polar);
@@ -208,12 +212,11 @@ if (EGETMVAR(ACRE,enable_babel,false)) then {
                 if (abs(_temp select 2) > 89) then {_temp set [2, 0]};
                 [_cam, [_temp select 1, _temp select 2]] call BIS_fnc_setObjectRotation;
             } else {
-                LOG("no valid killer");
                 _cam setposATL _pos;
-
                 _cam setDir _dir;
-                TRACE_1("No Killer Killcam position",_pos);
+                TRACE_1("No valid killer posiition",_pos);
             };
+            
             GVAR(killcam_drawHandle) = addMissionEventHandler ["Draw3D", {
                 //we don't draw hud unless we toggle it by keypress
                 if (GETMVAR(killcam_toggle,false)) then {
@@ -240,10 +243,7 @@ if (EGETMVAR(ACRE,enable_babel,false)) then {
             }];//draw EH
         };//killcam (not) active
     };//checking camera
-    if (_killCamSetting) then {
-        private _killcam_msg = "<t size = '.8'>Press </t><t color='#FFA500' size = '.8'>K</t><t size = '.8'> to toggle indicator showing location where you were killed from.</t>";
-        [_killcam_msg, 0.55, 0.8, 8, 1] spawn BIS_fnc_dynamicText;
-    };
+  
     //private _text = format ["<t size='0.5' color='#ffffff'>%1
     //Close spectator HUD by pressing <t color='#FFA500'>CTRL+H</t>.<br/>
     //Press <t color='#FFA500'>SHIFT</t>, <t color='#FFA500'>ALT</t> or <t color='#FFA500'>SHIFT+ALT</t> to modify camera speed. Open map by pressing <t color='#FFA500'>M</t> and click anywhere to move camera to that postion.<br/>
