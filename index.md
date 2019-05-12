@@ -47,7 +47,7 @@ You should always feel-free to report any issues you encounter with the framewor
 
 The United Operations Framework is a project originally made by [@PiZZAD0X](https://github.com/PiZZAD0X) and [@ChrSacher](https://github.com/ChrSacher/) for the [United Operations](https://unitedoperations.net) community.
 
-These docs are maintained primarily by [@TheTrainDoctor](https://github.com/thecogdoctor/).
+These docs are maintained primarily by [@TheTrainDoctor](https://github.com/TrainDoctor/).
 
 ### License
 
