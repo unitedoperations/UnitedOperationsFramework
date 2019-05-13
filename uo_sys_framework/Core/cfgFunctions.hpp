@@ -75,6 +75,7 @@ CFGFUNCFOLDERCORE(Attributes);
 CFGFUNCFOLDEREND;
 
 CFGFUNCFOLDERCORE(Respawn);
+    CFGFUNC(Respawn,SetRespawnModule);
     CFGFUNC(Respawn,HandlePlayerRespawn);
 CFGFUNCFOLDEREND;
 
@@ -83,6 +84,7 @@ CFGFUNCFOLDERCORE(Spectator);
     CFGFUNC(Spectator,EndSpectate);
     CFGFUNC(Spectator,keyhandleEG);
     CFGFUNC(Spectator,keyhandle46);
+    CFGFUNC(Spectator,KillCamToggleKeyH);
 CFGFUNCFOLDEREND;
 
 CFGFUNCFOLDERCORE(EventHandlers);

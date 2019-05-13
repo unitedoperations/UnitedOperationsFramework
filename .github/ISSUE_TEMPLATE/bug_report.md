@@ -9,7 +9,7 @@ assignees: ''
 
 >#### Instructions
 >
->With the exception of the instructions and naming convention, headers should be kept with the description changed to their respective function. Put "nil" if not applicable.
+>With the exception of the instructions and naming convention, headers should be kept with the description changed to their respective function. No sections should be missing information, even if the info is minimal. If logs, mission files or steps are not included or added via edit, the bug report will be removed and you will be asked to re-introduce or edit the issue where upon the new issue will be addressed or the edited version re-opened.
 >
 >#### Naming Convention
 >

@@ -9,4 +9,5 @@ class EGVAR(Core,Documentation) {
 class EGVAR(Core,VersionDisplay) {
     text = QUOTE(Framework Version: VERSION);
     action = "";
+    picture = "\a3\3DEN\Data\Displays\Display3DEN\ToolBar\help_updates_ca.paa";
 };
