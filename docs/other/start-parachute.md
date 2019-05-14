@@ -46,9 +46,9 @@ Text here.
 # Advanced Mission-making
 
 ## Functions
-This module does not provide any functions end-users can call themselves.
+This module may provide any functions end-users can call themselves.
 
 ## Eventhandlers
-This module does not provide any event-handlers end-users can call themselves.
+This module may provide any event-handlers end-users can call themselves.
 
 ---

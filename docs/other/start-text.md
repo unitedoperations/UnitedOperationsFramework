@@ -33,3 +33,13 @@ Starting Text:
 ![Date and Time]({{ site.baseurl }}/resources/images/safe-start/date_and_time.png){:class="img-responsive"}
 
 ---
+
+# Advanced Mission-making
+
+## Functions
+This module may provide any functions end-users can call themselves.
+
+## Eventhandlers
+This module may provide any event-handlers end-users can call themselves.
+
+---
