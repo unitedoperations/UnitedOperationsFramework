@@ -3,6 +3,28 @@ All notable changes to this project will be documented in this file.
 The version number refer to VERSION define in script_mod.
 The date refers to the date when changes have been merged into DEV branch.
 
+## [1.0.7]
+### Added
+- ACRE Vehicle Rack Preset now selectable
+- New context menu options to improve navigation and efficency for changing settings for UOF missions on the fly
+- New icons for the UOF settings bar and context menus
+### Changed
+
+- Made game-mastering dependent on mission notes
+- Reorganized the top-bar setting menus for the UOF to ensure parity between context menus and top-bar settings.
+- EG Spectator uses ACE variable if it doesn't get correct value from Killed EH
+### Fixed
+- Missing function configuration for spectator mode resulted in players being unable to tell who killed them
+- Briefing entries being duplicated
+- itemRandomOrg script error
+- Endscreen not showing Casualties
+- Script error in jip teleport
+- Export Briefings being incomplete
+- Ai Drivers not being functional
+- Rewrote ACRE Channel functions to account for multiple same type radios
+### Removed
+
+
 ## [1.0.6]
 ### Added
 - View Distance limit sliders now avaliable!
