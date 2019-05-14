@@ -40,7 +40,6 @@ redirect_from:
     * Maximum time outside of the zone allotted to ground assets and players.
     * Maximum time outside of the zone allotted to air units.
 
-
 ## Usage
 
 ### Placing Modules

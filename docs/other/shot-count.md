@@ -18,27 +18,14 @@ parent: Other Modules
 
 ## Features
 
-List features of the module here:
-- Feature One
-- Feature Two
-- Feature Three
-- Feature Four
+- Counts the ammunition expended by a certain faction.
 
-## Usage
+### Enabling/Disabling
 
-### Using Feature One
+This module is on by default. In order to disable it, find it's setting and uncheck the box.
 
-Text here.
+``Framework Settings -> Module Settings -> Shot Count Settings -> Enable Shot Count``
 
-### Using Feature Two
-
-Text here.
-
-### Using Feature Three
-
-Text here.
-
-### Using Feature Four
 
 ---
 
