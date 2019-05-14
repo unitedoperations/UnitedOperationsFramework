@@ -25,9 +25,9 @@ parent: Core Modules
 
 While the player is:
 
-A) __*within a specified radius from their spawn location*__ **and** 
+* __*Within a specified radius from their spawn location*__
 
-B) __*until a certain time limit has been reached*__
+* __*And until a certain time limit has been reached*__
 
 The module will prevent players from causing damage through negligent discharge (ND).
 

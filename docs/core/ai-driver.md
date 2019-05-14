@@ -31,6 +31,8 @@ If you enable an attribute on a vehicle manually, it will override the global se
 
 ## Usage
 
+Per-vehicle settings always override class-name and "All Vehicles" determined settings.
+
 ### Enable AI Drivers
 
 #### All Vehicles	
