@@ -18,27 +18,27 @@ parent: Core Modules
 
 ## Features
 
-List features of the module here:
-- Feature One
-- Feature Two
-- Feature Three
-- Feature Four
+The safe start module provides:
+- Start Lowered
+  - Start players with their weapons loaded.
+- Start Unloaded
+  - Start players without a magazine in their rifle.
+
+Both of these features can be used to prevent negligent discharge etc.
 
 ## Usage
 
-### Using Feature One
+### Start Lowered and Start Unloaded
 
-Text here.
+``Framework Settings -> Module Settings -> Safe Start Settings``
 
-### Using Feature Two
+#### Start Lowered
 
-Text here.
+By checking this box, all players will load into the mission with their guns lowered.
 
-### Using Feature Three
+#### Start Unloaded
 
-Text here.
-
-### Using Feature Four
+This will take any automatically added magazines out of the equipped weapon on a player. This could cause overflow so make sure to test!
 
 ---
 
