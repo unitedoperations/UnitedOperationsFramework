@@ -18,36 +18,18 @@ parent: Other Modules
 
 ## Features
 
-List features of the module here:
-- Feature One
-- Feature Two
-- Feature Three
-- Feature Four
+Starting Text:
+- Title Quotes and text per faction
+- Display mission date/time on mission start
 
 ## Usage
 
-### Using Feature One
+### Using Title Quotes and Text
 
-Text here.
+![Title Quotes and Text]({{ site.baseurl }}/resources/images/safe-start/text_and_titles.png){:class="img-responsive"}
 
-### Using Feature Two
+### Date and Time
 
-Text here.
-
-### Using Feature Three
-
-Text here.
-
-### Using Feature Four
-
----
-
-# Advanced Mission-making
-
-## Functions
-This module does not provide any functions end-users can call themselves.
-
-## Eventhandlers
-This module does not provide any event-handlers end-users can call themselves.
+![Title Quotes and Text]({{ site.baseurl }}/resources/images/safe-start/date_and_time.png){:class="img-responsive"}
 
 ---
