@@ -24,8 +24,8 @@ parent: Core Modules
 
 ### Using Setup Timer Zones
 
-Navigate to UOF Place-able Zones and select your choice of Setup Timer Zone.
-<!-- Re-phrase above ASAP! -->
+Navigate to UOF Placeable Zones and select your choice of Setup Timer Zone.
+<!-- TODO: Re-phrase above ASAP! -->
 Now place the zone down in the editor keeping the units you want to limit within the zone. Select the appropriate faction for the playable units.
 
 <!-- ![~Example Zone~]({{ site.baseurl }}/resources/images/setup-timer/example.png){:class="img-responsive"} -->
@@ -37,9 +37,9 @@ At the start of your mission units will now be limited to the specified zone and
 # Advanced Mission-making
 
 ## Functions
-This module may provide any functions end-users can call themselves.
+This module may provide functions end-users can call themselves.
 
 ## Eventhandlers
-This module may provide any event-handlers end-users can call themselves.
+This module may provide event-handlers end-users can call themselves.
 
 ---
