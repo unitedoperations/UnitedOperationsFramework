@@ -18,27 +18,47 @@ parent: Core Modules
 
 ## Features
 
-List features of the module here:
-- Feature One
-- Feature Two
-- Feature Three
-- Feature Four
+Here's what the marker control provides:
+- Support for editor layers
+- Per-faction marker managment
+- Designate briefing only markers
+- System only markers
 
 ## Usage
 
-### Using Feature One
+Enable Marker Control here,
 
-Text here.
+``Framework Settings -> Module Settings -> Marker Control Settings``
 
-### Using Feature Two
+### Using Editor Layers
 
-Text here.
+With the UOF Marker Control module, you can use editor layers to better manage what markers are visible and when!
 
-### Using Feature Three
+Simply add a layer to the editor in the the left-panel and move the markers of a specific type to that layer.
 
-Text here.
+<!-- ![~Editor Layers~]({{ site.baseurl }}/resources/images/marker-control/editor_layers.png){:class="img-responsive"} -->
 
-### Using Feature Four
+Next, add this layer to one of the marker control arrays.
+
+<!-- ![~Layer Example~]({{ site.baseurl }}/resources/images/marker-control/layer_example.png){:class="img-responsive"} -->
+
+### Using Per-Faction Markers
+
+Per-faction markers and marker layers can be designated in
+
+``--> Marker Control Settings -> FACTION Markers``
+
+<!-- ![~Per Faction Markers~]({{ site.baseurl }}/resources/images/marker-control/per_faction.png){:class="img-responsive"} -->
+
+### Using System and Briefing Only Markers
+
+Per-faction markers and marker layers can be designated in
+
+``--> Marker Control Settings -> System Markers``
+
+or ``--> Marker Control Settings -> FACTION Briefing Markers``
+
+<!-- ![~System Markers~]({{ site.baseurl }}/resources/images/marker-control/per_faction.png){:class="img-responsive"} -->
 
 ---
 

@@ -30,6 +30,6 @@ Starting Text:
 
 ### Date and Time
 
-![Title Quotes and Text]({{ site.baseurl }}/resources/images/safe-start/date_and_time.png){:class="img-responsive"}
+![Date and Time]({{ site.baseurl }}/resources/images/safe-start/date_and_time.png){:class="img-responsive"}
 
 ---
