@@ -83,6 +83,7 @@ CFGFUNCFOLDERCORE(Spectator);
     CFGFUNC(Spectator,EndSpectate);
     CFGFUNC(Spectator,keyhandleEG);
     CFGFUNC(Spectator,keyhandle46);
+    CFGFUNC(Spectator,KillCamToggleKeyH);
 CFGFUNCFOLDEREND;
 
 CFGFUNCFOLDERCORE(EventHandlers);

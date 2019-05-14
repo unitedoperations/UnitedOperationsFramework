@@ -246,6 +246,29 @@ class Cfg3DEN {
 };
 
 class display3DEN {
+    class ContextMenu: ctrlMenu {
+        class Items {
+
+            class EGVAR(Core,ContextSeperator) {
+                value = 0;
+                conditionShow = "(1-selected)*(1-selectedObject)*(1-hoverObject)*(1-hoverObjectVehicle)";
+            };
+
+            #include "Core\display3den\ContextMenu.hpp"
+            #include "BriefingModule\display3den\ContextMenu.hpp"
+            #include "ACREModule\display3den\ContextMenu.hpp"
+            #include "GearModule\display3den\ContextMenu.hpp"
+
+            items[] += {
+                QEGVAR(Core,ContextSeperator),
+                QEGVAR(Core,ContextFolder),
+                QEGVAR(Briefing,ContextFolder),
+                QEGVAR(ACRE,ContextFolder),
+                QEGVAR(Gear,ContextFolder)
+            };
+        };
+    };
+
     class Controls {
         class MenuStrip: ctrlMenuStrip {
             class Items {
@@ -267,19 +290,6 @@ class display3DEN {
                 //Add Custom Items with an Additional Entry in Items[]
                 class EGVAR(Core,Folder) {
                     text = "UO Framework";
-                    //items[] = {
-                    //    QMGVAR(Settings),
-                    //    QEGVAR(Briefing,Folder),
-                    //    QEGVAR(Respawn,Folder),
-                    //    QEGVAR(Module,Settings),
-                    //    QEGVAR(EndConditions,Folder),
-                    //    QEGVAR(ACRE,Folder),
-                    //    QEGVAR(Gear,Folder),
-                    //    QEGVAR(AI,Settings),
-                    //    QEGVAR(ExportImport,Folder),
-                    //    QEGVAR(Core,Documentation),
-                    //    QEGVAR(Core,VersionDisplay)
-                    //};
                     items[] = {
                         QEGVAR(Core,SettingsMenu),
                         QEGVAR(Briefing,Folder),
