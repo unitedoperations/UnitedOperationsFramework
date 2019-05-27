@@ -18,5 +18,13 @@ class EGVAR(Core,MainSettings) {
             expression = SCENARIO_EXPRESSION;
             defaultValue = "0";
         };
+		class EGVAR(Core,DisableHeadlessCheck) {
+            property = QEGVAR(Core,DisableHeadlessCheck);
+            displayName = "Disable Mission HC Check";
+            tooltip = "When true, disables checks for the presence of a HeadlessClient_F object.";
+            control = "Checkbox";
+            expression = SCENARIO_EXPRESSION;
+            defaultValue = "false";
+        };
     };
 };

@@ -4,7 +4,7 @@
 
 #define MAJOR 1
 #define MINOR 0
-#define PATCH 6
+#define PATCH 7
 
 #define VERSION MAJOR.MINOR.PATCH
 #define VERSION_AR MAJOR,MINOR,PATCH
@@ -12,4 +12,4 @@
 
 #define REQUIRED_VERSION 1.56
 
-#define UO_BUILD_NUMBER 100011
+#define UO_BUILD_NUMBER 100019

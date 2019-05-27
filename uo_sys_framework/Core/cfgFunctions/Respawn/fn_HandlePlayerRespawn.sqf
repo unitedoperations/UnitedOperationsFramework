@@ -2,8 +2,9 @@
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 EXEC_CHECK(CLIENT);
 
-private ["_delay","_templateSettings","_teamRespawnMarker","_newSideSetting","_respawnType","_teamRespawnModule"];
-
+private ["_delay","_templateSettings","_teamRespawnMarker","_newSideSetting","_respawnType","_teamRespawnModule","_teamRespawnMarkerSides","_teamRespawnModuleSides"];
+_teamRespawnModuleSides = [QEGVAR(Respawn,RespawnModuleMarker_Blufor),QEGVAR(Respawn,RespawnModuleMarker_Opfor),QEGVAR(Respawn,RespawnModuleMarker_Indfor),QEGVAR(Respawn,RespawnModuleMarker_Civ)];
+_teamRespawnMarkerSides = [QMGVAR(RESPAWN_BLUFOR),QMGVAR(RESPAWN_OPFOR),QMGVAR(RESPAWN_Indfor),QMGVAR(RESPAWN_Civ)];
 switch (side player) do {
     case west: {
         private _respawnTypeNum = GETMVAR(Type_BLUFOR,0);
@@ -12,8 +13,8 @@ switch (side player) do {
         _templateSettings = GETMVAR(Templates_BLUFOR,[]);
         private _newSideValue = GETMVAR(NewTeam_BLUFOR,0);
         _newSideSetting = [blufor,opfor,independent,civilian] select _newSideValue;
-        _teamRespawnMarker = QMGVAR(RESPAWN_BLUFOR);
-         _teamRespawnModule = GETMVAR(RespawnModule_Blufor,objNull);
+        _teamRespawnMarker = _teamRespawnMarkerSides select _newSideValue;
+        _teamRespawnModule = _teamRespawnModuleSides select _newSideValue;
     };
     case east: {
         private _respawnTypeNum = GETMVAR(Type_OPFOR,0);
@@ -22,8 +23,8 @@ switch (side player) do {
         _templateSettings = GETMVAR(Templates_OPFOR,[]);
         private _newSideValue = GETMVAR(NewTeam_OPFOR,1);
         _newSideSetting = [blufor,opfor,independent,civilian] select _newSideValue;
-        _teamRespawnMarker = QMGVAR(RESPAWN_OPFOR);
-        _teamRespawnModule = GETMVAR(RespawnModule_Opfor,objNull);
+        _teamRespawnMarker =_teamRespawnMarkerSides select _newSideValue;
+        _teamRespawnModule = _teamRespawnModuleSides select _newSideValue;
     };
     case independent: {
         private _respawnTypeNum = GETMVAR(Type_Indfor,0);
@@ -32,8 +33,8 @@ switch (side player) do {
         _templateSettings = GETMVAR(Templates_Indfor,[]);
         private _newSideValue = GETMVAR(NewTeam_Indfor,2);
         _newSideSetting = [blufor,opfor,independent,civilian] select _newSideValue;
-        _teamRespawnMarker = QMGVAR(RESPAWN_Indfor);
-        _teamRespawnModule = GETMVAR(RespawnModule_Indfor,objNull);
+        _teamRespawnMarker =_teamRespawnMarkerSides select _newSideValue;
+        _teamRespawnModule = _teamRespawnModuleSides select _newSideValue;
     };
     case civilian: {
         private _respawnTypeNum = GETMVAR(Type_Civ,0);
@@ -42,14 +43,12 @@ switch (side player) do {
         _templateSettings = GETMVAR(Templates_Civ,[]);
         private _newSideValue = GETMVAR(NewTeam_Civ,3);
         _newSideSetting = [blufor,opfor,independent,civilian] select _newSideValue;
-        _teamRespawnMarker = QMGVAR(RESPAWN_Civ);
-         _teamRespawnModule = GETMVAR(RespawnModule_Civ,objNull);
+        _teamRespawnMarker = _teamRespawnMarkerSides select _newSideValue;
+        _teamRespawnModule = _teamRespawnModuleSides select _newSideValue;
     };
 };
 
 // Reports Event & Function execution, confirm removed from queues.
-
-
 if ((_respawnType isEqualto "INDTICK") || (_respawnType isEqualto "TEAMTICK") || (_respawnType isEqualto "UNLIMITED")) then {
     [{
         params ["_templateSettings","_teamRespawnMarker","_newSideSetting","_teamRespawnModule"];
@@ -80,14 +79,9 @@ if ((_respawnType isEqualto "INDTICK") || (_respawnType isEqualto "TEAMTICK") ||
             };
             TRACE_1("Respawnside:",_newSideSetting);
         };
-        if !(_teamRespawnModule isEqualTo objNull) then {
-            
-            private _radiusX = GETVAR(_teamRespawnModule,RadiusX,100);
-			private _radiusY = GETVAR(_teamRespawnModule,RadiusY,100);
-			private _isRectangle = if ((typeof _teamRespawnModule) isEqualTo QGVAR(RespawnZoneModule_R)) then {true} else {false};
-            private _angle = getDir _teamRespawnModule;
+        if !((markerShape  _teamRespawnModule) isEqualTo "") then {
 
-            private _rePos = [[getPos _teamRespawnModule, _radiusX, _radiusY, _angle, _isRectangle]] call CBA_fnc_randPosArea;
+            private _rePos = [_teamRespawnModule] call CBA_fnc_randPosArea;
             TRACE_1("Respawn position",_rePos);
             [player,_rePos,10] call CBA_fnc_setPos;
 

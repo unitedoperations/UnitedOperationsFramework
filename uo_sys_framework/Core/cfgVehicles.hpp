@@ -41,6 +41,14 @@ class EGVAR(Respawn,RespawnZoneModule): EGVAR(Core,BaseModule) {
             typeName = "NUMBER";
             validate = "number";
         };
+        class EGVAR(Respawn,ShowMarker) {
+            property = QEGVAR(Respawn,ShowMarker);
+            displayName = "Show Marker";
+            tooltip = "Show marker for the selected side?";
+            control = "CheckBox";
+            expression = MODULE_EXPRESSION;
+            defaultValue = "false";
+        };
         class EGVAR(Respawn,SideSelect) {
             displayName = "Side";
             tooltip = "Side which will respawn in this location.";
@@ -61,7 +69,7 @@ class EGVAR(Respawn,RespawnZoneModule): EGVAR(Core,BaseModule) {
     };
 };
 
-class EGVAR(CaptureZone,RespawnZoneModule_R) : EGVAR(CaptureZone,CaptureZoneModule) {
+class EGVAR(Respawn,RespawnZoneModule_R) : EGVAR(Respawn,RespawnZoneModule) {
     displayName = "Respawn Zone (Rectangle)";
     class AttributeValues {
         size2[] = {100,100};
