@@ -54,6 +54,16 @@ You can configure the timing after player spawn (or JiP) and distance from the s
 This module may provide functions end-users can call themselves.
 
 ## Eventhandlers
-This module may provide event-handlers end-users can call themselves.
+
+* ``UO_FW_AntiND_Event``
+
+This event is a PreInit event. Read more about CBA Extended Event Handlers (a.k.a [XEH) here](https://github.com/CBATeam/CBA_A3/wiki/Extended-Event-Handlers-(new)).
+
+```
+_antiEvent = ["UO_FW_AntiND_Event", {systemChat "Output"}] call CBA_fnc_addEventHandler;
+```
+The above code handler adds an event handler called _antiEvent which when triggered will print to system chat "Output", when the event "UO_FW_AntiND_Event" is activated.
+
+More information about adding code to execute when events are triggered can be found [here](https://cbateam.github.io/CBA_A3/docs/files/events/fnc_addEventHandler-sqf.html).
 
 ---
