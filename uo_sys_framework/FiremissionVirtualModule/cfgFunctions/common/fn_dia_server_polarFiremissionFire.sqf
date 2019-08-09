@@ -255,7 +255,6 @@ _this spawn {
 	sleep (_splash + 8);
 
 	_ammoClass = getText (configFile >> "CfgMagazines" >> _selectedAmmo >> "ammo");
-
 	_rounds = 0;
 	while {_rounds < _selectedRnds && _gunsFired > 0} do {
 		for "_i" from 1 to _selectedGuns do {
@@ -277,7 +276,6 @@ _this spawn {
 				_newDelayTime = (_delayTime # 0 + (random ((_delayTime # 1) - (_delayTime # 0))));
 			};
 			sleep _newDelayTime;
-
 			_mortarStrike = _ammoClass createVehicle [_fireTarget # 0,_fireTarget # 1,450];
 			_mortarStrike setVelocity [0, 0, -225];
 
@@ -293,7 +291,6 @@ _this spawn {
 		};
 
 		_rounds = _rounds + 1;
-
 		sleep _reloadTime;
 	};
 };
