@@ -2,7 +2,6 @@
 #define COMPONENT FiremissionVirtual
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 _ok = createDialog "FiremissionVirtual_DIA_POLARFIREMISSION";
-
 private _id = POFM_DIA_IDC_GUNSELECT;
 
 lbClear _id;

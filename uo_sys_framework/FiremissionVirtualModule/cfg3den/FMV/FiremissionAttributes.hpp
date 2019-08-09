@@ -74,10 +74,19 @@ class PREFIX##_FiremissionVirtual_CalculationTime_##ARTNUMBER { \
    defaultValue = "0";\
    typeName = "Number";\
 };\
-class PREFIX##_FiremissionVirtual_DelayTime_##ARTNUMBER { \
-   property = QUOTE(DOUBLES(PREFIX##_FiremissionVirtual_DelayTime,ARTNUMBER));\
+class PREFIX##_FiremissionVirtual_FlightTime_##ARTNUMBER { \
+   property = QUOTE(DOUBLES(PREFIX##_FiremissionVirtual_FlightTime,ARTNUMBER));\
    displayName = "Flight Time";\
    tooltip = "Time needed for the firemission to reach its target in seconds";\
+   control = "EditShort";\
+   expression = SCENARIO_EXPRESSION;\
+   defaultValue = "0";\
+   typeName = "Number";\
+};\
+class PREFIX##_FiremissionVirtual_DelayTime_##ARTNUMBER { \
+   property = QUOTE(DOUBLES(PREFIX##_FiremissionVirtual_DelayTime,ARTNUMBER));\
+   displayName = "Delay Time";\
+   tooltip = "Time needed before the firemission fires in seconds";\
    control = "EditShort";\
    expression = SCENARIO_EXPRESSION;\
    defaultValue = "0";\
