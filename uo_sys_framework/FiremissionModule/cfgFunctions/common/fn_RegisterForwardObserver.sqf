@@ -24,23 +24,23 @@ if (isServer) then {
                             _target = _x select 4;
                             _distance2DToClosestFiremission = 1000;
                             {
-                                if ( _distance2DToClosestFiremission > _target distance2D (_x select 1)) then {
+                                if (_distance2DToClosestFiremission > _target distance2D (_x select 1)) then {
                                         _distance2DToClosestFiremission = _target distance2D (_x select 1);
                                 };
                             } forEach _currentShotTargets;
 
-                            if ((_observer knowsAbout  _target >= _minimumKnowledge) && (_distance2DToClosestFiremission > _minRange) && (((getPosATL _target) select 2) < 10 ) ) then {
+                            if ((_observer knowsAbout  _target >= _minimumKnowledge) && (_distance2DToClosestFiremission > _minRange) && (((getPosATL _target) select 2) < 10)) then {
                                     //we know enough about it
                                     //calculate position
-                                    _pos = [[[_target,(_observer getVariable [VAR_SART_OBSACCURACY,OBSACCURACY]) * (_target distance2D _observer) /  _range ]],[]] call BIS_fnc_randomPos;
-                                    sleep(_observer getVariable [VAR_SART_OBSSPEED,OBSSPEED]);
+                                    _pos = [[[_target,(_observer getVariable [QEGVAR(Firemission,ObsAccuracy),OBSACCURACY]) * (_target distance2D _observer) /  _range ]],[]] call BIS_fnc_randomPos;
+                                    sleep(_observer getVariable [QEGVAR(Firemission,ObsSpeed),OBSSPEED]);
                                     if (alive _observer) then {
                                         _hasFired = false;
                                         //fire a firemission
                                         {
-                                                if ((!(_x getVariable [VAR_SART_ARTINFIREMission,false])) && !(_hasFired) ) then {
+                                                if ((!(_x getVariable [QEGVAR(Firemission,ArtIsFiring),false])) && !(_hasFired)) then {
                                                         _currentShotTargets pushBack [_x,_pos];
-                                                        [_x,_pos,_standardDispersion,_standardRoundCount,_standardRoundSalvo,_standardRoundSalvoWait,_minSpottedDistance,_standardRound] call UO_FW_fnc_PointFiremission;
+                                                        [_x,_pos,_standardDispersion,_standardRoundCount,_standardRoundSalvo,_standardRoundSalvoWait,_minSpottedDistance,_standardRound] call EFUNC(Firemission,PointFiremission);
                                                         _hasFired = true;
                                                 };
                                                     _freeBattery = _batteries ;
@@ -56,12 +56,12 @@ if (isServer) then {
             sleep(5);
             _tempAdd = [];
             {
-                    if ((_x select 0) getVariable [VAR_SART_ARTINFIREMission,false]) then {
+                    if ((_x select 0) getVariable [QEGVAR(Firemission,ArtIsFiring),false]) then {
                             _tempAdd pushBack (_x);
                     };
             } forEach _currentShotTargets;
             _currentShotTargets = _tempAdd;
         };
     };
-        (_this select 0) setVariable [VAR_SART_FMHANDLE,_handle,true];
+        (_this select 0) setVariable [QEGVAR(Firemission,ArtHandle),_handle,true];
 };
