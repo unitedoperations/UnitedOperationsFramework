@@ -1,0 +1,16 @@
+========================================================================
+
+    Module: FiremissionVirtual
+    Author: Sacher (based on Tinfoils)
+    Date Created: 15/3/2019
+    Date Last Updated: 23/1/2019
+
+    Description: Allows to call in 
+
+    Uses 3DEN Menu: Yes
+    Uses 3DEN Module: No
+    Uses PreInit Function: No
+    Uses PostInit Function: Yes
+
+
+========================================================================

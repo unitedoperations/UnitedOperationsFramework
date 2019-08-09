@@ -1,6 +1,7 @@
 ////////////////////////////////////////////////////////
 // GUI EDITOR OUTPUT START (by Sacher, v1.063, #Dyroxu)
 ////////////////////////////////////////////////////////
+#include "\x\UO_FW\addons\Main\script_macros.hpp"
 #define MEANCALCULATIONTIME 30
 #define MEANAIMTIME 20
 #define MEANSPOTTINGACCURACY 300
@@ -12,34 +13,34 @@
 #define OBSSPEED 30
 
 #define MILSPERROUND  6400
-
-#define VAR_SART_ARTINFIREMission "SARTisInAFiremission"
-#define VAR_SART_ARTFIRERATE "SArtFireRate"
-#define VAR_SART_ARTACCURACY "SArtAccuracy"
-#define VAR_SART_ARTSPOTACCURACY "SArtSpottingAccuracy"
-#define VAR_SART_ARTAIMSPEED "SArtAimSpeed"
-#define VAR_SART_ARTCALCSPEED "SArtCalcSpeed"
-#define VAR_SART_ARTCustomNAME "SArtCustomName"
-#define VAR_SART_ARTAMMO "SArtUnlimitedAmmo"
-#define VAR_SART_ARTHASEH "SArtHasEventHandler"
-#define VAR_SART_ARTFMTEXT "SArtyFiremissionText"
-#define VAR_SART_ARTROUNDSFIRED "SArtFiremissionRoundsFired"
-#define VAR_SART_FMHANDLE "SArtFiremissionHandle"
-#define VAR_SART_CALLER "SArtCaller"
-#define VAR_SART_IsAviable "SArtReady"
-
-
-#define VAR_SART_OBSACCURACY "SObserverAccuracy"
-#define VAR_SART_OBSSPEED "SObserverSpeed"
-
-#define VAR_SART_OBSGUNS "SPlayerArtilleryGuns"
-#define VAR_SART_PLAYERRECEIVEDGUNS "SPlayerReceived"
-#define VAR_SART_PLAYERACEOPTIONS "SPlayerAceOptions"
+/*
+#define QEGVAR(Firemission,ArtIsFiring) "SARTisInAFiremission"
+#define QEGVAR(Firemission,ArtFireRate) "SArtFireRate"
+#define QEGVAR(Firemission,ArtAccuracy) "SArtAccuracy"
+#define QEGVAR(Firemission,ArtSpotAccuracy) "SArtSpottingAccuracy"
+#define QEGVAR(Firemission,ArtAimSpeed) "SArtAimSpeed"
+#define QEGVAR(Firemission,ArtCalcSpeed) "SArtCalcSpeed"
+#define QEGVAR(Firemission,ArtCustomName) "SArtCustomName"
+#define QEGVAR(Firemission,ArtUnlimitedAmmo) "SArtUnlimitedAmmo"
+#define QEGVAR(Firemission,ArtHasEH) "SArtHasEventHandler"
+#define QEGVAR(Firemission,ArtFMText) "SArtyFiremissionText"
+#define QEGVAR(Firemission,ArtRoundsFired) "SArtFiremissionRoundsFired"
+#define QEGVAR(Firemission,ArtHandle) "SArtFiremissionHandle"
+#define QEGVAR(Firemission,ArtCaller) "SArtCaller"
+#define QEGVAR(Firemission,ArtReady) "SArtReady"
 
 
+#define QEGVAR(Firemission,ObsAccuracy) "SObserverAccuracy"
+#define QEGVAR(Firemission,ObsSpeed) "SObserverSpeed"
+
+#define QEGVAR(Firemission,ObsGuns) "SPlayerArtilleryGuns"
+#define QEGVAR(Firemission,PlayerReceived) "SPlayerReceived"
+#define QEGVAR(Firemission,PlayerAceOpions) "SPlayerAceOptions"
+*/
 
 
 
+#define COMPONENT Firemission
 
 #define ARTIWIDTHMainSPACE  0.25
 #define ARTIHEIGHTMainSPACE  0.15

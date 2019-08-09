@@ -1,73 +1,122 @@
-#include "BracketFiremission\cfgFunctions.hpp"
-#include "DonutFiremission\cfgFunctions.hpp"
-#include "GridSpottingFiremission\cfgFunctions.hpp"
-#include "LineFiremission\cfgFunctions.hpp"
-#include "MarkerFiremission\cfgFunctions.hpp"
-#include "PointFiremission\cfgFunctions.hpp"
-#include "PolarFiremission\cfgFunctions.hpp"
-#include "PolarSpottingFiremission\cfgFunctions.hpp"
+CFGFUNCFOLDER(Firemission,common);
+    CFGFUNC(Firemission,StopArtilleryClient);
+    CFGFUNC(Firemission,AddEventHandler);
+    CFGFUNC(Firemission,ArtGetFireRate);
+    CFGFUNC(Firemission,ArtLoadAviableArtilleries);
+    CFGFUNC(Firemission,ArtMakePlayerObserver);
+    CFGFUNC(Firemission,ArtSetArtillery);
+    CFGFUNC(Firemission,BracketFiremission);
+    CFGFUNC(Firemission,CurtainFiremission);
+    CFGFUNC(Firemission,DonutFiremission);
+    CFGFUNC(Firemission,DynamicMarkerFiremission);
+    CFGFUNC(Firemission,FindMarkerOnMap);
+    CFGFUNC(Firemission,GetArtillerySkill);
+    CFGFUNC(Firemission,GetArtyAimTime);
+    CFGFUNC(Firemission,GetArtyCalcTime);
+    CFGFUNC(Firemission,GetArtyCaller);
+    CFGFUNC(Firemission,GetArtyCallerText);
+    CFGFUNC(Firemission,GetArtyDisplayName);
+    CFGFUNC(Firemission,GetArtyEta);
+    CFGFUNC(Firemission,GetArtyFiremissionRoundsRequired);
+    CFGFUNC(Firemission,GetBracketFiremissionText);
+    CFGFUNC(Firemission,GetCompleteInfoText);
+    CFGFUNC(Firemission,GetCurtainFiremissionText);
+    CFGFUNC(Firemission,GetDonutFiremissionText);
+    CFGFUNC(Firemission,GetGridSpottingFiremissionText);
+    CFGFUNC(Firemission,GetLineFiremissionText);
+    CFGFUNC(Firemission,GetMarkerFiremissionText);
+    CFGFUNC(Firemission,GetNewAccuracy);
+    CFGFUNC(Firemission,GetObserverSkill);
+    CFGFUNC(Firemission,GetPointFiremissionText);
+    CFGFUNC(Firemission,GetPolarFiremissionText);
+    CFGFUNC(Firemission,GetPolarSpottingFiremissionText);
+    CFGFUNC(Firemission,GridSpottingFiremission);
+    CFGFUNC(Firemission,initPlayerFO);
+    CFGFUNC(Firemission,InputIsNumber);
+    CFGFUNC(Firemission,InputIsUnit);
+    CFGFUNC(Firemission,InternalFiremission);
+    CFGFUNC(Firemission,InternalRepackArtilleryMagazines);
+    CFGFUNC(Firemission,InternalSpottingFiremission);
+    CFGFUNC(Firemission,IsArtyAviable);
+    CFGFUNC(Firemission,LineFiremission);
+    CFGFUNC(Firemission,MarkerFiremission);
+    CFGFUNC(Firemission,PointFiremission);
+    CFGFUNC(Firemission,PointMarkerFiremission);
+    CFGFUNC(Firemission,PolarFiremission);
+    CFGFUNC(Firemission,PolarSpottingFiremission);
+    CFGFUNC(Firemission,RegisterForwardObserver);
+    CFGFUNC(Firemission,SendArtyHint);
+    CFGFUNC(Firemission,SendArtyHintGlobal);
+    CFGFUNC(Firemission,SetArtilleryData);
+    CFGFUNC(Firemission,SetArtyAviable);
+    CFGFUNC(Firemission,SetArtyCaller);
+    CFGFUNC(Firemission,SetArtyFiremissionRoundsRequired);
+    CFGFUNC(Firemission,SetArtyReadyStatus);
+    CFGFUNC(Firemission,SetObserverSkill);
+    CFGFUNC(Firemission,StopArtillery);
+   CFGFUNC(Firemission,FiremissionModuleInit);
+CFGFUNCFOLDEREND;
 
-class UO_FW_Firemission
-{
-    file = "x\UO_FW\addons\Main\FiremissionModule\cfgFunctions\common";
-    class StopArtilleryClient {};
-    class AddEventHandler {};
-    class ArtGetFireRate {};
-    class ArtLoadAviableArtilleries {};
-    class ArtMakePlayerObserver{};
-    class ArtSetArtillery{};
-    class BracketFiremission{};
-    class CurtainFiremission{};
-    class DonutFiremission{};
-    class DynamicMarkerFiremission{};
-    class FindMarkerOnMap{};
-    class GetAmmoDisplayNameAndIndex{};
-    class GetAmmoDisplayNameAndIndexFormated{};
-    class GetArtillerySkill{};
-    class GetArtyAimTime{};
-    class GetArtyAmmo{};
-    class GetArtyCalcTime{};
-    class GetArtyCaller{};
-    class GetArtyCallerText{};
-    class GetArtyDisplayName{};
-    class GetArtyEta{};
-    class GetArtyFiremissionRoundsRequired{};
-    class GetArtyIndexAmmoClassname{};
-    class GetBracketFiremissionText{};
-    class GetCompleteInfoText{};
-    class GetCurtainFiremissionText{};
-    class GetDonutFiremissionText{};
-    class GetGridSpottingFiremissionText{};
-    class GetLineFiremissionText{};
-    class GetMarkerFiremissionText{};
-    class GetNewAccuracy{};
-    class GetObserverSkill{};
-    class GetPointFiremissionText{};
-    class GetPolarFiremissionText{};
-    class GetPolarSpottingFiremissionText{};
-    class GridSpottingFiremission{};
-    class initPlayerFO{};
-    class InputIsNumber{};
-    class InputIsUnit{};
-    class InternalFiremission{};
-    class InternalRepackArtilleryMagazines{};
-    class InternalSpottingFiremission{};
-    class IsArtyAviable{};
-    class LineFiremission{};
-    class MarkerFiremission{};
-    class PointFiremission{};
-    class PointMarkerFiremission{};
-    class PolarFiremission{};
-    class PolarSpottingFiremission{};
-    class RegisterForwardObserver{};
-    class SendArtyHint{};
-    class SendArtyHintGlobal{};
-    class SetArtilleryData{};
-    class SetArtyAviable{};
-    class SetArtyCaller{};
-    class SetArtyFiremissionRoundsRequired{};
-    class SetArtyReadyStatus{};
-    class SetObserverSkill{};
-    class StopArtillery{};
-        class FiremissionModuleInit {};
-};
+CFGFUNCFOLDER(Firemission,PolarSpotting);
+    CFGFUNC(PolarFiremissionSpotting,DIA_PolarSpottingFiremissionCloseDialog);
+    CFGFUNC(PolarFiremissionSpotting,DIA_PolarSpottingFiremissionFire);
+    CFGFUNC(PolarFiremissionSpotting,DIA_PolarSpottingFiremissionFireServer);
+    CFGFUNC(PolarFiremissionSpotting,DIA_PolarSpottingFiremissionOpenDialog);
+    CFGFUNC(PolarFiremissionSpotting,DIA_PolarSpottingFiremissionSetArtillery);
+CFGFUNCFOLDEREND;
+
+CFGFUNCFOLDER(Firemission,Polar);
+    CFGFUNC(PolarFiremission,DIA_PolarFiremissionCloseDialog);
+    CFGFUNC(PolarFiremission,DIA_PolarFiremissionFire);
+    CFGFUNC(PolarFiremission,DIA_PolarFiremissionFireServer);
+    CFGFUNC(PolarFiremission,DIA_PolarFiremissionOpenDialog);
+    CFGFUNC(PolarFiremission,DIA_PolarFiremissionSetArtillery);
+CFGFUNCFOLDEREND;
+
+CFGFUNCFOLDER(Firemission,Point); 
+    CFGFUNC(PointFiremission,DIA_PointFiremissionCloseDialog);
+    CFGFUNC(PointFiremission,DIA_PointFiremissionFire);
+    CFGFUNC(PointFiremission,DIA_PointFiremissionFireServer);
+    CFGFUNC(PointFiremission,DIA_PointFiremissionOpenDialog);
+    CFGFUNC(PointFiremission,DIA_PointFiremissionSetArtillery);
+CFGFUNCFOLDEREND;
+
+CFGFUNCFOLDER(Firemission,Marker)
+    CFGFUNC(MarkerFiremission,DIA_MarkerFiremissionCloseDialog);
+    CFGFUNC(MarkerFiremission,DIA_MarkerFiremissionFire);
+    CFGFUNC(MarkerFiremission,DIA_MarkerFiremissionFireServer);
+    CFGFUNC(MarkerFiremission,DIA_MarkerFiremissionOpenDialog);
+    CFGFUNC(MarkerFiremission,DIA_MarkerFiremissionSetArtillery);
+CFGFUNCFOLDEREND;
+
+CFGFUNCFOLDER(Firemission,Line);
+    CFGFUNC(LineFiremission,DIA_LineFiremissionCloseDialog);
+    CFGFUNC(LineFiremission,DIA_LineFiremissionFire);
+    CFGFUNC(LineFiremission,DIA_LineFiremissionFireServer);
+    CFGFUNC(LineFiremission,DIA_LineFiremissionOpenDialog);
+    CFGFUNC(LineFiremission,DIA_LineFiremissionSetArtillery);
+CFGFUNCFOLDEREND;
+
+CFGFUNCFOLDER(Firemission,GridSpotting);
+    CFGFUNC(GridSpottingFiremission,DIA_GridSpottingFiremissionCloseDialog);
+    CFGFUNC(GridSpottingFiremission,DIA_GridSpottingFiremissionFire);
+    CFGFUNC(GridSpottingFiremission,DIA_GridSpottingFiremissionFireServer);
+    CFGFUNC(GridSpottingFiremission,DIA_GridSpottingFiremissionOpenDialog);
+    CFGFUNC(GridSpottingFiremission,DIA_GridSpottingFiremissionSetArtillery);
+CFGFUNCFOLDEREND;
+
+CFGFUNCFOLDER(Firemission,Donut);
+    CFGFUNC(DonutFiremission,DIA_DonutFiremissionCloseDialog);
+    CFGFUNC(DonutFiremission,DIA_DonutFiremissionFire);
+    CFGFUNC(DonutFiremission,DIA_DonutFiremissionFireServer);
+    CFGFUNC(DonutFiremission,DIA_DonutFiremissionOpenDialog);
+    CFGFUNC(DonutFiremission,DIA_DonutFiremissionSetArtillery);
+CFGFUNCFOLDEREND;
+
+CFGFUNCFOLDER(Firemission,Bracket);
+     CFGFUNC(BracketFiremission,DIA_BracketFiremissionCloseDialog);
+     CFGFUNC(BracketFiremission,DIA_BracketFiremissionFire);
+     CFGFUNC(BracketFiremission,DIA_BracketFiremissionFireServer);
+     CFGFUNC(BracketFiremission,DIA_BracketFiremissionOpenDialog);
+     CFGFUNC(BracketFiremission,DIA_BracketFiremissionSetArtillery);
+CFGFUNCFOLDEREND;
