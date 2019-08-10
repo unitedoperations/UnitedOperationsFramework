@@ -20,7 +20,7 @@ if (isServer) then {
             private _roundsPerSalvo = _x getVariable ["UO_FW_ArtilleryFOAIRoundsPerSalvo",5];
             private _salvoWaitTIme = _x getVariable ["UO_FW_ArtilleryFOAISalvoWaitTime",30];
             private _minSpot = _x getVariable ["UO_FW_ArtilleryFOAIMinSpottedDistance",150];
-            private _index = _x getVariable ["UO_FW_ArtilleryFOAIRoundIndex",0];
+            private _index = _x getVariable ["UO_FW_ArtilleryFOAIRoundClassName",0];
 
             [_x,_guns,_knowledge,_minRange,_viewRange,_dispersion,_salvoCount,_roundsPerSalvo,_salvoWaitTIme,_minSpot,_index] call EFUNC(Firemission,RegisterForwardObserver);
         };

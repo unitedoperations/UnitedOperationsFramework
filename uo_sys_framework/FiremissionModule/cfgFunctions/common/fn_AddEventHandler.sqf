@@ -3,6 +3,12 @@
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 
 if (!((_this) getVariable [QEGVAR(Firemission,ArtHasEH),false])) then {
-        (_this) addeventhandler ["firedMan", {(_this select 0) setvehicleammo 1}];
+        (_this) addeventhandler ["fired", {
+                params ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile", "_gunner"];
+                if((GETVAR(_x,ArtilleryUnlimitedAmmo,false))) then {
+                        _unit setvehicleammo 1;
+                };
+                        deleteVehicle _projectile;
+                }];
         (_this) setVariable [QEGVAR(Firemission,ArtHasEH),true];
 };

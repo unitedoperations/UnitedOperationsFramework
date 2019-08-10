@@ -1,4 +1,9 @@
 #include "..\..\Global\defs.hpp"
+
+///// Messages used for simulated communication ///////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+
 _handle = _this spawn {
     private _unit = _this select 0;
     private _target = _this select 1;
@@ -13,16 +18,33 @@ _handle = _this spawn {
     [_unit , true] call EFUNC(Firemission,SetArtyReadyStatus);
     _unit setVariable [QEGVAR(Firemission,ArtFMText),_this call EFUNC(Firemission,GetPointFiremissionText),true];
     [_unit, 0,_salvoCount * _salvoSize] call EFUNC(Firemission,SetArtyFiremissionRoundsRequired);
-        //calculateFiremission
-    [_unit,_target,_roundClassName ] call EFUNC(Firemission,InternalSpottingFiremission);
+    //calculateFiremission
+    if((_unit getVariable [QEGVAR(Firemission,ArtAllowChat),false])) then {
+       _msg1 	= (_unit call EFUNC(Firemission,GetArtyDisplayName)) + ": Beginning Mission";
+        [QGVAR(Event_FireMessage),[[1,_msg1,side _unit]]] call CBA_fnc_globalEvent;
+    };
+
+    [_unit,_target,_roundClassName,_minSpottedDistance] call EFUNC(Firemission,InternalSpottingFiremission);
     sleep((_unit getVariable [QEGVAR(Firemission,ArtCalcSpeed),MEANCALCULATIONTIME]) + 1);
-    for "_i" from 0 to _salvoCount do {
-            [_unit,_target,_dispersion,_salvoSize,_roundClassName] call EFUNC(Firemission,InternalFiremission);
+    
+    if((_unit getVariable [QEGVAR(Firemission,ArtAllowChat),false])) then {
+        _msg1 	= (_unit call EFUNC(Firemission,GetArtyDisplayName)) + ": Firing On Target";
+        [QGVAR(Event_FireMessage),[[1,_msg1,side _unit]]] call CBA_fnc_globalEvent;
+    };
+    for [{_i = 0}, {_i < _salvoCount}, {_i = _i + 1}] do {
+            [_unit,_target,_dispersion,_salvoSize,_roundClassName,_fireRate] call EFUNC(Firemission,InternalFiremission);
+
             [_unit, ((_unit getVariable [QEGVAR(Firemission,ArtRoundsFired),[0,0]]) select 0) + _salvoSize,_salvoCount * _salvoSize] call EFUNC(Firemission,SetArtyFiremissionRoundsRequired);
-            sleep(((_fireRate * (_unit getVariable [QEGVAR(Firemission,ArtFireRate),MEANFIRERATE])) * _salvoSize) max _salvoWait);
+            sleep(_fireRate max _salvoWait);
     };
     [_unit,objNULL] call EFUNC(Firemission,SetArtyCaller);
     [_unit, false] call EFUNC(Firemission,SetArtyReadyStatus);
     [_unit, 0,0] call EFUNC(Firemission,SetArtyFiremissionRoundsRequired);
+
+    if((_unit getVariable [QEGVAR(Firemission,ArtAllowChat),false])) then {
+       _msg1 = (_unit call EFUNC(Firemission,GetArtyDisplayName)) + ": Rounds Complete";
+	    [QGVAR(Event_FireMessage),[[1,_msg1,side _unit]]] call CBA_fnc_globalEvent;
+    };
+   
 };
 (_this select 0) setVariable [QEGVAR(Firemission,ArtHandle),_handle,true];

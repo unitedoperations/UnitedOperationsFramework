@@ -13,7 +13,7 @@ _handle = _this spawn {
         private _randomPos = [[[_target, _unit getVariable [QEGVAR(Firemission,ArtSpotAccuracy),MEANSPOTTINGACCURACY]]],[]] call BIS_fnc_randomPos;
         private _eta = [_unit,_randomPos, (_roundClassName) select 0] call EFUNC(Firemission,GetArtyEta);
         _unit commandArtilleryFire [_randomPos,  (_roundClassName) select 0, 1];
-        private _waitTime = (_fireRate * (_unit getVariable [QEGVAR(Firemission,ArtFireRate),MEANFIRERATE]));
+        private _waitTime = (_fireRate  ;
         sleep(_waitTime);
         [_unit,objNULL] call EFUNC(Firemission,SetArtyCaller);
         [_unit, false] call EFUNC(Firemission,SetArtyReadyStatus);

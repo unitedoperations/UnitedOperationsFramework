@@ -3,7 +3,7 @@
 class PREFIX##_FiremissionVirtual_RoundClassName_##UNITNUM##_##ROUNDNUM {\
    property = QUOTE(TRIPLES(PREFIX##_FiremissionVirtual_RoundClassName,UNITNUM,ROUNDNUM));\
    displayName = QUOTE(Round ROUNDNUM Classname);\
-   tooltip = "Classname of ammunition which will be created";\
+   tooltip = "Classname of ammunition which will be created. Example: 2Rnd_GBU12_LGB";\
    control = "Edit";\
    expression = SCENARIO_EXPRESSION;\
    defaultValue = "''";\
@@ -59,7 +59,7 @@ class PREFIX##_FiremissionVirtual_Dispersion_##ARTNUMBER { \
 class PREFIX##_FiremissionVirtual_ReloadTime_##ARTNUMBER { \
    property = QUOTE(DOUBLES(PREFIX##_FiremissionVirtual_ReloadTime,ARTNUMBER));\
    displayName = "Reloadtime";\
-   tooltip = "Time needed to reload the firemission after firing in seconds.";\
+   tooltip = "Time needed to reload after each shot in seconds.";\
    control = "EditShort";\
    expression = SCENARIO_EXPRESSION;\
    defaultValue = "0";\

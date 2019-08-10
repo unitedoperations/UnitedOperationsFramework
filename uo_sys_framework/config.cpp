@@ -44,7 +44,7 @@ class CfgFunctions {
 		#include "AutoTrackAssetModule\cfgFunctions.hpp"
 		#include "CaptureZoneModule\cfgFunctions.hpp"
 		#include "StartInParachuteModule\cfgFunctions.hpp"
-		#include "FiremissionModule\cfgFunctions.hpp"
+		// #include "FiremissionModule\cfgFunctions.hpp"
         #include "FiremissionVirtualModule\cfgFunctions.hpp"
 		#include "HostageModule\cfgFunctions.hpp"
 		#include "CoverMapModule\cfgFunctions.hpp"
@@ -95,7 +95,7 @@ class RscTitles {
     #include "AOLimitModule\RscTitles.hpp"
     #include "SetupTimerModule\RscSetupTimer.hpp"
 };
-#include "FiremissionModule\RscTitles.hpp"
+//#include "FiremissionModule\RscTitles.hpp"
 #include "FiremissionVirtualModule\dia\dia_polarFiremission.hpp"
 
 class CfgNotifications {
@@ -186,7 +186,7 @@ class Cfg3DEN {
             #include "AIDriversModule\cfgAttributeCategories\Object.hpp"
             #include "StartInParachuteModule\cfgAttributeCategories\Object.hpp"
             #include "MapAndCompassRemoverModule\cfgAttributeCategories\Object.hpp"
-            #include "FiremissionModule\cfgAttributeCategories\Object.hpp"
+            // #include "FiremissionModule\cfgAttributeCategories\Object.hpp"
             #include "HostageModule\cfgAttributeCategories\Object.hpp"
             #include "CoverMapModule\cfgAttributeCategories\Object.hpp"
             #include "ObjectSettingsModule\cfgAttributeCategories\Object.hpp"
@@ -340,7 +340,7 @@ class Extended_PreInit_EventHandlers {
 	#include "SelfActionsModule\cfgXEH\PreInit.hpp"
 	#include "MarkerControlModule\cfgXEH\PreInit.hpp"
 	#include "ShotCountModule\cfgXEH\PreInit.hpp"
-	#include "FiremissionModule\cfgXEH\PreInit.hpp"
+	// #include "FiremissionModule\cfgXEH\PreInit.hpp"
     #include "FiremissionVirtualModule\cfgXEH\PreInit.hpp"
 	#include "StartInParachuteModule\cfgXEH\PreInit.hpp"
 	#include "StartTextModule\cfgXEH\PreInit.hpp"

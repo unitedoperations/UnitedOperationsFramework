@@ -54,7 +54,10 @@ CFGFUNCFOLDER(Firemission,common);
     CFGFUNC(Firemission,SetArtyReadyStatus);
     CFGFUNC(Firemission,SetObserverSkill);
     CFGFUNC(Firemission,StopArtillery);
-   CFGFUNC(Firemission,FiremissionModuleInit);
+    CFGFUNC(Firemission,FiremissionModuleInit);
+    CFGFUNC(Firemission,radio_fireMessage);
+    CFGFUNC(Firemission,radio_sysChat);
+   
 CFGFUNCFOLDEREND;
 
 CFGFUNCFOLDER(Firemission,PolarSpotting);
