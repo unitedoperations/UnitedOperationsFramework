@@ -41,7 +41,7 @@ EXEC_CHECK(CLIENT);
 	{
 		
 
-		_action = ["Artillery_Menu", "Firemission", "", {true}, {
+		_action = ["Virtual_Artillery_Menu", "Virtual Firemission", "", {true}, {
 			_radioList = [] call acre_api_fnc_getCurrentRadioList;
 			_ret = false;
 			{
@@ -68,7 +68,7 @@ EXEC_CHECK(CLIENT);
 		_action = ["PolarFiremission", "New", "", {
 			[] call FUNC(dia_PolarFiremissionOpenDialog);
 		}, {true}] call ace_interact_menu_fnc_createAction;
-		[player, 1, ["ACE_SelfActions","Artillery_Menu"], _action] call ace_interact_menu_fnc_addActionToObject;
+		[player, 1, ["ACE_SelfActions","Virtual_Artillery_Menu"], _action] call ace_interact_menu_fnc_addActionToObject;
 
 
 
@@ -81,7 +81,7 @@ EXEC_CHECK(CLIENT);
 				default {false};
 			};
 		}] call ace_interact_menu_fnc_createAction;
-		[player, 1, ["ACE_SelfActions","Artillery_Menu"], _action] call ace_interact_menu_fnc_addActionToObject;
+		[player, 1, ["ACE_SelfActions","Virtual_Artillery_Menu"], _action] call ace_interact_menu_fnc_addActionToObject;
 
 	}, [player]] call CBA_fnc_waitUntilAndExecute;
 
@@ -142,7 +142,7 @@ EXEC_CHECK(CLIENT);
 			[false, false, false, true, false],
 			_modifierFunc
 		] call ace_interact_menu_fnc_createAction;
-		[player, 1, ["ACE_SelfActions","Artillery_Menu","CompletedFiremission"], _action] call ace_interact_menu_fnc_addActionToObject;
+		[player, 1, ["ACE_SelfActions","Virtual_Artillery_Menu","CompletedFiremission"], _action] call ace_interact_menu_fnc_addActionToObject;
 	};
 
 	switch (side player) do {

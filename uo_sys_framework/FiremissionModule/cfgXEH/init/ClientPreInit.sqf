@@ -2,7 +2,10 @@
 #include "\x\UO_FW\addons\Main\script_macros.hpp"
 EXEC_CHECK(CLIENT);
 
-[QEGVAR(Core,SettingsLoaded),{
+
+
+[QGVAR(SettingsLoaded),{
+    [QGVAR(Event_FireMessage), FUNC(radio_fireMessage)] call CBA_fnc_addEventHandler;
     if (GETPLVAR(ArtilleryFOPlayerEnabled,false)) then {
         ["Event_ArtyReceiveHint", {hint _this;}] call CBA_fnc_addEventHandler;
         private _guns = [];

@@ -54,7 +54,7 @@
 			[false, false, false, true, false],
 			_modifierFunc
 		] call ace_interact_menu_fnc_createAction;
-		[player, 1, ["ACE_SelfActions","Artillery_Menu","CompletedFiremission"], _action] call ace_interact_menu_fnc_addActionToObject;
+		[player, 1, ["ACE_SelfActions","Virtual_Artillery_Menu","CompletedFiremission"], _action] call ace_interact_menu_fnc_addActionToObject;
 	};
 
 	if (!isDedicated && hasInterface && side player == (_this # 2 # 14)) then {

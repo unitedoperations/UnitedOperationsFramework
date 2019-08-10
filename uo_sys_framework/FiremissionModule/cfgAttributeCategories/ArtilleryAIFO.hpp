@@ -122,11 +122,11 @@ class EGVAR(Firemission,ArtilleryAIFO)
             typeName = "NUMBER";
             defaultValue = "150";
         };
-        class EGVAR(Firemission,ArtilleryFOAIRoundIndex)
+        class EGVAR(Firemission,ArtilleryFOAIRoundClassName)
         {
-            displayName = "Round Index";
-            tooltip = "Ammuntion classname of the round supposed to be fired";
-            property = QEGVAR(Firemission,ArtilleryFOAIRoundIndex);
+            displayName = "Round Classname";
+            tooltip = "Ammuntion classname of the round supposed to be fired. CfgMagazines classname";
+            property = QEGVAR(Firemission,ArtilleryFOAIRoundClassName);
             control = "EditShort";
             expression = ENTITY_EXPRESSION;
             condition = "objectControllable";

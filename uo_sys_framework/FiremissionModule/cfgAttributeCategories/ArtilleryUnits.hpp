@@ -2,7 +2,7 @@
 
 class EGVAR(Firemission,Artillery)
 {
-    displayName = "Artillery Data Settings";
+    displayName = "Artillery Settings";
     collapsed = 1;
     class Attributes
     {
@@ -10,24 +10,12 @@ class EGVAR(Firemission,Artillery)
         {
             property = QEGVAR(Firemission,ArtilleryEnabled);
             displayName = "Artillery Data";
-            tooltip = "Enables Artillery Data";
+            tooltip = "Enables extra information which will be used by the firemission system";
             control = "CheckboxState";
             expression = ENTITY_EXPRESSION;
             defaultValue = "false";
             typeName = "BOOL";
             condition = "objectVehicle";
-        };
-        class EGVAR(Firemission,ArtilleryFireRate)
-        {
-            displayName = "Firerate Modifier";
-            tooltip = "Modifier for units firerate. Firerate * modifier. Default 1. Just keep at 1";
-            property = QEGVAR(Firemission,ArtilleryFireRate);
-            control = "EditShort";
-            expression = ENTITY_EXPRESSION;
-            condition = "objectVehicle";
-            validate = "number";
-            typeName = "NUMBER";
-            defaultValue = "1";
         };
         class EGVAR(Firemission,ArtilleryAccuracy)
         {
@@ -97,6 +85,17 @@ class EGVAR(Firemission,Artillery)
             expression = ENTITY_EXPRESSION;
             condition = "objectVehicle";
             defaultValue = "false";
+            typeName = "BOOL";
+        };
+        class EGVAR(Firemission,AllowChatMessage)
+        {
+            displayName = "Allow Chatmessages";
+            tooltip = "Allow the display of messages in chat Ammo. Default true";
+            property = QEGVAR(Firemission,AllowChatMessage);
+            control = "Checkbox";
+            expression = ENTITY_EXPRESSION;
+            condition = "objectVehicle";
+            defaultValue = "true";
             typeName = "BOOL";
         };
     };
