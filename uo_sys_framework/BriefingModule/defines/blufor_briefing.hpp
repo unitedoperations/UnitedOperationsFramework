@@ -471,12 +471,12 @@ if (GETMVAR(PID_Enabled_Blufor,false)) then {
         };
         
         if !(_FriendlyPath isEqualTo "") then {
-            _pidStr = _pidStr + "<img image='" + _FriendlyPath +  "' width='600' height='600'/><br/>";
+            _pidStr = _pidStr + "<img image='" + _FriendlyPath +  "' width='300' height='400'/><br/>";
         };
         
         if !(_FriendlySel isEqualTo "None") then {
             _pidCard = _FriendlySel call UO_FW_fnc_Briefing_findPIDCard;
-            _pidStr = _pidStr + "<img image='" + (_pidCard select 2) +  "' width='600' height='600'/><br/>";
+            _pidStr = _pidStr + "<img image='" + (_pidCard select 2) +  "' width='300' height='400'/><br/>";
         };
     };
     
@@ -492,12 +492,12 @@ if (GETMVAR(PID_Enabled_Blufor,false)) then {
         };
         
         if !(_EnemyPath isEqualTo "") then {
-            _pidStr = _pidStr + "<img image='" + _EnemyPath +  "' width='600' height='600'/><br/>";
+            _pidStr = _pidStr + "<img image='" + _EnemyPath +  "' width='300' height='400'/><br/>";
         };
         
         if !(_EnemySel isEqualTo "None") then {
             _pidCard = _EnemySel call UO_FW_fnc_Briefing_findPIDCard;
-            _pidStr = _pidStr + "<img image='" + (_pidCard select 2) +  "' width='600' height='600'/><br/>";
+            _pidStr = _pidStr + "<img image='" + (_pidCard select 2) +  "' width='300' height='400'/><br/>";
         };
     };
 
@@ -513,12 +513,12 @@ if (GETMVAR(PID_Enabled_Blufor,false)) then {
         };
         
         if !(_AdditionalPath isEqualTo "") then {
-            _pidStr = _pidStr + "<img image='" + _AdditionalPath +  "' width='600' height='600'/><br/>";
+            _pidStr = _pidStr + "<img image='" + _AdditionalPath +  "' width='300' height='400'/><br/>";
         };
         
         if !(_AdditionalSel isEqualTo "None") then {
             _pidCard = _AdditionalSel call UO_FW_fnc_Briefing_findPIDCard;
-            _pidStr = _pidStr + "<img image='" + (_pidCard select 2) +  "' width='600' height='600'/><br/>";
+            _pidStr = _pidStr + "<img image='" + (_pidCard select 2) +  "' width='300' height='400'/><br/>";
         };
     };
 
@@ -534,12 +534,12 @@ if (GETMVAR(PID_Enabled_Blufor,false)) then {
         };
         
         if !(_CivilianPath isEqualTo "") then {
-            _pidStr = _pidStr + "<img image='" + _CivilianPath +  "' width='600' height='600'/><br/>";
+            _pidStr = _pidStr + "<img image='" + _CivilianPath +  "' width='300' height='400'/><br/>";
         };
         
         if !(_CivilianSel isEqualTo "None") then {
             _pidCard = _CivilianSel call UO_FW_fnc_Briefing_findPIDCard;
-            _pidStr = _pidStr + "<img image='" + (_pidCard select 2) +  "' width='600' height='600'/><br/>";
+            _pidStr = _pidStr + "<img image='" + (_pidCard select 2) +  "' width='300' height='400'/><br/>";
         };
     };
 
@@ -555,12 +555,12 @@ if (GETMVAR(PID_Enabled_Blufor,false)) then {
         };
         
         if !(_HVTPath isEqualTo "") then {
-            _pidStr = _pidStr + "<img image='" + _HVTPath +  "' width='600' height='600'/><br/>";
+            _pidStr = _pidStr + "<img image='" + _HVTPath +  "' width='300' height='400'/><br/>";
         };
         
         if !(_HVTSel isEqualTo "None") then {
             _pidCard = _HVTSel call UO_FW_fnc_Briefing_findPIDCard;
-            _pidStr = _pidStr + "<img image='" + (_pidCard select 2) +  "' width='600' height='600'/><br/>";
+            _pidStr = _pidStr + "<img image='" + (_pidCard select 2) +  "' width='300' height='400'/><br/>";
         };
     };
 
