@@ -150,6 +150,64 @@ if (GETMVALUE(Warsaw_BLUFOR,false)) then {
     "ENDTAB;" +  _br;
 };
 
+if (GETMVAR(PID_Enabled_Blufor,false)) then {
+
+    _export = _export + "NEWTAB(""I. Preliminaries:"")" +  _br;
+
+    private _FriendlyDesc = GETMVAR(FriendlyPIDCardDescription_Blufor,"");
+    private _FriendlyPath = GETMVAR(FriendlyPIDCardPath_Blufor,"");
+    private _FriendlySel = GETMVAR(FriendlyPIDCard_Blufor,"None");
+
+    _export = _export + "<font color='#5BD527' size='14.0'><h1>Friendly Forces PID Card:</h1></font color><br/>" + _br +
+    _FriendlyDesc + "<br/>" + _br +
+    "<img image='" + _FriendlyPath +  "' width='600' height='600'/><br/>" + _br;
+    _pidCard = _FriendlySel call UO_FW_fnc_Briefing_findPIDCard;
+    _export = _export + "<img image='" + (_pidCard select 2) +  "' width='600' height='600'/><br/>" + _br;
+
+
+    private _EnemyDesc = GETMVAR(EnemyPIDCardDescription_Blufor,"");
+    private _EnemyPath = GETMVAR(EnemyPIDCardPath_Blufor,"");
+    private _EnemySel = GETMVAR(EnemyPIDCard_Blufor,"None");
+
+    _export = "<font color='#5BD527' size='14.0'><h1>Enemy Forces PID Card:</h1></font color><br/>" + _br +
+    _EnemyDesc + "<br/>" + _br +
+    "<img image='" + _EnemyPath +  "' width='600' height='600'/><br/>" + _br;
+    _pidCard = _EnemySel call UO_FW_fnc_Briefing_findPIDCard;
+    _export = _export + "<img image='" + (_pidCard select 2) +  "' width='600' height='600'/><br/>" + _br;
+
+    private _AdditionalDesc = GETMVAR(AdditionalPIDCardDescription_Blufor,"");
+    private _AdditionalPath = GETMVAR(AdditionalPIDCardPath_Blufor,"");
+    private _AdditionalSel = GETMVAR(AdditionalPIDCard_Blufor,"None");
+
+    _export = "<font color='#5BD527' size='14.0'><h1>Additional Forces PID Card:</h1></font color><br/>" + _br +
+    _AdditionalDesc + "<br/>" + _br +
+    "<img image='" + _AdditionalPath +  "' width='600' height='600'/><br/>" + _br;
+    _pidCard = _AdditionalSel call UO_FW_fnc_Briefing_findPIDCard;
+    _export = _export + "<img image='" + (_pidCard select 2) +  "' width='600' height='600'/><br/>" + _br;
+
+    private _CivilianDesc = GETMVAR(CivilianPIDCardDescription_Blufor,"");
+    private _CivilianPath = GETMVAR(CivilianPIDCardPath_Blufor,"");
+    private _CivilianSel = GETMVAR(CivilianPIDCard_Blufor,"None");
+
+    _export = "<font color='#5BD527' size='14.0'><h1>Civilian Forces PID Card:</h1></font color><br/>" + _br +
+    _CivilianDesc + "<br/>" + _br +
+    "<img image='" + _CivilianPath +  "' width='600' height='600'/><br/>" + _br;
+    _pidCard = _CivilianSel call UO_FW_fnc_Briefing_findPIDCard;
+    _export = _export + "<img image='" + (_pidCard select 2) +  "' width='600' height='600'/><br/>" + _br;
+
+    private _HVTDesc = GETMVAR(HVTPIDCardDescription_Blufor,"");
+    private _HVTPath = GETMVAR(HVTPIDCardPath_Blufor,"");
+    private _HVTSel = GETMVAR(HVTPIDCard_Blufor,"None");
+
+    _export = "<font color='#5BD527' size='14.0'><h1>HVT Forces PID Card:</h1></font color><br/>" + _br +
+    _HVTDesc + "<br/>" + _br +
+    "<img image='" + _HVTPath +  "' width='600' height='600'/><br/>" + _br;
+    _pidCard = _HVTSel call UO_FW_fnc_Briefing_findPIDCard;
+    _export = _export + "<img image='" + (_pidCard select 2) +  "' width='600' height='600'/><br/>" + _br ;
+
+    _export = _export + "ENDTAB;" +  _br;
+};
+
 _export = _export + "};" + _br;
 
 progressLoadingScreen 0.25;
@@ -277,6 +335,65 @@ if (GETMVALUE(Warsaw_OPFOR,false)) then {
     "<font color='#5BD527'><h1>Succession of Command:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_SUCC_DESC_OPFOR,"")) + _br +
     "ENDTAB;" +  _br;
 };
+
+if (GETMVAR(PID_Enabled_Opfor,false)) then {
+
+    _export = _export + "NEWTAB(""I. Preliminaries:"")" +  _br;
+
+    private _FriendlyDesc = GETMVAR(FriendlyPIDCardDescription_Opfor,"");
+    private _FriendlyPath = GETMVAR(FriendlyPIDCardPath_Opfor,"");
+    private _FriendlySel = GETMVAR(FriendlyPIDCard_Opfor,"None");
+
+    _export = _export + "<font color='#5BD527' size='14.0'><h1>Friendly Forces PID Card:</h1></font color><br/>" + _br +
+    _FriendlyDesc + "<br/>" + _br +
+    "<img image='" + _FriendlyPath +  "' width='600' height='600'/><br/>" + _br;
+    _pidCard = _FriendlySel call UO_FW_fnc_Briefing_findPIDCard;
+    _export = _export + "<img image='" + (_pidCard select 2) +  "' width='600' height='600'/><br/>" + _br;
+
+
+    private _EnemyDesc = GETMVAR(EnemyPIDCardDescription_Opfor,"");
+    private _EnemyPath = GETMVAR(EnemyPIDCardPath_Opfor,"");
+    private _EnemySel = GETMVAR(EnemyPIDCard_Opfor,"None");
+
+    _export = "<font color='#5BD527' size='14.0'><h1>Enemy Forces PID Card:</h1></font color><br/>" + _br +
+    _EnemyDesc + "<br/>" + _br +
+    "<img image='" + _EnemyPath +  "' width='600' height='600'/><br/>" + _br;
+    _pidCard = _EnemySel call UO_FW_fnc_Briefing_findPIDCard;
+    _export = _export + "<img image='" + (_pidCard select 2) +  "' width='600' height='600'/><br/>" + _br;
+
+    private _AdditionalDesc = GETMVAR(AdditionalPIDCardDescription_Opfor,"");
+    private _AdditionalPath = GETMVAR(AdditionalPIDCardPath_Opfor,"");
+    private _AdditionalSel = GETMVAR(AdditionalPIDCard_Opfor,"None");
+
+    _export = "<font color='#5BD527' size='14.0'><h1>Additional Forces PID Card:</h1></font color><br/>" + _br +
+    _AdditionalDesc + "<br/>" + _br +
+    "<img image='" + _AdditionalPath +  "' width='600' height='600'/><br/>" + _br;
+    _pidCard = _AdditionalSel call UO_FW_fnc_Briefing_findPIDCard;
+    _export = _export + "<img image='" + (_pidCard select 2) +  "' width='600' height='600'/><br/>" + _br;
+
+    private _CivilianDesc = GETMVAR(CivilianPIDCardDescription_Opfor,"");
+    private _CivilianPath = GETMVAR(CivilianPIDCardPath_Opfor,"");
+    private _CivilianSel = GETMVAR(CivilianPIDCard_Opfor,"None");
+
+    _export = "<font color='#5BD527' size='14.0'><h1>Civilian Forces PID Card:</h1></font color><br/>" + _br +
+    _CivilianDesc + "<br/>" + _br +
+    "<img image='" + _CivilianPath +  "' width='600' height='600'/><br/>" + _br;
+    _pidCard = _CivilianSel call UO_FW_fnc_Briefing_findPIDCard;
+    _export = _export + "<img image='" + (_pidCard select 2) +  "' width='600' height='600'/><br/>" + _br;
+
+    private _HVTDesc = GETMVAR(HVTPIDCardDescription_Opfor,"");
+    private _HVTPath = GETMVAR(HVTPIDCardPath_Opfor,"");
+    private _HVTSel = GETMVAR(HVTPIDCard_Opfor,"None");
+
+    _export = "<font color='#5BD527' size='14.0'><h1>HVT Forces PID Card:</h1></font color><br/>" + _br +
+    _HVTDesc + "<br/>" + _br +
+    "<img image='" + _HVTPath +  "' width='600' height='600'/><br/>" + _br;
+    _pidCard = _HVTSel call UO_FW_fnc_Briefing_findPIDCard;
+    _export = _export + "<img image='" + (_pidCard select 2) +  "' width='600' height='600'/><br/>" + _br ;
+
+    _export = _export + "ENDTAB;" +  _br;
+};
+
 _export = _export + "};" + _br;
 
 progressLoadingScreen 0.5;
@@ -403,6 +520,64 @@ if (GETMVALUE(Warsaw_Indfor,false)) then {
     "ENDTAB;" +  _br;
 };
 
+if (GETMVAR(PID_Enabled_Indfor,false)) then {
+
+    _export = _export + "NEWTAB(""I. Preliminaries:"")" +  _br;
+
+    private _FriendlyDesc = GETMVAR(FriendlyPIDCardDescription_Indfor,"");
+    private _FriendlyPath = GETMVAR(FriendlyPIDCardPath_Indfor,"");
+    private _FriendlySel = GETMVAR(FriendlyPIDCard_Indfor,"None");
+
+    _export = _export + "<font color='#5BD527' size='14.0'><h1>Friendly Forces PID Card:</h1></font color><br/>" + _br +
+    _FriendlyDesc + "<br/>" + _br +
+    "<img image='" + _FriendlyPath +  "' width='600' height='600'/><br/>" + _br;
+    _pidCard = _FriendlySel call UO_FW_fnc_Briefing_findPIDCard;
+    _export = _export + "<img image='" + (_pidCard select 2) +  "' width='600' height='600'/><br/>" + _br;
+
+
+    private _EnemyDesc = GETMVAR(EnemyPIDCardDescription_Indfor,"");
+    private _EnemyPath = GETMVAR(EnemyPIDCardPath_Indfor,"");
+    private _EnemySel = GETMVAR(EnemyPIDCard_Indfor,"None");
+
+    _export = "<font color='#5BD527' size='14.0'><h1>Enemy Forces PID Card:</h1></font color><br/>" + _br +
+    _EnemyDesc + "<br/>" + _br +
+    "<img image='" + _EnemyPath +  "' width='600' height='600'/><br/>" + _br;
+    _pidCard = _EnemySel call UO_FW_fnc_Briefing_findPIDCard;
+    _export = _export + "<img image='" + (_pidCard select 2) +  "' width='600' height='600'/><br/>" + _br;
+
+    private _AdditionalDesc = GETMVAR(AdditionalPIDCardDescription_Indfor,"");
+    private _AdditionalPath = GETMVAR(AdditionalPIDCardPath_Indfor,"");
+    private _AdditionalSel = GETMVAR(AdditionalPIDCard_Indfor,"None");
+
+    _export = "<font color='#5BD527' size='14.0'><h1>Additional Forces PID Card:</h1></font color><br/>" + _br +
+    _AdditionalDesc + "<br/>" + _br +
+    "<img image='" + _AdditionalPath +  "' width='600' height='600'/><br/>" + _br;
+    _pidCard = _AdditionalSel call UO_FW_fnc_Briefing_findPIDCard;
+    _export = _export + "<img image='" + (_pidCard select 2) +  "' width='600' height='600'/><br/>" + _br;
+
+    private _CivilianDesc = GETMVAR(CivilianPIDCardDescription_Indfor,"");
+    private _CivilianPath = GETMVAR(CivilianPIDCardPath_Indfor,"");
+    private _CivilianSel = GETMVAR(CivilianPIDCard_Indfor,"None");
+
+    _export = "<font color='#5BD527' size='14.0'><h1>Civilian Forces PID Card:</h1></font color><br/>" + _br +
+    _CivilianDesc + "<br/>" + _br +
+    "<img image='" + _CivilianPath +  "' width='600' height='600'/><br/>" + _br;
+    _pidCard = _CivilianSel call UO_FW_fnc_Briefing_findPIDCard;
+    _export = _export + "<img image='" + (_pidCard select 2) +  "' width='600' height='600'/><br/>" + _br;
+
+    private _HVTDesc = GETMVAR(HVTPIDCardDescription_Indfor,"");
+    private _HVTPath = GETMVAR(HVTPIDCardPath_Indfor,"");
+    private _HVTSel = GETMVAR(HVTPIDCard_Indfor,"None");
+
+    _export = "<font color='#5BD527' size='14.0'><h1>HVT Forces PID Card:</h1></font color><br/>" + _br +
+    _HVTDesc + "<br/>" + _br +
+    "<img image='" + _HVTPath +  "' width='600' height='600'/><br/>" + _br;
+    _pidCard = _HVTSel call UO_FW_fnc_Briefing_findPIDCard;
+    _export = _export + "<img image='" + (_pidCard select 2) +  "' width='600' height='600'/><br/>" + _br ;
+
+    _export = _export + "ENDTAB;" +  _br;
+};
+
 _export = _export + "};" + _br;
 
 progressLoadingScreen 0.75;
@@ -524,7 +699,63 @@ if (GETMVALUE(Warsaw_Civ,false)) then {
     "<font color='#5BD527'><h1>Succession of Command:</h1></font color><br/>" +  _br + (GETMVALUE(Warsaw_SUCC_DESC_Civ,"")) + _br +
     "ENDTAB;" +  _br;
 };
+if (GETMVAR(PID_Enabled_Civfor,false)) then {
 
+    _export = _export + "NEWTAB(""I. Preliminaries:"")" +  _br;
+
+    private _FriendlyDesc = GETMVAR(FriendlyPIDCardDescription_Civfor,"");
+    private _FriendlyPath = GETMVAR(FriendlyPIDCardPath_Civfor,"");
+    private _FriendlySel = GETMVAR(FriendlyPIDCard_Civfor,"None");
+
+    _export = _export + "<font color='#5BD527' size='14.0'><h1>Friendly Forces PID Card:</h1></font color><br/>" + _br +
+    _FriendlyDesc + "<br/>" + _br +
+    "<img image='" + _FriendlyPath +  "' width='600' height='600'/><br/>" + _br;
+    _pidCard = _FriendlySel call UO_FW_fnc_Briefing_findPIDCard;
+    _export = _export + "<img image='" + (_pidCard select 2) +  "' width='600' height='600'/><br/>" + _br;
+
+
+    private _EnemyDesc = GETMVAR(EnemyPIDCardDescription_Civfor,"");
+    private _EnemyPath = GETMVAR(EnemyPIDCardPath_Civfor,"");
+    private _EnemySel = GETMVAR(EnemyPIDCard_Civfor,"None");
+
+    _export = "<font color='#5BD527' size='14.0'><h1>Enemy Forces PID Card:</h1></font color><br/>" + _br +
+    _EnemyDesc + "<br/>" + _br +
+    "<img image='" + _EnemyPath +  "' width='600' height='600'/><br/>" + _br;
+    _pidCard = _EnemySel call UO_FW_fnc_Briefing_findPIDCard;
+    _export = _export + "<img image='" + (_pidCard select 2) +  "' width='600' height='600'/><br/>" + _br;
+
+    private _AdditionalDesc = GETMVAR(AdditionalPIDCardDescription_Civfor,"");
+    private _AdditionalPath = GETMVAR(AdditionalPIDCardPath_Civfor,"");
+    private _AdditionalSel = GETMVAR(AdditionalPIDCard_Civfor,"None");
+
+    _export = "<font color='#5BD527' size='14.0'><h1>Additional Forces PID Card:</h1></font color><br/>" + _br +
+    _AdditionalDesc + "<br/>" + _br +
+    "<img image='" + _AdditionalPath +  "' width='600' height='600'/><br/>" + _br;
+    _pidCard = _AdditionalSel call UO_FW_fnc_Briefing_findPIDCard;
+    _export = _export + "<img image='" + (_pidCard select 2) +  "' width='600' height='600'/><br/>" + _br;
+
+    private _CivilianDesc = GETMVAR(CivilianPIDCardDescription_Civfor,"");
+    private _CivilianPath = GETMVAR(CivilianPIDCardPath_Civfor,"");
+    private _CivilianSel = GETMVAR(CivilianPIDCard_Civfor,"None");
+
+    _export = "<font color='#5BD527' size='14.0'><h1>Civilian Forces PID Card:</h1></font color><br/>" + _br +
+    _CivilianDesc + "<br/>" + _br +
+    "<img image='" + _CivilianPath +  "' width='600' height='600'/><br/>" + _br;
+    _pidCard = _CivilianSel call UO_FW_fnc_Briefing_findPIDCard;
+    _export = _export + "<img image='" + (_pidCard select 2) +  "' width='600' height='600'/><br/>" + _br;
+
+    private _HVTDesc = GETMVAR(HVTPIDCardDescription_Civfor,"");
+    private _HVTPath = GETMVAR(HVTPIDCardPath_Civfor,"");
+    private _HVTSel = GETMVAR(HVTPIDCard_Civfor,"None");
+
+    _export = "<font color='#5BD527' size='14.0'><h1>HVT Forces PID Card:</h1></font color><br/>" + _br +
+    _HVTDesc + "<br/>" + _br +
+    "<img image='" + _HVTPath +  "' width='600' height='600'/><br/>" + _br;
+    _pidCard = _HVTSel call UO_FW_fnc_Briefing_findPIDCard;
+    _export = _export + "<img image='" + (_pidCard select 2) +  "' width='600' height='600'/><br/>" + _br ;
+
+    _export = _export + "ENDTAB;" +  _br;
+};
 _export = _export + "};" + _br +
 
 "};" + _br +

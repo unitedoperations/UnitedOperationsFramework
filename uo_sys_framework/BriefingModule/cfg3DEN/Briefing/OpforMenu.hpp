@@ -687,3 +687,157 @@ class EGVAR(Briefing,Appendix_OPFOR) {
         };
     };
 };
+
+class EGVAR(Briefing,PID_Opfor) {
+    displayName = "PID Cards";
+    collapsed = 1;
+    class Attributes {
+        class EGVAR(Briefing,PID_Enabled_Opfor) {
+            property = QEGVAR(Briefing,PID_Enabled_Opfor);
+            displayName = "Enable PID Cards";
+            tooltip = "Enables PID cards in the briefing";
+            control = "CheckboxState";
+            expression = SCENARIO_EXPRESSION;
+            defaultValue = "false";
+        };
+        class EGVAR(Briefing,FriendlyPIDCardDescription_Opfor) {
+            property = QEGVAR(Briefing,FriendlyPIDCardDescription_Opfor);
+            displayName = "Friendly Forces Description";
+            tooltip = "Additional information about the friendly forces to be displayed";
+            control = "Edit";
+            validate = "STRING";
+            expression = SCENARIO_EXPRESSION;
+            defaultValue = "''";
+        };
+        class EGVAR(Briefing,FriendlyPIDCardPath_Opfor) {
+            property = QEGVAR(Briefing,FriendlyPIDCardPath_Opfor);
+            displayName = "Friendly Forces Path";
+            tooltip = "Path to PID Card for friendly forces in the mission folder";
+            control = "Edit";
+            validate = "STRING";
+            expression = SCENARIO_EXPRESSION;
+            defaultValue = "''";
+        };
+        class EGVAR(Briefing,FriendlyPIDCard_Opfor) {
+            displayName = "Friendly Forces PID Card";
+            tooltip = "PID card for friendly forces";
+            property = QEGVAR(Briefing,FriendlyPIDCard_Opfor);
+            control = QEGVAR(Briefing,PIDCardSelectionAttribute);
+            typeName = "STRING";
+            expression = SCENARIO_EXPRESSION;
+            defaultValue = "'None'";
+        };
+
+        class EGVAR(Briefing,EnemyPIDCardDescription_Opfor) {
+            property = QEGVAR(Briefing,EnemyPIDCardDescription_Opfor);
+            displayName = "Enemy Forces Description";
+            tooltip = "Additional information about the enemy forces to be displayed";
+            control = "Edit";
+            validate = "STRING";
+            expression = SCENARIO_EXPRESSION;
+            defaultValue = "''";
+        };
+        class EGVAR(Briefing,EnemyPIDCardPath_Opfor) {
+            property = QEGVAR(Briefing,EnemyPIDCardPath_Opfor);
+            displayName = "Enemy Forces Path";
+            tooltip = "Path to PID Card for enemy forces in the mission folder";
+            control = "Edit";
+            validate = "STRING";
+            expression = SCENARIO_EXPRESSION;
+            defaultValue = "''";
+        };
+        class EGVAR(Briefing,EnemyPIDCard_Opfor) {
+            displayName = "Enemy Forces PID Card";
+            tooltip = "PID Card for Enemy Forces";
+            property = QEGVAR(Briefing,EnemyPIDCard_Opfor);
+            control = QEGVAR(Briefing,PIDCardSelectionAttribute);
+            typeName = "STRING";
+            expression = SCENARIO_EXPRESSION;
+            defaultValue = "'None'";
+        }; 
+
+        class EGVAR(Briefing,AdditionalPIDCardDescription_Opfor) {
+            property = QEGVAR(Briefing,AdditionalPIDCardDescription_Opfor);
+            displayName = "Additional Forces Description";
+            tooltip = "Additional information about the additional forces to be displayed";
+            control = "Edit";
+            validate = "STRING";
+            expression = SCENARIO_EXPRESSION;
+            defaultValue = "''";
+        };
+        class EGVAR(Briefing,AdditionalPIDCardPath_Opfor) {
+            property = QEGVAR(Briefing,AdditionalPIDCardPath_Opfor);
+            displayName = "Additional Forces Path";
+            tooltip = "Path to PID Card for additional forces in the mission folder";
+            control = "Edit";
+            validate = "STRING";
+            expression = SCENARIO_EXPRESSION;
+            defaultValue = "''";
+        };
+        class EGVAR(Briefing,AdditionalPIDCard_Opfor) {
+            displayName = "Additional Forces PID Card";
+            tooltip = "PID Card for additional forces";
+            property = QEGVAR(Briefing,AdditionalPIDCard_Opfor);
+            control = QEGVAR(Briefing,PIDCardSelectionAttribute);
+            typeName = "STRING";
+            expression = SCENARIO_EXPRESSION;
+            defaultValue = "'None'";
+        };
+        
+        class EGVAR(Briefing,CivilianPIDCardDescription_Opfor) {
+            property = QEGVAR(Briefing,CivilianPIDCardDescription_Opfor);
+            displayName = "Civilian Forces Description";
+            tooltip = "Civilian information about the civilian forces to be displayed";
+            control = "Edit";
+            validate = "STRING";
+            expression = SCENARIO_EXPRESSION;
+            defaultValue = "''";
+        };
+        class EGVAR(Briefing,CivilianPIDCardPath_Opfor) {
+            property = QEGVAR(Briefing,CivilianPIDCardPath_Opfor);
+            displayName = "Civilian Forces Path";
+            tooltip = "Path to PID card for civilian forces in the mission folder";
+            control = "Edit";
+            validate = "STRING";
+            expression = SCENARIO_EXPRESSION;
+            defaultValue = "''";
+        };
+        class EGVAR(Briefing,CivilianPIDCard_Opfor) {
+            displayName = "Civilian Forces PID Card";
+            tooltip = "PID card for civilian forces";
+            property = QEGVAR(Briefing,CivilianPIDCard_Opfor);
+            control = QEGVAR(Briefing,PIDCardSelectionAttribute);
+            typeName = "STRING";
+            expression = SCENARIO_EXPRESSION;
+            defaultValue = "'None'";
+        };
+
+        class EGVAR(Briefing,HVTPIDCardDescription_Opfor) {
+            property = QEGVAR(Briefing,HVTPIDCardDescription_Opfor);
+            displayName = "HVT Description";
+            tooltip = "Additional information about the HVT to be displayed";
+            control = "Edit";
+            validate = "STRING";
+            expression = SCENARIO_EXPRESSION;
+            defaultValue = "''";
+        };
+        class EGVAR(Briefing,HVTPIDCardPath_Opfor) {
+            property = QEGVAR(Briefing,HVTPIDCardPath_Opfor);
+            displayName = "HVT Path";
+            tooltip = "Path to PID card for HVT in the mission folder";
+            control = "Edit";
+            validate = "STRING";
+            expression = SCENARIO_EXPRESSION;
+            defaultValue = "''";
+        };
+        class EGVAR(Briefing,HVTPIDCard_Opfor) {
+            displayName = "HVT PID Card";
+            tooltip = "PID card for HVT";
+            property = QEGVAR(Briefing,HVTPIDCard_Opfor);
+            control = QEGVAR(Briefing,PIDCardSelectionAttribute);
+            typeName = "STRING";
+            expression = SCENARIO_EXPRESSION;
+            defaultValue = "'None'";
+        };
+    };
+};

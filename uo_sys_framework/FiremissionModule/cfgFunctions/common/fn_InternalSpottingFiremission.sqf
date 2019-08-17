@@ -17,7 +17,8 @@ if(_dis >_minSpottedDistance && SPOTTINGROUNDSREQUIRED) then {
         _randomPos = [[[_target, _tempAcc]],[]] call BIS_fnc_randomPos;
         _dis = _randomPos distance2D _target;
         _eta = [_unit,_randomPos, _roundClassName] call EFUNC(Firemission,GetArtyEta);
-        _unit commandArtilleryFire [_randomPos,  _roundClassName, 1];
+        _mortarStrike = _ammoClass createVehicle [_randomPos # 0,_randomPos # 1,450];
+		_mortarStrike setVelocity [0, 0, -225];
         if((_unit getVariable [QEGVAR(Firemission,ArtAllowChat),false])) then {
             _msg1 	= (_unit call EFUNC(Firemission,GetArtyDisplayName)) + ": Spotting Shot, Observe";
             [QGVAR(Event_FireMessage),[[1,_msg1,side _unit]]] call CBA_fnc_globalEvent;

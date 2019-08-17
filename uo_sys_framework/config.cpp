@@ -239,6 +239,7 @@ class Cfg3DEN {
     class Attributes {
         #include "Core\CfgAttributes.hpp"
         //#include "HeadlessAIModule\CfgAttributes.hpp"
+        #include "BriefingModule\CfgAttributes.hpp"
         #include "TeamColourModule\CfgAttributes.hpp"
         #include "CaptureZoneModule\CfgAttributes.hpp"
         #include "StartInParachuteModule\CfgAttributes.hpp"
