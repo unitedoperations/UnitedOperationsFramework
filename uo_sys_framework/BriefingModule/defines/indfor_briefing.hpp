@@ -454,7 +454,120 @@ if (GETMVAR(MissionNotes_Enable,false)) then {
         "<font color='#5BD527' size='14.0'><h1>Game Mastering:</h1></font color><br/>" + _gamemastermsg
     ENDTAB;
 };
+if (GETMVAR(PID_Enabled_Indfor,false)) then {
+    //Mission Notes
+    
+    private _pidStr = "";
 
+    private _friendlyDesc = GETMVAR(FriendlyPIDCardDescription_Indfor,"");
+    private _friendlyPath = GETMVAR(FriendlyPIDCardPath_Indfor,"");
+    private _friendlySel = GETMVAR(FriendlyPIDCard_Indfor,"None");
+    if((!(_friendlyDesc isEqualTo "")) || (!(_friendlyPath isEqualTo "")) || (!(_friendlySel isEqualTo "None"))) then {
+
+        _pidStr = _pidStr + "<font color='#5BD527' size='14.0'><h1>Friendly Forces PID Card:</h1></font color><br/>";
+        if !(_friendlyDesc isEqualTo "") then {
+            _pidStr = _pidStr +  _friendlyDesc + "<br/>";
+            
+        };
+        
+        if !(_friendlyPath isEqualTo "") then {
+            _pidStr = _pidStr + "<img image='" + _friendlyPath +  "' width='300' height='400'/><br/>";
+        };
+        
+        // if !(_friendlySel isEqualTo "None") then {
+        //     _pidCard = _friendlySel call UO_FW_fnc_Briefing_findPIDCard;
+        //     _pidStr = _pidStr + "<img image='" + (_pidCard select 2) +  "' width='300' height='400'/><br/>";
+        // };
+    };
+    
+    private _EnemyDesc = GETMVAR(EnemyPIDCardDescription_Indfor,"");
+    private _EnemyPath = GETMVAR(EnemyPIDCardPath_Indfor,"");
+    private _EnemySel = GETMVAR(EnemyPIDCard_Indfor,"None");
+    if((!(_EnemyDesc isEqualTo "")) || (!(_EnemyPath isEqualTo "")) || (!(_EnemySel isEqualTo "None"))) then {
+
+        _pidStr = _pidStr + "<font color='#5BD527' size='14.0'><h1>Enemy Forces PID Card:</h1></font color><br/>";
+        if !(_EnemyDesc isEqualTo "") then {
+            _pidStr = _pidStr +  _EnemyDesc + "<br/>";
+            
+        };
+        
+        if !(_EnemyPath isEqualTo "") then {
+            _pidStr = _pidStr + "<img image='" + _EnemyPath +  "' width='300' height='400'/><br/>";
+        };
+        
+        // if !(_EnemySel isEqualTo "None") then {
+        //     _pidCard = _EnemySel call UO_FW_fnc_Briefing_findPIDCard;
+        //     _pidStr = _pidStr + "<img image='" + (_pidCard select 2) +  "' width='300' height='400'/><br/>";
+        // };
+    };
+
+    private _AdditionalDesc = GETMVAR(AdditionalPIDCardDescription_Indfor,"");
+    private _AdditionalPath = GETMVAR(AdditionalPIDCardPath_Indfor,"");
+    private _AdditionalSel = GETMVAR(AdditionalPIDCard_Indfor,"None");
+    if((!(_AdditionalDesc isEqualTo "")) || (!(_AdditionalPath isEqualTo "")) || (!(_AdditionalSel isEqualTo "None"))) then {
+
+        _pidStr = _pidStr + "<font color='#5BD527' size='14.0'><h1>Additional Forces PID Card:</h1></font color><br/>";
+        if !(_AdditionalDesc isEqualTo "") then {
+            _pidStr = _pidStr +  _AdditionalDesc + "<br/>";
+            
+        };
+        
+        if !(_AdditionalPath isEqualTo "") then {
+            _pidStr = _pidStr + "<img image='" + _AdditionalPath +  "' width='300' height='400'/><br/>";
+        };
+        
+        // if !(_AdditionalSel isEqualTo "None") then {
+        //     _pidCard = _AdditionalSel call UO_FW_fnc_Briefing_findPIDCard;
+        //     _pidStr = _pidStr + "<img image='" + (_pidCard select 2) +  "' width='300' height='400'/><br/>";
+        // };
+    };
+
+    private _CivilianDesc = GETMVAR(CivilianPIDCardDescription_Indfor,"");
+    private _CivilianPath = GETMVAR(CivilianPIDCardPath_Indfor,"");
+    private _CivilianSel = GETMVAR(CivilianPIDCard_Indfor,"None");
+    if((!(_CivilianDesc isEqualTo "")) || (!(_CivilianPath isEqualTo "")) || (!(_CivilianSel isEqualTo "None"))) then {
+
+        _pidStr = _pidStr + "<font color='#5BD527' size='14.0'><h1>Civilian Forces PID Card:</h1></font color><br/>";
+        if !(_CivilianDesc isEqualTo "") then {
+            _pidStr = _pidStr +  _CivilianDesc + "<br/>";
+            
+        };
+        
+        if !(_CivilianPath isEqualTo "") then {
+            _pidStr = _pidStr + "<img image='" + _CivilianPath +  "' width='300' height='400'/><br/>";
+        };
+        
+        // if !(_CivilianSel isEqualTo "None") then {
+        //     _pidCard = _CivilianSel call UO_FW_fnc_Briefing_findPIDCard;
+        //     _pidStr = _pidStr + "<img image='" + (_pidCard select 2) +  "' width='300' height='400'/><br/>";
+        // };
+    };
+
+    private _HVTDesc = GETMVAR(HVTPIDCardDescription_Indfor,"");
+    private _HVTPath = GETMVAR(HVTPIDCardPath_Indfor,"");
+    private _HVTSel = GETMVAR(HVTPIDCard_Indfor,"None");
+    if((!(_HVTDesc isEqualTo "")) || (!(_HVTPath isEqualTo "")) || (!(_HVTSel isEqualTo "None"))) then {
+
+        _pidStr = _pidStr + "<font color='#5BD527' size='14.0'><h1>HVT PID Card:</h1></font color><br/>";
+        if !(_HVTDesc isEqualTo "") then {
+            _pidStr = _pidStr +  _HVTDesc + "<br/>";
+            
+        };
+        
+        if !(_HVTPath isEqualTo "") then {
+            _pidStr = _pidStr + "<img image='" + _HVTPath +  "' width='300' height='400'/><br/>";
+        };
+        
+        // if !(_HVTSel isEqualTo "None") then {
+        //     _pidCard = _HVTSel call UO_FW_fnc_Briefing_findPIDCard;
+        //     _pidStr = _pidStr + "<img image='" + (_pidCard select 2) +  "' width='300' height='400'/><br/>";
+        // };
+    };
+
+    NEWTAB("PID Cards"),
+        _pidStr
+    ENDTAB;
+};
 
 
 DISPLAYBRIEFING();
