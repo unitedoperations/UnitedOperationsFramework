@@ -75,6 +75,7 @@ CFGFUNCFOLDERCORE(Attributes);
 CFGFUNCFOLDEREND;
 
 CFGFUNCFOLDERCORE(Respawn);
+    CFGFUNC(Respawn,SetRespawnModule);
     CFGFUNC(Respawn,HandlePlayerRespawn);
 CFGFUNCFOLDEREND;
 

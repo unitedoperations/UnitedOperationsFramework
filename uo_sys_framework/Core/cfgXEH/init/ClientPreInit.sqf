@@ -79,9 +79,17 @@ LOG("Client Pre Init");
     [] call EFUNC(Spectator,endSpectate);
 }] call CBA_fnc_addEventHandler;
 
+[QEGVAR(Respawn,HideRespawnMarker), {
+	params ["_name","_side"];
+    if(side player != _side) then {
+        _name setMarkerAlphaLocal 0;
+    };
+}] call CBA_fnc_addEventHandler;
+
 [QGVAR(PlayerRespawnEvent), {
 	[] call EFUNC(Respawn,HandlePlayerRespawn);
 }] call CBA_fnc_addEventHandler;
+
 
 [QGVAR(PlayerRespawnRecieveTicketEvent), {
     params ["_unit","_response","_ticketType","_ticketsRemaining"];

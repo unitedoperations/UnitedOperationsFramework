@@ -41,6 +41,26 @@ class EGVAR(Respawn,RespawnZoneModule): EGVAR(Core,BaseModule) {
             typeName = "NUMBER";
             validate = "number";
         };
+		class EGVAR(Respawn,InnerRadiusX) {
+            displayName = "Inner Respawn Radius X";
+            tooltip = "The size of the X value of the inner respawn zone. Units will not spawn inside this zone. Think of a Donut. 0 = Disabled Default: 0";
+            property = QEGVAR(Respawn,InnerRadiusX);
+            control = QEGVAR(Core,RadiusAttribute);
+            expression = MODULE_EXPRESSION;
+            defaultValue = "0";
+            typeName = "NUMBER";
+            validate = "number";
+        };
+        class EGVAR(Respawn,InnerRadiusY) {
+            displayName = "Inner Respawn Radius Y";
+            tooltip = "The size of the Y value of the inner respawn zone. Units will not spawn inside this zone. Think of a Donut. 0 = Disabled Default: 0";
+            property = QEGVAR(Respawn,InnerRadiusY);
+            control = QEGVAR(Core,RadiusAttribute);
+            expression = MODULE_EXPRESSION;
+            defaultValue = "0";
+            typeName = "NUMBER";
+            validate = "number";
+        };
         class EGVAR(Respawn,ShowMarker) {
             property = QEGVAR(Respawn,ShowMarker);
             displayName = "Show Marker";

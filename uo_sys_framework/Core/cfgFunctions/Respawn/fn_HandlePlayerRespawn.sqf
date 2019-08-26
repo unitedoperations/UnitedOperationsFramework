@@ -3,7 +3,10 @@
 EXEC_CHECK(CLIENT);
 
 private ["_delay","_templateSettings","_teamRespawnMarker","_newSideSetting","_respawnType","_teamRespawnModule","_teamRespawnMarkerSides","_teamRespawnModuleSides"];
-_teamRespawnModuleSides = [QEGVAR(Respawn,RespawnModuleMarker_Blufor),QEGVAR(Respawn,RespawnModuleMarker_Opfor),QEGVAR(Respawn,RespawnModuleMarker_Indfor),QEGVAR(Respawn,RespawnModuleMarker_Civ)];
+_teamRespawnModuleSides = [ [QEGVAR(Respawn,RespawnModuleMarker_Blufor),QEGVAR(Respawn,RespawnModuleInnerMarker_Blufor)],
+                            [QEGVAR(Respawn,RespawnModuleMarker_Opfor),QEGVAR(Respawn,RespawnModuleInnerMarker_Opfor)],
+                            [QEGVAR(Respawn,RespawnModuleMarker_Indfor),QEGVAR(Respawn,RespawnModuleInnerMarker_Indfor)],
+                            [QEGVAR(Respawn,RespawnModuleMarker_Civ),QEGVAR(Respawn,RespawnModuleInnerMarker_Civ)]];
 _teamRespawnMarkerSides = [QMGVAR(RESPAWN_BLUFOR),QMGVAR(RESPAWN_OPFOR),QMGVAR(RESPAWN_Indfor),QMGVAR(RESPAWN_Civ)];
 switch (side player) do {
     case west: {
@@ -79,11 +82,22 @@ if ((_respawnType isEqualto "INDTICK") || (_respawnType isEqualto "TEAMTICK") ||
             };
             TRACE_1("Respawnside:",_newSideSetting);
         };
-        if !((markerShape  _teamRespawnModule) isEqualTo "") then {
-
-            private _rePos = [_teamRespawnModule] call CBA_fnc_randPosArea;
+        if !((markerShape  (_teamRespawnModule select 0)) isEqualTo "") then {
+            private _rePos = (EGVAR(Core,SpawnPos));
+            if !((markerShape  (_teamRespawnModule select 1)) isEqualTo "") then {
+                _rePos = [[(_teamRespawnModule select 0)],[(_teamRespawnModule select 1)]] call BIS_fnc_randomPos;
+            }
+            else{
+                _rePos = [[(_teamRespawnModule select 0),(_teamRespawnModule select 0)]] call BIS_fnc_randomPos;
+            };
+            if(_rePos select 0 == 0 ||_rePos select 1 == 0) then {
+                [player,(EGVAR(Core,SpawnPos)),30] call CBA_fnc_setPos;
+                FWDEBUG("Something went wrong with the respawn Module","Something went wrong with the respawn Module");
+            } else {
+                 [player,_rePos,10] call CBA_fnc_setPos;
+            };
             TRACE_1("Respawn position",_rePos);
-            [player,_rePos,10] call CBA_fnc_setPos;
+           
 
         } else {
             // Handle Teleport Locations
