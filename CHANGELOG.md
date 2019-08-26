@@ -3,6 +3,16 @@ All notable changes to this project will be documented in this file.
 The version number refer to VERSION define in script_mod.
 The date refers to the date when changes have been merged into DEV branch.
 
+## [1.0.8]
+### Added
+- PID Card System in the Briefing System
+- Added Virtual Firemission System from Tinfoil
+- Respawn Zones
+### Changed
+### Fixed
+- Endscreen not displaying casualties
+### Removed
+
 ## [1.0.7]
 ### Added
 - ACRE Vehicle Rack Preset now selectable
