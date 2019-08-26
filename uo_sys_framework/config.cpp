@@ -86,6 +86,7 @@ class CfgVehicles {
     #include "CaptureZoneModule\cfgVehicles.hpp"
     #include "AOLimitModule\cfgVehicles.hpp"
     #include "CoverMapModule\cfgVehicles.hpp"
+    #include "Core\cfgVehicles.hpp"
     #include "FiremissionVirtualModule\cfgVehicles.hpp"
 };
 
