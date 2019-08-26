@@ -685,15 +685,15 @@ class EGVAR(Briefing,PID_Indfor) {
             expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
-        class EGVAR(Briefing,FriendlyPIDCard_Indfor) {
-            displayName = "Friendly Forces PID Card";
-            tooltip = "PID card for friendly forces";
-            property = QEGVAR(Briefing,FriendlyPIDCard_Indfor);
-            control = QEGVAR(Briefing,PIDCardSelectionAttribute);
-            typeName = "STRING";
-            expression = SCENARIO_EXPRESSION;
-            defaultValue = "'None'";
-        };
+        // class EGVAR(Briefing,FriendlyPIDCard_Indfor) {
+        //     displayName = "Friendly Forces PID Card";
+        //     tooltip = "PID card for friendly forces";
+        //     property = QEGVAR(Briefing,FriendlyPIDCard_Indfor);
+        //     control = QEGVAR(Briefing,PIDCardSelectionAttribute);
+        //     typeName = "STRING";
+        //     expression = SCENARIO_EXPRESSION;
+        //     defaultValue = "'None'";
+        // };
 
         class EGVAR(Briefing,EnemyPIDCardDescription_Indfor) {
             property = QEGVAR(Briefing,EnemyPIDCardDescription_Indfor);
@@ -713,15 +713,15 @@ class EGVAR(Briefing,PID_Indfor) {
             expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
-        class EGVAR(Briefing,EnemyPIDCard_Indfor) {
-            displayName = "Enemy Forces PID Card";
-            tooltip = "PID Card for Enemy Forces";
-            property = QEGVAR(Briefing,EnemyPIDCard_Indfor);
-            control = QEGVAR(Briefing,PIDCardSelectionAttribute);
-            typeName = "STRING";
-            expression = SCENARIO_EXPRESSION;
-            defaultValue = "'None'";
-        }; 
+        // class EGVAR(Briefing,EnemyPIDCard_Indfor) {
+        //     displayName = "Enemy Forces PID Card";
+        //     tooltip = "PID Card for Enemy Forces";
+        //     property = QEGVAR(Briefing,EnemyPIDCard_Indfor);
+        //     control = QEGVAR(Briefing,PIDCardSelectionAttribute);
+        //     typeName = "STRING";
+        //     expression = SCENARIO_EXPRESSION;
+        //     defaultValue = "'None'";
+        // }; 
 
         class EGVAR(Briefing,AdditionalPIDCardDescription_Indfor) {
             property = QEGVAR(Briefing,AdditionalPIDCardDescription_Indfor);
@@ -741,15 +741,15 @@ class EGVAR(Briefing,PID_Indfor) {
             expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
-        class EGVAR(Briefing,AdditionalPIDCard_Indfor) {
-            displayName = "Additional Forces PID Card";
-            tooltip = "PID Card for additional forces";
-            property = QEGVAR(Briefing,AdditionalPIDCard_Indfor);
-            control = QEGVAR(Briefing,PIDCardSelectionAttribute);
-            typeName = "STRING";
-            expression = SCENARIO_EXPRESSION;
-            defaultValue = "'None'";
-        };
+        // class EGVAR(Briefing,AdditionalPIDCard_Indfor) {
+        //     displayName = "Additional Forces PID Card";
+        //     tooltip = "PID Card for additional forces";
+        //     property = QEGVAR(Briefing,AdditionalPIDCard_Indfor);
+        //     control = QEGVAR(Briefing,PIDCardSelectionAttribute);
+        //     typeName = "STRING";
+        //     expression = SCENARIO_EXPRESSION;
+        //     defaultValue = "'None'";
+        // };
         
         class EGVAR(Briefing,CivilianPIDCardDescription_Indfor) {
             property = QEGVAR(Briefing,CivilianPIDCardDescription_Indfor);
@@ -769,15 +769,15 @@ class EGVAR(Briefing,PID_Indfor) {
             expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
-        class EGVAR(Briefing,CivilianPIDCard_Indfor) {
-            displayName = "Civilian Forces PID Card";
-            tooltip = "PID card for civilian forces";
-            property = QEGVAR(Briefing,CivilianPIDCard_Indfor);
-            control = QEGVAR(Briefing,PIDCardSelectionAttribute);
-            typeName = "STRING";
-            expression = SCENARIO_EXPRESSION;
-            defaultValue = "'None'";
-        };
+        // class EGVAR(Briefing,CivilianPIDCard_Indfor) {
+        //     displayName = "Civilian Forces PID Card";
+        //     tooltip = "PID card for civilian forces";
+        //     property = QEGVAR(Briefing,CivilianPIDCard_Indfor);
+        //     control = QEGVAR(Briefing,PIDCardSelectionAttribute);
+        //     typeName = "STRING";
+        //     expression = SCENARIO_EXPRESSION;
+        //     defaultValue = "'None'";
+        // };
 
         class EGVAR(Briefing,HVTPIDCardDescription_Indfor) {
             property = QEGVAR(Briefing,HVTPIDCardDescription_Indfor);
@@ -797,14 +797,14 @@ class EGVAR(Briefing,PID_Indfor) {
             expression = SCENARIO_EXPRESSION;
             defaultValue = "''";
         };
-        class EGVAR(Briefing,HVTPIDCard_Indfor) {
-            displayName = "HVT PID Card";
-            tooltip = "PID card for HVT";
-            property = QEGVAR(Briefing,HVTPIDCard_Indfor);
-            control = QEGVAR(Briefing,PIDCardSelectionAttribute);
-            typeName = "STRING";
-            expression = SCENARIO_EXPRESSION;
-            defaultValue = "'None'";
-        };
+        // class EGVAR(Briefing,HVTPIDCard_Indfor) {
+        //     displayName = "HVT PID Card";
+        //     tooltip = "PID card for HVT";
+        //     property = QEGVAR(Briefing,HVTPIDCard_Indfor);
+        //     control = QEGVAR(Briefing,PIDCardSelectionAttribute);
+        //     typeName = "STRING";
+        //     expression = SCENARIO_EXPRESSION;
+        //     defaultValue = "'None'";
+        // };
     };
 };

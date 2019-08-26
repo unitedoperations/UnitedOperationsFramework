@@ -476,10 +476,10 @@ if (GETMVAR(PID_Enabled_Opfor,false)) then {
             _pidStr = _pidStr + "<img image='" + _friendlyPath +  "' width='300' height='400'/><br/>";
         };
         
-        if !(_friendlySel isEqualTo "None") then {
-            _pidCard = _friendlySel call UO_FW_fnc_Briefing_findPIDCard;
-            _pidStr = _pidStr + "<img image='" + (_pidCard select 2) +  "' width='300' height='400'/><br/>";
-        };
+        // if !(_friendlySel isEqualTo "None") then {
+        //     _pidCard = _friendlySel call UO_FW_fnc_Briefing_findPIDCard;
+        //     _pidStr = _pidStr + "<img image='" + (_pidCard select 2) +  "' width='300' height='400'/><br/>";
+        // };
     };
     
     private _EnemyDesc = GETMVAR(EnemyPIDCardDescription_Opfor,"");
@@ -497,10 +497,10 @@ if (GETMVAR(PID_Enabled_Opfor,false)) then {
             _pidStr = _pidStr + "<img image='" + _EnemyPath +  "' width='300' height='400'/><br/>";
         };
         
-        if !(_EnemySel isEqualTo "None") then {
-            _pidCard = _EnemySel call UO_FW_fnc_Briefing_findPIDCard;
-            _pidStr = _pidStr + "<img image='" + (_pidCard select 2) +  "' width='300' height='400'/><br/>";
-        };
+        // if !(_EnemySel isEqualTo "None") then {
+        //     _pidCard = _EnemySel call UO_FW_fnc_Briefing_findPIDCard;
+        //     _pidStr = _pidStr + "<img image='" + (_pidCard select 2) +  "' width='300' height='400'/><br/>";
+        // };
     };
 
     private _AdditionalDesc = GETMVAR(AdditionalPIDCardDescription_Opfor,"");
@@ -518,10 +518,10 @@ if (GETMVAR(PID_Enabled_Opfor,false)) then {
             _pidStr = _pidStr + "<img image='" + _AdditionalPath +  "' width='300' height='400'/><br/>";
         };
         
-        if !(_AdditionalSel isEqualTo "None") then {
-            _pidCard = _AdditionalSel call UO_FW_fnc_Briefing_findPIDCard;
-            _pidStr = _pidStr + "<img image='" + (_pidCard select 2) +  "' width='300' height='400'/><br/>";
-        };
+        // if !(_AdditionalSel isEqualTo "None") then {
+        //     _pidCard = _AdditionalSel call UO_FW_fnc_Briefing_findPIDCard;
+        //     _pidStr = _pidStr + "<img image='" + (_pidCard select 2) +  "' width='300' height='400'/><br/>";
+        // };
     };
 
     private _CivilianDesc = GETMVAR(CivilianPIDCardDescription_Opfor,"");
@@ -539,10 +539,10 @@ if (GETMVAR(PID_Enabled_Opfor,false)) then {
             _pidStr = _pidStr + "<img image='" + _CivilianPath +  "' width='300' height='400'/><br/>";
         };
         
-        if !(_CivilianSel isEqualTo "None") then {
-            _pidCard = _CivilianSel call UO_FW_fnc_Briefing_findPIDCard;
-            _pidStr = _pidStr + "<img image='" + (_pidCard select 2) +  "' width='300' height='400'/><br/>";
-        };
+        // if !(_CivilianSel isEqualTo "None") then {
+        //     _pidCard = _CivilianSel call UO_FW_fnc_Briefing_findPIDCard;
+        //     _pidStr = _pidStr + "<img image='" + (_pidCard select 2) +  "' width='300' height='400'/><br/>";
+        // };
     };
 
     private _HVTDesc = GETMVAR(HVTPIDCardDescription_Opfor,"");
@@ -560,10 +560,10 @@ if (GETMVAR(PID_Enabled_Opfor,false)) then {
             _pidStr = _pidStr + "<img image='" + _HVTPath +  "' width='300' height='400'/><br/>";
         };
         
-        if !(_HVTSel isEqualTo "None") then {
-            _pidCard = _HVTSel call UO_FW_fnc_Briefing_findPIDCard;
-            _pidStr = _pidStr + "<img image='" + (_pidCard select 2) +  "' width='300' height='400'/><br/>";
-        };
+        // if !(_HVTSel isEqualTo "None") then {
+        //     _pidCard = _HVTSel call UO_FW_fnc_Briefing_findPIDCard;
+        //     _pidStr = _pidStr + "<img image='" + (_pidCard select 2) +  "' width='300' height='400'/><br/>";
+        // };
     };
 
     NEWTAB("PID Cards"),
