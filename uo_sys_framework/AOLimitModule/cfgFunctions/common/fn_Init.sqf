@@ -97,9 +97,9 @@ EXEC_CHECK(CLIENT);
                         SETMVAR(Display,_outSide);
                     };
                 } else {
-                    LOG("unit outside area");
+                    // LOG("unit outside area");
                     if ((!(_startedInside) && {(_enteredZone)}) || {(_startedInside)}) then {
-                        LOG("unit outside area 2");
+                        // LOG("unit outside area 2");
                         _outSide = true;
                         _argNested set [3,_outSide];
                         if !(_softAOMode) then {
@@ -129,9 +129,9 @@ EXEC_CHECK(CLIENT);
                         SETMVAR(Display,_outSide);
                     };
                 } else {
-                    LOG("unit outside area b");
+                    // LOG("unit outside area b");
                     if ((!(_startedInside) && {(_enteredZone)}) || {(_startedInside)}) then {
-                        LOG("unit outside area b 2");
+                        // LOG("unit outside area b 2");
                         _outSide = true;
                         _argNested set [3,_outSide];
                         if !(_softAOMode) then {

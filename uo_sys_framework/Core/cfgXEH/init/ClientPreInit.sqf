@@ -62,13 +62,13 @@ LOG("Client Pre Init");
 }] call CBA_fnc_WaitUntilAndExecute;
 
 [QGVAR(EndMissionPlayerEvent), {
-    params ["_scenario"];
-    [_scenario] call FUNC(EndScreen);
+    params ["_scenario","_timeLimit","_teams"];
+    _this call FUNC(EndScreen);
 }] call CBA_fnc_addEventHandler;
 
 [QGVAR(EndmissionEvent), {
-    params ["_scenario"];
-    [QGVAR(EndMissionPlayerEvent), [_scenario]] call CBA_fnc_localEvent;
+    params ["_scenario","_timeLimit","_teams"];
+    [QGVAR(EndMissionPlayerEvent), _this] call CBA_fnc_localEvent;
 }] call CBA_fnc_addEventHandler;
 
 [QEGVAR(Spectator,StartSpectateEvent), {
@@ -79,9 +79,17 @@ LOG("Client Pre Init");
     [] call EFUNC(Spectator,endSpectate);
 }] call CBA_fnc_addEventHandler;
 
+[QEGVAR(Respawn,HideRespawnMarker), {
+	params ["_name","_side"];
+    if(side player != _side) then {
+        _name setMarkerAlphaLocal 0;
+    };
+}] call CBA_fnc_addEventHandler;
+
 [QGVAR(PlayerRespawnEvent), {
 	[] call EFUNC(Respawn,HandlePlayerRespawn);
 }] call CBA_fnc_addEventHandler;
+
 
 [QGVAR(PlayerRespawnRecieveTicketEvent), {
     params ["_unit","_response","_ticketType","_ticketsRemaining"];
